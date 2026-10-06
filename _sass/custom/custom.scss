@@ -1,7 +1,6 @@
 // LINKS
 // Page Content Link
 .main-content a {
-  color: #1155cc;
 } // Link
 .main-content a:hover {
   color: #a4c2f4;
@@ -9,17 +8,14 @@
 
 // Sidebar Link
 .nav-list .nav-list-item .nav-list-link {
-  color: #1155cc;
 } // Link
 .nav-list .nav-list-item .nav-list-link:hover {
   color: #a4c2f4;
 } // Link Hover
 .nav-list .nav-list-item .nav-list-link.active {
-  color: #1155cc;
   font-weight: 700;
 } // Current Page Link
 .nav-list .nav-list-item .nav-list .nav-list-item .nav-list-link {
-  color: #434343;
 } // Child Page Link
 
 // TABLES
