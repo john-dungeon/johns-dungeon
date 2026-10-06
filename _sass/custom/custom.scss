@@ -26,12 +26,6 @@
   font-weight: 700;
 } // Current Page Link
 
-// Non-Class Link
-a, a:hover {
-  background-image: none;
-  text-decoration: none;
-} // Remove Link Underline
-
 // TABLES
 // Table List
 .table-list th {
@@ -56,3 +50,9 @@ a, a:hover {
 .site-header {
   border-bottom-color: #020202;
 } // Sidebar Border
+
+// Remove Link Underline
+a {
+  background-image: none;
+  text-decoration: none;
+} // Remove Link Underline
