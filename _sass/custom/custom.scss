@@ -1,9 +1,9 @@
 // COLORS
 .grey-text {
-  color: #484848;
+  color: #5c5c5c;
 } // Grey Text
 .grey-line {
-  background-color: #484848;
+  background-color: #5c5c5c;
 } // Grey Line
 .white-text{
   color: #ffffff;
@@ -42,15 +42,15 @@ a, a:hover {
   border-bottom: 0px;
   border-left: 1px solid;
   border-right: 1px solid;
-  border-left-color: transparent;
-  border-right-color: transparent;
+  border-left-color: #050505;
+  border-right-color: #050505;
 } // Row
 .table-list tbody tr:nth-child(even) td {
-  background-color: #171918;
+  background-color: #484848;
   border-top: 0px;
   border-bottom: 0px;
   border-left: 1px solid;
   border-right: 1px solid;
-  border-left-color: transparent;
-  border-right-color: transparent;
+  border-left-color: #484848;
+  border-right-color: #484848;
 } // Alternating Row
