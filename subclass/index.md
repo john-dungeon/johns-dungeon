@@ -11,8 +11,6 @@ has_toc: false
 
 This is the Subclasses aisle, where John Dungeon's most unusual subclasses are kept.
 
-## Subclasses
-
 |  |  |  |
 | --- | --- | --- |
 | *Monk* |  |  |
