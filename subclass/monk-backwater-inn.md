@@ -3,7 +3,7 @@ title: Warrior of the Backwater Inn
 parent: Subclasses
 ---
 
-[← Back to Subclasses](/subclass/index.md)
+[← Back to Subclasses](../index.md)
 
 # **Warrior of the Backwater Inn**
 *Keep the Peace On and Off Business Hours*
@@ -12,6 +12,7 @@ A veteran innkeeper once said, “Look here, kid. I’m just trying to run an ho
 
 ## Level 3: Innkeeper’s Experience
 You have amassed several unique skills during your time as an innkeeper, gaining the following benefits.
+
 ***Business as Usual.*** You gain proficiency with Brewer's Supplies, Cook’s Utensils, and Carpenter’s Tools. As part of a Short Rest, you can cook a hearty meal for a number of creatures up to two plus your Dexterity modifier (minimum of three creatures) if you have ingredients and Cook’s Utensils on hand. At the end of the Short Rest, any creature who eats the food regains a number of Hit Points equal to one roll of your Martial Arts die.
 
 ***Customer Service.*** You gain proficiency in the Insight and Persuasion skills. Whenever you make an ability check that uses one of these skill proficiencies, you can roll your Martial Arts die and add the number rolled to the check.
