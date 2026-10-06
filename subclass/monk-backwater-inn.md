@@ -6,7 +6,7 @@ parent: Subclasses
 # Warrior of the Backwater Inn
 *Keep the Peace On and Off Business Hours*
 
-A veteran innkeeper once said, “Look here, kid. I’m just trying to run an honest business, but these damn adventuring vagrants keep showing up and wrecking the place over petty disagreements. Eventually, as a business owner, you just stop tolerating that nonsense.”
+A veteran innkeeper once said, “Look here, bud. I’m just trying to run an honest business, but these damn adventuring vagrants keep showing up and wrecking the place over petty disagreements. Eventually, as a business owner, you just stop tolerating that nonsense.”
 
 ## **Level 3: Innkeeper’s Experience**
 You have amassed several unique skills during your time as an innkeeper, gaining the following benefits.
