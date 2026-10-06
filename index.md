@@ -3,7 +3,7 @@ title: Home
 nav_order: 1
 ---
 
-# **Welcome to John's Dungeon**
+# Welcome to John's Dungeon
 
 John's Dungeon is John Dungeon's personal archive of random curios and unearthed arcana.
 
