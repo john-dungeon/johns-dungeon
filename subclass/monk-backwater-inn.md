@@ -35,4 +35,4 @@ You have two extra Reactions that can be used only for your Deflect Attacks and 
 
 ---
 
-> *"I learned this martial art from a jaded innkeeper. Quite the temper, that fellow, but it's understandable if you knew his plight."*
+> *"I learned this martial art from a jaded innkeeper. Quite the temper, that fellow, but it's understandable if you knew his plight."vvvvvvvvvvv*
