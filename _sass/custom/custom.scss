@@ -1,12 +1,12 @@
 // LINKS
 // Page Content Link
 .main-content a:hover {
-  color: #ebd7af;
+  color: #ccfeff;
 } // Link Hover
 
 // Sidebar Link
 .nav-list .nav-list-item .nav-list-link:hover {
-  color: #ebd7af;
+  color: #ccfeff;
 } // Link Hover
 .nav-list .nav-list-item .nav-list-link.active {
   font-weight: 700;
@@ -26,7 +26,7 @@
   border-right-color: transparent;
 } // Row
 .table-list tbody tr:nth-child(even) td {
-  background-color: #242424;
+  background-color: #171918;
   border-top: 0px;
   border-bottom: 0px;
   border-left: 1px solid;
