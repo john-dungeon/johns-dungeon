@@ -15,6 +15,7 @@
   color: #a4c2f4;
 } // Link Hover
 .nav-list .nav-list-item .nav-list-link.active {
+  color: #1155cc;
   font-weight: 700;
 } // Current Page Link
 .nav-list .nav-list-item .nav-list .nav-list-item .nav-list-link {
@@ -25,14 +26,23 @@
 // Table List
 .table-list th {
   background-color: #ffffff;
-  border: none;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
   display: none;
 } // Header
 .table-list td {
   background-color: #ffffff;
-  border: none;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
 } // Row
 .table-list tbody tr:nth-child(even) td {
   background-color: #f5f6fa;
-  border: none;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-left: 1px solid #f5f6fa;
+  border-right: 1px solid #f5f6fa;
 } // Alternating Row
