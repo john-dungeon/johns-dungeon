@@ -1,6 +1,7 @@
 ---
 title: Subclasses
 nav_order: 2
+has_children: true
 ---
 
 [← Back to Home](../index.md)
