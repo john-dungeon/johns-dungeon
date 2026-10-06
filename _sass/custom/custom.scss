@@ -1,3 +1,11 @@
+// COLORS
+.grey {
+  color: #303030;
+}
+.white {
+  color: #ffffff;
+}
+
 // LINKS
 // Page Content Link
 .main-content a:hover {
@@ -13,12 +21,10 @@
 } // Current Page Link
 
 // Non-Class Link
-a:not([class]),
-a:not([class]):hover {
+a, a:hover {
   background-image: none;
   text-decoration: none;
 } // Remove Link Underline
-
 
 // TABLES
 // Table List
