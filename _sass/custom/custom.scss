@@ -32,15 +32,16 @@
   display: none;
 } // Header
 .table-list td {
-  border-left-color: #f5f6fa;
-  border-right-color: #f5f6fa;
+  background-color: #050505;
+  border-left-color: #050505;
+  border-right-color: #050505;
   border-collapse: collapse;
   border-spacing: 0;
 } // Row
 .table-list tbody tr:nth-child(even) td {
-  background-color: #2e2e2e;
-  border-left-color: #2e2e2e;
-  border-right-color: #2e2e2e;
+  background-color: #141414;
+  border-left-color: #141414;
+  border-right-color: #141414;
   border-collapse: collapse;
   border-spacing: 0;
 } // Alternating Row
