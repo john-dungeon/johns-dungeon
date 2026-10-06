@@ -3,7 +3,7 @@ title: Warrior of the Backwater Inn
 parent: Subclasses
 ---
 
-[← Back to Subclasses](subclass/index.md)
+[← Back to Subclasses](/subclass/index.md)
 
 # **Warrior of the Backwater Inn**
 *Keep the Peace On and Off Business Hours*
