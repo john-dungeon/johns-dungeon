@@ -1,0 +1,11 @@
+// Tables
+//   Table List
+.table-list thead {
+  display: none;
+} // No Header
+.zebra td {
+  background-color: #ffffff;
+} // Base Row Color
+.table-list tbody tr:nth-child(even) td {
+  background-color: #efefef;
+} // Alternate Row Color
