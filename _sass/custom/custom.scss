@@ -25,24 +25,23 @@
 // TABLES
 // Table List
 .table-list th {
-  background-color: #ffffff;
-  border-top: 0px;
-  border-bottom: 0px;
-  border-left: 0px;
-  border-right: 0px;
   display: none;
 } // Header
 .table-list td {
   background-color: #ffffff;
   border-top: 0px;
   border-bottom: 0px;
-  border-left: 1px solid #ffffff;
-  border-right: 1px solid #ffffff;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
 } // Row
 .table-list tbody tr:nth-child(even) td {
   background-color: #f5f6fa;
   border-top: 0px;
   border-bottom: 0px;
-  border-left: 1px solid #f5f6fa;
-  border-right: 1px solid #f5f6fa;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
 } // Alternating Row
