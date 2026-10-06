@@ -33,15 +33,13 @@
 } // Header
 .table-list td {
   background-color: #050505;
-  border-left-color: #050505;
-  border-right-color: #050505;
+  border: 4px solid #050505;
   border-collapse: collapse;
   border-spacing: 0;
 } // Row
 .table-list tbody tr:nth-child(even) td {
   background-color: #141414;
-  border-left-color: #141414;
-  border-right-color: #141414;
+  border: 4px solid #141414;
   border-collapse: collapse;
   border-spacing: 0;
 } // Alternating Row
