@@ -22,4 +22,4 @@ John's Dungeon is John Dungeon's personal archive of random curios and unearthed
 
 ---
 
-> *"Welcome to my dungeon. There's plenty to explore here, so why don't you stay a while?"*
+> *"Welcome to my dungeon. There's plenty to explore here, so why don't you stay a while?"* {" .quote}
