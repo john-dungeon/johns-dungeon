@@ -9,7 +9,6 @@ John's Dungeon is John Dungeon's personal archive of random curios and unearthed
 
 ## Contents
 
-- [Campaign](campaign/index.md)
 - [Items](item/index.md)
 - [Rules](rule/index.md)
 - [Settings](setting/index.md)
