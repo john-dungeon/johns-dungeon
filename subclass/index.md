@@ -1,4 +1,11 @@
+---
+title: Subclasses
+nav_order: 2
+---
+
 [← Back to Home](../index.md)
+
+# Subclasses
 
 This is the Subclasses aisle, where John Dungeon's most unusual subclasses are kept.
 
