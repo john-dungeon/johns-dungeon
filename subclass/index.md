@@ -21,5 +21,7 @@ This is the Subclasses aisle, where John Dungeon's most unusual subclasses are k
 {: .table-list}
 
 ---
+{: .white }
 
 > *"Welcome to the Subclasses aisle. As you peruse my collection, you might notice that there lies a surplus of Monk subclasses. Why is that? Well, it's because Monk is my favorite class. Simple as that."*
+{: .grey }
