@@ -1,6 +1,6 @@
 ---
-title: Subclasses
-nav_order: 3
+title: Warrior of the Backwater Inn
+parent: Subclasses
 ---
 
 [← Back to Subclasses](../subclass.md)
