@@ -5,9 +5,7 @@ has_children: true
 has_toc: false
 ---
 
-[← Back to Home](../index.md)
-
-# Subclasses
+# **Subclasses**
 
 This is the Subclasses aisle, where John Dungeon's most unusual subclasses are kept.
 
@@ -18,10 +16,9 @@ This is the Subclasses aisle, where John Dungeon's most unusual subclasses are k
 | [Warrior of the Storm](monk-storm.md) | [Warrior of the Strange Apothecary](monk-strange-apothecary.md) | [Warrior of the Wind](monk-wind.md) |
 | *Rogue* | 
 | [Skirmisher](rogue-skirmisher.md) |  |  |
-{: .table-list}
 
 ---
-{: .white-line}
 
 > *"Welcome to the Subclasses aisle. As you peruse my collection, you might notice that there lies a surplus of Monk subclasses. Why is that? Well, it's because Monk is my favorite class. Simple as that."*
-{: .grey-text}
+
+[← Back to Home](../index.md)
