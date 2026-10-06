@@ -12,6 +12,14 @@
   font-weight: 700;
 } // Current Page Link
 
+// Non-Class Links
+a:not([class]),
+a:not([class]):hover {
+  background-image: none;
+  text-decoration: none;
+} // Remove Link Underline
+
+
 // TABLES
 // Table List
 .table-list th {
