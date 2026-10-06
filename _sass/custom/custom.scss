@@ -1,12 +1,38 @@
-// TABLES
+// LINKS
+// Page Content Link
+.main-content a {
+  color: #1155cc;
+} // Link
+.main-content a:hover {
+  color: #a4c2f4;
+} // Link Hover
 
+// Sidebar Link
+.nav-list .nav-list-item .nav-list-link {
+  color: #1155cc;
+} // Link
+.nav-list .nav-list-item .nav-list-link:hover {
+  color: #a4c2f4;
+} // Link Hover
+.nav-list .nav-list-item .nav-list-link.active {
+  font-weight: 700;
+} // Current Page Link
+.nav-list .nav-list-item .nav-list .nav-list-item .nav-list-link {
+  color: #434343;
+} // Child Page Link
+
+// TABLES
 // Table List
-.table-list thead {
-  display: none;
-} // No Header
-.zebra td {
+.table-list th {
   background-color: #ffffff;
-} // Base Row Color
+  border: none;
+  display: none;
+} // Header
+.table-list td {
+  background-color: #ffffff;
+  border: none;
+} // Row
 .table-list tbody tr:nth-child(even) td {
   background-color: #f5f6fa;
-} // Alternate Row Color
+  border: none;
+} // Alternating Row
