@@ -38,13 +38,15 @@ a, a:hover {
   display: none;
 } // Header
 .table-list td {
-  border: none;
+  border-left-color: #f5f6fa;
+  border-right-color: #f5f6fa;
   border-collapse: collapse;
   border-spacing: 0;
 } // Row
 .table-list tbody tr:nth-child(even) td {
   background-color: #2e2e2e;
-  border: none;
+  border-left-color: #2e2e2e;
+  border-right-color: #2e2e2e;
   border-collapse: collapse;
   border-spacing: 0;
 } // Alternating Row
