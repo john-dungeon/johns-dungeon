@@ -9,13 +9,13 @@ John's Dungeon is John Dungeon's personal archive of random curios and unearthed
 
 ## Contents
 
-- [Campaign](campaign.md)
-- [Items](items.md)
-- [Rules](rules.md)
-- [Settings](setting.md)
-- [Species](species.md)
-- [Spells](spell.md)
-- [Subclasses](subclass.md)
+- [Campaign](campaign/index.md)
+- [Items](item/index.md)
+- [Rules](rule/index.md)
+- [Settings](setting/index.md)
+- [Species](species/index.md)
+- [Spells](spell/index.md)
+- [Subclasses](subclass/index.md)
 
 ## Current Campaign
 
