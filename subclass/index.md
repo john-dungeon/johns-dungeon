@@ -15,7 +15,7 @@ This is the Subclasses aisle, where John Dungeon's most unusual subclasses are k
 | Subclasses |  |  |
 | --- | --- | --- |
 | *Monk* |  |  |
-| [Warrior of Ego](/monk-ego.md) | [Warrior of the Backwater Inn](/monk-backwater-inn.md) | [Warrior of the Blade](/monk-blade.md) |
+| [Warrior of Ego](/monk-ego.md) | [Warrior of the Backwater Inn](/subclass/monk-backwater-inn.md) | [Warrior of the Blade](/monk-blade.md) |
 | [Warrior of the Storm](/monk-storm.md) | [Warrior of the Strange Apothecary](/monk-strange-apothecary.md) | [Warrior of the Wind](/monk-wind.md) |
 | *Rogue* | 
 | [Skirmisher](/rogue-skirmisher.md) |  |  |
