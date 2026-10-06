@@ -1,5 +1,6 @@
-// Tables
-//   Table List
+// TABLES
+
+// Table List
 .table-list thead {
   display: none;
 } // No Header
@@ -7,5 +8,5 @@
   background-color: #ffffff;
 } // Base Row Color
 .table-list tbody tr:nth-child(even) td {
-  background-color: #efefef;
+  background-color: #f5f6fa;
 } // Alternate Row Color
