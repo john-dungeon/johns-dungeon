@@ -7,7 +7,7 @@ has_toc: false
 
 # Welcome to John's Dungeon
 
-John's Dungeon is John Dungeon's personal archive of random curios and unearthed arcana.
+Welcome to John's Dungeon, John Dungeon's personal archive of random curios and unearthed arcana.
 
 ## **Contents**
 
