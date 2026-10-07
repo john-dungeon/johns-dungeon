@@ -1,17 +1,39 @@
-<button id="theme-toggle" type="button" aria-label="Switch color scheme">Switch to Light ☀️</button>
+<div id="theme-switcher">
+  <div id="theme-menu" role="menu" hidden>
+    <button type="button" class="theme-option" role="menuitem" data-theme="dungeon">Dungeon 🔥</button>
+    <button type="button" class="theme-option" role="menuitem" data-theme="parchment">Parchment 📜</button>
+    <button type="button" class="theme-option" role="menuitem" data-theme="dark">Dark 🌑</button>
+    <button type="button" class="theme-option" role="menuitem" data-theme="light">Light ☀️</button>
+  </div>
+  <button id="theme-toggle" type="button" aria-haspopup="true" aria-expanded="false">Theme</button>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var btn = document.getElementById('theme-toggle');
+    var toggle = document.getElementById('theme-toggle');
+    var menu = document.getElementById('theme-menu');
+    var options = menu ? menu.querySelectorAll('.theme-option') : [];
     var link = document.querySelector('link[rel="stylesheet"][href*="just-the-docs-"]');
-    if (!btn || !link) return;
+    if (!toggle || !menu || !link) return;
 
     function current() {
-      return /just-the-docs-parchment\.css/.test(link.getAttribute('href')) ? 'parchment' : 'dungeon';
+      var match = link.getAttribute('href').match(/just-the-docs-([a-z]+)\.css/);
+      return match ? match[1] : 'dungeon';
     }
 
-    function labelFor(theme) {
-      return theme === 'dungeon' ? '📜 Parchment' : '🔥 Dungeon';
+    function markActive() {
+      var now = current();
+      for (var i = 0; i < options.length; i++) {
+        var isActive = options[i].getAttribute('data-theme') === now;
+        options[i].classList.toggle('active', isActive);
+      }
+    }
+
+    function isAvailable(theme) {
+      for (var i = 0; i < options.length; i++) {
+        if (options[i].getAttribute('data-theme') === theme) return true;
+      }
+      return false;
     }
 
     function apply(theme) {
@@ -19,20 +41,40 @@
         'href',
         link.getAttribute('href').replace(/just-the-docs-[a-z]+\.css/, 'just-the-docs-' + theme + '.css')
       );
-      btn.textContent = labelFor(theme);
+      markActive();
       try { localStorage.setItem('theme', theme); } catch (e) {}
+    }
+
+    function setMenu(open) {
+      menu.hidden = !open;
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
 
     var saved = null;
     try { saved = localStorage.getItem('theme'); } catch (e) {}
-    if ((saved === 'parchment' || saved === 'dungeon') && saved !== current()) {
+    if (saved && isAvailable(saved) && saved !== current()) {
       apply(saved);
-    } else {
-      btn.textContent = labelFor(current());
+    }
+    markActive();
+
+    toggle.addEventListener('click', function (event) {
+      event.stopPropagation();
+      setMenu(menu.hidden);
+    });
+
+    for (var i = 0; i < options.length; i++) {
+      options[i].addEventListener('click', function (event) {
+        apply(event.currentTarget.getAttribute('data-theme'));
+        setMenu(false);
+      });
     }
 
-    btn.addEventListener('click', function () {
-      apply(current() === 'dungeon' ? 'parchment' : 'dungeon');
+    document.addEventListener('click', function (event) {
+      if (!menu.hidden && !menu.contains(event.target)) setMenu(false);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') setMenu(false);
     });
   });
 </script>
