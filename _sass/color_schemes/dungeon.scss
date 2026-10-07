@@ -1,15 +1,16 @@
-$base-button-color: ; // Button Background
-$body-background-color: ; // Background
-$body-heading-color: ; // Headings
-$body-text-color: ; // Paragraph
-$border-color: ; // Borders & Lines
-$btn-primary-color: ;	// Primary Button Background
-$code-background-color: ;	// Code Block Background
-$code-linenumber-color: ; // Code Block Numbers
-$feedback-color: ; // Sidebar Hover
-$link-color: ; // Link
-$nav-child-link-color: ; // Child Page Link
-$search-background-color: ; // Search Bar
-$search-result-preview-color: ; // Search Results
-$sidebar-color: ; // Sidebar Background
-$table-background-color: ; // Table Background
+@import "./vendor/OneDarkJekyll/syntax";
+
+$body-background-color: #14110f; // Background
+$body-heading-color: #f0e6d2; // Headings
+$body-text-color: #d8cfc2; // Paragraph
+$link-color: #ff9a3c; // Link
+$nav-child-link-color: #c9a27a; // Child Page Link
+$sidebar-color: #1b1714; // Sidebar Background
+$border-color: #3a322b; // Borders & Lines
+$base-button-color: #2a231e; // Button Background
+$btn-primary-color: #c2571a;	// Primary Button Background
+$code-background-color: #0e0c0a;	// Code Block Background
+$table-background-color: #1b1714; // Table Background
+$search-background-color: #1b1714; // Search Bar
+$search-result-preview-color: #a89a88; // Search Text
+$feedback-color: #1b1714; // Sidebar Hover
