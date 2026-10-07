@@ -1,4 +1,4 @@
-<button id="theme-toggle" type="button" aria-label="Switch color scheme">☀️ Light</button>
+<button id="theme-toggle" type="button" aria-label="Switch color scheme">Switch to Light ☀️</button>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -15,7 +15,7 @@
         'href',
         link.getAttribute('href').replace(/just-the-docs-[a-z]+\.css/, 'just-the-docs-' + theme + '.css')
       );
-      btn.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+      btn.textContent = theme === 'dark' ? 'Switch to Light ☀️' : 'Switch to Dark 🌙';
       try { localStorage.setItem('theme', theme); } catch (e) {}
     }
 
@@ -24,7 +24,7 @@
     if ((saved === 'light' || saved === 'dark') && saved !== current()) {
       apply(saved);
     } else {
-      btn.textContent = current() === 'dark' ? '☀️ Light' : '🌙 Dark';
+      btn.textContent = current() === 'dark' ? 'Switch to Light ☀️' : 'Switch to Dark 🌙';
     }
 
     btn.addEventListener('click', function () {
