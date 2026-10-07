@@ -73,3 +73,46 @@
   }
 }
 // THEME CHANGE
+
+// CATALOG TABLE
+$catalog-stripe: mix(#ffffff, $body-background-color, 10%);
+
+@if variable-exists(theme-stripe-color) {
+  $catalog-stripe: $theme-stripe-color;
+}
+
+table.catalog {
+  border-collapse: collapse;
+  box-shadow: none;
+}
+
+.table-wrapper:has(> table.catalog) {
+  box-shadow: none;
+  border: 0;
+}
+
+table.catalog th,
+table.catalog td {
+  border: 0;
+}
+
+table.catalog thead th {
+  background-color: $body-background-color;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+table.catalog tbody tr:nth-child(odd) th,
+table.catalog tbody tr:nth-child(odd) td {
+  background-color: $body-background-color;
+}
+
+table.catalog tbody tr:nth-child(even) th,
+table.catalog tbody tr:nth-child(even) td {
+  background-color: $zebra-stripe;
+}
+
+table.catalog.no-header thead {
+  display: none;
+}
+// CATALOG TABLE
