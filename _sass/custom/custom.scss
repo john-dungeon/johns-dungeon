@@ -1,4 +1,4 @@
-// COLOR SCHEME TOGGLE
+// THEME CHANGE
 #theme-switcher {
   position: fixed;
   bottom: 1rem;
@@ -58,4 +58,18 @@
   color: $link-color;
   font-weight: 600;
 }
-// COLOR SCHEME TOGGLE
+
+@if variable-exists(theme-body-font) {
+  body,
+  button,
+  input {
+    font-family: $theme-body-font;
+  }
+}
+
+@if variable-exists(theme-heading-font) {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $theme-heading-font;
+  }
+}
+// THEME CHANGE
