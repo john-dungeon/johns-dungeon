@@ -7,7 +7,7 @@
     if (!btn || !link) return;
 
     var schemes = { dark: 'dark', light: 'light' };
-
+    
     function current() {
       return /light\.css/.test(link.getAttribute('href')) ? 'light' : 'dark';
     }
