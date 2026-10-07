@@ -6,14 +6,16 @@
     var link = document.querySelector('link[rel="stylesheet"][href*="just-the-docs-"]');
     if (!btn || !link) return;
 
+    var schemes = { dark: 'dark', light: 'light' };
+
     function current() {
-      return /just-the-docs-light\.css/.test(link.getAttribute('href')) ? 'light' : 'dark';
+      return /light\.css/.test(link.getAttribute('href')) ? 'light' : 'dark';
     }
 
     function apply(theme) {
       link.setAttribute(
         'href',
-        link.getAttribute('href').replace(/just-the-docs-[a-z]+\.css/, 'just-the-docs-' + theme + '.css')
+        link.getAttribute('href').replace(/just-the-docs-[a-z-]+\.css/, 'just-the-docs-' + schemes[theme] + '.css')
       );
       btn.textContent = theme === 'dark' ? 'Switch to Light ☀️' : 'Switch to Dark 🌙';
       try { localStorage.setItem('theme', theme); } catch (e) {}
