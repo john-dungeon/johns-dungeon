@@ -116,3 +116,14 @@ table.catalog.no-header thead {
   display: none;
 }
 // CATALOG TABLE
+
+// REMOVE LINK UNDERLINES
+a {
+  text-decoration: none;
+}
+
+a:not([class]) {
+  background-image: none;
+  text-decoration: none;
+}
+// REMOVE LINK UNDERLINES
