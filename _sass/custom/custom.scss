@@ -109,7 +109,7 @@ table.catalog tbody tr:nth-child(odd) td {
 
 table.catalog tbody tr:nth-child(even) th,
 table.catalog tbody tr:nth-child(even) td {
-  background-color: $zebra-stripe;
+  background-color: $catalog-stripe;
 }
 
 table.catalog.no-header thead {
