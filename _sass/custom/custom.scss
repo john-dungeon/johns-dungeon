@@ -123,12 +123,14 @@ a:hover {
   text-decoration: none;
 }
 
-a:not([class]),
-a:not([class]):hover {
+a:not([class]) {
+  text-decoration: none;
   background-image: none;
+  border-bottom: 0;
 }
 
 a:not([class]):hover {
+  background-image: none;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
