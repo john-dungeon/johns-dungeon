@@ -16,6 +16,7 @@ This is the Subclasses aisle, where John Dungeon's most unusual subclasses are k
 | [Warrior of the Storm](monk-storm.md) | [Warrior of the Strange Apothecary](monk-strange-apothecary.md) | [Warrior of the Wind](monk-wind.md) |
 | *Rogue* | 
 | [Skirmisher](rogue-skirmisher.md) |  |  |
+{: .catalog .no-header }
 
 ---
 
