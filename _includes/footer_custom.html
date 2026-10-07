@@ -1,0 +1,28 @@
+<button id="theme-toggle" type="button" aria-label="Switch color scheme">
+  ☀️ Light
+</button>
+
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+
+    function label(theme) {
+      btn.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+    }
+
+    // Restore the saved choice, if any (otherwise stay on the dark default)
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    if (saved === 'light' || saved === 'dark') {
+      jtd.setTheme(saved);
+    }
+    label(jtd.getTheme());
+
+    btn.addEventListener('click', function () {
+      var next = jtd.getTheme() === 'dark' ? 'light' : 'dark';
+      jtd.setTheme(next);
+      label(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+</script>
