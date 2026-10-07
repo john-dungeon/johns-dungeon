@@ -10,4 +10,4 @@ has_toc: false
 
 > *"Wait! This part of the archive hasn't been constructed yet. How about we come back later when it is?"*
 
-[← Back to the Previous Room]({{ '/' | relative_url }})
+[← Back to Home]({{ '/' | relative_url }})
