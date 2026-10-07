@@ -1,9 +1,12 @@
 // COLOR SCHEME TOGGLE
-#theme-toggle {
+#theme-switcher {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
   z-index: 100;
+}
+
+#theme-toggle {
   padding: 0.5rem 0.9rem;
   border: 1px solid $border-color;
   border-radius: 999px;
@@ -16,5 +19,43 @@
 
 #theme-toggle:hover {
   border-color: $link-color;
+}
+
+#theme-menu {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+  border: 1px solid $border-color;
+  border-radius: 0.5rem;
+  background: $sidebar-color;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+#theme-menu[hidden] {
+  display: none;
+}
+
+.theme-option {
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  border-radius: 0.35rem;
+  background: transparent;
+  color: $body-text-color;
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.theme-option:hover {
+  background: $code-background-color;
+}
+
+.theme-option.active {
+  color: $link-color;
+  font-weight: 600;
 }
 // COLOR SCHEME TOGGLE
