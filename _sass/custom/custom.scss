@@ -117,13 +117,20 @@ table.catalog.no-header thead {
 }
 // CATALOG TABLE
 
-// REMOVE LINK UNDERLINES
-a {
+// CONDITIONAL HIDING LINK UNDERLINES
+a,
+a:hover {
   text-decoration: none;
 }
 
-a:not([class]) {
+a:not([class]),
+a:not([class]):hover {
   background-image: none;
-  text-decoration: none;
 }
-// REMOVE LINK UNDERLINES
+
+a:not([class]):hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+// CONDITIONAL HIDING LINK UNDERLINES
