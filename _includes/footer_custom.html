@@ -7,7 +7,11 @@
     if (!btn || !link) return;
 
     function current() {
-      return /just-the-docs-light\.css/.test(link.getAttribute('href')) ? 'light' : 'dark';
+      return /just-the-docs-parchment\.css/.test(link.getAttribute('href')) ? 'parchment' : 'dungeon';
+    }
+
+    function labelFor(theme) {
+      return theme === 'dungeon' ? '📜 Parchment' : '🔥 Dungeon';
     }
 
     function apply(theme) {
@@ -15,20 +19,20 @@
         'href',
         link.getAttribute('href').replace(/just-the-docs-[a-z]+\.css/, 'just-the-docs-' + theme + '.css')
       );
-      btn.textContent = theme === 'dark' ? 'Switch to Light ☀️' : 'Switch to Dark 🌙';
+      btn.textContent = labelFor(theme);
       try { localStorage.setItem('theme', theme); } catch (e) {}
     }
 
     var saved = null;
     try { saved = localStorage.getItem('theme'); } catch (e) {}
-    if ((saved === 'light' || saved === 'dark') && saved !== current()) {
+    if ((saved === 'parchment' || saved === 'dungeon') && saved !== current()) {
       apply(saved);
     } else {
-      btn.textContent = current() === 'dark' ? 'Switch to Light ☀️' : 'Switch to Dark 🌙';
+      btn.textContent = labelFor(current());
     }
 
     btn.addEventListener('click', function () {
-      apply(current() === 'dark' ? 'light' : 'dark');
+      apply(current() === 'dungeon' ? 'parchment' : 'dungeon');
     });
   });
 </script>
