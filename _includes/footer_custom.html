@@ -1,28 +1,32 @@
-<button id="theme-toggle" type="button" aria-label="Switch color scheme">
-  ☀️ Light
-</button>
-
 <script>
-  (function () {
+  document.addEventListener('DOMContentLoaded', function () {
     var btn = document.getElementById('theme-toggle');
+    var link = document.querySelector('link[rel="stylesheet"][href*="just-the-docs-"]');
+    if (!btn || !link) return;
 
-    function label(theme) {
-      btn.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+    function current() {
+      return /just-the-docs-light\.css/.test(link.getAttribute('href')) ? 'light' : 'dark';
     }
 
-    // Restore the saved choice, if any (otherwise stay on the dark default)
+    function apply(theme) {
+      link.setAttribute(
+        'href',
+        link.getAttribute('href').replace(/just-the-docs-[a-z]+\.css/, 'just-the-docs-' + theme + '.css')
+      );
+      btn.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+      try { localStorage.setItem('theme', theme); } catch (e) {}
+    }
+
     var saved = null;
     try { saved = localStorage.getItem('theme'); } catch (e) {}
-    if (saved === 'light' || saved === 'dark') {
-      jtd.setTheme(saved);
+    if ((saved === 'light' || saved === 'dark') && saved !== current()) {
+      apply(saved);
+    } else {
+      btn.textContent = current() === 'dark' ? '☀️ Light' : '🌙 Dark';
     }
-    label(jtd.getTheme());
 
     btn.addEventListener('click', function () {
-      var next = jtd.getTheme() === 'dark' ? 'light' : 'dark';
-      jtd.setTheme(next);
-      label(next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
+      apply(current() === 'dark' ? 'light' : 'dark');
     });
-  })();
+  });
 </script>
