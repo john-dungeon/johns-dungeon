@@ -11,11 +11,11 @@ John's Dungeon is John Dungeon's personal archive of random curios and unearthed
 
 ## **Contents**
 
-- [Items](missing-page.md)
-- [Rules](missing-page.md)
-- [Settings](missing-page.md)
+- [Items](item/index.md)
+- [Rules](rule/index.md)
+- [Settings](setting/index.md)
 - [Species](species/index.md)
-- [Spells](missing-page.md)
+- [Spells](spell/index.md)
 - [Subclasses](subclass/index.md)
 
 ## **Current Campaign**
