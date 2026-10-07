@@ -1,4 +1,7 @@
 title: John's Dungeon
 description: An archive to store John Dungeon's collection of worlds and random trinkets.
 remote_theme: just-the-docs/just-the-docs
+url: "https://john-dungeon.github.io"
+baseurl: "/johns-dungeon"
 search_enabled: true
+color_scheme: dark
