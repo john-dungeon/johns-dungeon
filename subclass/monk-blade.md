@@ -19,7 +19,7 @@ In your hands, anything can become a weapon. When you take the Attack action on 
 
 When you attack with the Aura Blade, you can make the extra attack granted by the Light property with the Aura Blade instead of a different Light weapon.
 
-The Aura Blade lasts for 10 minutes or until you have the Incapacitated condition, at the end of which it reverts to normal. The Aura Blade also reverts to normal if you drop it or choose to revert it (no action required).
+The Aura Blade lasts for 10 minutes or until you have the Incapacitated condition, at the end of which it reverts to normal. The Aura Blade also reverts to normal if you are no longer holding it or choose to revert it (no action required).
 
 ## **Level 3: Focus**
 On your turn, you can expend 1 Focus Point (no action required) to roll your Martial Arts die and add the result to your next attack roll. If you hit, add the result to the attack’s damage.
@@ -29,7 +29,7 @@ You have a +1 bonus to attack and damage rolls made with Aura Blades you make wi
 
 If the object used to create the Aura Blade is a magic weapon that has a bonus to attack or damage rolls, use either the Aura Blade's or the original weapon's, not both.
 
-In addition, after you score a Critical Hit with a Melee weapon or reduce a creature to 0 Hit Points with one, you can make one extra attack with the same weapon on that turn (no action required). You can make this extra attack only once per turn.
+In addition, your attack rolls with Melee weapons can score a Critical Hit on a roll of 19 or 20 on the d20.
 
 ## **Level 11: Slash**
 When you take the Attack action on your turn, you can expend up to 3 Focus Points to replace one of your attacks with a sweeping wave of energy that slashes in a 30-foot Cone. Each creature in the Cone must make a Dexterity saving throw, taking Force damage on a failed save or half as much damage on a successful one. To determine the damage, roll your Martial Arts die a number of times equal to two times the Focus Points spent, and add each result together.
