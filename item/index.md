@@ -6,7 +6,7 @@ has_children: true
 has_toc: false
 ---
 
-# Items
+# **Items**
 
 This is the Items aisle, where John Dungeon's weird little curios are housed.
 
