@@ -8,7 +8,7 @@ parent: Subclasses
 
 Warriors of the Storm strike and maneuver with blinding speed, harnessing the chaotic power of thunder, wind, and lightning. By emulating the natural splendor of storms, they become unstoppable forces of nature themselves.
 
-## Eccentric Nature
+## **Eccentric Nature**
 Warriors of the Storm often have strange quirks relating to their affinity with nature.
 
 At your option, roll on or choose a result from the Quirks of the Storm table to determine a unique quirk for yourself.
