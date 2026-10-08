@@ -1,5 +1,5 @@
 ---
-title: Page Not Found
+title: ???
 permalink: /404.html
 nav_exclude: true
 search_exclude: true
