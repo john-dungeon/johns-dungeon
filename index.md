@@ -5,7 +5,7 @@ has_children: true
 has_toc: false
 ---
 
-# Welcome to John's Dungeon
+# **Welcome to John's Dungeon**
 
 Welcome to John's Dungeon, John Dungeon's personal archive of random curios and unearthed arcana.
 
