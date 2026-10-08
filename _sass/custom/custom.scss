@@ -131,3 +131,13 @@ a:not([class]):hover {
   text-underline-offset: 0.2em;
 }
 // CONDITIONAL HIDING LINK UNDERLINES
+
+// INDENT
+.indent {
+  margin-left: 2rem;
+}
+
+.indent-first {
+  text-indent: 2rem;
+}
+// INDENT
