@@ -98,9 +98,7 @@ table.catalog td {
 }
 
 table.catalog thead th {
-  background-color: $body-background-color;
-  font-size: 1.1rem;
-  font-weight: 700;
+  display: none;
 }
 
 table.catalog tbody tr:nth-child(odd) th,
@@ -111,10 +109,6 @@ table.catalog tbody tr:nth-child(odd) td {
 table.catalog tbody tr:nth-child(even) th,
 table.catalog tbody tr:nth-child(even) td {
   background-color: $catalog-stripe;
-}
-
-table.catalog.no-header thead {
-  display: none;
 }
 // CATALOG TABLE
 
