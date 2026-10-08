@@ -10,10 +10,7 @@ has_toc: false
 
 This is the Spells aisle, where the records of John Dungeon's latest innovations in the arcane arts are documented.
 
-|  |  |  |
-| --- | --- | --- |
-| [General Spells](general-spells.md) |  |  |
-{: .catalog }
+
 
 ---
 
