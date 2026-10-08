@@ -45,7 +45,9 @@
               {%- endif -%}
               {%- if val == nil or val == "" -%}—
               {%- elsif col.type == "list" -%}{{ val | join: ", " | escape }}
-              {%- elsif col.type == "number" -%}{{ col.prefix | escape }}{{ val }}{{ col.suffix | escape }}
+              {%- elsif col.type == "number" -%}
+                {%- assign as_number = val | plus: 0 -%}
+                {%- if as_number == val -%}{{ col.prefix | escape }}{{ val }}{{ col.suffix | escape }}{%- else -%}{{ val | escape }}{%- endif -%}
               {%- else -%}{{ val | escape }}
               {%- endif -%}
           </td>
