@@ -16,7 +16,7 @@ This is the Items aisle, where John Dungeon's weird little curios are housed.
 {: .catalog }
 
 {::nomarkdown}
-{% include search-table.html data="spells/item-list.md" %}
+{% include search-table.html data="items/item-list.md" %}
 {:/nomarkdown}
 
 ---
