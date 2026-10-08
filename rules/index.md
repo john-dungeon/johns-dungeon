@@ -12,8 +12,7 @@ This is the Rules aisle, where John Dungeon's list of house rules is codified.
 
 |  |  |  |
 | --- | --- | --- |
-| [All Rules](all-rules.md) | [Combat](combat.md) | [Crafting](crafting.md) |
-| [Inspiration](inspiration.md) |  |  |
+| [Combat](combat.md) | [Crafting](crafting.md) | [Inspiration](inspiration.md) |
 {: .catalog }
 
 ---
