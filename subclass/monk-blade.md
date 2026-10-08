@@ -14,7 +14,7 @@ In your hands, anything can become a weapon. When you take the Attack action on 
 **Category:** Martial Melee\
 **Damage:** 1d6 Force\
 **Properties:** Light\
-**Mastery:** Nick (you can use this property)\
+**Mastery:** Nick (you can use this property)
 {: .indent }
 
 When you attack with the Aura Blade, you can make the extra attack granted by the Light property with the Aura Blade instead of a different Light weapon.
