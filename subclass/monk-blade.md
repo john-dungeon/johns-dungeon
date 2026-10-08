@@ -8,7 +8,7 @@ parent: Subclasses
 
 Warriors of the Blade devote their entire lives to honing their bladework. Their style distills swordsmanship to its core, stripping away the unnecessary flair and accessories that hinder other sword arts, even in the names of their techniques.
 
-## **Level 3: Cut**
+## **Level 3: Blade**
 In your hands, anything can become a weapon. When you take the Attack action on your turn, you can expend 1 Focus Point (no action required) to transform an object that you’re carrying into a magical Aura Blade. In this form, the object becomes a weapon with the following traits, losing its original nonmagical properties but retaining any magical properties it may have:
 
 **Category:** Martial Melee\
@@ -25,7 +25,7 @@ The Aura Blade lasts for 10 minutes or until you have the Incapacitated conditio
 On your turn, you can expend 1 Focus Point (no action required) to roll your Martial Arts die and add the result to your next attack roll. If you hit, add the result to the attack’s damage.
 
 ## **Level 6: Hone**
-You have a +1 bonus to attack and damage rolls made with Aura Blades you make with your Cut feature. This bonus increases when you reach Monk levels 11 (+2) and 17 (+3).
+You have a +1 bonus to attack and damage rolls made with Aura Blades you make with your Blade feature. This bonus increases when you reach Monk levels 11 (+2) and 17 (+3).
 
 If the object used to create the Aura Blade is a magic weapon that has a bonus to attack or damage rolls, use either the Aura Blade's or the original weapon's, not both.
 
