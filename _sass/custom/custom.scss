@@ -108,7 +108,7 @@ table.catalog tbody tr:nth-child(odd) td {
 
 table.catalog tbody tr:nth-child(even) th,
 table.catalog tbody tr:nth-child(even) td {
-  background-color: $catalog-stripe;
+  background-color: $theme-stripe-color;
 }
 // CATALOG TABLE
 
