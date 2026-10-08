@@ -104,7 +104,12 @@
       }
       var col = columnByKey[term.field];
       var text = rec.text[col.key];
-      if (col.type === 'number') return matchNumber(rec.num[col.key], term.value);
+      if (col.type === 'number') {
+        var numeric = matchNumber(rec.num[col.key], term.value);
+        if (numeric !== null) return numeric;
+        if (/[a-z]/.test(term.value)) return text.indexOf(term.value) !== -1;
+        return null;
+      }
       var exact = col.match ? col.match === 'exact' : col.type === 'rank';
       if (col.type === 'list') {
         if (exact) return text.split(', ').indexOf(term.value) !== -1;
