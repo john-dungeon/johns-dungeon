@@ -6,7 +6,7 @@ has_children: true
 has_toc: false
 ---
 
-# Subclasses
+# **Subclasses**
 
 This is the Subclasses aisle, where John Dungeon's most unusual subclasses are kept.
 
