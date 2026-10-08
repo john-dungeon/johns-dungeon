@@ -12,9 +12,9 @@ This is the Settings aisle, the nexus between John Dungeon's worlds of interest.
 
 |  |  |  |
 | --- | --- | --- |
-| [Big Blue](big-blue.md) | [Drachenfell](drachenfell.md) | [Erisia](erisia.md) |
-| [Jingyu City](jingyu-city.md) | [New Moon City](new-moon-city.md) | [Sector 11](sector-11.md) |
-| [Solachia](solachia.md) |  |  |
+| [Big Blue](big-blue.md) | [City 13](city-13.md) | [Drachenfell](drachenfell.md) |
+| [Erisia](erisia.md) | [Jingyu City](jingyu-city.md) | [New Moon City](new-moon-city.md) |
+| [Sector 11](sector-11.md) | [Solachia](solachia.md) |  |
 {: .catalog }
 
 ---
