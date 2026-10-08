@@ -12,7 +12,7 @@ This is the Species aisle, where John Dungeon's research on the peoples of the w
 
 |  |  |  |
 | --- | --- | --- |
-| [All Species](all-species.md) | [Species of Erisia](species-erisia.md) |  |
+| [Species of Erisia](species-erisia.md) |  |  |
 {: .catalog }
 
 ---
