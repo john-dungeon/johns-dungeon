@@ -3,7 +3,7 @@ title: Warrior of the Storm
 parent: Subclasses
 ---
 
-# Warrior of the Storm
+# **Warrior of the Storm**
 *Rush with the Might of a Storm*
 
 Warriors of the Storm strike and maneuver with blinding speed, harnessing the chaotic power of thunder, wind, and lightning. By emulating the natural splendor of storms, they become unstoppable forces of nature themselves.
