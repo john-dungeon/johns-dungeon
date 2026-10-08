@@ -76,10 +76,10 @@
 // THEME CHANGE
 
 // CATALOG TABLE
-$catalog-stripe: mix(#ffffff, $body-background-color, 10%);
+$theme-stripe-color: mix(#ffffff, $body-background-color, 10%);
 
-@if variable-exists(theme-stripe-color) {
-  $catalog-stripe: $theme-stripe-color;
+@if variable-exists(catalog-stripe) {
+  $theme-stripe-color: $catalog-stripe;
 }
 
 table.catalog {
