@@ -12,8 +12,10 @@ This is the Items aisle, where John Dungeon's weird little curios are housed.
 
 |  |  |  |
 | --- | --- | --- |
-| [All Items](all-items.md) | [Augments](augments.md) | [Ingredients](ingredients.md) |
+| [Augments](augments.md) | [Ingredients](ingredients.md) |  |
 {: .catalog }
+
+
 
 ---
 
