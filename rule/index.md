@@ -6,7 +6,7 @@ has_children: true
 has_toc: false
 ---
 
-# Subclasses
+# Rules
 
 This is the Rules aisle, where John Dungeon's list of house rules is codified.
 
