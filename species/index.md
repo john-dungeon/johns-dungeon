@@ -6,7 +6,7 @@ has_children: true
 has_toc: false
 ---
 
-# Species
+# **Species**
 
 This is the Species aisle, where John Dungeon's research on the peoples of the wider world is stored.
 
