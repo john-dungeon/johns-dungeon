@@ -1,5 +1,5 @@
 ---
-title: Item List Data
+title: Item Data
 nav_exclude: true
 search_exclude: true
 has_toc: false
