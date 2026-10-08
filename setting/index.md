@@ -6,7 +6,7 @@ has_children: true
 has_toc: false
 ---
 
-# Subclasses
+# **Settings**
 
 This is the Settings aisle, the nexus between John Dungeon's worlds of interest.
 
