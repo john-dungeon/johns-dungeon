@@ -11,12 +11,12 @@ Welcome to John's Dungeon, John Dungeon's personal archive of random curios and 
 
 ## **Contents**
 
-- [Items](item/index.md)
-- [Rules](rule/index.md)
-- [Settings](setting/index.md)
+- [Items](items/index.md)
+- [Rules](rules/index.md)
+- [Settings](settings/index.md)
 - [Species](species/index.md)
-- [Spells](spell/index.md)
-- [Subclasses](subclass/index.md)
+- [Spells](spells/index.md)
+- [Subclasses](subclasses/index.md)
 
 ## **Current Campaign**
 
