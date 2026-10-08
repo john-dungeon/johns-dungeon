@@ -13,7 +13,9 @@ Warriors of the Storm often have strange quirks relating to their affinity with 
 
 At your option, roll on or choose a result from the Quirks of the Storm table to determine a unique quirk for yourself.
 
-| Quirks of the Storm |  |
+### **Quirks of the Storm**
+
+|  |  |
 | --- | --- |
 | **d6** | **Quirk** |
 | 1 | Your natural voice is loud and thunderous. |
