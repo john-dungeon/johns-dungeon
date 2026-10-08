@@ -9,7 +9,7 @@ parent: Subclasses
 Warriors of the Blade devote their entire lives to honing their bladework. Their style distills swordsmanship to its core, stripping away the unnecessary flair and accessories that hinder other sword arts, even in the names of their techniques.
 
 ## **Level 3: Blade**
-In your hands, anything can become a weapon. When you take the Attack action on your turn, you can expend 1 Focus Point (no action required) to transform an object that you’re carrying into a magical Aura Blade. In this form, the object becomes a weapon with the following traits, losing its original nonmagical properties but retaining any magical properties it may have:
+In your hands, anything can become a weapon. When you take the Attack action on your turn, you can expend 1 Focus Point (no action required) to transform an object that you’re carrying into a magical Aura Blade. In this form, the object becomes a weapon with the following traits, losing its original nonmagical properties but retaining its magical properties if it is a magic weapon:
 
 **Category:** Martial Melee\
 **Damage:** 1d6 Force\
