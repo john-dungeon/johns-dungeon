@@ -1,0 +1,81 @@
+{%- assign data = site.pages | where: "path", include.data | first -%}
+{%- assign cfg = data.table -%}
+{%- assign cols = cfg.columns -%}
+{%- assign name_key = cols[0].key -%}
+{%- assign entries = data.entries | sort_natural: name_key -%}
+
+<div class="search-table" data-config="{{ cfg | jsonify | escape }}">
+  <div class="st-tools">
+    <input type="search" class="st-search" placeholder="{{ cfg.placeholder | default: 'Search names, or filter with tag:word' | escape }}" aria-label="Search" autocomplete="off">
+    <span class="st-count" aria-live="polite"></span>
+  </div>
+
+  <div class="st-table-wrap">
+    <table class="st-table">
+      <thead>
+        <tr>
+          {%- for col in cols -%}
+            {%- if col.in_table == false -%}{%- continue -%}{%- endif -%}
+            {%- if col.sortable == false -%}
+          <th>{{ col.label | escape }}</th>
+            {%- else -%}
+          <th data-key="{{ col.key }}" aria-sort="none"><button type="button">{{ col.label | escape }}</button></th>
+            {%- endif -%}
+          {%- endfor -%}
+        </tr>
+      </thead>
+      <tbody>
+        {%- for entry in entries -%}
+        <tr class="st-row" tabindex="0" data-id="{{ forloop.index }}" data-tags="{{ entry.tags | join: ',' | downcase | escape }}"
+          {%- for col in cols %} data-v-{{ col.key }}="{% if col.type == 'list' %}{{ entry[col.key] | join: ', ' | downcase | escape }}{% else %}{{ entry[col.key] | downcase | escape }}{% endif %}"{% endfor -%}
+        >
+          {%- for col in cols -%}
+            {%- assign val = entry[col.key] -%}
+            {%- if forloop.first -%}
+          <td class="st-name-cell" data-label="{{ col.label | escape }}"><span class="st-name">{{ val | escape }}</span>
+              {%- if entry.tags and cfg.tags != false -%}
+            <span class="st-tags">{% for tag in entry.tags %}<button type="button" class="tag-chip" data-tag="{{ tag | downcase | escape }}">{{ tag | escape }}</button>{% endfor %}</span>
+              {%- endif -%}
+          </td>
+            {%- else -%}
+              {%- if col.in_table == false -%}
+          <td class="st-extra" hidden data-label="{{ col.label | escape }}">
+              {%- else -%}
+          <td data-label="{{ col.label | escape }}">
+              {%- endif -%}
+              {%- if val == nil or val == "" -%}—
+              {%- elsif col.type == "list" -%}{{ val | join: ", " | escape }}
+              {%- elsif col.type == "number" -%}{{ col.prefix | escape }}{{ val }}{{ col.suffix | escape }}
+              {%- else -%}{{ val | escape }}
+              {%- endif -%}
+          </td>
+            {%- endif -%}
+          {%- endfor -%}
+        </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="st-empty" hidden>No matches found.</p>
+
+  <div class="st-details" hidden>
+    {%- for entry in entries -%}
+    <div data-for="{{ forloop.index }}">{{ entry.description | markdownify }}</div>
+    {%- endfor -%}
+  </div>
+
+  <dialog class="st-dialog" aria-label="Details">
+    <div class="st-dialog-inner">
+      <div class="st-dialog-header">
+        <h2 class="st-dialog-title"></h2>
+        <button type="button" class="st-dialog-close" aria-label="Close">✕</button>
+      </div>
+      <div class="st-dialog-tags"></div>
+      <dl class="st-dialog-facts"></dl>
+      <div class="st-dialog-body"></div>
+    </div>
+  </dialog>
+</div>
+
+<script src="{{ '/assets/js/search-table.js' | relative_url }}" defer></script>
