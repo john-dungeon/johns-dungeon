@@ -3,7 +3,7 @@ title: Warrior of the Blade
 parent: Subclasses
 ---
 
-# Warrior of the Blade
+# **Warrior of the Blade**
 *Become the Pinnacle of Swordsmanship*
 
 Warriors of the Blade devote their entire lives to honing their bladework. Their style distills swordsmanship to its core, stripping away the unnecessary flair and accessories that hinder other sword arts, even in the names of their techniques.
