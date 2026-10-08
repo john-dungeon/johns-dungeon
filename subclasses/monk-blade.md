@@ -25,9 +25,7 @@ The Aura Blade lasts for 10 minutes or until you have the Incapacitated conditio
 On your turn, you can expend 1 Focus Point (no action required) to roll your Martial Arts die and add the result to your next attack roll. If you hit, add the result to the attack’s damage.
 
 ## **Level 6: Hone**
-You have a +1 bonus to attack and damage rolls made with Aura Blades you make with your Blade feature. This bonus increases when you reach Monk levels 11 (+2) and 17 (+3).
-
-If the object used to create the Aura Blade is a magic weapon that has a bonus to attack or damage rolls, use either the Aura Blade's or the original weapon's, not both.
+You have a +1 bonus to attack and damage rolls made with Aura Blades you make with your Blade feature. This bonus increases when you reach Monk levels 11 (+2) and 17 (+3). If the object used to create the Aura Blade is a magic weapon that has a bonus to attack or damage rolls, use either the Aura Blade's or the original weapon's, not both.
 
 In addition, your attack rolls with Melee weapons can score a Critical Hit on a roll of 19 or 20 on the d20.
 
