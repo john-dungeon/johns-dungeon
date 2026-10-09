@@ -6,7 +6,7 @@
 
 <div class="search-table" data-config="{{ cfg | jsonify | escape }}">
   <div class="st-tools">
-    <input type="search" class="st-search" placeholder="{{ cfg.placeholder | default: 'Search names, or filter with tag:word' | escape }}" aria-label="Search" autocomplete="off">
+    <input type="search" class="st-search" placeholder="{{ cfg.placeholder | default: 'Search names, or filter with tag:"word".' | escape }}" aria-label="Search" autocomplete="off">
     <button type="button" class="st-filter-toggle" aria-expanded="false">Filter</button>
     <span class="st-count" aria-live="polite"></span>
   </div>
