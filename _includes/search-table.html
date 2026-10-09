@@ -67,11 +67,15 @@
           </td>
             {%- else -%}
               {%- if col.in_table == false -%}
-          <td class="st-extra" hidden data-label="{{ col.label | escape }}">
+          <td class="st-extra" hidden data-label="{{ col.label | escape }}"{% if col.symbols %} data-text="{{ val | escape }}"{% endif %}>
               {%- else -%}
-          <td data-label="{{ col.label | escape }}">
+          <td data-label="{{ col.label | escape }}"{% if col.symbols %} data-text="{{ val | escape }}"{% endif %}>
               {%- endif -%}
               {%- if val == nil or val == "" -%}—
+              {%- elsif col.symbols -%}
+                {%- assign symbol_key = val | downcase -%}
+                {%- assign symbol = col.symbols[symbol_key] -%}
+                {%- if symbol -%}<span class="st-symbol" role="img" aria-label="{{ col.label | escape }}: {{ val | escape }}" data-tooltip="{{ col.label | escape }}: {{ val | escape }}">{{ symbol }}</span>{%- else -%}{{ val | escape }}{%- endif -%}
               {%- elsif col.type == "list" -%}{{ val | join: ", " | escape }}
               {%- elsif col.type == "number" -%}
                 {%- assign as_number = val | plus: 0 -%}
