@@ -243,22 +243,6 @@ a:not([class]):hover {
   margin-top: 0.3rem;
 }
 
-.tag-chip {
-  padding: 0.05rem 0.55rem;
-  border: 1px solid $border-color;
-  border-radius: 999px;
-  background: transparent;
-  color: $nav-child-link-color;
-  font: inherit;
-  font-size: 0.75rem;
-  cursor: pointer;
-}
-
-.tag-chip:hover {
-  border-color: $link-color;
-  color: $link-color;
-}
-
 .st-dialog {
   width: min(60rem, calc(100% - 2rem));
   max-height: 85vh;
@@ -302,10 +286,13 @@ a:not([class]):hover {
 }
 
 .st-dialog-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem;
   margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: $nav-child-link-color;
+}
+
+.st-dialog-tags:empty {
+  display: none;
 }
 
 .st-dialog-facts {
