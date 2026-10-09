@@ -3,8 +3,8 @@
   var current = null;
   var GAP = 8;
   var MARGIN = 8;
-  
-  // Pop-Ups Z Priority
+
+  // Pop-Up Z Priority
   var supportsPopover = typeof HTMLElement !== 'undefined' &&
     typeof HTMLElement.prototype.showPopover === 'function';
 
@@ -47,15 +47,14 @@
     }
   }
 
-// Markdown Formatting
-  function fill(text) {
-    tip.textContent = '';
+  // Markdown Formatting
+  function addFormatted(line) {
     var pattern = /\*\*(.+?)\*\*|\*(.+?)\*/g;
     var last = 0;
     var match;
-    while ((match = pattern.exec(text)) !== null) {
+    while ((match = pattern.exec(line)) !== null) {
       if (match.index > last) {
-        tip.appendChild(document.createTextNode(text.slice(last, match.index)));
+        tip.appendChild(document.createTextNode(line.slice(last, match.index)));
       }
       var isBold = match[1] !== undefined;
       var node = document.createElement(isBold ? 'strong' : 'em');
@@ -63,8 +62,8 @@
       tip.appendChild(node);
       last = pattern.lastIndex;
     }
-    if (last < text.length) {
-      tip.appendChild(document.createTextNode(text.slice(last)));
+    if (last < line.length) {
+      tip.appendChild(document.createTextNode(line.slice(last)));
     }
   }
 
@@ -75,14 +74,14 @@
       addFormatted(line);
     });
   }
-  
+
   function show(target) {
     var text = target.getAttribute('data-tooltip');
     if (!text) return;
     ensureTip();
     hide();
     current = target;
-    tip.textContent = text;
+    fill(text);
     tip.classList.add('is-open');
     if (supportsPopover) {
       try { tip.showPopover(); } catch (e) {}
