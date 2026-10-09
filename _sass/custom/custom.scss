@@ -503,18 +503,13 @@ $marker-colors: (
 }
 // ITEM RARITY
 
-// HOVER TEXT
-a[data-tip] {
-  position: relative;
-}
-
-a[data-tip]:hover::after,
-a[data-tip]:focus-visible::after {
-  content: attr(data-tip);
-  position: absolute;
-  left: 0;
-  bottom: calc(100% + 0.4rem);
-  z-index: 50;
+// TOOLTIP
+.tooltip-bubble {
+  display: none;
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  z-index: 1000;
   width: max-content;
   max-width: 18rem;
   padding: 0.5rem 0.75rem;
@@ -526,8 +521,17 @@ a[data-tip]:focus-visible::after {
   font-weight: 400;
   line-height: 1.4;
   text-align: left;
-  white-space: normal;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
   pointer-events: none;
 }
-// HOVER TEXT
+
+.tooltip-bubble.is-open {
+  display: block;
+}
+
+@media (max-width: 20rem) {
+  .tooltip-bubble {
+    max-width: calc(100vw - 1rem);
+  }
+}
+// TOOLTIP
