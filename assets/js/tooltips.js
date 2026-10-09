@@ -3,7 +3,7 @@
   var current = null;
   var GAP = 8;
   var MARGIN = 8;
-
+  
   // Pop-Ups Z Priority
   var supportsPopover = typeof HTMLElement !== 'undefined' &&
     typeof HTMLElement.prototype.showPopover === 'function';
