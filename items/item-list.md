@@ -10,7 +10,7 @@ table:
     symbol: "✦"
     tag: Magic Item
     color_by: rarity
-    label: Magic item
+    label: Magic Item
   default_sort: name
   default_dir: asc
   columns:
