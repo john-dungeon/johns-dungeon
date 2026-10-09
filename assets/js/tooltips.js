@@ -47,6 +47,35 @@
     }
   }
 
+// Markdown Formatting
+  function fill(text) {
+    tip.textContent = '';
+    var pattern = /\*\*(.+?)\*\*|\*(.+?)\*/g;
+    var last = 0;
+    var match;
+    while ((match = pattern.exec(text)) !== null) {
+      if (match.index > last) {
+        tip.appendChild(document.createTextNode(text.slice(last, match.index)));
+      }
+      var isBold = match[1] !== undefined;
+      var node = document.createElement(isBold ? 'strong' : 'em');
+      node.textContent = isBold ? match[1] : match[2];
+      tip.appendChild(node);
+      last = pattern.lastIndex;
+    }
+    if (last < text.length) {
+      tip.appendChild(document.createTextNode(text.slice(last)));
+    }
+  }
+
+  function fill(text) {
+    tip.textContent = '';
+    text.split(/\s*\/\/\s*/).forEach(function (line, index) {
+      if (index > 0) tip.appendChild(document.createElement('br'));
+      addFormatted(line);
+    });
+  }
+  
   function show(target) {
     var text = target.getAttribute('data-tooltip');
     if (!text) return;
