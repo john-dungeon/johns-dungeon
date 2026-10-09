@@ -14,7 +14,6 @@
       return isNaN(n) ? fallback : n;
     }
 
-    // Results Shown
     var limitMin = intOr(config.limit_min, 25);
     var limitMax = intOr(config.limit_max, 500);
     var limitStep = intOr(config.limit_step, 25);
@@ -49,7 +48,6 @@
     var fieldPattern = fieldNames.join('|');
     var halfTyped = new RegExp('^(' + fieldPattern + '):$');
 
-    // Filter Panel Selection
     var filters = { tags: {}, any: false, cats: {}, ranges: {} };
 
     function toNumber(text) {
@@ -69,15 +67,46 @@
       return node;
     }
 
-    // Read Rows
+    function readState(map, value) {
+      return map[value] || 'off';
+    }
+
+    function writeState(map, value, state) {
+      if (state === 'off') delete map[value];
+      else map[value] = state;
+    }
+
+    function valuesWithState(map, state) {
+      return Object.keys(map).filter(function (value) { return map[value] === state; });
+    }
+
     var records = Array.prototype.map.call(body.rows, function (row) {
-      var rec = { row: row, text: {}, num: {}, rank: {}, values: {}, tags: [] };
+      var rec = {
+        row: row, text: {}, num: {}, rank: {},
+        own: {}, extra: {}, values: {},
+        tags: [], tagNames: []
+      };
       var tagText = row.getAttribute('data-tags');
       rec.tags = tagText ? tagText.split(',') : [];
+      var tagNameText = row.getAttribute('data-tag-names');
+      rec.tagNames = tagNameText ? tagNameText.split(',') : [];
+
       columns.forEach(function (col) {
         var raw = row.getAttribute('data-v-' + col.key) || '';
         rec.text[col.key] = raw;
-        rec.values[col.key] = raw === '' ? [] : (col.type === 'list' ? raw.split(', ') : [raw]);
+
+        var own = raw === '' ? [] : (col.type === 'list' ? raw.split(', ') : [raw]);
+        var extraRaw = col.type === 'number' ? null : row.getAttribute('data-o-' + col.key);
+        var extraLabels = extraRaw ? extraRaw.split(', ') : [];
+        var values = own.slice();
+        extraLabels.forEach(function (label) {
+          var lower = label.toLowerCase();
+          if (values.indexOf(lower) === -1) values.push(lower);
+        });
+        rec.own[col.key] = own;
+        rec.extra[col.key] = extraLabels;
+        rec.values[col.key] = values;
+
         if (col.type === 'number') rec.num[col.key] = toNumber(raw);
         if (col.type === 'rank') {
           var index = col.rankList.indexOf(raw);
@@ -87,27 +116,32 @@
       return rec;
     });
 
-    // Read Tags
     var tagLabels = {};
     var optionLabels = {};
+
+    function setLabel(key, value, label) {
+      optionLabels[key] = optionLabels[key] || {};
+      if (!optionLabels[key][value]) optionLabels[key][value] = label;
+    }
+
     records.forEach(function (rec) {
-      var tagNames = rec.row.getAttribute('data-tag-names');
-      rec.tagNames = tagNames ? tagNames.split(',') : [];
       rec.tags.forEach(function (tag, i) {
         if (!tagLabels[tag]) tagLabels[tag] = rec.tagNames[i] || tag;
       });
       columns.forEach(function (col) {
         if (col.index === 0 || col.type === 'number') return;
         var cellText = rec.row.cells[col.index].textContent.trim();
-        var labels = col.type === 'list' ? cellText.split(', ') : [cellText];
-        rec.values[col.key].forEach(function (value, i) {
-          optionLabels[col.key] = optionLabels[col.key] || {};
-          if (!optionLabels[col.key][value]) optionLabels[col.key][value] = labels[i] || value;
+        var ownLabels = col.type === 'list' ? cellText.split(', ') : [cellText];
+        rec.own[col.key].forEach(function (value, i) {
+          setLabel(col.key, value, ownLabels[i] || value);
+        });
+        rec.extra[col.key].forEach(function (label) {
+          setLabel(col.key, label.toLowerCase(), label);
         });
       });
     });
 
-    // Translate Search into Tags
+// Search Box
     function parseQuery(text) {
       var terms = [];
       var pattern = new RegExp('(-?)(?:(' + fieldPattern + '):)?(?:"([^"]*)"|(\\S+))', 'gi');
@@ -119,13 +153,13 @@
           field = 'tag';
           value = value.slice(1);
         }
+        // Ignore half-typed terms such as "tag:" or a lone "-".
         if (!match[2] && (value === '-' || halfTyped.test(value))) continue;
         if (value) terms.push({ negate: match[1] === '-', field: field, value: value });
       }
       return terms;
     }
 
-    // Number Displayed
     function matchNumber(actual, query) {
       var single = /^(>=|<=|>|<|=)?\s*(-?\d+(?:\.\d+)?)$/.exec(query);
       if (single) {
@@ -152,20 +186,16 @@
         return rec.tags.some(function (tag) { return tag.indexOf(term.value) !== -1; });
       }
       var col = columnByKey[term.field];
-      var text = rec.text[col.key];
       if (col.type === 'number') {
         var numeric = matchNumber(rec.num[col.key], term.value);
         if (numeric !== null) return numeric;
-        if (/[a-z]/.test(term.value)) return text.indexOf(term.value) !== -1;
+        if (/[a-z]/.test(term.value)) return rec.text[col.key].indexOf(term.value) !== -1;
         return null;
       }
+      var candidates = rec.values[col.key];
       var exact = col.match ? col.match === 'exact' : col.type === 'rank';
-      if (col.type === 'list') {
-        if (exact) return text.split(', ').indexOf(term.value) !== -1;
-        return text.indexOf(term.value) !== -1;
-      }
-      if (exact) return text === term.value;
-      return text.indexOf(term.value) !== -1;
+      if (exact) return candidates.indexOf(term.value) !== -1;
+      return candidates.some(function (candidate) { return candidate.indexOf(term.value) !== -1; });
     }
 
     function matches(rec, terms) {
@@ -177,7 +207,7 @@
       return true;
     }
 
-    // Filter Panel
+// Filter Panel
     function wantsFilter(col) {
       if (col.filter === false) return false;
       if (col.filter === true) return true;
@@ -188,20 +218,25 @@
     }
 
     function matchesFilters(rec) {
-      var picked = Object.keys(filters.tags);
-      if (picked.length) {
-        var hasTag = function (tag) { return rec.tags.indexOf(tag) !== -1; };
-        var tagOk = filters.any ? picked.some(hasTag) : picked.every(hasTag);
+
+      var hasTag = function (tag) { return rec.tags.indexOf(tag) !== -1; };
+      var tagsIn = valuesWithState(filters.tags, 'include');
+      var tagsOut = valuesWithState(filters.tags, 'exclude');
+      if (tagsIn.length) {
+        var tagOk = filters.any ? tagsIn.some(hasTag) : tagsIn.every(hasTag);
         if (!tagOk) return false;
       }
+      if (tagsOut.some(hasTag)) return false;
 
       var catKeys = Object.keys(filters.cats);
       for (var i = 0; i < catKeys.length; i++) {
-        var chosen = Object.keys(filters.cats[catKeys[i]]);
-        if (!chosen.length) continue;
-        var have = rec.values[catKeys[i]];
-        var anyHit = chosen.some(function (value) { return have.indexOf(value) !== -1; });
-        if (!anyHit) return false;
+        var key = catKeys[i];
+        var have = rec.values[key];
+        var hasValue = function (value) { return have.indexOf(value) !== -1; };
+        var included = valuesWithState(filters.cats[key], 'include');
+        var excluded = valuesWithState(filters.cats[key], 'exclude');
+        if (included.length && !included.some(hasValue)) return false;
+        if (excluded.some(hasValue)) return false;
       }
 
       var rangeKeys = Object.keys(filters.ranges);
@@ -228,18 +263,28 @@
       return total;
     }
 
-    function optionGroup(title, entries, isOn, onToggle) {
+    function optionGroup(title, entries, getState, onChange) {
       var group = el('div', 'st-filter-group');
       group.appendChild(el('div', 'st-filter-title', title));
       var wrap = el('div', 'st-filter-options');
       entries.forEach(function (entry) {
         var button = el('button', 'st-opt', entry.label);
         button.type = 'button';
-        button.setAttribute('aria-pressed', isOn(entry.value) ? 'true' : 'false');
+
+        function paint() {
+          var state = getState(entry.value);
+          var words = state === 'include' ? 'included' : (state === 'exclude' ? 'excluded' : 'not filtered');
+          button.setAttribute('data-state', state);
+          button.setAttribute('aria-pressed', state === 'off' ? 'false' : 'true');
+          button.setAttribute('aria-label', entry.label + ', ' + words);
+        }
+
+        paint();
         button.addEventListener('click', function () {
-          var now = button.getAttribute('aria-pressed') !== 'true';
-          button.setAttribute('aria-pressed', now ? 'true' : 'false');
-          onToggle(entry.value, now);
+          var state = getState(entry.value);
+          var next = state === 'off' ? 'include' : (state === 'include' ? 'exclude' : 'off');
+          onChange(entry.value, next);
+          paint();
           render();
         });
         wrap.appendChild(button);
@@ -282,6 +327,9 @@
     function buildPanel() {
       filterPanel.textContent = '';
 
+      filterPanel.appendChild(el('p', 'st-filter-hint',
+        'Click a tag or category once to include it, twice to exclude it, and a third time to clear it.'));
+
       columns.forEach(function (col) {
         if (col.index === 0 || !wantsFilter(col)) return;
 
@@ -305,11 +353,10 @@
         var entries = values.map(function (value) { return { value: value, label: labels[value] }; });
 
         filterPanel.appendChild(optionGroup(col.label, entries,
-          function (value) { return !!(filters.cats[col.key] && filters.cats[col.key][value]); },
-          function (value, on) {
+          function (value) { return readState(filters.cats[col.key] || {}, value); },
+          function (value, state) {
             filters.cats[col.key] = filters.cats[col.key] || {};
-            if (on) filters.cats[col.key][value] = true;
-            else delete filters.cats[col.key][value];
+            writeState(filters.cats[col.key], value, state);
           }
         ));
       });
@@ -319,15 +366,11 @@
         tagValues.sort(function (a, b) { return compareText(tagLabels[a], tagLabels[b]); });
         var tagEntries = tagValues.map(function (value) { return { value: value, label: tagLabels[value] }; });
         filterPanel.appendChild(optionGroup('Tags', tagEntries,
-          function (value) { return !!filters.tags[value]; },
-          function (value, on) {
-            if (on) filters.tags[value] = true;
-            else delete filters.tags[value];
-          }
+          function (value) { return readState(filters.tags, value); },
+          function (value, state) { writeState(filters.tags, value, state); }
         ));
       }
 
-      // Results Shown
       var limitGroup = el('div', 'st-filter-group');
       limitGroup.appendChild(el('div', 'st-filter-title', 'Results shown'));
       var limitRow = el('div', 'st-limit');
@@ -349,7 +392,6 @@
       limitGroup.appendChild(limitRow);
       filterPanel.appendChild(limitGroup);
 
-      // Match-Any and Clear
       var footer = el('div', 'st-filter-footer');
       if (tagValues.length) {
         var label = el('label', 'st-filter-match');
@@ -361,7 +403,7 @@
           render();
         });
         label.appendChild(box);
-        label.appendChild(document.createTextNode(' Match any selected tag (instead of all)'));
+        label.appendChild(document.createTextNode(' Match any included tag (instead of all)'));
         footer.appendChild(label);
       }
       var clear = el('button', 'st-filter-clear', 'Clear filters');
@@ -382,7 +424,6 @@
       return rec.text[sortKey] || null;
     }
 
-    // Missing Value Entry Sort
     function compareRecords(a, b) {
       var va = sortValue(a);
       var vb = sortValue(b);
@@ -406,7 +447,7 @@
       });
     }
 
-    // Restructure Table
+// Restructure Table
     function render() {
       var terms = parseQuery(search.value);
       var matched = records.filter(function (rec) {
@@ -437,7 +478,7 @@
       updateHeaders();
     }
 
-    // Add Tag to Search
+// Add Condition to Search
     function addTerm(field, value) {
       var token = field + ':' + (/\s/.test(value) ? '"' + value + '"' : value);
       if (search.value.toLowerCase().indexOf(token) !== -1) return;
@@ -445,6 +486,7 @@
       render();
     }
 
+// Pop-Up Window
     function openItem(row) {
       var id = row.getAttribute('data-id');
       var source = root.querySelector('.st-details [data-for="' + id + '"]');
@@ -452,7 +494,6 @@
       dialogTitle.textContent = row.querySelector('.st-name').textContent;
       dialog.setAttribute('aria-label', dialogTitle.textContent);
 
-      // Show or Hide Value Table
       dialogFacts.textContent = '';
       if (config.popup_facts !== false) {
         for (var c = 1; c < row.cells.length; c++) {
@@ -488,7 +529,6 @@
       dialog.showModal();
     }
 
-    // Open Entry
     body.addEventListener('click', function (event) {
       var row = event.target.closest('tr');
       if (row) openItem(row);
@@ -501,7 +541,7 @@
       }
     });
 
-    // Toggle Sort Order
+// Toggle Sort Order
     table.tHead.addEventListener('click', function (event) {
       var th = event.target.closest('th');
       if (!th) return;
@@ -526,7 +566,7 @@
       dialog.close();
     });
 
-    // Expand Click Area
+// Expand Click Area
     dialog.addEventListener('click', function (event) {
       if (event.target === dialog) dialog.close();
     });
