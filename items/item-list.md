@@ -43,7 +43,7 @@ entries:
     rarity_options: [Common, Uncommon, Rare, Very Rare, Legendary]
     cost: Varies
     weight: 0.5
-    attunement: None
+    attunement: none
     tags: [Consumable, Healing, Magic Item]
     description: |
       *Potion, Rarity Varies (See table)*\
@@ -70,7 +70,7 @@ entries:
     rarity_options: [Common, Uncommon, Rare, Very Rare, Legendary]
     cost: Varies
     weight: 0.5
-    attunement: None
+    attunement: none
     tags: [Consumable, Magic Item]
     description: |
       *Potion, Rarity Varies (See table)*\
