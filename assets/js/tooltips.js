@@ -70,7 +70,7 @@
 
   function fill(text) {
     tip.textContent = '';
-    text.split(/\s*\/\/\s*/).forEach(function (line, index) {
+    text.split(/\s*\\\s*/).forEach(function (line, index) {
       if (index > 0) tip.appendChild(document.createElement('br'));
       addFormatted(line);
     });
