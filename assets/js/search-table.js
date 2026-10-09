@@ -181,6 +181,20 @@
       return null;
     }
 
+    // A test for one value of a category column, based on a search term.
+    function termTest(col, term) {
+      var exact = col.match ? col.match === 'exact' : col.type === 'rank';
+      return function (value) {
+        return exact ? value === term.value : value.indexOf(term.value) !== -1;
+      };
+    }
+
+    function isExcluded(rec, key, test) {
+      if (rec.own[key].some(test)) return true;
+      var extra = rec.extra[key].map(function (label) { return label.toLowerCase(); });
+      return extra.length > 0 && extra.every(test);
+    }
+
     function matchesTerm(rec, term) {
       if (term.field === 'tag') {
         return rec.tags.some(function (tag) { return tag.indexOf(term.value) !== -1; });
@@ -192,17 +206,20 @@
         if (/[a-z]/.test(term.value)) return rec.text[col.key].indexOf(term.value) !== -1;
         return null;
       }
-      var candidates = rec.values[col.key];
-      var exact = col.match ? col.match === 'exact' : col.type === 'rank';
-      if (exact) return candidates.indexOf(term.value) !== -1;
-      return candidates.some(function (candidate) { return candidate.indexOf(term.value) !== -1; });
+      return rec.values[col.key].some(termTest(col, term));
     }
 
     function matches(rec, terms) {
       for (var i = 0; i < terms.length; i++) {
-        var hit = matchesTerm(rec, terms[i]);
+        var term = terms[i];
+        var col = columnByKey[term.field];
+        if (term.negate && col && col.type !== 'number') {
+          if (isExcluded(rec, col.key, termTest(col, term))) return false;
+          continue;
+        }
+        var hit = matchesTerm(rec, term);
         if (hit === null) continue;
-        if (hit === terms[i].negate) return false;
+        if (hit === term.negate) return false;
       }
       return true;
     }
@@ -235,8 +252,9 @@
         var hasValue = function (value) { return have.indexOf(value) !== -1; };
         var included = valuesWithState(filters.cats[key], 'include');
         var excluded = valuesWithState(filters.cats[key], 'exclude');
+        var isOut = function (value) { return excluded.indexOf(value) !== -1; };
         if (included.length && !included.some(hasValue)) return false;
-        if (excluded.some(hasValue)) return false;
+        if (excluded.length && isExcluded(rec, key, isOut)) return false;
       }
 
       var rangeKeys = Object.keys(filters.ranges);
