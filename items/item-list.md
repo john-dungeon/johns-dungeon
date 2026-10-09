@@ -5,6 +5,7 @@ search_exclude: true
 has_toc: false
 table:
   noun: items
+  popup_facts: false
   default_sort: name
   default_dir: asc
   columns:
