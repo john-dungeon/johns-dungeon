@@ -49,8 +49,16 @@
               {%- endif -%}
           <td class="st-name-cell" data-label="{{ col.label | escape }}"><span class="st-name">{{ val | escape }}</span>
               {%- if has_marker -%}
-                {%- assign marker_value = entry[cfg.marker.color_by] | downcase -%}
-            <span class="st-marker" role="img" aria-label="{{ cfg.marker.label | default: 'Marked' | escape }}" title="{{ cfg.marker.label | default: 'Marked' | escape }}" data-marker="{{ marker_value | escape }}">{{ cfg.marker.symbol | default: '✦' }}</span>
+                {%- assign marker_raw = entry[cfg.marker.color_by] -%}
+                {%- assign marker_value = marker_raw | downcase -%}
+                {%- if cfg.marker.label and marker_raw != nil and marker_raw != "" -%}
+                  {%- assign marker_text = cfg.marker.label | append: " · " | append: marker_raw -%}
+                {%- elsif marker_raw != nil and marker_raw != "" -%}
+                  {%- assign marker_text = marker_raw -%}
+                {%- else -%}
+                  {%- assign marker_text = cfg.marker.label | default: "Marked" -%}
+                {%- endif -%}
+            <span class="st-marker" role="img" aria-label="{{ marker_text | escape }}" title="{{ marker_text | escape }}" data-marker="{{ marker_value | escape }}">{{ cfg.marker.symbol | default: '✦' }}</span>
               {%- endif -%}
           </td>
             {%- else -%}
