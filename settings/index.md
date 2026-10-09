@@ -11,8 +11,8 @@ This is the Settings aisle, the nexus between John Dungeon's worlds of interest.
 
 |  |  |  |
 | --- | --- | --- |
-| [Archive of the End](archive-of-the-end.md) | [Big Blue](big-blue.md) | [City 13](city-13.md) |
-| [Drachenfell](drachenfell.md) | [Erisia](erisia.md) | [Great Luminant](great-luminant.md) |
+| [Big Blue](big-blue.md) | [City 13](city-13.md) | [Drachenfell](drachenfell.md) |
+| [Erisia](erisia.md) | [Great Luminant](great-luminant.md) | [Hiraeth](hiraeth.md) |
 | [Jingyu City](jingyu-city.md) | [New Moon City](new-moon-city.md) | [Solachia](solachia.md) |
 {: .catalog .headless }
 
