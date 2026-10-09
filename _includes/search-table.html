@@ -62,7 +62,7 @@
                 {%- else -%}
                   {%- assign marker_text = cfg.marker.label | default: "Marked" -%}
                 {%- endif -%}
-            <span class="st-marker" role="img" aria-label="{{ marker_text | escape }}" title="{{ marker_text | escape }}" data-marker="{{ marker_value | escape }}">{{ cfg.marker.symbol | default: '✦' }}</span>
+            <span class="st-marker" role="img" aria-label="{{ marker_text | escape }}" data-tooltip="{{ marker_text | escape }}" data-marker="{{ marker_value | escape }}">{{ cfg.marker.symbol | default: '✦' }}</span>
               {%- endif -%}
           </td>
             {%- else -%}
