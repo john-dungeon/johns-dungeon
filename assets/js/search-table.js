@@ -478,14 +478,6 @@
       updateHeaders();
     }
 
-// Add Condition to Search
-    function addTerm(field, value) {
-      var token = field + ':' + (/\s/.test(value) ? '"' + value + '"' : value);
-      if (search.value.toLowerCase().indexOf(token) !== -1) return;
-      search.value = (search.value.trim() + ' ' + token).trim();
-      render();
-    }
-
 // Pop-Up Window
     function openItem(row) {
       var id = row.getAttribute('data-id');
@@ -512,17 +504,8 @@
       dialogTags.textContent = '';
       var tagNames = row.getAttribute('data-tag-names');
       if (tagNames && config.tags !== false) {
-        tagNames.split(',').forEach(function (name) {
-          var button = document.createElement('button');
-          button.type = 'button';
-          button.className = 'tag-chip';
-          button.textContent = name;
-          button.addEventListener('click', function () {
-            dialog.close();
-            addTerm('tag', name.toLowerCase());
-          });
-          dialogTags.appendChild(button);
-        });
+        var tagList = tagNames.split(',');
+        dialogTags.textContent = (tagList.length === 1 ? 'Tag: ' : 'Tags: ') + tagList.join(', ');
       }
 
       dialogBody.innerHTML = source ? source.innerHTML : '';
