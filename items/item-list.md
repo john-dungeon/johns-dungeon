@@ -6,6 +6,11 @@ has_toc: false
 table:
   noun: items
   popup_facts: false
+  marker:
+    symbol: "✦"
+    tag: Magic Item
+    color_by: rarity
+    label: Magic item
   default_sort: name
   default_dir: asc
   columns:
@@ -31,7 +36,7 @@ entries:
     rarity: Varies
     cost: Varies
     weight: 0.5
-    tags: [consumable, healing, magic item, potion]
+    tags: [Consumable, Healing, Magic Item, Potion]
     description: |
       *Potion, Rarity Varies (See table)*\
       *Cost Varies (See table), 1/2 lb.*
@@ -49,12 +54,13 @@ entries:
       | +3 | Rare | 40 | 8d4 + 8 | 2,000 GP |
       | +4 | Very Rare | 60 | 10d4 + 20 | 20,000 GP |
       | +5 | Legendary | 100 | 14d4 + 44 | 100,000 GP |
+      {: .catalog }
   - name: Potion of Mana
     type: Potion
     rarity: Varies
     cost: Varies
     weight: 0.5
-    tags: [consumable, magic item, potion]
+    tags: [Consumable, Magic Item, Potion]
     description: |
       *Potion, Rarity Varies (See table)*\
       *Cost Varies (See table), 1/2 lb.*
@@ -74,4 +80,5 @@ entries:
       | +3 | Rare | 5 | 3,000 GP |
       | +4 | Very Rare | 7 | 30,000 GP |
       | +5 | Legendary | 9 | 150,000 GP |
+      {: .catalog }
 ---
