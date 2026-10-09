@@ -30,6 +30,11 @@ table:
       label: Weight
       type: number
       suffix: " lb."
+    - key: attunement
+      label: Attunement
+      symbols:
+        "none": "✕"
+        "required": "𖤓"
 entries:
 
   - name: Potion of Health
@@ -38,6 +43,7 @@ entries:
     rarity_options: [Common, Uncommon, Rare, Very Rare, Legendary]
     cost: Varies
     weight: 0.5
+    attunement: None
     tags: [Consumable, Healing, Magic Item]
     description: |
       *Potion, Rarity Varies (See table)*\
@@ -64,6 +70,7 @@ entries:
     rarity_options: [Common, Uncommon, Rare, Very Rare, Legendary]
     cost: Varies
     weight: 0.5
+    attunement: None
     tags: [Consumable, Magic Item]
     description: |
       *Potion, Rarity Varies (See table)*\
