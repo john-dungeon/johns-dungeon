@@ -29,15 +29,28 @@
       </thead>
       <tbody>
         {%- for entry in entries -%}
-        <tr class="st-row" tabindex="0" data-id="{{ forloop.index }}" data-tags="{{ entry.tags | join: ',' | downcase | escape }}"
+        <tr class="st-row" tabindex="0" data-id="{{ forloop.index }}" data-tags="{{ entry.tags | join: ',' | downcase | escape }}" data-tag-names="{{ entry.tags | join: ',' | escape }}"
           {%- for col in cols %} data-v-{{ col.key }}="{% if col.type == 'list' %}{{ entry[col.key] | join: ', ' | downcase | escape }}{% else %}{{ entry[col.key] | downcase | escape }}{% endif %}"{% endfor -%}
         >
           {%- for col in cols -%}
             {%- assign val = entry[col.key] -%}
             {%- if forloop.first -%}
+              {%- assign has_marker = false -%}
+              {%- if cfg.marker -%}
+                {%- if cfg.marker.tag -%}
+                  {%- assign marker_tag = cfg.marker.tag | downcase -%}
+                  {%- for tag in entry.tags -%}
+                    {%- assign tag_lower = tag | downcase -%}
+                    {%- if tag_lower == marker_tag -%}{%- assign has_marker = true -%}{%- endif -%}
+                  {%- endfor -%}
+                {%- else -%}
+                  {%- assign has_marker = true -%}
+                {%- endif -%}
+              {%- endif -%}
           <td class="st-name-cell" data-label="{{ col.label | escape }}"><span class="st-name">{{ val | escape }}</span>
-              {%- if entry.tags and cfg.tags != false -%}
-            <span class="st-tags">{% for tag in entry.tags %}<button type="button" class="tag-chip" data-tag="{{ tag | downcase | escape }}">{{ tag | escape }}</button>{% endfor %}</span>
+              {%- if has_marker -%}
+                {%- assign marker_value = entry[cfg.marker.color_by] | downcase -%}
+            <span class="st-marker" role="img" aria-label="{{ cfg.marker.label | default: 'Marked' | escape }}" title="{{ cfg.marker.label | default: 'Marked' | escape }}" data-marker="{{ marker_value | escape }}">{{ cfg.marker.symbol | default: '✦' }}</span>
               {%- endif -%}
           </td>
             {%- else -%}
