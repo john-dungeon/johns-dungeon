@@ -91,9 +91,10 @@
     var tagLabels = {};
     var optionLabels = {};
     records.forEach(function (rec) {
-      var chips = rec.row.querySelectorAll('.tag-chip');
+      var tagNames = rec.row.getAttribute('data-tag-names');
+      rec.tagNames = tagNames ? tagNames.split(',') : [];
       rec.tags.forEach(function (tag, i) {
-        if (!tagLabels[tag]) tagLabels[tag] = chips[i] ? chips[i].textContent : tag;
+        if (!tagLabels[tag]) tagLabels[tag] = rec.tagNames[i] || tag;
       });
       columns.forEach(function (col) {
         if (col.index === 0 || col.type === 'number') return;
@@ -313,7 +314,7 @@
         ));
       });
 
-      var tagValues = Object.keys(tagLabels);
+      var tagValues = config.tags === false ? [] : Object.keys(tagLabels);
       if (tagValues.length) {
         tagValues.sort(function (a, b) { return compareText(tagLabels[a], tagLabels[b]); });
         var tagEntries = tagValues.map(function (value) { return { value: value, label: tagLabels[value] }; });
@@ -468,35 +469,31 @@
       }
 
       dialogTags.textContent = '';
-      var chips = row.querySelectorAll('.tag-chip');
-      Array.prototype.forEach.call(chips, function (chip) {
-        var button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'tag-chip';
-        button.textContent = chip.textContent;
-        button.addEventListener('click', function () {
-          dialog.close();
-          addTerm('tag', chip.getAttribute('data-tag'));
+      var tagNames = row.getAttribute('data-tag-names');
+      if (tagNames && config.tags !== false) {
+        tagNames.split(',').forEach(function (name) {
+          var button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'tag-chip';
+          button.textContent = name;
+          button.addEventListener('click', function () {
+            dialog.close();
+            addTerm('tag', name.toLowerCase());
+          });
+          dialogTags.appendChild(button);
         });
-        dialogTags.appendChild(button);
-      });
+      }
 
       dialogBody.innerHTML = source ? source.innerHTML : '';
       dialog.showModal();
     }
 
-    // Filter by Tag
+    // Open Entry
     body.addEventListener('click', function (event) {
-      var chip = event.target.closest('.tag-chip');
-      if (chip) {
-        addTerm('tag', chip.getAttribute('data-tag'));
-        return;
-      }
       var row = event.target.closest('tr');
       if (row) openItem(row);
     });
 
-    // Open Entry
     body.addEventListener('keydown', function (event) {
       if ((event.key === 'Enter' || event.key === ' ') && event.target.tagName === 'TR') {
         event.preventDefault();
