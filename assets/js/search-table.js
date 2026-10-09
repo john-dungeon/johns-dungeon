@@ -130,7 +130,8 @@
       });
       columns.forEach(function (col) {
         if (col.index === 0 || col.type === 'number') return;
-        var cellText = rec.row.cells[col.index].textContent.trim();
+        var cell = rec.row.cells[col.index];
+        var cellText = (cell.getAttribute('data-text') || cell.textContent).trim();
         var ownLabels = col.type === 'list' ? cellText.split(', ') : [cellText];
         rec.own[col.key].forEach(function (value, i) {
           setLabel(col.key, value, ownLabels[i] || value);
@@ -508,7 +509,7 @@
       if (config.popup_facts !== false) {
         for (var c = 1; c < row.cells.length; c++) {
           var cell = row.cells[c];
-          var text = cell.textContent.trim();
+          var text = (cell.getAttribute('data-text') || cell.textContent).trim();
           if (!text || text === '\u2014') continue;
           var term = document.createElement('dt');
           term.textContent = cell.getAttribute('data-label');
