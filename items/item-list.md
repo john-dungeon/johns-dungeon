@@ -31,12 +31,13 @@ table:
       type: number
       suffix: " lb."
 entries:
+
   - name: Potion of Health
     type: Potion
     rarity: Varies
     cost: Varies
     weight: 0.5
-    tags: [Consumable, Healing, Magic Item, Potion]
+    tags: [Consumable, Healing, Magic Item]
     description: |
       *Potion, Rarity Varies (See table)*\
       *Cost Varies (See table), 1/2 lb.*
@@ -55,12 +56,13 @@ entries:
       | +4 | Very Rare | 60 | 10d4 + 20 | 20,000 GP |
       | +5 | Legendary | 100 | 14d4 + 44 | 100,000 GP |
       {: .catalog }
+  
   - name: Potion of Mana
     type: Potion
     rarity: Varies
     cost: Varies
     weight: 0.5
-    tags: [Consumable, Magic Item, Potion]
+    tags: [Consumable, Magic Item]
     description: |
       *Potion, Rarity Varies (See table)*\
       *Cost Varies (See table), 1/2 lb.*
