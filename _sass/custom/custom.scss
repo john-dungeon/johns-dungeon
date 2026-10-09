@@ -259,8 +259,8 @@ a:not([class]):hover {
   color: $link-color;
 }
 
-.st-dialog {
-  width: min(40rem, calc(100% - 2rem));
+ {
+  width: min(60rem, calc(100% - 2rem));
   max-height: 85vh;
   padding: 0;
   overflow: hidden;
@@ -271,7 +271,7 @@ a:not([class]):hover {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 
-.st-dialog::backdrop {
+::backdrop {
   background: rgba(0, 0, 0, 0.6);
 }
 
@@ -326,5 +326,150 @@ a:not([class]):hover {
 
 .st-dialog-facts dd {
   margin: 0;
+}
+
+.st-dialog-body table {
+  display: table;
+  width: 100%;
+}
+
+.st-dialog-body th,
+.st-dialog-body td {
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+}
+
+.st-filter-toggle {
+  padding: 0.55rem 1rem;
+  border: 1px solid $border-color;
+  border-radius: 0.4rem;
+  background: $sidebar-color;
+  color: $body-text-color;
+  font: inherit;
+  cursor: pointer;
+}
+
+.st-filter-toggle:hover,
+.st-filter-toggle[aria-expanded="true"] {
+  border-color: $link-color;
+}
+
+.st-filter-panel {
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem 0.75rem;
+  border: 1px solid $border-color;
+  border-radius: 0.5rem;
+  background: $sidebar-color;
+}
+
+.st-filter-panel[hidden] {
+  display: none;
+}
+
+.st-filter-group {
+  margin-bottom: 1rem;
+}
+
+.st-filter-title {
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $nav-child-link-color;
+}
+
+.st-filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.st-opt {
+  padding: 0.15rem 0.7rem;
+  border: 1px solid $border-color;
+  border-radius: 999px;
+  background: transparent;
+  color: $nav-child-link-color;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.st-opt:hover {
+  border-color: $link-color;
+  color: $link-color;
+}
+
+.st-opt[aria-pressed="true"] {
+  border-color: $link-color;
+  background: $link-color;
+  color: $body-background-color;
+}
+
+.st-range {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.st-range-input {
+  width: 6.5rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid $border-color;
+  border-radius: 0.4rem;
+  background: $search-background-color;
+  color: $body-text-color;
+  font: inherit;
+}
+
+.st-limit {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.st-limit-slider {
+  width: min(20rem, 100%);
+  accent-color: $link-color;
+}
+
+.st-limit-value {
+  min-width: 2.5rem;
+  font-weight: 700;
+}
+
+.st-filter-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid $border-color;
+}
+
+.st-filter-match {
+  font-size: 0.85rem;
+  color: $nav-child-link-color;
+  cursor: pointer;
+}
+
+.st-filter-match input {
+  accent-color: $link-color;
+}
+
+.st-filter-clear {
+  padding: 0.3rem 0.9rem;
+  border: 1px solid $border-color;
+  border-radius: 0.4rem;
+  background: transparent;
+  color: $body-text-color;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.st-filter-clear:hover {
+  border-color: $link-color;
+  color: $link-color;
 }
 // SEARCH TABLE
