@@ -35,6 +35,7 @@ entries:
   - name: Potion of Health
     type: Potion
     rarity: Varies
+    rarity_options: [Common, Uncommon, Rare, Very Rare, Legendary]
     cost: Varies
     weight: 0.5
     tags: [Consumable, Healing, Magic Item]
@@ -60,6 +61,7 @@ entries:
   - name: Potion of Mana
     type: Potion
     rarity: Varies
+    rarity_options: [Common, Uncommon, Rare, Very Rare, Legendary]
     cost: Varies
     weight: 0.5
     tags: [Consumable, Magic Item]
