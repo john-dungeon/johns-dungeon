@@ -473,3 +473,32 @@ a:not([class]):hover {
   color: $link-color;
 }
 // SEARCH TABLE
+
+// ITEM RARITY
+$marker-colors: (
+  "common": #8c969b,
+  "uncommon": #73d746,
+  "rare": #50a0f5,
+  "very rare": #c850fa,
+  "legendary": #ffc846,
+  "artifact": #fa2323,
+  "varies": #ffffff
+);
+
+@if variable-exists(theme-marker-colors) {
+  $marker-colors: $theme-marker-colors;
+}
+
+.st-marker {
+  margin-left: 0.4em;
+  color: $link-color;
+  font-size: 0.9em;
+  cursor: help;
+}
+
+@each $name, $color in $marker-colors {
+  .st-marker[data-marker="#{$name}"] {
+    color: $color;
+  }
+}
+// ITEM RARITY
