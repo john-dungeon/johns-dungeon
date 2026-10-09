@@ -422,7 +422,7 @@
           render();
         });
         label.appendChild(box);
-        label.appendChild(document.createTextNode(' Match any included tag (instead of all)'));
+        label.appendChild(document.createTextNode('  Match any included tag (instead of all).'));
         footer.appendChild(label);
       }
       var clear = el('button', 'st-filter-clear', 'Clear filters');
