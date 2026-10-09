@@ -33,7 +33,7 @@ entries:
     weight: 0.5
     tags: [consumable, healing, magic item, potion]
     description: |
-      *Potion, Rarity Varies (See table)*
+      *Potion, Rarity Varies (See table)*\
       *Cost Varies (See table), 1/2 lb.*
 
       This potion’s red liquid glimmers when agitated.
@@ -56,7 +56,7 @@ entries:
     weight: 0.5
     tags: [consumable, magic item, potion]
     description: |
-      *Potion, Rarity Varies (See table)*
+      *Potion, Rarity Varies (See table)*\
       *Cost Varies (See table), 1/2 lb.*
 
       This potion's blue liquid crackles and sparks when agitated.
