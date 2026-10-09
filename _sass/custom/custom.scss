@@ -482,6 +482,11 @@ a:not([class]):hover {
   font-size: 0.85rem;
   color: $nav-child-link-color;
 }
+
+.st-symbol {
+  font-size: 1.1em;
+  cursor: help;
+}
 // SEARCH TABLE
 
 // ITEM RARITY
