@@ -21,6 +21,6 @@ This is the Items aisle, where John Dungeon's weird little curios are housed.
 
 ---
 
-> *"Welcome to the Items aisle. It's where I keep my stuff. All sorts of curios, knickknacks, trinkets, and the like. Maybe an artifact of legend or two as well. Anyway, I'll leave you to it. Have fun!"*
+> *"Welcome to the Items aisle. It's where I keep all of my stuff. All sorts of curios, knickknacks, trinkets, and the like. Maybe an artifact of legend or two as well. Anyway, I'll leave you to it. Have fun!"*
 
 [← Back to Home](../index.md)
