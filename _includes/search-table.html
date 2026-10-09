@@ -30,7 +30,11 @@
       <tbody>
         {%- for entry in entries -%}
         <tr class="st-row" tabindex="0" data-id="{{ forloop.index }}" data-tags="{{ entry.tags | join: ',' | downcase | escape }}" data-tag-names="{{ entry.tags | join: ',' | escape }}"
-          {%- for col in cols %} data-v-{{ col.key }}="{% if col.type == 'list' %}{{ entry[col.key] | join: ', ' | downcase | escape }}{% else %}{{ entry[col.key] | downcase | escape }}{% endif %}"{% endfor -%}
+          {%- for col in cols %} data-v-{{ col.key }}="{% if col.type == 'list' %}{{ entry[col.key] | join: ', ' | downcase | escape }}{% else %}{{ entry[col.key] | downcase | escape }}{% endif %}"
+            {%- assign opt_key = col.key | append: '_options' -%}
+            {%- assign opts = entry[opt_key] -%}
+            {%- if opts %} data-o-{{ col.key }}="{{ opts | join: ', ' | escape }}"{% endif -%}
+          {% endfor -%}
         >
           {%- for col in cols -%}
             {%- assign val = entry[col.key] -%}
