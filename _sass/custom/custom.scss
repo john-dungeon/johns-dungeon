@@ -502,3 +502,32 @@ $marker-colors: (
   }
 }
 // ITEM RARITY
+
+// HOVER TEXT
+a[data-tip] {
+  position: relative;
+}
+
+a[data-tip]:hover::after,
+a[data-tip]:focus-visible::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 0.4rem);
+  z-index: 50;
+  width: max-content;
+  max-width: 18rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid $border-color;
+  border-radius: 0.4rem;
+  background: $sidebar-color;
+  color: $body-text-color;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+// HOVER TEXT
