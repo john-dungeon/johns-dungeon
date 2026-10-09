@@ -2,7 +2,6 @@
 title: Item Data
 nav_exclude: true
 search_exclude: true
-has_toc: false
 table:
   noun: items
   popup_facts: false
