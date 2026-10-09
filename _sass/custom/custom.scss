@@ -399,10 +399,27 @@ a:not([class]):hover {
   color: $link-color;
 }
 
-.st-opt[aria-pressed="true"] {
+.st-opt[data-state="include"] {
   border-color: $link-color;
   background: $link-color;
   color: $body-background-color;
+}
+
+.st-opt[data-state="exclude"] {
+  border-style: dashed;
+  border-color: $link-color;
+  color: $nav-child-link-color;
+  text-decoration: line-through;
+}
+
+.st-opt[data-state="include"]::before {
+  content: "+ ";
+}
+
+.st-opt[data-state="exclude"]::before {
+  content: "\2212 ";
+  display: inline-block;
+  text-decoration: none;
 }
 
 .st-range {
@@ -471,6 +488,12 @@ a:not([class]):hover {
 .st-filter-clear:hover {
   border-color: $link-color;
   color: $link-color;
+}
+
+.st-filter-hint {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: $nav-child-link-color;
 }
 // SEARCH TABLE
 
