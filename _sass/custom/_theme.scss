@@ -1,0 +1,52 @@
+@if $theme-body-font {
+  body, button, input { font-family: $theme-body-font; }
+}
+
+@if $theme-heading-font {
+  h1, h2, h3, h4, h5, h6, .site-title { font-family: $theme-heading-font; }
+}
+
+#theme-switcher {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+}
+
+#theme-toggle {
+  @include outlined-button(999px, $sidebar-color);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  box-shadow: $shadow-small;
+
+  &:hover { border-color: $link-color; }
+}
+
+#theme-menu {
+  @include outlined(0.5rem);
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+  background: $sidebar-color;
+  box-shadow: $shadow-popup;
+
+  &[hidden] { display: none; }
+}
+
+.theme-option {
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  border-radius: 0.35rem;
+  background: transparent;
+  color: $body-text-color;
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover { background: $code-background-color; }
+  &.active { color: $link-color; font-weight: 600; }
+}
