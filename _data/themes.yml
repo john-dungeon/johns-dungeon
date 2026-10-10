@@ -1,0 +1,8 @@
+- id: dungeon
+  label: "Dungeon 🔥"
+- id: parchment
+  label: "Parchment 📜"
+- id: dark
+  label: "Dark 🌑"
+- id: light
+  label: "Light ☀️"
