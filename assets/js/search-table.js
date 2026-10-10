@@ -476,10 +476,7 @@
       var shown = matched.slice(0, limit);
 
       var fragment = document.createDocumentFragment();
-      shown.forEach(function (rec, index) {
-        rec.row.classList.toggle('is-even', index % 2 === 1);
-        fragment.appendChild(rec.row);
-      });
+      shown.forEach(function (rec) { fragment.appendChild(rec.row); });
       body.textContent = '';
       body.appendChild(fragment);
 
