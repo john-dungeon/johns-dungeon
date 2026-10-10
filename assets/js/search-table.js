@@ -86,10 +86,9 @@
         own: {}, extra: {}, values: {},
         tags: [], tagNames: []
       };
-      var tagText = row.getAttribute('data-tags');
-      rec.tags = tagText ? tagText.split(',') : [];
       var tagNameText = row.getAttribute('data-tag-names');
       rec.tagNames = tagNameText ? tagNameText.split(',') : [];
+      rec.tags = rec.tagNames.map(function (tag) { return tag.toLowerCase(); });
 
       columns.forEach(function (col) {
         var raw = row.getAttribute('data-v-' + col.key) || '';
