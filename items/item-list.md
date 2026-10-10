@@ -32,8 +32,8 @@ table:
     - key: attunement
       label: Attunement
       symbols:
-        "none": "☐"
-        "required": "☒"
+        "None": "☐"
+        "Required": "☒"
 entries:
 
   - name: Potion of Health
