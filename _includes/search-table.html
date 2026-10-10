@@ -29,61 +29,47 @@
       </thead>
       <tbody>
         {%- for entry in entries -%}
-        <tr class="st-row" tabindex="0" data-id="{{ forloop.index }}" data-tags="{{ entry.tags | join: ',' | downcase | escape }}" data-tag-names="{{ entry.tags | join: ',' | escape }}"
+          {%- assign has_marker = false -%}
+          {%- if cfg.marker -%}
+            {%- assign marker_tag = cfg.marker.tag | downcase -%}
+            {%- assign entry_tags_lower = entry.tags | join: "," | downcase | split: "," -%}
+            {%- if cfg.marker.tag == nil or entry_tags_lower contains marker_tag -%}
+              {%- assign has_marker = true -%}
+              {%- assign marker_raw = entry[cfg.marker.color_by] -%}
+              {%- assign marker_text = cfg.marker.label | default: "Marked" -%}
+              {%- if marker_raw != blank and cfg.marker.label -%}
+                {%- assign marker_text = marker_text | append: " · " | append: marker_raw -%}
+              {%- elsif marker_raw != blank -%}
+                {%- assign marker_text = marker_raw -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endif -%}
+        <tr class="st-row" tabindex="0" data-id="{{ forloop.index }}" data-tag-names="{{ entry.tags | join: ',' | escape }}"
           {%- for col in cols %} data-v-{{ col.key }}="{% if col.type == 'list' %}{{ entry[col.key] | join: ', ' | downcase | escape }}{% else %}{{ entry[col.key] | downcase | escape }}{% endif %}"
             {%- assign opt_key = col.key | append: '_options' -%}
             {%- assign opts = entry[opt_key] -%}
             {%- if opts %} data-o-{{ col.key }}="{{ opts | join: ', ' | escape }}"{% endif -%}
           {% endfor -%}
         >
-          {%- for col in cols -%}
-            {%- assign val = entry[col.key] -%}
-            {%- if forloop.first -%}
-              {%- assign has_marker = false -%}
-              {%- if cfg.marker -%}
-                {%- if cfg.marker.tag -%}
-                  {%- assign marker_tag = cfg.marker.tag | downcase -%}
-                  {%- for tag in entry.tags -%}
-                    {%- assign tag_lower = tag | downcase -%}
-                    {%- if tag_lower == marker_tag -%}{%- assign has_marker = true -%}{%- endif -%}
-                  {%- endfor -%}
-                {%- else -%}
-                  {%- assign has_marker = true -%}
-                {%- endif -%}
-              {%- endif -%}
-          <td class="st-name-cell" data-label="{{ col.label | escape }}"><span class="st-name">{{ val | escape }}</span>
-              {%- if has_marker -%}
-                {%- assign marker_raw = entry[cfg.marker.color_by] -%}
-                {%- assign marker_value = marker_raw | downcase -%}
-                {%- if cfg.marker.label and marker_raw != nil and marker_raw != "" -%}
-                  {%- assign marker_text = cfg.marker.label | append: " · " | append: marker_raw -%}
-                {%- elsif marker_raw != nil and marker_raw != "" -%}
-                  {%- assign marker_text = marker_raw -%}
-                {%- else -%}
-                  {%- assign marker_text = cfg.marker.label | default: "Marked" -%}
-                {%- endif -%}
-            <span class="st-marker" role="img" aria-label="{{ marker_text | escape }}" data-tooltip="{{ marker_text | escape }}" data-marker="{{ marker_value | escape }}">{{ cfg.marker.symbol | default: '✦' }}</span>
-              {%- endif -%}
-          </td>
-            {%- else -%}
-              {%- if col.in_table == false -%}
-          <td class="st-extra" hidden data-label="{{ col.label | escape }}"{% if col.symbols %} data-text="{{ val | escape }}"{% endif %}>
-              {%- else -%}
-          <td data-label="{{ col.label | escape }}"{% if col.symbols %} data-text="{{ val | escape }}"{% endif %}>
-              {%- endif -%}
-              {%- if val == nil or val == "" -%}—
-              {%- elsif col.symbols -%}
-                {%- assign symbol_key = val | downcase -%}
-                {%- assign symbol = col.symbols[symbol_key] -%}
-                {%- if symbol -%}<span class="st-symbol" role="img" aria-label="{{ col.label | escape }}: {{ val | escape }}" data-tooltip="{{ col.label | escape }}: {{ val | escape }}">{{ symbol }}</span>{%- else -%}{{ val | escape }}{%- endif -%}
-              {%- elsif col.type == "list" -%}{{ val | join: ", " | escape }}
-              {%- elsif col.type == "number" -%}
-                {%- assign as_number = val | plus: 0 -%}
-                {%- if as_number == val -%}{{ col.prefix | escape }}{{ val }}{{ col.suffix | escape }}{%- else -%}{{ val | escape }}{%- endif -%}
-              {%- else -%}{{ val | escape }}
-              {%- endif -%}
-          </td>
+          <td class="st-name-cell" data-label="{{ cols[0].label | escape }}"><span class="st-name">{{ entry[name_key] | escape }}</span>
+            {%- if has_marker -%}
+            <span class="st-marker" role="img" aria-label="{{ marker_text | escape }}" data-tooltip="{{ marker_text | escape }}" data-marker="{{ marker_raw | downcase | escape }}">{{ cfg.marker.symbol | default: '✦' }}</span>
             {%- endif -%}
+          </td>
+          {%- for col in cols offset: 1 -%}
+            {%- assign val = entry[col.key] -%}
+          <td{% if col.in_table == false %} class="st-extra"{% endif %} data-label="{{ col.label | escape }}"{% if col.symbols %} data-text="{{ val | escape }}"{% endif %}>
+            {%- if val == nil or val == "" -%}—
+            {%- elsif col.symbols -%}
+              {%- assign symbol = col.symbols[val | downcase] -%}
+              {%- if symbol -%}<span class="st-symbol" role="img" aria-label="{{ col.label | escape }}: {{ val | escape }}" data-tooltip="{{ col.label | escape }}: {{ val | escape }}">{{ symbol }}</span>{%- else -%}{{ val | escape }}{%- endif -%}
+            {%- elsif col.type == "list" -%}{{ val | join: ", " | escape }}
+            {%- elsif col.type == "number" -%}
+              {%- assign as_number = val | plus: 0 -%}
+              {%- if as_number == val -%}{{ col.prefix | escape }}{{ val }}{{ col.suffix | escape }}{%- else -%}{{ val | escape }}{%- endif -%}
+            {%- else -%}{{ val | escape }}
+            {%- endif -%}
+          </td>
           {%- endfor -%}
         </tr>
         {%- endfor -%}
