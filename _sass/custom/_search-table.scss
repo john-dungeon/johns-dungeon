@@ -1,0 +1,231 @@
+// Markup: _includes/search-table.html
+// Behavior: assets/js/search-table.js
+
+// Toolbar
+.st-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.st-search,
+.st-range-input {
+  @include outlined;
+  background: $search-background-color;
+  color: $body-text-color;
+}
+
+.st-search {
+  flex: 1 1 18rem;
+  padding: 0.55rem 0.85rem;
+  font-size: 1rem;
+
+  &:focus { outline: 2px solid $link-color; outline-offset: 1px; }
+}
+
+.st-count { @include muted; }
+
+.st-filter-toggle {
+  @include outlined-button(0.4rem, $sidebar-color);
+  padding: 0.55rem 1rem;
+
+  &:hover,
+  &[aria-expanded="true"] { border-color: $link-color; }
+}
+
+// Table
+.st-table-wrap { overflow-x: auto; }
+
+.st-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    min-width: 0;
+    padding: 0.6rem 0.85rem;
+    border: 0;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  thead th {
+    background: $body-background-color;
+    font-size: 1.1rem;
+    font-weight: 700;
+    white-space: nowrap;
+
+    button {
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    &[aria-sort="ascending"] button::after { content: " ▲"; font-size: 0.7em; }
+    &[aria-sort="descending"] button::after { content: " ▼"; font-size: 0.7em; }
+  }
+
+  td.st-extra { display: none; }
+
+  tbody tr.st-row {
+    cursor: pointer;
+    &:hover td { background: $code-background-color; }
+  }
+}
+
+.st-name { font-weight: 600; }
+.st-symbol { font-size: 1.1em; cursor: help; }
+
+// Pop-Up
+.st-dialog {
+  @include outlined(0.6rem);
+  width: min(60rem, calc(100% - 2rem));
+  max-height: 85vh;
+  padding: 0;
+  overflow: hidden;
+  background: $sidebar-color;
+  color: $body-text-color;
+  box-shadow: $shadow-dialog;
+
+  &::backdrop { background: rgba(0, 0, 0, 0.6); }
+}
+
+.st-dialog-inner {
+  max-height: 85vh;
+  padding: 1.25rem 1.5rem 1.5rem;
+  overflow-y: auto;
+}
+
+.st-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.st-dialog-title { margin: 0; }
+
+.st-dialog-close {
+  padding: 0.2rem 0.5rem;
+  border: 0;
+  background: transparent;
+  color: $body-text-color;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.st-dialog-tags {
+  @include muted(0.9rem);
+  margin-top: 0.75rem;
+  &:empty { display: none; }
+}
+
+.st-dialog-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0.75rem 0 1rem;
+
+  &:empty { display: none; }
+  dt { font-weight: 600; color: $nav-child-link-color; }
+  dd { margin: 0; }
+}
+
+.st-dialog-body {
+  table { display: table; width: 100%; }
+  th, td { min-width: 0; padding: 0.5rem 0.75rem; }
+}
+
+// Filter
+.st-filter-panel {
+  @include outlined(0.5rem);
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem 0.75rem;
+  background: $sidebar-color;
+}
+
+.st-filter-hint { @include muted; margin: 0 0 1rem; }
+.st-filter-group { margin-bottom: 1rem; }
+.st-filter-title { @include muted; margin-bottom: 0.4rem; font-weight: 700; }
+
+.st-filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.st-opt {
+  @include outlined-button(999px);
+  padding: 0.15rem 0.7rem;
+  color: $nav-child-link-color;
+  font-size: 0.85rem;
+  @include accent-on-hover;
+
+  // Hover
+  &[data-state="include"] {
+    border-color: $link-color;
+    background: $link-color;
+    color: $body-background-color;
+    &::before { content: "+ "; }
+  }
+
+  &[data-state="exclude"] {
+    border-style: dashed;
+    border-color: $link-color;
+    color: $nav-child-link-color;
+    text-decoration: line-through;
+    &::before { content: "\2212 "; display: inline-block; text-decoration: none; }
+  }
+}
+
+.st-range { display: flex; align-items: center; gap: 0.5rem; }
+
+.st-range-input {
+  width: 6.5rem;
+  padding: 0.35rem 0.6rem;
+  font: inherit;
+}
+
+.st-limit { display: flex; align-items: center; gap: 0.75rem; }
+.st-limit-slider { width: min(20rem, 100%); accent-color: $link-color; }
+.st-limit-value { min-width: 2.5rem; font-weight: 700; }
+
+.st-filter-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid $border-color;
+}
+
+.st-filter-match {
+  @include muted;
+  cursor: pointer;
+  input { accent-color: $link-color; }
+}
+
+.st-filter-clear {
+  @include outlined-button;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.85rem;
+  @include accent-on-hover;
+}
+
+// Rarity
+.st-marker {
+  margin-left: 0.4em;
+  color: $link-color;
+  font-size: 0.9em;
+  cursor: help;
+
+  @each $name, $color in $marker-colors {
+    &[data-marker="#{$name}"] { color: $color; }
+  }
+}
