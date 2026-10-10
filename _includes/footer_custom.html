@@ -1,80 +1,8 @@
 <div id="theme-switcher">
   <div id="theme-menu" role="menu" hidden>
-    <button type="button" class="theme-option" role="menuitem" data-theme="dungeon">Dungeon 🔥</button>
-    <button type="button" class="theme-option" role="menuitem" data-theme="parchment">Parchment 📜</button>
-    <button type="button" class="theme-option" role="menuitem" data-theme="dark">Dark 🌑</button>
-    <button type="button" class="theme-option" role="menuitem" data-theme="light">Light ☀️</button>
+    {%- for theme in site.data.themes %}
+    <button type="button" class="theme-option" role="menuitem" data-theme="{{ theme.id }}">{{ theme.label }}</button>
+    {%- endfor %}
   </div>
   <button id="theme-toggle" type="button" aria-haspopup="true" aria-expanded="false">Theme</button>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var toggle = document.getElementById('theme-toggle');
-    var menu = document.getElementById('theme-menu');
-    var options = menu ? menu.querySelectorAll('.theme-option') : [];
-    var link = document.querySelector('link[rel="stylesheet"][href*="just-the-docs-"]');
-    if (!toggle || !menu || !link) return;
-
-    function current() {
-      var match = link.getAttribute('href').match(/just-the-docs-([a-z]+)\.css/);
-      return match ? match[1] : 'dungeon';
-    }
-
-    function markActive() {
-      var now = current();
-      for (var i = 0; i < options.length; i++) {
-        var isActive = options[i].getAttribute('data-theme') === now;
-        options[i].classList.toggle('active', isActive);
-      }
-    }
-
-    function isAvailable(theme) {
-      for (var i = 0; i < options.length; i++) {
-        if (options[i].getAttribute('data-theme') === theme) return true;
-      }
-      return false;
-    }
-
-    function apply(theme) {
-      link.setAttribute(
-        'href',
-        link.getAttribute('href').replace(/just-the-docs-[a-z]+\.css/, 'just-the-docs-' + theme + '.css')
-      );
-      markActive();
-      try { localStorage.setItem('theme', theme); } catch (e) {}
-    }
-
-    function setMenu(open) {
-      menu.hidden = !open;
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
-
-    var saved = null;
-    try { saved = localStorage.getItem('theme'); } catch (e) {}
-    if (saved && isAvailable(saved) && saved !== current()) {
-      apply(saved);
-    }
-    markActive();
-
-    toggle.addEventListener('click', function (event) {
-      event.stopPropagation();
-      setMenu(menu.hidden);
-    });
-
-    for (var i = 0; i < options.length; i++) {
-      options[i].addEventListener('click', function (event) {
-        apply(event.currentTarget.getAttribute('data-theme'));
-        setMenu(false);
-      });
-    }
-
-    document.addEventListener('click', function (event) {
-      if (!menu.hidden && !menu.contains(event.target)) setMenu(false);
-    });
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') setMenu(false);
-    });
-  });
-</script>
