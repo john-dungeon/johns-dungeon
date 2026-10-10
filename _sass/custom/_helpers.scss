@@ -1,0 +1,41 @@
+$theme-body-font: null !default;
+$theme-heading-font: null !default;
+$stripe-color: mix(#ffffff, $body-background-color, 10%) !default;
+$marker-colors: (
+  "common": #8c969b,
+  "uncommon": #73d746,
+  "rare": #50a0f5,
+  "very rare": #c850fa,
+  "legendary": #ffc846,
+  "artifact": #fa2323,
+  "varies": #ffffff
+) !default;
+
+$shadow-small: 0 2px 6px rgba(0, 0, 0, 0.3);
+$shadow-popup: 0 4px 12px rgba(0, 0, 0, 0.35);
+$shadow-dialog: 0 8px 30px rgba(0, 0, 0, 0.5);
+
+@mixin outlined($radius: 0.4rem) {
+  border: 1px solid $border-color;
+  border-radius: $radius;
+}
+
+@mixin outlined-button($radius: 0.4rem, $background: transparent) {
+  @include outlined($radius);
+  background: $background;
+  color: $body-text-color;
+  font: inherit;
+  cursor: pointer;
+}
+
+@mixin muted($size: 0.85rem) {
+  font-size: $size;
+  color: $nav-child-link-color;
+}
+
+@mixin accent-on-hover($recolor-text: true) {
+  &:hover {
+    border-color: $link-color;
+    @if $recolor-text { color: $link-color; }
+  }
+}
