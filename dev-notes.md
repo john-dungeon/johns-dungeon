@@ -11,7 +11,7 @@ search_exclude: true
 - `_data/themes.yml` – list of themes in the theme-switcher menu.
 - `_sass/color_schemes/` – one file per theme. `_sass/custom/` – all custom CSS, split by topic and loaded in order by `custom.scss`.
 - `_includes/` – reusable HTML: `catalog.html` (link grids), `search-table.html` (searchable tables), plus head/footer pieces.
-- `assets/js/` – `theme-switcher.js`, `tooltips.js`, `search-table.js`.
+- `assets/js/` – `theme-switcher.js`, `tooltips.js`, and the `search-table/` folder (one file per job; `main.js` is the entry point).
 
 ### Adding Pages
 Create a `.md` file in the right folder with front matter: `title`, `parent` (exact title of the section page). For subclasses also add `class_name`, and optionally `tagline` and `summary` (used for the hover tooltip in the grid).
