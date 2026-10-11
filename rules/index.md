@@ -9,10 +9,9 @@ has_children: true
 
 This is the Rules aisle, where John Dungeon's list of house rules is codified.
 
-|  |  |  |
-| --- | --- | --- |
-| [Combat](combat.md) | [Crafting](crafting.md) | [Inspiration](inspiration.md) |
-{: .catalog .headless }
+{::nomarkdown}
+{% include catalog.html parent="Rules" %}
+{:/nomarkdown}
 
 ---
 
