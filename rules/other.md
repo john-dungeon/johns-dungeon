@@ -1,5 +1,5 @@
 ---
-title: General Rules
+title: Other
 parent: Rules
 tagline: Placeholder
 summary: Placeholder
