@@ -9,10 +9,9 @@ has_children: true
 
 This is the Species aisle, where John Dungeon's research on the peoples of the wider world is stored.
 
-|  |  |  |
-| --- | --- | --- |
-| [Species of Erisia](species-erisia.md) |  |  |
-{: .catalog .headless }
+{::nomarkdown}
+{% include catalog.html parent="Rules" %}
+{:/nomarkdown}
 
 ---
 
