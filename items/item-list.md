@@ -55,7 +55,7 @@ entries:
       The potion’s rarity and purchase cost, and the number of Hit Points it restores are shown in the table below.
 
       | Potency | Rarity | Fixed HP Regained | Rolled HP Regained | Cost |
-      | --- | --- | --- | --- | --- |
+      | :--- | :--- | :--- | :--- | :---: |
       | +1 | Common | 10 | 2d4 + 2 | 50 GP |
       | +2 | Uncommon | 20 | 4d4 + 4 | 200 GP |
       | +3 | Rare | 40 | 8d4 + 8 | 2,000 GP |
@@ -84,7 +84,7 @@ entries:
       The potion’s rarity and purchase cost, and the level of the spell slot it restores are shown in the table below.
 
       | Potency | Rarity | Spell Slot Level | Cost |
-      | --- | --- | --- | --- |
+      | :--- | :--- | :--- | :---: |
       | +1 | Common | 1 | 75 GP |
       | +2 | Uncommon | 3 | 300 GP |
       | +3 | Rare | 5 | 3,000 GP |
