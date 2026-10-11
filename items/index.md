@@ -9,6 +9,10 @@ has_children: true
 
 This is the Items aisle, where John Dungeon's weird little curios are housed.
 
+{::nomarkdown}
+{% include catalog.html parent="Items" group_by="category_name" %}
+{:/nomarkdown}
+
 |  |  |  |
 | --- | --- | --- |
 | [Augments](augments.md) | [Ingredients](ingredients.md) |  |
