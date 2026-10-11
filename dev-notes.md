@@ -11,7 +11,10 @@
 Create a `.md` file in the right folder with front matter: `title`, `parent` (exact title of the section page). For subclasses also add `class_name`, and optionally `tagline` and `summary` (used for the hover tooltip in the grid).
 
 ### Adding Themes
-1. Add `_sass/color_schemes/NAME.scss` (copy an existing one). 2. Copy `assets/css/just-the-docs-dark.scss` to `just-the-docs-NAME.scss` and change `color_scheme="NAME"`. 3. Add an entry to `_data/themes.yml`.
+1. Add `_sass/color_schemes/NAME.scss` (copy an existing one).
+2. Copy `assets/css/just-the-docs-dark.scss` to `just-the-docs-NAME.scss` and change `color_scheme="NAME"`.
+3. Add an entry to `_data/themes.yml`.
+
 Optional overrides in a scheme: `$theme-body-font`, `$theme-heading-font`, `$stripe-color`, `$marker-colors`.
 
 ### Link Tables (`catalog.html`)
