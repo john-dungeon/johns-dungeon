@@ -13,6 +13,5 @@ a:not([class]):hover {
   text-underline-offset: 0.2em;
 }
 
-// Kramdown: {: .indent } & {: .indent-first }
+// Kramdown: {: .indent }
 .indent { margin-left: 2rem; }
-.indent-first { text-indent: 2rem; }
