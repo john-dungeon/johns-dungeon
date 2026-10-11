@@ -1,6 +1,6 @@
 ---
 title: Moon Slayer
-parent: Moon Slayer
+parent: Subclasses
 class_name: Ranger
 tagline: Placeholder
 summary: Placeholder
