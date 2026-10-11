@@ -78,7 +78,7 @@ function init(root) {
     body.appendChild(fragment);
 
     let text = `Showing ${shown.length} of ${matched.length} ${config.noun || 'entries'}`;
-    if (matched.length !== records.length) text += ` (filtered from ${records.length})`;
+    if (matched.length !== records.length) text += ` (Filtered from ${records.length})`;
     if (shown.length < matched.length && state.limit < limits.max) {
       text += ' \u00b7 raise the limit under Filter to see more';
     }
