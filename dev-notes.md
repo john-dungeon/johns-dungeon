@@ -10,7 +10,7 @@ search_exclude: true
 - `_config.yml` – site settings (theme is pinned: change the version on purpose, not by accident).
 - `_data/themes.yml` – list of themes in the theme-switcher menu.
 - `_sass/color_schemes/` – one file per theme. `_sass/custom/` – all custom CSS, split by topic and loaded in order by `custom.scss`.
-- `_includes/` – reusable HTML: `catalog.html` (link grids), `search-table.html` (searchable tables), plus head/footer pieces.
+- `_includes/` – reusable HTML: `catalog.html` (catalog tables), `search-table.html` (search tables), `404.html` (the "not constructed yet" message), plus head/footer pieces.
 - `assets/js/` – `theme-switcher.js`, `tooltips.js`, and the `search-table/` folder (one file per job; `main.js` is the entry point).
 
 ### Adding Pages
