@@ -10,7 +10,7 @@ search_exclude: true
 - `_config.yml` – site settings (theme is pinned: change the version on purpose, not by accident).
 - `_data/themes.yml` – list of themes in the theme-switcher menu.
 - `_sass/color_schemes/` – one file per theme. `_sass/custom/` – all custom CSS, split by topic and loaded in order by `custom.scss`.
-- `_includes/` – reusable HTML: `catalog.html` (catalog tables), `search-table.html` (search tables), `404.html` (the "not constructed yet" message), plus head/footer pieces.
+- `_includes/` – reusable HTML: `catalog.html` (link tables), `search-table.html` (search tables), `404.html` (the "not constructed yet" message), plus head/footer pieces.
 - `assets/js/` – `theme-switcher.js`, `tooltips.js`, and the `search-table/` folder (one file per job; `main.js` is the entry point).
 
 ### Adding Pages
@@ -24,7 +24,7 @@ Create a `.md` file in the right folder with front matter: `title`, `parent` (ex
 Optional overrides in a scheme: `$theme-body-font`, `$theme-heading-font`, `$stripe-color`, `$marker-colors`.
 
 ### Link Tables (`catalog.html`)
-`{% include catalog.html parent="Items" %}` — options: `group_by="front_matter_key"`, `columns=3`. Wrap the include in `{::nomarkdown}` ... `{:/nomarkdown}`.
+`{% include catalog.html parent="Items" %}` lists every page whose `parent` is that title, sorted by title. Options: `group_by="front_matter_key"`, `columns=3`. Wrap the include in `{::nomarkdown}` ... `{:/nomarkdown}`.
 
 ### Search Tables (`search-table.html`)
 Put `{% include search-table.html data="items/item-list.md" %}` (inside `{::nomarkdown}`) on a page. The data file has front matter `table:` (settings) and `entries:` (the rows).
@@ -53,5 +53,6 @@ Each entry has a value for every column `key`, plus `tags: [...]` and `descripti
 Search box syntax: plain words search names. `column:value` searches a column (`rarity:rare`). `tag:word` or `#word` searches tags. `-term` excludes. Quotes keep phrases together. Numbers accept `>=5`, `<10`, or ranges like `10-50` (`cost:10-50`).
 
 ### Other Notes
+- `has_toc: false` is set for every page in `_config.yml`, so don't repeat it in front matter.
 - Colors and fonts come from the color-scheme variables, never hard-coded in `_sass/custom/`.
 - Before deleting a CSS class, search the whole repo for its name.
