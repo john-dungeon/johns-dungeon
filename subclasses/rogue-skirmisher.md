@@ -7,4 +7,4 @@ summary: Placeholder
 permalink: /404.html
 ---
 
-{% include under-construction.html %}
+{% include 404.html %}
