@@ -1,0 +1,29 @@
+{%- assign columns = include.columns | default: 3 -%}
+{%- assign last_col = columns | minus: 1 -%}
+{%- assign children = site.pages | where: "parent", include.parent | where_exp: "p", "p.nav_exclude != true" | sort_natural: "title" -%}
+{%- if include.group_by -%}
+  {%- assign groups = children | group_by: include.group_by | sort: "name" -%}
+{%- else -%}
+  {%- assign groups = children | group_by_exp: "p", "'all'" -%}
+{%- endif -%}
+<div class="table-wrapper">
+<table class="catalog">
+<tbody>
+{%- for group in groups -%}
+  {%- if include.group_by and group.name != blank -%}
+<tr><td colspan="{{ columns }}"><em>{{ group.name | escape }}</em></td></tr>
+  {%- endif -%}
+  {%- for p in group.items -%}
+    {%- assign col = forloop.index0 | modulo: columns -%}
+    {%- if col == 0 -%}<tr>{%- endif -%}
+<td><a href="{{ p.url | relative_url }}"{% if p.summary %} data-tooltip="{% if p.tagline %}*{{ p.tagline | escape }}* \ {% endif %}{{ p.summary | escape }}"{% endif %}>{{ p.title | escape }}</a></td>
+    {%- if forloop.last -%}
+      {%- assign pad_from = col | plus: 1 -%}
+      {%- for i in (pad_from..last_col) -%}<td></td>{%- endfor -%}
+    {%- endif -%}
+    {%- if col == last_col or forloop.last -%}</tr>{%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+</tbody>
+</table>
+</div>
