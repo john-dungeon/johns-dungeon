@@ -1,3 +1,9 @@
+---
+title: Developer Notes
+nav_exclude: true
+search_exclude: true
+---
+
 # Developer Notes
 
 ### Locations
