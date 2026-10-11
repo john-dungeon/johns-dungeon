@@ -1,36 +1,33 @@
 (function () {
-  var tip = null;
-  var current = null;
-  var GAP = 8;
-  var MARGIN = 8;
+  const GAP = 8;
+  const MARGIN = 8;
+  let tip = null;
+  let current = null;
 
-  // Pop-Up Z Priority
-  var supportsPopover = typeof HTMLElement !== 'undefined' &&
+// Pop-Up Z Priority
+  const supportsPopover = typeof HTMLElement !== 'undefined' &&
     typeof HTMLElement.prototype.showPopover === 'function';
 
   function ensureTip() {
-    if (tip) return tip;
+    if (tip) return;
     tip = document.createElement('div');
     tip.className = 'tooltip-bubble';
     tip.id = 'site-tooltip';
     tip.setAttribute('role', 'tooltip');
     if (supportsPopover) tip.setAttribute('popover', 'manual');
     document.body.appendChild(tip);
-    return tip;
   }
 
-  // Tooltip Positioning
+// Tooltip Position
   function place(target) {
-    var rect = target.getBoundingClientRect();
-    var width = tip.offsetWidth;
-    var height = tip.offsetHeight;
+    const rect = target.getBoundingClientRect();
+    const width = tip.offsetWidth;
+    const height = tip.offsetHeight;
 
-    var left = rect.left;
-    var maxLeft = window.innerWidth - width - MARGIN;
-    if (left > maxLeft) left = maxLeft;
-    if (left < MARGIN) left = MARGIN;
+    const maxLeft = window.innerWidth - width - MARGIN;
+    const left = Math.max(MARGIN, Math.min(rect.left, maxLeft));
 
-    var top = rect.top - height - GAP;
+    let top = rect.top - height - GAP;
     if (top < MARGIN) top = rect.bottom + GAP;
 
     tip.style.left = left + 'px';
@@ -47,36 +44,33 @@
     }
   }
 
-  // Markdown Formatting
+// Bold and Italic Markdown
   function addFormatted(line) {
-    var pattern = /\*\*(.+?)\*\*|\*(.+?)\*/g;
-    var last = 0;
-    var match;
+    const pattern = /\*\*(.+?)\*\*|\*(.+?)\*/g;
+    let last = 0;
+    let match;
     while ((match = pattern.exec(line)) !== null) {
-      if (match.index > last) {
-        tip.appendChild(document.createTextNode(line.slice(last, match.index)));
-      }
-      var isBold = match[1] !== undefined;
-      var node = document.createElement(isBold ? 'strong' : 'em');
+      tip.append(line.slice(last, match.index));
+      const isBold = match[1] !== undefined;
+      const node = document.createElement(isBold ? 'strong' : 'em');
       node.textContent = isBold ? match[1] : match[2];
-      tip.appendChild(node);
+      tip.append(node);
       last = pattern.lastIndex;
     }
-    if (last < line.length) {
-      tip.appendChild(document.createTextNode(line.slice(last)));
-    }
+    tip.append(line.slice(last));
   }
 
+// Line Break Markdown
   function fill(text) {
     tip.textContent = '';
-    text.split(/\s*\\\s*/).forEach(function (line, index) {
-      if (index > 0) tip.appendChild(document.createElement('br'));
+    text.split(/\s*\\\s*/).forEach((line, index) => {
+      if (index > 0) tip.append(document.createElement('br'));
       addFormatted(line);
     });
   }
 
   function show(target) {
-    var text = target.getAttribute('data-tooltip');
+    const text = target.getAttribute('data-tooltip');
     if (!text) return;
     ensureTip();
     hide();
@@ -90,36 +84,32 @@
     target.setAttribute('aria-describedby', 'site-tooltip');
   }
 
-  function tipTarget(event) {
-    var node = event.target;
-    return node && node.closest ? node.closest('[data-tooltip]') : null;
-  }
+  const tipTarget = event => event.target.closest?.('[data-tooltip]') ?? null;
 
-  // Cursor Hover
-  document.addEventListener('pointerover', function (event) {
+// Mouse Hover
+  document.addEventListener('pointerover', event => {
     if (event.pointerType === 'touch') return;
-    var target = tipTarget(event);
+    const target = tipTarget(event);
     if (target && target !== current) show(target);
   });
 
-  document.addEventListener('pointerout', function (event) {
-    if (!current) return;
-    if (tipTarget(event) !== current) return;
+  document.addEventListener('pointerout', event => {
+    if (!current || tipTarget(event) !== current) return;
     if (event.relatedTarget && current.contains(event.relatedTarget)) return;
     hide();
   });
 
-  // Keyboard Focus
-  document.addEventListener('focusin', function (event) {
-    var target = tipTarget(event);
+// Keyboard Focus
+  document.addEventListener('focusin', event => {
+    const target = tipTarget(event);
     if (target && target.matches(':focus-visible')) show(target);
   });
 
-  document.addEventListener('focusout', function (event) {
+  document.addEventListener('focusout', event => {
     if (tipTarget(event) === current) hide();
   });
 
-  document.addEventListener('keydown', function (event) {
+  document.addEventListener('keydown', event => {
     if (event.key === 'Escape') hide();
   });
 
