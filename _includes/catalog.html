@@ -1,6 +1,11 @@
 {%- assign columns = include.columns | default: 3 -%}
 {%- assign last_col = columns | minus: 1 -%}
-{%- assign children = site.pages | where: "parent", include.parent | where_exp: "p", "p.nav_exclude != true" | sort_natural: "title" -%}
+{%- if include.grand_parent -%}
+  {%- assign children = site.pages | where: "grand_parent", include.grand_parent -%}
+{%- else -%}
+  {%- assign children = site.pages | where: "parent", include.parent -%}
+{%- endif -%}
+{%- assign children = children | where_exp: "p", "p.nav_exclude != true" | sort_natural: "title" -%}
 {%- if include.group_by -%}
   {%- assign groups = children | group_by: include.group_by | sort: "name" -%}
 {%- else -%}
