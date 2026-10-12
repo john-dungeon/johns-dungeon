@@ -53,9 +53,9 @@ You embody the storm, gaining the following benefits.
 ## **Level 17: Eye of the Storm**
 As a Magic action, you can expend 5 Focus Points to invoke a storm of black clouds that surrounds you in a 20-foot Emanation for 1 minute, until you have the Incapacitated condition, or until you dismiss it (no action required). That area is Lightly Obscured, and you and your allies have Half Cover while in the area.
 
-Whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, you can force that creature to make a Constitution saving throw. On a failed save, the target takes Lightning or Thunder damage (your choice) equal to three rolls of your Martial Arts die and has the Prone condition. On a successful save, the target takes half as much damage only. A creature makes this save only once per turn.
+Whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, you can force that creature to make a Constitution saving throw. On a failed save, the target takes Lightning or Thunder damage (your choice) equal to two rolls of your Martial Arts die. On a successful save, the target takes half as much damage. A creature makes this save only once per turn.
 
-When you take the Attack action on your turn while this feature is active, you can replace one of your attacks with a staggering bolt of lightning. Make a ranged spell attack against one creature within 60 feet using Wisdom as your spellcasting ability. On a hit, the target takes Lightning damage equal to two rolls of your Martial Arts die and must succeed on a Constitution saving throw or have the Incapacitated condition until the start of your next turn.
+When you take the Attack action on your turn while this feature is active, you can replace one of your attacks with a staggering bolt of lightning. Make a ranged spell attack against one creature within 60 feet using Wisdom as your spellcasting ability. On a hit, the target takes Lightning damage equal to two rolls of your Martial Arts die and has the Incapacitated condition until the start of your next turn or until it takes damage.
 
 ---
 
