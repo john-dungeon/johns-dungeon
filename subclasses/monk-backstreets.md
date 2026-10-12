@@ -1,7 +1,7 @@
 ---
 title: Warrior of the Backstreets
 parent: Monk
-class_name: Monk
+grand_parent: Subclasses
 tagline: Placeholder
 summary: Placeholder
 ---
