@@ -1,8 +1,8 @@
 // Kramdown: {: .catalog } & {: .headless }
 table.catalog,
 .st-table {
-  tbody tr > * { background-color: $body-background-color; }
-  tbody tr:nth-child(#{$stripe-row}) > * { background-color: $stripe-color; }
+  tbody tr:nth-child(odd) > * { background-color: $stripe-odd-color; }
+  tbody tr:nth-child(even) > * { background-color: $stripe-even-color; }
 }
 
 table.catalog {
