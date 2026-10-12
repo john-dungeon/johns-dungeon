@@ -1,7 +1,7 @@
 ---
 title: Skirmisher
-parent: Subclasses
-class_name: Rogue
+parent: Rogue
+grand_parent: Subclasses
 tagline: Placeholder
 summary: Placeholder
 ---
