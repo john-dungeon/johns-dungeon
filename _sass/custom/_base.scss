@@ -13,5 +13,7 @@ a:not([class]):hover {
   text-underline-offset: 0.2em;
 }
 
+html { scrollbar-color: $nav-child-link-color $sidebar-color; }
+
 // Kramdown: {: .indent }
 .indent { margin-left: 2rem; }
