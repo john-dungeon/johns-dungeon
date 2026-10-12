@@ -2,8 +2,6 @@
 title: Monk
 parent: Subclasses
 has_children: true
-nav_exclude: true
+redirect_url: /subclasses/
 search_exclude: true
 ---
-
-{% include 404.html %}
