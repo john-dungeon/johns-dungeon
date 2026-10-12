@@ -1,7 +1,7 @@
 ---
 title: Warrior of the Backwater Inn
 parent: Monk
-class_name: Monk
+grand_parent: Subclasses
 tagline: Keep the Peace On and Off Business Hours
 summary: A Monk subclass specialized in defense and counterattacks.
 ---
