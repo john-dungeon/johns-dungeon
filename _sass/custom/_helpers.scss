@@ -1,10 +1,9 @@
 $theme-body-font: null !default;
 $theme-heading-font: null !default;
 $is-light: lightness($body-background-color) > 50% !default;
-$stripe-color: if($is-light,
-  mix(#000000, $body-background-color, 6%),
-  mix(#ffffff, $body-background-color, 10%)) !default;
-$stripe-row: if($is-light, odd, even) !default;
+$is-light-theme: lightness($body-background-color) > 50% !default;
+$stripe-odd-color: if($is-light-theme, mix(#000000, $body-background-color, 6%), $body-background-color) !default;
+$stripe-even-color: if($is-light-theme, $body-background-color, mix(#ffffff, $body-background-color, 10%)) !default;
 $marker-colors: (
   "common": #8c969b,
   "uncommon": #73d746,
