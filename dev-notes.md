@@ -14,7 +14,7 @@ search_exclude: true
 - `assets/js/` – `theme-switcher.js`, `tooltips.js`, and the `search-table/` folder (one file per job; `main.js` is the entry point).
 
 ### Adding Pages
-Create a `.md` file in the right folder with front matter: `title`, `parent` (exact title of the section page). For subclasses also add `class_name`, and optionally `tagline` and `summary` (used for the hover tooltip in the grid). For an unfinished page, put `{% include 404.html %}` as the body and add `search_exclude: true`; delete both when the page is ready.
+Create a `.md` file in the right folder with front matter: `title`, `parent` (exact title of the section page). For subclasses, use `parent` for the class and `grand_parent` for the section page, and optionally `tagline` and `summary` (used for the hover tooltip in the grid). For an unfinished page, put `{% include 404.html %}` as the body and add `search_exclude: true`; delete both when the page is ready.
 
 ### Adding Themes
 1. Add `_sass/color_schemes/NAME.scss` (copy an existing one).
