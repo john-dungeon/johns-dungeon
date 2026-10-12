@@ -1,7 +1,7 @@
 ---
 title: Warrior of the Strange Apothecary
-parent: Subclasses
-class_name: Monk
+parent: Monk
+grand_parent: Subclasses
 tagline: Placeholder
 summary: Placeholder
 ---
