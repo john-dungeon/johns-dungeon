@@ -1,19 +1,20 @@
 // Kramdown: {: .catalog } & {: .headless }
 table.catalog,
 .st-table {
+  box-shadow: none;
+
   tbody tr:nth-child(odd) > * { background-color: $stripe-odd-color; }
   tbody tr:nth-child(even) > * { background-color: $stripe-even-color; }
 }
 
 table.catalog {
   border-collapse: collapse;
-  box-shadow: none;
 
   th, td { border: 0; }
   &.headless thead th { display: none; }
 }
 
-.table-wrapper:has(table.catalog) {
+.table-wrapper:has(table.catalog, .st-table) {
   border: 0;
   box-shadow: none;
 }
