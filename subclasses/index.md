@@ -10,7 +10,7 @@ has_children: true
 This is the Subclasses aisle, where John Dungeon's most unusual subclasses are kept.
 
 {::nomarkdown}
-{% include catalog.html parent="Subclasses" group_by="class_name" %}
+{% include catalog.html grand_parent="Subclasses" group_by="parent" %}
 {:/nomarkdown}
 
 ---
