@@ -19,7 +19,7 @@ At your option, roll on or choose a result from the Quirks of the Storm table to
 ### **Quirks of the Storm**
 
 |  |  |
-| --- | --- |
+| :---: | :--- |
 | **d6** | **Quirk** |
 | 1 | Your natural voice is loud and thunderous. |
 | 2 | Your body tingles with static electricity, causing your hair to stand up. |
