@@ -1,7 +1,7 @@
 ---
 title: Warrior of the Blade
 parent: Monk
-class_name: Monk
+grand_parent: Subclasses
 tagline: Become the Pinnacle of Swordsmanship
 summary: A Monk subclass specialized in high damage and the ability to use anything as a weapon.
 ---
