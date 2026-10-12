@@ -4,6 +4,7 @@ remote_theme: just-the-docs/just-the-docs@v0.12.0
 url: "https://john-dungeon.github.io"
 baseurl: "/johns-dungeon"
 search_enabled: true
+nav_sort: case_insensitive
 color_scheme: dungeon
 defaults:
   - scope:
