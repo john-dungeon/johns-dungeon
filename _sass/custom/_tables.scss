@@ -13,7 +13,9 @@ table.catalog {
   &.headless thead th { display: none; }
 }
 
-.table-wrapper:has(> table.catalog) {
-  box-shadow: none;
+.table-wrapper:has(table.catalog) {
   border: 0;
+  box-shadow: none;
 }
+
+.table-wrapper .table-wrapper { margin-bottom: 0; }
