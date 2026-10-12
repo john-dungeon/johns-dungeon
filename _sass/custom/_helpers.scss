@@ -1,6 +1,10 @@
 $theme-body-font: null !default;
 $theme-heading-font: null !default;
-$stripe-color: mix(#ffffff, $body-background-color, 10%) !default;
+$is-light: lightness($body-background-color) > 50% !default;
+$stripe-color: if($is-light,
+  mix(#000000, $body-background-color, 6%),
+  mix(#ffffff, $body-background-color, 10%)) !default;
+$stripe-row: if($is-light, odd, even) !default;
 $marker-colors: (
   "common": #8c969b,
   "uncommon": #73d746,
