@@ -16,8 +16,7 @@ Warriors of the Storm often have strange quirks relating to their affinity with 
 
 At your option, roll on or choose a result from the Quirks of the Storm table to determine a unique quirk for yourself.
 
-### **Quirks of the Storm**
-
+### **Quirks of the Storm** \
 |  |  |
 | --- | --- |
 | **d6** | **Quirk** |
@@ -27,7 +26,7 @@ At your option, roll on or choose a result from the Quirks of the Storm table to
 | 4 | Your hair always moves as if blown by the wind, even if there is no wind. |
 | 5 | Small clouds hover around your head and indicate your mood. |
 | 6 | Wind from an unknown source blows dramatically whenever you enter a room. |
-{: .catalog }
+{: .catalog .headless }
 
 ## **Level 3: Stormfall Arts**
 You have learned to wield thunder and lightning, gaining the following benefits.
