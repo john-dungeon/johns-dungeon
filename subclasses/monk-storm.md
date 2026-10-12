@@ -3,7 +3,7 @@ title: Warrior of the Storm
 parent: Monk
 grand_parent: Subclasses
 tagline: Rush with the Might of a Storm
-summary: A Monk subclass specialized in teleportation and offensive magic.
+summary: A Monk subclass specialized in teleportation and high-power offensive magic.
 ---
 
 # **Warrior of the Storm**
