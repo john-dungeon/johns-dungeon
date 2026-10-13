@@ -1,7 +1,5 @@
 template: species
 noun: species
-default_sort: name
-default_dir: asc
 columns:
   - key: name
     label: Name
