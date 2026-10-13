@@ -1,6 +1,5 @@
 template: item
 noun: items
-popup_facts: false
 marker:
   symbol: "✦"
   tag: Magic Item
