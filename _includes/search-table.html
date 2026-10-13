@@ -1,8 +1,90 @@
-{%- assign data = site.pages | where: "path", include.data | first -%}
-{%- assign cfg = data.table -%}
+{%- assign cfg = site.data.tables[include.data] -%}
 {%- assign cols = cfg.columns -%}
 {%- assign name_key = cols[0].key -%}
-{%- assign entries = data.entries | sort_natural: name_key -%}
+{%- capture nl %}
+{% endcapture -%}
+{%- assign entries_file = "entries/" | append: include.data | append: ".md" -%}
+{%- assign template_file = "table/templates/" | append: cfg.template | append: ".md" -%}
+
+{%- capture raw_entries -%}{% include {{ entries_file }} %}{%- endcapture -%}
+{%- assign raw_lines = raw_entries | split: nl -%}
+{%- capture marked_entries -%}
+  {%- for raw_line in raw_lines -%}
+    {%- assign raw_trim = raw_line | strip -%}
+    {%- if raw_trim == "---" -%}¶¶{%- else -%}{{ raw_line }}{{ nl }}{%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign entry_texts = marked_entries | split: "¶¶" -%}
+
+{%- assign rows_html = "" -%}
+{%- assign details_html = "" -%}
+{%- for entry_text in entry_texts -%}
+  {%- assign entry_probe = entry_text | strip -%}
+  {%- if entry_probe == "" -%}{%- continue -%}{%- endif -%}
+
+  {%- capture packed %}{% include table/parse-entry.html text=entry_text %}{% endcapture -%}
+  {%- capture entry_name %}{% include table/field.html packed=packed key=name_key %}{% endcapture -%}
+  {%- capture tags_raw %}{% include table/field.html packed=packed key="tags" %}{% endcapture -%}
+  {%- capture tags_csv %}{% include table/list.html csv=tags_raw sep="," %}{% endcapture -%}
+
+  {%- assign has_marker = false -%}
+  {%- if cfg.marker -%}
+    {%- assign marker_tag = cfg.marker.tag | downcase -%}
+    {%- assign entry_tags_lower = tags_csv | downcase | split: "," -%}
+    {%- if cfg.marker.tag == nil or entry_tags_lower contains marker_tag -%}
+      {%- assign has_marker = true -%}
+      {%- capture marker_raw %}{% include table/field.html packed=packed key=cfg.marker.color_by %}{% endcapture -%}
+      {%- assign marker_text = cfg.marker.label | default: "Marked" -%}
+      {%- if marker_raw != blank and cfg.marker.label -%}
+        {%- assign marker_text = marker_text | append: " · " | append: marker_raw -%}
+      {%- elsif marker_raw != blank -%}
+        {%- assign marker_text = marker_raw -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- capture row_html -%}
+  <tr class="st-row" tabindex="0" data-id="{{ forloop.index }}" data-tag-names="{{ tags_csv | escape }}"
+    {%- for col in cols -%}
+      {%- capture cell %}{% include table/value.html packed=packed col=col %}{% endcapture -%}
+      {%- assign opt_key = col.key | append: "_options" -%}
+      {%- capture opts_raw %}{% include table/field.html packed=packed key=opt_key %}{% endcapture -%}
+      {%- capture opts_text %}{% include table/list.html csv=opts_raw sep=", " %}{% endcapture %} data-v-{{ col.key }}="{{ cell | downcase | escape }}"
+      {%- if opts_text != "" %} data-o-{{ col.key }}="{{ opts_text | escape }}"{% endif -%}
+    {%- endfor -%}
+  >
+    <td class="st-name-cell" data-label="{{ cols[0].label | escape }}"><span class="st-name">{{ entry_name | escape }}</span>
+      {%- if has_marker -%}
+      <span class="st-marker" role="img" aria-label="{{ marker_text | escape }}" data-tooltip="{{ marker_text | escape }}" data-marker="{{ marker_raw | downcase | escape }}">{{ cfg.marker.symbol | default: '✦' }}</span>
+      {%- endif -%}
+    </td>
+    {%- for col in cols offset: 1 -%}
+      {%- capture cell %}{% include table/value.html packed=packed col=col %}{% endcapture -%}
+      {%- assign cell_key = cell | downcase -%}
+      {%- assign shown = col.labels[cell_key] | default: cell -%}
+    <td{% if col.in_table == false %} class="st-extra"{% endif %} data-label="{{ col.label | escape }}"{% if col.symbols %} data-text="{{ shown | escape }}"{% endif %}>
+      {%- if cell == "" -%}—
+      {%- elsif col.symbols -%}
+        {%- assign symbol = col.symbols[cell_key] -%}
+        {%- if symbol -%}<span class="st-symbol" role="img" aria-label="{{ col.label | escape }} · {{ shown | escape }}" data-tooltip="{{ col.label | escape }} · {{ shown | escape }}">{{ symbol }}</span>{%- else -%}{{ shown | escape }}{%- endif -%}
+      {%- elsif col.type == "number" -%}
+        {%- assign cell_num = cell | plus: 0 | append: "" -%}
+        {%- if cell_num == cell -%}{{ col.prefix | escape }}{{ cell }}{{ col.suffix | escape }}{%- else -%}{{ cell | escape }}{%- endif -%}
+      {%- else -%}{{ cell | escape }}
+      {%- endif -%}
+    </td>
+    {%- endfor -%}
+  </tr>
+  {%- endcapture -%}
+
+  {%- capture popup_md %}{% include {{ template_file }} packed=packed %}{% endcapture -%}
+  {%- capture detail_html -%}
+  <div data-for="{{ forloop.index }}">{{ popup_md | markdownify }}</div>
+  {%- endcapture -%}
+
+  {%- assign rows_html = rows_html | append: row_html -%}
+  {%- assign details_html = details_html | append: detail_html -%}
+{%- endfor -%}
 
 <div class="search-table" data-config="{{ cfg | jsonify | escape }}">
   <div class="st-tools">
@@ -27,64 +109,13 @@
           {%- endfor -%}
         </tr>
       </thead>
-      <tbody>
-        {%- for entry in entries -%}
-          {%- assign has_marker = false -%}
-          {%- if cfg.marker -%}
-            {%- assign marker_tag = cfg.marker.tag | downcase -%}
-            {%- assign entry_tags_lower = entry.tags | join: "," | downcase | split: "," -%}
-            {%- if cfg.marker.tag == nil or entry_tags_lower contains marker_tag -%}
-              {%- assign has_marker = true -%}
-              {%- assign marker_raw = entry[cfg.marker.color_by] -%}
-              {%- assign marker_text = cfg.marker.label | default: "Marked" -%}
-              {%- if marker_raw != blank and cfg.marker.label -%}
-                {%- assign marker_text = marker_text | append: " · " | append: marker_raw -%}
-              {%- elsif marker_raw != blank -%}
-                {%- assign marker_text = marker_raw -%}
-              {%- endif -%}
-            {%- endif -%}
-          {%- endif -%}
-        <tr class="st-row" tabindex="0" data-id="{{ forloop.index }}" data-tag-names="{{ entry.tags | join: ',' | escape }}"
-          {%- for col in cols %} data-v-{{ col.key }}="{% if col.type == 'list' %}{{ entry[col.key] | join: ', ' | downcase | escape }}{% else %}{{ entry[col.key] | downcase | escape }}{% endif %}"
-            {%- assign opt_key = col.key | append: '_options' -%}
-            {%- assign opts = entry[opt_key] -%}
-            {%- if opts %} data-o-{{ col.key }}="{{ opts | join: ', ' | escape }}"{% endif -%}
-          {% endfor -%}
-        >
-          <td class="st-name-cell" data-label="{{ cols[0].label | escape }}"><span class="st-name">{{ entry[name_key] | escape }}</span>
-            {%- if has_marker -%}
-            <span class="st-marker" role="img" aria-label="{{ marker_text | escape }}" data-tooltip="{{ marker_text | escape }}" data-marker="{{ marker_raw | downcase | escape }}">{{ cfg.marker.symbol | default: '✦' }}</span>
-            {%- endif -%}
-          </td>
-          {%- for col in cols offset: 1 -%}
-            {%- assign val = entry[col.key] -%}
-          <td{% if col.in_table == false %} class="st-extra"{% endif %} data-label="{{ col.label | escape }}"{% if col.symbols %} data-text="{{ val | escape }}"{% endif %}>
-            {%- if val == nil or val == "" -%}—
-            {%- elsif col.symbols -%}
-              {%- assign symbol_key = val | downcase -%}
-              {%- assign symbol = col.symbols[symbol_key] -%}
-              {%- if symbol -%}<span class="st-symbol" role="img" aria-label="{{ col.label | escape }} · {{ val | escape }}" data-tooltip="{{ col.label | escape }} · {{ val | escape }}">{{ symbol }}</span>{%- else -%}{{ val | escape }}{%- endif -%}
-            {%- elsif col.type == "list" -%}{{ val | join: ", " | escape }}
-            {%- elsif col.type == "number" -%}
-              {%- assign as_number = val | plus: 0 -%}
-              {%- if as_number == val -%}{{ col.prefix | escape }}{{ val }}{{ col.suffix | escape }}{%- else -%}{{ val | escape }}{%- endif -%}
-            {%- else -%}{{ val | escape }}
-            {%- endif -%}
-          </td>
-          {%- endfor -%}
-        </tr>
-        {%- endfor -%}
-      </tbody>
+      <tbody>{{ rows_html }}</tbody>
     </table>
   </div>
 
   <p class="st-empty" hidden>No matches found.</p>
 
-  <div class="st-details" hidden>
-    {%- for entry in entries -%}
-    <div data-for="{{ forloop.index }}">{{ entry.description | markdownify }}</div>
-    {%- endfor -%}
-  </div>
+  <div class="st-details" hidden>{{ details_html }}</div>
 
   <dialog class="st-dialog" aria-label="Details">
     <div class="st-dialog-inner">
