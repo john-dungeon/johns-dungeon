@@ -48,8 +48,7 @@
 {%- if it_cost_text != "" and it_weight_text != "" -%}{%- assign it_line2 = it_line2 | append: ", " -%}{%- endif -%}
 {%- assign it_line2 = it_line2 | append: it_weight_text -%}
 *{{ it_line1 }}*
-{%- if it_line2 != "" %}
-
+{%- if it_line2 != "" %}\
 *{{ it_line2 }}*
 {%- endif %}
 
