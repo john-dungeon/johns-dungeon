@@ -5,7 +5,7 @@ attunement: true
 cost: 450
 weight: Weightless
 tags: Magic Item, Spell
-description: This object is a Tiny whistle etched with images of various animals. You can cast the *Find Familiar* spell with the whistle as a Magic action. When you cast the spell in this way, your familiar can be a Beast that has a Challenge Rating up to 1/4.
+description: This object is a Tiny whistle etched with images of various animals. You can use the whistle to cast the *Find Familiar* spell as a Magic action. When you cast the spell in this way, your familiar can be a Beast that has a Challenge Rating up to 1/4.
 
 If a familiar gained using this whistle is reduced to 0 Hit Points, the whistle’s properties can’t be used for 7 days.
 
