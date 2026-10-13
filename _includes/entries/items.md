@@ -1,9 +1,19 @@
+name: Lucky Dagger
+type: Weapon
+note_type: Dagger
+rarity: Uncommon
+cost: 250 GP and 2 SP
+weight: 1
+tags: Magic Item
+description: When you roll a 1 on the d20 for the attack roll with this weapon, the next attack roll you make with the weapon automatically hits and scores a Critical Hit.
+
+---
+
 name: Potion of Health
 type: Potion
 rarity: Varies
 rarity_options: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
-attunement: false
 cost: Varies
 note_cost: See table
 weight: 0.5
@@ -30,7 +40,6 @@ type: Potion
 rarity: Varies
 rarity_options: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
-attunement: false
 cost: Varies
 note_cost: See table
 weight: 0.5
