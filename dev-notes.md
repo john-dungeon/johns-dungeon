@@ -19,7 +19,7 @@ Create a `.md` file in the right folder with front matter: `title` and `parent` 
 
 - Unfinished page: body is `{% include 404.html %}`, and add `search_exclude: true`. Delete both when the page is ready.
 - Backlinks automatically appear in the footer. They point to `grand_parent`, else `parent`, else Home. Don't write one by hand.
-- New class (for subclasses): create `subclasses/CLASS.md` with `title`, `parent: Subclasses`, `has_children: true`, `redirect_url: /subclasses/`, `search_exclude: true`, and no body.
+- New class categories (for subclasses): create `subclasses/CLASS.md` with `title`, `parent: Subclasses`, `has_children: true`, `redirect_url: /subclasses/`, `search_exclude: true`, and no body.
 
 ### Adding Themes
 1. Add `_sass/color_schemes/NAME.scss` (copy an existing one).
