@@ -15,7 +15,7 @@
 {%- endif -%}
 
 {%- assign sps_break = "\" | append: sps_nl -%}
-{%- assign sps_block = sps_name | append: " Traits" -%}
+{%- assign sps_block = "" -%}
 {%- if sps_age != "" -%}
   {%- assign sps_block = sps_block | append: sps_break | append: "**Age:** " | append: sps_age -%}
 {%- endif -%}
@@ -40,6 +40,7 @@
 {%- if sps_speed != "" -%}
   {%- assign sps_block = sps_block | append: sps_break | append: "**Speed:** " | append: sps_speed -%}
 {%- endif -%}
+{%- assign sps_block = sps_block | remove_first: sps_break -%}
 
 {%- capture sps_traits_md -%}
   {%- assign sps_tlines = sps_traits | append: sps_nl | append: "- end: end" | split: sps_nl -%}
@@ -77,6 +78,7 @@
 {%- endcapture -%}
 {{ sps_description }}
 
+### {{ sps_name }} Traits
 {{ sps_block }}
 
 As {{ sps_article }} {{ sps_name }}, you have these special traits.
