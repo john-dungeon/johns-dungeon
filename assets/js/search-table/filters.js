@@ -2,6 +2,7 @@ import { el, compareText, toNumber } from './utils.js';
 import { isExcluded } from './records.js';
 
 const NEXT_STATE = { off: 'include', include: 'exclude', exclude: 'off' };
+const STATE_WORDS = { off: 'not filtered', include: 'included', exclude: 'excluded' };
 
 export function newFilters() {
   return { tags: {}, any: false, cats: {}, ranges: {} };
@@ -76,10 +77,9 @@ function optionGroup(title, entries, getState, setState, onChange) {
 
     const paint = () => {
       const state = getState(entry.value);
-      const words = state === 'include' ? 'included' : state === 'exclude' ? 'excluded' : 'not filtered';
+      button.setAttribute('aria-label', `${entry.label}, ${STATE_WORDS[state]}`);  
       button.setAttribute('data-state', state);
       button.setAttribute('aria-pressed', state === 'off' ? 'false' : 'true');
-      button.setAttribute('aria-label', `${entry.label}, ${words}`);
     };
 
     paint();
