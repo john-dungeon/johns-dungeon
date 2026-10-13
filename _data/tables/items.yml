@@ -25,6 +25,7 @@ columns:
     suffix: " lb."
   - key: attunement
     label: Attunement
+    blank_as: "false"
     symbols:
       "true": "☒"
       "false": "☐"
