@@ -7,7 +7,7 @@ has_children: true
 
 # **Spells**
 
-This is the Spells aisle, where the records of John Dungeon's latest innovations in the arcane arts are documented.
+This is the Spells aisle, where John Dungeon's latest innovations in the arcane arts are documented.
 
 {::nomarkdown}
 {% include catalog.html parent="Spells" %}
