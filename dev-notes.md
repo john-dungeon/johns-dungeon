@@ -27,30 +27,17 @@ Optional overrides in a scheme: `$theme-body-font`, `$theme-heading-font`, `$str
 `{% include catalog.html parent="Items" %}` lists every page whose `parent` is that title, sorted by title. Options: `group_by="front_matter_key"`, `columns=3`. Wrap the include in `{::nomarkdown}` ... `{:/nomarkdown}`.
 
 ### Search Tables (`search-table.html`)
-Put `{% include search-table.html data="items/item-list.md" %}` (inside `{::nomarkdown}`) on a page. The data file has front matter `table:` (settings) and `entries:` (the rows).
+Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on a page. A table named `items` uses three files:
+- `_data/tables/items.yml` – settings and columns (below). `template:` names the popup layout.
+- `_includes/entries/items.md` – the entries. This is the file you edit. Separate entries with a line that is exactly `---` (never use `---` inside a description; use `***`).
+- `_includes/table/templates/<template>.md` – how an entry's fields become popup text.
+Helpers are in `_includes/table/`.
 
-`table:` settings
-- `noun` – word used in "Showing 5 of 20 items".
-- `placeholder` – search box hint.
-- `default_sort` / `default_dir` – column key and `asc`/`desc`.
-- `popup_facts: false` – hide the column list at the top of the popup.
-- `tags: false` – turn off tags (filter and popup).
-- `limit_min`, `limit_max`, `limit_step`, `limit_default` – the "Results shown" slider (defaults 25 / 500 / 25 / 100).
-- `marker` – the ✦ symbol: `symbol`, `tag` (only entries with this tag get it), `color_by` (column that picks the color), `label`.
+**Entry format:** one `key: value` per line. A line that starts with a lowercase word and `: ` starts a field; every other line continues the field above it. Lists are comma-separated. Write cost and weight as plain numbers. Species traits are indented list items (see `entries/species.md`).
 
-Each item in `columns:` (the first column is always the name)
-- `key`, `label` – required.
-- `type` – `text` (default), `list`, `number`, or `rank` (with `order: [...]` lowest to highest).
-- `prefix`, `suffix` – shown around numbers.
-- `symbols` – map of value → symbol, e.g. `"required": "☒"`.
-- `in_table: false` – keep out of the table, but still searchable and in the popup.
-- `sortable: false` – header isn't clickable.
-- `filter: true/false` – force or hide the filter-panel group (otherwise automatic).
-- `match: exact` – exact matching in search (default for `rank`).
+**Adding a new column or field:** add the key to the entry, add a column in the `.yml` file, and (if it should appear in the popup) use it in the template.
 
-Each entry has a value for every column `key`, plus `tags: [...]` and `description:` (markdown, shown in the popup). `<key>_options: [...]` lists extra values an entry can take, e.g. `rarity_options` for potions with several potencies.
-
-Search box syntax: plain words search names. `column:value` searches a column (`rarity:rare`). `tag:word` or `#word` searches tags. `-term` excludes. Quotes keep phrases together. Numbers accept `>=5`, `<10`, or ranges like `10-50` (`cost:10-50`).
+(Keep the existing `table:` settings and column-option lists here, minus the old `entries:` paragraph, and add: `template`, and the column options `labels` (value → friendly label) and `plain` (hide "(notes)" in list cells).)
 
 ### Other Notes
 - `has_toc: false` is set for every page in `_config.yml`, so don't repeat it in front matter.
