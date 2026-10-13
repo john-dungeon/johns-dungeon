@@ -1,7 +1,7 @@
 ---
 title: Ingredients
 parent: Items
-summary: Placeholder
+summary: shit that can only be used for crafting
 ---
 
 {% include 404.html %}
