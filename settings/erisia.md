@@ -1,8 +1,7 @@
 ---
 title: Erisia
 parent: Settings
-tagline: Placeholder
-summary: Placeholder
+summary: mid evil fan tazer
 ---
 
 {% include 404.html %}
