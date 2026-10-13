@@ -1,5 +1,6 @@
 {%- capture pe_nl %}
 {% endcapture -%}
+{%- assign pe_allowed = "abcdefghijklmnopqrstuvwxyz0123456789_" -%}
 {%- assign pe_lines = include.text | append: pe_nl | append: "end_of_entry: x" | split: pe_nl -%}
 {%- assign pe_packed = "" -%}
 {%- assign pe_key = "" -%}
@@ -7,10 +8,13 @@
 {%- for pe_line in pe_lines -%}
   {%- assign pe_probe = pe_line | append: " " -%}
   {%- assign pe_name = pe_probe | split: ": " | first -%}
-  {%- assign pe_lower = pe_name | downcase -%}
   {%- assign pe_is_key = false -%}
-  {%- if pe_probe contains ": " and pe_name == pe_lower and pe_name != "" -%}
-    {%- unless pe_name contains " " -%}{%- assign pe_is_key = true -%}{%- endunless -%}
+  {%- if pe_probe contains ": " and pe_name != "" -%}
+    {%- assign pe_is_key = true -%}
+    {%- assign pe_chars = pe_name | split: "" -%}
+    {%- for pe_char in pe_chars -%}
+      {%- unless pe_allowed contains pe_char -%}{%- assign pe_is_key = false -%}{%- break -%}{%- endunless -%}
+    {%- endfor -%}
   {%- endif -%}
   {%- if pe_is_key -%}
     {%- if pe_key != "" -%}
