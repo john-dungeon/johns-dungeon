@@ -51,3 +51,15 @@ The potion’s rarity and purchase cost, and the level of the spell slot it rest
 | +4 | Very Rare | 7 | 30,000 GP |
 | +5 | Legendary | 9 | 150,000 GP |
 {: .catalog }
+
+---
+
+name: Reinforced Instrument
+type: Weapon
+note_type: Club
+rarity: None
+cost: Varies
+note_cost: +1 GP to Musical Instrument
+weight: Varies
+note_weight: +1 lb. to Musical Instrument
+description: A Reinforced Instrument is a Musical Instrument reinforced with metal. It can be used as both a Club and a Musical Instrument.
