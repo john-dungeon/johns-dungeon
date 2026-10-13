@@ -1,0 +1,13 @@
+{%- assign lst_items = include.csv | split: "," -%}
+{%- assign lst_started = false -%}
+{%- for lst_item in lst_items -%}
+  {%- if include.plain -%}
+    {%- assign lst_text = lst_item | split: "(" | first | strip -%}
+  {%- else -%}
+    {%- assign lst_text = lst_item | strip -%}
+  {%- endif -%}
+  {%- if lst_text == "" -%}{%- continue -%}{%- endif -%}
+  {%- if lst_started -%}{{ include.sep }}{%- endif -%}
+  {{- lst_text -}}
+  {%- assign lst_started = true -%}
+{%- endfor -%}
