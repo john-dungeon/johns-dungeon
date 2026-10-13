@@ -30,8 +30,7 @@
 {%- if it_cost_l == "varies" -%}
   {%- assign it_cost_text = "Cost Varies" -%}
 {%- elsif it_cost != "" -%}
-  {%- assign it_cost_num = it_cost | plus: 0 | append: "" -%}
-  {%- if it_cost_num == it_cost -%}{%- assign it_cost_text = it_cost | append: " GP" -%}{%- else -%}{%- assign it_cost_text = it_cost -%}{%- endif -%}
+  {%- capture it_cost_text %}{% include table/money.html amount=it_cost %}{% endcapture -%}
 {%- endif -%}
 {%- if it_cost_text != "" and it_note_cost != "" -%}{%- assign it_cost_text = it_cost_text | append: " (" | append: it_note_cost | append: ")" -%}{%- endif -%}
 
