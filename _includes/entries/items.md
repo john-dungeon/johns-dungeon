@@ -1,7 +1,7 @@
 name: Companion Whistle
 type: Wondrous Item
 rarity: Uncommon
-attunement: Required
+attunement: true
 cost: 450
 weight: Weightless
 tags: Magic Item, Spell
@@ -15,6 +15,7 @@ name: Lucky Dagger
 type: Weapon
 note_type: Dagger
 rarity: Uncommon
+attunement: false
 cost: 250 GP and 2 SP
 weight: 1
 tags: Magic Item
@@ -27,6 +28,7 @@ type: Potion
 rarity: Varies
 rarity_options: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
+attunement: false
 cost: Varies
 note_cost: See table
 weight: 0.5
@@ -53,6 +55,7 @@ type: Potion
 rarity: Varies
 rarity_options: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
+attunement: false
 cost: Varies
 note_cost: See table
 weight: 0.5
