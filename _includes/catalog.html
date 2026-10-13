@@ -5,37 +5,54 @@
   {%- assign cat_pages = site.pages | where: "parent", include.parent -%}
 {%- endif -%}
 {%- assign cat_pages = cat_pages | where_exp: "p", "p.nav_exclude != true" | sort_natural: "title" -%}
-{%- if include.group_by -%}
-  {%- assign cat_groups = cat_pages | group_by: include.group_by | sort: "name" -%}
-{%- else -%}
-  {%- assign cat_groups = cat_pages | group_by_exp: "p", "'all'" -%}
-{%- endif -%}
-{%- for group in cat_groups -%}
-  {%- assign cat_size = group.items | size -%}
+{%- unless cat_pages.size == 0 -%}
+  {%- if include.group_by -%}
+    {%- assign cat_groups = cat_pages | group_by: include.group_by | sort: "name" -%}
+  {%- else -%}
+    {%- assign cat_groups = cat_pages | group_by_exp: "p", "'all'" -%}
+  {%- endif -%}
+
+  {%- assign cat_max = cat_min -%}
+  {%- for group in cat_groups -%}
+    {%- if group.items.size > cat_max -%}{%- assign cat_max = group.items.size -%}{%- endif -%}
+  {%- endfor -%}
+
   {%- assign cat_cols = cat_min -%}
-  {%- for cat_d in (cat_min..cat_size) -%}
-    {%- assign cat_rem = cat_size | modulo: cat_d -%}
-    {%- if cat_rem == 0 -%}{%- assign cat_cols = cat_d -%}{%- break -%}{%- endif -%}
+  {%- assign cat_best = 1000000 -%}
+  {%- for cat_c in (cat_min..cat_max) -%}
+    {%- assign cat_waste = 0 -%}
+    {%- for group in cat_groups -%}
+      {%- assign cat_rem = group.items.size | modulo: cat_c -%}
+      {%- if cat_rem > 0 -%}{%- assign cat_waste = cat_waste | plus: cat_c | minus: cat_rem -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if cat_waste < cat_best -%}
+      {%- assign cat_best = cat_waste -%}
+      {%- assign cat_cols = cat_c -%}
+    {%- endif -%}
+    {%- if cat_waste == 0 -%}{%- break -%}{%- endif -%}
   {%- endfor -%}
   {%- assign cat_end = cat_cols | minus: 1 -%}
+
 <div class="table-wrapper">
 <table class="catalog">
 <tbody>
-  {%- if include.group_by and group.name != blank -%}
+  {%- for group in cat_groups -%}
+    {%- if include.group_by and group.name != blank -%}
 <tr><td colspan="{{ cat_cols }}"><em>{{ group.name | escape }}</em></td></tr>
-  {%- endif -%}
-  {%- for p in group.items -%}
-    {%- assign cat_pos = forloop.index0 | modulo: cat_cols -%}
-    {%- if cat_pos == 0 -%}<tr>{%- endif -%}
-<td><a href="{{ p.url | relative_url }}"{% if p.summary %} data-tooltip="{% if p.tagline %}*{{ p.tagline | escape }}* \ {% endif %}{{ p.summary | escape }}"{% endif %}>{{ p.title | escape }}</a></td>
-    {%- if forloop.last -%}
-      {%- assign cat_pad = cat_end | minus: cat_pos -%}
-      {%- for cat_i in (1..cat_pad) -%}<td></td>{%- endfor -%}
-</tr>
-    {%- elsif cat_pos == cat_end -%}</tr>
     {%- endif -%}
+    {%- for p in group.items -%}
+      {%- assign cat_pos = forloop.index0 | modulo: cat_cols -%}
+      {%- if cat_pos == 0 -%}<tr>{%- endif -%}
+<td><a href="{{ p.url | relative_url }}"{% if p.summary %} data-tooltip="{% if p.tagline %}*{{ p.tagline | escape }}* \ {% endif %}{{ p.summary | escape }}"{% endif %}>{{ p.title | escape }}</a></td>
+      {%- if forloop.last -%}
+        {%- assign cat_pad = cat_end | minus: cat_pos -%}
+        {%- for cat_i in (1..cat_pad) -%}<td></td>{%- endfor -%}
+</tr>
+      {%- elsif cat_pos == cat_end -%}</tr>
+      {%- endif -%}
+    {%- endfor -%}
   {%- endfor -%}
 </tbody>
 </table>
 </div>
-{%- endfor -%}
+{%- endunless -%}
