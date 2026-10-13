@@ -2,15 +2,20 @@
   const THEMES = window.SITE_THEMES || [];
   const PATTERN = /just-the-docs-([a-z]+)\.css/;
 
-  const link = [...document.querySelectorAll('link[rel="stylesheet"]')]
+  let link = [...document.querySelectorAll('link[rel="stylesheet"]')]
     .find(l => PATTERN.test(l.getAttribute('href')));
   if (!link) return;
 
   const currentTheme = () => link.getAttribute('href').match(PATTERN)?.[1];
 
   function setStylesheet(theme) {
-    link.setAttribute('href',
-      link.getAttribute('href').replace(PATTERN, `just-the-docs-${theme}.css`));
+    const old = link;
+    const next = old.cloneNode();
+    next.setAttribute('href',
+      old.getAttribute('href').replace(PATTERN, `just-the-docs-${theme}.css`));
+    next.addEventListener('load', () => old.remove());
+    old.after(next);
+    link = next;
   }
 
   try {
