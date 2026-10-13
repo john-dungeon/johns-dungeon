@@ -1,0 +1,23 @@
+template: spell
+noun: spells
+popup_facts: false
+default_sort: level
+default_dir: asc
+columns:
+  - key: name
+    label: Name
+  - key: level
+    label: Level
+    type: rank
+    order: [Cantrip, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  - key: school
+    label: School
+  - key: classes
+    label: Classes
+    type: list
+  - key: casting_time
+    label: Casting Time
+  - key: range
+    label: Range
+  - key: duration
+    label: Duration
