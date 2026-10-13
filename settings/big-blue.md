@@ -1,8 +1,7 @@
 ---
 title: Big Blue
 parent: Settings
-tagline: Placeholder
-summary: Placeholder
+summary: endless ocean with big evil fish
 ---
 
 {% include 404.html %}
