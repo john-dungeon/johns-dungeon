@@ -20,4 +20,4 @@ traits:
 - trait_3: Troll Resilience
   description: You have Resistance to Poison damage. You also have Advantage on saving throws you make to avoid or end the Poisoned condition.
 - trait_4: Vital Surge
-  description: As a Bonus Action, you can roll a number of d6s equal to two times your Proficiency Bonus. You regain a number of Hit Points equal to the roll’s total. Once you use this trait, you can't do so again until you finish a Long Rest, and your Regeneration trait stops functioning until you finish a Short or Long Rest.
+  description: As a Bonus Action, you can roll a number of d6s equal to two times your Proficiency Bonus. You regain a number of Hit Points equal to the roll’s total. Once you use this trait, you can't do so again until you finish a Long Rest, and your Regeneration trait doesn't function until you finish a Short or Long Rest.
