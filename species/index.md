@@ -10,10 +10,6 @@ has_children: true
 This is the Species aisle, where John Dungeon's records of the peoples of the wider world are stored.
 
 {::nomarkdown}
-{% include catalog.html parent="Species" %}
-{:/nomarkdown}
-
-{::nomarkdown}
 {% include search-table.html data="species" %}
 {:/nomarkdown}
 
