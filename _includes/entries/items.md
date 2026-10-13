@@ -1,5 +1,5 @@
 name: Companion Whistle
-Wondrous Item
+type: Wondrous Item
 rarity: Uncommon
 attunement: Required
 cost: 450
