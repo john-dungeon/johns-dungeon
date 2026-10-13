@@ -1,3 +1,18 @@
+name: Cut
+level: 1
+school: Evocation
+classes: Artificer, Paladin, Ranger, Warlock, Wizard
+casting_time: Action
+ritual: false
+range: Touch
+components: V, S, M
+material: a sharp metal object
+duration: Instantaneous
+tags: Esoteric
+description: A creature you touch takes 3d6 Slashing or Force damage (your choice), and if the creature is affected by the *Shield* spell, that spell ends.
+
+---
+
 name: Ghost Bolt
 level: Cantrip
 school: Necromancy
