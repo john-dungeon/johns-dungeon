@@ -18,6 +18,7 @@ search_exclude: true
 Create a `.md` file in the right folder with front matter: `title` and `parent` (exact title of the section page). For subclasses, use `parent` for the class and `grand_parent` for the section page, and optionally `tagline` and `summary` (used for the hover tooltip in the grid).
 
 - Unfinished page: body is `{% include 404.html %}`, and add `search_exclude: true`. Delete both when the page is ready.
+- Backlinks automatically appear in the footer. They point to `grand_parent`, else `parent`, else Home. Don't write one by hand.
 - New class (for subclasses): create `subclasses/CLASS.md` with `title`, `parent: Subclasses`, `has_children: true`, `redirect_url: /subclasses/`, `search_exclude: true`, and no body.
 
 ### Adding Themes
