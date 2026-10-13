@@ -8,6 +8,8 @@
       {%- capture cl_label %}{{ include.col.label | escape }} · {{ cl_shown | escape }}{% endcapture -%}
       <span class="st-symbol" role="img" aria-label="{{ cl_label }}" data-tooltip="{{ cl_label }}">{{ cl_symbol }}</span>
     {%- else -%}{{ cl_shown | escape }}{%- endif -%}
+  {%- elsif include.col.format == "money" -%}
+    {%- include table/money.html amount=include.cell -%}
   {%- elsif include.col.type == "number" -%}
     {%- assign cl_num = include.cell | plus: 0 | append: "" -%}
     {%- if cl_num == include.cell -%}{{ include.col.prefix | escape }}{{ include.cell }}{{ include.col.suffix | escape }}{%- else -%}{{ include.cell | escape }}{%- endif -%}
