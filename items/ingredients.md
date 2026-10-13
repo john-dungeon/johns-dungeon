@@ -1,7 +1,6 @@
 ---
 title: Ingredients
 parent: Items
-tagline: Placeholder
 summary: Placeholder
 ---
 
