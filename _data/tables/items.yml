@@ -1,0 +1,35 @@
+template: item
+noun: items
+popup_facts: false
+marker:
+  symbol: "✦"
+  tag: Magic Item
+  color_by: rarity
+  label: Magic Item
+default_sort: name
+default_dir: asc
+columns:
+  - key: name
+    label: Name
+  - key: type
+    label: Type
+  - key: rarity
+    label: Rarity
+    type: rank
+    order: [None, Varies, Common, Uncommon, Rare, Very Rare, Legendary, Artifact]
+  - key: cost
+    label: Cost
+    type: number
+    suffix: " GP"
+  - key: weight
+    label: Weight
+    type: number
+    suffix: " lb."
+  - key: attunement
+    label: Attunement
+    symbols:
+      "true": "☒"
+      "false": "☐"
+    labels:
+      "true": "Required"
+      "false": "None"
