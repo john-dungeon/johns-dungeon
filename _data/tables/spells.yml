@@ -1,7 +1,5 @@
 template: spell
 noun: spells
-default_sort: level
-default_dir: asc
 columns:
   - key: name
     label: Name
