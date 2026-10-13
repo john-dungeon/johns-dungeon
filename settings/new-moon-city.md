@@ -1,7 +1,7 @@
 ---
 title: New Moon City
 parent: Settings
-summary: sci fi new york with superheros and supervillains
+summary: sci fi new york with superheroes and supervillains
 ---
 
 {% include 404.html %}
