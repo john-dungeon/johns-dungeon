@@ -1,8 +1,7 @@
 ---
 title: Drachenfell
 parent: Settings
-tagline: Placeholder
-summary: Placeholder
+summary: continent from the body of a dead celestial dragon
 ---
 
 {% include 404.html %}
