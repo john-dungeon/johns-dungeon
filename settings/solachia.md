@@ -1,8 +1,7 @@
 ---
 title: Solachia
 parent: Settings
-tagline: Placeholder
-summary: Placeholder
+summary: noir new york in constant night ruled by vampires and devils
 ---
 
 {% include 404.html %}
