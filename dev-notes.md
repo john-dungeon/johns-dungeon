@@ -24,7 +24,7 @@ Create a `.md` file in the right folder with front matter: `title`, `parent` (ex
 Optional overrides in a scheme: `$theme-body-font`, `$theme-heading-font`, `$stripe-color`, `$marker-colors`.
 
 ### Link Tables (`catalog.html`)
-`{% include catalog.html parent="Items" %}` lists every page whose `parent` is that title, sorted by title. Options: `group_by="front_matter_key"`, `columns=3`. Wrap the include in `{::nomarkdown}` ... `{:/nomarkdown}`.
+`{% include catalog.html parent="Items" %}` lists every page whose `parent` is that title, sorted by title. The column count is picked automatically: the smallest divisor of the link count that is at least 3, so there are no empty cells (4 links → 4 columns, 12 links → 3). With fewer than 3 links the row is padded. Options: `group_by="front_matter_key"` (one table per group, each sized on its own), `columns=3` (the minimum column count), `grand_parent="Title"` (use instead of `parent`). Wrap the include in `{::nomarkdown}` ... `{:/nomarkdown}`.
 
 ### Search Tables (`search-table.html`)
 Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on a page. A table named `items` uses three files:
