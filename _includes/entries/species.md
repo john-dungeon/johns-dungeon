@@ -8,7 +8,7 @@ Dwarves are short and stout, built for navigating small subterranean crevices. A
 Dwarves and elves share a mutual grudge that spans millennia, lasting so long because of both species’ long lifespans. Though its origins have long been forgotten, few find the feud surprising. Dwarves champion mastery over stone and steel, determined to shape the world in their image, while elves revere the untouched beauty of the natural world, even worshiping it in folk religions. Such opposing ideals have fueled conflict for generations, whatever first ignited it. Several attempts have been made to unite the two species in harmony, but no truce has ever lasted longer than a few years.
 age: Up to about 240 years on average
 type: Humanoid
-size: Medium (about 4–5 feet tall) or Small (about 2–4 feet tall)
+size: Medium (about 4–5 feet tall), Small (about 2–4 feet tall)
 speed: 30 feet
 settings: Erisia
 traits:
