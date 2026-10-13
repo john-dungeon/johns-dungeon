@@ -1,8 +1,7 @@
 ---
 title: New Moon City
 parent: Settings
-tagline: Placeholder
-summary: Placeholder
+summary: sci fi new york with superheros and supervillains
 ---
 
 {% include 404.html %}
