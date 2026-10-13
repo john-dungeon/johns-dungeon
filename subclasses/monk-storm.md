@@ -61,5 +61,3 @@ When you activate this feature and as a Magic action while it is active, you can
 ---
 
 > *"This martial art was especially hard to obtain. The high-mountain ascetics who practiced it were awfully strict and made me do a bunch of favors in exchange for their teachings. As it turns out, they were bored of their lifestyle and wanted to squeeze some entertainment out of me while I was there. I suppose even the chaos of a storm can grow stale if it becomes the norm."*
-
-[← Back to Subclasses](index.md)

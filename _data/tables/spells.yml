@@ -1,8 +1,5 @@
 template: spell
 noun: spells
-popup_facts: false
-default_sort: level
-default_dir: asc
 columns:
   - key: name
     label: Name

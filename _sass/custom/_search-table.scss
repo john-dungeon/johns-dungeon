@@ -125,17 +125,6 @@
   &:empty { display: none; }
 }
 
-.st-dialog-facts {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 0.25rem 1rem;
-  margin: 0.75rem 0 1rem;
-
-  &:empty { display: none; }
-  dt { font-weight: 600; color: $nav-child-link-color; }
-  dd { margin: 0; }
-}
-
 .st-dialog-body {
   table { display: table; width: 100%; }
   th, td { min-width: 0; padding: 0.5rem 0.75rem; }
@@ -166,7 +155,7 @@
   font-size: 0.85rem;
   @include accent-on-hover;
 
-  // Hover
+// Click States
   &[data-state="include"] {
     border-color: $link-color;
     background: $link-color;
@@ -218,7 +207,7 @@
   @include accent-on-hover;
 }
 
-// Rarity
+// Magic Item Marker
 .st-marker {
   margin-left: 0.4em;
   color: $link-color;

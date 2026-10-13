@@ -1,6 +1,5 @@
 $theme-body-font: null !default;
 $theme-heading-font: null !default;
-$is-light: lightness($body-background-color) > 50% !default;
 $is-light-theme: lightness($body-background-color) > 50% !default;
 $stripe-odd-color: if($is-light-theme, mix(#000000, $body-background-color, 6%), $body-background-color) !default;
 $stripe-even-color: if($is-light-theme, $body-background-color, mix(#ffffff, $body-background-color, 10%)) !default;
@@ -36,9 +35,9 @@ $shadow-dialog: 0 8px 30px rgba(0, 0, 0, 0.5);
   color: $nav-child-link-color;
 }
 
-@mixin accent-on-hover($recolor-text: true) {
+@mixin accent-on-hover {
   &:hover {
     border-color: $link-color;
-    @if $recolor-text { color: $link-color; }
+    color: $link-color;
   }
 }

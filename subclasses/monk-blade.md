@@ -43,5 +43,3 @@ Once per turn when you deal Force damage to a creature with a Melee weapon, you 
 ---
 
 > *"Most of the sword styles that I've seen usually have some sort of gimmick, like using a flying sword or imbuing one with unquenchable flames. I suppose, then, the gimmick of this one is that it has no gimmick—just one sharp blade to face the world."*
-
-[← Back to Subclasses](index.md)

@@ -1,6 +1,5 @@
 {%- assign cfg = site.data.tables[include.data] -%}
 {%- assign cols = cfg.columns -%}
-{%- assign name_key = cols[0].key -%}
 {%- capture nl %}
 {% endcapture -%}
 {%- assign entries_file = "entries/" | append: include.data | append: ".md" -%}
@@ -23,57 +22,28 @@
   {%- if entry_probe == "" -%}{%- continue -%}{%- endif -%}
 
   {%- capture packed %}{% include table/parse-entry.html text=entry_text %}{% endcapture -%}
-  {%- capture entry_name %}{% include table/field.html packed=packed key=name_key %}{% endcapture -%}
   {%- capture tags_raw %}{% include table/field.html packed=packed key="tags" %}{% endcapture -%}
   {%- capture tags_csv %}{% include table/list.html csv=tags_raw sep="," %}{% endcapture -%}
+  {%- capture marker_html %}{% include table/marker.html cfg=cfg packed=packed tags=tags_csv %}{% endcapture -%}
 
-  {%- assign has_marker = false -%}
-  {%- if cfg.marker -%}
-    {%- assign marker_tag = cfg.marker.tag | downcase -%}
-    {%- assign entry_tags_lower = tags_csv | downcase | split: "," -%}
-    {%- if cfg.marker.tag == nil or entry_tags_lower contains marker_tag -%}
-      {%- assign has_marker = true -%}
-      {%- capture marker_raw %}{% include table/field.html packed=packed key=cfg.marker.color_by %}{% endcapture -%}
-      {%- assign marker_text = cfg.marker.label | default: "Marked" -%}
-      {%- if marker_raw != blank and cfg.marker.label -%}
-        {%- assign marker_text = marker_text | append: " · " | append: marker_raw -%}
-      {%- elsif marker_raw != blank -%}
-        {%- assign marker_text = marker_raw -%}
-      {%- endif -%}
-    {%- endif -%}
-  {%- endif -%}
+  {%- assign row_attrs = "" -%}
+  {%- assign row_cells = "" -%}
+  {%- for col in cols -%}
+    {%- capture cell %}{% include table/value.html packed=packed col=col %}{% endcapture -%}
+    {%- assign opt_key = col.key | append: "_options" -%}
+    {%- capture opts_raw %}{% include table/field.html packed=packed key=opt_key %}{% endcapture -%}
+    {%- capture opts_text %}{% include table/list.html csv=opts_raw sep=", " %}{% endcapture -%}
+    {%- capture attr_text %} data-v-{{ col.key }}="{{ cell | downcase | escape }}"{% if opts_text != "" %} data-o-{{ col.key }}="{{ opts_text | escape }}"{% endif %}{% endcapture -%}
+    {%- assign row_attrs = row_attrs | append: attr_text -%}
+    {%- if forloop.first -%}{%- assign entry_name = cell -%}{%- continue -%}{%- endif -%}
+    {%- capture td_html %}{% include table/cell.html col=col cell=cell %}{% endcapture -%}
+    {%- assign row_cells = row_cells | append: td_html -%}
+  {%- endfor -%}
 
   {%- capture row_html -%}
-  <tr class="st-row" tabindex="0" data-id="{{ forloop.index }}" data-tag-names="{{ tags_csv | escape }}"
-    {%- for col in cols -%}
-      {%- capture cell %}{% include table/value.html packed=packed col=col %}{% endcapture -%}
-      {%- assign opt_key = col.key | append: "_options" -%}
-      {%- capture opts_raw %}{% include table/field.html packed=packed key=opt_key %}{% endcapture -%}
-      {%- capture opts_text %}{% include table/list.html csv=opts_raw sep=", " %}{% endcapture %} data-v-{{ col.key }}="{{ cell | downcase | escape }}"
-      {%- if opts_text != "" %} data-o-{{ col.key }}="{{ opts_text | escape }}"{% endif -%}
-    {%- endfor -%}
-  >
-    <td class="st-name-cell" data-label="{{ cols[0].label | escape }}"><span class="st-name">{{ entry_name | escape }}</span>
-      {%- if has_marker -%}
-      <span class="st-marker" role="img" aria-label="{{ marker_text | escape }}" data-tooltip="{{ marker_text | escape }}" data-marker="{{ marker_raw | downcase | escape }}">{{ cfg.marker.symbol | default: '✦' }}</span>
-      {%- endif -%}
-    </td>
-    {%- for col in cols offset: 1 -%}
-      {%- capture cell %}{% include table/value.html packed=packed col=col %}{% endcapture -%}
-      {%- assign cell_key = cell | downcase -%}
-      {%- assign shown = col.labels[cell_key] | default: cell -%}
-    <td{% if col.in_table == false %} class="st-extra"{% endif %} data-label="{{ col.label | escape }}"{% if col.symbols %} data-text="{{ shown | escape }}"{% endif %}>
-      {%- if cell == "" -%}—
-      {%- elsif col.symbols -%}
-        {%- assign symbol = col.symbols[cell_key] -%}
-        {%- if symbol -%}<span class="st-symbol" role="img" aria-label="{{ col.label | escape }} · {{ shown | escape }}" data-tooltip="{{ col.label | escape }} · {{ shown | escape }}">{{ symbol }}</span>{%- else -%}{{ shown | escape }}{%- endif -%}
-      {%- elsif col.type == "number" -%}
-        {%- assign cell_num = cell | plus: 0 | append: "" -%}
-        {%- if cell_num == cell -%}{{ col.prefix | escape }}{{ cell }}{{ col.suffix | escape }}{%- else -%}{{ cell | escape }}{%- endif -%}
-      {%- else -%}{{ cell | escape }}
-      {%- endif -%}
-    </td>
-    {%- endfor -%}
+  <tr class="st-row" tabindex="0" data-id="{{ forloop.index }}" data-tag-names="{{ tags_csv | escape }}"{{ row_attrs }}>
+    <td><span class="st-name">{{ entry_name | escape }}</span>{{ marker_html }}</td>
+    {{ row_cells }}
   </tr>
   {%- endcapture -%}
 
@@ -124,7 +94,6 @@
         <button type="button" class="st-dialog-close" aria-label="Close">✕</button>
       </div>
       <div class="st-dialog-tags"></div>
-      <dl class="st-dialog-facts"></dl>
       <div class="st-dialog-body"></div>
     </div>
   </dialog>

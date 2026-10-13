@@ -1,10 +1,7 @@
-import { el } from './utils.js';
-
 export function createDialog(root, config) {
   const dialog = root.querySelector('.st-dialog');
   const title = dialog.querySelector('.st-dialog-title');
   const tags = dialog.querySelector('.st-dialog-tags');
-  const facts = dialog.querySelector('.st-dialog-facts');
   const content = dialog.querySelector('.st-dialog-body');
 
   dialog.querySelector('.st-dialog-close').addEventListener('click', () => dialog.close());
@@ -18,15 +15,6 @@ export function createDialog(root, config) {
 
     title.textContent = row.querySelector('.st-name').textContent;
     dialog.setAttribute('aria-label', title.textContent);
-
-    facts.textContent = '';
-    if (config.popup_facts !== false) {
-      Array.from(row.cells).slice(1).forEach(cell => {
-        const text = (cell.getAttribute('data-text') || cell.textContent).trim();
-        if (!text || text === '\u2014') return;
-        facts.append(el('dt', '', cell.dataset.label), el('dd', '', text));
-      });
-    }
 
     tags.textContent = '';
     const tagNames = row.dataset.tagNames;
