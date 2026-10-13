@@ -17,6 +17,7 @@ columns:
   - key: cost
     label: Cost
     type: number
+    format: money
     suffix: " GP"
   - key: weight
     label: Weight
