@@ -33,7 +33,7 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - `_includes/table/templates/<template>.md` – how an entry's fields become popup text.
 Helpers are in `_includes/table/`.
 
-**Entry format:** one `key: value` per line. A line that starts with a lowercase word and `: ` starts a field; every other line continues the field above it. Lists are comma-separated. Write cost and weight as plain numbers. Species traits are indented list items (see `entries/species.md`).
+**Entry format:** one `key: value` per line. A line that starts with a field name (lowercase letters, digits, underscores) and `: ` starts a field; every other line continues the field above it. Lists are comma-separated. Write cost and weight as plain numbers. Species traits are indented list items (see `entries/species.md`). Species entry order: name, article (optional), description, age, type, size, speed, settings, tags, traits.
 
 **Adding a new column or field:** add the key to the entry, add a column in the `.yml` file, and (if it should appear in the popup) use it in the template.
 
