@@ -10,7 +10,8 @@ age: Up to about 180 years on average
 type: Giant, Humanoid
 size: Medium (about 6–8 feet tall)
 speed: 35 feet
-setting: Erisia
+settings: Erisia
+tags: Monstrous
 traits:
 - trait_1: Powerful Build
   description: You have Advantage on any ability check you make to end the Grappled condition. You also count as one size larger when determining your carrying capacity.
