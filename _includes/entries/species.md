@@ -7,7 +7,7 @@ Trolls are tall individuals, typically with lean builds rather than muscular one
 
 Due to their regenerative abilities, trolls rarely die from external causes. Instead, their bodies have a kind of invisible internal timer. Once a troll approaches the end of this timer, their regenerative abilities begin to fail them. Wounds begin to close in strange ways, forming unusual and sometimes painful growths, and large-scale regeneration may even result in the budding of new limbs. As a result, unlike their younger selves, older trolls often work hard to preserve their bodies, despite being just as strong as they were in their prime. However, once a troll’s regenerative abilities begin breaking down, the individual often experiences immense pain. Thus, troll culture has developed a funerary rite of fire, called Yaksin Haji, in which an old troll is given an anaesthetic extract from the frostroot flower and burned on an altar to grant them peaceful death.
 age: Up to about 180 years on average
-type: Giant and Humanoid
+type: Giant, Humanoid
 size: Medium (about 6–8 feet tall)
 speed: 35 feet
 setting: Erisia
