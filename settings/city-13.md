@@ -1,8 +1,7 @@
 ---
 title: City 13
 parent: Settings
-tagline: Placeholder
-summary: Placeholder
+summary: cyberpunk new york and everything is fucking dying
 ---
 
 {% include 404.html %}
