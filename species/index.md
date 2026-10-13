@@ -7,7 +7,7 @@ has_children: true
 
 # **Species**
 
-This is the Species aisle, where John Dungeon's research on the peoples of the wider world is stored.
+This is the Species aisle, where John Dungeon's records of the peoples of the wider world are stored.
 
 {::nomarkdown}
 {% include catalog.html parent="Species" %}
