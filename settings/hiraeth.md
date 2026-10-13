@@ -1,8 +1,7 @@
 ---
 title: Hiraeth
 parent: Settings
-tagline: Placeholder
-summary: Placeholder
+summary: melodramatic dying world preparing to be reborn
 ---
 
 {% include 404.html %}
