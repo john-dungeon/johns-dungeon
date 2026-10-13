@@ -15,3 +15,6 @@ columns:
     plain: true
   - key: speed
     label: Speed
+  - key: settings
+    label: Settings
+    type: list
