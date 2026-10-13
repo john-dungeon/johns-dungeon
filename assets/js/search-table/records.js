@@ -32,6 +32,7 @@ export function readRecords(body, columns) {
       const own = raw === '' ? [] : (col.type === 'list' ? raw.split(', ') : [raw]);
       const extraRaw = col.type === 'number' ? null : row.getAttribute('data-o-' + col.key);
       const extra = extraRaw ? extraRaw.split(', ') : [];
+      if (raw === '' && col.blank_as !== undefined) extra.push(String(col.blank_as));
       const values = [...own];
       extra.forEach(label => {
         const lower = label.toLowerCase();
@@ -70,7 +71,10 @@ export function collectLabels(records, columns) {
       const cellText = (cell.getAttribute('data-text') || cell.textContent).trim();
       const ownLabels = col.type === 'list' ? cellText.split(', ') : [cellText];
       rec.own[col.key].forEach((value, i) => setLabel(col.key, value, ownLabels[i] || value));
-      rec.extra[col.key].forEach(label => setLabel(col.key, label.toLowerCase(), label));
+      rec.extra[col.key].forEach(label => {
+        const value = label.toLowerCase();
+        setLabel(col.key, value, (col.labels && col.labels[value]) || label);
+      });
     });
   });
 
