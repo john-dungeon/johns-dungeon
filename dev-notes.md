@@ -54,7 +54,8 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - `marker` – colored symbol after names: `symbol`, `tag` (only entries with this tag; leave out for all), `color_by` (entry field whose value picks the color from `$marker-colors`), `label` (hover text prefix).
 - `columns` – the list below. The first column is always the name.
 
-**Column options:** `key` (matches the field in entries), `label`, `type` (`text` default, `number`, `list`, or `rank` with an `order:` list), `prefix` / `suffix` (numbers), `plain: true` (list cells hide "(notes)"), `symbols` (value → icon), `labels` (value → friendly text), `in_table: false` (searchable but hidden), `filter: true/false` (force or skip its Filter group; by default numbers get a range and categories with 2–30 values get buttons), `sortable: false`, `match: exact` (search must match the whole value; default for `rank`).
+**Column options:** `key` (matches the field in entries), `label`, `blank_as` (blank entries count as this value in search and filters, but the cell stays blank), `type` (`text` default, `number`, `money` (number cells display as GP/SP/CP; write the value as a decimal up to hundredths), `list`, or `rank` with an `order:` list), `prefix` / `suffix` (numbers), `plain: true` (list cells hide "(notes)"), `symbols` (value → icon), `labels` (value → friendly text), `in_table: false` (searchable but hidden), `filter: true/false` (force or skip its Filter group; by default numbers get a range and categories with 2–30 values get buttons), `sortable: false`, `match: exact` (search must match the whole value; default for `rank`).
+
 
 **Search box:** plain words search names. `field:value` searches a column, `"quoted phrase"` keeps words together, `-word` excludes, `#tag` or `tag:word` searches tags. Numbers accept `cost:>=100` or `weight:1-5`.
 
