@@ -1,8 +1,7 @@
 ---
 title: Great Luminant
 parent: Settings
-tagline: Placeholder
-summary: Placeholder
+summary: S P A C E
 ---
 
 {% include 404.html %}
