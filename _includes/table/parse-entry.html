@@ -1,0 +1,26 @@
+{%- capture pe_nl %}
+{% endcapture -%}
+{%- assign pe_lines = include.text | append: pe_nl | append: "end_of_entry: x" | split: pe_nl -%}
+{%- assign pe_packed = "" -%}
+{%- assign pe_key = "" -%}
+{%- assign pe_value = "" -%}
+{%- for pe_line in pe_lines -%}
+  {%- assign pe_probe = pe_line | append: " " -%}
+  {%- assign pe_name = pe_probe | split: ": " | first -%}
+  {%- assign pe_lower = pe_name | downcase -%}
+  {%- assign pe_is_key = false -%}
+  {%- if pe_probe contains ": " and pe_name == pe_lower and pe_name != "" -%}
+    {%- unless pe_name contains " " -%}{%- assign pe_is_key = true -%}{%- endunless -%}
+  {%- endif -%}
+  {%- if pe_is_key -%}
+    {%- if pe_key != "" -%}
+      {%- assign pe_packed = pe_packed | append: pe_key | append: "¦=" | append: pe_value | append: "¦¦" -%}
+    {%- endif -%}
+    {%- assign pe_key = pe_name -%}
+    {%- assign pe_value = pe_probe | remove_first: pe_name | remove_first: ": " | strip -%}
+    {%- if pe_value == "|" or pe_value == ">" -%}{%- assign pe_value = "" -%}{%- endif -%}
+  {%- elsif pe_key != "" -%}
+    {%- assign pe_value = pe_value | append: pe_nl | append: pe_line -%}
+  {%- endif -%}
+{%- endfor -%}
+{{- pe_packed -}}
