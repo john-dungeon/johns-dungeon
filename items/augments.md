@@ -1,7 +1,6 @@
 ---
 title: Augments
 parent: Items
-tagline: Placeholder
 summary: Placeholder
 ---
 
