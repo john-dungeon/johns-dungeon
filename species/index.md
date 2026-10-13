@@ -9,6 +9,14 @@ has_children: true
 
 This is the Species aisle, where John Dungeon's research on the peoples of the wider world is stored.
 
+{::nomarkdown}
+{% include catalog.html parent="Species" %}
+{:/nomarkdown}
+
+{::nomarkdown}
+{% include search-table.html data="species" %}
+{:/nomarkdown}
+
 ---
 
 > *"Welcome to the Species aisle. ...Wait, what? No, no, no, no! I don't keep living people here—just records of their existence. Goodness... Who do you take me for?"*
