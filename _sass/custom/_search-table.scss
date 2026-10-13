@@ -166,7 +166,7 @@
   font-size: 0.85rem;
   @include accent-on-hover;
 
-  // Hover
+// Click States
   &[data-state="include"] {
     border-color: $link-color;
     background: $link-color;
@@ -218,7 +218,7 @@
   @include accent-on-hover;
 }
 
-// Rarity
+// Magic Item Marker
 .st-marker {
   margin-left: 0.4em;
   color: $link-color;
