@@ -1,0 +1,31 @@
+{%- assign mn_raw = include.amount | strip -%}
+{%- assign mn_check = mn_raw | plus: 0 | append: "" -%}
+{%- if mn_check != mn_raw -%}
+  {{- mn_raw | escape -}}
+{%- else -%}
+  {%- assign mn_split = mn_raw | split: "." -%}
+  {%- assign mn_whole = mn_split[0] -%}
+  {%- assign mn_frac = mn_split[1] | default: "" | append: "00" -%}
+  {%- assign mn_sp = mn_frac | slice: 0 | plus: 0 -%}
+  {%- assign mn_cp = mn_frac | slice: 1 | plus: 0 -%}
+
+  {%- assign mn_chars = mn_whole | split: "" -%}
+  {%- assign mn_size = mn_chars | size -%}
+  {%- assign mn_gold = "" -%}
+  {%- for mn_char in mn_chars -%}
+    {%- assign mn_left = mn_size | minus: forloop.index0 | modulo: 3 -%}
+    {%- if mn_left == 0 and forloop.first == false -%}
+      {%- assign mn_gold = mn_gold | append: "," -%}
+    {%- endif -%}
+    {%- assign mn_gold = mn_gold | append: mn_char -%}
+  {%- endfor -%}
+
+  {%- assign mn_minor = mn_sp | plus: mn_cp -%}
+  {%- assign mn_items = "" -%}
+  {%- if mn_whole != "0" or mn_minor == 0 -%}
+    {%- assign mn_items = mn_gold | append: " GP|" -%}
+  {%- endif -%}
+  {%- if mn_sp > 0 -%}{%- assign mn_items = mn_items | append: mn_sp | append: " SP|" -%}{%- endif -%}
+  {%- if mn_cp > 0 -%}{%- assign mn_items = mn_items | append: mn_cp | append: " CP|" -%}{%- endif -%}
+  {{- mn_items | split: "|" | array_to_sentence_string -}}
+{%- endif -%}
