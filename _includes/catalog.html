@@ -1,4 +1,5 @@
 {%- assign cat_min = include.columns | default: 3 -%}
+{%- assign cat_limit = include.max_columns | default: 5 -%}
 {%- if include.grand_parent -%}
   {%- assign cat_pages = site.pages | where: "grand_parent", include.grand_parent -%}
 {%- else -%}
@@ -16,6 +17,7 @@
   {%- for group in cat_groups -%}
     {%- if group.items.size > cat_max -%}{%- assign cat_max = group.items.size -%}{%- endif -%}
   {%- endfor -%}
+  {%- if cat_max > cat_limit -%}{%- assign cat_max = cat_limit -%}{%- endif -%}
 
   {%- assign cat_cols = cat_min -%}
   {%- assign cat_best = 1000000 -%}
