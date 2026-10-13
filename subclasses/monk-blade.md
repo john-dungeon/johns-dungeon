@@ -20,7 +20,7 @@ In your hands, anything can become a weapon. When you take the Attack action on 
 **Mastery:** Nick (you can use this property)
 {: .indent }
 
-If the object used to create the Aura Blade is a weapon, you can have it retain its original properties. Instead, the Aura Blade is considered a Monk weapon for you, deals your choice of Force damage or its normal damage type on a hit, and gains the Light property and the Nick mastery property (which you can use).
+If the object used to create the Aura Blade is a Melee weapon, you can have it retain its original properties. Instead, the Aura Blade gains the Light property and the Nick mastery property (which you can use), and it deals your choice of Force damage or its normal damage type on a hit.
 
 When you attack with the Aura Blade, you can make the extra attack granted by the Light property with the Aura Blade instead of a different Light weapon.
 
