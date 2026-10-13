@@ -10,12 +10,9 @@ Welcome to John's Dungeon, John Dungeon's personal archive of random curios and 
 
 ## **Contents**
 
-- [Items](items/index.md)
-- [Rules](rules/index.md)
-- [Settings](settings/index.md)
-- [Species](species/index.md)
-- [Spells](spells/index.md)
-- [Subclasses](subclasses/index.md)
+{::nomarkdown}
+{% include catalog.html parent="Home" %}
+{:/nomarkdown}
 
 ## **Current Campaign**
 
