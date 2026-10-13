@@ -1,0 +1,5 @@
+{%- assign fld_pairs = include.packed | split: "¦¦" -%}
+{%- for fld_pair in fld_pairs -%}
+  {%- assign fld_kv = fld_pair | split: "¦=" -%}
+  {%- if fld_kv[0] == include.key -%}{{- fld_kv[1] | strip -}}{%- break -%}{%- endif -%}
+{%- endfor -%}
