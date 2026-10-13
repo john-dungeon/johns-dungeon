@@ -3,7 +3,7 @@ title: Warrior of the Four Guardians
 parent: Monk
 grand_parent: Subclasses
 tagline: Placeholder
-summary: crowd control monk with four modes changeable on a short/long rest
+summary: monk with four changeable modes each with a special party role
 ---
 
 {% include 404.html %}
