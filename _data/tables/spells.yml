@@ -1,7 +1,9 @@
 template: spell
 noun: spells
 default_sort: level
-tags: [Area, Armor Class, Attack, Buff, Debuff, Cleanse, Esoteric, Saving Throw, Upcast]
+tags: [Area, Armor Class, Attack, Buff, Debuff, Cleanse, Concentration, Esoteric, Saving Throw, Upcast]
+auto_tags:
+  - { tag: Concentration, field: duration, equals: Concentration }
 columns:
   - key: name
     label: Name
@@ -61,11 +63,12 @@ columns:
       field: concentration_max
       format: ", up to %s"
       sort: true
-  - key: concentration
-    label: Concentration
+  - key: components
+    label: Components
+    type: list
     in_table: false
-    derive: { from: duration, equals: Concentration }
-    order: ["Yes", "No"]
+    order: [V, S, M]
+    labels: { v: Verbal, s: Somatic, m: Material }
   - key: classes
     label: Classes
     type: list
