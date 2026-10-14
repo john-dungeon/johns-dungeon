@@ -30,10 +30,10 @@ export function readRecords(body, columns) {
       const raw = row.getAttribute('data-v-' + col.key) || '';
       rec.text[col.key] = raw;
 
-      const own = raw === '' ? [] : (col.type === 'list' ? raw.split(', ') : [raw]);
+      const blank = col.blank_as === undefined ? [] : [String(col.blank_as).toLowerCase()];
+      const own = raw === '' ? blank : (col.type === 'list' ? raw.split(', ') : [raw]);
       const extraRaw = col.type === 'number' ? null : row.getAttribute('data-o-' + col.key);
-      const extra = extraRaw ? extraRaw.split(', ') : [];
-      if (raw === '' && col.blank_as !== undefined) extra.push(String(col.blank_as));
+      const extra = extraRaw ? extraRaw.split(', ') : []; extra.push(String(col.blank_as));
       const values = [...own];
       extra.forEach(label => {
         const lower = label.toLowerCase();
@@ -45,7 +45,7 @@ export function readRecords(body, columns) {
 
       if (col.type === 'number') rec.num[col.key] = toNumber(raw);
       if (col.type === 'rank') {
-        const index = col.rankList.indexOf(raw);
+        const index = col.rankList.indexOf(own[0]);
         rec.rank[col.key] = index === -1 ? null : index + 1;
       }
     });
