@@ -1,6 +1,6 @@
 {%- assign cl_key = include.cell | downcase -%}
 {%- assign cl_shown = include.col.labels[cl_key] | default: include.cell -%}
-<td{% if include.col.in_table == false %} class="st-extra"{% endif %}{% if include.col.symbols %} data-text="{{ cl_shown | escape }}"{% endif %}>
+<td{% if include.col.in_table == false %} class="st-extra"{% endif %}>
   {%- if include.cell == "" -%}—
   {%- elsif include.col.symbols -%}
     {%- assign cl_symbol = include.col.symbols[cl_key] -%}
