@@ -12,6 +12,10 @@
   {%- elsif include.col.type == "number" -%}
     {%- assign cl_num = include.cell | plus: 0 | append: "" -%}
     {%- if cl_num == include.cell -%}{{ include.col.prefix | escape }}{{ include.cell }}{{ include.col.suffix | escape }}{%- else -%}{{ include.cell | escape }}{%- endif -%}
-  {%- else -%}{{ include.cell | escape }}
+  {%- else -%}
+    {{- include.cell | escape -}}
+    {%- if include.note and include.note != "" -%}
+      {{- include.col.note.format | default: " (%s)" | replace: "%s", include.note | escape -}}
+    {%- endif -%}
   {%- endif -%}
 </td>
