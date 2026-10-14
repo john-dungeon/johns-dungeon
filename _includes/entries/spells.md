@@ -91,7 +91,7 @@ condition: , which you take when you are hit by an attack roll
 range: Self
 components: V, S
 duration: Instantaneous
-tags: Armor Class, Buff, Saving Throw
+tags: Armor Class, Buff, Esoteric, Saving Throw
 description: A barrier of magical glass protects you and shatters from the incoming impact. You have a +5 bonus to AC against the triggering attack. Immediately after the attack hits or misses, the barrier shatters, and each creature of your choice within 5 feet of you must make a Dexterity saving throw, taking 1d12 Piercing damage on a failed save or half as much damage on a successful one.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d12 for each spell slot level above 1.
@@ -106,7 +106,7 @@ casting_time: Action
 range: 120 feet
 components: V, S
 duration: Instantaneous
-tags: Esoteric, Attack
+tags: Attack, Esoteric
 description: You fire a high-pressure blade of wind at a creature or an object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 Slashing damage, or 1d12 Slashing damage if it is Bloodied.
 
 ***Cantrip Upgrade.*** The damage increases by one die when you reach levels 5 (2d8 or 2d12), 11 (3d8 or 3d12), and 17 (4d8 or 4d12).
