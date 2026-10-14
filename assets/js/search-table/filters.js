@@ -54,6 +54,8 @@ export function matchesFilters(rec, filters) {
     const high = range.max === null ? Infinity : range.max;
     if (!rec.spans[key].some(([from, to]) => from <= high && to >= low)) return false;
   }
+  return true;
+}
 
 export function activeFilterCount(filters) {
   let total = Object.keys(filters.tags).length;
