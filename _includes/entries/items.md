@@ -3,7 +3,7 @@ type: Wondrous Item
 rarity: Uncommon
 attunement: true
 cost: 450
-weight: Weightless
+weight: 0
 tags: Magic Item, Spell
 description: This object is a Tiny whistle etched with images of various animals. You can use the whistle to cast the *Find Familiar* spell as a Magic action. When you cast the spell in this way, your familiar can be a Beast that has a Challenge Rating up to 1/4.
 
@@ -30,6 +30,7 @@ rarity_options: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
 attunement: false
 cost: Varies
+cost_options: 50, 200, 2000, 20000, 100000
 note_cost: See table
 weight: 0.5
 tags: Consumable, Healing, Magic Item
@@ -57,6 +58,7 @@ rarity_options: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
 attunement: false
 cost: Varies
+cost_options: 75, 300, 3000, 30000, 150000
 note_cost: See table
 weight: 0.5
 tags: Consumable, Magic Item
@@ -84,7 +86,9 @@ type: Weapon
 note_type: Club
 rarity: None
 cost: Varies
+cost_options: 3-66
 note_cost: +1 GP to Musical Instrument
 weight: Varies
+weight_options: 2-11
 note_weight: +1 lb. to Musical Instrument
 description: A Reinforced Instrument is a Musical Instrument reinforced with metal. It can be used as both a Club and a Musical Instrument.
