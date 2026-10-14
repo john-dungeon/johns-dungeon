@@ -107,9 +107,7 @@ export function readRecords(body, columns) {
     };
 
     columns.forEach(col => {
-      const derived = col.derive &&
-        (rec.text[col.derive.from] === col.derive.equals.toLowerCase() ? 'yes' : 'no');
-      const raw = derived || row.getAttribute('data-v-' + col.key) || '';
+      const raw = row.getAttribute('data-v-' + col.key) || '';
       rec.text[col.key] = raw;
 
       const blank = col.blank_as === undefined ? [] : [String(col.blank_as).toLowerCase()];
