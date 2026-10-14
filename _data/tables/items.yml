@@ -1,5 +1,6 @@
 template: item
 noun: items
+tags: [Consumable, Healing, Magic Item, Spell]
 marker:
   symbol: "✦"
   tag: Magic Item
@@ -10,6 +11,7 @@ columns:
     label: Name
   - key: type
     label: Type
+    options: [Potion, Weapon, Wondrous Item]
   - key: rarity
     label: Rarity
     type: rank
@@ -26,6 +28,7 @@ columns:
   - key: attunement
     label: Attunement
     blank_as: "false"
+    options: ["true", "false"]
     symbols:
       "true": "☒"
       "false": "☐"
