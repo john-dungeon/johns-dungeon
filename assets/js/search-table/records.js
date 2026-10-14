@@ -5,15 +5,12 @@ export function prepareColumns(config) {
   columns.forEach((col, index) => {
     col.type = col.type || 'text';
     col.index = index;
-    if (col.type === 'rank') {
-      col.rankList = (col.order || []).map(item => String(item).toLowerCase());
-    }
-    const listed = col.options || (col.type === 'rank' ? col.order : null) || [];
-    col.choices = listed.map(option => {
-      const value = String(option).toLowerCase();
-      return { value, label: (col.labels && col.labels[value]) || String(option) };
+    col.choices = (col.order || []).map(item => {
+      const value = String(item).toLowerCase();
+      return { value, label: (col.labels && col.labels[value]) || String(item) };
     });
     col.listed = new Set(col.choices.map(choice => choice.value));
+    if (col.type === 'rank') col.rankList = col.choices.map(choice => choice.value);
   });
   const byKey = Object.fromEntries(columns.map(col => [col.key, col]));
   return { columns, byKey, nameKey: columns[0].key };
