@@ -20,11 +20,13 @@ columns:
     label: Cost
     type: number
     format: money
+    slider: { max: 300000, min_label: None, max_label: Priceless }
   - key: weight
     label: Weight
     type: number
     suffix: " lb."
     order: [Weightless, "...", Varies]
+    slider: { max: 500, min_label: Weightless, max_label: "500+" }
   - key: attunement
     label: Attunement
     type: rank
