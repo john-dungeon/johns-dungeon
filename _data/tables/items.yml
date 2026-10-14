@@ -24,6 +24,7 @@ columns:
     label: Weight
     type: number
     suffix: " lb."
+    order: [Weightless, "...", Varies]
   - key: attunement
     label: Attunement
     type: rank
