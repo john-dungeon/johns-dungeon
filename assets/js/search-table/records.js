@@ -2,6 +2,30 @@ import { toNumber, el, markUnlisted } from './utils.js';
 
 const AMOUNTS = '...';
 
+function bucketChoices(col) {
+  return col.buckets.map(bucket => {
+    const named = typeof bucket === 'string';
+    const spec = named ? { label: bucket } : bucket;
+    return {
+      value: spec.label.toLowerCase(),
+      label: spec.label,
+      named,
+      upTo: spec.up_to ? toAmount(col, spec.up_to.toLowerCase()) : Infinity
+    };
+  });
+}
+
+function bucketsFor(col, text) {
+  if (!text) return [];
+  const exact = col.choices.find(choice => choice.named && choice.value === text);
+  if (exact) return [exact.value];
+  const amount = toAmount(col, text);
+  const fit = amount === null
+    ? null
+    : col.choices.find(choice => !choice.named && amount <= choice.upTo);
+  return fit ? [fit.value] : [];
+}
+
 export function prepareColumns(config) {
   const columns = config.columns;
   columns.forEach((col, index) => {
@@ -12,11 +36,13 @@ export function prepareColumns(config) {
     const items = (col.order || []).map(String);
     const slot = items.indexOf(AMOUNTS);
     const named = items.filter(item => item !== AMOUNTS);
-    col.choices = named.map(item => {
-      const value = item.toLowerCase();
-      return { value, label: (col.labels && col.labels[value]) || item };
-    });
-    col.listed = new Set(col.choices.map(choice => choice.value));
+    col.listed = new Set(named.map(item => item.toLowerCase()));
+    col.choices = col.buckets
+      ? bucketChoices(col)
+      : named.map(item => {
+          const value = item.toLowerCase();
+          return { value, label: (col.labels && col.labels[value]) || item };
+        });
 
     const after = slot === -1 ? [] : items.slice(slot + 1);
     col.lead = (slot === -1 ? named : items.slice(0, slot)).map(item => item.toLowerCase());
@@ -52,6 +78,24 @@ function sortKey(col, text) {
   return col.trail.has(text) ? { group: col.lead.length + 1, amount: null, text } : null;
 }
 
+const SPAN = /^(\d+(?:\.\d+)?)(?:\s*-\s*(\d+(?:\.\d+)?))?$/;
+
+function spansFor(col, raw, optionsRaw) {
+  const spans = [];
+  const own = toNumber(raw);
+  if (own !== null) spans.push([own, own]);
+  else if (col.slider && raw === col.slider.min_label.toLowerCase()) spans.push([0, 0]);
+  else if (col.slider && raw === col.slider.max_label.toLowerCase()) spans.push([Infinity, Infinity]);
+
+  (optionsRaw ? optionsRaw.split(', ') : []).forEach(part => {
+    const match = SPAN.exec(part.trim());
+    if (!match) return;
+    const from = parseFloat(match[1]);
+    spans.push([from, match[2] ? parseFloat(match[2]) : from]);
+  });
+  return spans;
+}
+
 export function readRecords(body, columns) {
   return [...body.rows].map(row => {
     const tagNameText = row.getAttribute('data-tag-names');
@@ -59,11 +103,13 @@ export function readRecords(body, columns) {
       row,
       tags: tagNameText ? tagNameText.toLowerCase().split(',') : [],
       text: {}, num: {}, sort: {},
-      own: {}, extra: {}, values: {}
+      own: {}, extra: {}, values: {}, buckets: {}, spans: {}
     };
 
     columns.forEach(col => {
-      const raw = row.getAttribute('data-v-' + col.key) || '';
+      const derived = col.derive &&
+        (rec.text[col.derive.from] === col.derive.equals.toLowerCase() ? 'yes' : 'no');
+      const raw = derived || row.getAttribute('data-v-' + col.key) || '';
       rec.text[col.key] = raw;
 
       const blank = col.blank_as === undefined ? [] : [String(col.blank_as).toLowerCase()];
@@ -79,10 +125,14 @@ export function readRecords(body, columns) {
       rec.extra[col.key] = extra;
       rec.values[col.key] = values;
 
-      if (col.type === 'number') rec.num[col.key] = toNumber(raw);
+      if (col.type === 'number') {
+        rec.num[col.key] = toNumber(raw);
+        rec.spans[col.key] = spansFor(col, raw, row.getAttribute('data-o-' + col.key));
+      }
 
       const sortText = col.byRank ? (row.getAttribute('data-s-' + col.key) || own[0]) : raw;
       rec.sort[col.key] = sortKey(col, sortText);
+      if (col.buckets) rec.buckets[col.key] = bucketsFor(col, sortText);
     });
     return rec;
   });

@@ -34,10 +34,13 @@
 {%- endif -%}
 {%- if it_cost_text != "" and it_note_cost != "" -%}{%- assign it_cost_text = it_cost_text | append: " (" | append: it_note_cost | append: ")" -%}{%- endif -%}
 
+{%- if it_weight == "0" -%}{%- assign it_weight = "Weightless" -%}{%- endif -%}
 {%- assign it_weight_text = "" -%}
 {%- assign it_weight_l = it_weight | downcase -%}
 {%- if it_weight_l == "varies" -%}
   {%- assign it_weight_text = "Weight Varies" -%}
+{%- elsif it_weight_l == "weightless" -%}
+  {%- assign it_weight_text = "Weightless" -%}
 {%- elsif it_weight != "" -%}
   {%- assign it_weight_text = it_weight | append: " lb." -%}
 {%- endif -%}
