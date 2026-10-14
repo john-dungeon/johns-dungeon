@@ -1,5 +1,5 @@
 import { intOr, compareText } from './utils.js';
-import { prepareColumns, readRecords, collectLabels } from './records.js';
+import { prepareColumns, prepareTags, readRecords, flagUnlisted } from './records.js';
 import { createQueryParser, matchesQuery } from './query.js';
 import { newFilters, matchesFilters, activeFilterCount, buildPanel } from './filters.js';
 import { createDialog } from './dialog.js';
@@ -10,6 +10,7 @@ function init(root) {
 
   const config = JSON.parse(root.dataset.config);
   const { columns, byKey, nameKey } = prepareColumns(config);
+  const tags = prepareTags(config);
 
   const limits = {
     min: intOr(config.limit_min, 25),
@@ -31,10 +32,10 @@ function init(root) {
   const empty = root.querySelector('.st-empty');
   const filterToggle = root.querySelector('.st-filter-toggle');
   const filterPanel = root.querySelector('.st-filter-panel');
-  const openItem = createDialog(root, config);
+  const openItem = createDialog(root, tags);
 
   const records = readRecords(body, columns);
-  const { tagLabels, optionLabels } = collectLabels(records, columns);
+  flagUnlisted(records, columns);
   const parseQuery = createQueryParser(columns, nameKey);
 
   function sortValue(rec) {
@@ -123,12 +124,7 @@ function init(root) {
 
   search.addEventListener('input', render);
 
-  buildPanel(filterPanel, {
-    columns, optionLabels, tagLabels,
-    showTags: config.tags !== false,
-    state, limits,
-    onChange: render
-  });
+  buildPanel(filterPanel, { columns, tags, state, limits, onChange: render });
   render();
 }
 
