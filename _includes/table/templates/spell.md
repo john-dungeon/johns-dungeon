@@ -26,8 +26,6 @@
 {%- assign sp_cast = sp_cast | append: sp_condition -%}
 
 {%- assign sp_range_text = sp_range -%}
-{%- if sp_area != "" -%}
-  {%- assign sp_range_text = sp_range | append: " (" | append: sp_area | append: ")" -%}
 {%- endif -%}
 
 {%- assign sp_comp_up = sp_components | upcase -%}
