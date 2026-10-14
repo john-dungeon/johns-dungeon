@@ -28,7 +28,7 @@ function amountOf(rec, col) {
   return text === col.slider.max_label.toLowerCase() ? Infinity : null;
 }
 
-export function matchesFilters(rec, filters, byKey) {
+export function matchesFilters(rec, filters) {
   const hasTag = tag => rec.tags.includes(tag);
   const tagsIn = valuesWithState(filters.tags, 'include');
   const tagsOut = valuesWithState(filters.tags, 'exclude');
@@ -50,13 +50,10 @@ export function matchesFilters(rec, filters, byKey) {
 
   for (const [key, range] of Object.entries(filters.ranges)) {
     if (range.min === null && range.max === null) continue;
-    const actual = amountOf(rec, byKey[key]);
-    if (actual === null) return false;
-    if (range.min !== null && actual < range.min) return false;
-    if (range.max !== null && actual > range.max) return false;
+    const low = range.min === null ? -Infinity : range.min;
+    const high = range.max === null ? Infinity : range.max;
+    if (!rec.spans[key].some(([from, to]) => from <= high && to >= low)) return false;
   }
-  return true;
-}
 
 export function activeFilterCount(filters) {
   let total = Object.keys(filters.tags).length;
