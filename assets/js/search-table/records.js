@@ -1,56 +1,29 @@
 import { toNumber, el, markUnlisted } from './utils.js';
 
+const AMOUNTS = '...';
+
 export function prepareColumns(config) {
   const columns = config.columns;
   columns.forEach((col, index) => {
     col.type = col.type || 'text';
     col.index = index;
-    col.choices = (col.order || []).map(item => {
-      const value = String(item).toLowerCase();
-      return { value, label: (col.labels && col.labels[value]) || String(item) };
+    col.byRank = ['rank', 'number', 'measure'].includes(col.type);
+
+    const items = (col.order || []).map(String);
+    const slot = items.indexOf(AMOUNTS);
+    const named = items.filter(item => item !== AMOUNTS);
+    col.choices = named.map(item => {
+      const value = item.toLowerCase();
+      return { value, label: (col.labels && col.labels[value]) || item };
     });
     col.listed = new Set(col.choices.map(choice => choice.value));
-    if (col.type === 'rank') col.rankList = col.choices.map(choice => choice.value);
+
+    const after = slot === -1 ? [] : items.slice(slot + 1);
+    col.lead = (slot === -1 ? named : items.slice(0, slot)).map(item => item.toLowerCase());
+    col.trail = new Set(after.map(item => item.toLowerCase()));
   });
   const byKey = Object.fromEntries(columns.map(col => [col.key, col]));
   return { columns, byKey, nameKey: columns[0].key };
-}
-
-export function readRecords(body, columns) {
-  return [...body.rows].map(row => {
-    const tagNameText = row.getAttribute('data-tag-names');
-    const rec = {
-      row,
-      tags: tagNameText ? tagNameText.toLowerCase().split(',') : [],
-      text: {}, num: {}, rank: {},
-      own: {}, extra: {}, values: {}
-    };
-
-    columns.forEach(col => {
-      const raw = row.getAttribute('data-v-' + col.key) || '';
-      rec.text[col.key] = raw;
-
-      const blank = col.blank_as === undefined ? [] : [String(col.blank_as).toLowerCase()];
-      const own = raw === '' ? blank : (col.type === 'list' ? raw.split(', ') : [raw]);
-      const extraRaw = col.type === 'number' ? null : row.getAttribute('data-o-' + col.key);
-      const extra = extraRaw ? extraRaw.split(', ') : []; extra.push(String(col.blank_as));
-      const values = [...own];
-      extra.forEach(label => {
-        const lower = label.toLowerCase();
-        if (!values.includes(lower)) values.push(lower);
-      });
-      rec.own[col.key] = own;
-      rec.extra[col.key] = extra;
-      rec.values[col.key] = values;
-
-      if (col.type === 'number') rec.num[col.key] = toNumber(raw);
-      if (col.type === 'rank') {
-        const index = col.rankList.indexOf(own[0]);
-        rec.rank[col.key] = index === -1 ? null : index + 1;
-      }
-    });
-    return rec;
-  });
 }
 
 export function prepareTags(config) {
@@ -61,29 +34,83 @@ export function prepareTags(config) {
   return { shown, choices, isListed: tag => listed.has(tag.toLowerCase()) };
 }
 
-function flagListItems(cell, isListed) {
+function toAmount(col, text) {
+  if (col.type === 'number') return toNumber(text);
+  const match = /^(\d[\d,]*(?:\.\d+)?)\s*([a-z]+)$/.exec(text);
+  if (!match || !col.units) return null;
+  const size = col.units[match[2]] ?? col.units[match[2].replace(/s$/, '')];
+  return size === undefined ? null : parseFloat(match[1].replace(/,/g, '')) * size;
+}
+
+function sortKey(col, text) {
+  if (!text) return null;
+  if (!col.byRank) return { group: 0, amount: null, text };
+  const named = col.lead.indexOf(text);
+  if (named !== -1) return { group: named, amount: null, text };
+  const amount = toAmount(col, text);
+  if (amount !== null) return { group: col.lead.length, amount, text };
+  return col.trail.has(text) ? { group: col.lead.length + 1, amount: null, text } : null;
+}
+
+export function readRecords(body, columns) {
+  return [...body.rows].map(row => {
+    const tagNameText = row.getAttribute('data-tag-names');
+    const rec = {
+      row,
+      tags: tagNameText ? tagNameText.toLowerCase().split(',') : [],
+      text: {}, num: {}, sort: {},
+      own: {}, extra: {}, values: {}
+    };
+
+    columns.forEach(col => {
+      const raw = row.getAttribute('data-v-' + col.key) || '';
+      rec.text[col.key] = raw;
+
+      const blank = col.blank_as === undefined ? [] : [String(col.blank_as).toLowerCase()];
+      const own = raw === '' ? blank : (col.type === 'list' ? raw.split(', ') : [raw]);
+      const extraRaw = col.type === 'number' ? null : row.getAttribute('data-o-' + col.key);
+      const extra = extraRaw ? extraRaw.split(', ') : [];
+      const values = [...own];
+      extra.forEach(label => {
+        const lower = label.toLowerCase();
+        if (!values.includes(lower)) values.push(lower);
+      });
+      rec.own[col.key] = own;
+      rec.extra[col.key] = extra;
+      rec.values[col.key] = values;
+
+      if (col.type === 'number') rec.num[col.key] = toNumber(raw);
+
+      const sortText = col.byRank ? (row.getAttribute('data-s-' + col.key) || own[0]) : raw;
+      rec.sort[col.key] = sortKey(col, sortText);
+    });
+    return rec;
+  });
+}
+
+function flagListItems(cell, isKnown) {
   const items = cell.textContent.trim().split(', ');
   cell.textContent = '';
   items.forEach((item, i) => {
     if (i > 0) cell.append(', ');
-    cell.append(isListed(item) ? item : markUnlisted(el('span', '', item)));
+    cell.append(isKnown(item) ? item : markUnlisted(el('span', '', item), item));
   });
 }
 
 export function flagUnlisted(records, columns) {
   records.forEach(rec => {
     columns.forEach(col => {
-      if (col.index === 0 || col.type === 'number' || col.listed.size === 0) return;
+      if (col.index === 0 || col.listed.size === 0) return;
       const cell = rec.row.cells[col.index];
-      const isListed = text => col.listed.has(text.toLowerCase());
-      const badOwn = rec.own[col.key].filter(value => !isListed(value));
-      const badExtra = rec.extra[col.key].filter(value => !isListed(value));
+      const isKnown = text => col.listed.has(text.toLowerCase()) || toAmount(col, text.toLowerCase()) !== null;
+      const badOwn = rec.own[col.key].filter(value => !isKnown(value));
+      const badExtra = rec.extra[col.key].filter(value => !isKnown(value));
 
       if (col.type === 'list') {
-        if (badOwn.length) flagListItems(cell, isListed);
-        if (badExtra.length) markUnlisted(cell);
+        if (badOwn.length) flagListItems(cell, isKnown);
+        if (badExtra.length) markUnlisted(cell, badExtra);
       } else if (badOwn.length || badExtra.length) {
-        markUnlisted(cell);
+        markUnlisted(cell, [...badOwn, ...badExtra]);
       }
     });
   });
