@@ -1,5 +1,5 @@
 ---
-title: Sword Whisperer
+title: Sword Speaker
 parent: Fighter
 grand_parent: Subclasses
 tagline: Placeholder
