@@ -1,31 +1,3 @@
-name: test2
-level: 1
-school: Evocation
-classes: Artificer, Paladin, Ranger, Warlock, Wizard
-casting_time: Action
-range: 400 feet
-components: V, S, M
-material: a sharp metal object
-duration: 7 hours
-tags: Esoteric
-description: A creature you touch takes 3d6 Slashing or Force damage (your choice), and if the creature is affected by the *Shield* spell, that spell ends.
-
----
-
-name: test1
-level: 1
-school: Evocation
-classes: Artificer, Paladin, Ranger, Warlock, Wizard, Monk
-casting_time: Action
-range: Touch
-components: V, S, M
-material: a sharp metal object
-duration: Instantaneous
-tags: Esoteric
-description: A creature you touch takes 3d6 Slashing or Force damage (your choice), and if the creature is affected by the *Shield* spell, that spell ends.
-
----
-
 name: Cut
 level: 1
 school: Evocation
