@@ -1,5 +1,6 @@
 template: spell
 noun: spells
+default_sort: level
 tags: [Area, Armor Class, Attack, Buff, Debuff, Cleanse, Esoteric, Saving Throw, Upcast]
 columns:
   - key: name
