@@ -10,7 +10,7 @@ columns:
     order: [Cantrip, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   - key: school
     label: School
-    options: [Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, Transmutation]
+    order: [Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, Transmutation]
   - key: casting_time
     label: Casting Time
   - key: range
@@ -20,4 +20,4 @@ columns:
   - key: classes
     label: Classes
     type: list
-    options: [Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard]
+    order: [Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard]
