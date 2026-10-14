@@ -33,10 +33,11 @@
     {%- assign opt_key = col.key | append: "_options" -%}
     {%- capture opts_raw %}{% include table/field.html packed=packed key=opt_key %}{% endcapture -%}
     {%- capture opts_text %}{% include table/list.html csv=opts_raw sep=", " %}{% endcapture -%}
-    {%- capture attr_text %} data-v-{{ col.key }}="{{ cell | downcase | escape }}"{% if opts_text != "" %} data-o-{{ col.key }}="{{ opts_text | escape }}"{% endif %}{% endcapture -%}
+    {%- capture note_raw %}{% if col.note %}{% include table/field.html packed=packed key=col.note.field %}{% endif %}{% endcapture -%}
+    {%- capture attr_text %} data-v-{{ col.key }}="{{ cell | downcase | escape }}"{% if opts_text != "" %} data-o-{{ col.key }}="{{ opts_text | escape }}"{% endif %}{% if col.note.sort and note_raw != "" %} data-s-{{ col.key }}="{{ note_raw | downcase | escape }}"{% endif %}{% endcapture -%}
     {%- assign row_attrs = row_attrs | append: attr_text -%}
     {%- if forloop.first -%}{%- assign entry_name = cell -%}{%- continue -%}{%- endif -%}
-    {%- capture td_html %}{% include table/cell.html col=col cell=cell %}{% endcapture -%}
+    {%- capture td_html %}{% include table/cell.html col=col cell=cell note=note_raw %}{% endcapture -%}
     {%- assign row_cells = row_cells | append: td_html -%}
   {%- endfor -%}
 
