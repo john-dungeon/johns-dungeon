@@ -46,6 +46,26 @@ description: You touch a willing creature. The creature loses the Prone conditio
 
 ---
 
+name: Freeze
+level: 3
+school: Evocation
+classes: Druid, Sorcerer, Warlock, Wizard
+casting_time: Action
+range: 120 feet
+area: 20-foot Cube
+components: V, S, M
+material: a snowball
+duration: Concentration
+concentration_max: 1 minute
+tags: Esoteric
+description: You conjure a binding frost in a 20-foot Cube within range. Each creature (other than you) in the area must make a Constitution saving throw. On a failed save, a target takes 3d8 Cold damage and has the Restrained condition for the duration, as it is frozen stiff by ice. On a successful save, a target takes half as much damage, and its Speed is halved until the start of your next turn. A creature killed by this spell becomes a frozen statue until it thaws.
+
+While Restrained, a target takes 2d8 Cold damage at the start of each of its turns. The target or a creature that can reach it can take an action to make a Strength (Athletics) check against your spell save DC. On a success, the target is no longer Restrained by the ice. Also, if a Restrained creature takes Fire damage, it is no longer Restrained.
+
+***Using a Higher-Level Spell Slot.*** The damage (both initial and later) increases by 1d8 for each spell slot level above 3.
+
+---
+
 name: Ghost Bolt
 level: Cantrip
 school: Necromancy
