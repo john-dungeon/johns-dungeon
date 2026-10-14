@@ -24,6 +24,22 @@
   {%- capture packed %}{% include table/parse-entry.html text=entry_text %}{% endcapture -%}
   {%- capture tags_raw %}{% include table/field.html packed=packed key="tags" %}{% endcapture -%}
   {%- capture tags_csv %}{% include table/list.html csv=tags_raw sep="," %}{% endcapture -%}
+  {%- assign at_have = tags_csv | downcase | split: "," -%}
+  {%- for at_rule in cfg.auto_tags -%}
+    {%- capture at_value %}{% include table/field.html packed=packed key=at_rule.field %}{% endcapture -%}
+    {%- assign at_value_l = at_value | downcase -%}
+    {%- assign at_equals_l = at_rule.equals | downcase -%}
+    {%- assign at_tag_l = at_rule.tag | downcase -%}
+    {%- if at_value_l == at_equals_l -%}
+      {%- unless at_have contains at_tag_l -%}
+        {%- if tags_csv == "" -%}
+          {%- assign tags_csv = at_rule.tag -%}
+        {%- else -%}
+          {%- assign tags_csv = tags_csv | append: "," | append: at_rule.tag -%}
+        {%- endif -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
   {%- capture marker_html %}{% include table/marker.html cfg=cfg packed=packed tags=tags_csv %}{% endcapture -%}
 
   {%- assign row_attrs = "" -%}
