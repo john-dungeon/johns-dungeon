@@ -19,7 +19,7 @@ classes: Artificer, Druid, Ranger, Wizard
 casting_time: Action
 ritual: true
 range: Self
-area: 30-foot Emmanation
+area: 30-foot Emanation
 components: V, S, M
 material: a metal lock
 duration: Concentration
