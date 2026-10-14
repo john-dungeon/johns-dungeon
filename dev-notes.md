@@ -26,7 +26,7 @@ Create a `.md` file in the right folder with front matter: `title` and `parent` 
 2. Copy `assets/css/just-the-docs-dark.scss` to `just-the-docs-NAME.scss` and change `color_scheme="NAME"`.
 3. Add an entry to `_data/themes.yml`.
 
-Optional overrides in a scheme: `$theme-body-font`, `$theme-heading-font`, `$stripe-odd-color`, `$stripe-even-color`, `$marker-colors`.
+Optional overrides in a scheme: `$theme-body-font`, `$theme-heading-font`, `$stripe-odd-color`, `$stripe-even-color`, `$marker-colors`, `$unlisted-color`.
 
 ### Link Tables (`catalog.html`)
 `{% include catalog.html parent="Items" %}` lists every page whose `parent` is that title, sorted by title. The column count is picked automatically: the count (at least 3) that leaves the fewest empty cells, with ties going to the smaller count. With one group of links, this means the smallest divisor of the link count that is at least 3 (4 links → 4 columns, 12 → 3), so there are no empty cells. With `group_by`, each group starts on a new row under its own heading, all groups share one table, and the count is chosen to minimize empty cells across all groups together. The count never goes above `max_columns` (default 5), so a page with, say, 7 links gets 4 columns with one empty cell instead of one very wide row. Options: `group_by="front_matter_key"`, `columns=3` (the minimum column count), `grand_parent="Title"` (use instead of `parent`). Wrap the include in `{::nomarkdown}` ... `{:/nomarkdown}`.
@@ -42,19 +42,19 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 
 **Entry format:** entries are separated by a line that is exactly `---` (never use `---` inside a description; use `***`). One `key: value` per line. A line that starts with a field name (lowercase letters, digits, underscores) and `: ` starts a field; every other line continues the field above it. Lists are comma-separated. Write cost and weight as plain numbers. Species traits are indented list items (see `entries/species.md`). Species entry order: name, article (optional), description, age, type, size, speed, settings, tags, traits.
 
-**Extra entry fields:** `tags` (shown in the Filter panel and popup). `KEY_options` (e.g. `rarity_options`) lists other values an entry counts as for search and filters. Excluding hides the entry only if all of its values are excluded. `note_KEY` fields are used by the item template.
+**Extra entry fields:** `tags` (comma-separated, shown in the popup). `condition` (spells) is added to the end of the casting time exactly as written, so begin it with its own punctuation, like `condition: , which you take when you are hit by an attack roll`. `KEY_options` (e.g. `rarity_options`) lists other values an entry counts as for search and filters. Excluding hides the entry only if all of its values are excluded. `note_KEY` fields are used by the item template.
 
 **Table settings (`_data/tables/NAME.yml`):**
 - `template` – popup layout file in `_includes/table/templates/` (required).
 - `noun` – word used in "Showing 5 of 20 items".
 - `default_sort` (column key; default is the first column) and `default_dir` (`asc` or `desc`; default `asc`).
 - `placeholder` – search box hint text.
-- `tags: false` – hide tags in the Filter panel and popup.
+- `tags` – the tags the Filter panel offers, in the order shown (for example `tags: [Magic Item, Consumable]`), even if no entry uses them yet. A tag an entry uses that isn't listed appears in red in its popup. `tags: false` hides tags in the Filter panel and popup.
 - `limit_default` (100), `limit_min` (25), `limit_max` (500), `limit_step` (25).
 - `marker` – colored symbol after names: `symbol`, `tag` (only entries with this tag; leave out for all), `color_by` (entry field whose value picks the color from `$marker-colors`), `label` (hover text prefix).
 - `columns` – the list below. The first column is always the name.
 
-**Column options:** `key` (matches the field in entries), `label`, `blank_as` (blank entries count as this value in search and filters, but the cell stays blank), `type` (`text` default, `number`, `money` (number cells display as GP/SP/CP; write the value as a decimal up to hundredths), `list`, or `rank` with an `order:` list), `prefix` / `suffix` (numbers), `plain: true` (list cells hide "(notes)"), `symbols` (value → icon), `labels` (value → friendly text), `in_table: false` (searchable but hidden), `filter: true/false` (force or skip its Filter group; by default numbers get a range and categories with 2–30 values get buttons), `sortable: false`, `match: exact` (search must match the whole value; default for `rank`).
+**Column options:** `key` (matches the field in entries), `label`, `blank_as` (blank entries count as this value in search and filters, but the cell stays blank), `type` (`text` default, `number`, `money` (number cells display as GP/SP/CP; write the value as a decimal up to hundredths), `list`, or `rank` with an `order:` list), `prefix` / `suffix` (numbers), `plain: true` (list cells hide "(notes)"), `symbols` (value → icon), `labels` (value → friendly text), `in_table: false` (searchable but hidden), `options` (the category buttons for its Filter group, in the order shown, even if no entry uses them yet; a `rank` column uses its `order` list unless `options` is given; a value in a cell that isn't listed turns red), `filter: false` (skip its Filter group; numbers get a range, columns with `options` get buttons), `sortable: false`, `match: exact` (search must match the whole value; default for `rank`).
 
 
 **Search box:** plain words search names. `field:value` searches a column, `"quoted phrase"` keeps words together, `-word` excludes, `#tag` or `tag:word` searches tags. Numbers accept `cost:>=100` or `weight:1-5`.
