@@ -19,3 +19,9 @@ export function el(tag, className, text) {
   if (text !== undefined) node.textContent = text;
   return node;
 }
+
+export function markUnlisted(node) {
+  node.classList.add('st-unlisted');
+  node.dataset.tooltip = 'Not listed in this table\u2019s settings (_data/tables).';
+  return node;
+}
