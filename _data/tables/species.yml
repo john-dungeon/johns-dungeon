@@ -7,15 +7,15 @@ columns:
   - key: type
     label: Creature Type
     type: list
-    options: [Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant, Undead]
+    order: [Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant, Undead]
   - key: size
     label: Size
     type: list
     plain: true
-    options: [Tiny, Small, Medium, Large, Huge, Gargantuan]
+    order: [Tiny, Small, Medium, Large, Huge, Gargantuan]
   - key: speed
     label: Speed
   - key: settings
     label: Settings
     type: list
-    options: [Big Blue, City 13, Drachenfell, Erisia, Great Luminant, Hiraeth, Jingyu City, New Moon City, Solachia]
+    order: [Big Blue, City 13, Drachenfell, Erisia, Great Luminant, Hiraeth, Jingyu City, New Moon City, Solachia]
