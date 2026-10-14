@@ -103,7 +103,8 @@ function rangeInput(label, placeholder, value) {
 
 function rangeGroup(col, { state, onChange }) {
   const group = el('div', 'st-filter-group');
-  const unit = col.suffix ? ` (${col.suffix.trim()})` : '';
+  const suffix = col.format === 'money' ? ' GP' : col.suffix;
+  const unit = suffix ? ` (${suffix.trim()})` : '';
   group.appendChild(el('div', 'st-filter-title', col.label + unit));
 
   const current = state.filters.ranges[col.key] || { min: null, max: null };
