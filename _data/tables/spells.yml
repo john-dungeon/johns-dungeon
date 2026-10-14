@@ -17,6 +17,12 @@ columns:
     type: measure
     units: {second: 1, round: 6, minute: 60, hour: 3600, day: 86400}
     order: [Action, Bonus Action, Reaction, "..."]
+    buckets:
+      - Action
+      - Bonus Action
+      - Reaction
+      - { label: Minutes, up_to: 59 minutes }
+      - { label: Hours }
     note:
       field: ritual
       show_if: "true"
@@ -26,6 +32,13 @@ columns:
     type: measure
     units: {foot: 1, feet: 1, mile: 5280}
     order: [Self, Touch, "...", Sight, Special, Unlimited]
+    buckets:
+      - Self
+      - Touch
+      - { label: Distance }
+      - Sight
+      - Special
+      - Unlimited
     note:
       field: area
       format: " (%s)"
@@ -33,11 +46,26 @@ columns:
     label: Duration
     type: measure
     units: {second: 1, round: 6, minute: 60, hour: 3600, day: 86400}
-    order: [Instantaneous, "...", Special, Permanent, Concentration]
+    order: [Instantaneous, "...", Concentration, Special, Permanent]
+    buckets:
+      - Instantaneous
+      - { label: 1 Round, up_to: 1 round }
+      - { label: 1 Minute, up_to: 1 minute }
+      - { label: 10 Minutes, up_to: 10 minutes }
+      - { label: 1 Hour, up_to: 1 hour }
+      - { label: 8 Hours, up_to: 8 hours }
+      - { label: 24+ Hours }
+      - Special
+      - Permanent
     note:
       field: concentration_max
       format: ", up to %s"
       sort: true
+  - key: concentration
+    label: Concentration
+    in_table: false
+    derive: { from: duration, equals: Concentration }
+    order: ["Yes", "No"]
   - key: classes
     label: Classes
     type: list
