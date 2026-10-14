@@ -38,6 +38,8 @@
 {%- assign it_weight_l = it_weight | downcase -%}
 {%- if it_weight_l == "varies" -%}
   {%- assign it_weight_text = "Weight Varies" -%}
+{%- elsif it_weight_l == "weightless" -%}
+  {%- assign it_weight_text = "Weightless" -%}
 {%- elsif it_weight != "" -%}
   {%- assign it_weight_text = it_weight | append: " lb." -%}
 {%- endif -%}
