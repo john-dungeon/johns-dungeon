@@ -1,4 +1,4 @@
-import { el, compareText, toNumber } from './utils.js';
+import { el, toNumber } from './utils.js';
 import { isExcluded } from './records.js';
 
 const NEXT_STATE = { off: 'include', include: 'exclude', exclude: 'off' };
@@ -57,13 +57,9 @@ export function activeFilterCount(filters) {
 }
 
 // Panel
-function wantsFilter(col, optionLabels) {
+function wantsFilter(col) {
   if (col.filter === false) return false;
-  if (col.filter === true) return true;
-  if (col.in_table === false) return false;
-  if (col.type === 'number') return true;
-  const distinct = Object.keys(optionLabels[col.key] || {}).length;
-  return distinct > 1 && distinct <= 30;
+  return col.type === 'number' || col.choices.length > 0;
 }
 
 function optionGroup(title, entries, getState, setState, onChange) {
@@ -126,24 +122,8 @@ function rangeGroup(col, { state, onChange }) {
   return group;
 }
 
-const rankOf = (col, value) => {
-  const index = col.rankList.indexOf(value);
-  return index === -1 ? 999 : index;
-};
-
-function categoryGroup(col, { optionLabels, state, onChange }) {
-  const labels = optionLabels[col.key] || {};
-  const values = Object.keys(labels).sort((a, b) => {
-    if (col.type === 'rank') {
-      const rankA = rankOf(col, a);
-      const rankB = rankOf(col, b);
-      if (rankA !== rankB) return rankA - rankB;
-    }
-    return compareText(labels[a], labels[b]);
-  });
-  const entries = values.map(value => ({ value, label: labels[value] }));
-
-  return optionGroup(col.label, entries,
+function categoryGroup(col, { state, onChange }) {
+  return optionGroup(col.label, col.choices,
     value => readState(state.filters.cats[col.key] || {}, value),
     (value, next) => {
       state.filters.cats[col.key] = state.filters.cats[col.key] || {};
@@ -178,22 +158,19 @@ function limitGroup({ state, limits, onChange }) {
 }
 
 export function buildPanel(panel, ctx) {
-  const { columns, optionLabels, tagLabels, showTags, state, onChange } = ctx;
+  const { columns, tags, state, onChange } = ctx;
   panel.textContent = '';
 
   panel.appendChild(el('p', 'st-filter-hint',
     'Click a tag or category once to include it, twice to exclude it, and a third time to clear it.'));
 
   columns.forEach(col => {
-    if (col.index === 0 || !wantsFilter(col, optionLabels)) return;
+    if (col.index === 0 || !wantsFilter(col)) return;
     panel.appendChild(col.type === 'number' ? rangeGroup(col, ctx) : categoryGroup(col, ctx));
   });
 
-  const tagValues = showTags ? Object.keys(tagLabels) : [];
-  if (tagValues.length) {
-    tagValues.sort((a, b) => compareText(tagLabels[a], tagLabels[b]));
-    const entries = tagValues.map(value => ({ value, label: tagLabels[value] }));
-    panel.appendChild(optionGroup('Tags', entries,
+  if (tags.choices.length) {
+    panel.appendChild(optionGroup('Tags', tags.choices,
       value => readState(state.filters.tags, value),
       (value, next) => writeState(state.filters.tags, value, next),
       onChange));
@@ -202,7 +179,7 @@ export function buildPanel(panel, ctx) {
   panel.appendChild(limitGroup(ctx));
 
   const footer = el('div', 'st-filter-footer');
-  if (tagValues.length) {
+  if (tags.choices.length) {
     const label = el('label', 'st-filter-match');
     const box = el('input');
     box.type = 'checkbox';
