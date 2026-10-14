@@ -19,7 +19,16 @@ const valuesWithState = (map, state) =>
   Object.keys(map).filter(value => map[value] === state);
 
 // Matching
-export function matchesFilters(rec, filters) {
+function amountOf(rec, col) {
+  const number = rec.num[col.key];
+  if (number !== null && number !== undefined) return number;
+  if (!col.slider) return null;
+  const text = rec.text[col.key];
+  if (text === col.slider.min_label.toLowerCase()) return 0;
+  return text === col.slider.max_label.toLowerCase() ? Infinity : null;
+}
+
+export function matchesFilters(rec, filters, byKey) {
   const hasTag = tag => rec.tags.includes(tag);
   const tagsIn = valuesWithState(filters.tags, 'include');
   const tagsOut = valuesWithState(filters.tags, 'exclude');
@@ -30,17 +39,19 @@ export function matchesFilters(rec, filters) {
   if (tagsOut.some(hasTag)) return false;
 
   for (const [key, states] of Object.entries(filters.cats)) {
-    const have = rec.values[key];
+    const buckets = rec.buckets[key];
+    const have = buckets || rec.values[key];
     const included = valuesWithState(states, 'include');
     const excluded = valuesWithState(states, 'exclude');
+    const isOut = value => excluded.includes(value);
     if (included.length && !included.some(value => have.includes(value))) return false;
-    if (excluded.length && isExcluded(rec, key, value => excluded.includes(value))) return false;
+    if (excluded.length && (buckets ? buckets.some(isOut) : isExcluded(rec, key, isOut))) return false;
   }
 
   for (const [key, range] of Object.entries(filters.ranges)) {
     if (range.min === null && range.max === null) continue;
-    const actual = rec.num[key];
-    if (actual === null || actual === undefined) return false;
+    const actual = amountOf(rec, byKey[key]);
+    if (actual === null) return false;
     if (range.min !== null && actual < range.min) return false;
     if (range.max !== null && actual > range.max) return false;
   }
@@ -62,6 +73,11 @@ function wantsFilter(col) {
   return col.type === 'number' || col.choices.length > 0;
 }
 
+function filterTitle(col) {
+  const suffix = col.format === 'money' ? ' GP' : col.suffix;
+  return suffix ? `${col.label} (${suffix.trim()})` : col.label;
+}
+
 function optionGroup(title, entries, getState, setState, onChange) {
   const group = el('div', 'st-filter-group');
   group.appendChild(el('div', 'st-filter-title', title));
@@ -73,7 +89,7 @@ function optionGroup(title, entries, getState, setState, onChange) {
 
     const paint = () => {
       const state = getState(entry.value);
-      button.setAttribute('aria-label', `${entry.label}, ${STATE_WORDS[state]}`);  
+      button.setAttribute('aria-label', `${entry.label}, ${STATE_WORDS[state]}`);
       button.setAttribute('data-state', state);
       button.setAttribute('aria-pressed', state === 'off' ? 'false' : 'true');
     };
@@ -103,9 +119,7 @@ function rangeInput(label, placeholder, value) {
 
 function rangeGroup(col, { state, onChange }) {
   const group = el('div', 'st-filter-group');
-  const suffix = col.format === 'money' ? ' GP' : col.suffix;
-  const unit = suffix ? ` (${suffix.trim()})` : '';
-  group.appendChild(el('div', 'st-filter-title', col.label + unit));
+  group.appendChild(el('div', 'st-filter-title', filterTitle(col)));
 
   const current = state.filters.ranges[col.key] || { min: null, max: null };
   const minInput = rangeInput(`${col.label} minimum`, 'Min', current.min);
@@ -123,6 +137,95 @@ function rangeGroup(col, { state, onChange }) {
   return group;
 }
 
+const THUMB_REM = 1;
+
+const positionLabel = ({ max, min_label, max_label }, pos) =>
+  pos === 0 ? min_label : pos > max ? max_label : pos.toLocaleString('en-US');
+
+function parsePosition(text, { max, min_label, max_label }) {
+  const typed = text.trim().toLowerCase();
+  if (typed === min_label.toLowerCase()) return 0;
+  if (typed === max_label.toLowerCase()) return max + 1;
+  const n = toNumber(typed.replace(/,/g, ''));
+  if (n === null) return null;
+  if (n <= 0) return 0;
+  return n > max ? max + 1 : Math.max(1, Math.round(n));
+}
+
+function sliderBox(label) {
+  const box = el('input', 'st-range-input st-slider-box');
+  box.type = 'text';
+  box.inputMode = 'numeric';
+  box.setAttribute('aria-label', label);
+  return box;
+}
+
+function sliderThumb(label, top) {
+  const thumb = el('input', 'st-slider-thumb');
+  thumb.type = 'range';
+  thumb.min = 0;
+  thumb.max = top;
+  thumb.step = 1;
+  thumb.setAttribute('aria-label', label);
+  return thumb;
+}
+
+function sliderGroup(col, { state, onChange }) {
+  const spec = col.slider;
+  const top = spec.max + 1;
+  const saved = state.filters.ranges[col.key] || { min: null, max: null };
+  let low = saved.min === null ? 0 : saved.min;
+  let high = saved.max === null ? top : saved.max;
+
+  const lowBox = sliderBox(`${col.label} minimum`);
+  const highBox = sliderBox(`${col.label} maximum`);
+  const lowThumb = sliderThumb(`${col.label} minimum`, top);
+  const highThumb = sliderThumb(`${col.label} maximum`, top);
+  const fill = el('span', 'st-slider-fill');
+  const slider = el('div', 'st-slider');
+  slider.append(fill, lowThumb, highThumb);
+
+  function paint() {
+    lowThumb.value = low;
+    highThumb.value = high;
+    lowBox.value = positionLabel(spec, low);
+    highBox.value = positionLabel(spec, high);
+    lowThumb.setAttribute('aria-valuetext', lowBox.value);
+    highThumb.setAttribute('aria-valuetext', highBox.value);
+    lowThumb.classList.toggle('st-on-top', low > top / 2);
+    const edge = share => `calc(${THUMB_REM / 2}rem + (100% - ${THUMB_REM}rem) * ${share})`;
+    fill.style.left = edge(low / top);
+    fill.style.right = edge(1 - high / top);
+  }
+
+  function commit(nextLow, nextHigh) {
+    low = nextLow;
+    high = nextHigh;
+    state.filters.ranges[col.key] = {
+      min: low === 0 ? null : low,
+      max: high === top ? null : high
+    };
+    paint();
+    onChange();
+  }
+
+  const typed = (box, fallback) => {
+    const pos = parsePosition(box.value, spec);
+    return pos === null ? fallback : pos;
+  };
+  lowThumb.addEventListener('input', () => commit(Math.min(+lowThumb.value, high), high));
+  highThumb.addEventListener('input', () => commit(low, Math.max(+highThumb.value, low)));
+  lowBox.addEventListener('change', () => commit(Math.min(typed(lowBox, low), high), high));
+  highBox.addEventListener('change', () => commit(low, Math.max(typed(highBox, high), low)));
+
+  const row = el('div', 'st-slider-row');
+  row.append(lowBox, slider, highBox);
+  const group = el('div', 'st-filter-group');
+  group.append(el('div', 'st-filter-title', filterTitle(col)), row);
+  paint();
+  return group;
+}
+
 function categoryGroup(col, { state, onChange }) {
   return optionGroup(col.label, col.choices,
     value => readState(state.filters.cats[col.key] || {}, value),
@@ -131,6 +234,11 @@ function categoryGroup(col, { state, onChange }) {
       writeState(state.filters.cats[col.key], value, next);
     },
     onChange);
+}
+
+function groupFor(col, ctx) {
+  if (col.type !== 'number') return categoryGroup(col, ctx);
+  return col.slider ? sliderGroup(col, ctx) : rangeGroup(col, ctx);
 }
 
 function limitGroup({ state, limits, onChange }) {
@@ -167,7 +275,7 @@ export function buildPanel(panel, ctx) {
 
   columns.forEach(col => {
     if (col.index === 0 || !wantsFilter(col)) return;
-    panel.appendChild(col.type === 'number' ? rangeGroup(col, ctx) : categoryGroup(col, ctx));
+    panel.appendChild(groupFor(col, ctx));
   });
 
   if (tags.choices.length) {
