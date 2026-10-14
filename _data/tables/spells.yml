@@ -46,7 +46,7 @@ columns:
     label: Duration
     type: measure
     units: {second: 1, round: 6, minute: 60, hour: 3600, day: 86400}
-    order: [Instantaneous, "...", Concentration, Special, Permanent]
+    order: [Instantaneous, Concentration, "...", Special, Permanent]
     buckets:
       - Instantaneous
       - { label: 1 Round, up_to: 1 round }
