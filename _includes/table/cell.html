@@ -1,13 +1,12 @@
-{%- assign cl_key = include.cell | downcase -%}
+{%- assign cl_key = include.cell | downcase | default: include.col.blank_as | downcase -%}
 {%- assign cl_shown = include.col.labels[cl_key] | default: include.cell -%}
+{%- assign cl_symbol = include.col.symbols[cl_key] -%}
 <td{% if include.col.in_table == false %} class="st-extra"{% endif %}>
-  {%- if include.cell == "" -%}—
-  {%- elsif include.col.symbols -%}
-    {%- assign cl_symbol = include.col.symbols[cl_key] -%}
-    {%- if cl_symbol -%}
-      {%- capture cl_label %}{{ include.col.label | escape }} · {{ cl_shown | escape }}{% endcapture -%}
-      <span class="st-symbol" role="img" aria-label="{{ cl_label }}" data-tooltip="{{ cl_label }}">{{ cl_symbol }}</span>
-    {%- else -%}{{ cl_shown | escape }}{%- endif -%}
+  {%- if cl_symbol -%}
+    {%- capture cl_label %}{{ include.col.label | escape }} · {{ cl_shown | escape }}{% endcapture -%}
+    <span class="st-symbol" role="img" aria-label="{{ cl_label }}" data-tooltip="{{ cl_label }}">{{ cl_symbol }}</span>
+  {%- elsif include.cell == "" -%}—
+  {%- elsif include.col.symbols -%}{{ cl_shown | escape }}
   {%- elsif include.col.format == "money" -%}
     {%- include table/money.html amount=include.cell -%}
   {%- elsif include.col.type == "number" -%}
