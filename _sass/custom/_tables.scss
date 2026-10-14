@@ -20,3 +20,9 @@ table.catalog {
 }
 
 .table-wrapper .table-wrapper { margin-bottom: 0; }
+
+// Entry Values Missing
+.st-unlisted {
+  color: $unlisted-color;
+  text-decoration: underline dotted;
+}
