@@ -14,7 +14,9 @@
     {%- if cl_num == include.cell -%}{{ include.col.prefix | escape }}{{ include.cell }}{{ include.col.suffix | escape }}{%- else -%}{{ include.cell | escape }}{%- endif -%}
   {%- else -%}
     {{- include.cell | escape -}}
-    {%- if include.note and include.note != "" -%}
+    {%- assign cl_note_l = include.note | downcase -%}
+    {%- assign cl_show_if = include.col.note.show_if | default: cl_note_l | downcase -%}
+    {%- if include.note and include.note != "" and cl_note_l == cl_show_if -%}
       {{- include.col.note.format | default: " (%s)" | replace: "%s", include.note | escape -}}
     {%- endif -%}
   {%- endif -%}
