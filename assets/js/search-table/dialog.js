@@ -1,7 +1,9 @@
-export function createDialog(root, config) {
+import { el, markUnlisted } from './utils.js';
+
+export function createDialog(root, tags) {
   const dialog = root.querySelector('.st-dialog');
   const title = dialog.querySelector('.st-dialog-title');
-  const tags = dialog.querySelector('.st-dialog-tags');
+  const tagLine = dialog.querySelector('.st-dialog-tags');
   const content = dialog.querySelector('.st-dialog-body');
 
   dialog.querySelector('.st-dialog-close').addEventListener('click', () => dialog.close());
@@ -16,11 +18,15 @@ export function createDialog(root, config) {
     title.textContent = row.querySelector('.st-name').textContent;
     dialog.setAttribute('aria-label', title.textContent);
 
-    tags.textContent = '';
+    tagLine.textContent = '';
     const tagNames = row.dataset.tagNames;
-    if (tagNames && config.tags !== false) {
+    if (tagNames && tags.shown) {
       const list = tagNames.split(',');
-      tags.textContent = `${list.length === 1 ? 'Tag' : 'Tags'}: ${list.join(', ')}`;
+      tagLine.append(list.length === 1 ? 'Tag: ' : 'Tags: ');
+      list.forEach((name, i) => {
+        if (i > 0) tagLine.append(', ');
+        tagLine.append(tags.isListed(name) ? name : markUnlisted(el('span', '', name)));
+      });
     }
 
     content.innerHTML = source ? source.innerHTML : '';
