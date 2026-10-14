@@ -1,6 +1,6 @@
 template: spell
 noun: spells
-tags: [Armor Class, Attack, Buff, Debuff, Cleanse, Esoteric, Saving Throw, Upcast]
+tags: [Area, Armor Class, Attack, Buff, Debuff, Cleanse, Esoteric, Saving Throw, Upcast]
 columns:
   - key: name
     label: Name
