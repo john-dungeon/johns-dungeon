@@ -20,8 +20,8 @@ export function el(tag, className, text) {
   return node;
 }
 
-export function markUnlisted(node) {
+export function markUnlisted(node, values) {
   node.classList.add('st-unlisted');
-  node.dataset.tooltip = 'Not listed in this table\u2019s settings (_data/tables).';
+  node.dataset.tooltip = `Not listed in this table\u2019s settings: ${[].concat(values).join(', ')}`;
   return node;
 }
