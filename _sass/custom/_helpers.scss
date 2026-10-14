@@ -13,6 +13,7 @@ $marker-colors: (
   "varies": $body-text-color
 ) !default;
 
+$unlisted-color: if($is-light-theme, #b3261e, #ff6b6b) !default;
 $shadow-small: 0 2px 6px rgba(0, 0, 0, 0.3);
 $shadow-popup: 0 4px 12px rgba(0, 0, 0, 0.35);
 $shadow-dialog: 0 8px 30px rgba(0, 0, 0, 0.5);
