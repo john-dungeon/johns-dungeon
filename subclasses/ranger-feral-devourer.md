@@ -1,5 +1,5 @@
 ---
-title: Feral Devourer
+title: Moon Ravager
 parent: Ranger
 grand_parent: Subclasses
 tagline: Placeholder
