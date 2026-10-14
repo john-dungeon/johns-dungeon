@@ -26,8 +26,7 @@
 {%- assign sp_cast = sp_cast | append: sp_condition -%}
 
 {%- assign sp_range_text = sp_range -%}
-{%- assign sp_range_l = sp_range | downcase -%}
-{%- if sp_range_l == "self" and sp_area != "" -%}
+{%- if sp_area != "" -%}
   {%- assign sp_range_text = sp_range | append: " (" | append: sp_area | append: ")" -%}
 {%- endif -%}
 
