@@ -64,7 +64,7 @@ function init(root) {
   function render() {
     const terms = parseQuery(search.value);
     const matched = records
-      .filter(rec => matchesQuery(rec, terms, byKey) && matchesFilters(rec, state.filters, byKey))
+      .filter(rec => matchesQuery(rec, terms, byKey) && matchesFilters(rec, state.filters))
       .sort(compareRecords);
     const shown = matched.slice(0, state.limit);
 
