@@ -1,4 +1,4 @@
-import { toNumber } from './utils.js';
+import { toNumber, el, markUnlisted } from './utils.js';
 
 export function prepareColumns(config) {
   const columns = config.columns;
@@ -8,6 +8,12 @@ export function prepareColumns(config) {
     if (col.type === 'rank') {
       col.rankList = (col.order || []).map(item => String(item).toLowerCase());
     }
+    const listed = col.options || (col.type === 'rank' ? col.order : null) || [];
+    col.choices = listed.map(option => {
+      const value = String(option).toLowerCase();
+      return { value, label: (col.labels && col.labels[value]) || String(option) };
+    });
+    col.listed = new Set(col.choices.map(choice => choice.value));
   });
   const byKey = Object.fromEntries(columns.map(col => [col.key, col]));
   return { columns, byKey, nameKey: columns[0].key };
@@ -16,11 +22,9 @@ export function prepareColumns(config) {
 export function readRecords(body, columns) {
   return [...body.rows].map(row => {
     const tagNameText = row.getAttribute('data-tag-names');
-    const tagNames = tagNameText ? tagNameText.split(',') : [];
     const rec = {
       row,
-      tagNames,
-      tags: tagNames.map(tag => tag.toLowerCase()),
+      tags: tagNameText ? tagNameText.toLowerCase().split(',') : [],
       text: {}, num: {}, rank: {},
       own: {}, extra: {}, values: {}
     };
@@ -52,33 +56,40 @@ export function readRecords(body, columns) {
   });
 }
 
-export function collectLabels(records, columns) {
-  const tagLabels = {};
-  const optionLabels = {};
+export function prepareTags(config) {
+  const shown = config.tags !== false;
+  const list = shown && Array.isArray(config.tags) ? config.tags : [];
+  const choices = list.map(tag => ({ value: String(tag).toLowerCase(), label: String(tag) }));
+  const listed = new Set(choices.map(choice => choice.value));
+  return { shown, choices, isListed: tag => listed.has(tag.toLowerCase()) };
+}
 
-  const setLabel = (key, value, label) => {
-    optionLabels[key] = optionLabels[key] || {};
-    if (!optionLabels[key][value]) optionLabels[key][value] = label;
-  };
+function flagListItems(cell, isListed) {
+  const items = cell.textContent.trim().split(', ');
+  cell.textContent = '';
+  items.forEach((item, i) => {
+    if (i > 0) cell.append(', ');
+    cell.append(isListed(item) ? item : markUnlisted(el('span', '', item)));
+  });
+}
 
+export function flagUnlisted(records, columns) {
   records.forEach(rec => {
-    rec.tags.forEach((tag, i) => {
-      if (!tagLabels[tag]) tagLabels[tag] = rec.tagNames[i] || tag;
-    });
     columns.forEach(col => {
-      if (col.index === 0 || col.type === 'number') return;
+      if (col.index === 0 || col.type === 'number' || col.listed.size === 0) return;
       const cell = rec.row.cells[col.index];
-      const cellText = (cell.getAttribute('data-text') || cell.textContent).trim();
-      const ownLabels = col.type === 'list' ? cellText.split(', ') : [cellText];
-      rec.own[col.key].forEach((value, i) => setLabel(col.key, value, ownLabels[i] || value));
-      rec.extra[col.key].forEach(label => {
-        const value = label.toLowerCase();
-        setLabel(col.key, value, (col.labels && col.labels[value]) || label);
-      });
+      const isListed = text => col.listed.has(text.toLowerCase());
+      const badOwn = rec.own[col.key].filter(value => !isListed(value));
+      const badExtra = rec.extra[col.key].filter(value => !isListed(value));
+
+      if (col.type === 'list') {
+        if (badOwn.length) flagListItems(cell, isListed);
+        if (badExtra.length) markUnlisted(cell);
+      } else if (badOwn.length || badExtra.length) {
+        markUnlisted(cell);
+      }
     });
   });
-
-  return { tagLabels, optionLabels };
 }
 
 export function isExcluded(rec, key, test) {
