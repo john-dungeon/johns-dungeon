@@ -78,6 +78,24 @@ function sortKey(col, text) {
   return col.trail.has(text) ? { group: col.lead.length + 1, amount: null, text } : null;
 }
 
+const SPAN = /^(\d+(?:\.\d+)?)(?:\s*-\s*(\d+(?:\.\d+)?))?$/;
+
+function spansFor(col, raw, optionsRaw) {
+  const spans = [];
+  const own = toNumber(raw);
+  if (own !== null) spans.push([own, own]);
+  else if (col.slider && raw === col.slider.min_label.toLowerCase()) spans.push([0, 0]);
+  else if (col.slider && raw === col.slider.max_label.toLowerCase()) spans.push([Infinity, Infinity]);
+
+  (optionsRaw ? optionsRaw.split(', ') : []).forEach(part => {
+    const match = SPAN.exec(part.trim());
+    if (!match) return;
+    const from = parseFloat(match[1]);
+    spans.push([from, match[2] ? parseFloat(match[2]) : from]);
+  });
+  return spans;
+}
+
 export function readRecords(body, columns) {
   return [...body.rows].map(row => {
     const tagNameText = row.getAttribute('data-tag-names');
@@ -85,7 +103,7 @@ export function readRecords(body, columns) {
       row,
       tags: tagNameText ? tagNameText.toLowerCase().split(',') : [],
       text: {}, num: {}, sort: {},
-      own: {}, extra: {}, values: {}, buckets: {}
+      own: {}, extra: {}, values: {}, buckets: {}, spans: {}
     };
 
     columns.forEach(col => {
@@ -107,7 +125,10 @@ export function readRecords(body, columns) {
       rec.extra[col.key] = extra;
       rec.values[col.key] = values;
 
-      if (col.type === 'number') rec.num[col.key] = toNumber(raw);
+      if (col.type === 'number') {
+        rec.num[col.key] = toNumber(raw);
+        rec.spans[col.key] = spansFor(col, raw, row.getAttribute('data-o-' + col.key));
+      }
 
       const sortText = col.byRank ? (row.getAttribute('data-s-' + col.key) || own[0]) : raw;
       rec.sort[col.key] = sortKey(col, sortText);
