@@ -2,7 +2,7 @@
 {%- capture sp_school %}{% include table/field.html packed=include.packed key="school" %}{% endcapture -%}
 {%- capture sp_classes %}{% include table/field.html packed=include.packed key="classes" %}{% endcapture -%}
 {%- capture sp_casting_time %}{% include table/field.html packed=include.packed key="casting_time" %}{% endcapture -%}
-{%- capture sp_trigger %}{% include table/field.html packed=include.packed key="trigger" %}{% endcapture -%}
+{%- capture sp_condition %}{% include table/field.html packed=include.packed key="condition" %}{% endcapture -%}
 {%- capture sp_ritual %}{% include table/field.html packed=include.packed key="ritual" %}{% endcapture -%}
 {%- capture sp_range %}{% include table/field.html packed=include.packed key="range" %}{% endcapture -%}
 {%- capture sp_area %}{% include table/field.html packed=include.packed key="area" %}{% endcapture -%}
@@ -21,12 +21,9 @@
 {%- endif -%}
 
 {%- assign sp_cast = sp_casting_time -%}
-{%- assign sp_cast_l = sp_casting_time | downcase -%}
-{%- if sp_cast_l == "reaction" and sp_trigger != "" -%}
-  {%- assign sp_cast = sp_cast | append: ", which you take " | append: sp_trigger -%}
-{%- endif -%}
 {%- assign sp_ritual_l = sp_ritual | downcase -%}
 {%- if sp_ritual_l == "true" -%}{%- assign sp_cast = sp_cast | append: " or Ritual" -%}{%- endif -%}
+{%- assign sp_cast = sp_cast | append: sp_condition -%}
 
 {%- assign sp_range_text = sp_range -%}
 {%- assign sp_range_l = sp_range | downcase -%}
