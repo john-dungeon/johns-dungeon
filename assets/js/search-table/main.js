@@ -38,21 +38,16 @@ function init(root) {
   flagUnlisted(records, columns);
   const parseQuery = createQueryParser(columns, nameKey);
 
-  function sortValue(rec) {
-    const col = byKey[state.sortKey];
-    if (col.type === 'number') return rec.num[state.sortKey];
-    if (col.type === 'rank') return rec.rank[state.sortKey];
-    return rec.text[state.sortKey] || null;
-  }
-
   function compareRecords(a, b) {
-    const va = sortValue(a);
-    const vb = sortValue(b);
+    const ka = a.sort[state.sortKey];
+    const kb = b.sort[state.sortKey];
     const tie = compareText(a.text[nameKey], b.text[nameKey]);
-    if (va === null && vb === null) return tie;
-    if (va === null) return 1;
-    if (vb === null) return -1;
-    const result = typeof va === 'number' ? va - vb : compareText(va, vb);
+    if (ka === null && kb === null) return tie;
+    if (ka === null) return 1;
+    if (kb === null) return -1;
+    const result = ka.group - kb.group
+      || (ka.amount || 0) - (kb.amount || 0)
+      || compareText(ka.text, kb.text);
     return result === 0 ? tie : result * state.sortDir;
   }
 
