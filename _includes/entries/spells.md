@@ -19,12 +19,13 @@ classes: Artificer, Druid, Ranger, Wizard
 casting_time: Action
 ritual: true
 range: Self
+area: 30-foot Emmanation
 components: V, S, M
 material: a metal lock
 duration: Concentration
 concentration_max: 10 minutes
-tags: Esoteric
-description: For the duration, you sense the location of any creatures that have shape-shifted (as a result of the *Polymorph* spell, for example) within 30 feet of you.
+tags: Area, Esoteric
+description: For the duration, you sense the location of any creatures that have shape-shifted (as a result of the *Polymorph* spell, for example) in a 30-foot Emanation originating from you.
 
 The spell is blocked by 1 foot of stone, dirt, or wood; 1 inch of metal; or a thin sheet of lead.
 
@@ -57,7 +58,7 @@ components: V, S, M
 material: a snowball
 duration: Concentration
 concentration_max: 1 minute
-tags: Esoteric
+tags: Area, Debuff, Esoteric, Upcast
 description: You conjure a binding frost in a 20-foot Cube within range. Each creature (other than you) in the area must make a Constitution saving throw. On a failed save, a target takes 3d8 Cold damage and has the Restrained condition for the duration, as it is frozen stiff by ice. On a successful save, a target takes half as much damage, and its Speed is halved until the start of your next turn. A creature killed by this spell becomes a frozen statue until it thaws.
 
 While Restrained, a target takes 2d8 Cold damage at the start of each of its turns. The target or a creature that can reach it can take an action to make a Strength (Athletics) check against your spell save DC. On a success, the target is no longer Restrained by the ice. Also, if a Restrained creature takes Fire damage, it is no longer Restrained.
@@ -90,7 +91,7 @@ condition: , which you take when you are hit by an attack roll
 range: Self
 components: V, S
 duration: Instantaneous
-tags: Armor Class, Saving Throw
+tags: Armor Class, Buff, Saving Throw
 description: A barrier of magical glass protects you and shatters from the incoming impact. You have a +5 bonus to AC against the triggering attack. Immediately after the attack hits or misses, the barrier shatters, and each creature of your choice within 5 feet of you must make a Dexterity saving throw, taking 1d12 Piercing damage on a failed save or half as much damage on a successful one.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d12 for each spell slot level above 1.
