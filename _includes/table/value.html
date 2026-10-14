@@ -1,5 +1,7 @@
 {%- capture val_raw %}{% include table/field.html packed=include.packed key=include.col.key %}{% endcapture -%}
-{%- if include.col.type == "list" -%}
+{%- if include.col.zero_label and val_raw == "0" -%}
+  {{- include.col.zero_label -}}
+{%- elsif include.col.type == "list" -%}
   {%- include table/list.html csv=val_raw sep=", " plain=include.col.plain -%}
 {%- else -%}
   {{- val_raw -}}
