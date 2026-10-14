@@ -22,7 +22,7 @@ columns:
     units: {foot: 1, feet: 1, mile: 5280}
     order: [Self, Touch, "...", Sight, Special, Unlimited]
     note:
-      field: note_range
+      field: area
       format: " (%s)"
   - key: duration
     label: Duration
