@@ -11,7 +11,7 @@ columns:
     label: Name
   - key: type
     label: Type
-    options: [Potion, Weapon, Wondrous Item]
+    order: [Potion, Weapon, Wondrous Item]
   - key: rarity
     label: Rarity
     type: rank
@@ -26,11 +26,14 @@ columns:
     suffix: " lb."
   - key: attunement
     label: Attunement
-    blank_as: "false"
-    options: ["true", "false"]
+    type: rank
+    blank_as: "n/a"
+    order: ["n/a", "false", "true"]
     symbols:
-      "true": "☒"
+      "n/a": "—"
       "false": "☐"
+      "true": "☒"
     labels:
-      "true": "Required"
+      "n/a": "N/A"
       "false": "None"
+      "true": "Required"
