@@ -83,7 +83,7 @@ attunement: false
 cost: 250.2
 weight: 1
 tags: Magic Item
-description: When you roll a 1 on the d20 for the attack roll with this weapon, the next attack roll you make with the weapon automatically hits and scores a Critical Hit.
+description: When you roll a 1 on the d20 for the attack roll with this weapon, the next attack roll made with the weapon automatically hits and scores a Critical Hit.
 
 ---
 
