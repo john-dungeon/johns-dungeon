@@ -58,6 +58,12 @@ export function activeFilterCount(filters) {
 }
 
 // Panel
+function filterGroup(title, ...content) {
+  const group = el('div', 'st-filter-group');
+  group.append(el('div', 'st-filter-title', title), ...content);
+  return group;
+}
+
 function wantsFilter(col) {
   if (col.filter === false) return false;
   return col.type === 'number' || col.choices.length > 0;
@@ -69,8 +75,6 @@ function filterTitle(col) {
 }
 
 function optionGroup(title, entries, getState, setState, onChange) {
-  const group = el('div', 'st-filter-group');
-  group.appendChild(el('div', 'st-filter-title', title));
   const wrap = el('div', 'st-filter-options');
 
   entries.forEach(entry => {
@@ -93,8 +97,7 @@ function optionGroup(title, entries, getState, setState, onChange) {
     wrap.appendChild(button);
   });
 
-  group.appendChild(wrap);
-  return group;
+  return filterGroup(title, wrap);
 }
 
 function rangeInput(label, placeholder, value) {
@@ -108,9 +111,6 @@ function rangeInput(label, placeholder, value) {
 }
 
 function rangeGroup(col, { state, onChange }) {
-  const group = el('div', 'st-filter-group');
-  group.appendChild(el('div', 'st-filter-title', filterTitle(col)));
-
   const current = state.filters.ranges[col.key] || { min: null, max: null };
   const minInput = rangeInput(`${col.label} minimum`, 'Min', current.min);
   const maxInput = rangeInput(`${col.label} maximum`, 'Max', current.max);
@@ -123,8 +123,7 @@ function rangeGroup(col, { state, onChange }) {
 
   const row = el('div', 'st-range');
   row.append(minInput, el('span', 'st-range-to', 'to'), maxInput);
-  group.appendChild(row);
-  return group;
+  return filterGroup(filterTitle(col), row);
 }
 
 const THUMB_REM = 1;
@@ -210,10 +209,8 @@ function sliderGroup(col, { state, onChange }) {
 
   const row = el('div', 'st-slider-row');
   row.append(lowBox, slider, highBox);
-  const group = el('div', 'st-filter-group');
-  group.append(el('div', 'st-filter-title', filterTitle(col)), row);
   paint();
-  return group;
+  return filterGroup(filterTitle(col), row);
 }
 
 function categoryGroup(col, { state, onChange }) {
@@ -232,9 +229,6 @@ function groupFor(col, ctx) {
 }
 
 function limitGroup({ state, limits, onChange }) {
-  const group = el('div', 'st-filter-group');
-  group.appendChild(el('div', 'st-filter-title', 'Results shown'));
-
   const slider = el('input', 'st-limit-slider');
   slider.type = 'range';
   slider.min = limits.min;
@@ -252,8 +246,7 @@ function limitGroup({ state, limits, onChange }) {
 
   const row = el('div', 'st-limit');
   row.append(slider, output);
-  group.appendChild(row);
-  return group;
+  return filterGroup('Results shown', row);
 }
 
 export function buildPanel(panel, ctx) {
