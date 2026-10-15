@@ -165,7 +165,7 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 ## 5. Reminders
 - **Liquid runs in every normal `.md` page**, even inside backticks. Wrap documentation examples in raw tags (like this page does).
 - **Includes share variables with the page that calls them.** Give every include its own prefix (`mk_`, `cl_`, `pe_`, `jw_`, `sp_`...).
-- **GitHub Pages may compile Sass with an older compiler.** Avoid `min()`/`max()` with mixed units, `@use`, and `math.div`.
+- **For Sass compatibility**, halve with `* 0.5`, not `/ 2` (slash division is deprecated in newer Sass). Avoid `@use` and `math.div`: the theme loads this folder with `@import`.
 - **Colors and fonts come from the color-scheme variables**, never hard-coded in `_sass/custom/`.
 - **Entry files are named `_entries.md`** so Jekyll doesn't publish them as raw pages. They're loaded with `include_relative`, so they must sit in the same folder as the page that shows the table.
 - **Before deleting a CSS class**, search the whole repo for its name (GitHub's search box works).
