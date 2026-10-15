@@ -291,7 +291,7 @@ export function buildPanel(panel, ctx) {
     footer.appendChild(label);
   }
 
-  const clear = el('button', 'st-filter-clear', 'Clear filters');
+  const clear = el('button', 'st-filter-clear', 'Clear Filters');
   clear.type = 'button';
   clear.addEventListener('click', () => {
     state.filters = newFilters();
