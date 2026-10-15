@@ -1,6 +1,6 @@
 template: item
 noun: items
-tags: [Advantage, Area, Armor Class Bonus, Attack Bonus, Buff, Charges, Condition, Consumable, Cursed, Damage, Damage Bonus, Debuff, Disadvantage, Extra Damage, Forced Movement, Healing, Immunity, Light, Magic Item, Resistance, Revival, Saving Throw, Spell]
+tags: [Advantage, Area, Armor Class Bonus, Attack Bonus, Buff, Charges, Condition, Consumable, Cursed, Damage, Damage Bonus, Debuff, Disadvantage, Extra Damage, Forced Movement, Healing, Immunity, Light, Magic Item, Resistance, Revival, Saving Throw, Special Property, Spell]
 marker:
   symbol: "✦"
   tag: Magic Item
