@@ -102,6 +102,7 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - `KEY_options` (e.g. `rarity_options`) – lists other values the entry counts as for search and filters. Excluding hides the entry only if all of its values are excluded.
 - On number columns, `cost_options` and `weight_options` list amounts or ranges instead, like `cost_options: 50, 200, 3-36`. Use plain numbers, no thousands commas. A slider or Min/Max filter keeps the entry if any listed amount or range overlaps it.
 - `note_KEY` fields are used by the item template.
+- `prefix_type` (items) – placed before the type in the popup's first line, like `prefix_type: Simple Melee` with `type: Weapon` showing "Simple Melee Weapon". It isn't shown in the table's Type column, so filtering still uses the plain type.
 
 ### Table Settings (`_data/tables/NAME.yml`)
 - `template` – popup layout file in `_includes/table/templates/` (required).
