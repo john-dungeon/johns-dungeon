@@ -122,12 +122,11 @@ The Antimagic Bomb can't affect Artifacts or spells cast by an Artifact or a dei
 
 name: Banner of Determination
 type: Wondrous Item
-note_type: Bagpipes
 rarity: Common
 attunement: false
-cost: 100.3
+cost: 425
 weight: 6
-tags: Condition, Magic Item
+tags: Area, Immunity, Magic Item
 description: This object appears to be a Medium pole with a banner hung on one end. As a Magic action, you can raise the banner, causing an aura of determination to radiate from you in a 20-foot Emanation for 1 minute. While in the aura, creatures of your choice have Immunity to the Charmed and Frightened conditions. If a creature was already Charmed or Frightened, those conditions have no effect while in the aura. You can plant the banner, making the Emanation stationary until the banner is picked up.
 
 ---
