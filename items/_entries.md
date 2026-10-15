@@ -18,7 +18,7 @@ description: This suit of armor is made of adamantine, an alloy made of iron and
 
 As a Magic action, you can expend all of the armor’s charges to expel a wave of magical force from the armor. Each creature in a 15-foot Emanation around you makes a DC 17 Strength saving throw. On a failed save, for each charge expended, a target takes 1d8 Force damage and is pushed 5 feet straight away from you. On a successful save, a target takes half as much damage only.
 
-*This item is a variation of Adamantine Armor for the Erisia setting.*
+> *This item is a variation of Adamantine Armor for the Erisia setting.*
 
 ---
 
@@ -58,7 +58,7 @@ description: This weapon is made of adamantine, an alloy made of iron and adaman
 
 Immediately after you hit a target with the weapon, you can take a Bonus Action to expend all of the weapon’s charges to unleash a concentrated blast of magical force from the weapon. The target takes an extra 1d8 Force damage from the attack for each charge expended and has the Prone condition.
 
-*This item is a variation of an Adamantine Weapon for the Erisia setting.*
+> *This item is a variation of an Adamantine Weapon for the Erisia setting.*
 
 ---
 
