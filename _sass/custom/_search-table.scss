@@ -210,8 +210,8 @@ $slider-height: 1.5rem;
     content: "";
     position: absolute;
     top: 50%;
-    left: $slider-thumb-size / 2;
-    right: $slider-thumb-size / 2;
+    left: $slider-thumb-size * 0.5;
+    right: $slider-thumb-size * 0.5;
     height: 4px;
     margin-top: -2px;
     border-radius: 2px;
@@ -251,7 +251,7 @@ $slider-height: 1.5rem;
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    margin-top: ($slider-height - $slider-thumb-size) / 2;
+    margin-top: ($slider-height - $slider-thumb-size) * 0.5;
     @include slider-thumb;
   }
   &::-moz-range-thumb { @include slider-thumb; }
