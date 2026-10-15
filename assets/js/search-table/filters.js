@@ -19,15 +19,6 @@ const valuesWithState = (map, state) =>
   Object.keys(map).filter(value => map[value] === state);
 
 // Matching
-function amountOf(rec, col) {
-  const number = rec.num[col.key];
-  if (number !== null && number !== undefined) return number;
-  if (!col.slider) return null;
-  const text = rec.text[col.key];
-  if (text === col.slider.min_label.toLowerCase()) return 0;
-  return text === col.slider.max_label.toLowerCase() ? Infinity : null;
-}
-
 export function matchesFilters(rec, filters) {
   const hasTag = tag => rec.tags.includes(tag);
   const tagsIn = valuesWithState(filters.tags, 'include');
