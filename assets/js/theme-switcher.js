@@ -2,8 +2,10 @@
   const THEMES = window.SITE_THEMES || [];
   const PATTERN = /just-the-docs-([a-z]+)\.css/;
 
-  let link = [...document.querySelectorAll('link[rel="stylesheet"]')]
-    .find(l => PATTERN.test(l.getAttribute('href')));
+  const themeLinks = () => [...document.querySelectorAll('link[rel="stylesheet"]')]
+    .filter(l => PATTERN.test(l.getAttribute('href')));
+
+  let link = themeLinks()[0];
   if (!link) return;
 
   const currentTheme = () => link.getAttribute('href').match(PATTERN)?.[1];
@@ -22,11 +24,15 @@
   try {
     const saved = localStorage.getItem('theme');
     if (THEMES.includes(saved) && saved !== currentTheme()) {
-      link.setAttribute('href', hrefFor(saved));
+      document.write(`<link rel="stylesheet" href="${hrefFor(saved)}">`);
     }
   } catch (e) {}
 
   document.addEventListener('DOMContentLoaded', () => {
+    const links = themeLinks();
+    link = links[links.length - 1];
+    links.slice(0, -1).forEach(old => old.remove());
+
     const toggle = document.getElementById('theme-toggle');
     const menu = document.getElementById('theme-menu');
     if (!toggle || !menu) return;
