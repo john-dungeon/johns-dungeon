@@ -1,5 +1,18 @@
 // Markup: _includes/search-table.html
 // Behavior: assets/js/search-table/...
+$slider-thumb-size: 1rem;
+$slider-height: 1.5rem;
+
+@mixin slider-thumb {
+  box-sizing: border-box;
+  width: $slider-thumb-size;
+  height: $slider-thumb-size;
+  border: 2px solid $sidebar-color;
+  border-radius: 50%;
+  background: $link-color;
+  cursor: pointer;
+  pointer-events: auto;
+}
 
 // Toolbar
 .st-tools {
@@ -39,13 +52,10 @@
 .st-table-wrap { overflow-x: auto; }
 
 .st-table {
-  display: table;
-  width: 100%;
+  @include fit-table(0.6rem 0.85rem);
   border-collapse: collapse;
 
   th, td {
-    min-width: 0;
-    padding: 0.6rem 0.85rem;
     border: 0;
     text-align: left;
     vertical-align: top;
@@ -125,10 +135,7 @@
   &:empty { display: none; }
 }
 
-.st-dialog-body {
-  table { display: table; width: 100%; }
-  th, td { min-width: 0; padding: 0.5rem 0.75rem; }
-}
+.st-dialog-body table { @include fit-table(0.5rem 0.75rem); }
 
 // Filter
 .st-filter-panel {
@@ -183,20 +190,6 @@
 .st-limit { display: flex; align-items: center; gap: 0.75rem; }
 .st-limit-slider { width: min(20rem, 100%); accent-color: $link-color; }
 .st-limit-value { min-width: 2.5rem; font-weight: 700; }
-
-$slider-thumb-size: 1rem;
-$slider-height: 1.5rem;
-
-@mixin slider-thumb {
-  box-sizing: border-box;
-  width: $slider-thumb-size;
-  height: $slider-thumb-size;
-  border: 2px solid $sidebar-color;
-  border-radius: 50%;
-  background: $link-color;
-  cursor: pointer;
-  pointer-events: auto;
-}
 
 .st-slider-row {
   display: flex;
@@ -297,4 +290,11 @@ $slider-height: 1.5rem;
   @each $name, $color in $marker-colors {
     &[data-marker="#{$name}"] { color: $color; }
   }
+}
+
+
+// Entry Values Missing From The Table Settings
+.st-unlisted {
+  color: $unlisted-color;
+  text-decoration: underline dotted;
 }
