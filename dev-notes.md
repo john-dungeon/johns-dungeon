@@ -37,7 +37,7 @@ Any element with `data-tooltip="text"` gets a hover/focus bubble. In the text, `
 ### Search Tables (`search-table.html`)
 Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on a page. A table named `items` uses three files:
 - `_data/tables/items.yml` – settings and columns (below).
-- `_includes/entries/items.md` – the entries. This is the file you edit.
+- `items/_entries.md` – the entries, kept next to the page that shows the table. This is the file you edit.
 - `_includes/table/templates/<template>.md` – how an entry's fields become popup text.
 
 **Entry format:** entries are separated by a line that is exactly `---` (never use `---` inside a description; use `***`). One `key: value` per line. A line that starts with a field name (lowercase letters, digits, underscores) and `: ` starts a field; every other line continues the field above it. Lists are comma-separated. Write cost and weight as plain numbers. Species traits are indented list items (see `entries/species.md`). Species entry order: name, article (optional), description, age, type, size, speed, settings, tags, traits.
@@ -61,6 +61,7 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 **Adding a new column or field:** add the key to the entry, add a column in the `.yml` file, and (if it should appear in the popup) use it in the template.
 
 ### Other Notes
+- Entry files are named `_entries.md` so Jekyll doesn't publish them as raw pages. They're loaded within include_relative, so they must sit in the same folder as the page that shows the table.
 - `has_toc: false` is set for every page in `_config.yml`, so don't repeat it in front matter.
 - Colors and fonts come from the color-scheme variables, never hard-coded in `_sass/custom/`.
 - GitHub Pages may compile Sass with an older compiler. Avoid `min()`/`max()` with mixed units, `@use`, and `math.div`.
