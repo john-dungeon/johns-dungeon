@@ -5,7 +5,6 @@
 {%- capture sp_condition %}{% include table/field.html packed=include.packed key="condition" %}{% endcapture -%}
 {%- capture sp_ritual %}{% include table/field.html packed=include.packed key="ritual" %}{% endcapture -%}
 {%- capture sp_range %}{% include table/field.html packed=include.packed key="range" %}{% endcapture -%}
-{%- capture sp_area %}{% include table/field.html packed=include.packed key="area" %}{% endcapture -%}
 {%- capture sp_components %}{% include table/field.html packed=include.packed key="components" %}{% endcapture -%}
 {%- capture sp_material %}{% include table/field.html packed=include.packed key="material" %}{% endcapture -%}
 {%- capture sp_duration %}{% include table/field.html packed=include.packed key="duration" %}{% endcapture -%}
@@ -25,8 +24,6 @@
 {%- if sp_ritual_l == "true" -%}{%- assign sp_cast = sp_cast | append: " or Ritual" -%}{%- endif -%}
 {%- assign sp_cast = sp_cast | append: sp_condition -%}
 
-{%- assign sp_range_text = sp_range -%}
-
 {%- assign sp_comp_up = sp_components | upcase -%}
 {%- assign sp_parts = "" -%}
 {%- if sp_comp_up contains "V" -%}{%- assign sp_parts = sp_parts | append: "V " -%}{%- endif -%}
@@ -45,7 +42,7 @@
 *{{ sp_header }}*
 
 **Casting Time:** {{ sp_cast }}\
-**Range:** {{ sp_range_text }}\
+**Range:** {{ sp_range }}\
 **Components:** {{ sp_comp_text }}\
 **Duration:** {{ sp_duration_text }}
 

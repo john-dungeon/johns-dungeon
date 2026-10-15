@@ -7,3 +7,4 @@
   {%- else -%}, {{ jw_item }}
   {%- endif -%}
 {%- endfor -%}
+{%- if include.note and jw_count > 1 -%}{{ include.note }}{%- endif -%}

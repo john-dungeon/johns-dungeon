@@ -20,8 +20,8 @@ export function el(tag, className, text) {
   return node;
 }
 
-export function markUnlisted(node, values) {
+export function markUnlisted(node, kind = 'Value') {
   node.classList.add('st-unlisted');
-  node.dataset.tooltip = `Unlisted Tag`;
+  node.dataset.tooltip = `Unlisted ${kind}`;
   return node;
 }

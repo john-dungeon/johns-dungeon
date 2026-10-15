@@ -1,9 +1,9 @@
 ---
-title: Moon Slayer
-parent: Ranger
+title: Oath of Toiling
+parent: Paladin
 grand_parent: Subclasses
 tagline: Placeholder
-summary: vampire and werewolf slayer ranger
+summary: blood magic tank paladin
 ---
 
 {% include 404.html %}
