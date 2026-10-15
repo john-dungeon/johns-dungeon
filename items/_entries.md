@@ -144,7 +144,7 @@ This weapon has the following special properties.
 
 ***Free-Handed.*** You can wield a Free-Handed weapon in your hand while keeping that hand free.
 
-***Unarmed.*** Melee attacks made with an Unarmed weapon are considered Unarmed Strikes.
+***Unarmed.*** Melee attacks made with an Unarmed weapon are considered both attacks with a Melee weapon and Unarmed Strikes.
 
 This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
 
