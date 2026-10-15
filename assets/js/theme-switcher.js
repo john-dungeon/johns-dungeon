@@ -7,12 +7,13 @@
   if (!link) return;
 
   const currentTheme = () => link.getAttribute('href').match(PATTERN)?.[1];
+  const hrefFor = theme =>
+    link.getAttribute('href').replace(PATTERN, `just-the-docs-${theme}.css`);
 
   function setStylesheet(theme) {
     const old = link;
     const next = old.cloneNode();
-    next.setAttribute('href',
-      old.getAttribute('href').replace(PATTERN, `just-the-docs-${theme}.css`));
+    next.setAttribute('href', hrefFor(theme));
     next.addEventListener('load', () => old.remove());
     old.after(next);
     link = next;
@@ -20,7 +21,9 @@
 
   try {
     const saved = localStorage.getItem('theme');
-    if (THEMES.includes(saved) && saved !== currentTheme()) setStylesheet(saved);
+    if (THEMES.includes(saved) && saved !== currentTheme()) {
+      link.setAttribute('href', hrefFor(saved));
+    }
   } catch (e) {}
 
   document.addEventListener('DOMContentLoaded', () => {
