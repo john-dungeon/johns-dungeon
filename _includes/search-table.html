@@ -2,10 +2,9 @@
 {%- assign cols = cfg.columns -%}
 {%- capture nl %}
 {% endcapture -%}
-{%- assign entries_file = "entries/" | append: include.data | append: ".md" -%}
 {%- assign template_file = "table/templates/" | append: cfg.template | append: ".md" -%}
 
-{%- capture raw_entries -%}{% include {{ entries_file }} %}{%- endcapture -%}
+{%- capture raw_entries -%}{% include_relative _entries.md %}{%- endcapture -%}
 {%- assign raw_lines = raw_entries | split: nl -%}
 {%- capture marked_entries -%}
   {%- for raw_line in raw_lines -%}
