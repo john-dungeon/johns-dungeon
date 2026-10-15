@@ -36,6 +36,15 @@ $shadow-dialog: 0 8px 30px rgba(0, 0, 0, 0.5);
   color: $nav-child-link-color;
 }
 
+@mixin fit-table($padding) {
+  display: table;
+  width: 100%;
+
+  th, td {
+    min-width: 0;
+    padding: $padding;
+  }
+}
 @mixin accent-on-hover {
   &:hover {
     border-color: $link-color;
