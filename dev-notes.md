@@ -44,7 +44,7 @@ search_exclude: true
 ### Add a Page
 Create a `.md` file in the right folder with front matter: `title` and `parent` (the exact title of the section page). For subclasses, use `parent` for the class and `grand_parent: Subclasses`. Optional: `tagline` and `summary` (used for the hover tooltip in link tables).
 
-- Unfinished page: the body is `{% include 404.html %}`, and add `search_exclude: true`. Delete both when the page is ready.
+- Unfinished page: the body is `{% include 404.html %}`.
 - Back links are automatic. They point to `grand_parent`, else `parent`, else Home. Never write one by hand.
 - `has_toc: false` is already the default for every page, so don't repeat it.
 
