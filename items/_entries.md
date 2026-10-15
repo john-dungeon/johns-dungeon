@@ -153,6 +153,7 @@ This weapon has the following mastery property. To use this property, you must h
 | Name | Cost | Damage | Weight | Properties |
 | :---: | :---: | :---: | :---: | :---: |
 | Bladed Gauntlet | 5 SP | 1d4 Slashing | 2 lb. | Free-Handed, Light, Unarmed, Vex |
+{: .catalog }
 
 ---
 
