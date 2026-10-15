@@ -15,7 +15,7 @@ columns:
   - key: rarity
     label: Rarity
     type: rank
-    order: [None, Varies, Common, Uncommon, Rare, Very Rare, Legendary, Artifact]
+    order: [Varies, Common, Uncommon, Rare, Very Rare, Legendary, Artifact]
   - key: cost
     label: Cost
     type: number
