@@ -1,5 +1,5 @@
 ---
-title: Warrior of Blood
+title: Warrior of the Crimson Harvest
 parent: Monk
 grand_parent: Subclasses
 tagline: Placeholder
