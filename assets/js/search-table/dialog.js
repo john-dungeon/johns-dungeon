@@ -25,7 +25,7 @@ export function createDialog(root, tags) {
       tagLine.append(list.length === 1 ? 'Tag: ' : 'Tags: ');
       list.forEach((name, i) => {
         if (i > 0) tagLine.append(', ');
-        tagLine.append(tags.isListed(name) ? name : markUnlisted(el('span', '', name), name));
+        tagLine.append(tags.isListed(name) ? name : markUnlisted(el('span', '', name), 'Tag'));
       });
     }
 
