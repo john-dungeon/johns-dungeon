@@ -120,10 +120,22 @@ The Antimagic Bomb can't affect Artifacts or spells cast by an Artifact or a dei
 
 ---
 
-name: Banner of Determination
+name: Bagpipes of Invisibility
 type: Wondrous Item
+note_type: Bagpipes
 rarity: Common
 attunement: false
+cost: 100.3
+weight: 6
+tags: Condition, Magic Item
+description: While playing this Musical Instrument, you have the Invisible condition. You remain Invisible until you stop playing.
+
+---
+
+name: Banner of Determination
+type: Wondrous Item
+rarity: Uncommon
+attunement: true
 cost: 425
 weight: 10
 tags: Area, Immunity, Magic Item
@@ -153,17 +165,6 @@ This weapon has the following mastery property. To use this property, you must h
 | :---: | :---: | :---: | :---: | :---: |
 | Bladed Gauntlet | 5 SP | 1d4 Slashing | 2 lb. | Free-Handed, Light, Unarmed, Vex |
 {: .catalog }
-
----
-
-name: Banner of Courage
-type: Wondrous Item
-rarity: Uncommon
-attunement: true
-cost: 425
-weight: 10
-tags: Area, Immunity, Magic Item
-description: This object appears to be a Medium pole with a banner hung on one end. As a Magic action, you can activate the banner’s magic, causing a magical aura to radiate from it in a 20-foot Emanation for 1 minute. While in the aura, creatures of your choice have Immunity to the Charmed and Frightened conditions. If a creature was already Charmed or Frightened, those conditions have no effect while in the aura.
 
 ---
 
