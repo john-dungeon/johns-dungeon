@@ -1,6 +1,6 @@
 template: item
 noun: items
-tags: [Area, Armor Class Bonus, Attack Bonus, Charges, Condition, Consumable, Damage, Damage Bonus, Extra Damage, Forced Movement, Healing, Immunity, Magic Item, Resistance, Saving Throw, Spell]
+tags: [Advantage, Area, Armor Class Bonus, Attack Bonus, Buff, Charges, Condition, Consumable, Cursed, Damage, Damage Bonus, Debuff, Disadvantage, Extra Damage, Forced Movement, Healing, Immunity, Light, Magic Item, Resistance, Revival, Saving Throw, Spell]
 marker:
   symbol: "✦"
   tag: Magic Item
@@ -11,7 +11,7 @@ columns:
     label: Name
   - key: type
     label: Type
-    order: [Armor, Potion, Weapon, Wondrous Item]
+    order: [Adventuring Gear, Armor, Potion, Weapon, Wondrous Item]
   - key: rarity
     label: Rarity
     type: rank
