@@ -40,6 +40,8 @@
       {%- endunless -%}
     {%- endif -%}
   {%- endfor -%}
+  {%- assign tags_csv = tags_csv | split: "," | sort_natural | join: "," -%}
+  {%- capture marker_html %}{% include table/marker.html cfg=cfg packed=packed tags=tags_csv %}{% endcapture -%}
   {%- capture marker_html %}{% include table/marker.html cfg=cfg packed=packed tags=tags_csv %}{% endcapture -%}
 
   {%- assign row_attrs = "" -%}
