@@ -1,3 +1,67 @@
+name: Adamantine Armor
+type: Armor
+note_type: Half-Plate Armor or Plate Armor
+rarity: Legendary
+attunement: false
+cost: Varies
+note_cost: +300,000 GP to normal counterpart
+weight: Varies
+note_weight: +50% to normal counterpart
+tags: Area, Armor, Charges, Damage, Forced Movement, Magic Item, Resistance, Saving Throw
+description: This suit of armor is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The armor is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. While wearing the armor, you can use the following properties.
+
+***Resistance.*** You have Resistance to Bludgeoning, Piercing, and Slashing damage.
+
+***Critical Nullification.*** Any Critical Hit against you becomes a normal hit.
+
+***Impact Absorption.*** When you take Bludgeoning, Piercing, or Slashing damage, the armor gains 1 charge, to a maximum of 6 charges. The Resistance property is suppressed while the armor has 6 charges.
+
+As a Magic action, you can expend all of the armor’s charges to expel a wave of magical force from the armor. Each creature in a 15-foot Emanation around you makes a DC 17 Strength saving throw. On a failed save, for each charge expended, a target takes 1d8 Force damage and is pushed 5 feet straight away from you. On a successful save, a target takes half as much damage only.
+
+*This item is a variation of Adamantine Armor for the Erisia setting.*
+
+---
+
+name: Adamantine Shield
+type: Armor
+note_type: Shield
+rarity: Legendary
+attunement: false
+cost: Varies
+note_cost: +300,000 GP to normal counterpart
+weight: Varies
+note_weight: +50% to normal counterpart
+tags: Area, Armor, Armor Class Bonus, Charges, Condition, Damage, Immunity, Magic Item, Saving Throw, Shield
+description: This Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class. This bonus is in addition to the Shield's normal bonus to AC.
+
+***Impact Absorption.*** When you take Bludgeoning, Piercing, or Slashing damage while holding the Shield, you can take a Reaction to absorb the impact with the Shield. You gain Immunity to Bludgeoning, Piercing, or Slashing damage against the triggering damage, and the Shield gains 1 charge, to a maximum of 6 charges. You can't take this Reaction while the Shield has 6 charges.
+
+As a Magic action, you can expend all of the Shield’s charges to expel a burst of magical energy from the Shield. Each creature in a 30-foot Cone makes a DC 17 Constitution saving throw. On a failed save, a target takes 1d8 Force damage for each charge expended, and it has the Stunned condition until the start of your next turn if you expended 6 charges. On a successful save, a target takes half as much damage only.
+
+---
+
+name: Adamantine Weapon
+type: Weapon
+note_type: Any Melee Weapon
+rarity: Legendary
+attunement: false
+cost: Varies
+note_cost: +300,000 GP to normal counterpart
+weight: Varies
+note_weight: +50% to normal counterpart
+tags: Attack Bonus, Charges, Condition, Damage Bonus, Extra Damage, Magic Item, Weapon
+description: This weapon is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The weapon is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
+
+***Unbreakable.*** Whenever this weapon hits an object, the hit is a Critical Hit.
+
+***Impact Absorption.*** When you hit a target with the weapon, it gains 1 charge, to a maximum of 6 charges.
+
+Immediately after you hit a target with the weapon, you can take a Bonus Action to expend all of the weapon’s charges to unleash a concentrated blast of magical force from the weapon. The target takes an extra 1d8 Force damage from the attack for each charge expended and has the Prone condition.
+
+*This item is a variation of an Adamantine Weapon for the Erisia setting.*
+
+---
+
 name: Companion Whistle
 type: Wondrous Item
 rarity: Uncommon
