@@ -1,3 +1,4 @@
+{%- capture it_prefix_type %}{% include table/field.html packed=include.packed key="prefix_type" %}{% endcapture -%}
 {%- capture it_type %}{% include table/field.html packed=include.packed key="type" %}{% endcapture -%}
 {%- capture it_note_type %}{% include table/field.html packed=include.packed key="note_type" %}{% endcapture -%}
 {%- capture it_rarity %}{% include table/field.html packed=include.packed key="rarity" %}{% endcapture -%}
@@ -9,7 +10,7 @@
 {%- capture it_note_weight %}{% include table/field.html packed=include.packed key="note_weight" %}{% endcapture -%}
 {%- capture it_description %}{% include table/field.html packed=include.packed key="description" %}{% endcapture -%}
 
-{%- assign it_line1 = it_type -%}
+{%- assign it_line1 = it_prefix_type | append: " " | append: it_type | strip -%}
 {%- if it_note_type != "" -%}{%- assign it_line1 = it_line1 | append: " (" | append: it_note_type | append: ")" -%}{%- endif -%}
 {%- assign it_rarity_l = it_rarity | downcase -%}
 {%- if it_rarity != "" and it_rarity_l != "none" -%}
