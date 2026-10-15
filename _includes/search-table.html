@@ -46,7 +46,7 @@
   {%- assign row_cells = "" -%}
   {%- for col in cols -%}
     {%- capture cell %}{% include table/value.html packed=packed col=col %}{% endcapture -%}
-    {%- assign opt_key = col.key | append: "_options" -%}
+    {%- assign opt_key = "options_" | append: col.key -%}
     {%- capture opts_raw %}{% include table/field.html packed=packed key=opt_key %}{% endcapture -%}
     {%- capture opts_text %}{% include table/list.html csv=opts_raw sep=", " %}{% endcapture -%}
     {%- capture note_raw %}{% if col.note %}{% include table/field.html packed=packed key=col.note.field %}{% endif %}{% endcapture -%}
