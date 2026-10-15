@@ -4,8 +4,10 @@ note_type: Half-Plate Armor or Plate Armor
 rarity: Legendary
 attunement: false
 cost: Varies
+options_cost: 300750-301500
 note_cost: +300,000 GP to normal counterpart
 weight: Varies
+options_weight: 60-97.5
 note_weight: +50% to normal counterpart
 tags: Area, Charges, Damage, Forced Movement, Magic Item, Resistance, Saving Throw
 description: This suit of armor is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The armor is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. While wearing the armor, you can use the following properties.
@@ -27,10 +29,8 @@ type: Armor
 note_type: Shield
 rarity: Legendary
 attunement: false
-cost: Varies
-note_cost: +300,000 GP to normal counterpart
-weight: Varies
-note_weight: +50% to normal counterpart
+cost: 300010
+weight: 9
 tags: Area, Armor Class Bonus, Charges, Condition, Damage, Immunity, Magic Item, Saving Throw
 description: This Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class. This bonus is in addition to the Shield's normal bonus to AC.
 
@@ -46,8 +46,10 @@ note_type: Any Melee Weapon
 rarity: Legendary
 attunement: false
 cost: Varies
+options_cost: 300000.1-300050
 note_cost: +300,000 GP to normal counterpart
 weight: Varies
+options_weight: 1.5-27
 note_weight: +50% to normal counterpart
 tags: Attack Bonus, Charges, Condition, Damage Bonus, Extra Damage, Magic Item
 description: This weapon is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The weapon is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
@@ -196,11 +198,11 @@ description: When you roll a 1 on the d20 for the attack roll with this weapon, 
 name: Potion of Health
 type: Potion
 rarity: Varies
-rarity_options: Common, Uncommon, Rare, Very Rare, Legendary
+options_rarity: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
 attunement: false
 cost: Varies
-cost_options: 50, 200, 2000, 20000, 100000
+options_cost: 50, 200, 2000, 20000, 100000
 note_cost: See table
 weight: 0.5
 tags: Consumable, Healing, Magic Item
@@ -224,11 +226,11 @@ The potion’s rarity and purchase cost, and the number of Hit Points it restore
 name: Potion of Mana
 type: Potion
 rarity: Varies
-rarity_options: Common, Uncommon, Rare, Very Rare, Legendary
+options_rarity: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
 attunement: false
 cost: Varies
-cost_options: 75, 300, 3000, 30000, 150000
+options_cost: 75, 300, 3000, 30000, 150000
 note_cost: See table
 weight: 0.5
 tags: Consumable, Magic Item
@@ -255,9 +257,9 @@ name: Reinforced Instrument
 type: Weapon
 note_type: Club
 cost: Varies
-cost_options: 3-66
+options_cost: 3-66
 note_cost: +1 GP to Musical Instrument
 weight: Varies
-weight_options: 2-11
+options_weight: 2-11
 note_weight: +1 lb. to Musical Instrument
 description: A Reinforced Instrument is a Musical Instrument reinforced with metal. It can be used as both a Club and a Musical Instrument.
