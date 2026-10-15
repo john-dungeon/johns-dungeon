@@ -34,7 +34,7 @@ note_weight: +50% to normal counterpart
 tags: Area, Armor Class Bonus, Charges, Condition, Damage, Immunity, Magic Item, Saving Throw
 description: This Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class. This bonus is in addition to the Shield's normal bonus to AC.
 
-***Impact Absorption.*** When you take Bludgeoning, Piercing, or Slashing damage while holding the Shield, you can take a Reaction to absorb the impact with the Shield. You gain Immunity to Bludgeoning, Piercing, or Slashing damage against the triggering damage, and the Shield gains 1 charge, to a maximum of 6 charges. You can't take this Reaction while the Shield has 6 charges.
+***Impact Absorption.*** When you take Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to absorb the impact with the Shield. You gain Immunity to Bludgeoning, Piercing, or Slashing damage against the triggering damage, and the Shield gains 1 charge, to a maximum of 6 charges. You can't take this Reaction while the Shield has 6 charges.
 
 As a Magic action, you can expend all of the Shield’s charges to expel a burst of magical energy from the Shield. Each creature in a 30-foot Cone makes a DC 17 Constitution saving throw. On a failed save, a target takes 1d8 Force damage for each charge expended, and it has the Stunned condition until the start of your next turn if you expended 6 charges. On a successful save, a target takes half as much damage only.
 
