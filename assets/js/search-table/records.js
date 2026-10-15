@@ -141,7 +141,7 @@ function flagListItems(cell, isKnown) {
   cell.textContent = '';
   items.forEach((item, i) => {
     if (i > 0) cell.append(', ');
-    cell.append(isKnown(item) ? item : markUnlisted(el('span', '', item), item));
+    cell.append(isKnown(item) ? item : markUnlisted(el('span', '', item)));
   });
 }
 
@@ -156,9 +156,9 @@ export function flagUnlisted(records, columns) {
 
       if (col.type === 'list') {
         if (badOwn.length) flagListItems(cell, isKnown);
-        if (badExtra.length) markUnlisted(cell, badExtra);
+        if (badExtra.length) markUnlisted(cell);
       } else if (badOwn.length || badExtra.length) {
-        markUnlisted(cell, [...badOwn, ...badExtra]);
+        markUnlisted(cell);
       }
     });
   });
