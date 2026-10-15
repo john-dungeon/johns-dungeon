@@ -20,21 +20,11 @@
   {%- assign sps_block = sps_block | append: sps_break | append: "**Age:** " | append: sps_age -%}
 {%- endif -%}
 {%- if sps_type != "" -%}
-  {%- capture sps_type_csv %}{% include table/list.html csv=sps_type sep="," %}{% endcapture -%}
-  {%- assign sps_type_count = sps_type_csv | split: "," | size -%}
-  {%- capture sps_type_text %}{% include table/join-words.html items=sps_type word="and" %}{% endcapture -%}
-  {%- if sps_type_count > 1 -%}
-    {%- assign sps_type_text = sps_type_text | append: "; you can be affected by an effect if it works on either of your creature types" -%}
-  {%- endif -%}
+  {%- capture sps_type_text %}{% include table/join-words.html items=sps_type word="and" note="; you can be affected by an effect if it works on either of your creature types" %}{% endcapture -%}
   {%- assign sps_block = sps_block | append: sps_break | append: "**Creature Type:** " | append: sps_type_text -%}
 {%- endif -%}
 {%- if sps_size != "" -%}
-  {%- capture sps_size_csv %}{% include table/list.html csv=sps_size sep="," %}{% endcapture -%}
-  {%- assign sps_size_count = sps_size_csv | split: "," | size -%}
-  {%- capture sps_size_text %}{% include table/join-words.html items=sps_size word="or" %}{% endcapture -%}
-  {%- if sps_size_count > 1 -%}
-    {%- assign sps_size_text = sps_size_text | append: ", chosen when you select this species" -%}
-  {%- endif -%}
+  {%- capture sps_size_text %}{% include table/join-words.html items=sps_size word="or" note=", chosen when you select this species" %}{% endcapture -%}
   {%- assign sps_block = sps_block | append: sps_break | append: "**Size:** " | append: sps_size_text -%}
 {%- endif -%}
 {%- if sps_speed != "" -%}
