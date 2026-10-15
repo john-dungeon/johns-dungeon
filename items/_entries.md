@@ -254,7 +254,6 @@ The potion’s rarity and purchase cost, and the level of the spell slot it rest
 name: Reinforced Instrument
 type: Weapon
 note_type: Club
-rarity: None
 cost: Varies
 cost_options: 3-66
 note_cost: +1 GP to Musical Instrument
