@@ -258,6 +258,60 @@ This weapon has the following mastery property. To use this property, you must h
 
 ---
 
+name: Cold Iron Armor
+type: Armor
+note_type: Half-Plate Armor or Plate Armor
+rarity: Rare
+attunement: false
+cost: Varies
+options_cost: 4900-5650
+note_cost: +4,150 GP to normal counterpart
+weight: Varies
+options_weight: 40-65
+tags: Area, Debuff, Magic Item, Resistance
+description: This suit of armor is made of cold iron, a special type of iron that repels Undead and other supernatural beings. You have Resistance to Necrotic damage while you wear the armor. The armor also has the following properties.
+
+***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the armor, the armor turns black. The armor returns to normal if no creatures of those types are in the Emanation.
+
+***Supernatural Deterrent.*** Aberrations, Fey, Fiends, and Undead have Disadvantage on attack rolls they make against you.
+
+---
+
+name: Cold Iron Shield
+type: Shield
+rarity: Rare
+attunement: false
+cost: 4160
+weight: 6
+tags: Area, Armor Class Bonus, Condition, Forced Movement, Magic Item, Saving Throw
+description: This Shield is made of cold iron, a special type of iron that repels Undead and other supernatural beings. While holding the Shield, you have a +1 bonus to Armor Class. This bonus is in addition to the Shield's normal bonus to AC. The Shield also has the following properties.
+
+***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the Shield, the Shield turns black. The Shield returns to normal if no creatures of those types are in the Emanation.
+
+***Supernatural Deterrent.*** Whenever an Aberration, Fey, Fiend, or Undead enters a space within 5 feet of you, you can take a Reaction to force the triggering creature to make a DC 15 Wisdom saving throw. On a failed save, the target is pushed 5 feet away from you and has the Frightened condition until the start of your next turn.
+
+---
+
+name: Cold Iron Weapon
+type: Weapon
+note_type: Any Melee Weapon
+rarity: Rare
+attunement: false
+cost: Varies
+options_cost: 4150.1-4200
+note_cost: +4,150 GP to normal counterpart
+weight: Varies
+options_weight: 1-18
+note_weight: +50% to normal counterpart
+tags: Attack Bonus, Condition, Damage Bonus, Extra Damage, Magic Item
+description: This weapon is made of cold iron, a special type of iron that repels Undead and supernatural beings. You have a +1 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
+
+***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the weapon, the weapon turns black. The weapon returns to normal if no creatures of those types are in the Emanation.
+
+***Supernatural Deterrent.*** When you hit an Aberration, Fey, Fiend, or Undead with the weapon, the target takes an extra 1d6 Force damage and must succeed on a DC 15 Wisdom saving throw or have the Frightened condition until the start of your next turn.
+
+---
+
 name: Companion Whistle
 type: Wondrous Item
 rarity: Uncommon
