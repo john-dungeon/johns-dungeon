@@ -179,7 +179,7 @@ cost: Varies
 options_cost: 10.002-10.3
 note_cost: +10 GP to normal counterpart per piece
 weight: Varies
-options_weight: 0.075-0.2
+options_weight: 0.02-0.2
 tags: Area, Consumable, Magic Item, Saving Throw
 description: When you hit or miss with an attack roll using this piece of magic ammunition, the ammunition explodes and is destroyed. The target of the attack and each creature within 5 feet of it must make a DC 13 Dexterity saving throw, taking 2d6 Fire damage on a failed save or half as much damage on a successful one.
 
