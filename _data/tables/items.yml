@@ -11,7 +11,7 @@ columns:
     label: Name
   - key: type
     label: Type
-    order: [Adventuring Gear, Ammunition, Armor, Potion, Weapon, Wondrous Item]
+    order: [Adventuring Gear, Ammunition, Armor, Explosive, Potion, Weapon, Wondrous Item]
   - key: rarity
     label: Rarity
     type: rank
