@@ -141,7 +141,9 @@ attunement: true
 cost: 425
 weight: 10
 tags: Area, Immunity, Magic Item
-description: This object appears to be a Medium pole with a banner hung on one end. As a Magic action, you can raise the banner, causing an aura of determination to radiate from you in a 20-foot Emanation for 1 minute. While in the aura, creatures of your choice have Immunity to the Charmed and Frightened conditions. If a creature was already Charmed or Frightened, those conditions have no effect while in the aura. You can plant the banner, making the Emanation stationary until the banner is picked up.
+description: This object appears to be a Medium pole with a banner hung on one end. As a Magic action, you can raise the banner, causing an aura of determination to radiate from you in a 20-foot Emanation for 1 minute. While in the Emanation, creatures of your choice have Immunity to the Charmed and Frightened conditions. If a creature was already Charmed or Frightened, those conditions have no effect while in the Emanation. You can plant the banner as a Bonus Action, making the Emanation stationary until you take a Bonus Action to pick up the banner. If a creature other than you picks up the banner, the Emanation ends early.
+
+Once used, the banner can't be used in this way again until the next dawn.
 
 ---
 
