@@ -4,7 +4,8 @@
 {%- if wt_check != wt_raw -%}
   {{- wt_raw | escape -}}
 {%- elsif wt_lb <= 0.1 -%}
-  {{- wt_lb | times: 16 | round: 1 | append: "" | remove: ".0" | append: " oz." -}}
+  {%- assign wt_oz = wt_lb | times: 16 | round: 1 | append: "" | remove: ".0" -%}
+  {{- wt_oz }} oz.
 {%- else -%}
-  {{- wt_raw | append: " lb." -}}
+  {{- wt_raw }} lb.
 {%- endif -%}
