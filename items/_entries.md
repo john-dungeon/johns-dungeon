@@ -25,8 +25,7 @@ As a Magic action, you can expend all of the armor’s charges to expel a wave o
 ---
 
 name: Adamantine Shield
-type: Armor
-note_type: Shield
+type: Shield
 rarity: Legendary
 attunement: false
 cost: 300010
@@ -153,7 +152,7 @@ type: Weapon
 cost: 0.5
 weight: 2
 tags: Special Property
-description: Proficiency with a *Bladed Gauntlet* allows you to add your proficiency bonus to the attack roll for any attack you make with it.
+description: Proficiency with a Bladed Gauntlet allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
 
@@ -185,6 +184,80 @@ description: When you hit or miss with an attack roll using this piece of magic 
 
 ---
 
+name: Bola
+type: Adventuring Gear
+cost: 0.05
+weight: 2
+tags: Condition, Consumable, Saving Throw
+description: When you take the Attack action, you can replace one of your attacks with throwing a Bola. Target one Medium or smaller creature you can see within 20 feet of you. The target must succeed on a Dexterity saving throw (DC 8 plus your Dexterity modifier and Proficiency Bonus) or have the Restrained condition until it escapes.
+
+To escape, the target or a creature within 5 feet of it must take an action to make a DC 10 Strength (Athletics) check, freeing the Restrained target on a success. Destroying the Bola, which has AC 10, HP 5, and Immunity to Poison and Psychic damage, also frees the target.
+
+---
+
+name: Boomerang
+prefix_type: Martial Melee
+type: Weapon
+cost: 0.1
+weight: 0.75
+tags: Special Property
+description: Proficiency with a Boomerang allows you to add your proficiency bonus to the attack roll for any attack you make with it.
+
+This weapon has the following special properties.
+
+***Returning.*** Immediately after missing a ranged attack roll using a Returning weapon, it flies back to your hand.
+
+This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
+
+***Slow.*** If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet.
+
+| Name | Cost | Damage | Weight | Properties |
+| :---: | :---: | :---: | :---: | :---: |
+| Boomerang | 1 SP | 1d4 Bludgeoning | 0.75 lb. | Finesse, Returning, Thrown (Range 30/120), Slow |
+{: .catalog }
+
+---
+
+name: Buckler
+type: Shield
+cost: 2
+weight: 3
+description: A Buckler is a type of Shield. Shields require the Utilize action to Don or Doff. You gain the Armor Class benefit of a Shield only if you have training with it.
+
+You can hold this Shield in your hand while keeping that hand free.
+
+| Name | Cost | Armor Class | Strength | Stealth | Weight |
+| :---: | :---: | :---: | :---: | :---: |
+| Buckler | 2 GP | +1 | — | — | 3 lb. |
+{: .catalog }
+
+---
+
+name: Cestus
+prefix_type: Simple Melee
+type: Weapon
+cost: 0.5
+weight: 2
+tags: Special Property
+description: Proficiency with a Cestus allows you to add your proficiency bonus to the attack roll for any attack you make with it.
+
+This weapon has the following special properties.
+
+***Free-Handed.*** You can wield a Free-Handed weapon in your hand while keeping that hand free.
+
+***Unarmed.*** Melee attacks made with an Unarmed weapon are considered both attacks with a Melee weapon and Unarmed Strikes.
+
+This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
+
+***Sap.*** If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn.
+
+| Name | Cost | Damage | Weight | Properties |
+| :---: | :---: | :---: | :---: | :---: |
+| Cestus | 5 SP | 1d4 Piercing | 2 lb. | Free-Handed, Light, Unarmed, Sap |
+{: .catalog }
+
+---
+
 name: Companion Whistle
 type: Wondrous Item
 rarity: Uncommon
@@ -195,6 +268,31 @@ tags: Magic Item, Spell
 description: This object is a Tiny whistle etched with images of various animals. You can use the whistle to cast the *Find Familiar* spell as a Magic action. When you cast the spell in this way, your familiar can be a Beast that has a Challenge Rating up to 1/4.
 
 If a familiar gained using this whistle is reduced to 0 Hit Points, the whistle’s properties can’t be used for 7 days.
+
+---
+
+name: Gauntlet
+prefix_type: Simple Melee
+type: Weapon
+cost: 0.5
+weight: 2
+tags: Special Property
+description: Proficiency with a Gauntlet allows you to add your proficiency bonus to the attack roll for any attack you make with it.
+
+This weapon has the following special properties.
+
+***Free-Handed.*** You can wield a Free-Handed weapon in your hand while keeping that hand free.
+
+***Unarmed.*** Melee attacks made with an Unarmed weapon are considered both attacks with a Melee weapon and Unarmed Strikes.
+
+This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
+
+***Topple.*** If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (DC 8 plus the ability modifier used to make the attack roll and your Proficiency Bonus). On a failed save, the creature has the Prone condition.
+
+| Name | Cost | Damage | Weight | Properties |
+| :---: | :---: | :---: | :---: | :---: |
+| Gauntlet | 5 SP | 1d4 Bludgeoning | 2 lb. | Free-Handed, Light, Unarmed, Topple |
+{: .catalog }
 
 ---
 
