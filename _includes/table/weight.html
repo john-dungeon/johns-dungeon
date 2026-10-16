@@ -1,0 +1,10 @@
+{%- assign wt_raw = include.amount | strip -%}
+{%- assign wt_lb = wt_raw | plus: 0 -%}
+{%- assign wt_check = wt_lb | append: "" -%}
+{%- if wt_check != wt_raw -%}
+  {{- wt_raw | escape -}}
+{%- elsif wt_lb <= 0.1 -%}
+  {{- wt_lb | times: 16 | round: 1 | append: "" | remove: ".0" | append: " oz." -}}
+{%- else -%}
+  {{- wt_raw | append: " lb." -}}
+{%- endif -%}
