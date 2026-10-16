@@ -5,9 +5,18 @@
 {%- else -%}
   {%- assign mn_split = mn_raw | split: "." -%}
   {%- assign mn_whole = mn_split[0] -%}
-  {%- assign mn_frac = mn_split[1] | default: "" | append: "00" -%}
-  {%- assign mn_sp = mn_frac | slice: 0 | plus: 0 -%}
-  {%- assign mn_cp = mn_frac | slice: 1 | plus: 0 -%}
+  {%- assign mn_frac = mn_split[1] | default: "" -%}
+  {%- assign mn_digits = mn_frac | append: "00" -%}
+  {%- assign mn_sp = mn_digits | slice: 0 | plus: 0 -%}
+  {%- assign mn_cp = mn_digits | slice: 1 | plus: 0 -%}
+
+  {%- assign mn_extra = mn_frac | size | minus: 2 -%}
+  {%- if mn_extra > 0 -%}
+    {%- assign mn_rest = mn_frac | slice: 2, mn_extra -%}
+    {%- assign mn_cp_text = mn_cp | append: "." | append: mn_rest -%}
+  {%- else -%}
+    {%- assign mn_cp_text = mn_cp -%}
+  {%- endif -%}
 
   {%- assign mn_chars = mn_whole | split: "" -%}
   {%- assign mn_size = mn_chars | size -%}
@@ -20,12 +29,13 @@
     {%- assign mn_gold = mn_gold | append: mn_char -%}
   {%- endfor -%}
 
-  {%- assign mn_minor = mn_sp | plus: mn_cp -%}
+  {%- assign mn_has_minor = false -%}
+  {%- if mn_sp > 0 or mn_cp > 0 or mn_extra > 0 -%}{%- assign mn_has_minor = true -%}{%- endif -%}
   {%- assign mn_items = "" -%}
-  {%- if mn_whole != "0" or mn_minor == 0 -%}
+  {%- if mn_whole != "0" or mn_has_minor == false -%}
     {%- assign mn_items = mn_gold | append: " GP|" -%}
   {%- endif -%}
   {%- if mn_sp > 0 -%}{%- assign mn_items = mn_items | append: mn_sp | append: " SP|" -%}{%- endif -%}
-  {%- if mn_cp > 0 -%}{%- assign mn_items = mn_items | append: mn_cp | append: " CP|" -%}{%- endif -%}
+  {%- if mn_cp > 0 or mn_extra > 0 -%}{%- assign mn_items = mn_items | append: mn_cp_text | append: " CP|" -%}{%- endif -%}
   {{- mn_items | split: "|" | array_to_sentence_string -}}
 {%- endif -%}
