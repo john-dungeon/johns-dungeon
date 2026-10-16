@@ -28,8 +28,10 @@ name: Adamantine Shield
 type: Shield
 rarity: Legendary
 attunement: false
-cost: 300010
-weight: 9
+cost: Varies
+options_cost: 300010
+weight: Varies
+options_weight: 9
 tags: Area, Armor Class Bonus, Charges, Condition, Damage, Immunity, Magic Item, Saving Throw
 description: This Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class. This bonus is in addition to the Shield's normal bonus to AC.
 
@@ -281,8 +283,10 @@ name: Cold Iron Shield
 type: Shield
 rarity: Rare
 attunement: false
-cost: 4160
-weight: 6
+cost: Varies
+options_cost: 4160
+weight: Varies
+options_weight: 6
 tags: Area, Armor Class Bonus, Condition, Forced Movement, Magic Item, Saving Throw
 description: This Shield is made of cold iron, a special type of iron that repels Undead and other supernatural beings. While holding the Shield, you have a +1 bonus to Armor Class. This bonus is in addition to the Shield's normal bonus to AC. The Shield also has the following properties.
 
