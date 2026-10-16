@@ -67,7 +67,7 @@ type: Wondrous Item
 rarity: Artifact
 attunement: true
 cost: Priceless
-weight: 1
+weight: 0.5
 tags: Advantage, Buff, Cursed, Immunity, Magic Item, Revival
 description: This amulet consists of five jade coins strung together, each one glowing faintly. The amulet has 5 charges, and when a charge is expended, one of its coins stops glowing. The amulet regains all expended charges when Attunement to it ends.
 
