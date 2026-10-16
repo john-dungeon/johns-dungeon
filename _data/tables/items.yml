@@ -22,7 +22,7 @@ columns:
     type: number
     format: money
     zero_label: None
-    order: [None, "...", Priceless]
+    order: [None, "...", Varies, Priceless]
     slider: { max: 300000, min_label: None, max_label: Priceless }
   - key: weight
     label: Weight
