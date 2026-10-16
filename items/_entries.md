@@ -227,7 +227,7 @@ description: A Buckler is a type of Shield. Shields require the Utilize action t
 You can hold this Shield in your hand while keeping that hand free.
 
 | Name | Cost | Armor Class | Strength | Stealth | Weight |
-| :---: | :---: | :---: | :---: | :---: |
+| :---: | :---: | :---: | :---: | :---: | :---: |
 | Buckler | 2 GP | +1 | — | — | 3 lb. |
 {: .catalog }
 
