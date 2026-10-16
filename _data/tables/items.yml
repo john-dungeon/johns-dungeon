@@ -27,6 +27,7 @@ columns:
   - key: weight
     label: Weight
     type: number
+    format: weight
     suffix: " lb."
     zero_label: Weightless
     order: [Weightless, "...", Varies]
