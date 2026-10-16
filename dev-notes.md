@@ -126,7 +126,7 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
   - Rank, number, and measure columns also sort by it.
   - A cell value that isn't listed turns red, unless a number or measure column can read it as an amount.
   - Leave `order` out and the column gets no buttons and nothing is flagged.
-  - In rank, number, and measure columns, a quoted `"..."` marks where amounts go. Names before it sort first in listed order, names after it sort last alphabetically. Without it, amounts come after all names.
+  - In rank, number, and measure columns, a quoted `"..."` marks where amounts go. Names before it sort first in listed order, names after it sort last in listed order. Without it, amounts come after all names.
 - `blank_as` – blank entries count as this value in search, filters, and sorting. The cell shows its `symbols` entry if it has one, otherwise "—".
 
 **Display**
