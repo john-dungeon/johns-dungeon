@@ -28,7 +28,6 @@ columns:
     label: Weight
     type: number
     format: weight
-    suffix: " lb."
     zero_label: Weightless
     order: [Weightless, "...", Varies]
     slider: { max: 500, min_label: Weightless, max_label: "500+" }
