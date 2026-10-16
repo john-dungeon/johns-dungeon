@@ -130,7 +130,8 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - `blank_as` – blank entries count as this value in search, filters, and sorting. The cell shows its `symbols` entry if it has one, otherwise "—".
 
 **Display**
-- `format: money` – number columns: cells display as GP/SP/CP and the Filter heading says GP. Write the value as a decimal up to hundredths.
+- `format: money` – number columns: cells display as GP/SP/CP and the Filter heading says GP. Write the value as a decimal. Digits past the hundredths show as a decimal amount of CP (`0.002` shows `0.2 CP`).
+- `format: weight` – number columns: weights of 0.1 or less display in ounces to the tenth (`0.075` shows `1.2 oz.`), others in lb. Keep `suffix: " lb."` for the Filter heading.
 - `prefix` / `suffix` – for other numbers.
 - `zero_label` – number columns: an entry whose value is exactly `0` is shown and treated as this word (for example `Weightless`). The popup template needs the same rule written into it.
 - `plain: true` – list cells hide "(notes)".
