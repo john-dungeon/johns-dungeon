@@ -93,7 +93,7 @@ name: Antimagic Beacon
 type: Wondrous Item
 rarity: Legendary
 attunement: false
-cost: 350,000
+cost: 350000
 weight: 18
 tags: Light, Magic Item, Spell
 description: This object appears to be a Medium pole with a glowing crystal fixed to one end, forming a beacon that sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. You can deploy the beacon over the course of 1 hour, which can be done during a Short Rest. The beacon must be within your reach throughout the deployment, at the end of which you deploy the beacon in an unoccupied space within 5 feet of you. Removing a deployed beacon requires you to spend another hour doing so.
@@ -107,7 +107,7 @@ type: Adventuring Gear
 note_type: Explosive
 rarity: Very Rare
 attunement: false
-cost: 35,000
+cost: 35000
 weight: 1
 tags: Area, Consumable, Magic Item
 description: As a Utilize action, you can prime an Antimagic Bomb and throw it at a point up to 60 feet away, where it explodes. Each creature, object, and magical effect in a 20-foot-radius Sphere centered on that point suffers the following effects: 
