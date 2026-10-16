@@ -43,7 +43,7 @@
 {%- elsif it_weight_l == "weightless" -%}
   {%- assign it_weight_text = "Weightless" -%}
 {%- elsif it_weight != "" -%}
-  {%- assign it_weight_text = it_weight | append: " lb." -%}
+  {%- capture it_weight_text %}{% include table/weight.html amount=it_weight %}{% endcapture -%}
 {%- endif -%}
 {%- if it_weight_text != "" and it_note_weight != "" -%}{%- assign it_weight_text = it_weight_text | append: " (" | append: it_note_weight | append: ")" -%}{%- endif -%}
 
