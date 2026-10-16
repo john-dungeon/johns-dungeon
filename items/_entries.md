@@ -176,6 +176,7 @@ This weapon has the following mastery property. To use this property, you must h
 name: Blast Ammunition
 type: Ammunition
 rarity: Common
+attunement: false
 cost: Varies
 options_cost: 10.002-10.3
 note_cost: +10 GP to normal counterpart per piece
