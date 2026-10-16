@@ -46,7 +46,7 @@ export function prepareColumns(config) {
 
     const after = slot === -1 ? [] : items.slice(slot + 1);
     col.lead = (slot === -1 ? named : items.slice(0, slot)).map(item => item.toLowerCase());
-    col.trail = new Set(after.map(item => item.toLowerCase()));
+    col.trail = after.map(item => item.toLowerCase());
   });
   const byKey = Object.fromEntries(columns.map(col => [col.key, col]));
   return { columns, byKey, nameKey: columns[0].key };
@@ -75,7 +75,8 @@ function sortKey(col, text) {
   if (named !== -1) return { group: named, amount: null, text };
   const amount = toAmount(col, text);
   if (amount !== null) return { group: col.lead.length, amount, text };
-  return col.trail.has(text) ? { group: col.lead.length + 1, amount: null, text } : null;
+  const tail = col.trail.indexOf(text);
+  return tail === -1 ? null : { group: col.lead.length + 1 + tail, amount: null, text };
 }
 
 const SPAN = /^(\d+(?:\.\d+)?)(?:\s*-\s*(\d+(?:\.\d+)?))?$/;
