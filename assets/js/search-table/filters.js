@@ -69,9 +69,11 @@ function wantsFilter(col) {
   return col.type === 'number' || col.choices.length > 0;
 }
 
+const FORMAT_UNITS = { money: 'GP', weight: 'lb.' };
+
 function filterTitle(col) {
-  const suffix = col.format === 'money' ? ' GP' : col.suffix;
-  return suffix ? `${col.label} (${suffix.trim()})` : col.label;
+  const unit = FORMAT_UNITS[col.format] || (col.suffix && col.suffix.trim());
+  return unit ? `${col.label} (${unit})` : col.label;
 }
 
 function optionGroup(title, entries, getState, setState, onChange) {
