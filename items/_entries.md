@@ -76,7 +76,7 @@ weight: 0.5
 tags: Advantage, Buff, Cursed, Immunity, Magic Item, Revival
 description: This amulet consists of five jade coins strung together, each one glowing faintly. The amulet has 5 charges, and when a charge is expended, one of its coins stops glowing. The amulet regains all expended charges when Attunement to it ends.
 
-***Second Chance.*** When you die for any reason except old age, one of the amulet's charges is automatically expended to resurrect you. You are revived with all of your Hit Points.
+***Second Chance.*** When you die for any reason except old age, one of the amulet's charges is expended to resurrect you. You are revived with all of your Hit Points.
 
 The amulet closes all wounds, neutralizes any poison, cures all magical contagions, and lifts any curses, except its own, affecting you when you died. The amulet also replaces damaged or missing organs and limbs. If you were Undead, you are restored to your non-Undead form.
 
@@ -177,7 +177,8 @@ This weapon has the following mastery property. To use this property, you must h
 ---
 
 name: Blast Ammunition
-type: Ammunition
+type: Weapon
+note_type: Any Ammunition
 rarity: Common
 attunement: false
 cost: Varies
@@ -185,7 +186,7 @@ options_cost: 10.002-10.3
 note_cost: +10 GP to normal counterpart per piece
 weight: Varies
 options_weight: 0.02-0.2
-tags: Area, Consumable, Magic Item, Saving Throw
+tags: Area, Consumable, Damage, Magic Item, Saving Throw
 description: When you hit or miss with an attack roll using this piece of magic ammunition, the ammunition explodes and is destroyed. The target of the attack and each creature within 5 feet of it must make a DC 13 Dexterity saving throw, taking 2d6 Fire damage on a failed save or half as much damage on a successful one.
 
 ---
@@ -338,6 +339,108 @@ If a familiar gained using this whistle is reduced to 0 Hit Points, the whistle�
 
 ---
 
+name: Cracked Spirit Jar
+type: Wondrous Item
+rarity: Very Rare
+attunement: true
+cost: 27500
+weight: 2
+tags: Consumable, Magic Item, Revival
+description: This spirit jar contains the souls of the dead, allowing you to siphon their energy to return from death. Due to its ruined nature, the jar can’t accept any more souls, but any souls already contained within it remain trapped until they are expended or until the jar is destroyed. The jar contains 1d4 souls. Once the last soul is expended, the jar becomes a nonmagical object.
+
+When you die, one soul is expended and your body crumbles to dust. After 1 hour, you gain a new body, reviving with all of your Hit Points and appearing in an unoccupied space within 5 feet of the jar. After reviving in this way, your creature type is changed to Undead.
+
+---
+
+name: Dead Man’s Marches
+type: Wondrous Item
+rarity: Uncommon
+attunement: true
+cost: 400
+weight: 2
+tags: Forced Movement, Magic Item
+description: Immediately after you are reduced to 0 Hit Points, these boots puppeteer your body, walking you to safety. The Prone condition ends for you, and you are moved up to 30 feet away from the source of the damage that reduced you to 0 Hit Points by the safest route, unless there is nowhere to move. You have the Prone condition again after the movement ends.
+
+---
+
+name: Devil’s Leech
+type: Wondrous Item
+rarity: Very Rare
+attunement: true
+cost: 42500
+weight: 0
+tags: Damage, Magic Item, Saving Throw
+description: This object is a Tiny shriveled leech that sometimes spasms unsettlingly. As a Magic action, you can give a verbal command to the leech, imbuing it with the command. If the leech is already imbued with a command, you must first spend 1 hour removing the old command, which can be done during a Short Rest.
+
+As a Utilize action, you can feed the leech to a creature within 5 feet of you, forcing it to make a DC 15 Wisdom saving throw. The creature must be willing or have the Incapacitated condition. On a failed save, the target becomes infested until the leech is removed from it. On a successful save, the target coughs up the leech, which lands on the ground in the target’s space. The target automatically succeeds on the save if following the command you issued would result in its certain death.
+
+The infested creature takes 5d10 Necrotic damage if it acts in a manner directly counter to the command you imbued in the leech. The infested creature can take this damage once per hour. If the infested creature dies, the leech crawls out of its mouth, landing on the ground in the creature's space. The leech also crawls out of the infested creature’s mouth when you cause it to do so as a Magic action.
+
+A *Remove Curse* or *Greater Restoration* spell cast on the infested creature destroys the leech, unless the caster is aware of the leech and chooses not to destroy it. Instead, the caster can force the leech to crawl out of the infested creature’s mouth.
+
+---
+
+name: Dimension Key
+type: Wondrous Item
+rarity: Very Rare
+attunement: false
+cost: 21000
+weight: 0
+tags: Consumable, Magic Item, Spell
+description: This ornate silver key measures about 2 inches in length and weighs two ounces. Typically, 1d4 + 4 Dimension Keys are found together, bound by a silver keyring.
+
+You can turn the key in the air, as if unlocking a door, and cast *Dimension Door* with it. Once the spell is cast, the key crumbles to dust. If the casting is interrupted, the key isn't lost.
+
+---
+
+name: Elemental Ammunition
+type: Weapon
+note_type: Any Ammunition
+rarity: Uncommon
+attunement: false
+cost: Varies
+options_cost: 40.002-40.3
+note_cost: +40 GP to normal counterpart per piece
+weight: Varies
+options_weight: 0.02-0.2
+tags: Area, Condition, Consumable, Damage, Forced Movement, Magic Item, Saving Throw
+description: A creature hit by this magic ammunition suffers an effect corresponding to its damage type. Damage types and their corresponding effects are shown in the table below.
+
+| Damage Type | Effect |
+| :---: | :--- |
+| Acid | The target must make a DC 13 Dexterity saving throw. On a failed save, a target takes 4d6 Acid damage and is covered in acid for 1 minute, or until a creature uses its action to scrape or wash the acid off itself or another creature. On a successful save, the target takes half as much damage only. A creature covered in acid takes 1d6 Acid damage at the start of each of its turns. |
+| Cold | The target must make a DC 13 Constitution saving throw. On a failed save, the target takes 3d6 Cold damage and has the Restrained condition for 1 minute. On a successful save, the target takes half as much damage, and its Speed is halved until the start of your next turn. A Restrained creature or another creature that can reach it can take an action to make a DC 13 Strength (Athletics) check, ending the effect on itself on a success. The effect also ends if the Restrained creature takes Fire damage. |
+| Fire | The target must succeed on a DC 13 Dexterity saving throw, taking 6d6 Fire damage on a failed save or half as much damage on a successful one. |
+| Lightning | The target must make a DC 13 Constitution saving throw. On a failed save, the target takes 3d6 Lightning damage, and on its next turn, it must choose whether it gets to use its movement, an action, or a Bonus Action; it gets only one of the three. On a successful save, the target takes half as much damage only. |
+| Thunder | The target must make a DC 13 Strength saving throw. On a failed save, the target takes 3d6 Thunder damage and is pushed 30 feet away. On a successful save, the target takes half as much damage and is pushed 15 feet away. |
+{: .catalog }
+
+---
+
+name: Enchanted Whetstone
+type: Wondrous Item
+rarity: Varies
+options_rarity: Uncommon, Rare, Very Rare
+note_rarity: See table
+attunement: false
+cost: Varies
+options_cost: 400, 4000, 40000
+note_cost: See table
+weight: 1
+tags: Consumable, Magic Item
+description: This whetstone can sharpen one Melee weapon that deals Slashing or Piercing damage. Using the whetstone takes 1 hour, which can be done during a Short Rest, after which the whetstone crumbles to dust and the weapon is magically sharpened, granting it a permanent bonus to attack rolls and damage rolls determined by the whetstone’s potency, as shown in the table below.
+
+If the weapon was nonmagical, it becomes magical after being sharpened with the whetstone. If the weapon already had a bonus to attack rolls and damage rolls, its bonus is changed to the one granted by the whetstone, and its rarity changes to the whetstone’s rarity if it is lower. For example, an Uncommon magic weapon sharpened by a Rare Enchanted Whetstone becomes a Rare magic weapon, but a Very Rare magic weapon's rarity wouldn't change.
+
+| Potency | Rarity | Bonus Granted | Cost |
+| :---: | :--- | :---: | :---: |
+| +1 | Uncommon | +1 | 400 GP |
+| +2 | Rare | +2 | 4,000 GP |
+| +3 | Very Rare | +3 | 40,000 GP |
+{: .catalog }
+
+---
+
 name: Gauntlet
 prefix_type: Simple Melee
 type: Weapon
@@ -390,10 +493,10 @@ description: This potion’s red liquid glimmers when agitated.
 
 As a Utilize action or a Bonus Action, you can drink the potion or administer it to another creature within 5 feet of yourself. The creature that consumes the magical red fluid in this vial regains a fixed number of Hit Points (from a Utilize action) or a rolled number of Hit Points (from a Bonus Action).
 
-The potion’s rarity and purchase cost, and the number of Hit Points it restores are shown in the table below.
+The potion’s rarity, purchase cost, and the number of Hit Points it restores are determined by its potency, as shown in the table below.
 
 | Potency | Rarity | Fixed HP Regained | Rolled HP Regained | Cost |
-| :--- | :--- | :--- | :--- | :---: |
+| :---: | :--- | :---: | :---: | :---: |
 | +1 | Common | 10 | 2d4 + 2 | 50 GP |
 | +2 | Uncommon | 20 | 4d4 + 4 | 200 GP |
 | +3 | Rare | 40 | 8d4 + 8 | 2,000 GP |
@@ -420,10 +523,10 @@ As a Utilize action or a Bonus Action, you can drink the potion or administer it
 
 After a creature drinks a Potion of Mana, it gains 1 Exhaustion level each time it drinks another one before it finishes a Long Rest.
 
-The potion’s rarity and purchase cost, and the level of the spell slot it restores are shown in the table below.
+The potion’s rarity, purchase cost, and level of the spell slot it grants are determined by its potency, as shown in the table below.
 
 | Potency | Rarity | Spell Slot Level | Cost |
-| :--- | :--- | :--- | :---: |
+| :---: | :--- | :---: | :---: |
 | +1 | Common | 1 | 75 GP |
 | +2 | Uncommon | 3 | 300 GP |
 | +3 | Rare | 5 | 3,000 GP |
