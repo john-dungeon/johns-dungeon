@@ -9,6 +9,8 @@
 {%- capture it_weight %}{% include table/field.html packed=include.packed key="weight" %}{% endcapture -%}
 {%- capture it_note_weight %}{% include table/field.html packed=include.packed key="note_weight" %}{% endcapture -%}
 {%- capture it_description %}{% include table/field.html packed=include.packed key="description" %}{% endcapture -%}
+{%- capture it_setting %}{% include table/field.html packed=include.packed key="setting" %}{% endcapture -%}
+{%- capture it_note_setting %}{% include table/field.html packed=include.packed key="note_setting" %}{% endcapture -%}
 
 {%- assign it_line1 = it_prefix_type | append: " " | append: it_type | strip -%}
 {%- if it_note_type != "" -%}{%- assign it_line1 = it_line1 | append: " (" | append: it_note_type | append: ")" -%}{%- endif -%}
@@ -50,9 +52,25 @@
 {%- assign it_line2 = it_cost_text -%}
 {%- if it_cost_text != "" and it_weight_text != "" -%}{%- assign it_line2 = it_line2 | append: ", " -%}{%- endif -%}
 {%- assign it_line2 = it_line2 | append: it_weight_text -%}
+{%- assign it_setting_line = "" -%}
+{%- capture it_setting_csv %}{% include table/list.html csv=it_setting sep="," %}{% endcapture -%}
+{%- if it_setting_csv != "" -%}
+  {%- capture it_setting_text %}{% include table/join-words.html items=it_setting_csv word="and" %}{% endcapture -%}
+  {%- assign it_setting_count = it_setting_csv | split: "," | size -%}
+  {%- if it_setting_count == 1 -%}
+    {%- assign it_setting_line = "This item can only be found in the " | append: it_setting_text | append: " setting." -%}
+  {%- else -%}
+    {%- assign it_setting_line = "This item can only be found in the following settings: " | append: it_setting_text | append: "." -%}
+  {%- endif -%}
+  {%- if it_note_setting != "" -%}{%- assign it_setting_line = it_setting_line | append: " " | append: it_note_setting -%}{%- endif -%}
+{%- endif -%}
 *{{ it_line1 }}*
 {%- if it_line2 != "" %}\
 *{{ it_line2 }}*
 {%- endif %}
 
 {{ it_description }}
+{%- if it_setting_line != "" %}
+
+> ***Setting-Specific.*** *{{ it_setting_line }}*
+{%- endif %}
