@@ -17,3 +17,9 @@ html { scrollbar-color: $nav-child-link-color $sidebar-color; }
 
 // Kramdown: {: .indent }
 .indent { margin-left: 2rem; }
+
+:root { --motion-duration: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --motion-duration: 0s; }
+}
