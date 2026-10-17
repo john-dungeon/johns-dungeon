@@ -22,7 +22,7 @@ search_exclude: true
   - `_base` – links, scrollbar, and the `.indent` class.
   - `_tables` – flat, striped tables.
   - `_search-table` – everything for search tables.
-  - `_sidebar-toggle` – the sidebar hide/show button.
+  - `_navbar-toggle` – the navigation sidebar hide/show button.
   - `_tooltip` – the hover bubble.
 
 **Reusable HTML (`_includes/`)**
@@ -35,7 +35,7 @@ search_exclude: true
 **Scripts (`assets/js/`)**
 - `theme-switcher.js` and `tooltips.js`.
 - `search-table/` – one file per job. `main.js` is the entry point.
-- `sidebar-toggle.js` – remembers whether the sidebar is hidden.
+- `navbar-toggle.js` – remembers whether the navigation sidebar is hidden.
 
 **Content Folders**
 - `items/`, `species/`, `spells/`, `rules/`, `settings/`, `subclasses/`. Each has an `index.md`.
@@ -51,7 +51,7 @@ Create a `.md` file in the right folder with front matter: `title` and `parent` 
 - `has_toc: false` is already the default for every page, so don't repeat it.
 
 ### Add a Class (for Subclasses)
-Create `subclasses/CLASS.md` with `title`, `parent: Subclasses`, `has_children: true`, `redirect_url: /subclasses/`, `search_exclude: true`, and no body. It shows in the sidebar as a stub that redirects to the Subclasses page.
+Create `subclasses/CLASS.md` with `title`, `parent: Subclasses`, `has_children: true`, `redirect_url: /subclasses/`, `search_exclude: true`, and no body. It shows in the navigation sidebar as a stub that redirects to the Subclasses page.
 
 ### Add a Theme
 1. Add `_sass/color_schemes/NAME.scss` (copy an existing one).
