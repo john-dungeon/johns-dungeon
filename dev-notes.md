@@ -117,7 +117,7 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - `tags` – the tags the Filter panel offers, in the order shown, even if no entry uses them yet. A tag an entry uses that isn't listed appears in red in its popup. `tags: false` hides tags in the Filter panel and popup.
 - `limit_default` (100), `limit_min` (25), `limit_max` (500), `limit_step` (25).
 - `markers` – a list of markers, each with `symbol`, `tag`, `color_by` (the entry field whose value picks the color from `$marker-colors`), and `label` (hover text prefix).
-- `auto_tags` – rules that add a tag automatically, like `- { tag: Concentration, field: duration, Concentration }` (case doesn't matter). Add the tag to `tags` too so it gets a filter button.
+- `auto_tags` – rules that add a tag automatically, like `- { tag: Concentration, field: duration, equals: Concentration }` (case doesn't matter). Add the tag to `tags` too so it gets a filter button. Leave out `equals` to fire whenever the field has any value.
 - `columns` – the list below. The first column is always the name.
 
 ### Column Options
