@@ -12,7 +12,6 @@
   {%- elsif include.col.format == "weight" -%}
     {%- include table/weight.html amount=include.cell -%}
   {%- elsif include.col.type == "number" -%}
-  {%- elsif include.col.type == "number" -%}
     {%- assign cl_num = include.cell | plus: 0 | append: "" -%}
     {%- if cl_num == include.cell -%}{{ include.col.prefix | escape }}{{ include.cell }}{{ include.col.suffix | escape }}{%- else -%}{{ include.cell | escape }}{%- endif -%}
   {%- else -%}
