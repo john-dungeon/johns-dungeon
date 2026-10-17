@@ -105,6 +105,8 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - On number columns, `options_cost` and `options_weight` list amounts or ranges instead, like `options_cost: 50, 200, 3-36`. Use plain numbers, no thousands commas. A slider or Min/Max filter keeps the entry if any listed amount or range overlaps it.
 - `note_KEY` fields are used by the item template.
 - `prefix_type` (items) – placed before the type in the popup's first line, like `prefix_type: Simple Melee` with `type: Weapon` showing "Simple Melee Weapon". It isn't shown in the table's Type column, so filtering still uses the plain type.
+- `setting` (items) – comma-separated settings. Auto-adds the Setting-Specific tag and appends the “can only be found in…” note to the popup. Never hand-write that note or tag.
+- `note_setting` (items) – extra sentence added to the end of that note. Don’t use * inside it, since the whole note is italic.
 
 ### Table Settings (`_data/tables/NAME.yml`)
 - `template` – popup layout file in `_includes/table/templates/` (required).
@@ -114,8 +116,8 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - `placeholder` – search box hint text.
 - `tags` – the tags the Filter panel offers, in the order shown, even if no entry uses them yet. A tag an entry uses that isn't listed appears in red in its popup. `tags: false` hides tags in the Filter panel and popup.
 - `limit_default` (100), `limit_min` (25), `limit_max` (500), `limit_step` (25).
-- `marker` – a colored symbol after names. Fields: `symbol`; `tag` (only entries with this tag; leave out for all); `color_by` (the entry field whose value picks the color from `$marker-colors`); `label` (hover text prefix).
-- `auto_tags` – rules that add a tag automatically, like `- { tag: Concentration, field: duration, equals: Concentration }` (case doesn't matter). Add the tag to `tags` too so it gets a filter button.
+- `markers` – a list of markers, each with `symbol`, `tag`, `color_by` (the entry field whose value picks the color from `$marker-colors`), and `label` (hover text prefix).
+- `auto_tags` – rules that add a tag automatically, like `- { tag: Concentration, field: duration, Concentration }` (case doesn't matter). Add the tag to `tags` too so it gets a filter button.
 - `columns` – the list below. The first column is always the name.
 
 ### Column Options
@@ -174,3 +176,4 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - **Entry files are named `_entries.md`** so Jekyll doesn't publish them as raw pages. They're loaded with `include_relative`, so they must sit in the same folder as the page that shows the table.
 - **Before deleting a CSS class**, search the whole repo for its name (GitHub's search box works).
 {% endraw %}
+- **When adding a setting**, update the order lists in both `species.yml` and `items.yml`
