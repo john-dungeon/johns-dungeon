@@ -22,6 +22,7 @@ search_exclude: true
   - `_base` – links, scrollbar, and the `.indent` class.
   - `_tables` – flat, striped tables.
   - `_search-table` – everything for search tables.
+  - `_sidebar-toggle` – the sidebar hide/show button.
   - `_tooltip` – the hover bubble.
 
 **Reusable HTML (`_includes/`)**
@@ -34,6 +35,7 @@ search_exclude: true
 **Scripts (`assets/js/`)**
 - `theme-switcher.js` and `tooltips.js`.
 - `search-table/` – one file per job. `main.js` is the entry point.
+- `sidebar-toggle.js` – remembers whether the sidebar is hidden.
 
 **Content Folders**
 - `items/`, `species/`, `spells/`, `rules/`, `settings/`, `subclasses/`. Each has an `index.md`.
