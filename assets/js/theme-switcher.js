@@ -13,12 +13,19 @@
     link.getAttribute('href').replace(PATTERN, `just-the-docs-${theme}.css`);
 
   function setStylesheet(theme) {
-    const old = link;
-    const next = old.cloneNode();
-    next.setAttribute('href', hrefFor(theme));
-    next.addEventListener('load', () => old.remove());
-    old.after(next);
-    link = next;
+    return new Promise(resolve => {
+      const old = link;
+      const next = old.cloneNode();
+      next.setAttribute('href', hrefFor(theme));
+      next.addEventListener('load', () => { old.remove(); resolve(); });
+      old.after(next);
+      link = next;
+    });
+  }
+
+  function switchTheme(theme) {
+    if (!document.startViewTransition) return setStylesheet(theme);
+    return document.startViewTransition(() => setStylesheet(theme)).updateCallbackDone;
   }
 
   try {
@@ -56,10 +63,11 @@
     menu.addEventListener('click', event => {
       const option = event.target.closest('.theme-option');
       if (!option) return;
-      setStylesheet(option.dataset.theme);
-      try { localStorage.setItem('theme', option.dataset.theme); } catch (e) {}
-      markActive();
       setMenu(false);
+      const theme = option.dataset.theme;
+      if (theme === currentTheme()) return;
+      try { localStorage.setItem('theme', theme); } catch (e) {}
+      switchTheme(theme).then(markActive);
     });
 
     document.addEventListener('click', event => {
