@@ -1,11 +1,17 @@
 template: item
 noun: items
-tags: [Advantage, Area, Armor Class Bonus, Attack Bonus, Buff, Charges, Condition, Consumable, Cursed, Damage, Damage Bonus, Debuff, Disadvantage, Extra Damage, Forced Movement, Healing, Immunity, Light, Magic Item, Resistance, Revival, Saving Throw, Special Property, Spell]
-marker:
-  symbol: "✦"
-  tag: Magic Item
-  color_by: rarity
-  label: Magic Item
+tags: [Advantage, Area, Armor Class Bonus, Attack Bonus, Buff, Charges, Condition, Consumable, Cursed, Damage, Damage Bonus, Debuff, Disadvantage, Extra Damage, Forced Movement, Healing, Immunity, Light, Magic Item, Resistance, Revival, Saving Throw, Setting-Specific, Special Property, Spell]
+auto_tags:
+  - { tag: Setting-Specific, field: setting }
+markers:
+  - symbol: "✦"
+    tag: Magic Item
+    color_by: rarity
+    label: Magic Item
+  - symbol: "☗"
+    tag: Setting-Specific
+    color_by: setting
+    label: Setting-Specific
 columns:
   - key: name
     label: Name
@@ -44,3 +50,8 @@ columns:
       "n/a": "N/A"
       "false": "None"
       "true": "Required"
+  - key: setting
+    label: Setting
+    type: list
+    in_table: false
+    order: [Big Blue, City 13, Drachenfell, Erisia, Great Luminant, Hiraeth, Jingyu City, New Moon City, Solachia]
