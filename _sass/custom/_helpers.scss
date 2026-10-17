@@ -12,6 +12,8 @@ $marker-colors: (
   "artifact": #fa2323,
   "varies": $body-text-color
 ) !default;
+$motion-ease: cubic-bezier(0.65, 0, 0.35, 1);
+$motion: var(--motion-duration) $motion-ease;
 
 $unlisted-color: if($is-light-theme, #b3261e, #ff6b6b) !default;
 $shadow-small: 0 2px 6px rgba(0, 0, 0, 0.3);
