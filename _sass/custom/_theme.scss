@@ -50,3 +50,5 @@
   &:hover { background: $code-background-color; }
   &.active { color: $link-color; font-weight: 600; }
 }
+
+::view-transition-group(root) { animation-duration: var(--motion-duration); }
