@@ -1,6 +1,6 @@
 (function () {
-  const KEY = 'sidebar-collapsed';
-  const CLASS = 'sidebar-collapsed';
+  const KEY = 'navbar-collapsed';
+  const CLASS = 'navbar-collapsed';
   const root = document.documentElement;
 
   try {
@@ -8,7 +8,7 @@
   } catch (e) {}
 
   document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.getElementById('sidebar-toggle');
+    const toggle = document.getElementById('navbar-toggle');
     if (!toggle) return;
 
     const paint = () =>
