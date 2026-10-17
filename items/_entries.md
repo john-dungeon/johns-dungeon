@@ -9,7 +9,9 @@ note_cost: +300,000 GP to normal counterpart
 weight: Varies
 options_weight: 60-97.5
 note_weight: +50% to normal counterpart
-tags: Area, Charges, Damage, Forced Movement, Magic Item, Resistance, Saving Throw, Setting-Specific
+setting: Erisia
+note_setting: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
+tags: Area, Charges, Damage, Forced Movement, Magic Item, Resistance, Saving Throw
 description: This suit of armor is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The armor is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. While wearing the armor, you can use the following properties.
 
 ***Resistance.*** You have Resistance to Bludgeoning, Piercing, and Slashing damage.
@@ -20,7 +22,6 @@ description: This suit of armor is made of adamantine, an alloy made of iron and
 
 As a Magic action, you can expend all of the armor’s charges to expel a wave of magical force from the armor. Each creature in a 15-foot Emanation around you makes a DC 17 Strength saving throw. On a failed save, for each charge expended, a target takes 1d8 Force damage and is pushed 5 feet straight away from you. On a successful save, a target takes half as much damage only.
 
-> ***Setting-Specific.*** *This item can only be found in the Erisia setting. Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).*
 ---
 
 name: Adamantine Shield
@@ -32,14 +33,13 @@ cost: Varies
 options_cost: 300010
 weight: Varies
 options_weight: 9
-tags: Area, Armor Class Bonus, Charges, Condition, Damage, Immunity, Magic Item, Saving Throw, Setting-Specific
+setting: Erisia
+tags: Area, Armor Class Bonus, Charges, Condition, Damage, Immunity, Magic Item, Saving Throw
 description: This Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class. This bonus is in addition to the Shield's normal bonus to AC.
 
 ***Impact Absorption.*** When you take Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to absorb the impact with the Shield. You gain Immunity to Bludgeoning, Piercing, or Slashing damage against the triggering damage, and the Shield gains 1 charge, up to a maximum of 6 charges. You can't take this Reaction while the Shield has 6 charges.
 
 As a Magic action, you can expend all of the Shield’s charges to expel a burst of magical energy from the Shield. Each creature in a 30-foot Cone makes a DC 17 Constitution saving throw. On a failed save, a target takes 1d8 Force damage for each charge expended, and it has the Stunned condition until the start of your next turn if you expended 6 charges. On a successful save, a target takes half as much damage only.
-
-> ***Setting-Specific.*** *This item can only be found in the Erisia setting.*
 
 ---
 
@@ -54,14 +54,14 @@ note_cost: +300,000 GP to normal counterpart
 weight: Varies
 options_weight: 1.5-27
 note_weight: +50% to normal counterpart
-tags: Attack Bonus, Charges, Condition, Damage Bonus, Extra Damage, Magic Item, Setting-Specific
+setting: Erisia
+note_setting: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
+tags: Attack Bonus, Charges, Condition, Damage Bonus, Extra Damage, Magic Item
 description: This weapon is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The weapon is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
 ***Unbreakable.*** Whenever this weapon hits an object, the hit is a Critical Hit.
 
 ***Impact Absorption.*** When you hit a target with the weapon, it gains 1 charge, up to a maximum of 6 charges. Immediately after you hit a target with the weapon, you can take a Bonus Action to expend all of the weapon’s charges to unleash a concentrated blast of magical force from the weapon. The target takes an extra 1d8 Force damage from the attack for each charge expended and has the Prone condition.
-
-> ***Setting-Specific.*** *This item can only be found in the Erisia setting. Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).*
 
 ---
 
@@ -273,14 +273,13 @@ options_cost: 4900-5650
 note_cost: +4,150 GP to normal counterpart
 weight: Varies
 options_weight: 40-65
-tags: Area, Debuff, Magic Item, Resistance, Setting-Specific
+setting: Erisia
+tags: Area, Debuff, Magic Item, Resistance
 description: This suit of armor is made of cold iron, a special type of iron that repels Undead and other supernatural beings. You have Resistance to Necrotic damage while you wear the armor. The armor also has the following properties.
 
 ***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the armor, the armor turns black. The armor returns to normal if no creatures of those types are in the Emanation.
 
 ***Supernatural Deterrent.*** Aberrations, Fey, Fiends, and Undead have Disadvantage on attack rolls they make against you.
-
-> ***Setting-Specific.*** *This item can only be found in the Erisia setting.*
 
 ---
 
@@ -293,14 +292,13 @@ cost: Varies
 options_cost: 4160
 weight: Varies
 options_weight: 6
-tags: Area, Armor Class Bonus, Condition, Forced Movement, Magic Item, Saving Throw, Setting-Specific
+setting: Erisia
+tags: Area, Armor Class Bonus, Condition, Forced Movement, Magic Item, Saving Throw
 description: This Shield is made of cold iron, a special type of iron that repels Undead and other supernatural beings. While holding the Shield, you have a +1 bonus to Armor Class. This bonus is in addition to the Shield's normal bonus to AC. The Shield also has the following properties.
 
 ***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the Shield, the Shield turns black. The Shield returns to normal if no creatures of those types are in the Emanation.
 
 ***Supernatural Deterrent.*** Whenever an Aberration, Fey, Fiend, or Undead enters a space within 5 feet of you, you can take a Reaction to force the triggering creature to make a DC 15 Wisdom saving throw. On a failed save, the target is pushed 5 feet away from you and has the Frightened condition until the start of your next turn.
-
-> ***Setting-Specific.*** *This item can only be found in the Erisia setting.*
 
 ---
 
@@ -314,15 +312,13 @@ options_cost: 4150.1-4200
 note_cost: +4,150 GP to normal counterpart
 weight: Varies
 options_weight: 1-18
-note_weight: +50% to normal counterpart
-tags: Attack Bonus, Condition, Damage Bonus, Extra Damage, Magic Item, Setting-Specific
+setting: Erisia
+tags: Attack Bonus, Condition, Damage Bonus, Extra Damage, Magic Item
 description: This weapon is made of cold iron, a special type of iron that repels Undead and supernatural beings. You have a +1 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
 ***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the weapon, the weapon turns black. The weapon returns to normal if no creatures of those types are in the Emanation.
 
 ***Supernatural Deterrent.*** When you hit an Aberration, Fey, Fiend, or Undead with the weapon, the target takes an extra 1d6 Force damage and must succeed on a DC 15 Wisdom saving throw or have the Frightened condition until the start of your next turn.
-
-> ***Setting-Specific.*** *This item can only be found in the Erisia setting.*
 
 ---
 
