@@ -11,7 +11,7 @@ markers:
   - symbol: "☗"
     tag: Setting-Specific
     color_by: setting
-    label: Setting-Specific
+    label: Setting
 columns:
   - key: name
     label: Name
