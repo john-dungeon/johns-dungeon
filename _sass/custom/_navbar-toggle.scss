@@ -1,31 +1,48 @@
+// Markup: _includes/nav_footer_custom.html
+// Behavior: assets/js/navbar-toggle.js
+$navbar-toggle-size: 2rem;
+$navbar-toggle-inset: 1rem;
+
 #navbar-toggle { display: none; }
 
 @include mq(md) {
+  .side-bar {
+    transform: translateX(0);
+    transition: transform $motion, visibility 0s;
+  }
+
+  .main { transition: margin-left $motion; }
+
   #navbar-toggle {
     @include outlined-button(999px, $sidebar-color);
     @include accent-on-hover;
     display: block;
-    width: 2rem;
-    height: 2rem;
-    margin-bottom: 0.5rem;
+    position: fixed;
+    top: $navbar-toggle-inset;
+    right: $navbar-toggle-inset;
+    z-index: 100;
+    width: $navbar-toggle-size;
+    height: $navbar-toggle-size;
     padding: 0;
     box-shadow: $shadow-small;
+    transition: right $motion;
 
-    &::before { content: "\2039"; } // ‹
+    &::before { content: "\2039"; }
   }
 
   .navbar-collapsed {
-    .side-bar { visibility: hidden; }
-    .main { margin-left: auto; margin-right: auto; }
+    .side-bar {
+      transform: translateX(-100%);
+      visibility: hidden;
+      transition: transform $motion, visibility 0s var(--motion-duration);
+    }
+
+    .main { margin-left: calc((100% - #{$content-width}) / 2); }
 
     #navbar-toggle {
       visibility: visible;
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      z-index: 100;
-
-      &::before { content: "\203A"; } // ›
+      right: -($navbar-toggle-size + $navbar-toggle-inset);
+      &::before { content: "\203A"; }
     }
   }
 }
