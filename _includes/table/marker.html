@@ -1,15 +1,13 @@
-{%- assign mk = include.cfg.marker -%}
-{%- if mk -%}
-  {%- assign mk_tags = include.tags | downcase | split: "," -%}
-  {%- assign mk_wanted = mk.tag | downcase -%}
-  {%- if mk.tag == nil or mk_tags contains mk_wanted -%}
-    {%- capture mk_value %}{% include table/field.html packed=include.packed key=mk.color_by %}{% endcapture -%}
-    {%- assign mk_text = mk.label | default: "Marked" -%}
-    {%- if mk_value != blank -%}
-      {%- if mk.label -%}{%- assign mk_text = mk_text | append: " · " | append: mk_value -%}
-      {%- else -%}{%- assign mk_text = mk_value -%}
-      {%- endif -%}
+{%- assign mk = include.marker -%}
+{%- assign mk_tags = include.tags | downcase | split: "," -%}
+{%- assign mk_wanted = mk.tag | downcase -%}
+{%- if mk.tag == nil or mk_tags contains mk_wanted -%}
+  {%- capture mk_value %}{% include table/field.html packed=include.packed key=mk.color_by %}{% endcapture -%}
+  {%- assign mk_text = mk.label | default: "Marked" -%}
+  {%- if mk_value != blank -%}
+    {%- if mk.label -%}{%- assign mk_text = mk_text | append: " · " | append: mk_value -%}
+    {%- else -%}{%- assign mk_text = mk_value -%}
     {%- endif -%}
-    <span class="st-marker" role="img" aria-label="{{ mk_text | escape }}" data-tooltip="{{ mk_text | escape }}" data-marker="{{ mk_value | downcase | escape }}">{{ mk.symbol | default: "✦" }}</span>
   {%- endif -%}
+  <span class="st-marker" role="img" aria-label="{{ mk_text | escape }}" data-tooltip="{{ mk_text | escape }}" data-marker="{{ mk_value | downcase | escape }}">{{ mk.symbol | default: "✦" }}</span>
 {%- endif -%}
