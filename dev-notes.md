@@ -17,12 +17,12 @@ search_exclude: true
 - `_sass/color_schemes/` – one file per theme (colors, and optionally fonts).
 - `assets/css/just-the-docs-NAME.scss` – one tiny file per theme (Jekyll needs each one).
 - `_sass/custom/` – all custom CSS, loaded in order by `custom.scss`:
-  - `_helpers` – shared variables and mixins (loaded first).
-  - `_theme` – fonts and the theme switcher button.
-  - `_base` – links, scrollbar, and the `.indent` class.
+  - `_helpers` – shared variables and mixins (loaded first), including the shared animation curve `$motion`.
+  - `_theme` – fonts, the theme switcher button, and the theme cross-fade.
+  - `_base` – links, scrollbar, the `.indent` class, and the animation speed `--motion-duration`.
   - `_tables` – flat, striped tables.
   - `_search-table` – everything for search tables.
-  - `_navbar-toggle` – the navigation sidebar hide/show button.
+  - `_navbar-toggle` – the nav bar hide/show button and slide animation.
   - `_tooltip` – the hover bubble.
 
 **Reusable HTML (`_includes/`)**
