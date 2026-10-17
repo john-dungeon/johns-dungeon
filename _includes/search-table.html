@@ -26,10 +26,16 @@
   {%- assign at_have = tags_csv | downcase | split: "," -%}
   {%- for at_rule in cfg.auto_tags -%}
     {%- capture at_value %}{% include table/field.html packed=packed key=at_rule.field %}{% endcapture -%}
-    {%- assign at_value_l = at_value | downcase -%}
-    {%- assign at_equals_l = at_rule.equals | downcase -%}
+    {%- assign at_hit = false -%}
+    {%- if at_rule.equals -%}
+      {%- assign at_value_l = at_value | downcase -%}
+      {%- assign at_equals_l = at_rule.equals | downcase -%}
+      {%- if at_value_l == at_equals_l -%}{%- assign at_hit = true -%}{%- endif -%}
+    {%- elsif at_value != "" -%}
+      {%- assign at_hit = true -%}
+    {%- endif -%}
     {%- assign at_tag_l = at_rule.tag | downcase -%}
-    {%- if at_value_l == at_equals_l -%}
+    {%- if at_hit -%}
       {%- unless at_have contains at_tag_l -%}
         {%- if tags_csv == "" -%}
           {%- assign tags_csv = at_rule.tag -%}
@@ -40,7 +46,11 @@
     {%- endif -%}
   {%- endfor -%}
   {%- assign tags_csv = tags_csv | split: "," | sort_natural | join: "," -%}
-  {%- capture marker_html %}{% include table/marker.html cfg=cfg packed=packed tags=tags_csv %}{% endcapture -%}
+  {%- capture marker_html -%}
+    {%- for marker_cfg in cfg.markers -%}
+      {%- include table/marker.html marker=marker_cfg packed=packed tags=tags_csv -%}
+    {%- endfor -%}
+  {%- endcapture -%}
 
   {%- assign row_attrs = "" -%}
   {%- assign row_cells = "" -%}
