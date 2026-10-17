@@ -1,5 +1,7 @@
+#navbar-toggle { display: none; }
+
 @include mq(md) {
-  #sidebar-toggle {
+  #navbar-toggle {
     @include outlined-button(999px, $sidebar-color);
     @include accent-on-hover;
     display: block;
@@ -12,11 +14,11 @@
     &::before { content: "\2039"; } // ‹
   }
 
-  .sidebar-collapsed {
+  .navbar-collapsed {
     .side-bar { visibility: hidden; }
     .main { margin-left: auto; margin-right: auto; }
 
-    #sidebar-toggle {
+    #navbar-toggle {
       visibility: visible;
       position: fixed;
       top: 1rem;
