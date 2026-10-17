@@ -31,8 +31,10 @@ rarity: Legendary
 attunement: false
 cost: Varies
 options_cost: 300010
+note_cost: +300,000 GP to normal counterpart
 weight: Varies
 options_weight: 9
+note_weight: +50% to normal counterpart
 setting: Erisia
 tags: Area, Armor Class Bonus, Charges, Condition, Damage, Immunity, Magic Item, Saving Throw
 description: This Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class. This bonus is in addition to the Shield's normal bonus to AC.
@@ -290,6 +292,7 @@ rarity: Rare
 attunement: false
 cost: Varies
 options_cost: 4160
+note_cost: +4,150 GP to normal counterpart
 weight: Varies
 options_weight: 6
 setting: Erisia
