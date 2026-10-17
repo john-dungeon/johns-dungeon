@@ -1,5 +1,5 @@
 @include mq(md) {
-  #nav-toggle {
+  #sidebar-toggle {
     @include outlined-button(999px, $sidebar-color);
     @include accent-on-hover;
     display: block;
@@ -12,7 +12,7 @@
     &::before { content: "\2039"; } // ‹
   }
 
-  .nav-collapsed {
+  .sidebar-collapsed {
     .side-bar { visibility: hidden; }
     .main { margin-left: auto; margin-right: auto; }
 
