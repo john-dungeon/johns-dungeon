@@ -1,0 +1,29 @@
+@include mq(md) {
+  #nav-toggle {
+    @include outlined-button(999px, $sidebar-color);
+    @include accent-on-hover;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 0.5rem;
+    padding: 0;
+    box-shadow: $shadow-small;
+
+    &::before { content: "\2039"; } // ‹
+  }
+
+  .nav-collapsed {
+    .side-bar { visibility: hidden; }
+    .main { margin-left: auto; margin-right: auto; }
+
+    #sidebar-toggle {
+      visibility: visible;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 100;
+
+      &::before { content: "\203A"; } // ›
+    }
+  }
+}
