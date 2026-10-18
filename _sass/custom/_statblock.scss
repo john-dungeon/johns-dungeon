@@ -1,0 +1,46 @@
+// Markup: _includes/table/templates/monster.md
+.statblock {
+  @include outlined;
+  max-width: 42rem;
+  margin: 1rem 0;
+  padding: 0.25rem 1rem 0.75rem;
+  border-top: 4px solid $link-color;
+  border-bottom: 4px solid $link-color;
+  background: $body-background-color;
+
+  p { margin: 0.5rem 0; }
+
+  > p:first-child {
+    @include muted(1rem);
+    font-style: italic;
+  }
+}
+
+.statblock-heading {
+  margin: 1rem 0 0.5rem;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid $link-color;
+  color: $body-heading-color;
+  font-size: 1.2rem;
+}
+
+// Kramdown: {: .statblock-abilities }
+.statblock .statblock-abilities {
+  @include fit-table(0.2rem 0.4rem);
+  margin: 0.5rem 0;
+  border-collapse: collapse;
+
+  th, td {
+    border: 0;
+    background: transparent;
+    text-align: center;
+  }
+
+  th { @include muted(0.75rem); }
+
+  td:nth-child(4n + 1) {
+    color: $body-heading-color;
+    font-weight: 700;
+    text-align: left;
+  }
+}
