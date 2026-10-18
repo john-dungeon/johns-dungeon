@@ -448,7 +448,7 @@ attunement: false
 cost: 4000
 weight: 0
 tags: Consumable, Magic Item
-description: When you make a D20 Test, you can call on the luck of this rabbit's foot, turning the roll on the d20 into a 20. Once used, the foot is no longer magical, losing its magical properties.
+description: When you make a D20 Test, you can call upon the magic of this rabbit's foot, turning the roll on the d20 into a 20. Once used, the foot is no longer magical, losing its magical properties.
 
 ---
 
