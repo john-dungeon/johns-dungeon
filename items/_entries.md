@@ -20,7 +20,7 @@ description: This magic suit of armor is made of adamantine, an alloy made of ir
 
 ***Impact Absorption.*** When you take Bludgeoning, Piercing, or Slashing damage, the armor gains 1 charge, up to a maximum of 6 charges. The Resistance property doesn't function while the armor has 6 charges.
 
-As a Magic action, you can expend all of the armor’s charges to expel a wave of magical force from the armor. Each creature in a 15-foot Emanation around you makes a DC 17 Strength saving throw. On a failed save, for each charge expended, a target takes 1d8 Force damage and is pushed 5 feet straight away from you. On a successful save, a target takes half as much damage only.
+As a Magic action, you can expend all of the armor's charges to expel a wave of magical force from the armor. Each creature in a 15-foot Emanation around you makes a DC 17 Strength saving throw. On a failed save, for each charge expended, a target takes 1d8 Force damage and is pushed 5 feet straight away from you. On a successful save, a target takes half as much damage only.
 
 ---
 
@@ -41,7 +41,7 @@ description: This magic Shield is made of adamantine, an alloy made of iron and 
 
 ***Impact Absorption.*** When you take Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to absorb the impact with the Shield. You gain Immunity to Bludgeoning, Piercing, or Slashing damage against the triggering damage, and the Shield gains 1 charge, up to a maximum of 6 charges. You can't take this Reaction while the Shield has 6 charges.
 
-As a Magic action, you can expend all of the Shield’s charges to expel a burst of magical energy from the Shield. Each creature in a 30-foot Cone makes a DC 17 Constitution saving throw. On a failed save, a target takes 1d8 Force damage for each charge expended, and it has the Stunned condition until the start of your next turn if you expended 6 charges. On a successful save, a target takes half as much damage only.
+As a Magic action, you can expend all of the Shield's charges to expel a burst of magical energy from the Shield. Each creature in a 30-foot Cone makes a DC 17 Constitution saving throw. On a failed save, a target takes 1d8 Force damage for each charge expended, and it has the Stunned condition until the start of your next turn if you expended 6 charges. On a successful save, a target takes half as much damage only.
 
 ---
 
@@ -63,7 +63,7 @@ description: This magic weapon is made of adamantine, an alloy made of iron and 
 
 ***Unbreakable.*** Whenever this weapon hits an object, the hit is a Critical Hit.
 
-***Impact Absorption.*** When you hit a target with the weapon, it gains 1 charge, up to a maximum of 6 charges. Immediately after you hit a target with the weapon, you can take a Bonus Action to expend all of the weapon’s charges to unleash a concentrated blast of magical force from the weapon. The target takes an extra 1d8 Force damage from the attack for each charge expended and has the Prone condition.
+***Impact Absorption.*** When you hit a target with the weapon, it gains 1 charge, up to a maximum of 6 charges. Immediately after you hit a target with the weapon, you can take a Bonus Action to expend all of the weapon's charges to unleash a concentrated blast of magical force from the weapon. The target takes an extra 1d8 Force damage from the attack for each charge expended and has the Prone condition.
 
 ---
 
@@ -82,7 +82,7 @@ The amulet closes all wounds, neutralizes any poison, cures all magical contagio
 
 ***Life's Experience.*** Each time you are resurrected by the amulet, you gain the following benefits and penalties, which are permanent and persist even after your Attunement to the amulet ends:
 
-**Accelerated Aging.** You age 20 percent of your species’s average lifespan. For example, a human’s average lifespan is about 60, so if you’re a human, you age 12 years when you are resurrected.
+**Accelerated Aging.** You age 20 percent of your species's average lifespan. For example, a human's average lifespan is about 60, so if you're a human, you age 12 years when you are resurrected.
 
 **Declining Health.** Your Hit Point maximum is reduced by 10, to a minimum Hit Point maximum equal to two times your character level.
 
@@ -103,7 +103,7 @@ weight: 18
 tags: Area, Light, Magic Item, Spell
 description: This object appears to be a Medium pole with a glowing crystal fixed to one end, forming a beacon that sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. You can deploy the beacon over the course of 1 hour, which can be done during a Short Rest. The beacon must be within your reach throughout the deployment, at the end of which you deploy the beacon in an unoccupied space within 5 feet of yourself. Removing a deployed beacon requires you to spend another hour doing so.
 
-While the beacon is deployed, the beacon emits an aura of antimagic in a 60-foot Emanation. Within the aura, the effects of the *Antimagic Field* spell are active; this doesn’t suppress the effects of the beacon or any other Antimagic Beacons.
+While the beacon is deployed, the beacon emits an aura of antimagic in a 60-foot Emanation. Within the aura, the effects of the *Antimagic Field* spell are active; this doesn't suppress the effects of the beacon or any other Antimagic Beacons.
 
 ---
 
@@ -114,7 +114,7 @@ attunement: false
 cost: 35000
 weight: 1
 tags: Area, Consumable, Magic Item
-description: As a Utilize action, you can prime an Antimagic Bomb and throw it at a point up to 60 feet away, where it explodes. Each creature, object, and magical effect in a 20-foot-radius Sphere centered on that point suffers the following effects: 
+description: As a Utilize action, you can prime an Antimagic Bomb and throw it at a point up to 60 feet away, where it explodes. Each creature, object, and magical effect in a 20-foot-radius Sphere centered on that point suffers the following effects:
 
 **Dispel Magic.** Ongoing spells of level 5 or lower end.
 
@@ -216,7 +216,7 @@ This weapon has the following special properties.
 
 This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
 
-***Slow.*** If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet.
+***Slow.*** If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn't exceed 10 feet.
 
 | Name | Cost | Damage | Weight | Properties |
 | :---: | :---: | :---: | :---: | :---: |
@@ -335,7 +335,7 @@ weight: 0
 tags: Magic Item, Spell
 description: This object is a Tiny whistle etched with images of various animals. You can use the whistle to cast the *Find Familiar* spell as a Magic action. When you cast the spell in this way, your familiar can be a Beast that has a Challenge Rating up to 1/4.
 
-If a familiar gained using this whistle is reduced to 0 Hit Points, the whistle’s properties can’t be used for 7 days.
+If a familiar gained using this whistle is reduced to 0 Hit Points, the whistle's properties can't be used for 7 days.
 
 ---
 
@@ -346,7 +346,7 @@ attunement: true
 cost: 27500
 weight: 2
 tags: Consumable, Magic Item, Revival
-description: This spirit jar contains the souls of the dead, allowing you to siphon their energy to return from death. Due to its ruined nature, the jar can’t accept any more souls, but any souls already contained within it remain trapped until they are expended or until the jar is destroyed. The jar contains 1d4 souls. Once the last soul is expended, the jar becomes a nonmagical object.
+description: This spirit jar contains the souls of the dead, allowing you to siphon their energy to return from death. Due to its ruined nature, the jar can't accept any more souls, but any souls already contained within it remain trapped until they are expended or until the jar is destroyed. The jar contains 1d4 souls. Once the last soul is expended, the jar becomes a nonmagical object.
 
 When you die, one soul is expended and your body crumbles to dust. After 1 hour, you gain a new body, reviving with all of your Hit Points and appearing in an unoccupied space within 5 feet of the jar. After reviving in this way, your creature type is changed to Undead.
 
@@ -372,11 +372,11 @@ weight: 0
 tags: Damage, Magic Item, Saving Throw
 description: This object is a Tiny shriveled leech that sometimes spasms unsettlingly. As a Magic action, you can give a verbal command to the leech, imbuing it with the command. If the leech is already imbued with a command, you must first spend 1 hour removing the old command, which can be done during a Short Rest.
 
-As a Utilize action, you can feed the leech to a creature within 5 feet of you, forcing it to make a DC 15 Wisdom saving throw. The creature must be willing or have the Incapacitated condition. On a failed save, the target becomes infested until the leech is removed from it. On a successful save, the target coughs up the leech, which lands on the ground in the target’s space. The target automatically succeeds on the save if following the command you issued would result in its certain death.
+As a Utilize action, you can feed the leech to a creature within 5 feet of you, forcing it to make a DC 15 Wisdom saving throw. The creature must be willing or have the Incapacitated condition. On a failed save, the target becomes infested until the leech is removed from it. On a successful save, the target coughs up the leech, which lands on the ground in the target's space. The target automatically succeeds on the save if following the command you issued would result in its certain death.
 
-The infested creature takes 5d10 Necrotic damage if it acts in a manner directly counter to the command you imbued in the leech. The infested creature can take this damage once per hour. If the infested creature dies, the leech crawls out of its mouth, landing on the ground in the creature's space. The leech also crawls out of the infested creature’s mouth when you cause it to do so as a Magic action.
+The infested creature takes 5d10 Necrotic damage if it acts in a manner directly counter to the command you imbued in the leech. The infested creature can take this damage once per hour. If the infested creature dies, the leech crawls out of its mouth, landing on the ground in the creature's space. The leech also crawls out of the infested creature's mouth when you cause it to do so as a Magic action.
 
-A *Remove Curse* or *Greater Restoration* spell cast on the infested creature destroys the leech, unless the caster is aware of the leech and chooses not to destroy it. Instead, the caster can force the leech to crawl out of the infested creature’s mouth.
+A *Remove Curse* or *Greater Restoration* spell cast on the infested creature destroys the leech, unless the caster is aware of the leech and chooses not to destroy it. Instead, the caster can force the leech to crawl out of the infested creature's mouth.
 
 ---
 
@@ -428,9 +428,9 @@ options_cost: 400, 4000, 40000
 note_cost: See table
 weight: 1
 tags: Attack Bonus, Consumable, Damage Bonus, Magic Item
-description: This whetstone can sharpen one Melee weapon that deals Slashing or Piercing damage. Using the whetstone takes 1 hour, which can be done during a Short Rest, after which the whetstone crumbles to dust and the weapon is magically sharpened, granting it a permanent bonus to attack rolls and damage rolls determined by the whetstone’s potency, as shown in the table below.
+description: This whetstone can sharpen one Melee weapon that deals Slashing or Piercing damage. Using the whetstone takes 1 hour, which can be done during a Short Rest, after which the whetstone crumbles to dust and the weapon is magically sharpened, granting it a permanent bonus to attack rolls and damage rolls determined by the whetstone's potency, as shown in the table below.
 
-If the weapon was nonmagical, it becomes magical after being sharpened with the whetstone. If the weapon already had a bonus to attack rolls and damage rolls, its bonus is changed to the one granted by the whetstone, and its rarity changes to the whetstone’s rarity if it is lower. For example, an Uncommon magic weapon sharpened by a Rare Enchanted Whetstone becomes a Rare magic weapon, but a Very Rare magic weapon's rarity wouldn't change.
+If the weapon was nonmagical, it becomes magical after being sharpened with the whetstone. If the weapon already had a bonus to attack rolls and damage rolls, its bonus is changed to the one granted by the whetstone, and its rarity changes to the whetstone's rarity if it is lower. For example, an Uncommon magic weapon sharpened by a Rare Enchanted Whetstone becomes a Rare magic weapon, but a Very Rare magic weapon's rarity wouldn't change.
 
 | Potency | Rarity | Bonus Granted | Cost |
 | :---: | :--- | :---: | :---: |
@@ -527,9 +527,9 @@ description: You have a +1 bonus to attack and damage rolls made with this magic
 
 ***Rope.*** The weapon has a 60-foot length of rope attached to it. The rope has AC 20, HP 20, and Immunity to all damage except Force damage. It regains 1 Hit Point every 5 minutes as long as it has at least 1 Hit Point. If the rope drops to 0 Hit Points, it is destroyed. After 3 days, the rope is restored and regains all of its Hit Points.
 
-As a Magic action, you can magically fix or unfix one end of the rope to yourself, preventing it from flying out of your reach. While the rope is fixed to you, the weapon’s normal range and long range are no more than 60 feet.
+As a Magic action, you can magically fix or unfix one end of the rope to yourself, preventing it from flying out of your reach. While the rope is fixed to you, the weapon's normal range and long range are no more than 60 feet.
 
-***Harpoon.*** When you hit a target with an attack roll with the weapon, you can harpoon the target with the weapon, leaving it pinned in the target. While pinned in a target, the weapon can’t be used to make attacks. The pinned creature or another creature that can reach it can take an action to make a DC 17 Strength (Athletics) check, dislodging the weapon on a success.
+***Harpoon.*** When you hit a target with an attack roll with the weapon, you can harpoon the target with the weapon, leaving it pinned in the target. While pinned in a target, the weapon can't be used to make attacks. The pinned creature or another creature that can reach it can take an action to make a DC 17 Strength (Athletics) check, dislodging the weapon on a success.
 
 As a Bonus Action, you can pull the rope, causing the weapon to fly back into your hand. If the weapon is pinned in a target, pulling the rope creates one of the following effects of your choice:
 
@@ -551,7 +551,7 @@ description: Proficiency with a Hook Sword allows you to add your proficiency bo
 
 This weapon has the following special mastery property. To use this property, you must have a feature that lets you use it.
 
-***Dismantle.*** If you hit a creature with this weapon and deal damage to the creature, you can reduce the creature’s Armor Class by 2 until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Armor Class reduction doesn’t exceed 4.
+***Dismantle.*** If you hit a creature with this weapon and deal damage to the creature, you can reduce the creature's Armor Class by 2 until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Armor Class reduction doesn't exceed 4.
 
 | Name | Cost | Damage | Weight | Properties |
 | :---: | :---: | :---: | :---: | :---: |
@@ -603,7 +603,7 @@ description: Proficiency with a Meteor Hammer allows you to add your proficiency
 
 This weapon has the following special properties.
 
-***Ensnare.*** When you use the Grapple option of your Unarmed Strike, you can grapple a target using an Ensnare weapon instead of using a free hand. When you do so, the DC for the grapple’s saving throw and any escape attempts increases by 2. The weapon can’t be used to make attacks or grapple another target while you’re using it to grapple, and the grapple ends if you drop the weapon.
+***Ensnare.*** When you use the Grapple option of your Unarmed Strike, you can grapple a target using an Ensnare weapon instead of using a free hand. When you do so, the DC for the grapple's saving throw and any escape attempts increases by 2. The weapon can't be used to make attacks or grapple another target while you're using it to grapple, and the grapple ends if you drop the weapon.
 
 This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
 
@@ -630,7 +630,7 @@ note_weight: -50% to normal counterpart
 setting: Erisia
 note_setting: Its setting-agnostic variant is Mithral Armor from the Dungeon Master's Guide (5.5e).
 tags: Magic Item
-description: This magic suit of armor is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The armor magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the armor move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the armor’s original state.
+description: This magic suit of armor is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The armor magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the armor move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the armor's original state.
 
 In addition, the armor can be worn under normal clothes, and you can doff it as a Utilize action. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithril version of the armor doesn't.
 
@@ -649,9 +649,9 @@ options_weight: 3
 note_weight: -50% to normal counterpart
 setting: Erisia
 tags: Damage Reduction, Magic Item
-description: This magic Shield is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The Shield magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the Shield move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the Shield’s original state.
+description: This magic Shield is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The Shield magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the Shield move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the Shield's original state.
 
-In addition, when you’re holding the Shield and an attack roll hits you, you can take a Reaction to reduce the attack’s damage against you by 1d10.
+In addition, when you're holding the Shield and an attack roll hits you, you can take a Reaction to reduce the attack's damage against you by 1d10.
 
 ---
 
@@ -668,7 +668,7 @@ options_weight: 0.5-9
 note_weight: -50% to normal counterpart
 setting: Erisia
 tags: Magic Item
-description: This magic weapon is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The weapon magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the weapon move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the weapon’s original state.
+description: This magic weapon is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The weapon magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the weapon move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the weapon's original state.
 
 In addition, if the weapon normally has the Heavy property, the mithril version of the weapon doesn't. If the weapon normally lacks the Heavy and Light properties, the mithril version of the weapon has the Light property.
 
@@ -684,7 +684,7 @@ description: Proficiency with Nunchaku allows you to add your proficiency bonus 
 
 This weapon has the following special properties.
 
-***Ensnare.*** When you use the Grapple option of your Unarmed Strike, you can grapple a target using an Ensnare weapon instead of using a free hand. When you do so, the DC for the grapple’s saving throw and any escape attempts increases by 2. The weapon can’t be used to make attacks or grapple another target while you’re using it to grapple, and the grapple ends if you drop the weapon.
+***Ensnare.*** When you use the Grapple option of your Unarmed Strike, you can grapple a target using an Ensnare weapon instead of using a free hand. When you do so, the DC for the grapple's saving throw and any escape attempts increases by 2. The weapon can't be used to make attacks or grapple another target while you're using it to grapple, and the grapple ends if you drop the weapon.
 
 This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
 
@@ -714,8 +714,8 @@ description: This piece of magic ammunition is made of orichalcum, a strange bro
 
 You can make attacks against spells with the ammunition, potentially ending them. When you do so, choose one creature, object, or magical effect within your range with a Ranged weapon and make an attack roll with the ammunition against one ongoing spell of level 5 or lower affecting it (AC 13 plus that spell's level). On a hit, the spell ends.
 
-> *The following rule isn’t often relevant, but may be important when it is.*\
-> ***Antimagic.*** *The* Antimagic Field *spell and other spells or magical effects that aren’t affected by the* Dispel Magic *spell are also not affected by this magic item.*
+> *The following rule isn't often relevant, but may be important when it is.*\
+> ***Antimagic.*** *The* Antimagic Field *spell and other spells or magical effects that aren't affected by the* Dispel Magic *spell are also not affected by this magic item.*
 
 ---
 
@@ -768,12 +768,12 @@ options_weight: 1.25-22.5
 note_weight: +25% to normal counterpart
 setting: Erisia
 tags: Attack Bonus, Damage Bonus, Magic Item
-description: This magic weapon is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the weapon. However, you can’t cast spells while carrying the weapon.
+description: This magic weapon is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the weapon. However, you can't cast spells while carrying the weapon.
 
 You can make attacks against spells with the weapon, potentially ending them. When you do so, choose one creature, object, or magical effect within your reach with the weapon and make an attack roll with the weapon against one ongoing spell of level 5 or lower affecting it (AC 13 plus that spell's level). On a hit, the spell ends.
 
-> *The following rule isn’t often relevant, but may be important when it is.*\
-> ***Antimagic.*** *The* Antimagic Field *spell and other spells or magical effects that aren’t affected by the* Dispel Magic *spell are also not affected by this magic item.*
+> *The following rule isn't often relevant, but may be important when it is.*\
+> ***Antimagic.*** *The* Antimagic Field *spell and other spells or magical effects that aren't affected by the* Dispel Magic *spell are also not affected by this magic item.*
 
 ---
 
@@ -799,11 +799,11 @@ options_cost: 50, 200, 2000, 20000, 100000
 note_cost: See table
 weight: 0.5
 tags: Consumable, Healing, Magic Item
-description: This potion’s red liquid glimmers when agitated.
+description: This potion's red liquid glimmers when agitated.
 
 As a Utilize action or a Bonus Action, you can drink the potion or administer it to another creature within 5 feet of yourself. The creature that consumes the magical red fluid in this vial regains a fixed number of Hit Points (from a Utilize action) or a rolled number of Hit Points (from a Bonus Action).
 
-The potion’s rarity and purchase cost, and the number of Hit Points it restores are determined by its potency, as shown in the table below.
+The potion's rarity and purchase cost, and the number of Hit Points it restores are determined by its potency, as shown in the table below.
 
 | Potency | Rarity | Fixed HP Regained | Rolled HP Regained | Cost |
 | :---: | :--- | :---: | :---: | :---: |
@@ -833,7 +833,7 @@ As a Utilize action or a Bonus Action, you can drink the potion or administer it
 
 After a creature drinks a Potion of Mana, it gains 1 Exhaustion level each time it drinks another one before it finishes a Long Rest.
 
-The potion’s rarity and purchase cost, and level of the spell slot it grants are determined by its potency, as shown in the table below.
+The potion's rarity and purchase cost, and level of the spell slot it grants are determined by its potency, as shown in the table below.
 
 | Potency | Rarity | Spell Slot Level | Cost |
 | :---: | :--- | :---: | :---: |
@@ -857,11 +857,11 @@ options_cost: 75, 300, 3000, 30000, 150000
 note_cost: See table
 weight: 0.5
 tags: Consumable, Healing, Magic Item
-description: This potion’s pink liquid has an earthy scent and a bittersweet taste, like a blend of berries and herbs.
+description: This potion's pink liquid has an earthy scent and a bittersweet taste, like a blend of berries and herbs.
 
 As a Utilize action or a Bonus Action, you can drink the potion or administer it to another creature within 5 feet of yourself. The creature that consumes the magical pink fluid in this vial regains a certain number of Hit Points at the start of each of its turns for 1 minute. In addition, any severed body parts regrow during that time if the potion is of a high enough potency.
 
-The potion’s rarity and purchase cost, the number of Hit Points it restores, and whether it regenerates severed body parts are determined by its potency, as shown in the table below.
+The potion's rarity and purchase cost, the number of Hit Points it restores, and whether it regenerates severed body parts are determined by its potency, as shown in the table below.
 
 | Potency | Rarity | HP Regained Per Turn | Body Parts Regained | Cost |
 | :---: | :--- | :---: | :---: | :---: |
@@ -899,14 +899,14 @@ description: Proficiency with a Scythe allows you to add your proficiency bonus 
 
 This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
 
-***Cleave.*** If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon’s damage, but don’t add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn.
+***Cleave.*** If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon's damage, but don't add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn.
 
 | Name | Cost | Damage | Weight | Properties |
 | :---: | :---: | :---: | :---: | :---: |
 | Scythe | 5 SP | 1d8 Slashing | 4 lb. | Two-Handed, Cleave |
 {: .catalog }
 
-> *The following rule isn’t often relevant, but may be important when it is.*\
+> *The following rule isn't often relevant, but may be important when it is.*\
 > ***Polearm.*** *This weapon can benefit from the Polearm Master feat, like a Quarterstaff or a Spear.*
 
 ---
@@ -937,7 +937,7 @@ description: This object appears as a Tiny corked bottle, measuring 1 foot tall 
 
 When the miniature sailboat becomes a Sailing Ship, its weight becomes that of a normal Sailing Ship.
 
-Statistics for the Sailing Ship appear in the Player’s Handbook. If the Sailing Ship is reduced to 0 Hit Points, the Ship in a Bottle is destroyed, leaving only an empty nonmagical bottle.
+Statistics for the Sailing Ship appear in the Player's Handbook. If the Sailing Ship is reduced to 0 Hit Points, the Ship in a Bottle is destroyed, leaving only an empty nonmagical bottle.
 
 ***Store Ship.*** If no creatures are aboard the Sailing Ship, you can utter the following command words while holding the bottle: “Make fast!” If the Sailing Ship is within 30 feet of you, it shrinks back to a miniature sailboat and is sucked back into the bottle, and the cork flies over to seal it. When the Sailing Ship shrinks, it leaves behind in its space anything that wasn't part of it when it appeared.
 
@@ -954,7 +954,7 @@ options_cost: 30, 50, 200, 300, 2000, 3000, 20000, 25000, 30000, 100000
 note_cost: See table
 weight: 0
 tags: Ability Check, Consumable, Damage, Magic Item, Saving Throw, Spell
-description: A Tear Scroll bears the words of a single spell, written in a mystical cipher. You can take a Utilize action to tear the scroll and roll a d6. If you roll a 1 on the d6, the scroll backfires, and you must make a DC 15 Constitution saving throw, taking 1d6 Force damage for each level of the scroll’s spell on a failed save or half as much damage on a successful one. Otherwise, you cast the spell. Once the scroll is torn, the scroll crumbles to dust. If the casting is interrupted, the spell automatically backfires.
+description: A Tear Scroll bears the words of a single spell, written in a mystical cipher. You can take a Utilize action to tear the scroll and roll a d6. If you roll a 1 on the d6, the scroll backfires, and you must make a DC 15 Constitution saving throw, taking 1d6 Force damage for each level of the scroll's spell on a failed save or half as much damage on a successful one. Otherwise, you cast the spell. Once the scroll is torn, the scroll crumbles to dust. If the casting is interrupted, the spell automatically backfires.
 
 The scroll's rarity and purchase cost, the level of the spell on it, and the spell's saving throw DC and attack bonus are determined by the scroll's potency, as shown in the table below.
 
@@ -972,10 +972,10 @@ The scroll's rarity and purchase cost, the level of the spell on it, and the spe
 | +9 | Legendary | 9 | 19 | +11 | 100,000 GP |
 {: .catalog }
 
-***Copying a Scroll into a Spellbook.*** A Wizard spell on a Tear Scroll can be copied into a spellbook. When a spell is copied in this way, the copier must succeed on an Intelligence (Arcana) check with a DC equal to 10 plus the spell’s level. On a successful check, the spell is copied. Whether the check succeeds or fails, the Tear Scroll is destroyed.
+***Copying a Scroll into a Spellbook.*** A Wizard spell on a Tear Scroll can be copied into a spellbook. When a spell is copied in this way, the copier must succeed on an Intelligence (Arcana) check with a DC equal to 10 plus the spell's level. On a successful check, the spell is copied. Whether the check succeeds or fails, the Tear Scroll is destroyed.
 
-> *The following rule isn’t often relevant, but may be important when it is.*\
-> ***Rage.*** *Due to the simple nature of its activation, a Barbarian can use this magic item to cast a spell while their Rage is active. At the DM’s discretion, similar effects that prevent a creature from casting spells can also be circumvented by this magic item.*
+> *The following rule isn't often relevant, but may be important when it is.*\
+> ***Rage.*** *Due to the simple nature of its activation, a Barbarian can use this magic item to cast a spell while their Rage is active. At the DM's discretion, similar effects that prevent a creature from casting spells can also be circumvented by this magic item.*
 
 ---
 
@@ -1023,11 +1023,11 @@ The scroll's rarity and purchase cost, and the level of the spell on it, are det
 | +9 | Legendary | 9 | 250,000 GP |
 {: .catalog }
 
-***Preparing Spell from a Scroll.*** If you can read a Tutorial Scroll and have spell slots of the appropriate level, you can temporarily prepare the spell on the scroll by spending a Long Rest studying the scroll. You can study only one scroll at a time. If the Long Rest is interrupted, the preparation fails. Otherwise, at the end of the Long Rest, you prepare the spell, which doesn’t count against the number of spells you can prepare with your class’s Spellcasting or Pact Magic feature.
+***Preparing Spell from a Scroll.*** If you can read a Tutorial Scroll and have spell slots of the appropriate level, you can temporarily prepare the spell on the scroll by spending a Long Rest studying the scroll. You can study only one scroll at a time. If the Long Rest is interrupted, the preparation fails. Otherwise, at the end of the Long Rest, you prepare the spell, which doesn't count against the number of spells you can prepare with your class's Spellcasting or Pact Magic feature.
 
 Any spell that you prepare from a Tutorial Scroll is no longer prepared when you finish another Long Rest, unless you spend that rest studying the scroll again.
 
-***Copying a Scroll into a Spellbook.*** A Wizard spell on a Tutorial Scroll can be copied into a spellbook. When a spell is copied in this way, the copier must succeed on an Intelligence (Arcana) check with a DC equal to 10 plus the spell’s level. On a successful check, the spell is copied. Whether the check succeeds or fails, the Tutorial Scroll is destroyed.
+***Copying a Scroll into a Spellbook.*** A Wizard spell on a Tutorial Scroll can be copied into a spellbook. When a spell is copied in this way, the copier must succeed on an Intelligence (Arcana) check with a DC equal to 10 plus the spell's level. On a successful check, the spell is copied. Whether the check succeeds or fails, the Tutorial Scroll is destroyed.
 
 ---
 
