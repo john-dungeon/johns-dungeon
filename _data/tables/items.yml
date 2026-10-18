@@ -1,6 +1,6 @@
 template: item
 noun: items
-tags: [Area, Armor Class Bonus, Attack Bonus, Buff, Charge, Condition, Consumable, Cursed, Damage, Damage Bonus, Debuff, Extra Damage, Forced Movement, Healing, Immunity, Light, Magic Item, Resistance, Revival, Saving Throw, Setting-Specific, Special Mastery Property, Special Property, Speed Bonus, Spell]
+tags: [Ability Check, Area, Armor Class Bonus, Attack Bonus, Buff, Charge, Condition, Consumable, Cursed, Damage, Damage Bonus, Debuff, Extra Damage, Forced Movement, Healing, Immunity, Light, Magic Item, Resistance, Revival, Saving Throw, Setting-Specific, Special Mastery Property, Special Property, Speed Bonus, Spell]
 auto_tags:
   - { tag: Setting-Specific, field: setting }
 markers:
