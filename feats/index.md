@@ -5,7 +5,7 @@ nav_order: 2
 has_children: true
 ---
 
-# **Items**
+# **Feats**
 
 This is the Feats aisle, a record hall that keeps the various skills learned by John Dungeon.
 
