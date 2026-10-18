@@ -24,6 +24,7 @@ search_exclude: true
   - `_search-table` – everything for search tables.
   - `_navbar-toggle` – the nav bar hide/show button and slide animation.
   - `_tooltip` – the hover bubble.
+  - `_dropdown` – collapsible `<details>` sections.
 
 **Reusable HTML (`_includes/`)**
 - `catalog.html` – link tables.
@@ -84,6 +85,19 @@ The column count is picked automatically: the count (at least 3) that leaves the
 
 ### Tooltips
 Any element with `data-tooltip="text"` gets a hover/focus bubble. In the text, `*italic*`, `**bold**`, and `\` (a line break) work. Link tables build theirs from `tagline` + `summary`.
+
+### Dropdown Text
+Use raw HTML with Kramdown's `markdown` attributes so Markdown works inside:
+
+```
+<details markdown="1">
+<summary markdown="span">**Title**</summary>
+
+Body text
+</details>
+```
+
+Keep a blank line after `</summary>` and before each `<details>`. Works on pages and in `_entries.md` descriptions.
 
 ## 4. Search Tables
 
