@@ -42,7 +42,8 @@
 {%- assign ms_props = "" -%}
 {%- for ms_def in ms_prop_defs -%}
   {%- assign ms_pair = ms_def | split: "|" -%}
-  {%- capture ms_val %}{% include table/field.html packed=include.packed key=ms_pair[0] %}{% endcapture -%}
+  {%- assign ms_key = ms_pair[0] -%}
+  {%- capture ms_val %}{% include table/field.html packed=include.packed key=ms_key %}{% endcapture -%}
   {%- if ms_val != "" -%}
     {%- assign ms_props = ms_props | append: ms_break | append: "**" | append: ms_pair[1] | append: "** " | append: ms_val -%}
   {%- endif -%}
