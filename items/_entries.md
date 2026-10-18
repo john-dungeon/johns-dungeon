@@ -466,6 +466,40 @@ This weapon has the following mastery property. To use this property, you must h
 
 ---
 
+name: Glass Vorpal Sword
+type: Weapon
+note_type: Glaive, Greatsword, Longsword, or Scimitar
+rarity: Legendary
+attunement: false
+cost: Varies
+options_cost: 160015-160050
+note_cost: +160,000 GP to normal counterpart
+weight: 0.5
+tags: Buff, Consumable, Magic Item
+description: You have Advantage on attack rolls made with this magic weapon. In addition, the weapon ignores Resistance to Slashing damage.
+
+***Fragile.*** If you roll a 1 on any d20 rolled as part of an attack roll using this weapon, the weapon shatters into pieces immediately after the attack hits or misses; this includes any rerolled dice or additional dice rolled for Advantage or Disadvantage. For example, if you make an attack roll using this weapon with Advantage and roll a 17 and a 1 for it, you use the 17 for the attack. However, the weapon still shatters after you hit or miss.
+
+***Snicker-Snack.*** When you use this weapon to attack a creature that has at least one head and roll a 20 on the d20 for the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it has Immunity to Slashing damage, if it doesn't have or need a head, or if the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 30 Slashing damage from the hit. If the creature has Legendary Resistance, it can expend one daily use of that trait to avoid losing its head, taking the extra damage instead.
+
+---
+
+name: Glass Sword
+type: Weapon
+note_type: Any Melee Weapon That Deals Piercing or Slashing Damage
+rarity: Very Rare
+attunement: false
+cost: Varies
+options_cost: 32000.5-32050
+note_cost: +32,000 GP to normal counterpart
+weight: 0.5
+tags: Buff, Consumable, Magic Item
+description: You have Advantage on attack rolls made with this magic weapon. In addition, the weapon ignores Resistance to Slashing damage.
+
+***Fragile.*** If you roll a 1 on any d20 rolled as part of an attack roll using this weapon, the weapon shatters into pieces immediately after the attack hits or misses; this includes any rerolled dice or additional dice rolled for Advantage or Disadvantage. For example, if you make an attack roll using this weapon with Advantage and roll a 17 and a 1 for it, you use the 17 for the attack. However, the weapon still shatters after you hit or miss.
+
+---
+
 name: Lucky Dagger
 type: Weapon
 note_type: Dagger
