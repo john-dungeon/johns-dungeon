@@ -1,7 +1,6 @@
 ---
 title: Spells
 parent: Home
-nav_order: 8
 has_children: true
 ---
 
