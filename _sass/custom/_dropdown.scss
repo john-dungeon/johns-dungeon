@@ -1,0 +1,11 @@
+// Markup: <details markdown="1"> in any page or search-table entry
+details {
+  margin-bottom: 0.75rem;
+
+  > summary {
+    cursor: pointer;
+    &::marker { color: $link-color; }
+  }
+
+  > :not(summary) { margin-left: 1.5rem; }
+}
