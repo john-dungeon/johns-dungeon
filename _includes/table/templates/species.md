@@ -32,45 +32,9 @@
 {%- endif -%}
 {%- assign sps_block = sps_block | remove_first: sps_break -%}
 
-{%- capture sps_traits_md -%}
-  {%- assign sps_tlines = sps_traits | append: sps_nl | append: "- end: end" | split: sps_nl -%}
-  {%- assign sps_tname = "" -%}
-  {%- assign sps_tdesc = "" -%}
-  {%- assign sps_in_desc = false -%}
-  {%- for sps_tline in sps_tlines -%}
-    {%- assign sps_head = sps_tline | slice: 0, 2 -%}
-    {%- assign sps_probe = sps_tline | strip | append: " " -%}
-    {%- assign sps_tkey = sps_probe | split: ": " | first -%}
-    {%- if sps_head == "- " -%}
-      {%- if sps_tname != "" -%}***{{ sps_tname }}.*** {{ sps_tdesc | strip }}{{ sps_nl }}{{ sps_nl }}{%- endif -%}
-      {%- assign sps_rest = sps_tline | remove_first: "- " | append: " " -%}
-      {%- assign sps_rest_key = sps_rest | split: ": " | first -%}
-      {%- if sps_rest contains ": " -%}
-        {%- assign sps_tname = sps_rest | remove_first: sps_rest_key | remove_first: ": " | strip -%}
-      {%- else -%}
-        {%- assign sps_tname = sps_rest | strip -%}
-      {%- endif -%}
-      {%- assign sps_tdesc = "" -%}
-      {%- assign sps_in_desc = false -%}
-    {%- elsif sps_tkey == "description" and sps_in_desc == false -%}
-      {%- assign sps_tdesc = sps_probe | remove_first: "description" | remove_first: ": " | strip -%}
-      {%- assign sps_in_desc = true -%}
-    {%- elsif sps_in_desc -%}
-      {%- assign sps_indent = sps_tline | slice: 0, 2 -%}
-      {%- if sps_indent == "  " -%}
-        {%- assign sps_clean = sps_tline | slice: 2, 10000 -%}
-      {%- else -%}
-        {%- assign sps_clean = sps_tline -%}
-      {%- endif -%}
-      {%- assign sps_tdesc = sps_tdesc | append: sps_nl | append: sps_clean -%}
-    {%- endif -%}
-  {%- endfor -%}
-{%- endcapture -%}
-{{ sps_description }}
-
 ### {{ sps_name }} Traits
 {{ sps_block }}
 
 As {{ sps_article }} {{ sps_name }}, you have these special traits.
 
-{{ sps_traits_md | strip }}
+{% include table/named-list.html text=sps_traits %}
