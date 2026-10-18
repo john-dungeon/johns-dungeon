@@ -100,7 +100,7 @@ rarity: Legendary
 attunement: false
 cost: 350000
 weight: 18
-tags: Light, Magic Item, Spell
+tags: Area, Light, Magic Item, Spell
 description: This object appears to be a Medium pole with a glowing crystal fixed to one end, forming a beacon that sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. You can deploy the beacon over the course of 1 hour, which can be done during a Short Rest. The beacon must be within your reach throughout the deployment, at the end of which you deploy the beacon in an unoccupied space within 5 feet of yourself. Removing a deployed beacon requires you to spend another hour doing so.
 
 While the beacon is deployed, the beacon emits an aura of antimagic in a 60-foot Emanation. Within the aura, the effects of the *Antimagic Field* spell are active; this doesn’t suppress the effects of the beacon or any other Antimagic Beacons.
@@ -195,7 +195,7 @@ name: Bola
 type: Adventuring Gear
 cost: 0.05
 weight: 2
-tags: Condition, Consumable, Saving Throw
+tags: Ability Check, Condition, Consumable, Saving Throw
 description: When you take the Attack action, you can replace one of your attacks with throwing a Bola. Target one Medium or smaller creature you can see within 20 feet of yourself. The target must succeed on a Dexterity saving throw (DC 8 plus your Dexterity modifier and Proficiency Bonus) or have the Restrained condition until it escapes.
 
 To escape, the target or a creature within 5 feet of it must take an action to make a DC 10 Strength (Athletics) check, freeing the Restrained target on a success. Destroying the Bola, which has AC 10, HP 5, and Immunity to Poison and Psychic damage, also frees the target.
@@ -206,7 +206,7 @@ name: Boomerang
 prefix_type: Martial Melee
 type: Weapon
 cost: 0.1
-weight: 0.75
+weight: 1
 tags: Special Property
 description: Proficiency with a Boomerang allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
@@ -220,7 +220,7 @@ This weapon has the following mastery property. To use this property, you must h
 
 | Name | Cost | Damage | Weight | Properties |
 | :---: | :---: | :---: | :---: | :---: |
-| Boomerang | 1 SP | 1d4 Bludgeoning | 0.75 lb. | Finesse, Returning, Thrown (Range 30/120), Slow |
+| Boomerang | 1 SP | 1d4 Bludgeoning | 1 lb. | Finesse, Returning, Thrown (Range 30/120), Slow |
 {: .catalog }
 
 ---
@@ -317,7 +317,7 @@ note_cost: +4,150 GP to normal counterpart
 weight: Varies
 options_weight: 1-18
 setting: Erisia
-tags: Attack Bonus, Condition, Damage Bonus, Extra Damage, Magic Item
+tags: Attack Bonus, Condition, Damage Bonus, Extra Damage, Magic Item, Saving Throw
 description: This magic weapon is made of cold iron, a special type of iron that repels Undead and supernatural beings. You have a +1 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
 ***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the weapon, the weapon turns black. The weapon returns to normal if no creatures of those types are in the Emanation.
@@ -352,7 +352,7 @@ When you die, one soul is expended and your body crumbles to dust. After 1 hour,
 
 ---
 
-name: Dead Man’s Marches
+name: Dead Man's Marches
 type: Wondrous Item
 rarity: Uncommon
 attunement: true
@@ -363,7 +363,7 @@ description: Immediately after you are reduced to 0 Hit Points, these boots pupp
 
 ---
 
-name: Devil’s Leech
+name: Devil's Leech
 type: Wondrous Item
 rarity: Very Rare
 attunement: true
@@ -385,9 +385,9 @@ type: Wondrous Item
 rarity: Very Rare
 attunement: false
 cost: 21000
-weight: 0
+weight: 0.1
 tags: Consumable, Magic Item, Spell
-description: This ornate silver key measures about 2 inches in length and weighs two ounces. Typically, 1d4 + 4 Dimension Keys are found together, bound by a silver keyring.
+description: This ornate silver key measures about 2 inches in length and weighs about two ounces. Typically, 1d4 + 4 Dimension Keys are found together, bound by a silver keyring.
 
 You can turn the key in the air, as if unlocking a door, and cast *Dimension Door* with it. Once the spell is cast, the key crumbles to dust. If the casting is interrupted, the key isn't lost.
 
@@ -403,7 +403,7 @@ options_cost: 20.002-20.3
 note_cost: +20 GP to normal counterpart
 weight: Varies
 options_weight: 0.02-0.2
-tags: Area, Condition, Consumable, Damage, Forced Movement, Magic Item, Saving Throw
+tags: Ability Check, Area, Condition, Consumable, Damage, Forced Movement, Magic Item, Saving Throw
 description: A creature hit by this magic ammunition suffers an effect corresponding to its damage type. Damage types and their corresponding effects are shown in the table below.
 
 | Damage Type | Effect |
@@ -427,7 +427,7 @@ cost: Varies
 options_cost: 400, 4000, 40000
 note_cost: See table
 weight: 1
-tags: Consumable, Magic Item
+tags: Attack Bonus, Consumable, Damage Bonus, Magic Item
 description: This whetstone can sharpen one Melee weapon that deals Slashing or Piercing damage. Using the whetstone takes 1 hour, which can be done during a Short Rest, after which the whetstone crumbles to dust and the weapon is magically sharpened, granting it a permanent bonus to attack rolls and damage rolls determined by the whetstone’s potency, as shown in the table below.
 
 If the weapon was nonmagical, it becomes magical after being sharpened with the whetstone. If the weapon already had a bonus to attack rolls and damage rolls, its bonus is changed to the one granted by the whetstone, and its rarity changes to the whetstone’s rarity if it is lower. For example, an Uncommon magic weapon sharpened by a Rare Enchanted Whetstone becomes a Rare magic weapon, but a Very Rare magic weapon's rarity wouldn't change.
@@ -486,7 +486,7 @@ cost: Varies
 options_cost: 160015-160050
 note_cost: +160,000 GP to normal counterpart
 weight: 0.5
-tags: Buff, Consumable, Magic Item
+tags: Buff, Consumable, Extra Damage, Magic Item
 description: You have Advantage on attack rolls made with this magic weapon. In addition, the weapon ignores Resistance to Slashing damage.
 
 ***Fragile.*** If you roll a 1 on any d20 rolled as part of an attack roll using this weapon, the weapon shatters into pieces immediately after the attack hits or misses; this includes any rerolled dice or additional dice rolled for Advantage or Disadvantage. For example, if you make an attack roll using this weapon with Advantage and roll a 17 and a 1 for it, you use the 17 for the attack. However, the weapon still shatters after you hit or miss.
@@ -511,9 +511,9 @@ description: You have Advantage on attack rolls made with this magic weapon. In 
 
 ---
 
-name: Harpoon of the Deep
+name: Harpoon of the Angler
 type: Weapon
-note_type: Javelin, Spear, Trident
+note_type: Javelin, Spear, or Trident
 rarity: Very Rare
 attunement: true
 cost: Varies
@@ -542,10 +542,10 @@ As a Bonus Action, you can pull the rope, causing the weapon to fly back into yo
 ---
 
 name: Hook Sword
-prefix_type: Martial Ranged
+prefix_type: Martial Melee
 type: Weapon
 cost: 30
-weight: 3
+weight: 2
 tags: Special Mastery Property
 description: Proficiency with a Hook Sword allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
@@ -566,7 +566,7 @@ rarity: Uncommon
 attunement: false
 cost: 200
 weight: 1
-tags: Area, Consumable, Magic Item, Saving Throw
+tags: Area, Consumable, Damage, Magic Item, Saving Throw
 description: When you take the Attack action, you can replace one of your attacks with throwing Lightning in a Bottle at a point up to 60 feet away, where it explodes and creates a loud clap of thunder audible out to 300 feet. Each creature in a 10-foot-radius Sphere centered on that point makes a DC 13 Dexterity saving throw, taking 5d6 Lightning damage on a failed save or half as much damage on a successful one.
 
 ---
@@ -629,7 +629,7 @@ options_weight: 4-32.5
 note_weight: -50% to normal counterpart
 setting: Erisia
 note_setting: Its setting-agnostic variant is Mithral Armor from the Dungeon Master's Guide (5.5e).
-tags: Magic Item, Resistance
+tags: Magic Item
 description: This magic suit of armor is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The armor magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the armor move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the armor’s original state.
 
 In addition, the armor can be worn under normal clothes, and you can doff it as a Utilize action. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithril version of the armor doesn't.
@@ -731,7 +731,7 @@ weight: Varies
 options_weight: 50-81.25
 note_weight: +25% to normal counterpart
 setting: Erisia
-tags: Armor Class Bonus, Buff, Magic Item, Resistance, Saving Throw
+tags: Armor Class Bonus, Buff, Magic Item, Saving Throw
 description: This magic suit of armor is made of orichalcum, a bronze-like metal that absorbs mana and nullifies magic. You have a +1 bonus to AC while wearing the armor. In addition, you have Advantage on saving throws against spells and other magical effects, and spell attack rolls have Disadvantage against you. However, you can't cast spells while wearing the armor.
 
 ---
@@ -748,10 +748,10 @@ weight: Varies
 options_weight: 7.5
 note_weight: +25% to normal counterpart
 setting: Erisia
-tags: Armor Class Bonus, Charge, Magic Item
+tags: Ability Check, Armor Class Bonus, Charge, Magic Item
 description: This magic Shield is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. While holding the Shield, you have a +2 bonus to Armor Class, in addition to the Shield's normal bonus to AC. However, you can't cast spells while carrying the Shield.
 
-The Shield has 3 charges. When a creature you can see targets you with a spell of level 3 or lower with Verbal, Somatic, or Material components, you can take a Reaction to expend 1 charge and make a Dexterity check (DC 10 plus that spell's level). On a successful save, the triggering spell dissipates with no effect. When a spell dissipates, the action, Bonus Action, or Reaction and resources used to cast it are wasted. The charge is expended only if you succeed on the check. The Shield regains all expended charges daily at dawn.
+The Shield has 3 charges. When a creature you can see targets you with a spell of level 3 or lower with Verbal, Somatic, or Material components, you can take a Reaction to expend 1 charge and make a Dexterity check (DC 10 plus that spell's level). On a successful check, the triggering spell dissipates with no effect. When a spell dissipates, the action, Bonus Action, or Reaction and resources used to cast it are wasted. The charge is expended only if you succeed on the check. The Shield regains all expended charges daily at dawn.
 
 ---
 
@@ -853,7 +853,7 @@ options_rarity: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
 attunement: false
 cost: Varies
-options_cost: 50, 200, 2000, 20000, 100000
+options_cost: 75, 300, 3000, 30000, 150000
 note_cost: See table
 weight: 0.5
 tags: Consumable, Healing, Magic Item
@@ -903,7 +903,7 @@ This weapon has the following mastery property. To use this property, you must h
 
 | Name | Cost | Damage | Weight | Properties |
 | :---: | :---: | :---: | :---: | :---: |
-| Warbow | 5 SP | 1d8 Slashing | 4 lb. | Two-Handed, Cleave |
+| Scythe | 5 SP | 1d8 Slashing | 4 lb. | Two-Handed, Cleave |
 {: .catalog }
 
 > *The following rule isn’t often relevant, but may be important when it is.*\
@@ -930,7 +930,7 @@ rarity: Very Rare
 attunement: false
 cost: 45000
 weight: 50
-tags: Area, Consumable, Magic Item, Special Speed Bonus
+tags: Command Word, Magic Item
 description: This object appears as a Tiny corked bottle, measuring 1 foot tall with a 3-inch diameter and containing a miniature sailboat inside. It is deceptively heavy, weighing 50 lb. This item also has two command words, each requiring a Magic action to use:
 
 ***Deploy Ship.*** You can utter the following command words while holding the bottle: “Cast off!” The bottle uncorks itself, allowing the miniature sailboat to squeeze out of the bottle into an unoccupied space within 30 feet of you and enlarge to become a Sailing Ship. If there isn't enough space, the miniature sailboat flies back into the bottle, and the cork flies over to seal it.
@@ -953,7 +953,7 @@ cost: Varies
 options_cost: 30, 50, 200, 300, 2000, 3000, 20000, 25000, 30000, 100000
 note_cost: See table
 weight: 0
-tags: Consumable, Damage, Magic Item, Saving Throw, Spell
+tags: Ability Check, Consumable, Damage, Magic Item, Saving Throw, Spell
 description: A Tear Scroll bears the words of a single spell, written in a mystical cipher. You can take a Utilize action to tear the scroll and roll a d6. If you roll a 1 on the d6, the scroll backfires, and you must make a DC 15 Constitution saving throw, taking 1d6 Force damage for each level of the scroll’s spell on a failed save or half as much damage on a successful one. Otherwise, you cast the spell with a Somatic component and without Verbal or Material components. Once the scroll is torn, the scroll crumbles to dust. If the casting is interrupted, the spell automatically backfires.
 
 The scroll's rarity and purchase cost, the level of the spell on it, and the spell's saving throw DC and attack bonus are determined by the scroll's potency, as shown in the table below.
@@ -994,7 +994,7 @@ description: A creature hit by this magic ammunition is marked for 1 hour. For t
 
 ---
 
-name: Tear Scroll
+name: Tutorial Scroll
 type: Scroll
 rarity: Varies
 options_rarity: Common, Uncommon, Rare, Very Rare, Legendary
@@ -1004,7 +1004,7 @@ cost: Varies
 options_cost: 75, 125, 500, 750, 5000, 7500, 50000, 62500, 75000, 250000
 note_cost: See table
 weight: 0
-tags: Magic Item
+tags: Ability Check, Magic Item, Spell
 description: A Tutorial Scroll bears the words of a single spell, written in a mystical cipher, along with notes clearly explaining its arcane mechanisms. If the spell is on your spell list, you can read the scroll. Otherwise, the scroll is unintelligible.
 
 The scroll's rarity and purchase cost, and the level of the spell on it, are determined by the scroll's potency, as shown in the table below.
