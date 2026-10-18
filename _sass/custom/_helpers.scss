@@ -16,6 +16,7 @@ $motion-ease: cubic-bezier(0.65, 0, 0.35, 1);
 $motion: var(--motion-duration) $motion-ease;
 
 $unlisted-color: if($is-light-theme, #b3261e, #ff6b6b) !default;
+$missing-background: rgba($unlisted-color, 0.3) !default;
 $shadow-small: 0 2px 6px rgba(0, 0, 0, 0.3);
 $shadow-popup: 0 4px 12px rgba(0, 0, 0, 0.35);
 $shadow-dialog: 0 8px 30px rgba(0, 0, 0, 0.5);
