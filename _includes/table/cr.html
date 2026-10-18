@@ -1,0 +1,7 @@
+{%- assign cr_raw = include.amount | strip -%}
+{%- case cr_raw -%}
+  {%- when "0.125" -%}1/8
+  {%- when "0.25" -%}1/4
+  {%- when "0.5" -%}1/2
+  {%- else -%}{{ cr_raw | escape }}
+{%- endcase -%}
