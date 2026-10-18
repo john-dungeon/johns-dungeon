@@ -131,11 +131,11 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
   - A cell value that isn't listed turns red, unless a number or measure column can read it as an amount.
   - Leave `order` out and the column gets no buttons and nothing is flagged.
   - In rank, number, and measure columns, a quoted `"..."` marks where amounts go. Names before it sort first in listed order, names after it sort last in listed order. Without it, amounts come after all names.
-- `blank_as` – blank entries count as this value in search, filters, and sorting. The cell shows its `symbols` entry if it has one, otherwise "—".
+- `blank_as` – blank entries count as this value in search, filters, and sorting. The cell shows its `symbols` entry if it has one, otherwise "—". A blank cell in a column without `blank_as` (and not `in_table`: false) is highlighted red as a missing value.
 
 **Display**
 - `format: money` – number columns: cells display as GP/SP/CP and the Filter heading says GP. Write the value as a decimal. Digits past the hundredths show as a decimal amount of CP (`0.002` shows `0.2 CP`).
-- `format: weight` – number columns: weights of 0.1 or less display in ounces to the tenth (`0.075` shows `1.2 oz.`), others in lb. The Filter heading says lb. automatically, so no `suffix` is needed.
+- `format: weight` – number columns: weights of 0.1 or less display in ounces, rounded up to the hundredth (`0.075` shows `1.2 oz.`); others in lb., rounded up to the tenth (`0.75 shows 0.8 lb.`). Display only, so sorting and filters use the exact number.
 - `prefix` / `suffix` – for other numbers.
 - `zero_label` – number columns: an entry whose value is exactly `0` is shown and treated as this word (for example `Weightless`). The popup template needs the same rule written into it.
 - `plain: true` – list cells hide "(notes)".
@@ -175,5 +175,5 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - **Colors and fonts come from the color-scheme variables**, never hard-coded in `_sass/custom/`.
 - **Entry files are named `_entries.md`** so Jekyll doesn't publish them as raw pages. They're loaded with `include_relative`, so they must sit in the same folder as the page that shows the table.
 - **Before deleting a CSS class**, search the whole repo for its name (GitHub's search box works).
-{% endraw %}
 - **When adding a setting**, update the order lists in both `species.yml` and `items.yml`
+{% endraw %}
