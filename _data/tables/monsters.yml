@@ -1,0 +1,37 @@
+template: monster
+noun: monsters
+default_sort: cr
+tags: [Boss, Legendary, Spellcaster, Swarm]
+auto_tags:
+  - { tag: Legendary, field: legendary_actions }
+columns:
+  - key: name
+    label: Name
+  - key: cr
+    label: CR
+    type: number
+    format: cr
+  - key: type
+    label: Creature Type
+    type: list
+    plain: true
+    order: [Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant, Undead]
+  - key: size
+    label: Size
+    type: list
+    order: [Tiny, Small, Medium, Large, Huge, Gargantuan]
+  - key: ac
+    label: AC
+    type: number
+    in_table: false
+  - key: hp
+    label: HP
+    type: number
+    in_table: false
+  - key: alignment
+    label: Alignment
+    in_table: false
+  - key: settings
+    label: Settings
+    type: list
+    order: [Big Blue, City 13, Drachenfell, Erisia, Great Luminant, Hiraeth, Jingyu City, New Moon City, Solachia]
