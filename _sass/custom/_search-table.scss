@@ -82,9 +82,11 @@ $slider-height: 1.5rem;
 
   td.st-extra { display: none; }
 
+  tbody tr td.st-missing { background-color: $missing-background; }
+
   tbody tr.st-row {
     cursor: pointer;
-    &:hover td { background: $code-background-color; }
+    &:hover td:not(.st-missing) { background: $code-background-color; }
   }
 }
 
