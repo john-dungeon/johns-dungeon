@@ -389,7 +389,7 @@ weight: 0.1
 tags: Consumable, Magic Item, Spell
 description: This ornate silver key measures about 2 inches in length and weighs about two ounces. Typically, 1d4 + 4 Dimension Keys are found together, bound by a silver keyring.
 
-You can turn the key in the air, as if unlocking a door, and cast *Dimension Door* with it. Once the spell is cast, the key crumbles to dust. If the casting is interrupted, the key isn't lost.
+You can turn the key in the air, as if unlocking a door, and cast the *Dimension Door* spell with it. Once the spell is cast, the key crumbles to dust. If the casting is interrupted, the key isn't lost.
 
 ---
 
