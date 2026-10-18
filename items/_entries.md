@@ -706,8 +706,8 @@ cost: Varies
 options_cost: 4500.002-4500.3
 note_cost: +4,500 GP to normal counterpart
 weight: Varies
-options_weight: 0.028-0.28
-note_weight: +40% to normal counterpart
+options_weight: 0.025-0.25
+note_weight: +25% to normal counterpart
 setting: Erisia
 tags: Attack Bonus, Consumable, Damage Bonus, Magic Item
 description: This piece of magic ammunition is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the ammunition. Once it hits a target, the ammunition is no longer magical, losing its magical properties.
@@ -728,8 +728,8 @@ cost: Varies
 options_cost: 45750-46500
 note_cost: +45,000 GP to normal counterpart
 weight: Varies
-options_weight: 56-91
-note_weight: +40% to normal counterpart
+options_weight: 50-81.25
+note_weight: +25% to normal counterpart
 setting: Erisia
 tags: Armor Class Bonus, Buff, Magic Item, Resistance, Saving Throw
 description: This magic suit of armor is made of orichalcum, a bronze-like metal that absorbs mana and nullifies magic. You have a +1 bonus to AC while wearing the armor. In addition, you have Advantage on saving throws against spells and other magical effects, and spell attack rolls have Disadvantage against you. However, you can't cast spells while wearing the armor.
@@ -745,8 +745,8 @@ cost: Varies
 options_cost: 45010
 note_cost: +45,000 GP to normal counterpart
 weight: Varies
-options_weight: 8.4
-note_weight: +40% to normal counterpart
+options_weight: 7.5
+note_weight: +25% to normal counterpart
 setting: Erisia
 tags: Armor Class Bonus, Charge, Magic Item
 description: This magic Shield is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. While holding the Shield, you have a +2 bonus to Armor Class, in addition to the Shield's normal bonus to AC. However, you can't cast spells while carrying the Shield.
@@ -764,8 +764,8 @@ cost: Varies
 options_cost: 45000.1-45050
 note_cost: +45,000 GP to normal counterpart
 weight: Varies
-options_weight: 1.4-25.2
-note_weight: +40% to normal counterpart
+options_weight: 1.25-22.5
+note_weight: +25% to normal counterpart
 setting: Erisia
 tags: Attack Bonus, Damage Bonus, Magic Item
 description: This magic weapon is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the weapon. However, you can’t cast spells while carrying the weapon.
