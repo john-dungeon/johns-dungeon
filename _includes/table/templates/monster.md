@@ -59,9 +59,10 @@
 {%- capture ms_sections -%}
   {%- for ms_def in ms_section_defs -%}
     {%- assign ms_pair = ms_def | split: "|" -%}
-    {%- capture ms_list %}{% include table/field.html packed=include.packed key=ms_pair[0] %}{% endcapture -%}
+    {%- assign ms_key = ms_pair[0] -%}
+    {%- capture ms_list %}{% include table/field.html packed=include.packed key=ms_key %}{% endcapture -%}
     {%- if ms_list == "" -%}{%- continue -%}{%- endif -%}
-    {%- assign ms_intro_key = ms_pair[0] | append: "_intro" -%}
+    {%- assign ms_intro_key = ms_key | append: "_intro" -%}
     {%- capture ms_intro %}{% include table/field.html packed=include.packed key=ms_intro_key %}{% endcapture -%}
     {{- "<h3 class='statblock-heading'>" | append: ms_pair[1] | append: "</h3>" | append: ms_nl | append: ms_nl -}}
     {%- if ms_intro != "" -%}{{- ms_intro | append: ms_nl | append: ms_nl -}}{%- endif -%}
