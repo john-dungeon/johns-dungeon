@@ -228,7 +228,7 @@ This weapon has the following mastery property. To use this property, you must h
 name: Buckler
 type: Armor
 note_type: Shield
-cost: 2
+cost: 8
 weight: 3
 description: A Buckler is a type of Shield. Shields require the Utilize action to Don or Doff. You gain the Armor Class benefit of a Shield only if you have training with it.
 
@@ -236,7 +236,7 @@ You can hold this Shield in your hand while keeping that hand free.
 
 | Name | Cost | Armor Class | Strength | Stealth | Weight |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| Buckler | 2 GP | +1 | — | — | 3 lb. |
+| Buckler | 8 GP | +1 | — | — | 3 lb. |
 {: .catalog }
 
 ---
@@ -441,6 +441,17 @@ If the weapon was nonmagical, it becomes magical after being sharpened with the 
 
 ---
 
+name: Fortune's Foot
+type: Wondrous Item
+rarity: Rare
+attunement: false
+cost: 4000
+weight: 0
+tags: Consumable, Magic Item
+description: When you make a D20 Test, you can call on the luck of this rabbit's foot, turning the roll on the d20 into a 20. Once you use this property, the foot loses its magic and becomes a nonmagical rabbit's foot.
+
+---
+
 name: Gauntlet
 prefix_type: Simple Melee
 type: Weapon
@@ -500,6 +511,66 @@ description: You have Advantage on attack rolls made with this magic weapon. In 
 
 ---
 
+name: Harpoon of the Deep
+type: Weapon
+note_type: Javelin, Spear, Trident
+rarity: Very Rare
+attunement: true
+cost: Varies
+options_cost: 45000.5-45005
+note_cost: +45,000 GP to normal counterpart
+weight: Varies
+options_weight: 7-9
+note_weight: +5 lb. to normal counterpart
+tags: Magic Item
+description: You have a +1 bonus to attack and damage rolls made with this magic weapon.
+
+***Rope.*** The weapon has a 60-foot length of rope attached to it. The rope has AC 20, HP 20, and Immunity to all damage except Force damage. It regains 1 Hit Point every 5 minutes as long as it has at least 1 Hit Point. If the rope drops to 0 Hit Points, it is destroyed. After 3 days, the rope is restored and regains all of its Hit Points.
+
+As a Magic action, you can magically fix or unfix one end of the rope to yourself, preventing it from flying out of your reach. While the rope is fixed to you, the weapon’s normal range and long range are no more than 60 feet.
+
+***Harpoon.*** When you hit a target with an attack roll with the weapon, you can harpoon the target with the weapon, leaving it pinned in the target. While pinned in a target, the weapon can’t be used to make attacks. The pinned creature or another creature that can reach it can take an action to make a DC 17 Strength (Athletics) check, dislodging the weapon on a success.
+
+As a Bonus Action, you can pull the rope, causing the weapon to fly back into your hand. If the weapon is pinned in a target, pulling the rope creates one of the following effects of your choice:
+
+**Dive.** You pull yourself along the rope, moving up to 30 feet in a straight line toward the pinned target. If you are in the air at the end of this movement, you fall unless you have a Fly Speed. You can create this effect only if the pinned target is at least one size larger than you.
+
+**Reel.** The pinned target must succeed on a DC 17 Strength saving throw or be pulled up to 30 feet toward you. A pinned target that is more than two sizes larger than you automatically succeeds on this save.
+
+**Retrieve.** You dislodge the weapon and cause it to fly back into your hand.
+
+---
+
+name: Hook Sword
+prefix_type: Martial Ranged
+type: Weapon
+cost: 30
+weight: 3
+tags: Special Mastery Property
+description: Proficiency with a Hook Sword allows you to add your proficiency bonus to the attack roll for any attack you make with it.
+
+This weapon has the following special mastery property. To use this property, you must have a feature that lets you use it.
+
+***Dismantle.*** If you hit a creature with this weapon and deal damage to the creature, you can reduce the creature’s Armor Class by 2 until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Armor Class reduction doesn’t exceed 4.
+
+| Name | Cost | Damage | Weight | Properties |
+| :---: | :---: | :---: | :---: | :---: |
+| Warbow | 30 GP | 1d6 Slashing | 2 lb. | Finesse, Light, Dismantle |
+{: .catalog }
+
+---
+
+name: Lightning in a Bottle
+type: Wondrous Item
+rarity: Uncommon
+attunement: false
+cost: 200
+weight: 1
+tags: Area, Consumable, Magic Item, Saving Throw
+description: When you take the Attack action, you can replace one of your attacks with throwing Lightning in a Bottle at a point up to 60 feet away, where it explodes and creates a loud clap of thunder audible out to 300 feet. Each creature in a 10-foot-radius Sphere centered on that point makes a DC 13 Dexterity saving throw, taking 5d6 Lightning damage on a failed save or half as much damage on a successful one.
+
+---
+
 name: Lucky Dagger
 type: Weapon
 note_type: Dagger
@@ -509,6 +580,39 @@ cost: 250.2
 weight: 1
 tags: Magic Item
 description: When you roll a 1 on the d20 for the attack roll with this weapon, the next attack roll made with the weapon automatically hits and scores a Critical Hit.
+
+---
+
+name: Mantlet
+type: Adventuring Gear
+cost: 4
+weight: 30
+description: As a Utilize action, you can deploy the Mantlet, placing it in a space within your reach. While deployed, it has AC 15, HP 15, Immunity to Poison and Psychic damage, and Vulnerability to Fire damage. Reducing the Mantlet to 0 Hit Points destroys it. The broad side of the Mantlet is large enough to provide Three-Quarters Cover for a Medium creature standing behind it.
+
+Holding a Mantlet provides no benefit to your Armor Class, since it is too cumbersome to maneuver defensively.
+
+---
+
+name: Meteor Hammer
+prefix_type: Martial Melee
+type: Weapon
+cost: 25
+weight: 12
+tags: Special Property
+description: Proficiency with a Meteor Hammer allows you to add your proficiency bonus to the attack roll for any attack you make with it.
+
+This weapon has the following special properties.
+
+***Ensnare.*** When you use the Grapple option of your Unarmed Strike, you can grapple a target using an Ensnare weapon instead of using a free hand. When you do so, the DC for the grapple’s saving throw and any escape attempts increases by 2. The weapon can’t be used to make attacks or grapple another target while you’re using it to grapple, and the grapple ends if you drop the weapon.
+
+This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
+
+***Topple.*** If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (DC 8 plus the ability modifier used to make the attack roll and your Proficiency Bonus). On a failed save, the creature has the Prone condition.
+
+| Name | Cost | Damage | Weight | Properties |
+| :---: | :---: | :---: | :---: | :---: |
+| Meteor Hammer | 25 GP | 1d10 Bludgeoning | 12 lb. | Ensnare, Heavy, Reach, Two-Handed, Topple |
+{: .catalog }
 
 ---
 
@@ -580,3 +684,26 @@ weight: Varies
 options_weight: 2-11
 note_weight: +1 lb. to Musical Instrument
 description: A Reinforced Instrument is reinforced with metal. It can be used as both a Club and a Musical Instrument.
+
+---
+
+name: Warbow
+prefix_type: Martial Ranged
+type: Weapon
+cost: 75
+weight: 3
+tags: Special Property
+description: Proficiency with a Warbow allows you to add your proficiency bonus to the attack roll for any attack you make with it.
+
+This weapon has the following special properties.
+
+***Might.*** When making a ranged attack with a Might weapon, use your Strength modifier instead of your Dexterity modifier for the attack and damage rolls.
+
+This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
+
+***Push.*** If you hit a creature with this weapon, you can push the creature up to 10 feet straight away from yourself if it is Large or smaller.
+
+| Name | Cost | Damage | Weight | Properties |
+| :---: | :---: | :---: | :---: | :---: |
+| Warbow | 75 GP | 1d10 Piercing | 3 lb. | Ammunition (Range 150/600; Arrow), Heavy, Might, Two-Handed, Push |
+{: .catalog }
