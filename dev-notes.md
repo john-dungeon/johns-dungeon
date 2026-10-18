@@ -12,6 +12,7 @@ search_exclude: true
 - `_config.yml` – site settings. The theme version is pinned: change it on purpose, never by accident.
 - `_data/themes.yml` – themes in the switcher menu.
 - `_data/tables/` – one settings file per search table.
+- `_data/challenge.yml` – Challenge Rating → XP and Proficiency Bonus (used by the monster template).
 
 **Styling**
 - `_sass/color_schemes/` – one file per theme (colors, and optionally fonts).
@@ -25,6 +26,7 @@ search_exclude: true
   - `_navbar-toggle` – the nav bar hide/show button and slide animation.
   - `_tooltip` – the hover bubble.
   - `_dropdown` – collapsible `<details>` sections.
+  - `_statblock` – monster stat blocks.
 
 **Reusable HTML (`_includes/`)**
 - `catalog.html` – link tables.
@@ -32,6 +34,7 @@ search_exclude: true
 - `backlink.html` – the automatic "Back to..." link in the footer.
 - `404.html` – the "not constructed yet" message.
 - `head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – theme hook points.
+- `table/named-list.html` – turns `- name:` / `description:` lists into bold-italic-titled paragraphs (species traits, monster actions); `table/signed.html` – `+3`/`−1`; `table/cr.html` – `0.5` → `1/2`
 
 **Scripts (`assets/js/`)**
 - `theme-switcher.js` and `tooltips.js`.
@@ -39,8 +42,8 @@ search_exclude: true
 - `navbar-toggle.js` – remembers whether the navigation sidebar is hidden.
 
 **Content Folders**
-- `items/`, `species/`, `spells/`, `rules/`, `settings/`, `subclasses/`. Each has an `index.md`.
-- Items, species, and spells also have an `_entries.md` holding their table entries.
+- `feats/`, `items/`, `monsters/`, `rules/`, `species/`, `spells/`, `settings/`, `subclasses/`. Each has an `index.md`.
+- Feats, items, monsters, species, and spells also have an `_entries.md` holding their table entries.
 
 ## 2. Additions
 
@@ -111,6 +114,7 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - One `key: value` per line. A line starting with a field name (lowercase letters, digits, underscores) and `: ` starts a field. Every other line continues the field above it.
 - Lists are comma-separated. Write cost and weight as plain numbers.
 - Species traits are indented list items (see `species/_entries.md`). Species entry order: name, article (optional), description, age, type, size, speed, settings, tags, traits.
+- Monsters: scores `str`–`cha` give modifiers and saves automatically; `saves: Dex, Wis` adds the Proficiency Bonus to those saves; sections (`traits`, `actions`, `bonus_actions`, `reactions`, `legendary_actions`) use the same list format as species traits; `initiative` overrides the computed value.
 
 ### Extra Entry Fields
 - `tags` – comma-separated, shown in the popup.
@@ -146,6 +150,7 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
   - Leave `order` out and the column gets no buttons and nothing is flagged.
   - In rank, number, and measure columns, a quoted `"..."` marks where amounts go. Names before it sort first in listed order, names after it sort last in listed order. Without it, amounts come after all names.
 - `blank_as` – blank entries count as this value in search, filters, and sorting. The cell shows its `symbols` entry if it has one, otherwise "—". A blank cell in a column without `blank_as` (and not `in_table`: false) is highlighted red as a missing value.
+- `format: cr` – number columns: `0.5` displays as `1/2` (display only).
 
 **Display**
 - `format: money` – number columns: cells display as GP/SP/CP and the Filter heading says GP. Write the value as a decimal. Digits past the hundredths show as a decimal amount of CP (`0.002` shows `0.2 CP`).
@@ -189,5 +194,5 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - **Colors and fonts come from the color-scheme variables**, never hard-coded in `_sass/custom/`.
 - **Entry files are named `_entries.md`** so Jekyll doesn't publish them as raw pages. They're loaded with `include_relative`, so they must sit in the same folder as the page that shows the table.
 - **Before deleting a CSS class**, search the whole repo for its name (GitHub's search box works).
-- **When adding a setting**, update the order lists in both `species.yml` and `items.yml`
+- **When adding a setting**, update the order lists in `feats.yml`, `items.yml`, `monsters.yml`, `species.yml`, and `spells.yml`.
 {% endraw %}
