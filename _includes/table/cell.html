@@ -1,7 +1,14 @@
 {%- assign cl_key = include.cell | downcase | default: include.col.blank_as | downcase -%}
 {%- assign cl_shown = include.col.labels[cl_key] | default: include.cell -%}
 {%- assign cl_symbol = include.col.symbols[cl_key] -%}
-<td{% if include.col.in_table == false %} class="st-extra"{% endif %}>
+{%- if include.col.in_table == false -%}
+  {%- assign cl_attrs = ' class="st-extra"' -%}
+{%- elsif include.cell == "" and include.col.blank_as == nil -%}
+  {%- capture cl_attrs %} class="st-missing" data-tooltip="Missing {{ include.col.label | escape }}"{% endcapture -%}
+{%- else -%}
+  {%- assign cl_attrs = "" -%}
+{%- endif -%}
+<td{{ cl_attrs }}>
   {%- if cl_symbol -%}
     {%- capture cl_label %}{{ include.col.label | escape }} · {{ cl_shown | escape }}{% endcapture -%}
     <span class="st-symbol" role="img" aria-label="{{ cl_label }}" data-tooltip="{{ cl_label }}">{{ cl_symbol }}</span>
