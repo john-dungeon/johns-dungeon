@@ -616,6 +616,64 @@ This weapon has the following mastery property. To use this property, you must h
 
 ---
 
+name: Mithril Armor
+type: Armor
+note_type: Any Light, Medium, or Heavy Armor
+rarity: Uncommon
+attunement: false
+cost: Varies
+options_cost: 505-2000
+note_cost: +500 GP to normal counterpart
+weight: Varies
+options_weight: 4-32.5
+note_weight: -50% to normal counterpart
+setting: Erisia
+note_setting: Its setting-agnostic variant is Mithral Armor from the Dungeon Master's Guide (5.5e).
+tags: Magic Item, Resistance
+description: This suit of armor is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The armor magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the armor move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the armor’s original state.
+
+In addition, the armor can be worn under normal clothes, and you can doff it as a Utilize action. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithril version of the armor doesn't.
+
+---
+
+name: Mithril Shield
+type: Armor
+note_type: Shield
+rarity: Uncommon
+attunement: false
+cost: Varies
+options_cost: 510
+note_cost: +500 GP to normal counterpart
+weight: Varies
+options_weight: 3
+note_weight: -50% to normal counterpart
+setting: Erisia
+tags: Damage Reduction, Magic Item
+description: This Shield is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The Shield magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the Shield move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the Shield’s original state.
+
+In addition, when you’re holding the Shield and an attack roll hits you, you can take a Reaction to reduce the attack’s damage against you by 1d10.
+
+---
+
+name: Mithril Weapon (UNFINISHED)
+type: Weapon
+note_type: Any Melee Weapon
+rarity: Uncommon
+attunement: false
+cost: Varies
+options_cost: 500.1-550
+note_cost: +500 GP to normal counterpart
+weight: Varies
+options_weight: 0.5-9
+note_weight: -50% to normal counterpart
+setting: Erisia
+tags: Magic Item
+description: This weapon is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The weapon magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the weapon move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the weapon’s original state.
+
+In addition, if the weapon normally lacks the Light property, the mithril version of the weapon has it, unless the weapon normally has the Heavy property, in which case it only loses the Heavy property.
+
+---
+
 name: Potion of Health
 type: Potion
 rarity: Varies
