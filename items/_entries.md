@@ -954,7 +954,7 @@ options_cost: 30, 50, 200, 300, 2000, 3000, 20000, 25000, 30000, 100000
 note_cost: See table
 weight: 0
 tags: Ability Check, Consumable, Damage, Magic Item, Saving Throw, Spell
-description: A Tear Scroll bears the words of a single spell, written in a mystical cipher. You can take a Utilize action to tear the scroll and roll a d6. If you roll a 1 on the d6, the scroll backfires, and you must make a DC 15 Constitution saving throw, taking 1d6 Force damage for each level of the scroll’s spell on a failed save or half as much damage on a successful one. Otherwise, you cast the spell with a Somatic component and without Verbal or Material components. Once the scroll is torn, the scroll crumbles to dust. If the casting is interrupted, the spell automatically backfires.
+description: A Tear Scroll bears the words of a single spell, written in a mystical cipher. You can take a Utilize action to tear the scroll and roll a d6. If you roll a 1 on the d6, the scroll backfires, and you must make a DC 15 Constitution saving throw, taking 1d6 Force damage for each level of the scroll’s spell on a failed save or half as much damage on a successful one. Otherwise, you cast the spell. Once the scroll is torn, the scroll crumbles to dust. If the casting is interrupted, the spell automatically backfires.
 
 The scroll's rarity and purchase cost, the level of the spell on it, and the spell's saving throw DC and attack bonus are determined by the scroll's potency, as shown in the table below.
 
