@@ -1,7 +1,7 @@
 template: spell
 noun: spells
 default_sort: level
-tags: [Ability Check, Area, Armor Class Bonus, Attack, Attack Bonus, Buff, Cleanse, Condition, Concentration, Damage, Damage Bonus, Debuff, Esoteric, Extra Damage, Forced Movement, Healing, Immunity, Light, Resistance, Revival, Saving Throw, Speed Bonus, Upcast]
+tags: [Ability Check, Area, Armor Class Bonus, Attack, Attack Bonus, Buff, Cleanse, Condition, Concentration, Damage, Damage Bonus, Debuff, Esoteric, Extra Damage, Forced Movement, Healing, Immunity, Light, Resistance, Revival, Saving Throw, Special Speed Bonus, Speed Bonus, Upcast]
 auto_tags:
   - { tag: Concentration, field: duration, equals: Concentration }
 columns:
