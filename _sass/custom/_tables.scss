@@ -14,7 +14,7 @@ table.catalog {
   &.headless thead th { display: none; }
 }
 
-.table-wrapper:has(table.catalog, .st-table) {
+.table-wrapper:has(table.catalog, .st-table, .statblock-abilities) {
   border: 0;
   box-shadow: none;
 }
