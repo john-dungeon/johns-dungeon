@@ -6,6 +6,3 @@ details {
     cursor: pointer;
     &::marker { color: $link-color; }
   }
-
-  > :not(summary) { margin-left: 1.5rem; }
-}
