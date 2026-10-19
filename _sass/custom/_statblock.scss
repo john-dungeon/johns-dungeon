@@ -13,10 +13,11 @@
 
 .st-dialog:has(.statblock) .st-dialog-title { display: none; }
 
-.statblock-name {
+.statblock .statblock-name {
   margin: 0.5rem 0 0;
   color: $body-heading-color;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  line-height: 1.1;
 }
 
 // Kramdown: {: .statblock-type }
@@ -39,9 +40,11 @@
 }
 
 .statblock-row {
-  padding: 0.3rem 0.6rem;
+  padding: 0.5rem 1rem;
 
-  p { margin: 0.35rem 0; }
+  p { margin: 0.5rem 0; }
+  p:first-child { margin-top: 0; }
+  p:last-child { margin-bottom: 0; }
 
   &:nth-of-type(odd) { background-color: $stripe-odd-color; }
   &:nth-of-type(even) { background-color: $stripe-even-color; }
@@ -59,7 +62,7 @@
   }
 
   th {
-    @include muted(0.55rem);
+    @include muted(0.5rem);
     background: transparent;
   }
 
@@ -72,4 +75,7 @@
 
   th:nth-child(5),
   td:nth-child(5) { padding-left: 1.5rem; }
+
+  th:first-child, td:first-child { padding-left: 1rem; }
+  th:last-child, td:last-child { padding-right: 1rem; }
 }
