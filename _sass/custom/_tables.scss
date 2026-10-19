@@ -1,6 +1,7 @@
 // Kramdown: {: .catalog } & {: .headless }
 table.catalog,
-.st-table {
+.st-table,
+.statblock-abilities {
   box-shadow: none;
 
   tbody tr:nth-child(odd) > * { background-color: $stripe-odd-color; }
