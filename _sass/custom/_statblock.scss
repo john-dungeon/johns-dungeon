@@ -1,9 +1,11 @@
 // Markup: _includes/table/templates/monster.md
+$statblock-inset: 1rem;
+
 .statblock {
   @include outlined;
   max-width: 42rem;
   margin: 1rem auto;
-  padding: 0.25rem 1rem 0.75rem;
+  padding: 0.25rem $statblock-inset 0.75rem;
   border-top: 4px solid $link-color;
   border-bottom: 4px solid $link-color;
   background: $body-background-color;
@@ -16,7 +18,7 @@
 .statblock .statblock-name {
   margin: 0.5rem 0 0;
   color: $body-heading-color;
-  font-size: 2.5rem;
+  font-size: 2.5rem !important;
   line-height: 1.1;
 }
 
@@ -36,24 +38,27 @@
   padding-bottom: 0.15rem;
   border-bottom: 1px solid $link-color;
   color: $body-heading-color;
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
 }
 
 .statblock-row {
-  padding: 0.5rem 1rem;
+  margin: 0 ($statblock-inset * -1);
+  padding: 0.3rem $statblock-inset;
 
-  p { margin: 0.5rem 0; }
-  p:first-child { margin-top: 0; }
-  p:last-child { margin-bottom: 0; }
+  p { margin: 0.35rem 0; }
 
   &:nth-of-type(odd) { background-color: $stripe-odd-color; }
   &:nth-of-type(even) { background-color: $stripe-even-color; }
 }
 
 // Kramdown: {: .statblock-abilities }
+.table-wrapper:has(.statblock-abilities) {
+  margin: 0.5rem ($statblock-inset * -1);
+}
+
 .statblock .statblock-abilities {
   @include fit-table(0.2rem 0.4rem);
-  margin: 0.5rem 0;
+  margin: 0;
   border-collapse: collapse;
 
   th, td {
@@ -62,8 +67,9 @@
   }
 
   th {
-    @include muted(0.5rem);
     background: transparent;
+    color: $nav-child-link-color;
+    font-size: 0.6rem !important;
   }
 
   td:nth-child(4n + 1) {
@@ -76,6 +82,6 @@
   th:nth-child(5),
   td:nth-child(5) { padding-left: 1.5rem; }
 
-  th:first-child, td:first-child { padding-left: 1rem; }
-  th:last-child, td:last-child { padding-right: 1rem; }
+  th:first-child, td:first-child { padding-left: $statblock-inset; }
+  th:last-child, td:last-child { padding-right: $statblock-inset; }
 }
