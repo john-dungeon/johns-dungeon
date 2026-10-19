@@ -1,4 +1,7 @@
 // Markup: _includes/table/templates/monster.md
+$statblock-name-size: 2rem;
+$statblock-label-size: 0.75rem;
+
 $statblock-inset: 1rem;
 
 .statblock {
@@ -18,7 +21,7 @@ $statblock-inset: 1rem;
 .statblock .statblock-name {
   margin: 0.5rem 0 0;
   color: $body-heading-color;
-  font-size: 2.5rem !important;
+  font-size: $statblock-name-size !important;
   line-height: 1.1;
 }
 
@@ -52,13 +55,9 @@ $statblock-inset: 1rem;
 }
 
 // Kramdown: {: .statblock-abilities }
-.table-wrapper:has(.statblock-abilities) {
-  margin: 0.5rem ($statblock-inset * -1);
-}
-
 .statblock .statblock-abilities {
   @include fit-table(0.2rem 0.4rem);
-  margin: 0;
+  margin: 0.5rem 0;
   border-collapse: collapse;
 
   th, td {
@@ -69,7 +68,7 @@ $statblock-inset: 1rem;
   th {
     background: transparent;
     color: $nav-child-link-color;
-    font-size: 0.6rem !important;
+    font-size: $statblock-label-size !important;
   }
 
   td:nth-child(4n + 1) {
@@ -81,7 +80,4 @@ $statblock-inset: 1rem;
 
   th:nth-child(5),
   td:nth-child(5) { padding-left: 1.5rem; }
-
-  th:first-child, td:first-child { padding-left: $statblock-inset; }
-  th:last-child, td:last-child { padding-right: $statblock-inset; }
 }
