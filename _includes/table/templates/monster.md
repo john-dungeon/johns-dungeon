@@ -17,7 +17,7 @@
 
 {%- assign ms_abilities = "str,dex,con,int,wis,cha" | split: "," -%}
 {%- assign ms_saves_up = ms_saves | upcase -%}
-{%- assign ms_table = "" -%}
+{%- assign ms_cell_list = "" -%}
 {%- for ms_ab in ms_abilities -%}
   {%- capture ms_score %}{% include table/field.html packed=include.packed key=ms_ab %}{% endcapture -%}
   {%- assign ms_mod = ms_score | minus: 10 | divided_by: 2 -%}
@@ -26,9 +26,13 @@
   {%- if ms_saves_up contains ms_ab_up -%}{%- assign ms_save = ms_mod | plus: ms_pb -%}{%- endif -%}
   {%- if ms_ab == "dex" -%}{%- assign ms_dex_mod = ms_mod -%}{%- endif -%}
   {%- capture ms_cells %}| {{ ms_ab_up }} | {{ ms_score }} | {% include table/signed.html amount=ms_mod %} | {% include table/signed.html amount=ms_save %} {% endcapture -%}
-  {%- assign ms_table = ms_table | append: ms_cells -%}
-  {%- assign ms_pos = forloop.index | modulo: 3 -%}
-  {%- if ms_pos == 0 -%}{%- assign ms_table = ms_table | append: "|" | append: ms_nl -%}{%- endif -%}
+  {%- assign ms_cell_list = ms_cell_list | append: ms_cells | append: "¦" -%}
+{%- endfor -%}
+{%- assign ms_cell_items = ms_cell_list | split: "¦" -%}
+{%- assign ms_table = "" -%}
+{%- for ms_row in (0..2) -%}
+  {%- assign ms_right = ms_row | plus: 3 -%}
+  {%- assign ms_table = ms_table | append: ms_cell_items[ms_row] | append: ms_cell_items[ms_right] | append: "|" | append: ms_nl -%}
 {%- endfor -%}
 
 {%- if ms_initiative == "" -%}
