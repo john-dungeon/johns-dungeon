@@ -6,47 +6,58 @@ search_exclude: true
 {% raw %}
 # Developer Notes
 
-## 1. Locations
+## 1. Project Map
 
-**Site Settings**
+### Settings and Data
 - `_config.yml` – site settings. The theme version is pinned: change it on purpose, never by accident.
 - `_data/themes.yml` – themes in the switcher menu.
 - `_data/tables/` – one settings file per search table.
-- `_data/challenge.yml` – Challenge Rating → XP and Proficiency Bonus (used by the monster template).
+- `_data/challenge.yml` – Challenge Rating → XP and Proficiency Bonus (used by the monster template). Fractions are written as decimals (`0.5`).
 
-**Styling**
+### Styling
 - `_sass/color_schemes/` – one file per theme (colors, and optionally fonts).
 - `assets/css/just-the-docs-NAME.scss` – one tiny file per theme (Jekyll needs each one).
-- `_sass/custom/` – all custom CSS, loaded in order by `custom.scss`:
+- `_sass/custom/` – all custom CSS, loaded in this order by `custom.scss` (import each file once):
   - `_helpers` – shared variables and mixins (loaded first), including the shared animation curve `$motion`.
   - `_theme` – fonts, the theme switcher button, and the theme cross-fade.
   - `_base` – links, scrollbar, the `.indent` class, and the animation speed `--motion-duration`.
   - `_tables` – flat, striped tables.
   - `_search-table` – everything for search tables.
+  - `_statblock` – monster stat blocks. It also hides the popup's own title when the popup holds a stat block, because the stat block shows the name itself.
   - `_navbar-toggle` – the nav bar hide/show button and slide animation.
   - `_tooltip` – the hover bubble.
   - `_dropdown` – collapsible `<details>` sections.
-  - `_statblock` – monster stat blocks.
 
-**Reusable HTML (`_includes/`)**
+### Reusable HTML (`_includes/`)
 - `catalog.html` – link tables.
-- `search-table.html` – search tables. Its helpers are in `table/` and the popup layouts are in `table/templates/`.
+- `search-table.html` – search tables.
 - `backlink.html` – the automatic "Back to..." link in the footer.
 - `404.html` – the "not constructed yet" message.
 - `head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – theme hook points.
-- `table/named-list.html` – turns `- name:` / `description:` lists into bold-italic-titled paragraphs (species traits, monster actions). Optional `row="class"` wraps each item in a `<div>` with that class.
-- `table/signed.html` – `+3`/`−1`; `table/cr.html` – `0.5` → `1/2`.
+- `table/` – helpers for `search-table.html`:
+  - `parse-entry.html` – turns an entry's text into packed fields.
+  - `field.html` – reads one field from the packed fields.
+  - `value.html` – a cell's raw value (applies `zero_label` and list handling).
+  - `cell.html` – builds a table cell (symbols, formats, notes, red "missing" cells).
+  - `list.html` – cleans a comma-separated list. With `plain`, it removes "(notes)".
+  - `join-words.html` – "A, B, or C" style joining, in the order written.
+  - `named-list.html` – turns `- key: Name` / `description:` lists into bold-italic-titled paragraphs (species traits, monster traits and actions). Optional `row="class"` wraps each item in a `<div>` with that class.
+  - `marker.html` – the symbols next to item names.
+  - `money.html`, `weight.html`, `cr.html`, `signed.html` – display formats (`5 SP`, `1.2 oz.`, `1/2`, `+3` / `−1`).
+  - `templates/` – popup layouts: `item.md`, `species.md`, `spell.md`, `monster.md`.
 
-**Scripts (`assets/js/`)**
-- `theme-switcher.js` and `tooltips.js`.
+### Scripts (`assets/js/`)
+- `theme-switcher.js`, `tooltips.js`, and `navbar-toggle.js` (remembers whether the navigation sidebar is hidden).
 - `search-table/` – one file per job. `main.js` is the entry point.
-- `navbar-toggle.js` – remembers whether the navigation sidebar is hidden.
 
-**Content Folders**
-- `feats/`, `items/`, `monsters/`, `rules/`, `species/`, `spells/`, `settings/`, `subclasses/`. Each has an `index.md`.
+### Content Folders
+- `feats/`, `items/`, `monsters/`, `rules/`, `settings/`, `species/`, `spells/`, `subclasses/`. Each has an `index.md`.
 - Feats, items, monsters, species, and spells also have an `_entries.md` holding their table entries.
 
 ## 2. Additions
+
+### Add a Section (top-level aisle)
+Create `NAME/index.md` with `title`, `parent: Home`, and `has_children: true`. Do not set `nav_order`: the sidebar sorts sections alphabetically (only Home has `nav_order: 1`, to stay first), and the Home page's link table picks the new section up automatically.
 
 ### Add a Page
 Create a `.md` file in the right folder with front matter: `title` and `parent` (the exact title of the section page). For subclasses, use `parent` for the class and `grand_parent: Subclasses`. Optional: `tagline` and `summary` (used for the hover tooltip in link tables).
@@ -71,7 +82,13 @@ Edit the table's `_entries.md` (see section 4 for the format).
 ### Add a Column or Field
 Add the key to the entry, add a column in the table's `.yml` file, and (if it should appear in the popup) use it in the template.
 
-## 3. Link Tables and Tooltips
+### Add a Setting (world)
+Search the repo for an existing setting name (like `Solachia`) and add the new one to every `order` list that contains it.
+
+### Add a Style File
+Create `_sass/custom/_NAME.scss` and add one `@import "NAME";` line to `custom.scss`.
+
+## 3. Link Tables, Tooltips, and Dropdowns
 
 ### Link Tables (`catalog.html`)
 `{% include catalog.html parent="Items" %}` lists every page whose `parent` is that title, sorted by title. Wrap the include in `{::nomarkdown}` ... `{:/nomarkdown}`.
@@ -106,26 +123,53 @@ Keep a blank line after `</summary>` and before each `<details>`. Works on pages
 ## 4. Search Tables
 
 Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on a page. A table named `items` uses three files:
-- `_data/tables/items.yml` – settings and columns (below).
+- `_data/tables/items.yml` – settings and columns (see "Table Settings" and "Column Options").
 - `items/_entries.md` – the entries. This is the file you edit.
 - `_includes/table/templates/<template>.md` – how an entry's fields become popup text.
 
 ### Entry Format
 - Entries are separated by a line that is exactly `---`. Never use `---` inside a description; use `***`.
-- One `key: value` per line. A line starting with a field name (lowercase letters, digits, underscores) and `: ` starts a field. Every other line continues the field above it.
+- One `key: value` per line. A line starting with a field name and `: ` starts a field. Field names are **all lowercase** (letters, digits, underscores): a capitalized name like `Resistances:` is not recognized and gets glued onto the field above it. Every other line continues the field above it.
 - Lists are comma-separated. Write cost and weight as plain numbers.
-- Species traits are indented list items (see `species/_entries.md`). Species entry order: name, article (optional), description, age, type, size, speed, settings, tags, traits.
-- Monsters: scores `str`–`cha` give modifiers and saves automatically; `saves: Dex, Wis` adds the Proficiency Bonus to those saves; sections (`traits`, `actions`, `bonus_actions`, `reactions`, `legendary_actions`) use the same list format as species traits; `initiative` overrides the computed value. `flavor` adds an optional italic blockquote shown at the bottom of the stat block. `type` can list several creature types (joined with “and”), and `size` several sizes (joined with “or”). A section can have an optional `KEY_intro` paragraph, for example `legendary_actions_intro`.
-
-### Extra Entry Fields
 - `tags` – comma-separated, shown in the popup.
-- `condition` (spells) – added to the end of the casting time exactly as written, so begin it with its own punctuation, like `condition: , which you take when you are hit by an attack roll`.
 - `options_KEY` (e.g. `options_rarity`) – lists other values the entry counts as for search and filters. Excluding hides the entry only if all of its values are excluded.
 - On number columns, `options_cost` and `options_weight` list amounts or ranges instead, like `options_cost: 50, 200, 3-36`. Use plain numbers, no thousands commas. A slider or Min/Max filter keeps the entry if any listed amount or range overlaps it.
-- `note_KEY` fields are used by the item template.
-- `prefix_type` (items) – placed before the type in the popup's first line, like `prefix_type: Simple Melee` with `type: Weapon` showing "Simple Melee Weapon". It isn't shown in the table's Type column, so filtering still uses the plain type.
-- `setting` (items) – comma-separated settings. Auto-adds the Setting-Specific tag and appends the “can only be found in…” note to the popup. Never hand-write that note or tag.
-- `note_setting` (items) – extra sentence added to the end of that note. Don’t use * inside it, since the whole note is italic.
+
+### Named Lists (traits, actions, and so on)
+Fields such as species `traits` and monster `traits` / `actions` use indented list items. The first key's name is ignored (`trait_1`, `action_2`, anything); its value is the item's title.
+
+```
+actions:
+- action_1: Multiattack
+  description: The creature makes two Claw attacks.
+- action_2: Claw
+  description: *Melee Attack Roll:* +4, reach 5 ft. *Hit:* 6 (1d6 + 3) Slashing damage.
+
+  A second paragraph can follow after a blank line.
+```
+
+Indent anything that starts with `- ` inside a description (like a bullet list) by two spaces, or it is read as a new item.
+
+### Fields by Table
+
+**Items** (`item.md`): `name`, `prefix_type`, `type`, `note_type`, `rarity`, `options_rarity`, `note_rarity`, `attunement`, `cost`, `options_cost`, `note_cost`, `weight`, `options_weight`, `note_weight`, `setting`, `note_setting`, `tags`, `description`.
+- `prefix_type` is placed before the type in the popup's first line (`prefix_type: Simple Melee` with `type: Weapon` shows "Simple Melee Weapon"). It isn't shown in the table's Type column, so filtering still uses the plain type.
+- `setting` is comma-separated. It auto-adds the Setting-Specific tag and appends the "can only be found in…" note to the popup. Never hand-write that note or tag.
+- `note_setting` is an extra sentence added to the end of that note. Don't use `*` inside it, since the whole note is italic.
+
+**Species** (`species.md`): `name`, `article` (optional), `description`, `age`, `type`, `size`, `speed`, `settings`, `tags`, `traits`. Several `type` values are joined with "and", several `size` values with "or", in the order written.
+
+**Spells** (`spell.md`): `name`, `level` (`Cantrip` or 1–9), `school`, `classes`, `casting_time`, `condition`, `ritual` (`true`), `range`, `area`, `components` (`V, S, M`), `material`, `duration`, `concentration_max`, `tags`, `description`.
+- `condition` is added to the end of the casting time exactly as written, so begin it with its own punctuation, like `condition: , which you take when you are hit by an attack roll`.
+
+**Monsters** (`monster.md`): `name`, `size`, `type`, `alignment`, `ac`, `initiative`, `hp`, `speed`, `str`–`cha`, `saves`, `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages`, `cr`, `settings`, `tags`, `flavor`, and the sections `traits`, `actions`, `bonus_actions`, `reactions`, `legendary_actions`.
+- `size` and `type` can list several values. Sizes are joined with "or" and types with "and", in the order written.
+- The scores `str`–`cha` give modifiers and saves automatically. `saves: Dex, Wis` adds the Proficiency Bonus to those saves.
+- `cr` is a plain number, with fractions as decimals (`0.125`, `0.25`, `0.5`). The Proficiency Bonus and XP come from `_data/challenge.yml`. The search box doesn't understand `1/2`; search `cr:0.5`.
+- `initiative` is optional and replaces the computed value, shown as written (like `+7 (17)`).
+- `skills` through `languages` are free text. A line shows only if the entry has that field, in the order Skills, Resistances, Vulnerabilities, Immunities, Gear, Senses, Languages, then the CR line.
+- Sections use the named-list format above. Each section can have an optional `KEY_intro` field (`traits_intro`, `actions_intro`, `bonus_actions_intro`, `reactions_intro`, `legendary_actions_intro`), shown as a plain paragraph between the section heading and its first row. Use it for text that applies to the whole section.
+- `flavor` is optional: one paragraph of plain text, shown in italics as a blockquote at the bottom. Don't put `*` in it.
 
 ### Table Settings (`_data/tables/NAME.yml`)
 - `template` – popup layout file in `_includes/table/templates/` (required).
@@ -150,17 +194,17 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
   - A cell value that isn't listed turns red, unless a number or measure column can read it as an amount.
   - Leave `order` out and the column gets no buttons and nothing is flagged.
   - In rank, number, and measure columns, a quoted `"..."` marks where amounts go. Names before it sort first in listed order, names after it sort last in listed order. Without it, amounts come after all names.
-- `blank_as` – blank entries count as this value in search, filters, and sorting. The cell shows its `symbols` entry if it has one, otherwise "—". A blank cell in a column without `blank_as` (and not `in_table`: false) is highlighted red as a missing value.
-- `format: cr` – number columns: `0.5` displays as `1/2` (display only).
+- `blank_as` – blank entries count as this value in search, filters, and sorting. The cell shows its `symbols` entry if it has one, otherwise "—". A blank cell in a column without `blank_as` (and not `in_table: false`) is highlighted red as a missing value.
 
 **Display**
+- `format: cr` – number columns: `0.5` displays as `1/2` (display only).
 - `format: money` – number columns: cells display as GP/SP/CP and the Filter heading says GP. Write the value as a decimal. Digits past the hundredths show as a decimal amount of CP (`0.002` shows `0.2 CP`).
-- `format: weight` – number columns: weights of 0.1 or less display in ounces, rounded up to the hundredth (`0.075` shows `1.2 oz.`); others in lb., rounded up to the tenth (`0.75 shows 0.8 lb.`). Display only, so sorting and filters use the exact number.
+- `format: weight` – number columns: weights of 0.1 or less display in ounces, rounded up to the hundredth (`0.075` shows `1.2 oz.`); others in lb., rounded up to the tenth (`0.75` shows `0.8 lb.`). Display only, so sorting and filters use the exact number.
 - `prefix` / `suffix` – for other numbers.
 - `zero_label` – number columns: an entry whose value is exactly `0` is shown and treated as this word (for example `Weightless`). The popup template needs the same rule written into it.
 - `plain: true` – list cells hide "(notes)".
 - `symbols` (value to icon) and `labels` (value to friendly text).
-- `in_table: false` – searchable but hidden.
+- `in_table: false` – searchable and filterable but hidden from the table.
 - `note` – adds an entry field to the table cell:
   - `field` is the entry key.
   - `format` is the added text, with `%s` standing for the value (default ` (%s)`).
@@ -190,10 +234,11 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 
 ## 5. Reminders
 - **Liquid runs in every normal `.md` page**, even inside backticks. Wrap documentation examples in raw tags (like this page does).
-- **Includes share variables with the page that calls them.** Give every include its own prefix (`mk_`, `cl_`, `pe_`, `jw_`, `sp_`...).
+- **Includes share variables with the page that calls them.** Give every include its own prefix (`mk_`, `cl_`, `pe_`, `jw_`, `ni_`, `sg_`, `sp_`, `sps_`, `ms_`...).
+- **Include parameters must be plain values or dotted names** (`key=col.key`). Brackets like `list[0]` break the include tag, so assign the value to a variable first.
+- **Line breaks in stat blocks use `<br>`.** A single trailing `\` printed literally there. If a popup elsewhere shows a stray `\`, use two backslashes (`\\`) or `<br>`.
 - **For Sass compatibility**, halve with `* 0.5`, not `/ 2` (slash division is deprecated in newer Sass). Avoid `@use` and `math.div`: the theme loads this folder with `@import`.
 - **Colors and fonts come from the color-scheme variables**, never hard-coded in `_sass/custom/`.
 - **Entry files are named `_entries.md`** so Jekyll doesn't publish them as raw pages. They're loaded with `include_relative`, so they must sit in the same folder as the page that shows the table.
 - **Before deleting a CSS class**, search the whole repo for its name (GitHub's search box works).
-- **When adding a setting**, update the order lists in `feats.yml`, `items.yml`, `monsters.yml`, `species.yml`, and `spells.yml`.
 {% endraw %}
