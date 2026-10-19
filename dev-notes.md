@@ -167,7 +167,8 @@ Indent anything that starts with `- ` inside a description (like a bullet list) 
 - The scores `str`–`cha` give modifiers and saves automatically. `saves: Dex, Wis` adds the Proficiency Bonus to those saves.
 - `cr` is a plain number, with fractions as decimals (`0.125`, `0.25`, `0.5`). The Proficiency Bonus and XP come from `_data/challenge.yml`. The search box doesn't understand `1/2`; search `cr:0.5`.
 - `initiative` is optional and replaces the computed value, shown as written (like `+7 (17)`).
-- `skills` through `languages` are free text. A line shows only if the entry has that field, in the order Skills, Resistances, Vulnerabilities, Immunities, Gear, Senses, Languages, then the CR line.
+- `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, and `languages` are free text. A line shows only if the entry has that field, in the order Skills, Resistances, Vulnerabilities, Immunities, Gear, Senses, Languages, then the CR line.
+- Passive Perception is added to the end of the Senses line automatically (10 + the Perception bonus in `skills`, otherwise 10 + the Wisdom modifier). Don't type it into `senses`, and write negative bonuses with a plain hyphen (`Perception -1`). The Senses line always shows, even with no `senses` field.
 - Sections use the named-list format above. Each section can have an optional `KEY_intro` field (`traits_intro`, `actions_intro`, `bonus_actions_intro`, `reactions_intro`, `legendary_actions_intro`), shown as a plain paragraph between the section heading and its first row. Use it for text that applies to the whole section.
 - `flavor` is optional: one paragraph of plain text, shown in italics as a blockquote at the bottom. Don't put `*` in it.
 
