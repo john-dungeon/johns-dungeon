@@ -93,7 +93,7 @@
 **Speed** {{ ms_speed }}
 
 | | | MOD | SAVE | | | MOD | SAVE |
-|---|---|---|---|---|---|---|---|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 {{ ms_table }}{: .statblock-abilities }
 
 {{ ms_props }}
