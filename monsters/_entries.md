@@ -12,7 +12,7 @@ int: 1
 wis: 6
 cha: 2
 vulnerabilities: Fire
-Resistances: Acid, Bludgeoning
+resistances: Acid, Bludgeoning
 immunities: Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Prone, Restrained
 senses: Blindsight 60 ft.; Passive Perception 8
 languages: None
