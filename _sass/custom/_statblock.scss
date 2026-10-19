@@ -11,10 +11,12 @@
   p { margin: 0.5rem 0; }
 }
 
+.st-dialog:has(.statblock) .st-dialog-title { display: none; }
+
 .statblock-name {
   margin: 0.5rem 0 0;
   color: $body-heading-color;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 // Kramdown: {: .statblock-type }
@@ -57,13 +59,17 @@
   }
 
   th {
-    @include muted(0.65rem);
+    @include muted(0.55rem);
     background: transparent;
   }
 
   td:nth-child(4n + 1) {
     color: $body-heading-color;
-    font-weight: 700;
     text-align: left;
   }
+  td:nth-child(4n + 1),
+  td:nth-child(4n + 2) { font-weight: 700; }
+
+  th:nth-child(5),
+  td:nth-child(5) { padding-left: 1.5rem; }
 }
