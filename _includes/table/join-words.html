@@ -1,5 +1,5 @@
 {%- capture jw_csv %}{% include table/list.html csv=include.items sep="," %}{% endcapture -%}
-{%- assign jw_items = jw_csv | split: "," | sort_natural -%}
+{%- assign jw_items = jw_csv | split: "," -%}
 {%- assign jw_count = jw_items | size -%}
 {%- for jw_item in jw_items -%}
   {%- if forloop.first -%}{{ jw_item }}
