@@ -34,7 +34,8 @@ search_exclude: true
 - `backlink.html` – the automatic "Back to..." link in the footer.
 - `404.html` – the "not constructed yet" message.
 - `head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – theme hook points.
-- `table/named-list.html` – turns `- name:` / `description:` lists into bold-italic-titled paragraphs (species traits, monster actions); `table/signed.html` – `+3`/`−1`; `table/cr.html` – `0.5` → `1/2`
+- `table/named-list.html` – turns `- name:` / `description:` lists into bold-italic-titled paragraphs (species traits, monster actions). Optional `row="class"` wraps each item in a `<div>` with that class.
+- `table/signed.html` – `+3`/`−1`; `table/cr.html` – `0.5` → `1/2`.
 
 **Scripts (`assets/js/`)**
 - `theme-switcher.js` and `tooltips.js`.
@@ -114,7 +115,7 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - One `key: value` per line. A line starting with a field name (lowercase letters, digits, underscores) and `: ` starts a field. Every other line continues the field above it.
 - Lists are comma-separated. Write cost and weight as plain numbers.
 - Species traits are indented list items (see `species/_entries.md`). Species entry order: name, article (optional), description, age, type, size, speed, settings, tags, traits.
-- Monsters: scores `str`–`cha` give modifiers and saves automatically; `saves: Dex, Wis` adds the Proficiency Bonus to those saves; sections (`traits`, `actions`, `bonus_actions`, `reactions`, `legendary_actions`) use the same list format as species traits; `initiative` overrides the computed value.
+- Monsters: scores `str`–`cha` give modifiers and saves automatically; `saves: Dex, Wis` adds the Proficiency Bonus to those saves; sections (`traits`, `actions`, `bonus_actions`, `reactions`, `legendary_actions`) use the same list format as species traits; `initiative` overrides the computed value. `flavor` adds an optional italic blockquote shown at the bottom of the stat block. `type` can list several creature types (joined with “and”), and `size` several sizes (joined with “or”). A section can have an optional `KEY_intro` paragraph, for example `legendary_actions_intro`.
 
 ### Extra Entry Fields
 - `tags` – comma-separated, shown in the popup.
