@@ -9,6 +9,7 @@
 {%- capture ms_hp %}{% include table/field.html packed=include.packed key="hp" %}{% endcapture -%}
 {%- capture ms_speed %}{% include table/field.html packed=include.packed key="speed" %}{% endcapture -%}
 {%- capture ms_saves %}{% include table/field.html packed=include.packed key="saves" %}{% endcapture -%}
+{%- capture ms_skills %}{% include table/field.html packed=include.packed key="skills" %}{% endcapture -%}
 {%- capture ms_cr %}{% include table/field.html packed=include.packed key="cr" %}{% endcapture -%}
 {%- capture ms_flavor %}{% include table/field.html packed=include.packed key="flavor" %}{% endcapture -%}
 
@@ -25,6 +26,7 @@
   {%- assign ms_save = ms_mod -%}
   {%- if ms_saves_up contains ms_ab_up -%}{%- assign ms_save = ms_mod | plus: ms_pb -%}{%- endif -%}
   {%- if ms_ab == "dex" -%}{%- assign ms_dex_mod = ms_mod -%}{%- endif -%}
+  {%- if ms_ab == "wis" -%}{%- assign ms_wis_mod = ms_mod -%}{%- endif -%}
   {%- capture ms_cells %}| {{ ms_ab_up }} | {{ ms_score }} | {% include table/signed.html amount=ms_mod %} | {% include table/signed.html amount=ms_save %} {% endcapture -%}
   {%- assign ms_cell_list = ms_cell_list | append: ms_cells | append: "¦" -%}
 {%- endfor -%}
@@ -44,6 +46,13 @@
 {%- assign ms_summary = ms_size_text | append: " " | append: ms_type_text -%}
 {%- if ms_alignment != "" -%}{%- assign ms_summary = ms_summary | append: ", " | append: ms_alignment -%}{%- endif -%}
 
+{%- assign ms_passive = ms_wis_mod | plus: 10 -%}
+{%- assign ms_skills_low = ms_skills | downcase -%}
+{%- if ms_skills_low contains "perception" -%}
+  {%- assign ms_perception = ms_skills_low | split: "perception" | last | split: "," | first -%}
+  {%- assign ms_passive = ms_perception | plus: 10 -%}
+{%- endif -%}
+
 {%- assign ms_break = "<br>" | append: ms_nl -%}
 {%- assign ms_prop_defs = "skills|Skills,resistances|Resistances,vulnerabilities|Vulnerabilities,immunities|Immunities,gear|Gear,senses|Senses,languages|Languages" | split: "," -%}
 {%- assign ms_props = "" -%}
@@ -51,6 +60,13 @@
   {%- assign ms_pair = ms_def | split: "|" -%}
   {%- assign ms_key = ms_pair[0] -%}
   {%- capture ms_val %}{% include table/field.html packed=include.packed key=ms_key %}{% endcapture -%}
+  {%- if ms_key == "senses" -%}
+    {%- if ms_val != "" -%}
+      {%- assign ms_val = ms_val | append: "; Passive Perception " | append: ms_passive -%}
+    {%- else -%}
+      {%- assign ms_val = "Passive Perception " | append: ms_passive -%}
+    {%- endif -%}
+  {%- endif -%}
   {%- if ms_val != "" -%}
     {%- assign ms_props = ms_props | append: ms_break | append: "**" | append: ms_pair[1] | append: "** " | append: ms_val -%}
   {%- endif -%}
