@@ -241,4 +241,5 @@ Indent anything that starts with `- ` inside a description (like a bullet list) 
 - **Colors and fonts come from the color-scheme variables**, never hard-coded in `_sass/custom/`.
 - **Entry files are named `_entries.md`** so Jekyll doesn't publish them as raw pages. They're loaded with `include_relative`, so they must sit in the same folder as the page that shows the table.
 - **Before deleting a CSS class**, search the whole repo for its name (GitHub's search box works).
+- **Just the Docs** sets heading (`h1`–`h6`) and table (`th`, `td`) font sizes with `!important`. A custom `font-size` on those elements only works if it is `!important` too.
 {% endraw %}
