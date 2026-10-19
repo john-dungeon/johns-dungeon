@@ -14,7 +14,7 @@ cha: 2
 vulnerabilities: Fire
 resistances: Acid, Bludgeoning
 immunities: Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Prone, Restrained
-senses: Blindsight 60 ft.; Passive Perception 8
+senses: Blindsight 60 ft.
 languages: None
 cr: 0.125
 settings: Erisia
