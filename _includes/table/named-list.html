@@ -1,5 +1,12 @@
 {%- capture ni_nl %}
 {% endcapture -%}
+{%- if include.row -%}
+  {%- assign ni_open = "<div class='" | append: include.row | append: "' markdown='1'>" | append: ni_nl | append: ni_nl -%}
+  {%- assign ni_close = "</div>" | append: ni_nl | append: ni_nl -%}
+{%- else -%}
+  {%- assign ni_open = "" -%}
+  {%- assign ni_close = "" -%}
+{%- endif -%}
 {%- assign ni_lines = include.text | append: ni_nl | append: "- end: end" | split: ni_nl -%}
 {%- assign ni_name = "" -%}
 {%- assign ni_desc = "" -%}
@@ -9,7 +16,7 @@
   {%- assign ni_probe = ni_line | strip | append: " " -%}
   {%- assign ni_key = ni_probe | split: ": " | first -%}
   {%- if ni_head == "- " -%}
-    {%- if ni_name != "" -%}***{{ ni_name }}.*** {{ ni_desc | strip }}{{ ni_nl }}{{ ni_nl }}{%- endif -%}
+    {%- if ni_name != "" -%}{{ ni_open }}***{{ ni_name }}.*** {{ ni_desc | strip }}{{ ni_nl }}{{ ni_nl }}{{ ni_close }}{%- endif -%}
     {%- assign ni_rest = ni_line | remove_first: "- " | append: " " -%}
     {%- assign ni_rest_key = ni_rest | split: ": " | first -%}
     {%- if ni_rest contains ": " -%}
