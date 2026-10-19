@@ -2,18 +2,30 @@
 .statblock {
   @include outlined;
   max-width: 42rem;
-  margin: 1rem 0;
+  margin: 1rem auto;
   padding: 0.25rem 1rem 0.75rem;
   border-top: 4px solid $link-color;
   border-bottom: 4px solid $link-color;
   background: $body-background-color;
 
   p { margin: 0.5rem 0; }
+}
 
-  > p:first-child {
-    @include muted(1rem);
-    font-style: italic;
-  }
+.statblock-name {
+  margin: 0.5rem 0 0;
+  color: $body-heading-color;
+  font-size: 1.5rem;
+}
+
+// Kramdown: {: .statblock-type }
+.statblock-type {
+  @include muted(1rem);
+  font-style: italic;
+}
+
+.statblock-gap {
+  display: inline-block;
+  width: 2rem;
 }
 
 .statblock-heading {
@@ -24,6 +36,15 @@
   font-size: 1.2rem;
 }
 
+.statblock-row {
+  padding: 0.3rem 0.6rem;
+
+  p { margin: 0.35rem 0; }
+
+  &:nth-of-type(odd) { background-color: $stripe-odd-color; }
+  &:nth-of-type(even) { background-color: $stripe-even-color; }
+}
+
 // Kramdown: {: .statblock-abilities }
 .statblock .statblock-abilities {
   @include fit-table(0.2rem 0.4rem);
@@ -32,11 +53,13 @@
 
   th, td {
     border: 0;
-    background: transparent;
     text-align: center;
   }
 
-  th { @include muted(0.75rem); }
+  th {
+    @include muted(0.65rem);
+    background: transparent;
+  }
 
   td:nth-child(4n + 1) {
     color: $body-heading-color;
