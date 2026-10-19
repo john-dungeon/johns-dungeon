@@ -18,6 +18,7 @@ senses: Blindsight 60 ft.; Passive Perception 8
 languages: None
 cr: 0.125
 settings: Erisia
+flavor: Unlike other slimes, blue slimes bounce instead of crawl, making them significantly faster. Many find this bouncy nature cute, but for the slimes themselves, it is a means of survival. They typically live on mountains and hills where they can leap off cliffs and roll down inclines at breakneck speeds, fleeing from threats in pathetic but effective fashion.
 traits:
 - trait_1: Amorphous
   description: The slime can move through a space as narrow as 1 inch without expending extra movement to do so.
