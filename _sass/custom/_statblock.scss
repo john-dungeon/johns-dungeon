@@ -16,7 +16,7 @@ $statblock-inset: 1rem;
   p { margin: 0.5rem 0; }
 }
 
-.st-dialog:has(.statblock) .st-dialog-title { display: none; }
+.st-dialog:has(.statblock) .st-dialog-header { border-bottom: 0; }
 
 .statblock .statblock-name {
   margin: 0.5rem 0 0;
