@@ -67,6 +67,20 @@ description: This magic weapon is made of adamantine, an alloy made of iron and 
 
 ---
 
+name: Alarcon's Longbow
+type: Weapon
+note_type: Longbow
+rarity: Legendary
+attunement: true
+cost: 450050
+weight: 2
+tags: Buff, Command Word, Extra Damage, Magic Item
+description: This magic weapon ignores Resistance to Piercing damage.
+
+When you use this weapon to make a ranged attack against a creature that hasn't taken a turn yet in the current combat, you can utter the following command words: "From the pit where the moonlight goes to die, I summon the dusk to blot out the sky. Let the gloom be my quiver, the void be my string, and the hush of the grave be the only thing. Before the first breath of the fight can start, loose the midnight arrow and still their heart." You have Advantage on that attack roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, the target dies if it has 100 Hit Points or fewer. Otherwise, it takes an extra 12d12 Piercing damage from the attack. If the target has Legendary Resistance, it can expend one daily use of that trait to avoid dying, taking the extra damage instead. Once you use this property, you can't use it again until you roll Initiative.
+
+---
+
 name: Amulet of Experience
 type: Wondrous Item
 rarity: Artifact
@@ -481,7 +495,7 @@ name: Glass Vorpal Sword
 type: Weapon
 note_type: Glaive, Greatsword, Longsword, or Scimitar
 rarity: Legendary
-attunement: false
+attunement: true
 cost: Varies
 options_cost: 160015-160050
 note_cost: +160,000 GP to normal counterpart
