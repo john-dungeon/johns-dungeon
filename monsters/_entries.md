@@ -18,7 +18,6 @@ senses: Blindsight 60 ft.
 languages: None
 cr: 0.125
 settings: Erisia
-tags: Slime, Gay
 flavor: Unlike other slimes, blue slimes bounce instead of crawl, making them significantly faster. Many find this bouncy nature cute, but for the slimes themselves, it is a means of survival. They typically live on mountains and hills where they can leap off cliffs and roll down inclines at breakneck speeds, fleeing from threats in pathetic but effective fashion.
 traits:
 - trait_1: Amorphous
@@ -53,7 +52,7 @@ cha: 6
 resistances: Piercing, Slashing
 immunities: Poison, Psychic; Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Restrained
 senses: Tremorsense 40 ft.; always Blinded
-languages: Common; telepathy 300 ft. (only with other **Stone Sentinels** and **{% include entry-link.html table="monsters" name="Stone Warden" text="Stone Wardens" %}**)
+languages: Common; telepathy 300 ft. (only with other **Stone Sentinels** and **{% include entry-link.html name="Stone Warden" text="Stone Wardens" %}**)
 cr: 6
 settings: Jingyu City
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
@@ -91,7 +90,7 @@ skills: Perception +8
 resistances: Piercing, Slashing
 immunities: Poison, Psychic; Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Restrained
 senses: Tremorsense 120 ft.; always Blinded
-languages: Common; telepathy 300 ft. (only with other **{% include entry-link.html table="monsters" name="Stone Sentinel" text="Stone Sentinels" %}** and **Stone Wardens**)
+languages: Common; telepathy 300 ft. (only with other **{% include entry-link.html name="Stone Sentinel" text="Stone Sentinels" %}** and **Stone Wardens**)
 cr: 8
 settings: Jingyu City
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
