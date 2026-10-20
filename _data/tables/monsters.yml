@@ -1,5 +1,6 @@
 template: monster
 noun: monsters
+dialog: statblock
 default_sort: cr
 tags: [Boss, Legendary, Spellcaster, Swarm]
 auto_tags:
