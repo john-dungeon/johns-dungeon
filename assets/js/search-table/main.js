@@ -3,6 +3,7 @@ import { prepareColumns, prepareTags, readRecords, flagUnlisted } from './record
 import { createQueryParser, matchesQuery } from './query.js';
 import { newFilters, matchesFilters, activeFilterCount, buildPanel } from './filters.js';
 import { createDialog } from './dialog.js';
+import { watchHash } from './deeplink.js';
 
 function init(root) {
   if (root.dataset.ready) return;
@@ -121,6 +122,7 @@ function init(root) {
 
   buildPanel(filterPanel, { columns, tags, state, limits, onChange: render });
   render();
+  watchHash(root, records, openItem);
 }
 
 document.querySelectorAll('.search-table').forEach(init);
