@@ -97,7 +97,7 @@ $slider-height: 1.5rem;
 .st-dialog {
   @include outlined(0.6rem);
   width: min(60rem, calc(100% - 2rem));
-  margin: 0.75rem 0 0.25rem;
+  margin: 0.25rem 0 0.75rem;
   max-height: 85vh;
   padding: 0;
   overflow: hidden;
@@ -117,11 +117,11 @@ $slider-height: 1.5rem;
 .st-dialog-header {
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 0.1rem;
+  padding-bottom: 0.25rem;
   border-bottom: 1px solid $link-color;
 }
 
-.st-dialog-title { margin: 0.75rem 0 0.15rem; }
+.st-dialog-title { margin: 0.25rem 0 0.25rem; }
 
 .st-dialog-close {
   padding: 0.2rem 0.5rem;
