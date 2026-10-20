@@ -1,6 +1,5 @@
 {%- capture ms_nl %}
 {% endcapture -%}
-{%- capture ms_name %}{% include table/field.html packed=include.packed key="name" %}{% endcapture -%}
 {%- capture ms_size %}{% include table/field.html packed=include.packed key="size" %}{% endcapture -%}
 {%- capture ms_type %}{% include table/field.html packed=include.packed key="type" %}{% endcapture -%}
 {%- capture ms_alignment %}{% include table/field.html packed=include.packed key="alignment" %}{% endcapture -%}
@@ -97,10 +96,6 @@
 
 {%- assign ms_flavor_md = "" -%}
 {%- if ms_flavor != "" -%}{%- assign ms_flavor_md = "> *" | append: ms_flavor | append: "*" -%}{%- endif -%}
-<div class="statblock" markdown="1">
-
-<h3 class="statblock-name">{{ ms_name | escape }}</h3>
-
 *{{ ms_summary }}*
 {: .statblock-type }
 
@@ -115,5 +110,3 @@
 {{ ms_props }}
 
 {{ ms_sections }}{{ ms_flavor_md }}
-
-</div>
