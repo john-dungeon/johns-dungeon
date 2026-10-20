@@ -67,8 +67,9 @@
     {%- assign row_cells = row_cells | append: td_html -%}
   {%- endfor -%}
 
+  {%- assign entry_slug = entry_name | slugify -%}
   {%- capture row_html -%}
-  <tr class="st-row" tabindex="0" data-id="{{ forloop.index }}" data-tag-names="{{ tags_csv | escape }}"{{ row_attrs }}>
+  <tr class="st-row" id="{{ entry_slug }}" tabindex="0" data-tag-names="{{ tags_csv | escape }}"{{ row_attrs }}>
     <td><span class="st-name">{{ entry_name | escape }}</span>{{ marker_html }}</td>
     {{ row_cells }}
   </tr>
@@ -76,7 +77,7 @@
 
   {%- capture popup_md %}{% include {{ template_file }} packed=packed %}{% endcapture -%}
   {%- capture detail_html -%}
-  <div data-for="{{ forloop.index }}">{{ popup_md | markdownify }}</div>
+  <div data-for="{{ entry_slug }}">{{ popup_md | markdownify }}</div>
   {%- endcapture -%}
 
   {%- assign rows_html = rows_html | append: row_html -%}
