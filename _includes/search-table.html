@@ -114,7 +114,7 @@
 
   <div class="st-details" hidden>{{ details_html }}</div>
 
-  <dialog class="st-dialog" aria-label="Details">
+  <dialog class="st-dialog{% if cfg.dialog %} st-dialog--{{ cfg.dialog | escape }}{% endif %}" aria-label="Details">
     <div class="st-dialog-inner">
       <div class="st-dialog-header">
         <button type="button" class="st-dialog-close" aria-label="Close">✕</button>
