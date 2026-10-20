@@ -23,7 +23,7 @@ search_exclude: true
   - `_base` – links, scrollbar, the `.indent` class, and the animation speed `--motion-duration`.
   - `_tables` – flat, striped tables.
   - `_search-table` – everything for search tables.
-  - `_statblock` – monster stat blocks. It also hides the popup's own title when the popup holds a stat block, because the stat block shows the name itself.
+  - `_statblock` – the monster popup: the `st-dialog--statblock` popup style (name, border, close button) and the stat block's inner parts.
   - `_navbar-toggle` – the nav bar hide/show button and slide animation.
   - `_tooltip` – the hover bubble.
   - `_dropdown` – collapsible `<details>` sections.
@@ -163,6 +163,7 @@ Indent anything that starts with `- ` inside a description (like a bullet list) 
 - `condition` is added to the end of the casting time exactly as written, so begin it with its own punctuation, like `condition: , which you take when you are hit by an attack roll`.
 
 **Monsters** (`monster.md`): `name`, `size`, `type`, `alignment`, `ac`, `initiative`, `hp`, `speed`, `str`–`cha`, `saves`, `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages`, `cr`, `settings`, `tags`, `flavor`, and the sections `traits`, `actions`, `bonus_actions`, `reactions`, `legendary_actions`.
+- `name` is also the stat block's title: the popup shows it once, in the name position.
 - `size` and `type` can list several values. Sizes are joined with "or" and types with "and", in the order written.
 - The scores `str`–`cha` give modifiers and saves automatically. `saves: Dex, Wis` adds the Proficiency Bonus to those saves.
 - `cr` is a plain number, with fractions as decimals (`0.125`, `0.25`, `0.5`). The Proficiency Bonus and XP come from `_data/challenge.yml`. The search box doesn't understand `1/2`; search `cr:0.5`.
@@ -178,6 +179,7 @@ Indent anything that starts with `- ` inside a description (like a bullet list) 
 - `default_sort` – column key (default: the first column).
 - `default_dir` – `asc` or `desc` (default: `asc`).
 - `placeholder` – search box hint text.
+- `dialog` – optional popup style. Adds the class `st-dialog--NAME` to the popup. Only `statblock` exists (monsters); leave it out for the normal popup.
 - `tags` – the tags the Filter panel offers, in the order shown, even if no entry uses them yet. A tag an entry uses that isn't listed appears in red in its popup. `tags: false` hides tags in the Filter panel and popup.
 - `limit_default` (100), `limit_min` (25), `limit_max` (500), `limit_step` (25).
 - `markers` – a list of markers, each with `symbol`, `tag`, `color_by` (the entry field whose value picks the color from `$marker-colors`), and `label` (hover text prefix).
