@@ -1,0 +1,4 @@
+{%- assign el_slug = include.name | slugify -%}
+{%- assign el_path = "/" | append: include.table | append: "/" | relative_url -%}
+{%- assign el_label = include.text | default: include.name | escape -%}
+{{- '<a href="' | append: el_path | append: '#' | append: el_slug | append: '">' | append: el_label | append: '</a>' -}}
