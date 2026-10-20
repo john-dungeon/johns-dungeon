@@ -2,6 +2,7 @@
 // Behavior: assets/js/search-table/...
 $slider-thumb-size: 1rem;
 $slider-height: 1.5rem;
+$dialog-line-gap: 0.75rem;
 
 @mixin slider-thumb {
   box-sizing: border-box;
@@ -97,7 +98,6 @@ $slider-height: 1.5rem;
 .st-dialog {
   @include outlined(0.6rem);
   width: min(60rem, calc(100% - 2rem));
-  margin: 0.25rem 0 0.75rem;
   max-height: 85vh;
   padding: 0;
   overflow: hidden;
@@ -121,7 +121,7 @@ $slider-height: 1.5rem;
   border-bottom: 1px solid $link-color;
 }
 
-.st-dialog-title { margin: 0.25rem 0 0.25rem; }
+.st-dialog .st-dialog-title { margin: $dialog-line-gap 0 0.5rem; }
 
 .st-dialog-close {
   padding: 0.2rem 0.5rem;
@@ -134,13 +134,15 @@ $slider-height: 1.5rem;
 
 .st-dialog-tags {
   @include muted(0.9rem);
-  margin-top: 0.5rem;
-  padding-top: 0.75rem;
+  margin-top: $dialog-line-gap;
+  padding-top: $dialog-line-gap;
   border-top: 1px solid $link-color;
   &:empty { display: none; }
 }
 
 .st-dialog-body table { @include fit-table(0.5rem 0.75rem); }
+.st-dialog-body > :first-child { margin-top: 0; }
+.st-dialog-body > :last-child { margin-bottom: 0; }
 
 // Filter
 .st-filter-panel {
