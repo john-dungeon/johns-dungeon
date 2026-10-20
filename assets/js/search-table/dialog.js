@@ -13,7 +13,7 @@ export function createDialog(root, tags) {
   });
 
   return function openItem(row) {
-    const source = root.querySelector(`.st-details [data-for="${row.dataset.id}"]`);
+    const source = root.querySelector(`.st-details [data-for="${row.id}"]`);
 
     title.textContent = row.querySelector('.st-name').textContent;
     dialog.setAttribute('aria-label', title.textContent);
