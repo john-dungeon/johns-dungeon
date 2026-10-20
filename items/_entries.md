@@ -569,7 +569,7 @@ This weapon has the following special mastery property. To use this property, yo
 
 | Name | Cost | Damage | Weight | Properties |
 | :---: | :---: | :---: | :---: | :---: |
-| Warbow | 30 GP | 1d6 Slashing | 2 lb. | Finesse, Light, Dismantle |
+| Hook Sword | 30 GP | 1d6 Slashing | 2 lb. | Finesse, Light, Dismantle |
 {: .catalog }
 
 ---
