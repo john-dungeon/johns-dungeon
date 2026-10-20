@@ -2,7 +2,6 @@
 // Behavior: assets/js/search-table/...
 $slider-thumb-size: 1rem;
 $slider-height: 1.5rem;
-$dialog-line-gap: 1rem;
 
 @mixin slider-thumb {
   box-sizing: border-box;
@@ -122,7 +121,7 @@ $dialog-line-gap: 1rem;
   padding-bottom: 0.25rem;
 }
 
-.st-dialog .st-dialog-title { margin: $dialog-line-gap 0 0.25rem; }
+.st-dialog .st-dialog-title { margin: 1rem 0 0.25rem; }
 
 .st-dialog-close {
   padding: 0.2rem 0.5rem;
@@ -135,7 +134,7 @@ $dialog-line-gap: 1rem;
 
 .st-dialog-tags {
   @include muted(0.9rem);
-  margin-top: $dialog-line-gap;
+  margin-top: 1rem;
   &:empty { display: none; }
 }
 
