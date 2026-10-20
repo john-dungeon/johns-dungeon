@@ -118,6 +118,8 @@ $slider-height: 1.5rem;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid $border-color;
 }
 
 .st-dialog-title { margin: 0; }
@@ -134,10 +136,13 @@ $slider-height: 1.5rem;
 
 .st-dialog-tags {
   @include muted(0.9rem);
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid $border-color;
   &:empty { display: none; }
 }
 
+.st-dialog-body { margin-top: 1rem; }
 .st-dialog-body table { @include fit-table(0.5rem 0.75rem); }
 
 // Filter
