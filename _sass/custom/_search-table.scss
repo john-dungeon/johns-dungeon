@@ -97,6 +97,8 @@ $dialog-line-gap: 1rem;
 // Pop-Up
 .st-dialog {
   @include outlined(0.6rem);
+  border-top: 4px solid $link-color;
+  border-bottom: 4px solid $link-color;
   width: min(60rem, calc(100% - 2rem));
   max-height: 85vh;
   padding: 0;
@@ -118,7 +120,6 @@ $dialog-line-gap: 1rem;
   display: flex;
   justify-content: flex-end;
   padding-bottom: 0.25rem;
-  border-bottom: 1px solid $link-color;
 }
 
 .st-dialog .st-dialog-title { margin: $dialog-line-gap 0 0.25rem; }
@@ -135,8 +136,6 @@ $dialog-line-gap: 1rem;
 .st-dialog-tags {
   @include muted(0.9rem);
   margin-top: $dialog-line-gap;
-  padding-top: $dialog-line-gap;
-  border-top: 1px solid $link-color;
   &:empty { display: none; }
 }
 
