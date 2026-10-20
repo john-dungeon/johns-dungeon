@@ -139,7 +139,6 @@ $slider-height: 1.5rem;
   &:empty { display: none; }
 }
 
-.st-dialog-body { margin-top: 1rem; }
 .st-dialog-body table { @include fit-table(0.5rem 0.75rem); }
 
 // Filter
