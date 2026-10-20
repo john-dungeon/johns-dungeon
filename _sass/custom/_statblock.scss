@@ -8,21 +8,9 @@ $statblock-inset: 1rem;
   width: min(42rem, calc(100% - 2rem));
   background: $body-background-color;
 
-  .st-dialog-inner {
-    position: relative;
-    padding: 0.25rem $statblock-inset 0.75rem;
-  }
-
-  .st-dialog-header {
-    position: absolute;
-    top: 0.9rem;
-    right: 0.5rem;
-    padding: 0;
-  }
+  .st-dialog-inner { padding: 0.75rem $statblock-inset; }
 
   .st-dialog-title {
-    margin: 0.5rem 0 0;
-    padding-right: 2.5rem;
     color: $body-heading-color;
     font-size: $statblock-name-size !important;
     line-height: 1.1;
