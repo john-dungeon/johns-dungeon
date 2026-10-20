@@ -6,8 +6,6 @@ $statblock-inset: 1rem;
 
 .st-dialog--statblock {
   width: min(42rem, calc(100% - 2rem));
-  border-top: 4px solid $link-color;
-  border-bottom: 4px solid $link-color;
   background: $body-background-color;
 
   .st-dialog-inner {
@@ -17,10 +15,9 @@ $statblock-inset: 1rem;
 
   .st-dialog-header {
     position: absolute;
-    top: 0.25rem;
+    top: 0.9rem;
     right: 0.5rem;
     padding: 0;
-    border-bottom: 0;
   }
 
   .st-dialog-title {
