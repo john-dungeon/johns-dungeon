@@ -23,7 +23,7 @@ search_exclude: true
   - `_base` – links, scrollbar, the `.indent` class, and the animation speed `--motion-duration`.
   - `_tables` – flat, striped tables.
   - `_search-table` – everything for search tables.
-  - `_statblock` – the monster popup: the `st-dialog--statblock` popup style (name, border, close button) and the stat block's inner parts.
+  - `_statblock` – the monster popup: the `st-dialog--statblock` popup style (width, background, name) and the stat block's inner parts.
   - `_navbar-toggle` – the nav bar hide/show button and slide animation.
   - `_tooltip` – the hover bubble.
   - `_dropdown` – collapsible `<details>` sections.
