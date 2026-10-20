@@ -34,6 +34,7 @@ search_exclude: true
 - `backlink.html` – the automatic "Back to..." link in the footer.
 - `404.html` – the "not constructed yet" message.
 - `head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – theme hook points.
+- `entry-link.html` – a link that opens an entry's popup: `{% include entry-link.html table="monsters" name="Blue Slime" text="optional" %}`.
 - `table/` – helpers for `search-table.html`:
   - `parse-entry.html` – turns an entry's text into packed fields.
   - `field.html` – reads one field from the packed fields.
@@ -49,6 +50,7 @@ search_exclude: true
 ### Scripts (`assets/js/`)
 - `theme-switcher.js`, `tooltips.js`, and `navbar-toggle.js` (remembers whether the navigation sidebar is hidden).
 - `search-table/` – one file per job. `main.js` is the entry point.
+- `deeplink.js` – opens a popup when the URL ends in `#entry-name` (the name, lowercased with hyphens).
 
 ### Content Folders
 - `feats/`, `items/`, `monsters/`, `rules/`, `settings/`, `species/`, `spells/`, `subclasses/`. Each has an `index.md`.
@@ -134,6 +136,7 @@ Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on 
 - `tags` – comma-separated, shown in the popup.
 - `options_KEY` (e.g. `options_rarity`) – lists other values the entry counts as for search and filters. Excluding hides the entry only if all of its values are excluded.
 - On number columns, `options_cost` and `options_weight` list amounts or ranges instead, like `options_cost: 50, 200, 3-36`. Use plain numbers, no thousands commas. A slider or Min/Max filter keeps the entry if any listed amount or range overlaps it.
+- Entry names must be unique within a table: each row's `id` is its slugified name, and links rely on it.
 
 ### Named Lists (traits, actions, and so on)
 Fields such as species `traits` and monster `traits` / `actions` use indented list items. The first key's name is ignored (`trait_1`, `action_2`, anything); its value is the item's title.
