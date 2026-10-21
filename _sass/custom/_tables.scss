@@ -20,4 +20,6 @@ table.catalog {
   box-shadow: none;
 }
 
+.table-wrapper:has(.st-table) { margin-bottom: 0.5rem; }
+
 .table-wrapper .table-wrapper { margin-bottom: 0; }
