@@ -12,18 +12,21 @@ This is the Items aisle, where John Dungeon's weird little curios are housed.
 <summary markdown="span">**Augments**</summary>
 
 Placeholder text
+
 </details>
 
 <details markdown="1">
 <summary markdown="span">**Ingredients**</summary>
 
 Placeholder text
+
 </details>
 
 <details markdown="1">
 <summary markdown="span">**Implants**</summary>
 
 Placeholder text
+
 </details>
 
 {::nomarkdown}
