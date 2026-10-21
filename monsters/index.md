@@ -12,6 +12,7 @@ This is the Monsters aisle, which holds John Dungeon's bestiary spanning multipl
 <summary markdown="span">**Boss Monsters**</summary>
 
 Placeholder text
+
 </details>
 
 {::nomarkdown}
