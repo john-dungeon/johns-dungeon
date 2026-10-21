@@ -140,6 +140,21 @@ The Antimagic Bomb can't affect Artifacts or spells cast by an Artifact or a dei
 
 ---
 
+name: Antimagic Manacles
+type: Wondrous Item
+rarity: Very Rare
+attunement: false
+cost: 47506
+weight: 6
+tags: Magic Item, Saving Throw, Spell
+description: As a Utilize action, you can use the manacles on a Small or Medium creature within 5 feet of yourself that has the Grappled, Incapacitated, or Restrained condition. The target must succeed on a Strength or Dexterity saving throw (it chooses which) (DC 8 plus your Strength modifier and Proficiency Bonus) or become bound by the manacles.
+
+While bound in this way, the creature has the Restrained condition and the effects of the *Antimagic Field* spell are active in a 5-foot Emanation originating from it.
+
+The creature remains bound until another creature within 5 feet of it takes 1 minute to unlock the manacles. Alternatively, the creature can take an action to make a DC 25 Dexterity (Sleight of Hand) check, escaping the manacles on a success. If the manacles take damage from a *Disintegrate* spell, they are destroyed; nothing else can break or harm them.
+
+---
+
 name: Bagpipes of Invisibility
 type: Wondrous Item
 note_type: Bagpipes
