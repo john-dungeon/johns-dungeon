@@ -77,7 +77,7 @@ function init(root) {
     let text = `Showing ${shown.length} of ${matched.length} ${config.noun || 'entries'}`;
     if (matched.length !== records.length) text += ` (Filtered from ${records.length})`;
     if (shown.length < matched.length && state.limit < limits.max) {
-      text += ' \u00b7 raise the limit under Filter to see more';
+      text += ' \u00b7 Raise the limit under Filter to see more';
     }
     count.textContent = text;
     empty.hidden = matched.length !== 0;
