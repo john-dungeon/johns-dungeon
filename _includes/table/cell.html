@@ -4,7 +4,7 @@
 {%- if include.col.in_table == false -%}
   {%- assign cl_attrs = ' class="st-extra"' -%}
 {%- elsif include.cell == "" and include.col.blank_as == nil -%}
-  {%- assign cl_missing = "Missing " | append: include.col.label -%}
+  {%- assign cl_missing = site.data.strings.table_missing | replace: "{label}", include.col.label -%}
   {%- capture cl_attrs %} class="st-missing"{% include tooltip.html text=cl_missing %}{% endcapture -%}
 {%- else -%}
   {%- assign cl_attrs = "" -%}
