@@ -21,7 +21,7 @@ html { scrollbar-color: $nav-child-link-color $sidebar-color; }
 // Kramdown: {: .italic }
 .italic { font-style: italic; }
 
-:root { --motion-duration: 0.3s; }
+:root { --motion-duration: #{$motion-duration}; }
 
 @media (prefers-reduced-motion: reduce) {
   :root { --motion-duration: 0s; }
