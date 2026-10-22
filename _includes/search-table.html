@@ -77,7 +77,7 @@
 
   {%- capture popup_md %}{% include {{ template_file }} packed=packed %}{% endcapture -%}
   {%- capture detail_html -%}
-  <div data-for="{{ entry_slug }}">{{ popup_md | markdownify }}</div>
+  <div data-for="{{ entry_slug }}">{% include text.html text=popup_md block=true table=include.data %}</div>
   {%- endcapture -%}
 
   {%- assign rows_html = rows_html | append: row_html -%}
