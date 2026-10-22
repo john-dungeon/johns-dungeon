@@ -15,15 +15,8 @@
     <span class="st-symbol" role="img" aria-label="{{ cl_label | escape }}"{% include tooltip.html text=cl_label %}>{{ cl_symbol }}</span>
   {%- elsif include.cell == "" -%}—
   {%- elsif include.col.symbols -%}{{ cl_shown | escape }}
-  {%- elsif include.col.format == "money" -%}
-    {%- include table/money.html amount=include.cell -%}
-  {%- elsif include.col.format == "weight" -%}
-    {%- include table/weight.html amount=include.cell -%}
-  {%- elsif include.col.format == "cr" -%}
-    {%- include table/cr.html amount=include.cell -%}
-  {%- elsif include.col.type == "number" -%}
-    {%- assign cl_num = include.cell | plus: 0 | append: "" -%}
-    {%- if cl_num == include.cell -%}{{ include.col.prefix | escape }}{{ include.cell }}{{ include.col.suffix | escape }}{%- else -%}{{ include.cell | escape }}{%- endif -%}
+  {%- elsif include.col.format or include.col.type == "number" -%}
+    {%- include table/format.html col=include.col amount=include.cell -%}
   {%- else -%}
     {%- assign cl_text = include.cell -%}
     {%- assign cl_note_l = include.note | downcase -%}
