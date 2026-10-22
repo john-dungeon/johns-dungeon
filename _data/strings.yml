@@ -1,0 +1,18 @@
+# Non-Page Content Site Wording
+# Text supports Markdown and [[links]]. {name} marks a spot the site fills in.
+
+# Navigation, Footer
+nav_footer: "It's rather dark down here... Try not to get lost, my friend."
+nav_toggle: Toggle nav bar
+back_to: "← Back to {title}"
+theme_button: Theme
+unfinished: "Wait! This part of the archive hasn't been constructed yet. How about we come back later when it is?"
+
+# Search Table
+table_placeholder: 'Search names, or filter with tag:"word".'
+table_search: Search
+table_filter: Filter
+table_empty: No matches found.
+table_details: Details
+table_close: Close
+table_missing: "Missing {label}"
