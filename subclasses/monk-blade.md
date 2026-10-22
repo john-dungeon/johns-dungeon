@@ -2,8 +2,10 @@
 title: Warrior of the Blade
 parent: Monk
 grand_parent: Subclasses
+layout: wiki
 tagline: Become the Pinnacle of Swordsmanship
 summary: A Monk subclass specialized in high damage and the ability to use anything as a weapon.
+quote: Most of the sword styles that I've seen usually have some sort of gimmick, like using a flying sword or imbuing one with unquenchable flames. I suppose, then, the gimmick of this one is that it has no gimmick—just one sharp blade to face the world.
 ---
 
 # **Warrior of the Blade**
