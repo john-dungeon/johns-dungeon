@@ -1,0 +1,13 @@
+# Settings
+motion_duration: 0.3s # All Slide/Fade Animation Speed
+motion_ease: cubic-bezier(0.65, 0, 0.35, 1)
+tooltip_width: 18rem # Widest Hover Bubble
+dialog_width: 60rem # Widest Text Pop-Up
+statblock_width: 42rem # Widest Stat Block Pop-Up
+marker_colors: # Rarity Symbol Color
+  common: "#8c969b"
+  uncommon: "#73d746"
+  rare: "#50a0f5"
+  very rare: "#c850fa"
+  legendary: "#ffc846"
+  artifact: "#fa2323"
