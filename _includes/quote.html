@@ -1,2 +1,3 @@
-{%- capture qt_md -%}> *"{{ include.text }}"*{%- endcapture -%}
-{{- qt_md | markdownify -}}
+{%- capture qt_md -%}> "{{ include.text }}"
+{: .italic }{%- endcapture -%}
+{% include text.html text=qt_md block=true %}
