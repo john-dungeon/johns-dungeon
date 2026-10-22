@@ -5,7 +5,7 @@ const TYPES = {
   list: { multi: true },
   rank: { ranked: true, exact: true },
   measure: { ranked: true },
-  number: { ranked: true, numeric: true } 
+  number: { ranked: true, numeric: true }
 };
 
 const AMOUNTS = '...';
@@ -38,6 +38,7 @@ function prepareColumn(col, index, lists) {
   Object.assign(col, TYPES[col.type]);
   if (col.match) col.exact = col.match === 'exact';
 
+  // "order" is a list, or the name of a shared list in _data/lists.yml.
   const shared = typeof col.order === 'string';
   const source = shared ? lists[col.order] : col.order;
   if (shared && !source) console.warn(`Unknown list "${col.order}" in column "${col.key}"`);
