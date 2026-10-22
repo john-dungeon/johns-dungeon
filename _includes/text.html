@@ -1,0 +1,33 @@
+{%- comment -%}
+  Universal Text Formatter
+  Params: text (required), block=true (keep paragraph format), table (default table for [[Name]] links; defaults to the page's table).
+  Link syntax: [[Name]], [[Name|label]], [[table:Name]], [[table:Name|label]]
+{%- endcomment -%}
+
+{%- assign tx_table = include.table | default: page.table -%}
+{%- assign tx_parts = include.text | split: "[[" -%}
+{%- capture tx_md -%}
+  {{- tx_parts.first -}}
+  {%- for tx_part in tx_parts offset: 1 -%}
+    {%- assign tx_pair = tx_part | split: "]]" -%}
+    {%- assign tx_ref = tx_pair.first | split: "|" -%}
+    {%- assign tx_dest = tx_ref.first | split: ":" -%}
+    {%- if tx_dest.size > 1 -%}
+      {%- assign tx_from = tx_dest[0] | strip -%}
+      {%- assign tx_name = tx_dest[1] | strip -%}
+    {%- else -%}
+      {%- assign tx_from = tx_table -%}
+      {%- assign tx_name = tx_dest[0] | strip -%}
+    {%- endif -%}
+    {%- assign tx_label = tx_ref[1] | default: tx_name | strip -%}
+    {%- assign tx_slug = tx_name | slugify -%}
+    <a href="{{ '/' | append: tx_from | append: '/' | relative_url }}#{{ tx_slug }}">{{ tx_label }}</a>
+    {{- tx_part | remove_first: tx_pair.first | remove_first: "]]" -}}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign tx_html = tx_md | markdownify -%}
+{%- if include.block -%}
+  {{- tx_html -}}
+{%- else -%}
+  {{- tx_html | strip | remove_first: "<p>" | remove: "</p>" -}}
+{%- endif -%}
