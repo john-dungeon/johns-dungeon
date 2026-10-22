@@ -18,6 +18,9 @@ html { scrollbar-color: $nav-child-link-color $sidebar-color; }
 // Kramdown: {: .indent }
 .indent { margin-left: 2rem; }
 
+// Kramdown: {: .italic }
+.italic { font-style: italic; }
+
 :root { --motion-duration: 0.3s; }
 
 @media (prefers-reduced-motion: reduce) {
