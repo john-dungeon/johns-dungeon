@@ -39,7 +39,8 @@
 {%- if sp_duration_l == "concentration" and sp_concentration_max != "" -%}
   {%- assign sp_duration_text = sp_duration | append: ", up to " | append: sp_concentration_max -%}
 {%- endif -%}
-*{{ sp_header }}*
+{{ sp_header }}
+{: .italic }
 
 **Casting Time:** {{ sp_cast }}\
 **Range:** {{ sp_range }}\
