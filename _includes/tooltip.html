@@ -1,0 +1,3 @@
+{%- capture tt_html -%}{% include text.html text=include.text %}{%- endcapture -%}
+{%- assign tt_attr = tt_html | escape -%}
+{{- ' data-tooltip="' | append: tt_attr | append: '"' -}}
