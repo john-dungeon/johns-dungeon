@@ -98,7 +98,7 @@ $slider-height: 1.5rem;
   @include outlined(0.6rem);
   border-top: 4px solid $link-color;
   border-bottom: 4px solid $link-color;
-  width: min(60rem, calc(100% - 2rem));
+  width: min(#{$dialog-width}, calc(100% - 2rem));
   max-height: 85vh;
   padding: 0;
   overflow: hidden;
