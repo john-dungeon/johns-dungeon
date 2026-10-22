@@ -1,0 +1,4 @@
+# Shared Lists for Search Tables ("order: LISTNAME")
+settings: [Big Blue, City 13, Drachenfell, Erisia, Great Luminant, Hiraeth, Jingyu City, New Moon City, Solachia]
+creature_types: [Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant, Undead]
+sizes: [Tiny, Small, Medium, Large, Huge, Gargantuan]
