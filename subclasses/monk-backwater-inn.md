@@ -35,7 +35,3 @@ If you fail an Intelligence, Wisdom, or Charisma saving throw, you can expend 2 
 
 ## **Level 17: Backwater Guardian**
 You have two extra Reactions that can be used only for your Deflect Attacks and Protect the Customer features. You can use only one Reaction per trigger.
-
----
-
-> *"I learned this martial art from a jaded innkeeper. Quite the temper, that fellow, but it's understandable if you knew his plight."*
