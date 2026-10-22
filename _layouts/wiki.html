@@ -3,9 +3,9 @@ layout: default
 ---
 <h1><strong>{{ page.title }}</strong></h1>
 {%- if page.tagline %}
-<p><em>{{ page.tagline }}</em></p>
+<p><em>{% include text.html text=page.tagline %}</em></p>
 {%- endif %}
-{{ page.intro | markdownify }}
+{% include text.html text=page.intro block=true %}
 {{ content }}
 {%- if page.catalog %}
 {% include catalog.html parent=page.title grand_parent=page.catalog.grand_parent group_by=page.catalog.group_by columns=page.catalog.columns max_columns=page.catalog.max_columns %}
