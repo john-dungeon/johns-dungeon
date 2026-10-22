@@ -10,7 +10,7 @@
 {%- capture ms_saves %}{% include table/field.html packed=include.packed key="saves" %}{% endcapture -%}
 {%- capture ms_skills %}{% include table/field.html packed=include.packed key="skills" %}{% endcapture -%}
 {%- capture ms_cr %}{% include table/field.html packed=include.packed key="cr" %}{% endcapture -%}
-{%- if ms_flavor != "" -%}{%- assign ms_flavor_md = "> " | append: ms_flavor | append: ms_nl | append: "{: .italic }" -%}{%- endif -%}
+{%- capture ms_flavor %}{% include table/field.html packed=include.packed key="flavor" %}{% endcapture -%}
 
 {%- assign ms_challenge = site.data.challenge | where: "cr", ms_cr | first -%}
 {%- assign ms_pb = ms_challenge.pb -%}
@@ -95,7 +95,7 @@
 {%- endcapture -%}
 
 {%- assign ms_flavor_md = "" -%}
-{%- if ms_flavor != "" -%}{%- assign ms_flavor_md = "> *" | append: ms_flavor | append: "*" -%}{%- endif -%}
+{%- if ms_flavor != "" -%}{%- assign ms_flavor_md = "> " | append: ms_flavor | append: ms_nl | append: "{: .italic }" -%}{%- endif -%}
 *{{ ms_summary }}*
 {: .statblock-type }
 
