@@ -1,0 +1,16 @@
+// Settings
+$motion-duration: 0.3s !default; // All Slide/Fade Animation Speed
+$motion-ease: cubic-bezier(0.65, 0, 0.35, 1) !default;
+$tooltip-width: 18rem !default; // Widest Hover Bubble
+$dialog-width: 60rem !default; // Widest Text Pop-Up
+$statblock-width: 42rem !default; // Widest Stat Block Pop-Up
+$marker-colors: (
+  "common": #8c969b,
+  "uncommon": #73d746,
+  "rare": #50a0f5,
+  "very rare": #c850fa,
+  "legendary": #ffc846,
+  "artifact": #fa2323
+) !default; // Rarity Symbol Color
+$theme-body-font: null !default; // Body Text Font
+$theme-heading-font: null !default; // Heading Text Font
