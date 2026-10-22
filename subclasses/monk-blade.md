@@ -41,7 +41,3 @@ When you take the Attack action on your turn, you can expend up to 3 Focus Point
 
 ## **Level 17: Execute**
 Once per turn when you deal Force damage to a creature with a Melee weapon, you can expend 5 Focus Points to force that creature to make a Constitution saving throw. On a failed save, the target dies if it has 80 Hit Points or fewer; otherwise, the creature takes 10d12 Force damage. On a successful save, the target takes half as much damage.
-
----
-
-> *"Most of the sword styles that I've seen usually have some sort of gimmick, like using a flying sword or imbuing one with unquenchable flames. I suppose, then, the gimmick of this one is that it has no gimmick—just one sharp blade to face the world."*
