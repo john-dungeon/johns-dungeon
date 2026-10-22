@@ -44,38 +44,13 @@
     }
   }
 
-// Bold and Italic Markdown
-  function addFormatted(line) {
-    const pattern = /\*\*(.+?)\*\*|\*(.+?)\*/g;
-    let last = 0;
-    let match;
-    while ((match = pattern.exec(line)) !== null) {
-      tip.append(line.slice(last, match.index));
-      const isBold = match[1] !== undefined;
-      const node = document.createElement(isBold ? 'strong' : 'em');
-      node.textContent = isBold ? match[1] : match[2];
-      tip.append(node);
-      last = pattern.lastIndex;
-    }
-    tip.append(line.slice(last));
-  }
-
-// Line Break Markdown
-  function fill(text) {
-    tip.textContent = '';
-    text.split(/\s*\\\s*/).forEach((line, index) => {
-      if (index > 0) tip.append(document.createElement('br'));
-      addFormatted(line);
-    });
-  }
-
   function show(target) {
     const text = target.getAttribute('data-tooltip');
     if (!text) return;
     ensureTip();
     hide();
     current = target;
-    fill(text);
+    tip.innerHTML = text;
     tip.classList.add('is-open');
     if (supportsPopover) {
       try { tip.showPopover(); } catch (e) {}
