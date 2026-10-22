@@ -72,5 +72,6 @@
 {{ it_description }}
 {%- if it_setting_line != "" %}
 
-> ***Setting-Specific.*** *{{ it_setting_line }}*
+> ***Setting-Specific.*** {{ it_setting_line }}
+{: .italic }
 {%- endif %}
