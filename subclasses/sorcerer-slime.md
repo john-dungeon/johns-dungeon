@@ -4,6 +4,6 @@ parent: Sorcerer
 grand_parent: Subclasses
 tagline: Placeholder
 summary: extra squishy magic creature
+unfinished: true
 ---
 
-{% include 404.html %}

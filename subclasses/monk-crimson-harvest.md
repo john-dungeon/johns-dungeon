@@ -4,6 +4,6 @@ parent: Monk
 grand_parent: Subclasses
 tagline: Placeholder
 summary: evil monk plays around with hp and hit dice
+unfinished: true
 ---
 
-{% include 404.html %}

@@ -4,6 +4,6 @@ parent: Wizard
 grand_parent: Subclasses
 tagline: Placeholder
 summary: he controls chaos yo
+unfinished: true
 ---
 
-{% include 404.html %}

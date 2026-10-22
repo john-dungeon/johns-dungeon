@@ -4,6 +4,6 @@ parent: Barbarian
 grand_parent: Subclasses
 tagline: Placeholder
 summary: high jumper and aoe slammer
+unfinished: true
 ---
 
-{% include 404.html %}

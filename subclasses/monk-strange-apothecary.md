@@ -4,6 +4,6 @@ parent: Monk
 grand_parent: Subclasses
 tagline: Placeholder
 summary: poison druggie monk
+unfinished: true
 ---
 
-{% include 404.html %}

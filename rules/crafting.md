@@ -1,6 +1,6 @@
 ---
 title: Crafting
 parent: Rules
+unfinished: true
 ---
 
-{% include 404.html %}

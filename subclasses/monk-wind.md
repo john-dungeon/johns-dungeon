@@ -4,6 +4,6 @@ parent: Monk
 grand_parent: Subclasses
 tagline: Placeholder
 summary: crowd control monk with super high mobility
+unfinished: true
 ---
 
-{% include 404.html %}

@@ -1,6 +1,6 @@
 ---
 title: Combat
 parent: Rules
+unfinished: true
 ---
 
-{% include 404.html %}

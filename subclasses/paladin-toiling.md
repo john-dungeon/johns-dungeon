@@ -4,6 +4,6 @@ parent: Paladin
 grand_parent: Subclasses
 tagline: Placeholder
 summary: blood magic tank paladin
+unfinished: true
 ---
 
-{% include 404.html %}
