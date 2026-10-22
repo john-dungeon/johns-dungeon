@@ -1,3 +1,7 @@
+{%- if page.unfinished %}
+<hr>
+{% include quote.html text="Wait! This part of the archive hasn't been constructed yet. How about we come back later when it is?" %}
+{%- endif %}
 {% include backlink.html %}
 <div id="theme-switcher">
   <div id="theme-menu" role="menu" hidden>
