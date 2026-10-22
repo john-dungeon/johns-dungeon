@@ -1,3 +1,4 @@
+{%- assign ui = site.data.strings -%}
 {%- assign cfg = site.data.tables[include.data] -%}
 {%- assign cols = cfg.columns -%}
 {%- capture nl %}
@@ -86,8 +87,8 @@
 
 <div class="search-table" data-config="{{ cfg | jsonify | escape }}">
   <div class="st-tools">
-    <input type="search" class="st-search" placeholder="{{ cfg.placeholder | default: 'Search names, or filter with tag:"word".' | escape }}" aria-label="Search" autocomplete="off">
-    <button type="button" class="st-filter-toggle" aria-expanded="false">Filter</button>
+    <input type="search" class="st-search" placeholder="{{ cfg.placeholder | default: ui.table_placeholder | escape }}" aria-label="{{ ui.table_search | escape }}" autocomplete="off">
+    <button type="button" class="st-filter-toggle" aria-expanded="false">{{ ui.table_filter }}</button>
     <span class="st-count" aria-live="polite"></span>
   </div>
 
@@ -111,14 +112,14 @@
     </table>
   </div>
 
-  <p class="st-empty" hidden>No matches found.</p>
+  <p class="st-empty" hidden>{{ ui.table_empty }}</p>
 
   <div class="st-details" hidden>{{ details_html }}</div>
 
-  <dialog class="st-dialog{% if cfg.dialog %} st-dialog--{{ cfg.dialog | escape }}{% endif %}" aria-label="Details">
+  <dialog class="st-dialog{% if cfg.dialog %} st-dialog--{{ cfg.dialog | escape }}{% endif %}" aria-label="{{ ui.table_details | escape }}">
     <div class="st-dialog-inner">
       <div class="st-dialog-header">
-        <button type="button" class="st-dialog-close" aria-label="Close">✕</button>
+        <button type="button" class="st-dialog-close" aria-label="{{ ui.table_close | escape }}">✕</button>
       </div>
       <h2 class="st-dialog-title"></h2>
       <div class="st-dialog-body"></div>
