@@ -56,4 +56,4 @@ columns:
     label: Setting
     type: list
     in_table: false
-    order: [Big Blue, City 13, Drachenfell, Erisia, Great Luminant, Hiraeth, Jingyu City, New Moon City, Solachia]
+    order: settings
