@@ -1,5 +1,3 @@
-// Search Table Helpers
-
 const STRINGS = globalThis.SITE_STRINGS || {};
 
 export function t(key, vars = {}) {
