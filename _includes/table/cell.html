@@ -4,14 +4,15 @@
 {%- if include.col.in_table == false -%}
   {%- assign cl_attrs = ' class="st-extra"' -%}
 {%- elsif include.cell == "" and include.col.blank_as == nil -%}
-  {%- capture cl_attrs %} class="st-missing" data-tooltip="Missing {{ include.col.label | escape }}"{% endcapture -%}
+  {%- assign cl_missing = "Missing " | append: include.col.label -%}
+  {%- capture cl_attrs %} class="st-missing"{% include tooltip.html text=cl_missing %}{% endcapture -%}
 {%- else -%}
   {%- assign cl_attrs = "" -%}
 {%- endif -%}
 <td{{ cl_attrs }}>
   {%- if cl_symbol -%}
-    {%- capture cl_label %}{{ include.col.label | escape }} · {{ cl_shown | escape }}{% endcapture -%}
-    <span class="st-symbol" role="img" aria-label="{{ cl_label }}" data-tooltip="{{ cl_label }}">{{ cl_symbol }}</span>
+    {%- assign cl_label = include.col.label | append: " · " | append: cl_shown -%}
+    <span class="st-symbol" role="img" aria-label="{{ cl_label | escape }}"{% include tooltip.html text=cl_label %}>{{ cl_symbol }}</span>
   {%- elsif include.cell == "" -%}—
   {%- elsif include.col.symbols -%}{{ cl_shown | escape }}
   {%- elsif include.col.format == "money" -%}
@@ -24,11 +25,13 @@
     {%- assign cl_num = include.cell | plus: 0 | append: "" -%}
     {%- if cl_num == include.cell -%}{{ include.col.prefix | escape }}{{ include.cell }}{{ include.col.suffix | escape }}{%- else -%}{{ include.cell | escape }}{%- endif -%}
   {%- else -%}
-    {{- include.cell | escape -}}
+    {%- assign cl_text = include.cell -%}
     {%- assign cl_note_l = include.note | downcase -%}
     {%- assign cl_show_if = include.col.note.show_if | default: cl_note_l | downcase -%}
     {%- if include.note and include.note != "" and cl_note_l == cl_show_if -%}
-      {{- include.col.note.format | default: " (%s)" | replace: "%s", include.note | escape -}}
+      {%- assign cl_note_text = include.col.note.format | default: " (%s)" | replace: "%s", include.note -%}
+      {%- assign cl_text = cl_text | append: cl_note_text -%}
     {%- endif -%}
+    {%- include text.html text=cl_text -%}
   {%- endif -%}
 </td>
