@@ -5,7 +5,7 @@ $statblock-label-size: 0.75rem;
 $statblock-inset: 1rem;
 
 .st-dialog--statblock {
-  width: min(42rem, calc(100% - 2rem));
+  width: min(#{$statblock-width}, calc(100% - 2rem));
   background: $body-background-color;
 
   .st-dialog-inner { padding: $statblock-inset $statblock-inset; }
