@@ -8,9 +8,6 @@ summary: A Monk subclass specialized in high damage and the ability to use anyth
 quote: Most of the sword styles that I've seen usually have some sort of gimmick, like using a flying sword or imbuing one with unquenchable flames. I suppose, then, the gimmick of this one is that it has no gimmick—just one sharp blade to face the world.
 ---
 
-# **Warrior of the Blade**
-*Become the Pinnacle of Swordsmanship*
-
 Warriors of the Blade devote their entire lives to honing their bladework. Their style distills swordsmanship to its core, stripping away the unnecessary flair and accessories that hinder other sword arts, even in the names of their techniques.
 
 ## **Level 3: Blade**
