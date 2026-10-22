@@ -2,6 +2,7 @@
   {%- assign bl_title = page.grand_parent | default: page.parent | default: "Home" -%}
   {%- assign bl_target = site.pages | where: "title", bl_title | first -%}
   {%- if bl_target -%}
-<p><a href="{{ bl_target.url | relative_url }}">{{ site.data.strings.back_to | replace: "{title}", bl_title | escape }}</a></p>
+    {%- assign bl_text = site.data.strings.back_to | replace: "{title}", bl_title -%}
+<p><a href="{{ bl_target.url | relative_url }}">{{ bl_text | escape }}</a></p>
   {%- endif -%}
 {%- endif -%}
