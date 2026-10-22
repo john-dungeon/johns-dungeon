@@ -4,9 +4,7 @@
 {%- capture it_rarity %}{% include table/field.html packed=include.packed key="rarity" %}{% endcapture -%}
 {%- capture it_note_rarity %}{% include table/field.html packed=include.packed key="note_rarity" %}{% endcapture -%}
 {%- capture it_attunement %}{% include table/field.html packed=include.packed key="attunement" %}{% endcapture -%}
-{%- capture it_cost %}{% include table/field.html packed=include.packed key="cost" %}{% endcapture -%}
 {%- capture it_note_cost %}{% include table/field.html packed=include.packed key="note_cost" %}{% endcapture -%}
-{%- capture it_weight %}{% include table/field.html packed=include.packed key="weight" %}{% endcapture -%}
 {%- capture it_note_weight %}{% include table/field.html packed=include.packed key="note_weight" %}{% endcapture -%}
 {%- capture it_description %}{% include table/field.html packed=include.packed key="description" %}{% endcapture -%}
 {%- capture it_setting %}{% include table/field.html packed=include.packed key="setting" %}{% endcapture -%}
@@ -28,25 +26,19 @@
   {%- if it_extra != "" -%}{%- assign it_line1 = it_line1 | append: " (" | append: it_extra | append: ")" -%}{%- endif -%}
 {%- endif -%}
 
-{%- assign it_cost_text = "" -%}
-{%- assign it_cost_l = it_cost | downcase -%}
-{%- if it_cost_l == "varies" -%}
-  {%- assign it_cost_text = "Cost Varies" -%}
-{%- elsif it_cost != "" -%}
-  {%- capture it_cost_text %}{% include table/money.html amount=it_cost %}{% endcapture -%}
-{%- endif -%}
+{%- assign it_cost_col = cols | where: "key", "cost" | first -%}
+{%- assign it_weight_col = cols | where: "key", "weight" | first -%}
+{%- capture it_cost_value %}{% include table/value.html packed=include.packed col=it_cost_col %}{% endcapture -%}
+{%- capture it_cost_text %}{% include table/format.html col=it_cost_col amount=it_cost_value %}{% endcapture -%}
+{%- capture it_weight_value %}{% include table/value.html packed=include.packed col=it_weight_col %}{% endcapture -%}
+{%- capture it_weight_text %}{% include table/format.html col=it_weight_col amount=it_weight_value %}{% endcapture -%}
+{%- assign it_cost_text = it_cost_text | strip -%}
+{%- assign it_weight_text = it_weight_text | strip -%}
+{%- assign it_cost_l = it_cost_text | downcase -%}
+{%- assign it_weight_l = it_weight_text | downcase -%}
+{%- if it_cost_l == "varies" -%}{%- assign it_cost_text = it_cost_col.label | append: " Varies" -%}{%- endif -%}
+{%- if it_weight_l == "varies" -%}{%- assign it_weight_text = it_weight_col.label | append: " Varies" -%}{%- endif -%}
 {%- if it_cost_text != "" and it_note_cost != "" -%}{%- assign it_cost_text = it_cost_text | append: " (" | append: it_note_cost | append: ")" -%}{%- endif -%}
-
-{%- if it_weight == "0" -%}{%- assign it_weight = "Weightless" -%}{%- endif -%}
-{%- assign it_weight_text = "" -%}
-{%- assign it_weight_l = it_weight | downcase -%}
-{%- if it_weight_l == "varies" -%}
-  {%- assign it_weight_text = "Weight Varies" -%}
-{%- elsif it_weight_l == "weightless" -%}
-  {%- assign it_weight_text = "Weightless" -%}
-{%- elsif it_weight != "" -%}
-  {%- capture it_weight_text %}{% include table/weight.html amount=it_weight %}{% endcapture -%}
-{%- endif -%}
 {%- if it_weight_text != "" and it_note_weight != "" -%}{%- assign it_weight_text = it_weight_text | append: " (" | append: it_note_weight | append: ")" -%}{%- endif -%}
 
 {%- assign it_line2 = it_cost_text -%}
@@ -64,10 +56,11 @@
   {%- endif -%}
   {%- if it_note_setting != "" -%}{%- assign it_setting_line = it_setting_line | append: " " | append: it_note_setting -%}{%- endif -%}
 {%- endif -%}
-*{{ it_line1 }}*
+{{ it_line1 }}
 {%- if it_line2 != "" %}\
-*{{ it_line2 }}*
+{{ it_line2 }}
 {%- endif %}
+{: .italic }
 
 {{ it_description }}
 {%- if it_setting_line != "" %}
