@@ -1,0 +1,85 @@
+{%- comment -%}
+  Params: amount (required), and either col (column's settings) or type.
+  Types: money (i.e., 5 SP), weight (i.e., 1.2 oz.), cr (i.e., 1/2), signed (i.e., +3).
+    With no type, a number gets the column's prefix and suffix.
+  Anything that isn't a plain number (like "Varies") is shown as written.
+{%- endcomment -%}
+
+{%- assign fm_type = include.type | default: include.col.format -%}
+{%- assign fm_raw = include.amount | strip -%}
+{%- assign fm_n = fm_raw | plus: 0 -%}
+{%- assign fm_check = fm_n | append: "" -%}
+{%- if fm_check != fm_raw -%}
+  {{- fm_raw | escape -}}
+{%- else -%}
+  {%- case fm_type -%}
+
+    {%- when "money" -%}
+      {%- assign fm_split = fm_raw | split: "." -%}
+      {%- assign fm_whole = fm_split[0] -%}
+      {%- assign fm_frac = fm_split[1] | default: "" -%}
+      {%- assign fm_digits = fm_frac | append: "00" -%}
+      {%- assign fm_sp = fm_digits | slice: 0 | plus: 0 -%}
+      {%- assign fm_cp = fm_digits | slice: 1 | plus: 0 -%}
+      {%- assign fm_extra = fm_frac | size | minus: 2 -%}
+      {%- assign fm_cp_text = fm_cp -%}
+      {%- if fm_extra > 0 -%}
+        {%- assign fm_rest = fm_frac | slice: 2, fm_extra -%}
+        {%- assign fm_cp_text = fm_cp | append: "." | append: fm_rest -%}
+      {%- endif -%}
+      {%- assign fm_chars = fm_whole | split: "" -%}
+      {%- assign fm_size = fm_chars | size -%}
+      {%- assign fm_gold = "" -%}
+      {%- for fm_char in fm_chars -%}
+        {%- assign fm_left = fm_size | minus: forloop.index0 | modulo: 3 -%}
+        {%- if fm_left == 0 and forloop.first == false -%}
+          {%- assign fm_gold = fm_gold | append: "," -%}
+        {%- endif -%}
+        {%- assign fm_gold = fm_gold | append: fm_char -%}
+      {%- endfor -%}
+      {%- assign fm_has_cp = false -%}
+      {%- if fm_cp > 0 or fm_extra > 0 -%}{%- assign fm_has_cp = true -%}{%- endif -%}
+      {%- assign fm_items = "" -%}
+      {%- if fm_whole != "0" or fm_sp == 0 and fm_has_cp == false -%}
+        {%- assign fm_items = fm_gold | append: " GP|" -%}
+      {%- endif -%}
+      {%- if fm_sp > 0 -%}{%- assign fm_items = fm_items | append: fm_sp | append: " SP|" -%}{%- endif -%}
+      {%- if fm_has_cp -%}{%- assign fm_items = fm_items | append: fm_cp_text | append: " CP|" -%}{%- endif -%}
+      {{- fm_items | split: "|" | array_to_sentence_string -}}
+
+    {%- when "weight" -%}
+      {%- if fm_n <= 0.1 -%}
+        {%- assign fm_value = fm_n | times: 16 -%}
+        {%- assign fm_steps = 100.0 -%}
+        {%- assign fm_unit = "oz." -%}
+      {%- else -%}
+        {%- assign fm_value = fm_n -%}
+        {%- assign fm_steps = 10.0 -%}
+        {%- assign fm_unit = "lb." -%}
+      {%- endif -%}
+      {%- assign fm_shown = fm_value | times: fm_steps | round: 6 | ceil | divided_by: fm_steps -%}
+      {%- comment -%} Show 2 instead of 2.0 when it's a whole number. {%- endcomment -%}
+      {%- assign fm_floor = fm_shown | floor -%}
+      {%- if fm_floor == fm_shown -%}{%- assign fm_shown = fm_floor -%}{%- endif -%}
+      {{- fm_shown }} {{ fm_unit -}}
+
+    {%- when "cr" -%}
+      {%- case fm_raw -%}
+        {%- when "0.125" -%}1/8
+        {%- when "0.25" -%}1/4
+        {%- when "0.5" -%}1/2
+        {%- else -%}{{ fm_raw }}
+      {%- endcase -%}
+
+    {%- when "signed" -%}
+      {%- if fm_n >= 0 -%}
+        +{{ fm_n }}
+      {%- else -%}
+        {{ fm_n | append: "" | replace: "-", "−" }}
+      {%- endif -%}
+
+    {%- else -%}
+      {{- include.col.prefix | escape }}{{ fm_raw }}{{ include.col.suffix | escape -}}
+
+  {%- endcase -%}
+{%- endif -%}
