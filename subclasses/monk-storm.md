@@ -2,8 +2,10 @@
 title: Warrior of the Storm
 parent: Monk
 grand_parent: Subclasses
+layout: wiki
 tagline: Rush with the Might of a Storm
 summary: A Monk subclass specialized in teleportation and high-power offensive magic.
+quote: This martial art was especially hard to obtain. The high-mountain ascetics who practiced it were awfully strict and made me do a bunch of favors in exchange for their teachings. As it turns out, they were bored of their lifestyle and wanted to squeeze some entertainment out of me while I was there. I suppose even the chaos of a storm can grow stale if it becomes the norm.
 ---
 
 # **Warrior of the Storm**
@@ -57,7 +59,3 @@ As a Magic action, you can expend 5 Focus Points to invoke a storm of black clou
 Whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, you can force that creature to make a Constitution saving throw. On a failed save, the target takes Lightning or Thunder damage (your choice) equal to two rolls of your Martial Arts die. On a successful save, the target takes half as much damage. A creature makes this save only once per turn.
 
 When you activate this feature and as a Magic action while it is active, you can unleash a staggering bolt of lightning. Make a ranged spell attack against one creature within 60 feet using Wisdom as your spellcasting ability. On a hit, the target takes Lightning damage equal to three rolls of your Martial Arts die and has the Incapacitated condition until the start of your next turn.
-
----
-
-> *"This martial art was especially hard to obtain. The high-mountain ascetics who practiced it were awfully strict and made me do a bunch of favors in exchange for their teachings. As it turns out, they were bored of their lifestyle and wanted to squeeze some entertainment out of me while I was there. I suppose even the chaos of a storm can grow stale if it becomes the norm."*
