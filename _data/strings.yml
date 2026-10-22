@@ -1,4 +1,4 @@
-# Non-Page Content Site Wording
+# Non-Page Content Wording
 # Text supports Markdown and [[links]]. {name} marks a spot the site fills in.
 
 # Navigation, Footer
@@ -8,7 +8,7 @@ back_to: "← Back to {title}"
 theme_button: Theme
 unfinished: "Wait! This part of the archive hasn't been constructed yet. How about we come back later when it is?"
 
-# Search Table
+# Pages (Search Table)
 table_placeholder: 'Search names, or filter with tag:"word".'
 table_search: Search
 table_filter: Filter
@@ -16,3 +16,32 @@ table_empty: No matches found.
 table_details: Details
 table_close: Close
 table_missing: "Missing {label}"
+
+# Counts, Pop-Ups (Search Table)
+table_showing: "Showing {shown} of {total} {noun}"
+table_noun: entries
+table_filtered: " (Filtered from {all})"
+table_raise_limit: " · Raise the limit under Filter to see more"
+table_filter_active: "Filter ({count})"
+tag_one: "Tag: "
+tag_many: "Tags: "
+unlisted: "Unlisted {kind}"
+unlisted_value: Value
+unlisted_tag: Tag
+
+# Filter Panel (Search Table)
+filter_hint: "Click a tag or category once to include it, twice to exclude it, and a third time to clear it."
+filter_tags: Tags
+filter_match_any: "Match any included tag (instead of all)."
+filter_clear: Clear Filters
+filter_limit: Results shown
+filter_limit_label: Number of results shown
+filter_min: Min
+filter_max: Max
+filter_to: to
+filter_min_label: "{label} minimum"
+filter_max_label: "{label} maximum"
+option_label: "{label}, {state}"
+state_off: not filtered
+state_include: included
+state_exclude: excluded
