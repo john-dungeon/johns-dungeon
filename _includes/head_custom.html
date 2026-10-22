@@ -14,7 +14,7 @@
 {%- endif %}
 
 <!-- THEME -->
-<script>window.SITE_THEMES = {{ site.data.themes | map: "id" | jsonify }};</script>
+<script>window.SITE_THEMES = {{ site.data.themes | map: "id" | jsonify }}; window.SITE_DEFAULT_THEME = {{ site.color_scheme | jsonify }};</script>
 <script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
 {%- for theme in site.data.themes %}
 <link rel="prefetch" href="{{ '/assets/css/just-the-docs-' | append: theme.id | append: '.css' | relative_url }}">
