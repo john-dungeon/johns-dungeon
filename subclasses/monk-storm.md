@@ -8,9 +8,6 @@ summary: A Monk subclass specialized in teleportation and high-power offensive m
 quote: This martial art was especially hard to obtain. The high-mountain ascetics who practiced it were awfully strict and made me do a bunch of favors in exchange for their teachings. As it turns out, they were bored of their lifestyle and wanted to squeeze some entertainment out of me while I was there. I suppose even the chaos of a storm can grow stale if it becomes the norm.
 ---
 
-# **Warrior of the Storm**
-*Rush with the Might of a Storm*
-
 Warriors of the Storm strike and maneuver with blinding speed, harnessing the chaotic power of thunder, wind, and lightning. By emulating the natural splendor of storms, they become unstoppable forces of nature themselves.
 
 ## **Eccentric Nature**
