@@ -8,7 +8,10 @@
   let link = themeLinks()[0];
   if (!link) return;
 
-  const currentTheme = () => link.getAttribute('href').match(PATTERN)?.[1];
+  const currentTheme = () => {
+    const id = link.getAttribute('href').match(PATTERN)?.[1];
+    return id === 'default' ? window.SITE_DEFAULT_THEME : id;
+  };
   const hrefFor = theme =>
     link.getAttribute('href').replace(PATTERN, `just-the-docs-${theme}.css`);
 
