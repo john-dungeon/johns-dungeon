@@ -2,8 +2,10 @@
 title: Warrior of the Backwater Inn
 parent: Monk
 grand_parent: Subclasses
+layout: wiki
 tagline: Keep the Peace On and Off Business Hours
 summary: A Monk subclass specialized in defense and counterattacks.
+quote: I learned this martial art from a jaded innkeeper. Quite the temper, that fellow, but it's understandable if you knew his plight.
 ---
 
 # **Warrior of the Backwater Inn**
