@@ -1,0 +1,16 @@
+{%- assign th = site.data.themes | where: "id", include.id | first -%}
+{%- assign ds = site.data.design -%}
+{%- assign th_fallback = th.font_fallback | default: "Georgia, serif" -%}
+{%- assign th_body = "null" -%}
+{%- if th.body_font -%}{%- assign th_body = '"' | append: th.body_font | append: '", ' | append: th_fallback -%}{%- endif -%}
+{%- assign th_heading = "null" -%}
+{%- if th.heading_font -%}{%- assign th_heading = '"' | append: th.heading_font | append: '", ' | append: th_fallback -%}{%- endif -%}
+$theme-body-font: {{ th_body }};
+$theme-heading-font: {{ th_heading }};
+$motion-duration: {{ ds.motion_duration }};
+$motion-ease: {{ ds.motion_ease }};
+$tooltip-width: {{ ds.tooltip_width }};
+$dialog-width: {{ ds.dialog_width }};
+$statblock-width: {{ ds.statblock_width }};
+$marker-colors: ({% for m in ds.marker_colors %}"{{ m[0] }}": {{ m[1] }}{% unless forloop.last %}, {% endunless %}{% endfor %});
+{% include css/just-the-docs.scss.liquid color_scheme=include.id %}
