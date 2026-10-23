@@ -1,5 +1,6 @@
 (function () {
   const THEMES = window.SITE_THEMES || [];
+  const IDS = THEMES.map(theme => theme.id);
   const PATTERN = /just-the-docs-([a-z]+)\.css/;
 
   const themeLinks = () => [...document.querySelectorAll('link[rel="stylesheet"]')]
@@ -15,6 +16,22 @@
   const hrefFor = theme =>
     link.getAttribute('href').replace(PATTERN, `just-the-docs-${theme}.css`);
 
+  const preloaded = new Set();
+  function preloadFonts(id) {
+    if (preloaded.has(id)) return;
+    preloaded.add(id);
+    const theme = THEMES.find(item => item.id === id);
+    ((theme && theme.fonts) || []).forEach(font => {
+      if (font.preload === false) return;
+      const hint = document.createElement('link');
+      hint.rel = 'preload';
+      hint.as = 'font';
+      hint.crossOrigin = 'anonymous';
+      hint.href = window.SITE_ROOT + font.file;
+      document.head.appendChild(hint);
+    });
+  }
+
   function setStylesheet(theme) {
     return new Promise(resolve => {
       const old = link;
@@ -27,16 +44,20 @@
   }
 
   function switchTheme(theme) {
+    preloadFonts(theme);
     if (!document.startViewTransition) return setStylesheet(theme);
     return document.startViewTransition(() => setStylesheet(theme)).updateCallbackDone;
   }
 
+  let active = currentTheme();
   try {
     const saved = localStorage.getItem('theme');
-    if (THEMES.includes(saved) && saved !== currentTheme()) {
+    if (IDS.includes(saved) && saved !== currentTheme()) {
       document.write(`<link rel="stylesheet" href="${hrefFor(saved)}">`);
+      active = saved;
     }
   } catch (e) {}
+  preloadFonts(active);
 
   document.addEventListener('DOMContentLoaded', () => {
     const links = themeLinks();
