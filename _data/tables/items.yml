@@ -15,8 +15,8 @@ markers:
 columns:
   - key: name
     label: Name
-  - key: type
-    label: Type
+  - key: category
+    label: Category
     order: [Adventuring Gear, Armor, Mount, Potion, Ring, Rod, Scroll, Staff, Tool, Vehicle, Wand, Weapon, Wondrous Item]
   - key: rarity
     label: Rarity
