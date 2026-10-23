@@ -17,3 +17,6 @@ columns:
     in_table: false
     blank_as: "false"
     order: ["false", "true"]
+    labels:
+      "false": "No"
+      "true": "Yes"
