@@ -3,21 +3,30 @@
 #  label: (The name shown in the theme menu)
 #  body_font / heading_font: (Google Font names; optional)
 #  font_fallback: (Used if the font fails to load; optional; default "Georgia, serif")
-#  google_fonts: (The "family=" part of each font's embed URL on fonts.google.com)
+#   fonts:
+#    family: (Font name)
+#    file: (File path)
+#    weight: ("400" by default; use "200 900" for a variable font)
+#    style: ("normal" by default)
+#    preload: (False skips the early download)
 - id: dungeon
   label: "Dungeon 🔥"
   body_font: Crimson Pro
   heading_font: Cormorant SC
-  google_fonts:
-    - Crimson+Pro:ital,wght@0,400;0,600;1,400
-    - Cormorant+SC:wght@300;400;500;600;700
+  fonts:
+    - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Regular.tff }
+    - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Italic.tff, style: italic }
+    - { family: Crimson Pro, file: assets/fonts/CrimsonPro-SemiBold.tff, weight: 600 }
+    - { family: Cormorant SC, file: assets/fonts/CormorantSC-Medium.tff, weight: 500 }
+    - { family: Cormorant SC, file: assets/fonts/CormorantSC-Bold.tff, weight: 700 }
 - id: parchment
   label: "Parchment 📜"
   body_font: IM Fell English
   heading_font: IM Fell English SC
-  google_fonts:
-    - IM+Fell+English:ital@0;1
-    - IM+Fell+English+SC
+  fonts:
+    - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Regular.tff }
+    - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Italic.tff, style: italic }
+    - { family: IM Fell English SC, file: assets/fonts/IMFellEnglishSC-Regular.tff }
 - id: dark
   label: "Dark 🌑"
 - id: light
