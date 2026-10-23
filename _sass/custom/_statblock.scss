@@ -1,7 +1,5 @@
 // Markup: _includes/table/templates/monster.md
-$statblock-name-size: 1.75rem;
 $statblock-label-size: 0.75rem;
-
 $statblock-inset: 1rem;
 
 .st-dialog--statblock {
@@ -9,12 +7,6 @@ $statblock-inset: 1rem;
   background: $body-background-color;
 
   .st-dialog-inner { padding: $statblock-inset $statblock-inset; }
-
-  .st-dialog-title {
-    color: $body-heading-color;
-    font-size: $statblock-name-size !important;
-    line-height: 1.1;
-  }
 
   p { margin: 0.5rem 0; }
 }
