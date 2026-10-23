@@ -1,6 +1,6 @@
-{%- capture it_prefix_type %}{% include table/field.html packed=include.packed key="prefix_type" %}{% endcapture -%}
-{%- capture it_type %}{% include table/field.html packed=include.packed key="type" %}{% endcapture -%}
-{%- capture it_note_type %}{% include table/field.html packed=include.packed key="note_type" %}{% endcapture -%}
+{%- capture it_prefix_category %}{% include table/field.html packed=include.packed key="prefix_category" %}{% endcapture -%}
+{%- capture it_category %}{% include table/field.html packed=include.packed key="category" %}{% endcapture -%}
+{%- capture it_note_category %}{% include table/field.html packed=include.packed key="note_category" %}{% endcapture -%}
 {%- capture it_rarity %}{% include table/field.html packed=include.packed key="rarity" %}{% endcapture -%}
 {%- capture it_note_rarity %}{% include table/field.html packed=include.packed key="note_rarity" %}{% endcapture -%}
 {%- capture it_attunement %}{% include table/field.html packed=include.packed key="attunement" %}{% endcapture -%}
