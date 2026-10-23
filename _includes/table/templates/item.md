@@ -10,8 +10,8 @@
 {%- capture it_setting %}{% include table/field.html packed=include.packed key="setting" %}{% endcapture -%}
 {%- capture it_note_setting %}{% include table/field.html packed=include.packed key="note_setting" %}{% endcapture -%}
 
-{%- assign it_line1 = it_prefix_type | append: " " | append: it_type | strip -%}
-{%- if it_note_type != "" -%}{%- assign it_line1 = it_line1 | append: " (" | append: it_note_type | append: ")" -%}{%- endif -%}
+{%- assign it_line1 = it_prefix_category | append: " " | append: it_category | strip -%}
+{%- if it_note_category != "" -%}{%- assign it_line1 = it_line1 | append: " (" | append: it_note_category | append: ")" -%}{%- endif -%}
 {%- assign it_rarity_l = it_rarity | downcase -%}
 {%- if it_rarity != "" and it_rarity_l != "none" -%}
   {%- if it_rarity_l == "varies" -%}
