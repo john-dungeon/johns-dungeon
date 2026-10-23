@@ -2,25 +2,14 @@
 <link rel="icon" type="image/webp" href="{{ '/assets/favicon.webp' | relative_url }}">
 <link rel="apple-touch-icon" href="{{ '/assets/favicon.webp' | relative_url }}">
 
-<!-- FONTS -->
-{%- assign hc_fonts = "" | split: "" -%}
-{%- for theme in site.data.themes -%}
-  {%- if theme.google_fonts -%}{%- assign hc_fonts = hc_fonts | concat: theme.google_fonts -%}{%- endif -%}
-{%- endfor -%}
-{%- if hc_fonts.size > 0 %}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family={{ hc_fonts | uniq | sort | join: '&amp;family=' }}&amp;display=swap" rel="stylesheet">
-{%- endif %}
-
 <!-- THEME -->
-<script>window.SITE_THEMES = {{ site.data.themes | map: "id" | jsonify }}; window.SITE_DEFAULT_THEME = {{ site.color_scheme | jsonify }};</script>
+<script>window.SITE_THEMES = {{ site.data.themes | jsonify }}; window.SITE_DEFAULT_THEME = {{ site.color_scheme | jsonify }}; window.SITE_ROOT = {{ '/' | relative_url | jsonify }};</script>
 <script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
 {%- for theme in site.data.themes %}
 <link rel="prefetch" href="{{ '/assets/css/just-the-docs-' | append: theme.id | append: '.css' | relative_url }}">
 {%- endfor %}
 
-<!-- SITE DATA -->
+<!-- SITE DATA FOR SCRIPTS -->
 <script>window.SITE_STRINGS = {{ site.data.strings | jsonify }}; window.SITE_LISTS = {{ site.data.lists | jsonify }};</script>
 
 <!-- SCRIPTS -->
