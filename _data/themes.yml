@@ -14,19 +14,19 @@
   body_font: Crimson Pro
   heading_font: Cormorant SC
   fonts:
-    - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Regular.tff }
-    - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Italic.tff, style: italic }
-    - { family: Crimson Pro, file: assets/fonts/CrimsonPro-SemiBold.tff, weight: 600 }
-    - { family: Cormorant SC, file: assets/fonts/CormorantSC-Medium.tff, weight: 500 }
-    - { family: Cormorant SC, file: assets/fonts/CormorantSC-Bold.tff, weight: 700 }
+    - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Regular.ttf }
+    - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Italic.ttf, style: italic }
+    - { family: Crimson Pro, file: assets/fonts/CrimsonPro-SemiBold.ttf, weight: 600 }
+    - { family: Cormorant SC, file: assets/fonts/CormorantSC-Medium.ttf, weight: 500 }
+    - { family: Cormorant SC, file: assets/fonts/CormorantSC-Bold.ttf, weight: 700 }
 - id: parchment
   label: "Parchment 📜"
   body_font: IM Fell English
   heading_font: IM Fell English SC
   fonts:
-    - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Regular.tff }
-    - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Italic.tff, style: italic }
-    - { family: IM Fell English SC, file: assets/fonts/IMFellEnglishSC-Regular.tff }
+    - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Regular.ttf }
+    - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Italic.ttf, style: italic }
+    - { family: IM Fell English SC, file: assets/fonts/IMFellEnglishSC-Regular.ttf }
 - id: dark
   label: "Dark 🌑"
 - id: light
