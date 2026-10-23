@@ -1,6 +1,6 @@
 name: Adamantine Armor
-type: Armor
-note_type: Half-Plate Armor or Plate Armor
+category: Armor
+note_category: Half-Plate Armor or Plate Armor
 rarity: Legendary
 attunement: false
 cost: Varies
@@ -25,8 +25,8 @@ As a Magic action, you can expend all of the armor's charges to expel a wave of 
 ---
 
 name: Adamantine Shield
-type: Armor
-note_type: Shield
+category: Armor
+note_category: Shield
 rarity: Legendary
 attunement: false
 cost: Varies
@@ -46,8 +46,8 @@ As a Magic action, you can expend all of the Shield's charges to expel a burst o
 ---
 
 name: Adamantine Weapon
-type: Weapon
-note_type: Any Melee Weapon
+category: Weapon
+note_category: Any Melee Weapon
 rarity: Legendary
 attunement: false
 cost: Varies
@@ -68,8 +68,8 @@ description: This magic weapon is made of adamantine, an alloy made of iron and 
 ---
 
 name: Alarcon's Longbow
-type: Weapon
-note_type: Longbow
+category: Weapon
+note_category: Longbow
 rarity: Legendary
 attunement: true
 cost: 450050
@@ -82,7 +82,7 @@ When you use this weapon to make a ranged attack against a creature that hasn't 
 ---
 
 name: Amulet of Experience
-type: Wondrous Item
+category: Wondrous Item
 rarity: Artifact
 attunement: true
 cost: Priceless
@@ -109,7 +109,7 @@ The amulet closes all wounds, neutralizes any poison, cures all magical contagio
 ---
 
 name: Antimagic Beacon
-type: Wondrous Item
+category: Wondrous Item
 rarity: Legendary
 attunement: false
 cost: 350000
@@ -122,7 +122,7 @@ While the beacon is deployed, the beacon emits an aura of antimagic in a 60-foot
 ---
 
 name: Antimagic Bomb
-type: Wondrous Item
+category: Wondrous Item
 rarity: Very Rare
 attunement: false
 cost: 35000
@@ -141,7 +141,7 @@ The Antimagic Bomb can't affect Artifacts or spells cast by an Artifact or a dei
 ---
 
 name: Antimagic Manacles
-type: Wondrous Item
+category: Wondrous Item
 rarity: Very Rare
 attunement: false
 cost: 47506
@@ -156,8 +156,8 @@ The creature remains bound until another creature within 5 feet of it takes 1 mi
 ---
 
 name: Bagpipes of Invisibility
-type: Wondrous Item
-note_type: Bagpipes
+category: Wondrous Item
+note_category: Bagpipes
 rarity: Common
 attunement: false
 cost: 100.3
@@ -168,7 +168,7 @@ description: While playing this Musical Instrument, you have the Invisible condi
 ---
 
 name: Banner of Determination
-type: Wondrous Item
+category: Wondrous Item
 rarity: Uncommon
 attunement: true
 cost: 425
@@ -181,8 +181,8 @@ Once the banner is raised, the banner can't be used in that way again until the 
 ---
 
 name: Bladed Gauntlet
-prefix_type: Simple Melee
-type: Weapon
+prefix_category: Simple Melee
+category: Weapon
 cost: 0.5
 weight: 2
 tags: Special Property
@@ -206,8 +206,8 @@ This weapon has the following mastery property. To use this property, you must h
 ---
 
 name: Blast Ammunition
-type: Weapon
-note_type: Any Ammunition
+category: Weapon
+note_category: Any Ammunition
 rarity: Common
 attunement: false
 cost: Varies
@@ -221,7 +221,7 @@ description: When you hit or miss with an attack roll using this piece of magic 
 ---
 
 name: Bola
-type: Adventuring Gear
+category: Adventuring Gear
 cost: 0.05
 weight: 2
 tags: Ability Check, Condition, Consumable, Saving Throw
@@ -232,8 +232,8 @@ To escape, the target or a creature within 5 feet of it must take an action to m
 ---
 
 name: Boomerang
-prefix_type: Martial Melee
-type: Weapon
+prefix_category: Martial Melee
+category: Weapon
 cost: 0.1
 weight: 1
 tags: Special Property
@@ -255,8 +255,8 @@ This weapon has the following mastery property. To use this property, you must h
 ---
 
 name: Buckler
-type: Armor
-note_type: Shield
+category: Armor
+note_category: Shield
 cost: 8
 weight: 3
 description: A Buckler is a type of Shield. Shields require the Utilize action to Don or Doff. You gain the Armor Class benefit of a Shield only if you have training with it.
@@ -271,8 +271,8 @@ You can hold this Shield in your hand while keeping that hand free.
 ---
 
 name: Cestus
-prefix_type: Simple Melee
-type: Weapon
+prefix_category: Simple Melee
+category: Weapon
 cost: 0.5
 weight: 2
 tags: Special Property
@@ -296,8 +296,8 @@ This weapon has the following mastery property. To use this property, you must h
 ---
 
 name: Cold Iron Armor
-type: Armor
-note_type: Half-Plate Armor or Plate Armor
+category: Armor
+note_category: Half-Plate Armor or Plate Armor
 rarity: Rare
 attunement: false
 cost: Varies
@@ -316,8 +316,8 @@ description: This magic suit of armor is made of cold iron, a special type of ir
 ---
 
 name: Cold Iron Shield
-type: Armor
-note_type: Shield
+category: Armor
+note_category: Shield
 rarity: Rare
 attunement: false
 cost: Varies
@@ -336,8 +336,8 @@ description: This magic Shield is made of cold iron, a special type of iron that
 ---
 
 name: Cold Iron Weapon
-type: Weapon
-note_type: Any Melee Weapon
+category: Weapon
+note_category: Any Melee Weapon
 rarity: Rare
 attunement: false
 cost: Varies
@@ -356,7 +356,7 @@ description: This magic weapon is made of cold iron, a special type of iron that
 ---
 
 name: Companion Whistle
-type: Wondrous Item
+category: Wondrous Item
 rarity: Uncommon
 attunement: true
 cost: 600
@@ -369,7 +369,7 @@ If a familiar gained using this whistle is reduced to 0 Hit Points, the whistle'
 ---
 
 name: Cracked Spirit Jar
-type: Wondrous Item
+category: Wondrous Item
 rarity: Very Rare
 attunement: true
 cost: 27500
@@ -382,7 +382,7 @@ When you die, one soul is expended and your body crumbles to dust. After 1 hour,
 ---
 
 name: Dead Man's Marches
-type: Wondrous Item
+category: Wondrous Item
 rarity: Uncommon
 attunement: true
 cost: 400
@@ -393,7 +393,7 @@ description: Immediately after you are reduced to 0 Hit Points, these boots pupp
 ---
 
 name: Devil's Leech
-type: Wondrous Item
+category: Wondrous Item
 rarity: Very Rare
 attunement: true
 cost: 42500
@@ -410,7 +410,7 @@ A *Remove Curse* or *Greater Restoration* spell cast on the infested creature de
 ---
 
 name: Dimension Key
-type: Wondrous Item
+category: Wondrous Item
 rarity: Very Rare
 attunement: false
 cost: 21000
@@ -423,8 +423,8 @@ You can turn the key in the air, as if unlocking a door, and cast the *Dimension
 ---
 
 name: Elemental Ammunition
-type: Weapon
-note_type: Any Ammunition
+category: Weapon
+note_category: Any Ammunition
 rarity: Uncommon
 attunement: false
 cost: Varies
@@ -447,7 +447,7 @@ description: A creature hit by this magic ammunition suffers an effect correspon
 ---
 
 name: Enchanted Whetstone
-type: Wondrous Item
+category: Wondrous Item
 rarity: Varies
 options_rarity: Uncommon, Rare, Very Rare
 note_rarity: See table
@@ -471,7 +471,7 @@ If the weapon was nonmagical, it becomes magical after being sharpened with the 
 ---
 
 name: Fortune's Foot
-type: Wondrous Item
+category: Wondrous Item
 rarity: Rare
 attunement: false
 cost: 4000
@@ -482,8 +482,8 @@ description: When you make a D20 Test, you can call upon the magic of this rabbi
 ---
 
 name: Gauntlet
-prefix_type: Simple Melee
-type: Weapon
+prefix_category: Simple Melee
+category: Weapon
 cost: 0.5
 weight: 2
 tags: Special Property
@@ -507,8 +507,8 @@ This weapon has the following mastery property. To use this property, you must h
 ---
 
 name: Glass Vorpal Sword
-type: Weapon
-note_type: Glaive, Greatsword, Longsword, or Scimitar
+category: Weapon
+note_category: Glaive, Greatsword, Longsword, or Scimitar
 rarity: Legendary
 attunement: true
 cost: Varies
@@ -525,8 +525,8 @@ description: You have Advantage on attack rolls made with this magic weapon. In 
 ---
 
 name: Glass Sword
-type: Weapon
-note_type: Any Melee Weapon That Deals Piercing or Slashing Damage
+category: Weapon
+note_category: Any Melee Weapon That Deals Piercing or Slashing Damage
 rarity: Very Rare
 attunement: false
 cost: Varies
@@ -541,8 +541,8 @@ description: You have Advantage on attack rolls made with this magic weapon. In 
 ---
 
 name: Harpoon of the Angler
-type: Weapon
-note_type: Javelin, Spear, or Trident
+category: Weapon
+note_category: Javelin, Spear, or Trident
 rarity: Very Rare
 attunement: true
 cost: Varies
@@ -571,8 +571,8 @@ As a Bonus Action, you can pull the rope, causing the weapon to fly back into yo
 ---
 
 name: Hook Sword
-prefix_type: Martial Melee
-type: Weapon
+prefix_category: Martial Melee
+category: Weapon
 cost: 30
 weight: 2
 tags: Special Mastery Property
@@ -590,7 +590,7 @@ This weapon has the following special mastery property. To use this property, yo
 ---
 
 name: Lightning in a Bottle
-type: Wondrous Item
+category: Wondrous Item
 rarity: Uncommon
 attunement: false
 cost: 200
@@ -601,8 +601,8 @@ description: When you take the Attack action, you can replace one of your attack
 ---
 
 name: Lucky Dagger
-type: Weapon
-note_type: Dagger
+category: Weapon
+note_category: Dagger
 rarity: Uncommon
 attunement: false
 cost: 250.2
@@ -613,7 +613,7 @@ description: When you roll a 1 on the d20 for the attack roll with this magic we
 ---
 
 name: Mantlet
-type: Adventuring Gear
+category: Adventuring Gear
 cost: 4
 weight: 30
 description: As a Utilize action, you can deploy the Mantlet, placing it in a space within your reach. While deployed, it has AC 15, HP 15, Immunity to Poison and Psychic damage, and Vulnerability to Fire damage. Reducing the Mantlet to 0 Hit Points destroys it. The broad side of the Mantlet is large enough to provide Three-Quarters Cover for a Medium creature standing behind it.
@@ -623,8 +623,8 @@ Holding a Mantlet provides no benefit to your Armor Class, since it is too cumbe
 ---
 
 name: Meteor Hammer
-prefix_type: Martial Melee
-type: Weapon
+prefix_category: Martial Melee
+category: Weapon
 cost: 25
 weight: 12
 tags: Special Property
@@ -646,8 +646,8 @@ This weapon has the following mastery property. To use this property, you must h
 ---
 
 name: Mithril Armor
-type: Armor
-note_type: Any Light, Medium, or Heavy Armor
+category: Armor
+note_category: Any Light, Medium, or Heavy Armor
 rarity: Uncommon
 attunement: false
 cost: Varies
@@ -666,8 +666,8 @@ In addition, the armor can be worn under normal clothes, and you can doff it as 
 ---
 
 name: Mithril Shield
-type: Armor
-note_type: Shield
+category: Armor
+note_category: Shield
 rarity: Uncommon
 attunement: false
 cost: Varies
@@ -685,8 +685,8 @@ In addition, when you're holding the Shield and an attack roll hits you, you can
 ---
 
 name: Mithril Weapon
-type: Weapon
-note_type: Any Melee Weapon
+category: Weapon
+note_category: Any Melee Weapon
 rarity: Uncommon
 attunement: false
 cost: Varies
@@ -704,8 +704,8 @@ In addition, if the weapon normally has the Heavy property, the mithril version 
 ---
 
 name: Nunchaku
-prefix_type: Martial Melee
-type: Weapon
+prefix_category: Martial Melee
+category: Weapon
 cost: 0.05
 weight: 1
 tags: Special Property
@@ -727,8 +727,8 @@ This weapon has the following mastery property. To use this property, you must h
 ---
 
 name: Orichalcum Ammunition
-type: Weapon
-note_type: Any Ammunition
+category: Weapon
+note_category: Any Ammunition
 rarity: Very Rare
 attunement: false
 cost: Varies
@@ -749,8 +749,8 @@ You can make attacks against spells with the ammunition, potentially ending them
 ---
 
 name: Orichalcum Armor
-type: Armor
-note_type: Half-Plate Armor or Plate Armor
+category: Armor
+note_category: Half-Plate Armor or Plate Armor
 rarity: Very Rare
 attunement: false
 cost: Varies
@@ -766,8 +766,8 @@ description: This magic suit of armor is made of orichalcum, a bronze-like metal
 ---
 
 name: Orichalcum Shield
-type: Armor
-note_type: Shield
+category: Armor
+note_category: Shield
 rarity: Very Rare
 attunement: false
 cost: Varies
@@ -785,8 +785,8 @@ The Shield has 3 charges. When a creature you can see targets you with a spell o
 ---
 
 name: Orichalcum Weapon
-type: Weapon
-note_type: Any Melee Weapon
+category: Weapon
+note_category: Any Melee Weapon
 rarity: Very Rare
 attunement: false
 cost: Varies
@@ -807,7 +807,7 @@ You can make attacks against spells with the weapon, potentially ending them. Wh
 ---
 
 name: Pixie Dust
-type: Wondrous Item
+category: Wondrous Item
 rarity: Rare
 attunement: false
 cost: 2100
@@ -818,7 +818,7 @@ description: This powder resembles gold dust. There is enough of it for one use.
 ---
 
 name: Potion of Health
-type: Potion
+category: Potion
 rarity: Varies
 options_rarity: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
@@ -846,7 +846,7 @@ The potion's rarity and purchase cost, and the number of Hit Points it restores 
 ---
 
 name: Potion of Mana
-type: Potion
+category: Potion
 rarity: Varies
 options_rarity: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
@@ -876,7 +876,7 @@ The potion's rarity and purchase cost, and level of the spell slot it grants are
 ---
 
 name: Potion of Regeneration
-type: Potion
+category: Potion
 rarity: Varies
 options_rarity: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
@@ -904,8 +904,8 @@ The potion's rarity and purchase cost, the number of Hit Points it restores, and
 ---
 
 name: Scutum
-type: Armor
-note_type: Shield
+category: Armor
+note_category: Shield
 cost: 50
 weight: 20
 description: A Scutum is a type of Shield. Shields require the Utilize action to Don or Doff. You gain the Armor Class benefit of a Shield only if you have training with it.
@@ -920,8 +920,8 @@ While carrying this Shield, you have Disadvantage on Dexterity checks and Dexter
 ---
 
 name: Scythe
-prefix_type: Simple Melee
-type: Weapon
+prefix_category: Simple Melee
+category: Weapon
 cost: 0.5
 weight: 4
 description: Proficiency with a Scythe allows you to add your proficiency bonus to the attack roll for any attack you make with it.
@@ -941,8 +941,8 @@ This weapon has the following mastery property. To use this property, you must h
 ---
 
 name: Reinforced Instrument
-type: Weapon
-note_type: Club
+category: Weapon
+note_category: Club
 cost: Varies
 options_cost: 3-66
 note_cost: +1 GP to Musical Instrument
@@ -954,7 +954,7 @@ description: A Reinforced Instrument is reinforced with metal. It can be used as
 ---
 
 name: Ship in a Bottle
-type: Wondrous Item
+category: Wondrous Item
 rarity: Very Rare
 attunement: false
 cost: 45000
@@ -973,7 +973,7 @@ Statistics for the Sailing Ship appear in the Player's Handbook. If the Sailing 
 ---
 
 name: Tear Scroll
-type: Scroll
+category: Scroll
 rarity: Varies
 options_rarity: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
@@ -1009,8 +1009,8 @@ The scroll's rarity and purchase cost, the level of the spell on it, and the spe
 ---
 
 name: Tracking Ammunition
-type: Weapon
-note_type: Any Ammunition
+category: Weapon
+note_category: Any Ammunition
 rarity: Uncommon
 attunement: false
 cost: Varies
@@ -1024,7 +1024,7 @@ description: A creature hit by this magic ammunition is marked for 1 hour. For t
 ---
 
 name: Tutorial Scroll
-type: Scroll
+category: Scroll
 rarity: Varies
 options_rarity: Common, Uncommon, Rare, Very Rare, Legendary
 note_rarity: See table
@@ -1061,8 +1061,8 @@ Any spell that you prepare from a Tutorial Scroll is no longer prepared when you
 ---
 
 name: Warbow
-prefix_type: Martial Ranged
-type: Weapon
+prefix_category: Martial Ranged
+category: Weapon
 cost: 75
 weight: 3
 tags: Special Property
