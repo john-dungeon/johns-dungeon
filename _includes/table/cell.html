@@ -30,6 +30,9 @@
           <span class="st-item"{% include tooltip.html text=cl_item %}>{{ cl_short | append: "." | escape }}</span>
         {%- endif -%}
       {%- else -%}
+        <span class="st-item">{% include text.html text=cl_item %}</span>
+      {%- endif -%}
+    {%- endfor -%}
   {%- else -%}
     {%- assign cl_text = include.cell -%}
     {%- assign cl_note_l = include.note | downcase -%}
