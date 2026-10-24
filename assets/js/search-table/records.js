@@ -1,4 +1,4 @@
-import { toNumber, parseSpan, compareText, el, markUnlisted } from './utils.js';
+import { toNumber, parseSpan, compareText, markUnlisted } from './utils.js';
 import { amountOf, TAG } from './columns.js';
 
 function bucketsFor(col, text) {
@@ -92,28 +92,27 @@ export function compareRecords(a, b, key, dir, nameKey) {
   return result === 0 ? tie : result * dir;
 }
 
-function flagListItems(cell, isKnown) {
-  const items = cell.textContent.trim().split(', ');
-  cell.textContent = '';
-  items.forEach((item, i) => {
-    if (i > 0) cell.append(', ');
-    cell.append(isKnown(item) ? item : markUnlisted(el('span', '', item)));
-  });
-}
-
 export function flagUnlisted(records, columns) {
   records.forEach(rec => {
     columns.forEach(col => {
-      if (col.virtual || col.index === 0 || col.listed.size === 0) return;
-      const cell = rec.row.cells[col.index];
+      if (col.index === 0 || col.listed.size === 0) return;
       const isKnown = text => col.listed.has(text.toLowerCase()) || amountOf(col, text.toLowerCase()) !== null;
-      const badOwn = rec.own[col.key].filter(value => !isKnown(value));
-      const badExtra = rec.extra[col.key].filter(value => !isKnown(value));
+      const own = rec.own[col.key];
+
+      if (col.virtual) {
+        if (!own.every(isKnown)) rec.row.classList.add('st-row-unlisted');
+        return;
+      }
+
+      const cell = rec.row.cells[col.index];
+      const extraBad = !rec.extra[col.key].every(isKnown);
 
       if (col.multi) {
-        if (badOwn.length) flagListItems(cell, isKnown);
-        if (badExtra.length) markUnlisted(cell);
-      } else if (badOwn.length || badExtra.length) {
+        cell.querySelectorAll('.st-item').forEach((item, i) => {
+          if (!isKnown(own[i])) markUnlisted(item);
+        });
+        if (extraBad) markUnlisted(cell);
+      } else if (!own.every(isKnown) || extraBad) {
         markUnlisted(cell);
       }
     });
