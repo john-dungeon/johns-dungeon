@@ -51,7 +51,7 @@ These are the rules the overhaul followed. New work should follow them too.
   - `field.html` – reads one field from the packed fields.
   - `value.html` – a cell's raw value (applies `zero_label` and list cleanup).
   - `format.html` – shows a number: `money` (`5 SP`), `weight` (`1.2 oz.`), `cr` (`1/2`), `signed` (`+3`, `−1`), or a prefix and suffix.
-  - `cell.html` – builds a table cell (symbols, formats, notes, red "missing" cells).
+  - `cell.html` – builds a table cell (symbols, formats, notes, red “missing” cells). List cells wrap each item in a `<span class="st-item">`.
   - `list.html` – cleans a comma-separated list. With `plain`, it removes "(notes)".
   - `join-words.html` – "A, B, or C" style joining, in the order written.
   - `named-list.html` – turns `- key: Name` and `description:` lists into bold-italic titled paragraphs. Optional `row="class"` wraps each item in a `<div>` with that class.
@@ -234,7 +234,7 @@ Indent anything that starts with `- ` inside a description (like a bullet list) 
 - `default_sort` – column key (default: the first column). `default_dir` – `asc` or `desc` (default `asc`).
 - `placeholder` – search box hint text (default is in `strings.yml`).
 - `dialog` – optional popup style. Adds the class `st-dialog--NAME` to the popup. Only `statblock` exists (monsters).
-- `tags` – the tags the Filter panel offers, in the order shown, even if no entry uses them yet. A tag an entry uses that isn't listed appears in red in its popup. `tags: false` hides tags in the Filter panel and popup, but the search box still understands them.
+- `tags` – the tags the Filter panel offers, in the order shown, even if no entry uses them yet. A tag an entry uses that isn’t listed appears in red in its popup, and its table row turns red. `tags: false` hides tags in the Filter panel and popup, but the search box still understands them.
 - `auto_tags` – rules that add a tag automatically, like `- { tag: Concentration, field: duration, equals: Concentration }` (case doesn't matter). Add the tag to `tags` too so it gets a filter button. Leave out `equals` to fire whenever the field has any value.
 - `markers` – symbols next to names. Each has `symbol`, `tag`, `color_by` (the entry field whose value picks the color from `$marker-colors`), and `label` (hover text prefix).
 - `limit_default` (100), `limit_min` (25), `limit_max` (500), `limit_step` (25) – the results-shown slider.
@@ -250,6 +250,7 @@ Indent anything that starts with `- ` inside a description (like a bullet list) 
   - `rank` – ordered categories (like Rarity). Sorts by `order`. Search must match the whole value.
   - `number` – plain numbers. Sorts by amount, with a Min/Max filter or a slider.
   - `measure` – amounts with units (`10 minutes`, `120 feet`). Sorts by size using `units`. Filters with `buckets`.
+- `abbreviate` – the cell shows the first N letters of each item, with the full name in the hover bubble. The popup, filters, and search still use the full names. Use plain text only (no `[[links]]`).
 - `order` – the categories for this column's Filter buttons, in the order shown, even if no entry uses them yet. Give a list, or the name of a list in `_data/lists.yml` (`order: settings`).
   - Rank, number, and measure columns also sort by it.
   - A cell value that isn't listed turns red, unless a number or measure column can read it as an amount.
@@ -296,7 +297,7 @@ The first four files never touch the page, so they can be tested on their own.
 
 - `utils.js` – the `t()` wording helper (reads `strings.yml`), the one number syntax (`NUMBER`, `parseSpan`), and small DOM helpers.
 - `columns.js` – the column types. **To add a column type, add one line to `TYPES`.** It also prepares each column (lists, order, buckets) and adds the tag column. Tags behave as one more list column, so search, filters, and sorting need no special cases for them.
-- `records.js` – reads the rows into records, sorts, and flags unlisted values.
+- `records.js` – reads the rows into records, sorts, and flags unlisted values (a row with an unlisted tag gets `st-row-unlisted`).
 - `query.js` – turns the search box text into terms and matches them.
 - `filters.js` – what the Filter panel has selected, and how it matches.
 - `panel.js` – the Filter panel's buttons, boxes, and sliders.
