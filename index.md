@@ -20,4 +20,4 @@ Welcome to John's Dungeon, John Dungeon's personal archive of random curios and 
 
 ---
 
-> *"Welcome to my dungeon. There's plenty to explore here, so why don't you stay a while?"*
+{% include quote.html text="Welcome to my dungeon. There's plenty to explore here, so why don't you stay a while?" %}
