@@ -12,6 +12,6 @@ defaults:
     values:
       has_toc: false
 exclude:
-  - PERSONAL-NOTES.md
-  - dev-notes.md
   - README.md
+  - dev-notes.md
+  - assets/PERSONAL-NOTES.md
