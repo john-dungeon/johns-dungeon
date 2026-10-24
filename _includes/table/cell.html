@@ -23,11 +23,13 @@
     {%- for cl_item in cl_items -%}
       {%- unless forloop.first -%}{{ ", " }}{%- endunless -%}
       {%- if cl_limit -%}
-        <span class="st-item"{% include tooltip.html text=cl_item %}>{{ cl_item | slice: 0, cl_limit | escape }}</span>
+        {%- assign cl_short = cl_item | slice: 0, cl_limit -%}
+        {%- if cl_short == cl_item -%}
+          <span class="st-item">{{ cl_item | escape }}</span>
+        {%- else -%}
+          <span class="st-item"{% include tooltip.html text=cl_item %}>{{ cl_short | append: "." | escape }}</span>
+        {%- endif -%}
       {%- else -%}
-        <span class="st-item">{% include text.html text=cl_item %}</span>
-      {%- endif -%}
-    {%- endfor -%}
   {%- else -%}
     {%- assign cl_text = include.cell -%}
     {%- assign cl_note_l = include.note | downcase -%}
