@@ -4,6 +4,22 @@
   let tip = null;
   let current = null;
 
+  const SAFE_TAGS = new Set(['EM', 'I', 'STRONG', 'B', 'CODE', 'SUP', 'SUB', 'DEL', 'S', 'U', 'A', 'BR']);
+
+  function safeNodes(html) {
+    const parsed = new DOMParser().parseFromString(html, 'text/html');
+    const rebuild = node => {
+      if (node.nodeType === Node.TEXT_NODE) return [document.createTextNode(node.textContent)];
+      if (node.nodeType !== Node.ELEMENT_NODE) return [];
+      const kids = [...node.childNodes].flatMap(rebuild);
+      if (!SAFE_TAGS.has(node.tagName)) return kids;
+      const copy = document.createElement(node.tagName.toLowerCase());
+      copy.append(...kids);
+      return [copy];
+    };
+    return [...parsed.body.childNodes].flatMap(rebuild);
+  }
+
 // Pop-Up Z Priority
   const supportsPopover = typeof HTMLElement !== 'undefined' &&
     typeof HTMLElement.prototype.showPopover === 'function';
@@ -50,7 +66,8 @@
     ensureTip();
     hide();
     current = target;
-    tip.innerHTML = text;
+    tip.textContent = '';
+    tip.append(...safeNodes(text));
     tip.classList.add('is-open');
     if (supportsPopover) {
       try { tip.showPopover(); } catch (e) {}
