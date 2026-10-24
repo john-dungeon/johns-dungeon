@@ -250,7 +250,7 @@ Indent anything that starts with `- ` inside a description (like a bullet list) 
   - `rank` – ordered categories (like Rarity). Sorts by `order`. Search must match the whole value.
   - `number` – plain numbers. Sorts by amount, with a Min/Max filter or a slider.
   - `measure` – amounts with units (`10 minutes`, `120 feet`). Sorts by size using `units`. Filters with `buckets`.
-- `abbreviate` – the cell shows the first N letters of each comma-separated part of the cell, with the full name in the hover bubble. Works on text and list columns (not on columns with `format`, `symbols`, or a number type). The popup, filters, and search still use the full names. Use plain text only (no `[[links]]`).
+- `abbreviate` – the cell shows the first N letters of each comma-separated part of the cell followed by a period, with the full name in the hover bubble. Works on text and list columns (not on columns with `format`, `symbols`, or a number type). The popup, filters, and search still use the full names. Use plain text only (no `[[links]]`).
 - `order` – the categories for this column's Filter buttons, in the order shown, even if no entry uses them yet. Give a list, or the name of a list in `_data/lists.yml` (`order: settings`).
   - Rank, number, and measure columns also sort by it.
   - A cell value that isn't listed turns red, unless a number or measure column can read it as an amount.
