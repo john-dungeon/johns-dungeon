@@ -12,6 +12,7 @@ columns:
     order: [Cantrip, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   - key: school
     label: School
+    abbreviate: 3
     order: [Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, Transmutation]
   - key: casting_time
     label: Casting Time
@@ -71,4 +72,5 @@ columns:
   - key: classes
     label: Classes
     type: list
+    abbreviate: 3
     order: [Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard]
