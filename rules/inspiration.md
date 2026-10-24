@@ -1,6 +1,6 @@
 ---
 title: Inspiration
 parent: Rules
+unfinished: true
 ---
 
-{% include 404.html %}

@@ -52,7 +52,7 @@ cha: 6
 resistances: Piercing, Slashing
 immunities: Poison, Psychic; Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Restrained
 senses: Tremorsense 40 ft.; always Blinded
-languages: Common; telepathy 300 ft. (only with **{% include entry-link.html table="monsters" name="Stone Warden" text="Stone Wardens" %}** and other **Stone Sentinels**)
+languages: Common; telepathy 300 ft. (only with **[[Stone Warden|Stone Wardens]]** and other **Stone Sentinels**)
 cr: 6
 settings: Jingyu City
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
@@ -90,7 +90,7 @@ skills: Perception +8
 resistances: Piercing, Slashing
 immunities: Poison, Psychic; Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Restrained
 senses: Tremorsense 120 ft.; always Blinded
-languages: Common; telepathy 300 ft. (only with **{% include entry-link.html table="monsters" name="Stone Sentinel" text="Stone Sentinels" %}** and other **Stone Wardens**)
+languages: Common; telepathy 300 ft. (only with **[[Stone Sentinel|Stone Sentinels]]** and other **Stone Wardens**)
 cr: 8
 settings: Jingyu City
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.

@@ -1,6 +1,0 @@
-{%- assign sg_n = include.amount | plus: 0 -%}
-{%- if sg_n >= 0 -%}
-  +{{ sg_n }}
-{%- else -%}
-  {{ sg_n | append: "" | replace: "-", "−" }}
-{%- endif -%}

@@ -45,7 +45,9 @@
     {%- for p in group.items -%}
       {%- assign cat_pos = forloop.index0 | modulo: cat_cols -%}
       {%- if cat_pos == 0 -%}<tr>{%- endif -%}
-<td><a href="{{ p.url | relative_url }}"{% if p.summary %} data-tooltip="{% if p.tagline %}*{{ p.tagline | escape }}* \ {% endif %}{{ p.summary | escape }}"{% endif %}>{{ p.title | escape }}</a></td>
+      {%- assign cat_tip = p.summary -%}
+      {%- if p.tagline and p.summary -%}{%- assign cat_tip = "*" | append: p.tagline | append: "*<br>" | append: p.summary -%}{%- endif -%}
+<td><a href="{{ p.url | relative_url }}"{% if cat_tip %}{% include tooltip.html text=cat_tip %}{% endif %}>{{ p.title | escape }}</a></td>
       {%- if forloop.last -%}
         {%- assign cat_pad = cat_end | minus: cat_pos -%}
         {%- for cat_i in (1..cat_pad) -%}<td></td>{%- endfor -%}

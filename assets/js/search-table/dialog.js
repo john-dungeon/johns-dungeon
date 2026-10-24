@@ -1,6 +1,6 @@
-import { el, markUnlisted } from './utils.js';
+import { el, t, markUnlisted } from './utils.js';
 
-export function createDialog(root, tags) {
+export function createDialog(root, tagCol) {
   const dialog = root.querySelector('.st-dialog');
   const title = dialog.querySelector('.st-dialog-title');
   const tagLine = dialog.querySelector('.st-dialog-tags');
@@ -20,12 +20,14 @@ export function createDialog(root, tags) {
 
     tagLine.textContent = '';
     const tagNames = row.dataset.tagNames;
-    if (tagNames && tags.shown) {
+    if (tagNames && tagCol.filter) {
       const list = tagNames.split(',');
-      tagLine.append(list.length === 1 ? 'Tag: ' : 'Tags: ');
+      tagLine.append(t(list.length === 1 ? 'tag_one' : 'tag_many'));
       list.forEach((name, i) => {
         if (i > 0) tagLine.append(', ');
-        tagLine.append(tags.isListed(name) ? name : markUnlisted(el('span', '', name), 'Tag'));
+        tagLine.append(tagCol.listed.has(name.toLowerCase())
+          ? name
+          : markUnlisted(el('span', '', name), 'unlisted_tag'));
       });
     }
 

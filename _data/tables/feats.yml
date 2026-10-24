@@ -1,0 +1,22 @@
+template: feat
+noun: feats
+tags: [Resistance, Spell]
+columns:
+  - key: name
+    label: Name
+  - key: category
+    label: Category
+    order: [Dragonmark, Dark Gift, Epic Boon, Fighting Style, General, Origin, Planar Pact]
+  - key: prerequisite
+    label: Prerequisite
+    in_table: false
+    blank_as: None
+  - key: repeatable
+    label: Repeatable
+    type: rank
+    in_table: false
+    blank_as: "false"
+    order: ["false", "true"]
+    labels:
+      "false": "No"
+      "true": "Yes"

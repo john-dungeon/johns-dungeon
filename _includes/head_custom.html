@@ -2,17 +2,15 @@
 <link rel="icon" type="image/webp" href="{{ '/assets/favicon.webp' | relative_url }}">
 <link rel="apple-touch-icon" href="{{ '/assets/favicon.webp' | relative_url }}">
 
-<!-- FONTS -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
-
 <!-- THEME -->
-<script>window.SITE_THEMES = {{ site.data.themes | map: "id" | jsonify }};</script>
+<script>window.SITE_THEMES = {{ site.data.themes | jsonify }}; window.SITE_DEFAULT_THEME = {{ site.color_scheme | jsonify }}; window.SITE_ROOT = {{ '/' | relative_url | jsonify }};</script>
 <script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
 {%- for theme in site.data.themes %}
 <link rel="prefetch" href="{{ '/assets/css/just-the-docs-' | append: theme.id | append: '.css' | relative_url }}">
 {%- endfor %}
+
+<!-- SITE DATA FOR SCRIPTS -->
+<script>window.SITE_STRINGS = {{ site.data.strings | jsonify }}; window.SITE_LISTS = {{ site.data.lists | jsonify }};</script>
 
 <!-- SCRIPTS -->
 <script src="{{ '/assets/js/navbar-toggle.js' | relative_url }}"></script>

@@ -15,8 +15,8 @@ markers:
 columns:
   - key: name
     label: Name
-  - key: type
-    label: Type
+  - key: category
+    label: Category
     order: [Adventuring Gear, Armor, Mount, Potion, Ring, Rod, Scroll, Staff, Tool, Vehicle, Wand, Weapon, Wondrous Item]
   - key: rarity
     label: Rarity
@@ -27,6 +27,7 @@ columns:
     label: Cost
     type: number
     format: money
+    unit: GP
     zero_label: None
     order: [None, "...", Varies, Priceless]
     slider: { max: 300000, min_label: None, max_label: Priceless }
@@ -34,6 +35,7 @@ columns:
     label: Weight
     type: number
     format: weight
+    unit: lb.
     zero_label: Weightless
     order: [Weightless, "...", Varies]
     slider: { max: 500, min_label: Weightless, max_label: "500+" }
@@ -54,4 +56,4 @@ columns:
     label: Setting
     type: list
     in_table: false
-    order: [Big Blue, City 13, Drachenfell, Erisia, Great Luminant, Hiraeth, Jingyu City, New Moon City, Solachia]
+    order: settings

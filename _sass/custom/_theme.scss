@@ -6,6 +6,8 @@
   h1, h2, h3, h4, h5, h6, .site-title { font-family: $theme-heading-font; }
 }
 
+h1, h2, h3, h4, h5, h6 { font-weight: $heading-weight; }
+
 #theme-switcher {
   position: fixed;
   bottom: 1rem;

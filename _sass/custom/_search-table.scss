@@ -98,7 +98,7 @@ $slider-height: 1.5rem;
   @include outlined(0.6rem);
   border-top: 4px solid $link-color;
   border-bottom: 4px solid $link-color;
-  width: min(60rem, calc(100% - 2rem));
+  width: min(#{$dialog-width}, calc(100% - 2rem));
   max-height: 85vh;
   padding: 0;
   overflow: hidden;
@@ -123,6 +123,9 @@ $slider-height: 1.5rem;
   grid-row: 1;
   grid-column: 1;
   margin: 0;
+  color: $body-heading-color;
+  font-size: $dialog-title-size !important;
+  line-height: 1.1;
 }
 
 .st-dialog-header {
@@ -133,7 +136,10 @@ $slider-height: 1.5rem;
 .st-dialog-body,
 .st-dialog-tags { grid-column: 1 / -1; }
 
-.st-dialog-body { margin-top: 0.25rem; }
+.st-dialog-body {
+  margin-top: 0.25rem;
+  > :first-child { margin-top: 0.5rem; }
+}
 
 .st-dialog-close {
   padding: 0.2rem 0.5rem;

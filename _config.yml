@@ -11,3 +11,7 @@ defaults:
       path: ""
     values:
       has_toc: false
+exclude:
+  - README.md
+  - dev-notes.md
+  - assets/PERSONAL-NOTES.md

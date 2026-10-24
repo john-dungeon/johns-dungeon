@@ -4,6 +4,6 @@ parent: Ranger
 grand_parent: Subclasses
 tagline: Placeholder
 summary: lycanthrope melee guy
+unfinished: true
 ---
 
-{% include 404.html %}

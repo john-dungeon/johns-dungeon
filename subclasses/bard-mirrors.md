@@ -4,6 +4,6 @@ parent: Bard
 grand_parent: Subclasses
 tagline: Placeholder
 summary: deception and illusions
+unfinished: true
 ---
 
-{% include 404.html %}

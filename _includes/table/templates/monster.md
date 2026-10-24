@@ -26,7 +26,7 @@
   {%- if ms_saves_up contains ms_ab_up -%}{%- assign ms_save = ms_mod | plus: ms_pb -%}{%- endif -%}
   {%- if ms_ab == "dex" -%}{%- assign ms_dex_mod = ms_mod -%}{%- endif -%}
   {%- if ms_ab == "wis" -%}{%- assign ms_wis_mod = ms_mod -%}{%- endif -%}
-  {%- capture ms_cells %}| {{ ms_ab_up }} | {{ ms_score }} | {% include table/signed.html amount=ms_mod %} | {% include table/signed.html amount=ms_save %} {% endcapture -%}
+  {%- capture ms_cells %}| {{ ms_ab_up }} | {{ ms_score }} | {% include table/format.html type="signed" amount=ms_mod %} | {% include table/format.html type="signed" amount=ms_save %} {% endcapture -%}
   {%- assign ms_cell_list = ms_cell_list | append: ms_cells | append: "¦" -%}
 {%- endfor -%}
 {%- assign ms_cell_items = ms_cell_list | split: "¦" -%}
@@ -37,7 +37,7 @@
 {%- endfor -%}
 
 {%- if ms_initiative == "" -%}
-  {%- capture ms_initiative %}{% include table/signed.html amount=ms_dex_mod %} ({{ ms_dex_mod | plus: 10 }}){% endcapture -%}
+  {%- capture ms_initiative %}{% include table/format.html type="signed" amount=ms_dex_mod %} ({{ ms_dex_mod | plus: 10 }}){% endcapture -%}
 {%- endif -%}
 
 {%- capture ms_size_text %}{% include table/join-words.html items=ms_size word="or" %}{% endcapture -%}
@@ -71,8 +71,8 @@
   {%- endif -%}
 {%- endfor -%}
 {%- if ms_cr != "" -%}
-  {%- capture ms_cr_text %}{% include table/cr.html amount=ms_cr %}{% endcapture -%}
-  {%- capture ms_pb_text %}{% include table/signed.html amount=ms_pb %}{% endcapture -%}
+  {%- capture ms_cr_text %}{% include table/format.html type="cr" amount=ms_cr %}{% endcapture -%}
+  {%- capture ms_pb_text %}{% include table/format.html type="signed" amount=ms_pb %}{% endcapture -%}
   {%- assign ms_props = ms_props | append: ms_break | append: "**CR** " | append: ms_cr_text | append: " (XP " | append: ms_challenge.xp | append: "; PB " | append: ms_pb_text | append: ")" -%}
 {%- endif -%}
 {%- assign ms_props = ms_props | remove_first: ms_break -%}
@@ -95,8 +95,8 @@
 {%- endcapture -%}
 
 {%- assign ms_flavor_md = "" -%}
-{%- if ms_flavor != "" -%}{%- assign ms_flavor_md = "> *" | append: ms_flavor | append: "*" -%}{%- endif -%}
-*{{ ms_summary }}*
+{%- if ms_flavor != "" -%}{%- assign ms_flavor_md = "> " | append: ms_flavor | append: ms_nl | append: "{: .italic }" -%}{%- endif -%}
+{{ ms_summary }}
 {: .statblock-type }
 
 **AC** {{ ms_ac }}<span class="statblock-gap"></span>**Initiative** {{ ms_initiative }}<br>

@@ -1,145 +1,196 @@
----
-title: Developer Notes
-nav_exclude: true
-search_exclude: true
----
-{% raw %}
 # Developer Notes
+
+## 0. Design Rules
+
+These are the rules the overhaul followed. New work should follow them too.
+
+- **One place per setting.** Wording lives in `strings.yml`, themes and fonts in `themes.yml`, shared lists in `lists.yml`, look and feel in `_settings.scss`, table behavior in `_data/tables/`.
+- **Universal rules over local fixes.** All text goes through `text.html`. All tooltips go through `tooltip.html`. All quotes go through `quote.html`. All numbers are shown by `format.html`. Don't reimplement these in one spot.
+- **Logic is separate from the page.** The search table's `columns`, `records`, `query`, and `filters` scripts never touch the page. Only `panel`, `dialog`, and `main` do.
+- **Delete before adding.** A new feature should first look for an existing rule to extend.
 
 ## 1. Project Map
 
 ### Settings and Data
-- `_config.yml` – site settings. The theme version is pinned: change it on purpose, never by accident.
-- `_data/themes.yml` – themes in the switcher menu.
+- `_config.yml` – site settings.
+  - The theme version is pinned (`remote_theme: just-the-docs/just-the-docs@v0.12.0`). Change it on purpose, never by accident.
+  - `color_scheme` is the theme first-time visitors see. It must match an `id` in `themes.yml`.
+  - `exclude` keeps `dev-notes.md`, `README.md`, and `assets/PERSONAL-NOTES.md` off the website. The files stay in the repository, which is public.
+- `_data/strings.yml` – every piece of site wording that isn't page content.
+- `_data/themes.yml` – the themes in the switcher menu, and each theme's fonts.
+- `_data/lists.yml` – lists shared by several search table columns (worlds, creature types, sizes).
+- `_data/challenge.yml` – Challenge Rating to XP and Proficiency Bonus (used by the monster template). Fractions are decimals (`0.5`).
 - `_data/tables/` – one settings file per search table.
-- `_data/challenge.yml` – Challenge Rating → XP and Proficiency Bonus (used by the monster template). Fractions are written as decimals (`0.5`).
 
 ### Styling
-- `_sass/color_schemes/` – one file per theme (colors, and optionally fonts).
-- `assets/css/just-the-docs-NAME.scss` – one tiny file per theme (Jekyll needs each one).
+- `_sass/color_schemes/` – one file per theme (colors only). Just the Docs' own `dark` and `light` need no file here.
+- `assets/css/just-the-docs-ID.scss` – one 3-line stub per theme. Jekyll needs each one as a separate file. `just-the-docs-default.scss` is the stylesheet every page loads first. It builds the default theme (`color_scheme` in `_config.yml`), so never delete it.
 - `_sass/custom/` – all custom CSS, loaded in this order by `custom.scss` (import each file once):
-  - `_helpers` – shared variables and mixins (loaded first), including the shared animation curve `$motion`.
-  - `_theme` – fonts, the theme switcher button, and the theme cross-fade.
-  - `_base` – links, scrollbar, the `.indent` class, and the animation speed `--motion-duration`.
+  - `_settings` – every adjustable visual value, each with `!default`.
+  - `_helpers` – derived variables and mixins (loaded second).
+  - `_theme` – fonts, heading weight, the theme switcher button, the theme cross-fade.
+  - `_base` – links, scrollbar, the `.indent` and `.italic` classes, the animation speed variable.
   - `_tables` – flat, striped tables.
-  - `_search-table` – everything for search tables.
-  - `_statblock` – the monster popup: the `st-dialog--statblock` popup style (width, background, name) and the stat block's inner parts.
-  - `_navbar-toggle` – the nav bar hide/show button and slide animation.
+  - `_search-table` – everything for search tables, including the popup.
+  - `_statblock` – the monster popup's inner parts and width.
+  - `_navbar-toggle` – the sidebar hide and show button.
   - `_tooltip` – the hover bubble.
   - `_dropdown` – collapsible `<details>` sections.
+- `assets/fonts/` – the font files named in `themes.yml`.
 
-### Reusable HTML (`_includes/`)
-- `catalog.html` – link tables.
-- `search-table.html` – search tables.
-- `backlink.html` – the automatic "Back to..." link in the footer.
-- `404.html` – the "not constructed yet" message.
-- `head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – theme hook points.
-- `entry-link.html` – a link that opens an entry's popup: `{% include entry-link.html table="monsters" name="Blue Slime" text="optional" %}`.
-- `table/` – helpers for `search-table.html`:
+### Layout and Reusable HTML
+- `_layouts/wiki.html` – the page layout. See section 2.
+- `_includes/text.html` – the universal text formatter. See section 3.
+- `_includes/quote.html` – an italic blockquote. `tooltip.html` – a `data-tooltip` attribute.
+- `_includes/catalog.html` – link tables. `search-table.html` – search tables.
+- `_includes/backlink.html` – the automatic "Back to..." link in the footer.
+- `_includes/head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – Just the Docs hook points.
+- `_includes/theme.scss.liquid` – builds one theme's stylesheet (fonts, font rules, color scheme).
+- `_includes/table/` – helpers for `search-table.html`:
   - `parse-entry.html` – turns an entry's text into packed fields.
   - `field.html` – reads one field from the packed fields.
-  - `value.html` – a cell's raw value (applies `zero_label` and list handling).
+  - `value.html` – a cell's raw value (applies `zero_label` and list cleanup).
+  - `format.html` – shows a number: `money` (`5 SP`), `weight` (`1.2 oz.`), `cr` (`1/2`), `signed` (`+3`, `−1`), or a prefix and suffix.
   - `cell.html` – builds a table cell (symbols, formats, notes, red "missing" cells).
   - `list.html` – cleans a comma-separated list. With `plain`, it removes "(notes)".
   - `join-words.html` – "A, B, or C" style joining, in the order written.
-  - `named-list.html` – turns `- key: Name` / `description:` lists into bold-italic-titled paragraphs (species traits, monster traits and actions). Optional `row="class"` wraps each item in a `<div>` with that class.
+  - `named-list.html` – turns `- key: Name` and `description:` lists into bold-italic titled paragraphs. Optional `row="class"` wraps each item in a `<div>` with that class.
   - `marker.html` – the symbols next to item names.
-  - `money.html`, `weight.html`, `cr.html`, `signed.html` – display formats (`5 SP`, `1.2 oz.`, `1/2`, `+3` / `−1`).
-  - `templates/` – popup layouts: `item.md`, `species.md`, `spell.md`, `monster.md`.
+  - `templates/` – popup layouts: `item.md`, `species.md`, `spell.md`, `monster.md`, `feat.md`.
 
 ### Scripts (`assets/js/`)
-- `theme-switcher.js`, `tooltips.js`, and `navbar-toggle.js` (remembers whether the navigation sidebar is hidden).
-- `search-table/` – one file per job. `main.js` is the entry point.
-- `deeplink.js` – opens a popup when the URL ends in `#entry-name` (the name, lowercased with hyphens).
+- `theme-switcher.js` – remembers the chosen theme, swaps its stylesheet, and preloads that theme's fonts.
+- `tooltips.js` – shows the bubble for any `data-tooltip`. `navbar-toggle.js` – remembers whether the sidebar is hidden.
+- `search-table/` – see section 7.
 
 ### Content Folders
 - `feats/`, `items/`, `monsters/`, `rules/`, `settings/`, `species/`, `spells/`, `subclasses/`. Each has an `index.md`.
 - Feats, items, monsters, species, and spells also have an `_entries.md` holding their table entries.
 
-## 2. Additions
+## 1b. Customizing
 
-### Add a Section (top-level aisle)
-Create `NAME/index.md` with `title`, `parent: Home`, and `has_children: true`. Do not set `nav_order`: the sidebar sorts sections alphabetically (only Home has `nav_order: 1`, to stay first), and the Home page's link table picks the new section up automatically.
+| To change | Edit |
+|---|---|
+| Any site wording (footer text, button labels, messages, table wording) | `_data/strings.yml` |
+| Which themes exist, their fonts | `_data/themes.yml` |
+| Worlds, creature types, sizes | `_data/lists.yml` |
+| Animation speed, popup widths, tooltip width, rarity colors, heading weight, popup title size | `_sass/custom/_settings.scss` |
+| A theme's colors | `_sass/color_schemes/ID.scss` |
+| A table's columns, filters, limits | `_data/tables/NAME.yml` |
+
+**Strings.** Use `{name}` as a fill-in spot, such as `{title}`. Only `nav_footer` and `unfinished` accept Markdown and `[[links]]`. Wrap a value in quotes if it contains a colon followed by a space.
+
+**Settings.** Every value in `_settings.scss` ends in `!default`, so any color scheme can override one for just that theme by writing the same variable name without `!default`. Don't set `$theme-body-font` or `$theme-heading-font` in a color scheme. Fonts come from `themes.yml`.
+
+**Other color scheme overrides:** `$stripe-odd-color`, `$stripe-even-color`, `$unlisted-color`, `$marker-colors`.
+
+## 2. Pages
+
+### Front matter
+- `title` – required. For sections and pages, `parent` is the exact title of the section page. For subclasses, `parent` is the class and `grand_parent` is `Subclasses`.
+- `has_children: true` – on section pages and class stubs.
+- `layout: wiki` – builds the page from the keys below. Without it, the page is a normal Just the Docs page. Home uses the normal layout.
+- `tagline` – an italic line under the title. It is also the first line of the page's tooltip in link tables.
+- `summary` – the rest of that tooltip.
+- `intro` – the paragraph under the title (wiki layout).
+- `catalog` – a link table. `catalog: true` lists every page whose `parent` is this page's title. Or give a map of `grand_parent`, `group_by` (a front matter key), `columns` (minimum, default 3), and `max_columns` (default 5).
+- `table` – a search table, by name (a file in `_data/tables/`).
+- `quote` – the closing quote. Write the text only, without outer quotation marks.
+- `unfinished: true` – shows the "not constructed yet" message and the Back link. Leave the body empty. A tooltip gets the Placeholder tagline (`placeholder_tagline` in `strings.yml`) unless the page has its own `tagline`.
+- `nav_exclude`, `search_exclude`, `redirect_url` – Just the Docs and class stub settings.
+- `has_toc: false` is already the default for every page. Don't repeat it.
+
+A value can't contain a colon followed by a space or a space followed by `#`. Wrap it in single quotes if it does.
+
+The wiki layout order is: title, tagline, intro, page body, link table, search table, divider, quote. Back links are automatic. They point to `grand_parent`, else `parent`, else Home. Never write one by hand.
+
+### Add a Section
+Create `NAME/index.md` with `title`, `parent: Home`, `has_children: true`, `layout: wiki`, `intro`, `quote`, and either `catalog: true` or `table: NAME`. Do not set `nav_order`: sections sort alphabetically (only Home has `nav_order: 1`), and the Home link table picks the new one up.
 
 ### Add a Page
-Create a `.md` file in the right folder with front matter: `title` and `parent` (the exact title of the section page). For subclasses, use `parent` for the class and `grand_parent: Subclasses`. Optional: `tagline` and `summary` (used for the hover tooltip in link tables).
-
-- Unfinished page: the body is `{% include 404.html %}`.
-- Back links are automatic. They point to `grand_parent`, else `parent`, else Home. Never write one by hand.
-- `has_toc: false` is already the default for every page, so don't repeat it.
+Create a `.md` file in the right folder with `title` and `parent`. An unfinished page is only front matter with `unfinished: true`.
 
 ### Add a Class (for Subclasses)
-Create `subclasses/CLASS.md` with `title`, `parent: Subclasses`, `has_children: true`, `redirect_url: /subclasses/`, `search_exclude: true`, and no body. It shows in the navigation sidebar as a stub that redirects to the Subclasses page.
+Create `subclasses/CLASS.md` with `title`, `parent: Subclasses`, `has_children: true`, `redirect_url: /subclasses/`, `search_exclude: true`, and no body.
+
+## 3. Text Rules
+
+Everything on the site passes through `text.html`, so these rules work everywhere:
+
+- Markdown works: `*italic*`, `**bold**`, lists.
+- `<br>` makes a line break. Use it in tooltips and stat blocks (a lone `\` there prints literally). In other popups, a trailing `\` also works. If one prints a stray `\`, use `\\` or `<br>`.
+- Links: `[[Name]]`, `[[Name|label]]`, `[[table:Name]]`, `[[table:Name|label]]`. They open that entry's popup. `table` defaults to the page's own table.
+- It applies to page `intro` and `tagline`, quotes, tooltips, the footer text, text cells, and every popup.
+- It does not apply to attributes (search box hint, aria labels), number cells, or the wording used by scripts. Those are plain text.
+
+Other rules:
+
+- **Headings are bold automatically.** Never write `**` in a heading. The weight is `$heading-weight` in `_settings.scss`.
+- **Quotes:** `{% include quote.html text="..." %}`. Don't type the outer quotation marks.
+- **Tooltips:** `{% include tooltip.html text="..." %}` prints a full `data-tooltip="..."` attribute. The bubble inserts the text as HTML, so only use text you wrote.
+- **Italic blocks:** put `{: .italic }` on the line after the text. Other classes: `.indent`, `.catalog` (a plain table), `.headless` (hide the header row).
+- **Dropdown text:** use raw HTML with Kramdown's `markdown` attributes:
+  ```
+  <details markdown="1">
+  <summary markdown="span">**Title**</summary>
+
+  Body text
+  </details>
+  ```
+  Keep a blank line after `</summary>` and before each `<details>`.
+
+## 4. Themes and Fonts
 
 ### Add a Theme
 1. Add `_sass/color_schemes/NAME.scss` (copy an existing one).
-2. Copy `assets/css/just-the-docs-dark.scss` to `just-the-docs-NAME.scss` and change `color_scheme="NAME"`.
-3. Add an entry to `_data/themes.yml`.
+2. Add `assets/css/just-the-docs-NAME.scss`:
+   ```
+   ---
+   ---
+   {% include theme.scss.liquid id="NAME" %}
+   ```
+3. Add an entry to `_data/themes.yml` (`id` must match both file names).
+4. To make it the default for new visitors, set `color_scheme: NAME` in `_config.yml`.
 
-Optional overrides in a color scheme: `$theme-body-font`, `$theme-heading-font`, `$stripe-odd-color`, `$stripe-even-color`, `$marker-colors`, `$unlisted-color`.
+### Add Fonts to a Theme
+1. Put the font files in `assets/fonts/`. File names are case-sensitive and should have no spaces. `.woff2` is the smallest format. `.ttf` also works.
+2. In the theme's entry in `themes.yml`, add one line per file under `fonts:`, then name the families in `body_font` and `heading_font`:
+   ```
+   fonts:
+     - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Regular.ttf }
+     - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Italic.ttf, style: italic }
+   ```
+   `weight` is 400 by default. Use a quoted range such as `"200 900"` for a variable font. `preload: false` skips the early download for a file that isn't needed on the first view.
 
-### Add a Search Table Entry
-Edit the table's `_entries.md` (see section 4 for the format).
+How it works: `theme.scss.liquid` writes one `@font-face` rule per file into that theme's stylesheet. `theme-switcher.js` adds a preload hint for the active theme's files, so the download starts before the stylesheet is read.
 
-### Add a Column or Field
-Add the key to the entry, add a column in the table's `.yml` file, and (if it should appear in the popup) use it in the template.
+## 5. Search Tables
 
-### Add a Setting (world)
-Search the repo for an existing setting name (like `Solachia`) and add the new one to every `order` list that contains it.
-
-### Add a Style File
-Create `_sass/custom/_NAME.scss` and add one `@import "NAME";` line to `custom.scss`.
-
-## 3. Link Tables, Tooltips, and Dropdowns
-
-### Link Tables (`catalog.html`)
-`{% include catalog.html parent="Items" %}` lists every page whose `parent` is that title, sorted by title. Wrap the include in `{::nomarkdown}` ... `{:/nomarkdown}`.
-
-**Options**
-- `grand_parent="Title"` – use instead of `parent`.
-- `group_by="front_matter_key"` – each group starts on a new row under its own heading, and all groups share one table.
-- `columns=3` – the minimum column count.
-- `max_columns=5` – the maximum column count.
-
-The column count is picked automatically: the count (at least 3) that leaves the fewest empty cells, with ties going to the smaller count.
-- One group: this is the smallest divisor of the link count that is at least 3 (4 links gives 4 columns, 12 gives 3), so there are no empty cells.
-- With `group_by`: the count minimizes empty cells across all groups together.
-- The count never goes above `max_columns`, so 7 links gives 4 columns with one empty cell instead of one very wide row.
-
-### Tooltips
-Any element with `data-tooltip="text"` gets a hover/focus bubble. In the text, `*italic*`, `**bold**`, and `\` (a line break) work. Link tables build theirs from `tagline` + `summary`.
-
-### Dropdown Text
-Use raw HTML with Kramdown's `markdown` attributes so Markdown works inside:
-
-```
-<details markdown="1">
-<summary markdown="span">**Title**</summary>
-
-Body text
-</details>
-```
-
-Keep a blank line after `</summary>` and before each `<details>`. Works on pages and in `_entries.md` descriptions.
-
-## 4. Search Tables
-
-Put `{% include search-table.html data="items" %}` (inside `{::nomarkdown}`) on a page. A table named `items` uses three files:
+Put `layout: wiki` and `table: items` in a section page's front matter. A table named `items` uses three files:
 - `_data/tables/items.yml` – settings and columns (see "Table Settings" and "Column Options").
 - `items/_entries.md` – the entries. This is the file you edit.
 - `_includes/table/templates/<template>.md` – how an entry's fields become popup text.
 
+### Add a Table
+Create all three files, then point a page at it with `table: NAME`. The `template` setting names the popup layout file.
+
+### Add an Entry
+Add it to the table's `_entries.md`, separated from the next one by a line that is exactly `---`.
+
+### Add a Column or Field
+Add the key to the entry, add a column in the table's `.yml` file, and (if it should appear in the popup) use it in the template.
+
 ### Entry Format
-- Entries are separated by a line that is exactly `---`. Never use `---` inside a description; use `***`.
-- One `key: value` per line. A line starting with a field name and `: ` starts a field. Field names are **all lowercase** (letters, digits, underscores): a capitalized name like `Resistances:` is not recognized and gets glued onto the field above it. Every other line continues the field above it.
+- Entries are separated by a line that is exactly `---`. Never use `---` inside a description. Use `***`.
+- One `key: value` per line. A line starting with a field name and `: ` starts a field. Field names are **all lowercase** (letters, digits, underscores). A capitalized name like `Resistances:` is not recognized and gets glued onto the field above it. Every other line continues the field above it.
 - Lists are comma-separated. Write cost and weight as plain numbers.
 - `tags` – comma-separated, shown in the popup.
-- `options_KEY` (e.g. `options_rarity`) – lists other values the entry counts as for search and filters. Excluding hides the entry only if all of its values are excluded.
+- `options_KEY` (for example `options_rarity`) – lists other values the entry counts as, for search and filters. Excluding hides the entry only if all of its values are excluded.
 - On number columns, `options_cost` and `options_weight` list amounts or ranges instead, like `options_cost: 50, 200, 3-36`. Use plain numbers, no thousands commas. A slider or Min/Max filter keeps the entry if any listed amount or range overlaps it.
 - Entry names must be unique within a table: each row's `id` is its slugified name, and links rely on it.
 
 ### Named Lists (traits, actions, and so on)
-Fields such as species `traits` and monster `traits` / `actions` use indented list items. The first key's name is ignored (`trait_1`, `action_2`, anything); its value is the item's title.
+Fields such as species `traits` and monster `traits` and `actions` use indented list items. The first key's name is ignored (`trait_1`, `action_2`, anything). Its value is the item's title.
 
 ```
 actions:
@@ -155,97 +206,116 @@ Indent anything that starts with `- ` inside a description (like a bullet list) 
 
 ### Fields by Table
 
-**Items** (`item.md`): `name`, `prefix_type`, `type`, `note_type`, `rarity`, `options_rarity`, `note_rarity`, `attunement`, `cost`, `options_cost`, `note_cost`, `weight`, `options_weight`, `note_weight`, `setting`, `note_setting`, `tags`, `description`.
-- `prefix_type` is placed before the type in the popup's first line (`prefix_type: Simple Melee` with `type: Weapon` shows "Simple Melee Weapon"). It isn't shown in the table's Type column, so filtering still uses the plain type.
+**Items** (`item.md`): `name`, `prefix_category`, `category`, `note_category`, `rarity`, `options_rarity`, `note_rarity`, `attunement`, `cost`, `options_cost`, `note_cost`, `weight`, `options_weight`, `note_weight`, `setting`, `note_setting`, `tags`, `description`.
+- `prefix_category` goes before the category in the popup's first line (`prefix_category: Simple Melee` with `category: Weapon` shows "Simple Melee Weapon"). It isn't shown in the table's Category column.
 - `setting` is comma-separated. It auto-adds the Setting-Specific tag and appends the "can only be found in…" note to the popup. Never hand-write that note or tag.
-- `note_setting` is an extra sentence added to the end of that note. Don't use `*` inside it, since the whole note is italic.
+- `note_setting` is an extra sentence added to the end of that note.
 
-**Species** (`species.md`): `name`, `article` (optional), `description`, `age`, `type`, `size`, `speed`, `settings`, `tags`, `traits`. Several `type` values are joined with "and", several `size` values with "or", in the order written.
+**Species** (`species.md`): `name`, `article` (optional), `description`, `age`, `type`, `size`, `speed`, `settings`, `tags`, `traits`. Several `type` values are joined with "and", and several `size` values with "or", in the order written.
 
 **Spells** (`spell.md`): `name`, `level` (`Cantrip` or 1–9), `school`, `classes`, `casting_time`, `condition`, `ritual` (`true`), `range`, `area`, `components` (`V, S, M`), `material`, `duration`, `concentration_max`, `tags`, `description`.
 - `condition` is added to the end of the casting time exactly as written, so begin it with its own punctuation, like `condition: , which you take when you are hit by an attack roll`.
 
 **Monsters** (`monster.md`): `name`, `size`, `type`, `alignment`, `ac`, `initiative`, `hp`, `speed`, `str`–`cha`, `saves`, `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages`, `cr`, `settings`, `tags`, `flavor`, and the sections `traits`, `actions`, `bonus_actions`, `reactions`, `legendary_actions`.
-- `name` is also the stat block's title: the popup shows it once, in the name position.
-- `size` and `type` can list several values. Sizes are joined with "or" and types with "and", in the order written.
+- `name` is also the stat block's title.
 - The scores `str`–`cha` give modifiers and saves automatically. `saves: Dex, Wis` adds the Proficiency Bonus to those saves.
-- `cr` is a plain number, with fractions as decimals (`0.125`, `0.25`, `0.5`). The Proficiency Bonus and XP come from `_data/challenge.yml`. The search box doesn't understand `1/2`; search `cr:0.5`.
-- `initiative` is optional and replaces the computed value, shown as written (like `+7 (17)`).
-- `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, and `languages` are free text. A line shows only if the entry has that field, in the order Skills, Resistances, Vulnerabilities, Immunities, Gear, Senses, Languages, then the CR line.
-- Passive Perception is added to the end of the Senses line automatically (10 + the Perception bonus in `skills`, otherwise 10 + the Wisdom modifier). Don't type it into `senses`, and write negative bonuses with a plain hyphen (`Perception -1`). The Senses line always shows, even with no `senses` field.
-- Sections use the named-list format above. Each section can have an optional `KEY_intro` field (`traits_intro`, `actions_intro`, `bonus_actions_intro`, `reactions_intro`, `legendary_actions_intro`), shown as a plain paragraph between the section heading and its first row. Use it for text that applies to the whole section.
-- `flavor` is optional: one paragraph of plain text, shown in italics as a blockquote at the bottom. Don't put `*` in it.
+- `cr` is a plain number, with fractions as decimals (`0.125`, `0.25`, `0.5`). The Proficiency Bonus and XP come from `_data/challenge.yml`. The search box doesn't understand `1/2`. Search `cr:0.5`.
+- `initiative` is optional and replaces the computed value, shown as written.
+- `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, and `languages` are free text. A line shows only if the entry has that field.
+- Passive Perception is added to the end of the Senses line automatically. Don't type it into `senses`. Write negative bonuses with a plain hyphen (`Perception -1`).
+- Each section can have an optional `KEY_intro` field, shown as a plain paragraph above its first row.
+- `flavor` is optional: one paragraph, shown in italics as a blockquote at the bottom.
+
+**Feats** (`feat.md`): `name`, `category`, `prerequisite`, `repeatable` (`true` or `false`, blank means false), `tags`, `description`.
 
 ### Table Settings (`_data/tables/NAME.yml`)
 - `template` – popup layout file in `_includes/table/templates/` (required).
 - `noun` – word used in "Showing 5 of 20 items".
-- `default_sort` – column key (default: the first column).
-- `default_dir` – `asc` or `desc` (default: `asc`).
-- `placeholder` – search box hint text.
-- `dialog` – optional popup style. Adds the class `st-dialog--NAME` to the popup. Only `statblock` exists (monsters); leave it out for the normal popup.
-- `tags` – the tags the Filter panel offers, in the order shown, even if no entry uses them yet. A tag an entry uses that isn't listed appears in red in its popup. `tags: false` hides tags in the Filter panel and popup.
-- `limit_default` (100), `limit_min` (25), `limit_max` (500), `limit_step` (25).
-- `markers` – a list of markers, each with `symbol`, `tag`, `color_by` (the entry field whose value picks the color from `$marker-colors`), and `label` (hover text prefix).
+- `default_sort` – column key (default: the first column). `default_dir` – `asc` or `desc` (default `asc`).
+- `placeholder` – search box hint text (default is in `strings.yml`).
+- `dialog` – optional popup style. Adds the class `st-dialog--NAME` to the popup. Only `statblock` exists (monsters).
+- `tags` – the tags the Filter panel offers, in the order shown, even if no entry uses them yet. A tag an entry uses that isn't listed appears in red in its popup. `tags: false` hides tags in the Filter panel and popup, but the search box still understands them.
 - `auto_tags` – rules that add a tag automatically, like `- { tag: Concentration, field: duration, equals: Concentration }` (case doesn't matter). Add the tag to `tags` too so it gets a filter button. Leave out `equals` to fire whenever the field has any value.
-- `columns` – the list below. The first column is always the name.
+- `markers` – symbols next to names. Each has `symbol`, `tag`, `color_by` (the entry field whose value picks the color from `$marker-colors`), and `label` (hover text prefix).
+- `limit_default` (100), `limit_min` (25), `limit_max` (500), `limit_step` (25) – the results-shown slider.
+- `columns` – see below. The first column is always the name.
 
 ### Column Options
 
 **Core**
-- `key` – matches the field in entries.
-- `label` – the heading.
-- `type` – `text` (default), `number`, `list`, `rank`, or `measure`.
-- `order` – the categories for this column's Filter buttons, in the order shown, even if no entry uses them yet.
+- `key` – matches the field in entries. `label` – the heading.
+- `type` – how the column behaves:
+  - `text` (default) – substring search.
+  - `list` – the cell holds `a, b, c`. Each item is searched and filtered separately.
+  - `rank` – ordered categories (like Rarity). Sorts by `order`. Search must match the whole value.
+  - `number` – plain numbers. Sorts by amount, with a Min/Max filter or a slider.
+  - `measure` – amounts with units (`10 minutes`, `120 feet`). Sorts by size using `units`. Filters with `buckets`.
+- `order` – the categories for this column's Filter buttons, in the order shown, even if no entry uses them yet. Give a list, or the name of a list in `_data/lists.yml` (`order: settings`).
   - Rank, number, and measure columns also sort by it.
   - A cell value that isn't listed turns red, unless a number or measure column can read it as an amount.
   - Leave `order` out and the column gets no buttons and nothing is flagged.
-  - In rank, number, and measure columns, a quoted `"..."` marks where amounts go. Names before it sort first in listed order, names after it sort last in listed order. Without it, amounts come after all names.
+  - A quoted `"..."` marks where amounts go. Names before it sort first, and names after it sort last. Without it, amounts come after all names.
 - `blank_as` – blank entries count as this value in search, filters, and sorting. The cell shows its `symbols` entry if it has one, otherwise "—". A blank cell in a column without `blank_as` (and not `in_table: false`) is highlighted red as a missing value.
 
 **Display**
-- `format: cr` – number columns: `0.5` displays as `1/2` (display only).
-- `format: money` – number columns: cells display as GP/SP/CP and the Filter heading says GP. Write the value as a decimal. Digits past the hundredths show as a decimal amount of CP (`0.002` shows `0.2 CP`).
-- `format: weight` – number columns: weights of 0.1 or less display in ounces, rounded up to the hundredth (`0.075` shows `1.2 oz.`); others in lb., rounded up to the tenth (`0.75` shows `0.8 lb.`). Display only, so sorting and filters use the exact number.
-- `prefix` / `suffix` – for other numbers.
-- `zero_label` – number columns: an entry whose value is exactly `0` is shown and treated as this word (for example `Weightless`). The popup template needs the same rule written into it.
+- `format: cr` – `0.5` displays as `1/2`. `format: money` – cells display as GP/SP/CP. `format: weight` – weights of 0.1 or less display in ounces, others in pounds. All display only. Sorting and filters use the exact number.
+- `prefix` and `suffix` – for other numbers. `unit` – shown in the Filter heading, like "Cost (GP)".
+- `zero_label` – number columns: an entry whose value is exactly `0` is shown as this word (for example `Weightless`) in both the table and the popup.
 - `plain: true` – list cells hide "(notes)".
-- `symbols` (value to icon) and `labels` (value to friendly text).
+- `symbols` (value to icon) and `labels` (value to friendly text). Quote `"true"` and `"false"` keys.
 - `in_table: false` – searchable and filterable but hidden from the table.
-- `note` – adds an entry field to the table cell:
-  - `field` is the entry key.
-  - `format` is the added text, with `%s` standing for the value (default ` (%s)`).
-  - `show_if` shows the note only when the entry's value equals it, for true/false fields like `ritual`.
-  - `sort: true` also sorts by the note's value when the entry has one.
+- `note` – adds an entry field to the table cell: `field` is the entry key, `format` is the added text with `%s` for the value (default ` (%s)`), `show_if` shows the note only when the entry's value equals it, and `sort: true` also sorts by the note's value.
 
 **Behavior**
-- `sortable: false` – not clickable.
-- `filter: false` – skip its Filter group. By default, numbers get a range and columns with `order` get buttons.
+- `sortable: false` – not clickable. `filter: false` – skip its Filter group.
 - `match: exact` – search must match the whole value (the default for `rank`).
 - `units` – measure columns: unit word to size in a base unit, like `{foot: 1, feet: 1, mile: 5280}`. A plural ending in "s" is matched automatically.
-- `slider` – number columns: `{ max, min_label, max_label }` turns the Min/Max boxes into a double-ended slider. Positions are `0` (min label, no lower limit), `1` to `max` (amounts), and `max+1` (max label, no upper limit). Entries whose text equals a label word (e.g. `Weightless`) count as 0 or infinity.
-- `buckets` – replaces the `order`-based Filter buttons.
-  - A plain word matches that exact value.
-  - `{ label, up_to }` catches amounts up to that size (written like `10 minutes`, using the column's `units`).
-  - `{ label }` with no `up_to` catches every larger amount.
-  - List amount buckets from smallest to largest.
-  - Bucketing uses the note's sort value when there is one (so Concentration spells are bucketed by their "up to" time).
+- `slider` – number columns: `{ max, min_label, max_label }` turns the Min/Max boxes into a double-ended slider. Positions are `0` (min label, no lower limit), `1` to `max` (amounts), and `max+1` (max label, no upper limit). Entries whose text equals a label word count as 0 or infinity.
+- `buckets` – replaces the `order`-based Filter buttons. A plain word matches that exact value. `{ label, up_to }` catches amounts up to that size (like `10 minutes`, using the column's `units`). `{ label }` with no `up_to` catches every larger amount. List amount buckets from smallest to largest. Concentration spells are bucketed by their "up to" time.
+
+### Shared Lists
+`_data/lists.yml` holds lists used by several tables. Adding a world means adding its name to `settings` there (and creating its page in `settings/`). Every table picks it up.
 
 ### Search Box
-- Plain words search names.
-- `field:value` searches a column.
-- `"quoted phrase"` keeps words together.
-- `-word` excludes.
+- Plain words search names. `field:value` searches a column. `"quoted phrase"` keeps words together. `-word` excludes.
 - `#tag` or `tag:word` searches tags.
-- Numbers accept `cost:>=100` or `weight:1-5`.
+- Numbers accept `cost:>=100`, `cost:<50`, `weight:1-5`, or `cr:0.5`.
 
-## 5. Reminders
-- **Liquid runs in every normal `.md` page**, even inside backticks. Wrap documentation examples in raw tags (like this page does).
-- **Includes share variables with the page that calls them.** Give every include its own prefix (`mk_`, `cl_`, `pe_`, `jw_`, `ni_`, `sg_`, `sp_`, `sps_`, `ms_`...).
+## 6. How a Table Is Built
+
+Liquid builds each row and popup at build time. A script then makes it interactive. The two sides share a few attributes:
+
+- `data-config` on `.search-table` – the table's settings file as JSON.
+- On each row: `id` (the slugified name), `data-tag-names`, and `data-v-KEY` (the lowercase displayed value), `data-o-KEY` (the `options_` values), and `data-s-KEY` (a sort override from a column `note`).
+- The popup HTML sits in `.st-details`, one `<div data-for="ROW-ID">` per entry.
+- `deeplink.js` opens a popup when the URL ends in `#entry-name`.
+
+## 7. Search Table Scripts (`assets/js/search-table/`)
+
+The first four files never touch the page, so they can be tested on their own.
+
+- `utils.js` – the `t()` wording helper (reads `strings.yml`), the one number syntax (`NUMBER`, `parseSpan`), and small DOM helpers.
+- `columns.js` – the column types. **To add a column type, add one line to `TYPES`.** It also prepares each column (lists, order, buckets) and adds the tag column. Tags behave as one more list column, so search, filters, and sorting need no special cases for them.
+- `records.js` – reads the rows into records, sorts, and flags unlisted values.
+- `query.js` – turns the search box text into terms and matches them.
+- `filters.js` – what the Filter panel has selected, and how it matches.
+- `panel.js` – the Filter panel's buttons, boxes, and sliders.
+- `dialog.js` – the popup. `deeplink.js` – opens a popup from the URL. `main.js` – the entry point that wires it all together.
+
+## 8. Reminders
+
+- **Liquid runs in every normal `.md` page**, even inside backticks. Wrap documentation examples in raw tags. This file is excluded from the build, so it doesn't need them.
+- **Never put `}` inside a `{{ }}` tag.** Liquid ends the tag at the first `}`. Assign the value first with `{% assign %}`, then print it. (`{% %}` tags are fine.)
+- **Includes share variables with the page that calls them.** Give every include its own prefix (`mk_`, `cl_`, `pe_`, `jw_`, `ni_`, `fm_`, `ms_`, `sps_`, `sp_`, `it_`, `ft_`, `tx_`, `qt_`, `tt_`, `th_`...). Pass what an include needs as a parameter instead of relying on a shared variable.
 - **Include parameters must be plain values or dotted names** (`key=col.key`). Brackets like `list[0]` break the include tag, so assign the value to a variable first.
-- **Line breaks in stat blocks use `<br>`.** A single trailing `\` printed literally there. If a popup elsewhere shows a stray `\`, use two backslashes (`\\`) or `<br>`.
-- **For Sass compatibility**, halve with `* 0.5`, not `/ 2` (slash division is deprecated in newer Sass). Avoid `@use` and `math.div`: the theme loads this folder with `@import`.
-- **Colors and fonts come from the color-scheme variables**, never hard-coded in `_sass/custom/`.
-- **Entry files are named `_entries.md`** so Jekyll doesn't publish them as raw pages. They're loaded with `include_relative`, so they must sit in the same folder as the page that shows the table.
-- **Before deleting a CSS class**, search the whole repo for its name (GitHub's search box works).
+- **Sass can't read data files.** A stylesheet only knows what is written into it. `_settings.scss` holds the defaults, and `theme.scss.liquid` writes each theme's fonts. Just the Docs also builds stylesheets of its own that load `custom.scss`, which is why every setting has a `!default`.
+- **Never delete `assets/css/just-the-docs-default.scss`.** Every page loads it first. If it doesn't use the theme include, the first view shows the wrong fonts.
+- **For Sass compatibility**, halve with `* 0.5`, not `/ 2`. Avoid `@use` and `math.div`: the theme loads this folder with `@import`.
+- **Colors and fonts come from the color scheme variables**, never hard-coded in `_sass/custom/`.
 - **Just the Docs** sets heading (`h1`–`h6`) and table (`th`, `td`) font sizes with `!important`. A custom `font-size` on those elements only works if it is `!important` too.
-{% endraw %}
+- **Entry files are named `_entries.md`** so Jekyll doesn't publish them as raw pages. They're loaded with `include_relative`, so they must sit in the same folder as the page that shows the table.
+- **YAML:** quote a value that contains a colon followed by a space, or starts with `,` or `#`. Quote the keys `"true"` and `"false"`. Use spaces, never tabs.
+- **File names on GitHub Pages are case-sensitive.** A wrong capital in a font file name gives the fallback font with no error message.
+- **Before deleting a CSS class**, search the whole repo for its name (GitHub's search box works).
+- **After changing a script,** hard refresh (Ctrl+Shift+R). GitHub Pages and browsers cache scripts for several minutes. A mix of old and new script files stops every table from working.
+- **Bulk edits:** press `.` on the repository page to open github.dev, a browser editor with Search and Replace across files (regex supported).

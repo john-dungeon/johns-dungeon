@@ -16,11 +16,11 @@ columns:
     label: Creature Type
     type: list
     plain: true
-    order: [Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant, Undead]
+    order: creature_types
   - key: size
     label: Size
     type: list
-    order: [Tiny, Small, Medium, Large, Huge, Gargantuan]
+    order: sizes
   - key: ac
     label: AC
     type: number
@@ -35,4 +35,4 @@ columns:
   - key: settings
     label: Settings
     type: list
-    order: [Big Blue, City 13, Drachenfell, Erisia, Great Luminant, Hiraeth, Jingyu City, New Moon City, Solachia]
+    order: settings
