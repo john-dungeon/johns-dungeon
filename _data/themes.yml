@@ -7,8 +7,8 @@
 #    family: (Font name)
 #    file: (File path)
 #    weight: ("400" by default; use "200 900" for a variable font)
-#    style: ("normal" by default)
-#    preload: (False skips the early download)
+#    style: ("normal" by default; "italic")
+#    preload: ("false" skips the early download)
 - id: dungeon
   label: "Dungeon 🔥"
   body_font: Crimson Pro
