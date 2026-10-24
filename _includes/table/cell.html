@@ -17,6 +17,17 @@
   {%- elsif include.col.symbols -%}{{ cl_shown | escape }}
   {%- elsif include.col.format or include.col.type == "number" -%}
     {%- include table/format.html col=include.col amount=include.cell -%}
+  {%- elsif include.col.type == "list" -%}
+    {%- assign cl_limit = include.col.abbreviate -%}
+    {%- assign cl_items = include.cell | split: ", " -%}
+    {%- for cl_item in cl_items -%}
+      {%- unless forloop.first -%}{{ ", " }}{%- endunless -%}
+      {%- if cl_limit -%}
+        <span class="st-item"{% include tooltip.html text=cl_item %}>{{ cl_item | slice: 0, cl_limit | escape }}</span>
+      {%- else -%}
+        <span class="st-item">{% include text.html text=cl_item %}</span>
+      {%- endif -%}
+    {%- endfor -%}
   {%- else -%}
     {%- assign cl_text = include.cell -%}
     {%- assign cl_note_l = include.note | downcase -%}
