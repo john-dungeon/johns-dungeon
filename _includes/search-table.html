@@ -76,7 +76,7 @@
   </tr>
   {%- endcapture -%}
 
-  {%- capture popup_md %}{% include {{ template_file }} packed=packed %}{% endcapture -%}
+  {%- capture popup_md %}{% include {{ template_file }} packed=packed cols=cols %}{% endcapture -%}
   {%- capture detail_html -%}
   <div data-for="{{ entry_slug }}">{% include text.html text=popup_md block=true table=include.data %}</div>
   {%- endcapture -%}
