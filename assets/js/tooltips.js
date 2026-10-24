@@ -18,6 +18,29 @@
     document.body.appendChild(tip);
   }
 
+// Tooltip Text
+  const ALLOWED = new Set(['EM', 'STRONG', 'I', 'B', 'CODE', 'BR']);
+
+  function copyAllowed(parent, source) {
+    source.childNodes.forEach(node => {
+      if (node.nodeType === 3) {
+        parent.append(node.textContent);
+      } else if (node.nodeType === 1 && ALLOWED.has(node.tagName)) {
+        const copy = document.createElement(node.tagName);
+        copyAllowed(copy, node);
+        parent.append(copy);
+      } else if (node.nodeType === 1) {
+        copyAllowed(parent, node);
+      }
+    });
+  }
+
+  function setContent(html) {
+    const parsed = new DOMParser().parseFromString(html, 'text/html');
+    tip.textContent = '';
+    copyAllowed(tip, parsed.body);
+  }
+  
 // Tooltip Position
   function place(target) {
     const rect = target.getBoundingClientRect();
@@ -50,7 +73,7 @@
     ensureTip();
     hide();
     current = target;
-    tip.innerHTML = text;
+    setContent(text);
     tip.classList.add('is-open');
     if (supportsPopover) {
       try { tip.showPopover(); } catch (e) {}
