@@ -26,8 +26,8 @@
   {%- if it_extra != "" -%}{%- assign it_line1 = it_line1 | append: " (" | append: it_extra | append: ")" -%}{%- endif -%}
 {%- endif -%}
 
-{%- assign it_cost_col = cols | where: "key", "cost" | first -%}
-{%- assign it_weight_col = cols | where: "key", "weight" | first -%}
+{%- assign it_cost_col = include.cols | where: "key", "cost" | first -%}
+{%- assign it_weight_col = include.cols | where: "key", "weight" | first -%}
 {%- capture it_cost_value %}{% include table/value.html packed=include.packed col=it_cost_col %}{% endcapture -%}
 {%- capture it_cost_text %}{% include table/format.html col=it_cost_col amount=it_cost_value %}{% endcapture -%}
 {%- capture it_weight_value %}{% include table/value.html packed=include.packed col=it_weight_col %}{% endcapture -%}
