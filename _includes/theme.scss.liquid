@@ -16,7 +16,7 @@
   font-display: swap;
 }
 {% endfor %}
-$theme-body-font: {{ th_body }};
-$theme-heading-font: {{ th_heading }};
-$theme-background: {{ th_background }};
+$theme-body-font: {{ th_body | default: "null" }};
+$theme-heading-font: {{ th_heading | default: "null" }};
+$theme-background: {{ th_background | default: "none" }};
 {% include css/just-the-docs.scss.liquid color_scheme=include.id %}
