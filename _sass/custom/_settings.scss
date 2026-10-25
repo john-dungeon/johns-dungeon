@@ -16,3 +16,9 @@ $theme-body-font: null !default; // Body Text Font
 $theme-heading-font: null !default; // Heading Text Font
 $dialog-title-size: 1.75rem !default; // Pop-Up Heading Font Size
 $heading-weight: 700 !default; // Heading Font Weight
+$theme-background: none !default; // Page Background Image
+$panel-opacity: 0.9 !default; // Page Panels Over The Background Image (1 = solid)
+$parallax-margin: 3% !default; // Extra Background Size Past Each Screen Edge
+$parallax-range: 2.5% !default; // Furthest Background Shift
+$parallax-smoothing: 0.3s !default; // Background Follow Delay
+$cursor-glow-size: 220px !default; // Torch Glow Diameter
