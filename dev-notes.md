@@ -96,7 +96,7 @@ These are the rules the overhaul followed. New work should follow them too.
 - `catalog` – a link table. `catalog: true` lists every page whose `parent` is this page's title. Or give a map of `grand_parent`, `group_by` (a front matter key), `columns` (minimum, default 3), and `max_columns` (default 5).
 - `table` – a search table, by name (a file in `_data/tables/`).
 - `quote` – the closing quote. Write the text only, without outer quotation marks.
-- `unfinished: true` – shows the "not constructed yet" message and the Back link. Leave the body empty. A tooltip gets the Placeholder tagline (`placeholder_tagline` in `strings.yml`) unless the page has its own `tagline`.
+- `unfinished: true` – shows the "not constructed yet" message and the Back link. Leave the body empty.
 - `nav_exclude`, `search_exclude`, `redirect_url` – Just the Docs and class stub settings.
 - `has_toc: false` is already the default for every page. Don't repeat it.
 
