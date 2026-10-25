@@ -7,15 +7,9 @@ export function createDialog(root, tagCol) {
   const title = dialog.querySelector('.st-dialog-title');
   const tagLine = dialog.querySelector('.st-dialog-tags');
   const content = dialog.querySelector('.st-dialog-body');
-  
+
   dialog.querySelector('.st-dialog-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', () => announce('popupclose'));
-    content.innerHTML = source ? source.innerHTML : '';
-    dialog.showModal();
-    announce('popupopen');
-
-  dialog.querySelector('.st-dialog-close').addEventListener('click', () => dialog.close());
-
   dialog.addEventListener('click', event => {
     if (event.target === dialog) dialog.close();
   });
@@ -41,5 +35,6 @@ export function createDialog(root, tagCol) {
 
     content.innerHTML = source ? source.innerHTML : '';
     dialog.showModal();
+    announce('popupopen');
   };
 }
