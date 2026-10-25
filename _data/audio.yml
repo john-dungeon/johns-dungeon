@@ -1,0 +1,17 @@
+# Sound Settings
+defaults: { effects: true, music: false }
+volume: { effects: 0.5, music: 0.25 }
+
+sets:
+  basic:
+    click: assets/audio/basic/click.mp3
+  dungeon:
+    click: assets/audio/dungeon/click.mp3
+    hover: assets/audio/dungeon/hover.mp3
+    open: assets/audio/dungeon/open.mp3
+    close: assets/audio/dungeon/close.mp3
+  parchment:
+    click: assets/audio/parchment/click.mp3
+    hover: assets/audio/parchment/hover.mp3
+    open: assets/audio/parchment/open.mp3
+    close: assets/audio/parchment/close.mp3
