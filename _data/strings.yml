@@ -4,8 +4,16 @@
 nav_footer: "It's rather dark down here... Try not to get lost, my friend."
 nav_toggle: Toggle nav bar
 back_to: "← Back to {title}"
-theme_button: Theme
 unfinished: "Wait! This part of the archive hasn't been constructed yet. How about we come back later when it is?"
+
+# Dock (Bottom-Right Buttons)
+theme_button: Theme
+sound_button: Sound
+sound_effects: Sound Effects
+sound_music: Background Music
+size_button: Size
+size_label: Text Size
+size_reset: Reset
 
 # Pages (Search Table)
 table_placeholder: 'Search names, or filter with tag:"word".'
