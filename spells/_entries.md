@@ -34,7 +34,7 @@ level: 4
 school: Conjuration 
 classes: Ranger
 casting_time: Reaction
-trigger: , which you take when you roll Initiative and are not surprised
+condition: , which you take when you roll Initiative and are not surprised
 range: 60 feet
 components: S, M
 material: a Melee weapon worth 1+ SP
