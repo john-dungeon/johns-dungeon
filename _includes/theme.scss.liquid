@@ -1,11 +1,26 @@
 {%- assign th = site.data.themes | where: "id", include.id | first -%}
 {%- assign th_fallback = th.font_fallback | default: "Georgia, serif" -%}
+
 {%- assign th_body = "null" -%}
 {%- if th.body_font -%}{%- assign th_body = '"' | append: th.body_font | append: '", ' | append: th_fallback -%}{%- endif -%}
+{%- assign th_heading = "null" -%}
+{%- if th.heading_font -%}{%- assign th_heading = '"' | append: th.heading_font | append: '", ' | append: th_fallback -%}{%- endif -%}
+
 {%- assign th_background = "none" -%}
 {%- if th.background -%}
   {%- assign th_background_path = th.background | prepend: '/' | relative_url -%}
   {%- assign th_background = 'url("' | append: th_background_path | append: '")' -%}
+{%- endif -%}
+
+{%- assign th_cursor = "none" -%}
+{%- assign th_cursor_pointer = "none" -%}
+{%- if th.cursor.image -%}
+  {%- assign th_hotspot = th.cursor.hotspot | default: "0 0" -%}
+  {%- assign th_pointer_image = th.cursor.pointer | default: th.cursor.image -%}
+  {%- assign th_cursor_path = th.cursor.image | prepend: '/' | relative_url -%}
+  {%- assign th_pointer_path = th_pointer_image | prepend: '/' | relative_url -%}
+  {%- assign th_cursor = 'url("' | append: th_cursor_path | append: '") ' | append: th_hotspot | append: ', auto' -%}
+  {%- assign th_cursor_pointer = 'url("' | append: th_pointer_path | append: '") ' | append: th_hotspot | append: ', auto' -%}
 {%- endif -%}
 {% for f in th.fonts %}
 @font-face {
@@ -16,7 +31,9 @@
   font-display: swap;
 }
 {% endfor %}
-$theme-body-font: {{ th_body | default: "null" }};
-$theme-heading-font: {{ th_heading | default: "null" }};
-$theme-background: {{ th_background | default: "none" }};
+$theme-body-font: {{ th_body }};
+$theme-heading-font: {{ th_heading }};
+$theme-background: {{ th_background }};
+$theme-cursor: {{ th_cursor }};
+$theme-cursor-pointer: {{ th_cursor_pointer }};
 {% include css/just-the-docs.scss.liquid color_scheme=include.id %}
