@@ -242,6 +242,8 @@ $slider-height: 1.5rem;
 .st-slider-fill {
   position: absolute;
   top: 50%;
+  left: calc(#{$slider-thumb-size * 0.5} + (100% - #{$slider-thumb-size}) * var(--low, 0));
+  right: calc(#{$slider-thumb-size * 0.5} + (100% - #{$slider-thumb-size}) * (1 - var(--high, 1)));
   height: 4px;
   margin-top: -2px;
   border-radius: 2px;
