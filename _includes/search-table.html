@@ -22,31 +22,7 @@
   {%- if entry_probe == "" -%}{%- continue -%}{%- endif -%}
 
   {%- capture packed %}{% include table/parse-entry.html text=entry_text %}{% endcapture -%}
-  {%- capture tags_raw %}{% include table/field.html packed=packed key="tags" %}{% endcapture -%}
-  {%- capture tags_csv %}{% include table/list.html csv=tags_raw sep="," %}{% endcapture -%}
-  {%- assign at_have = tags_csv | downcase | split: "," -%}
-  {%- for at_rule in cfg.auto_tags -%}
-    {%- capture at_value %}{% include table/field.html packed=packed key=at_rule.field %}{% endcapture -%}
-    {%- assign at_hit = false -%}
-    {%- if at_rule.equals -%}
-      {%- assign at_value_l = at_value | downcase -%}
-      {%- assign at_equals_l = at_rule.equals | downcase -%}
-      {%- if at_value_l == at_equals_l -%}{%- assign at_hit = true -%}{%- endif -%}
-    {%- elsif at_value != "" -%}
-      {%- assign at_hit = true -%}
-    {%- endif -%}
-    {%- assign at_tag_l = at_rule.tag | downcase -%}
-    {%- if at_hit -%}
-      {%- unless at_have contains at_tag_l -%}
-        {%- if tags_csv == "" -%}
-          {%- assign tags_csv = at_rule.tag -%}
-        {%- else -%}
-          {%- assign tags_csv = tags_csv | append: "," | append: at_rule.tag -%}
-        {%- endif -%}
-      {%- endunless -%}
-    {%- endif -%}
-  {%- endfor -%}
-  {%- assign tags_csv = tags_csv | split: "," | sort_natural | join: "," -%}
+  {%- capture tags_csv %}{% include table/tags.html packed=packed rules=cfg.auto_tags %}{% endcapture -%}
   {%- capture marker_html -%}
     {%- for marker_cfg in cfg.markers -%}
       {%- include table/marker.html marker=marker_cfg packed=packed tags=tags_csv -%}
