@@ -21,4 +21,5 @@ $panel-opacity: 0.9 !default; // Page Panels Over The Background Image (1 = soli
 $parallax-margin: 3% !default; // Extra Background Size Past Each Screen Edge
 $parallax-range: 2.5% !default; // Furthest Background Shift
 $parallax-smoothing: 0.3s !default; // Background Follow Delay
-$cursor-glow-size: 220px !default; // Torch Glow Diameter
+$theme-cursor: none !default; // Page Cursor
+$theme-cursor-pointer: none !default; // Cursor Over Links And Buttons
