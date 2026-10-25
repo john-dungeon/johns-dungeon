@@ -10,6 +10,9 @@ export function createDialog(root, tagCol) {
   
   dialog.querySelector('.st-dialog-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', () => announce('popupclose'));
+    content.innerHTML = source ? source.innerHTML : '';
+    dialog.showModal();
+    announce('popupopen');
 
   dialog.querySelector('.st-dialog-close').addEventListener('click', () => dialog.close());
 
