@@ -50,8 +50,6 @@
     return document.startViewTransition(() => setStylesheet(theme)).updateCallbackDone;
   }
 
-  // Tell the rest of the site which theme is active:
-  // CSS can use html[data-theme="..."], scripts listen for "themechange".
   function announce(theme) {
     root.dataset.theme = theme;
     document.dispatchEvent(new CustomEvent('themechange', { detail: theme }));
