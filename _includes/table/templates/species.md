@@ -32,6 +32,8 @@
 {%- endif -%}
 {%- assign sps_block = sps_block | remove_first: sps_break -%}
 
+{{ sps_description }}
+
 ### {{ sps_name }} Traits
 {{ sps_block }}
 
