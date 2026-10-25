@@ -1,10 +1,15 @@
 import { el, t, markUnlisted } from './utils.js';
 
+const announce = type => document.dispatchEvent(new CustomEvent(type));
+
 export function createDialog(root, tagCol) {
   const dialog = root.querySelector('.st-dialog');
   const title = dialog.querySelector('.st-dialog-title');
   const tagLine = dialog.querySelector('.st-dialog-tags');
   const content = dialog.querySelector('.st-dialog-body');
+  
+  dialog.querySelector('.st-dialog-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => announce('popupclose'));
 
   dialog.querySelector('.st-dialog-close').addEventListener('click', () => dialog.close());
 
