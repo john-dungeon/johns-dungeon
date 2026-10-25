@@ -1,0 +1,72 @@
+// Markup: _includes/footer_custom.html
+// Behavior: assets/js/site/dock.js (menus), theme-switcher.js, text-size.js, site/audio.js
+#dock {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dock-item { position: relative; }
+
+.dock-button {
+  @include outlined-button(999px, $sidebar-color);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  box-shadow: $shadow-small;
+
+  &:hover,
+  &[aria-expanded="true"] { border-color: $link-color; }
+}
+
+.dock-menu {
+  @include outlined(0.5rem);
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+  background: $sidebar-color;
+  box-shadow: $shadow-popup;
+
+  &[hidden] { display: none; }
+}
+
+.dock-menu--wide { min-width: 14rem; }
+
+.dock-option {
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  border-radius: 0.35rem;
+  background: transparent;
+  color: $body-text-color;
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover { background: $code-background-color; }
+  &.active { color: $link-color; font-weight: 600; }
+}
+
+.dock-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+
+  input { accent-color: $link-color; }
+}
+
+.dock-row--stack {
+  flex-direction: column;
+  align-items: stretch;
+  cursor: default;
+
+  input[type="range"] { width: 100%; }
+}
