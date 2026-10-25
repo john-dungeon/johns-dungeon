@@ -1,0 +1,25 @@
+{%- capture tg_raw %}{% include table/field.html packed=include.packed key="tags" %}{% endcapture -%}
+{%- capture tg_csv %}{% include table/list.html csv=tg_raw sep="," %}{% endcapture -%}
+{%- assign tg_have = tg_csv | downcase | split: "," -%}
+{%- for tg_rule in include.rules -%}
+  {%- capture tg_value %}{% include table/field.html packed=include.packed key=tg_rule.field %}{% endcapture -%}
+  {%- assign tg_hit = false -%}
+  {%- if tg_rule.equals -%}
+    {%- assign tg_value_l = tg_value | downcase -%}
+    {%- assign tg_equals_l = tg_rule.equals | downcase -%}
+    {%- if tg_value_l == tg_equals_l -%}{%- assign tg_hit = true -%}{%- endif -%}
+  {%- elsif tg_value != "" -%}
+    {%- assign tg_hit = true -%}
+  {%- endif -%}
+  {%- assign tg_tag_l = tg_rule.tag | downcase -%}
+  {%- if tg_hit -%}
+    {%- unless tg_have contains tg_tag_l -%}
+      {%- if tg_csv == "" -%}
+        {%- assign tg_csv = tg_rule.tag -%}
+      {%- else -%}
+        {%- assign tg_csv = tg_csv | append: "," | append: tg_rule.tag -%}
+      {%- endif -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+{{- tg_csv | split: "," | sort_natural | join: "," -}}
