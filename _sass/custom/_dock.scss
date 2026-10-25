@@ -2,19 +2,19 @@
 // Behavior: assets/js/site/dock.js (menus), theme-switcher.js, text-size.js, site/audio.js
 #dock {
   position: fixed;
-  right: 1rem;
-  bottom: 1rem;
+  right: 16px;
+  bottom: 16px;
   z-index: 100;
   display: flex;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .dock-item { position: relative; }
 
 .dock-button {
   @include outlined-button(999px, $sidebar-color);
-  padding: 0.5rem 0.9rem;
-  font-size: 0.85rem;
+  padding: 8px 14px;
+  font-size: 14px;
   box-shadow: $shadow-small;
 
   &:hover,
@@ -22,51 +22,58 @@
 }
 
 .dock-menu {
-  @include outlined(0.5rem);
+  @include outlined(8px);
   position: absolute;
-  bottom: calc(100% + 0.5rem);
+  bottom: calc(100% + 8px);
   right: 0;
-  min-width: 10rem;
+  min-width: 160px;
   display: flex;
   flex-direction: column;
-  padding: 0.25rem;
+  padding: 4px;
   background: $sidebar-color;
   box-shadow: $shadow-popup;
 
   &[hidden] { display: none; }
 }
 
-.dock-menu--wide { min-width: 14rem; }
+.dock-menu--wide { min-width: 224px; }
 
 .dock-option {
-  padding: 0.5rem 0.75rem;
+  padding: 8px 12px;
   border: 0;
-  border-radius: 0.35rem;
+  border-radius: 6px;
   background: transparent;
   color: $body-text-color;
-  font-size: 0.85rem;
+  font-size: 14px;
   text-align: left;
   cursor: pointer;
 
-  &:hover { background: $code-background-color; }
+  &:hover:not(:disabled) { background: $code-background-color; }
   &.active { color: $link-color; font-weight: 600; }
+  &:disabled { opacity: 0.4; cursor: default; }
 }
 
 .dock-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.85rem;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
   cursor: pointer;
 
   input { accent-color: $link-color; }
 }
 
-.dock-row--stack {
-  flex-direction: column;
-  align-items: stretch;
+// Size menu: [ − ]  100%  [ + ]
+.dock-row--split {
+  justify-content: space-between;
   cursor: default;
 
-  input[type="range"] { width: 100%; }
+  output { font-weight: 700; }
+}
+
+.dock-step {
+  min-width: 40px;
+  font-size: 18px;
+  text-align: center;
 }
