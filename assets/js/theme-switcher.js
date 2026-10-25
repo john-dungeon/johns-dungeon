@@ -2,6 +2,7 @@
   const THEMES = window.SITE_THEMES || [];
   const IDS = THEMES.map(theme => theme.id);
   const PATTERN = /just-the-docs-([a-z]+)\.css/;
+  const root = document.documentElement;
 
   const themeLinks = () => [...document.querySelectorAll('link[rel="stylesheet"]')]
     .filter(l => PATTERN.test(l.getAttribute('href')));
@@ -49,6 +50,13 @@
     return document.startViewTransition(() => setStylesheet(theme)).updateCallbackDone;
   }
 
+  // Tell the rest of the site which theme is active:
+  // CSS can use html[data-theme="..."], scripts listen for "themechange".
+  function announce(theme) {
+    root.dataset.theme = theme;
+    document.dispatchEvent(new CustomEvent('themechange', { detail: theme }));
+  }
+
   let active = currentTheme();
   try {
     const saved = localStorage.getItem('theme');
@@ -57,6 +65,7 @@
       active = saved;
     }
   } catch (e) {}
+  root.dataset.theme = active;
   preloadFonts(active);
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -64,42 +73,21 @@
     link = links[links.length - 1];
     links.slice(0, -1).forEach(old => old.remove());
 
-    const toggle = document.getElementById('theme-toggle');
     const menu = document.getElementById('theme-menu');
-    if (!toggle || !menu) return;
-    const options = menu.querySelectorAll('.theme-option');
+    if (!menu) return;
+    const options = menu.querySelectorAll('.dock-option');
 
     const markActive = () => {
-      const now = currentTheme();
-      options.forEach(option => option.classList.toggle('active', option.dataset.theme === now));
+      options.forEach(option => option.classList.toggle('active', option.dataset.theme === root.dataset.theme));
     };
-
-    const setMenu = open => {
-      menu.hidden = !open;
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    };
-
-    toggle.addEventListener('click', event => {
-      event.stopPropagation();
-      setMenu(menu.hidden);
-    });
 
     menu.addEventListener('click', event => {
-      const option = event.target.closest('.theme-option');
+      const option = event.target.closest('.dock-option');
       if (!option) return;
-      setMenu(false);
       const theme = option.dataset.theme;
-      if (theme === currentTheme()) return;
+      if (theme === root.dataset.theme) return;
       try { localStorage.setItem('theme', theme); } catch (e) {}
-      switchTheme(theme).then(markActive);
-    });
-
-    document.addEventListener('click', event => {
-      if (!menu.hidden && !menu.contains(event.target)) setMenu(false);
-    });
-
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') setMenu(false);
+      switchTheme(theme).then(() => { announce(theme); markActive(); });
     });
 
     markActive();
