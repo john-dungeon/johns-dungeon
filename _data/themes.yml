@@ -9,10 +9,18 @@
 #    weight: ("400" by default; use "200 900" for a variable font)
 #    style: ("normal" by default; "italic")
 #    preload: ("false" skips the early download)
+#  background: (Image file for the page background; optional)
+#  cursor: (Custom cursor style; optional; only "torch" exists)
+#  sounds: (Sound effect set from _data/audio.yml)
+#  music: (Background music file; optional)
 - id: dungeon
   label: "Dungeon 🔥"
   body_font: Crimson Pro
   heading_font: Cormorant SC
+  background: assets/images/dungeon-bg.webp
+  cursor: torch
+  sounds: dungeon
+  music: assets/audio/dungeon-theme.mp3
   fonts:
     - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Regular.ttf }
     - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Italic.ttf, style: italic }
@@ -23,11 +31,16 @@
   label: "Parchment 📜"
   body_font: IM Fell English
   heading_font: IM Fell English SC
+  background: assets/images/parchment-bg.webp
+  sounds: parchment
+  music: assets/audio/parchment-theme.mp3
   fonts:
     - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Regular.ttf }
     - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Italic.ttf, style: italic }
     - { family: IM Fell English SC, file: assets/fonts/IMFellEnglishSC-Regular.ttf }
 - id: dark
   label: "Dark 🌑"
+  sounds: basic
 - id: light
   label: "Light ☀️"
+  sounds: basic
