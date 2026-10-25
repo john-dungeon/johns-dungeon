@@ -14,27 +14,37 @@
   paint(size);
 
   document.addEventListener('DOMContentLoaded', () => {
-    const slider = document.getElementById('size-slider');
+    const menu = document.getElementById('size-menu');
+    if (!menu) return;
+    const min = +menu.dataset.min;
+    const max = +menu.dataset.max;
+    const step = +menu.dataset.step;
     const output = document.getElementById('size-value');
-    const reset = document.getElementById('size-reset');
-    if (!slider) return;
+    const down = document.getElementById('size-down');
+    const up = document.getElementById('size-up');
 
-    const show = value => {
-      size = Math.min(+slider.max, Math.max(+slider.min, value));
-      slider.value = size;
+    const show = () => {
+      size = Math.min(max, Math.max(min, size));
       output.textContent = size + '%';
+      down.disabled = size <= min;
+      up.disabled = size >= max;
       paint(size);
     };
 
-    slider.addEventListener('input', () => {
-      show(+slider.value);
+    const actions = {
+      'size-down': () => size - step,
+      'size-up': () => size + step,
+      'size-reset': () => NORMAL
+    };
+
+    menu.addEventListener('click', event => {
+      const action = actions[event.target.closest('button')?.id];
+      if (!action) return;
+      size = action();
+      show();
       remember(size);
     });
-    reset.addEventListener('click', () => {
-      show(NORMAL);
-      remember(NORMAL);
-    });
 
-    show(size);
+    show();
   });
 })();
