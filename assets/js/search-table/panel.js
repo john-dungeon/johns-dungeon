@@ -71,8 +71,6 @@ function rangeGroup(col, { state, onChange }) {
 }
 
 // Double-Ended Slider
-const THUMB_REM = 1;
-
 const positionLabel = ({ max, min_label, max_label }, pos) =>
   pos === 0 ? min_label : pos > max ? max_label : pos.toLocaleString('en-US');
 
@@ -126,9 +124,8 @@ function sliderGroup(col, { state, onChange }) {
     lowThumb.setAttribute('aria-valuetext', lowBox.value);
     highThumb.setAttribute('aria-valuetext', highBox.value);
     lowThumb.classList.toggle('st-on-top', low > top / 2);
-    const edge = share => `calc(${THUMB_REM / 2}rem + (100% - ${THUMB_REM}rem) * ${share})`;
-    fill.style.left = edge(low / top);
-    fill.style.right = edge(1 - high / top);
+    slider.style.setProperty('--low', low / top);
+    slider.style.setProperty('--high', high / top);
   }
 
   function commit(nextLow, nextHigh) {
