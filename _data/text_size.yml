@@ -1,0 +1,4 @@
+# Text Size Slider
+min: 80
+max: 150
+step: 5
