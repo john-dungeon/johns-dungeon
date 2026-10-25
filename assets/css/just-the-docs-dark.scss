@@ -1,3 +1,24 @@
----
----
-{% include theme.scss.liquid id="dark" %}
+{%- assign th = site.data.themes | where: "id", include.id | first -%}
+{%- assign th_fallback = th.font_fallback | default: "Georgia, serif" -%}
+{%- assign th_body = "null" -%}
+{%- if th.body_font -%}{%- assign th_body = '"' | append: th.body_font | append: '", ' | append: th_fallback -%}{%- endif -%}
+{%- assign th_heading = "null" -%}
+{%- if th.heading_font -%}{%- assign th_heading = '"' | append: th.heading_font | append: '", ' | append: th_fallback -%}{%- endif -%}
+{%- assign th_background = "none" -%}
+{%- if th.background -%}
+  {%- assign th_background_path = th.background | prepend: '/' | relative_url -%}
+  {%- assign th_background = 'url("' | append: th_background_path | append: '")' -%}
+{%- endif -%}
+{% for f in th.fonts %}
+@font-face {
+  font-family: "{{ f.family }}";
+  src: url("{{ f.file | prepend: '/' | relative_url }}");
+  font-weight: {{ f.weight | default: 400 }};
+  font-style: {{ f.style | default: "normal" }};
+  font-display: swap;
+}
+{% endfor %}
+$theme-body-font: {{ th_body }};
+$theme-heading-font: {{ th_heading }};
+$theme-background: {{ th_background }};
+{% include css/just-the-docs.scss.liquid color_scheme=include.id %}
