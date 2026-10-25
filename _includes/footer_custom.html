@@ -2,11 +2,34 @@
 {% include quote.html text=site.data.strings.unfinished %}
 {%- endif %}
 {% include backlink.html %}
-<div id="theme-switcher">
-  <div id="theme-menu" role="menu" hidden>
-    {%- for theme in site.data.themes %}
-    <button type="button" class="theme-option" role="menuitem" data-theme="{{ theme.id }}">{{ theme.label }}</button>
-    {%- endfor %}
+{%- assign ui = site.data.strings -%}
+{%- assign size = site.data.text_size %}
+<div id="dock">
+  <div class="dock-item">
+    <div class="dock-menu" id="sound-menu" role="group" aria-label="{{ ui.sound_button | escape }}" hidden>
+      <label class="dock-row"><input type="checkbox" data-sound="effects"> {{ ui.sound_effects }}</label>
+      <label class="dock-row"><input type="checkbox" data-sound="music"> {{ ui.sound_music }}</label>
+    </div>
+    <button type="button" class="dock-button" aria-haspopup="true" aria-expanded="false" aria-controls="sound-menu">{{ ui.sound_button }}</button>
   </div>
-  <button id="theme-toggle" type="button" aria-haspopup="true" aria-expanded="false">{{ site.data.strings.theme_button }}</button>
+
+  <div class="dock-item">
+    <div class="dock-menu dock-menu--wide" id="size-menu" role="group" aria-label="{{ ui.size_button | escape }}" hidden>
+      <div class="dock-row dock-row--stack">
+        <label for="size-slider">{{ ui.size_label }}: <output id="size-value" for="size-slider"></output></label>
+        <input type="range" id="size-slider" min="{{ size.min }}" max="{{ size.max }}" step="{{ size.step }}" value="100">
+      </div>
+      <button type="button" class="dock-option" id="size-reset">{{ ui.size_reset }}</button>
+    </div>
+    <button type="button" class="dock-button" aria-haspopup="true" aria-expanded="false" aria-controls="size-menu">{{ ui.size_button }}</button>
+  </div>
+
+  <div class="dock-item">
+    <div class="dock-menu" id="theme-menu" role="menu" hidden>
+      {%- for theme in site.data.themes %}
+      <button type="button" class="dock-option" role="menuitem" data-theme="{{ theme.id }}">{{ theme.label }}</button>
+      {%- endfor %}
+    </div>
+    <button id="theme-toggle" type="button" class="dock-button" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu">{{ ui.theme_button }}</button>
+  </div>
 </div>
