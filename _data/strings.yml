@@ -12,8 +12,9 @@ sound_button: Sound
 sound_effects: Sound Effects
 sound_music: Background Music
 size_button: Size
-size_label: Text Size
 size_reset: Reset
+size_smaller: Smaller Text
+size_larger: Larger Text
 
 # Pages (Search Table)
 table_placeholder: 'Search names, or filter with tag:"word".'
