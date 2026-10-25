@@ -10,7 +10,10 @@
 #    style: ("normal" by default; "italic")
 #    preload: ("false" skips the early download)
 #  background: (Image file for the page background; optional)
-#  cursor: (Custom cursor style; optional; only "torch" exists)
+#  cursor: (Custom cursor; optional)
+#   image: (PNG file, 32 x 32 px)
+#   hotspot: ("x y" in image pixels: the exact point that does the clicking; "0 0" by default)
+#   pointer: (Image shown over links and buttons; optional; defaults to the main image)
 #  sounds: (Sound effect set from _data/audio.yml)
 #  music: (Background music file; optional)
 - id: dungeon
