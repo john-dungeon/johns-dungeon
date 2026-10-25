@@ -88,6 +88,43 @@ When the spell ends, the creature exits the extradimensional box, appearing in a
 
 ---
 
+name: Arwen’s Spiritual Mark
+level: 2
+school: Evocation
+classes: Druid, Ranger
+casting_time: Bonus Action
+range: 90 feet
+components: V
+duration: Concentration
+concentration_max: 1 minute
+tags: Buff, Damage, Esoteric, Light, Saving Throw, Upcast
+description: You magically mark one creature you can see within range with the power of elemental spirits. Until the spell ends, the target sheds Dim Light in a 10-foot radius and can’t benefit from the Invisible condition. In addition, you have Advantage on attack rolls against the target. Each time you hit the target, the spell gains 1 charge, up to a maximum of 4 charges.
+
+When the spell ends, the target takes 1d8 Acid, Cold, Fire, Lightning, Poison, or Thunder damage (your choice) for each accumulated charge. In addition, each creature within 5 feet of the target must make a Dexterity saving throw, taking the same amount of damage on a failed save or half as much damage on a successful one.
+
+***Using a Higher-Level Spell Slot.*** The number of charges that the spell starts with and the maximum number of charges increases by for each spell slot level above 2.
+
+---
+
+name: Bloodletting
+level: 1
+school: Evocation
+classes: Cleric, Druid, Warlock
+casting_time: Action
+range: 60 feet
+components: S, M
+material: a metal knife and a bowl
+duration: Concentration
+concentration_max: 1 minute
+tags: Damage, Esoteric, Upcast
+description: You cause a bleeding cut to suddenly appear on a creature within range. The target takes 2d8 Slashing damage. Until the spell ends, you can take a Bonus Action on each of your later turns to deal this damage again if the target is within range.
+
+The spell ends if the target regains Hit Points from a spell, magic item, or other magical effect.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d8 for each spell slot level above 1.
+
+---
+
 name: Cut
 level: 1
 school: Evocation
@@ -98,7 +135,7 @@ components: V, S, M
 material: a sharp metal object
 duration: Instantaneous
 tags: Damage, Esoteric
-description: A creature you touch takes 3d6 Slashing or Force damage (your choice), and if the creature is affected by the *Shield* spell, that spell ends.
+description: A creature you touch takes 4d6 Slashing or Force damage (your choice), and if the creature is affected by the *Shield* spell, that spell ends.
 
 ---
 
