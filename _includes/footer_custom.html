@@ -14,10 +14,11 @@
   </div>
 
   <div class="dock-item">
-    <div class="dock-menu dock-menu--wide" id="size-menu" role="group" aria-label="{{ ui.size_button | escape }}" hidden>
-      <div class="dock-row dock-row--stack">
-        <label for="size-slider">{{ ui.size_label }}: <output id="size-value" for="size-slider"></output></label>
-        <input type="range" id="size-slider" min="{{ size.min }}" max="{{ size.max }}" step="{{ size.step }}" value="100">
+    <div class="dock-menu dock-menu--wide" id="size-menu" role="group" aria-label="{{ ui.size_button | escape }}" data-min="{{ size.min }}" data-max="{{ size.max }}" data-step="{{ size.step }}" hidden>
+      <div class="dock-row dock-row--split">
+        <button type="button" class="dock-option dock-step" id="size-down" aria-label="{{ ui.size_smaller | escape }}">−</button>
+        <output id="size-value" aria-live="polite"></output>
+        <button type="button" class="dock-option dock-step" id="size-up" aria-label="{{ ui.size_larger | escape }}">+</button>
       </div>
       <button type="button" class="dock-option" id="size-reset">{{ ui.size_reset }}</button>
     </div>
