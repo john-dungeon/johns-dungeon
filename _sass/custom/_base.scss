@@ -26,3 +26,6 @@ html { scrollbar-color: $nav-child-link-color $sidebar-color; }
 @media (prefers-reduced-motion: reduce) {
   :root { --motion-duration: 0s; }
 }
+
+// Text Size Slider
+html { font-size: calc(100% * var(--font-scale, 1)); }
