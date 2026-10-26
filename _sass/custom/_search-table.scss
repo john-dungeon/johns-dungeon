@@ -292,7 +292,7 @@ $slider-height: 1.5rem;
 .st-filter-match {
   @include muted;
   cursor: pointer;
-  input { accent-color: $link-color; }
+  input { margin-right: 0.4em; }
 }
 
 .st-filter-clear {
