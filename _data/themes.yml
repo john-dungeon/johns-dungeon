@@ -15,7 +15,7 @@
 #   hotspot: ("x y" in image pixels; the exact point of clicking; "0 0" by default)
 #   pointer: (Image shown over links and buttons; optional; defaults to the main image)
 #  sounds: (Sound effect set from _data/audio.yml)
-#  music: (Background music file; optional)
+#  music: (Music playlist from _data/audio.yml; optional)
 - id: dungeon
   label: "Dungeon 🔥"
   body_font: Crimson Pro
@@ -23,7 +23,7 @@
   background: assets/images/dungeon-bg.webp
   cursor: torch
   sounds: dungeon
-  music: assets/audio/dungeon-theme.mp3
+  music: dungeon
   fonts:
     - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Regular.ttf }
     - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Italic.ttf, style: italic }
@@ -36,7 +36,7 @@
   heading_font: IM Fell English SC
   background: assets/images/parchment-bg.webp
   sounds: parchment
-  music: assets/audio/parchment-theme.mp3
+  music: parchment
   fonts:
     - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Regular.ttf }
     - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Italic.ttf, style: italic }
