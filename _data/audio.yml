@@ -1,7 +1,9 @@
 # Sound Settings
-defaults: { effects: true, music: false }
+defaults: { effects: true, music: true }
 volume: { effects: 0.5, music: 0.25 }
 
+# Sound Effect Sets
+# Events: click, hover, open (pop-up), close (pop-up), enter (entrance screen)
 sets:
   basic:
     click: assets/audio/basic/click.mp3
@@ -10,8 +12,17 @@ sets:
     hover: assets/audio/dungeon/hover.mp3
     open: assets/audio/dungeon/open.mp3
     close: assets/audio/dungeon/close.mp3
+    enter: assets/audio/dungeon/doors.mp3
   parchment:
     click: assets/audio/parchment/click.mp3
     hover: assets/audio/parchment/hover.mp3
     open: assets/audio/parchment/open.mp3
     close: assets/audio/parchment/close.mp3
+
+# Music Playlists
+playlists:
+  dungeon:
+    - assets/audio/music/dungeon/song-1.mp3
+    - assets/audio/music/dungeon/song-2.mp3
+  parchment:
+    - assets/audio/music/parchment/song-1.mp3
