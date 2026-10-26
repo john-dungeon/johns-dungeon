@@ -1,0 +1,4 @@
+# Entrance Screen
+enabled: true # "false" to Skip
+delay: 0 # Seconds Between Click and Fade
+fade: 1.5 # Seconds to Fade
