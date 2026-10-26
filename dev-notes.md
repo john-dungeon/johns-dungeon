@@ -18,9 +18,11 @@ These are the rules the overhaul followed. New work should follow them too.
   - `color_scheme` is the theme first-time visitors see. It must match an `id` in `themes.yml`.
   - `exclude` keeps `dev-notes.md`, `README.md`, and `assets/PERSONAL-NOTES.md` off the website. The files stay in the repository, which is public.
 - `_data/strings.yml` – every piece of site wording that isn't page content.
-- `_data/themes.yml` – the themes in the switcher menu, and each theme's fonts, background image, cursor, sound set, and music.
+- `_data/themes.yml` – the themes in the switcher menu, and each theme's fonts, background image, cursor, sound set, and music playlist.
 - `_data/lists.yml` – lists shared by several search table columns (worlds, creature types, sizes).
-- `_data/audio.yml` – sound defaults, volumes, and the sound effect sets.
+- `_data/audio.yml` – sound defaults, volumes, the sound effect sets, and the music playlists.
+- `_data/gate.yml` – the entrance screen: on or off, the delay before it fades, and the fade time.
+- `_data/session.yml` – how long the site must be closed before a visit counts as over, and which saved choices are forgotten then.
 - `_data/text_size.yml` – the lowest size, highest size, and step of the text size buttons.
 - `_data/challenge.yml` – Challenge Rating to XP and Proficiency Bonus (used by the monster template). Fractions are decimals (`0.5`).
 - `_data/tables/` – one settings file per search table.
@@ -39,12 +41,14 @@ These are the rules the overhaul followed. New work should follow them too.
   - `_navbar-toggle` – the sidebar hide and show button.
   - `_tooltip` – the hover bubble.
   - `_dropdown` – collapsible `<details>` sections.
+  - `_checkbox` – the look of every checkbox on the site.
   - `_dock` – the Sound, Size, and Theme buttons and their menus.
   - `_background` – the page background image, its parallax movement, and the see-through panels.
   - `_cursor` – the custom mouse cursor.
+  - `_gate` – the entrance screen.
 - `assets/fonts/` – the font files named in `themes.yml`.
 - `assets/images/` – background images (`dungeon-bg.webp`, `parchment-bg.webp`). `assets/images/cursors/` – cursor images.
-- `assets/audio/` – sound effects (one folder per set) and music.
+- `assets/audio/` – sound effects (one folder per set) and music (one folder per playlist).
 
 ### Layout and Reusable HTML
 - `_layouts/wiki.html` – the page layout. See section 2.
@@ -52,7 +56,8 @@ These are the rules the overhaul followed. New work should follow them too.
 - `_includes/quote.html` – an italic blockquote. `tooltip.html` – a `data-tooltip` attribute.
 - `_includes/catalog.html` – link tables. `search-table.html` – search tables.
 - `_includes/backlink.html` – the automatic "Back to..." link in the footer.
-- `_includes/head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – Just the Docs hook points. `head_custom` loads every script and hands data to them. `footer_custom` holds the "unfinished" quote, the back link, and the dock.
+- `_includes/gate.html` – the entrance screen (see section 4b).
+- `_includes/head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – Just the Docs hook points. `head_custom` loads every script and hands data to them. `footer_custom` holds the "unfinished" quote, the back link, the dock, and the entrance screen.
 - `_includes/theme.scss.liquid` – builds one theme's stylesheet (fonts, background, cursor, font rules, color scheme).
 - `_includes/table/` – helpers for `search-table.html`:
   - `parse-entry.html` – turns an entry's text into packed fields.
@@ -68,6 +73,7 @@ These are the rules the overhaul followed. New work should follow them too.
   - `templates/` – popup layouts: `item.md`, `species.md`, `spell.md`, `monster.md`, `feat.md`.
 
 ### Scripts (`assets/js/`)
+- `session.js` – runs first in the page head. Decides whether this is a new visit, forgets the old visit's saved choices, and decides whether the entrance screen shows (see section 4b).
 - `theme-switcher.js` – remembers the chosen theme, swaps its stylesheet, preloads that theme's fonts, sets `<html data-theme>`, and announces `themechange`.
 - `text-size.js` – the saved text size, applied early so the page doesn't flash, and the Size buttons.
 - `navbar-toggle.js` – remembers whether the sidebar is hidden. `tooltips.js` – shows the bubble for any `data-tooltip`.
@@ -75,7 +81,8 @@ These are the rules the overhaul followed. New work should follow them too.
   - `shared.js` – small helpers used by the others.
   - `dock.js` – opens and closes the dock's menus.
   - `parallax.js` – moves the background with the mouse.
-  - `audio.js` – sound effects, music, and the Sound menu.
+  - `gate.js` – the entrance screen.
+  - `audio.js` – sound effects, the music playlist, and the Sound menu.
 - `search-table/` – see section 7.
 
 ### Content Folders
@@ -89,7 +96,9 @@ These are the rules the overhaul followed. New work should follow them too.
 | Any site wording (footer text, button labels, messages, table wording) | `_data/strings.yml` |
 | Which themes exist, their fonts, background, cursor, sounds, music | `_data/themes.yml` |
 | Worlds, creature types, sizes | `_data/lists.yml` |
-| Sound defaults, volumes, which file plays for which event | `_data/audio.yml` |
+| Sound defaults, volumes, which file plays for which event, music playlists | `_data/audio.yml` |
+| The entrance screen: on or off, delay, fade | `_data/gate.yml` |
+| How long the site must be closed before a visit ends, and what is forgotten then | `_data/session.yml` |
 | Text size limits and step | `_data/text_size.yml` |
 | Animation speed, popup widths, tooltip width, rarity colors, heading weight, popup title size | `_sass/custom/_settings.scss` |
 | Panel see-through level, parallax strength and delay | `_sass/custom/_settings.scss` |
@@ -176,7 +185,7 @@ Other rules:
 - `background` – a picture for the page background (see section 4b).
 - `cursor` – a custom mouse cursor: `image`, `hotspot`, and optional `pointer` (see section 4b).
 - `sounds` – the name of a sound effect set in `audio.yml`. A theme with no `sounds` is silent.
-- `music` – a background music file. Optional.
+- `music` – the name of a music playlist in `audio.yml`. Optional.
 
 ### Add Fonts to a Theme
 1. Put the font files in `assets/fonts/`. File names are case-sensitive and should have no spaces. `.woff2` is the smallest format. `.ttf` also works.
@@ -200,6 +209,8 @@ Scripts that don't know about each other communicate through events on `document
 | `themechange` | `theme-switcher.js` | The theme was switched. `event.detail` is the theme's `id`. Sent after the new stylesheet is in place. |
 | `popupopen` | `search-table/dialog.js` | A search table popup just opened. |
 | `popupclose` | `search-table/dialog.js` | A search table popup just closed. |
+| `gateenter` | `site/gate.js` | The entrance screen was clicked. The delay starts now. |
+| `gateopen` | `site/gate.js` | The delay is over and the entrance screen is fading away. |
 
 The active theme's `id` is always on `<html data-theme="...">`, so CSS can use `html[data-theme="dungeon"]` and scripts can read `document.documentElement.dataset.theme`. `site/shared.js` has `onThemeChange(fn)`, which runs `fn` now for the current theme and again after every switch.
 
@@ -215,8 +226,27 @@ Visitors' choices live in the browser's `localStorage`:
 | `text-size` | `text-size.js` | a percent, like `110` |
 | `sound-effects` | `audio.js` | `true` or `false` |
 | `sound-music` | `audio.js` | `true` or `false` |
+| `last-seen` | `session.js` | the last time any page of the site was open, in milliseconds |
+| `gate-passed` | `gate.js` | `true` once the entrance screen was clicked this visit |
+| `music-state` | `audio.js` | the playlist, song, and position where the last page left off |
 
 Every read and write is wrapped in `try`/`catch`, because storage can be blocked.
+
+### Visits and the Entrance Screen
+A "visit" lasts until the site has been closed, in every tab, for long enough.
+
+- Settings: `_data/session.yml` (the timeout in minutes, and which saved choices are forgotten) and `_data/gate.yml` (whether the entrance screen exists, the delay, and the fade). Behavior: `assets/js/session.js` (runs first in the page head), `site/gate.js`, and `site/audio.js`. Markup: `_includes/gate.html`. Styles: `_gate.scss`.
+- **Open means open.** While any page of the site is open in any tab, `session.js` writes `last-seen` to `localStorage` every 15 seconds (and when a page is left), so the timer never starts. When a page loads and `last-seen` is missing or older than the timeout, the last visit is over. The keys listed under `reset` in `session.yml` are removed (so the theme goes back to the `color_scheme` default and the text size to 100%), and so are `gate-passed` and `music-state`.
+- **The entrance screen** shows when `gate-passed` is missing. `session.js` sets `<html data-gate="pending">` before the page paints, and the CSS hides the page (but not the gate) while it is pending, so nothing flashes. `gate.js` then opens the gate as a modal `<dialog>`, which makes the rest of the page unclickable and untabbable by itself. Escape can't close it.
+- Clicking anywhere (or pressing Enter) does this, in order:
+  1. The gate gets `.is-opening`, and `gateenter` is announced. The `enter` sound in the sound set plays (the doors).
+  2. After `delay` seconds, `gate-passed` is saved, `data-gate` becomes `open` (the page shows underneath), the gate gets `.is-leaving` and fades for `fade` seconds, and `gateopen` is announced. The music starts.
+  3. The gate closes.
+- **A door animation** goes in `.gate-art` inside `gate.html`, styled in `_gate.scss`. Use `#gate.is-opening` to start it, and set `delay` in `gate.yml` to its length.
+- With reduced motion turned on, the delay and fade are skipped.
+- If the browser blocks storage, a visit can't be tracked, so the reset and the entrance screen are both skipped.
+- If `gate.js` fails to run, the page appears anyway after 5 seconds (`session.js` sets `data-gate-late`).
+- `data-gate` is missing (no gate this visit), `pending` (waiting for the click), or `open` (entered). Other scripts check it: `audio.js` stays silent while it is pending, and `deeplink.js` waits for `gateopen` before opening a popup from the URL.
 
 ### The Dock
 The row of buttons at the bottom right (Sound, Size, Theme).
@@ -253,13 +283,16 @@ cursor:
 
 ### Sound
 - Settings: `_data/audio.yml`. Behavior: `site/audio.js`. The Sound menu has two checkboxes, `data-sound="effects"` and `data-sound="music"`.
-- `defaults` is what first-time visitors get (music is off, because browsers block autoplay anyway). `volume` runs from 0 to 1.
+- `defaults` is what first-time visitors get. Music is on, because clicking the entrance screen gives the browser permission to play it. `volume` runs from 0 to 1.
 - `sets` are groups of effect files. A theme picks one with `sounds: NAME`. Dark and Light share the `basic` set, which only has `click`. The events are:
   - `click` – any link, button, input, or table row is clicked.
   - `hover` – the mouse moves onto a new link, button, or table row.
   - `open` and `close` – a search table popup opens or closes.
+  - `enter` – the entrance screen was clicked (the doors opening).
   - An event missing from a set is silent.
-- Music loops, follows the theme's `music` file, pauses when the tab is hidden, and starts only after the visitor's first click or key press.
+- **Playlists:** `playlists` in `audio.yml` holds named lists of music files. A theme picks one with `music: NAME`. When a song ends, another one is picked at random from the same playlist (never the same song twice in a row, unless it is the only one, which then loops). A theme with no `music` plays nothing.
+- **Saved position:** when a page is left, `audio.js` saves the playlist, song, and position to `localStorage` (`music-state`). The next page resumes there, but only if its theme has the same playlist. It is forgotten when a visit ends.
+- Music pauses when the tab is hidden. It stays silent until the entrance screen is passed. If the browser blocks it on a later page (some do), it starts on the visitor's first click or key press.
 - Use `.mp3` files, which play in every browser. Keep effects short (under about a second) and small. A missing file fails silently.
 - The set of clickable things is `INTERACTIVE` in `site/shared.js`. Add a selector there to include more.
 
@@ -269,8 +302,11 @@ cursor:
 - The size is set as an inline `font-size` on `<html>` marked `!important`, which beats any stylesheet. At 100% the inline style is removed completely. Everything on the site is sized in `rem`, so everything scales together (except the dock, which uses `px`).
 - If some text doesn't scale, it is sized in `px` somewhere. Change it to `rem`.
 
+### Checkboxes
+`_checkbox.scss` restyles every `<input type="checkbox">` on the site (the dock menus and the Filter panel's "match any" box) in the color scheme's colors. A new checkbox needs no extra class. Don't add `accent-color` to a checkbox, because it no longer does anything. The size is `$checkbox-size`, in `em`, so it follows the text around it.
+
 ### Entry Point
-`site/main.js` imports `dock.js`, `parallax.js`, and `audio.js`. Each starts itself when imported. Remove an import to switch that feature off.
+`site/main.js` imports `dock.js`, `parallax.js`, `gate.js`, and `audio.js`. Each starts itself when imported. Remove an import to switch that feature off.
 
 ## 5. Search Tables
 
@@ -409,7 +445,7 @@ The first four files never touch the page, so they can be tested on their own.
 - `query.js` – turns the search box text into terms and matches them.
 - `filters.js` – what the Filter panel has selected, and how it matches.
 - `panel.js` – the Filter panel's buttons, boxes, and sliders.
-- `dialog.js` – the popup. It also announces `popupopen` and `popupclose` (see section 4b). `deeplink.js` – opens a popup from the URL. `main.js` – the entry point that wires it all together.
+- `dialog.js` – the popup. It also announces `popupopen` and `popupclose` (see section 4b). `deeplink.js` – opens a popup from the URL (after the entrance screen is passed). `main.js` – the entry point that wires it all together.
 
 ## 8. Reminders
 
@@ -418,6 +454,7 @@ The first four files never touch the page, so they can be tested on their own.
 - **Includes share variables with the page that calls them.** Give every include its own prefix (`mk_`, `cl_`, `pe_`, `jw_`, `ni_`, `fm_`, `ms_`, `sps_`, `sp_`, `it_`, `ft_`, `tx_`, `qt_`, `tt_`, `tg_`, `th_`...). Pass what an include needs as a parameter instead of relying on a shared variable.
 - **Include parameters must be plain values or dotted names** (`key=col.key`). Brackets like `list[0]` break the include tag, so assign the value to a variable first.
 - **`theme.scss.liquid` must assign every `th_` variable it prints, and must not hide a missing one with `| default:`.** An unassigned variable prints nothing and breaks the build with an "expected expression" error, which is the right outcome. A `default` guard instead makes the build pass while silently dropping a font, background, or cursor.
+- **Saved settings are read in the page head, so the script that forgets them (`session.js`) must load before the scripts that read them (`theme-switcher.js`, `text-size.js`).** Keep that order in `head_custom.html`.
 - **Sass can't read data files.** A stylesheet only knows what is written into it. `_settings.scss` holds the defaults, and `theme.scss.liquid` writes each theme's fonts, background, and cursor. Just the Docs also builds stylesheets of its own that load `custom.scss`, which is why every setting has a `!default`.
 - **Never delete `assets/css/just-the-docs-default.scss`.** Every page loads it first. If it doesn't use the theme include, the first view shows the wrong fonts.
 - **For Sass compatibility**, halve with `* 0.5`, not `/ 2`. Avoid `@use` and `math.div`: the theme loads this folder with `@import`.
