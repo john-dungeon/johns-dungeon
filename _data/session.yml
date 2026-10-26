@@ -1,0 +1,3 @@
+# Visit Reset
+timeout: 10 # Timeout in Minutes
+reset: [theme, text-size] # 
