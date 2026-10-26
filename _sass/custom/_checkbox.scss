@@ -1,0 +1,39 @@
+$checkbox-size: 1.1em;
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-grid;
+  place-content: center;
+  flex: none;
+  width: $checkbox-size;
+  height: $checkbox-size;
+  margin: 0;
+  border: 1px solid $nav-child-link-color;
+  border-radius: 0.25em;
+  background: $body-background-color;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+
+  &::after {
+    content: "";
+    width: 0.28em;
+    height: 0.55em;
+    margin-top: -0.12em;
+    border: solid $body-background-color;
+    border-width: 0 0.14em 0.14em 0;
+    transform: rotate(45deg) scale(0);
+    transition: transform 0.15s ease-out;
+  }
+
+  &:hover { border-color: $link-color; }
+
+  &:checked {
+    border-color: $link-color;
+    background: $link-color;
+    &::after { transform: rotate(45deg) scale(1); }
+  }
+
+  &:focus-visible { outline: 2px solid $link-color; outline-offset: 2px; }
+}
