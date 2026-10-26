@@ -249,6 +249,7 @@ A "visit" lasts until the site has been closed, in every tab, for long enough.
 - If `timeout` is missing or not a positive number, `session.js` logs a warning in the console and visits never expire. A missing value must never count as 0 minutes, because then every page load would look like a new visit and the entrance screen would show on every page.
 - **To check a visit by hand:** open the browser console and type `SITE_SESSION` to see the settings the script received (`timeout` should be a number). Under Application, then Local Storage, look at `last-seen` (it should keep changing while a page is open) and `gate-passed` (it should be `true` after entering).
 - If `gate.js` fails to run, the page appears anyway after 5 seconds (`session.js` sets `data-gate-late`).
+- If the page has no `#gate` element (`gate.html` isn't included in `footer_custom.html`), `session.js` logs a warning in the console and skips the entrance screen, instead of leaving the page hidden. To check by hand, type `document.getElementById('gate')` in the console: it should print the dialog, not `null`.
 - `data-gate` is missing (no gate this visit), `pending` (waiting for the click), or `open` (entered). Other scripts check it: `audio.js` stays silent while it is pending, and `deeplink.js` waits for `gateopen` before opening a popup from the URL.
 
 ### The Dock
