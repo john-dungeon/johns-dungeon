@@ -21,7 +21,7 @@ html[data-gate="pending"]:not([data-gate-late]) body { visibility: hidden; }
   color: $body-heading-color;
   transition: opacity var(--gate-fade, 1s) ease;
 
-  &::backdrop { background: $body-background-color; }
+  &::backdrop { background: transparent; }
   &.is-leaving { opacity: 0; }
 }
 
