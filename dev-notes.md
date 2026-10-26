@@ -243,8 +243,11 @@ A "visit" lasts until the site has been closed, in every tab, for long enough.
   2. After `delay` seconds, `gate-passed` is saved, `data-gate` becomes `open` (the page shows underneath), the gate gets `.is-leaving` and fades for `fade` seconds, and `gateopen` is announced. The music starts.
   3. The gate closes.
 - **A door animation** goes in `.gate-art` inside `gate.html`, styled in `_gate.scss`. Use `#gate.is-opening` to start it, and set `delay` in `gate.yml` to its length.
+- **The fade is the dialog's `opacity`.** The dialog's `::backdrop` is a separate layer that the dialog's opacity doesn't touch, so `_gate.scss` makes the backdrop transparent and lets the dialog itself paint the whole screen. If the backdrop were opaque, the screen would stay solid for the whole fade and then vanish at once.
 - With reduced motion turned on, the delay and fade are skipped.
 - If the browser blocks storage, a visit can't be tracked, so the reset and the entrance screen are both skipped.
+- If `timeout` is missing or not a positive number, `session.js` logs a warning in the console and visits never expire. A missing value must never count as 0 minutes, because then every page load would look like a new visit and the entrance screen would show on every page.
+- **To check a visit by hand:** open the browser console and type `SITE_SESSION` to see the settings the script received (`timeout` should be a number). Under Application, then Local Storage, look at `last-seen` (it should keep changing while a page is open) and `gate-passed` (it should be `true` after entering).
 - If `gate.js` fails to run, the page appears anyway after 5 seconds (`session.js` sets `data-gate-late`).
 - `data-gate` is missing (no gate this visit), `pending` (waiting for the click), or `open` (entered). Other scripts check it: `audio.js` stays silent while it is pending, and `deeplink.js` waits for `gateopen` before opening a popup from the URL.
 
@@ -455,6 +458,7 @@ The first four files never touch the page, so they can be tested on their own.
 - **Include parameters must be plain values or dotted names** (`key=col.key`). Brackets like `list[0]` break the include tag, so assign the value to a variable first.
 - **`theme.scss.liquid` must assign every `th_` variable it prints, and must not hide a missing one with `| default:`.** An unassigned variable prints nothing and breaks the build with an "expected expression" error, which is the right outcome. A `default` guard instead makes the build pass while silently dropping a font, background, or cursor.
 - **Saved settings are read in the page head, so the script that forgets them (`session.js`) must load before the scripts that read them (`theme-switcher.js`, `text-size.js`).** Keep that order in `head_custom.html`.
+- **A dialog's `::backdrop` ignores the dialog's `opacity`.** To fade a modal dialog, make its backdrop transparent and let the dialog paint the screen.
 - **Sass can't read data files.** A stylesheet only knows what is written into it. `_settings.scss` holds the defaults, and `theme.scss.liquid` writes each theme's fonts, background, and cursor. Just the Docs also builds stylesheets of its own that load `custom.scss`, which is why every setting has a `!default`.
 - **Never delete `assets/css/just-the-docs-default.scss`.** Every page loads it first. If it doesn't use the theme include, the first view shows the wrong fonts.
 - **For Sass compatibility**, halve with `* 0.5`, not `/ 2`. Avoid `@use` and `math.div`: the theme loads this folder with `@import`.
