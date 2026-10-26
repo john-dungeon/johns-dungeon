@@ -33,5 +33,11 @@
   if (CONFIG.gate && read(GATE_PASSED) !== 'true') {
     root.dataset.gate = 'pending';
     setTimeout(() => root.setAttribute('data-gate-late', ''), 5000);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (document.getElementById('gate')) return;
+      console.warn('session.js: the entrance screen is on, but this page has no #gate element. Is gate.html included in footer_custom.html?');
+      delete root.dataset.gate;
+    });
   }
 })();
