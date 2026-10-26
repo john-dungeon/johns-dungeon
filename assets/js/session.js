@@ -14,8 +14,14 @@
   const write = (key, value) => localStorage.setItem(key, value);
   const forget = key => localStorage.removeItem(key);
 
+  const minutes = Number(CONFIG.timeout);
+  if (!(minutes > 0)) {
+    console.warn('session.js: "timeout" in _data/session.yml is missing or not a positive number, so visits never expire.');
+  }
+
   const lastSeen = Number(read(LAST_SEEN));
-  if (!lastSeen || Date.now() - lastSeen > CONFIG.timeout * 60000) {
+  const expired = !lastSeen || (minutes > 0 && Date.now() - lastSeen > minutes * 60000);
+  if (expired) {
     [...(CONFIG.reset || []), GATE_PASSED, 'music-state'].forEach(forget);
   }
 
