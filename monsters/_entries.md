@@ -111,8 +111,8 @@ actions:
 - action_4: Spellcasting
   description: The stone lion casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 16):
   
-At will: *Elementalism*, *Mage Hand*, *Mending*
+**At Will:** *Elementalism*, *Mage Hand*, *Mending*
 
-1/day each: *Disintegrate*, *Move Earth*, *Stone Shape*
+**1/Day Each:** *Disintegrate*, *Move Earth*, *Stone Shape*
 
 ---
