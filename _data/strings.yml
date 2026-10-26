@@ -1,5 +1,9 @@
 # Non-Page Content Wording
 
+# Entrance Screen
+gate_label: Entrance
+gate_enter: Enter Dungeon
+
 # Navigation, Footer
 nav_footer: "It's rather dark down here... Try not to get lost, my friend."
 nav_toggle: Toggle nav bar
