@@ -1,5 +1,5 @@
 // Markup: _includes/gate.html
-// Behavior: assets/js/site/gate.js (opens and closes it), session.js (decides if it shows)
+// Behavior: assets/js/site/gate.js (Opens and closes it), session.js (Decides if it shows)
 // Settings: _data/gate.yml
 html[data-gate="pending"]:not([data-gate-late]) body { visibility: hidden; }
 
@@ -30,8 +30,15 @@ html[data-gate="pending"] #gate,
 
 .gate-art {
   position: absolute;
-  inset: 0;
   pointer-events: none;
+  @include parallax-layer;
+}
+
+.gate-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 #gate-enter {
@@ -42,11 +49,17 @@ html[data-gate="pending"] #gate,
   color: inherit;
   font-size: 2.5rem;
   letter-spacing: 0.08em;
+  text-shadow: 0 0 0.5em $body-background-color;
   cursor: pointer;
   @if $theme-heading-font { font-family: $theme-heading-font; }
 
   &:hover { color: $link-color; }
   &:focus-visible { outline: 2px solid $link-color; outline-offset: -8px; }
+}
+
+#gate.is-opening #gate-enter {
+  opacity: 0;
+  transition: opacity $motion;
 }
 
 @media (prefers-reduced-motion: reduce) {
