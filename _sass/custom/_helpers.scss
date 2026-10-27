@@ -43,3 +43,14 @@ $shadow-dialog: 0 8px 30px rgba(0, 0, 0, 0.5);
     color: $link-color;
   }
 }
+
+@mixin parallax-layer {
+  inset: -$parallax-margin;
+  transform: translate3d(
+    calc(var(--parallax-x, 0) * #{-$parallax-range}),
+    calc(var(--parallax-y, 0) * #{-$parallax-range}),
+    0
+  );
+  transition: transform $parallax-smoothing ease-out;
+  will-change: transform;
+}
