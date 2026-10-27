@@ -1,7 +1,14 @@
 {%- assign gt_cfg = site.data.gate -%}
 {%- if gt_cfg.enabled -%}
+{%- assign gt_ext = gt_cfg.active | split: "." | last | downcase -%}
 <dialog id="gate" data-delay="{{ gt_cfg.delay }}" data-fade="{{ gt_cfg.fade }}" aria-label="{{ site.data.strings.gate_label | escape }}">
-  <div class="gate-art" aria-hidden="true"></div>
+  <div class="gate-art" aria-hidden="true">
+    {%- if gt_ext == "mp4" or gt_ext == "webm" %}
+    <video class="gate-media" src="{{ gt_cfg.active | prepend: '/' | relative_url }}"{% if gt_cfg.idle %} poster="{{ gt_cfg.idle | prepend: '/' | relative_url }}"{% endif %} preload="none" muted playsinline></video>
+    {%- elsif gt_cfg.idle %}
+    <img class="gate-media" src="{{ gt_cfg.idle | prepend: '/' | relative_url }}"{% if gt_cfg.active %} data-active="{{ gt_cfg.active | prepend: '/' | relative_url }}"{% endif %} loading="lazy" alt="">
+    {%- endif %}
+  </div>
   <button type="button" id="gate-enter">{{ site.data.strings.gate_enter }}</button>
 </dialog>
 {%- endif -%}
