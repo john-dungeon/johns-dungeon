@@ -100,14 +100,15 @@ These are the rules the overhaul followed. New work should follow them too.
 | The entrance screen: on or off, delay, fade | `_data/gate.yml` |
 | How long the site must be closed before a visit ends, and what is forgotten then | `_data/session.yml` |
 | Text size limits and step | `_data/text_size.yml` |
-| Animation speed, popup widths, tooltip width, rarity colors, heading weight, popup title size | `_sass/custom/_settings.scss` |
+| Animation speed, popup widths, tooltip width, rarity colors, the default heading weight, popup title size | `_sass/custom/_settings.scss` |
+| One theme's heading weight | `_data/themes.yml` (`heading_weight`) |
 | Panel see-through level, parallax strength and delay | `_sass/custom/_settings.scss` |
 | A theme's colors | `_sass/color_schemes/ID.scss` |
 | A table's columns, filters, limits | `_data/tables/NAME.yml` |
 
 **Strings.** Use `{name}` as a fill-in spot, such as `{title}`. Only `nav_footer` and `unfinished` accept Markdown and `[[links]]`. Wrap a value in quotes if it contains a colon followed by a space.
 
-**Settings.** Every value in `_settings.scss` ends in `!default`, so any color scheme can override one for just that theme by writing the same variable name without `!default`. Don't set `$theme-body-font`, `$theme-heading-font`, `$theme-background`, `$theme-cursor`, or `$theme-cursor-pointer` in a color scheme. They come from `themes.yml` through `theme.scss.liquid`.
+**Settings.** Every value in `_settings.scss` ends in `!default`, so any color scheme can override one for just that theme by writing the same variable name without `!default`. Don't set `$theme-body-font`, `$theme-heading-font`, `$theme-background`, `$theme-cursor`, or `$theme-cursor-pointer` in a color scheme. They come from `themes.yml` through `theme.scss.liquid`, which also writes `$heading-weight` for a theme that has `heading_weight`.
 
 **Other color scheme overrides:** `$stripe-odd-color`, `$stripe-even-color`, `$unlisted-color`, `$marker-colors`.
 
@@ -152,7 +153,7 @@ Everything on the site passes through `text.html`, so these rules work everywher
 
 Other rules:
 
-- **Headings are bold automatically.** Never write `**` in a heading. The weight is `$heading-weight` in `_settings.scss`.
+- **Headings are bold automatically.** Never write `**` in a heading. The weight is `$heading-weight` in `_settings.scss`, and a theme can set its own with `heading_weight` in `themes.yml`.
 - **Quotes:** `{% include quote.html text="..." %}`. Don't type the outer quotation marks.
 - **Tooltips:** `{% include tooltip.html text="..." %}` prints a full `data-tooltip="..."` attribute. The bubble inserts the text as HTML, so only use text you wrote.
 - **Italic blocks:** put `{: .italic }` on the line after the text. Other classes: `.indent`, `.catalog` (a plain table), `.headless` (hide the header row).
@@ -182,6 +183,7 @@ Other rules:
 ### Theme Keys (`themes.yml`)
 - `id`, `label` – the name in code and the name shown in the menu.
 - `body_font`, `heading_font`, `font_fallback`, `fonts` – see "Add Fonts to a Theme".
+- `heading_weight` – how bold all headings are in this theme: a number from 100 to 900, or `normal` or `bold`. Optional. Without it, the theme uses `$heading-weight` from `_settings.scss` (700).
 - `background` – a picture for the page background (see section 4b).
 - `cursor` – a custom mouse cursor: `image`, `hotspot`, and optional `pointer` (see section 4b).
 - `sounds` – the name of a sound effect set in `audio.yml`. A theme with no `sounds` is silent.
@@ -196,6 +198,8 @@ Other rules:
      - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Italic.ttf, style: italic }
    ```
    `weight` is 400 by default. Use a quoted range such as `"200 900"` for a variable font. `preload: false` skips the early download for a file that isn't needed on the first view.
+
+**Heading weight.** Headings use the theme's `heading_weight` (default "400"). If the heading font has no file at that weight, the browser fakes the bold, which looks smeared and blocky. Set `heading_weight` to a weight you have a file for.
 
 How it works: `theme.scss.liquid` writes one `@font-face` rule per file into that theme's stylesheet, plus the Sass variables for the theme's fonts, background, and cursor. `theme-switcher.js` adds a preload hint for the active theme's files, so the download starts before the stylesheet is read.
 
