@@ -1,20 +1,13 @@
-// Image: _data/themes.yml ("background:")
-// Behavior: assets/js/site/parallax.js sets "--parallax-x" and "--parallax-y" (-1 to 1)
+// Image: set per theme in _data/themes.yml (background:)
+// Behavior: assets/js/site/parallax.js sets --parallax-x and --parallax-y (-1 to 1)
 @if $theme-background != none {
   body::before {
     content: "";
     position: fixed;
-    inset: -$parallax-margin;
     z-index: -1;
     background: $theme-background center / cover no-repeat;
-    transform: translate3d(
-      calc(var(--parallax-x, 0) * #{-$parallax-range}),
-      calc(var(--parallax-y, 0) * #{-$parallax-range}),
-      0
-    );
-    transition: transform $parallax-smoothing ease-out;
-    will-change: transform;
     pointer-events: none;
+    @include parallax-layer;
   }
 
   .main { background-color: rgba($body-background-color, $panel-opacity); }
