@@ -36,4 +36,7 @@ $theme-heading-font: {{ th_heading }};
 $theme-background: {{ th_background }};
 $theme-cursor: {{ th_cursor }};
 $theme-cursor-pointer: {{ th_cursor_pointer }};
+{%- if th.heading_weight %}
+$heading-weight: {{ th.heading_weight }};
+{%- endif %}
 {% include css/just-the-docs.scss.liquid color_scheme=include.id %}
