@@ -21,7 +21,7 @@ These are the rules the overhaul followed. New work should follow them too.
 - `_data/themes.yml` – the themes in the switcher menu, and each theme's fonts, background image, cursor, sound set, and music playlist.
 - `_data/lists.yml` – lists shared by several search table columns (worlds, creature types, sizes).
 - `_data/audio.yml` – sound defaults, volumes, the sound effect sets, and the music playlists.
-- `_data/gate.yml` – the entrance screen: on or off, the delay before it fades, and the fade time.
+- `_data/gate.yml` – the entrance screen: on or off, the delay before it fades, the fade time, and its idle and active pictures.
 - `_data/session.yml` – how long the site must be closed before a visit counts as over, and which saved choices are forgotten then.
 - `_data/text_size.yml` – the lowest size, highest size, and step of the text size buttons.
 - `_data/challenge.yml` – Challenge Rating to XP and Proficiency Bonus (used by the monster template). Fractions are decimals (`0.5`).
@@ -32,7 +32,7 @@ These are the rules the overhaul followed. New work should follow them too.
 - `assets/css/just-the-docs-ID.scss` – one 3-line stub per theme. Jekyll needs each one as a separate file. `just-the-docs-default.scss` is the stylesheet every page loads first. It builds the default theme (`color_scheme` in `_config.yml`), so never delete it.
 - `_sass/custom/` – all custom CSS, loaded in this order by `custom.scss` (import each file once):
   - `_settings` – every adjustable visual value, each with `!default`.
-  - `_helpers` – derived variables and mixins (loaded second).
+  - `_helpers` – derived variables and mixins (loaded second), including `parallax-layer`.
   - `_theme` – fonts, heading weight, the theme cross-fade.
   - `_base` – links, scrollbar, the `.indent` and `.italic` classes, the animation speed variable.
   - `_tables` – flat, striped tables.
@@ -242,7 +242,9 @@ A "visit" lasts until the site has been closed, in every tab, for long enough.
   1. The gate gets `.is-opening`, and `gateenter` is announced. The `enter` sound in the sound set plays (the doors).
   2. After `delay` seconds, `gate-passed` is saved, `data-gate` becomes `open` (the page shows underneath), the gate gets `.is-leaving` and fades for `fade` seconds, and `gateopen` is announced. The music starts.
   3. The gate closes.
-- **A door animation** goes in `.gate-art` inside `gate.html`, styled in `_gate.scss`. Use `#gate.is-opening` to start it, and set `delay` in `gate.yml` to its length.
+- **Pictures:** `idle` in `gate.yml` is the still picture shown until the click (and a video's poster). `active` is the animation that starts on the click: a `.webm` or `.mp4` video (it holds its last frame), or an animated `.webp` or `.gif` (export it to play once, or it loops during the fade). Set `delay` to the animation's length so the fade starts when it ends. Both are optional, and an animated image needs `idle` too. Other pages don't download the animation: the video starts with `preload="none"` and `gate.js` fetches it only when the screen is going to show. With reduced motion, only the idle picture shows.
+- **The pictures slide with the mouse** like the page background. `.gate-art` uses the same `parallax-layer` mixin, so the two always move the same way.
+- **Your own CSS animation** can go in `.gate-art` too: use `#gate.is-opening` to start it.
 - **The fade is the dialog's `opacity`.** The dialog's `::backdrop` is a separate layer that the dialog's opacity doesn't touch, so `_gate.scss` makes the backdrop transparent and lets the dialog itself paint the whole screen. If the backdrop were opaque, the screen would stay solid for the whole fade and then vanish at once.
 - With reduced motion turned on, the delay and fade are skipped.
 - If the browser blocks storage, a visit can't be tracked, so the reset and the entrance screen are both skipped.
@@ -264,6 +266,7 @@ The row of buttons at the bottom right (Sound, Size, Theme).
 - Set `background: assets/images/NAME.webp` in a theme's `themes.yml` entry. A theme without it keeps its plain color, and none of the background CSS is built for it.
 - `theme.scss.liquid` writes the image into `$theme-background`. `_background.scss` draws it on `body::before`, a fixed layer behind the page that is slightly bigger than the screen so it has room to move.
 - `site/parallax.js` writes `--parallax-x` and `--parallax-y` (-1 to 1) from the mouse position, once per screen refresh. The CSS turns them into a slide in the opposite direction. It does nothing for touchscreens, or for visitors who ask for reduced motion.
+- The slide itself is the `parallax-layer` mixin in `_helpers.scss` (the oversized box plus the movement). The page background and the entrance screen both use it.
 - `.main` and `.side-bar` are made slightly see-through (`$panel-opacity`) so the picture shows around the text. If the picture is hidden, inspect the page for another element with a solid background and add it in `_background.scss`.
 - **Image size:** 2560 × 1440 px, WebP, ideally under about 500 KB. The picture is scaled to cover the screen and cropped, so keep important detail near the middle. Keep `$parallax-range` smaller than `$parallax-margin`, or the layer's edge becomes visible.
 
