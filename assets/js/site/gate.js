@@ -4,12 +4,29 @@ const gate = document.getElementById('gate');
 const announce = type => document.dispatchEvent(new CustomEvent(type));
 
 function run() {
-  const seconds = name => (CALM.matches ? 0 : Number(gate.dataset[name]) || 0) * 1000;
+  const calm = CALM.matches;
+  const seconds = name => (calm ? 0 : Number(gate.dataset[name]) || 0) * 1000;
   const delay = seconds('delay');
   const fade = seconds('fade');
+  const media = gate.querySelector('.gate-media');
   let leaving = false;
 
   gate.style.setProperty('--gate-fade', fade + 'ms');
+
+  if (media && !calm) {
+    if (media.play) {
+      media.preload = 'auto';
+      media.load();
+    } else if (media.dataset.active) {
+      new Image().src = media.dataset.active;
+    }
+  }
+
+  function activate() {
+    if (!media || calm) return;
+    if (media.play) media.play().catch(() => {});
+    else if (media.dataset.active) media.src = media.dataset.active;
+  }
 
   function open() {
     leaving = true;
@@ -27,6 +44,7 @@ function run() {
   gate.addEventListener('click', () => {
     announce('gateenter');
     gate.classList.add('is-opening');
+    activate();
     setTimeout(open, delay);
   }, { once: true });
 }
