@@ -1,5 +1,5 @@
-// Image: set per theme in _data/themes.yml (background:)
-// Behavior: assets/js/site/parallax.js sets --parallax-x and --parallax-y (-1 to 1)
+// Image: _data/themes.yml ("background:")
+// Behavior: assets/js/site/parallax.js sets "--parallax-x" and "--parallax-y" (-1 to 1)
 @if $theme-background != none {
   body::before {
     content: "";
