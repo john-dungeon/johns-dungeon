@@ -1,5 +1,5 @@
-// Image: _data/themes.yml ("background:")
-// Behavior: assets/js/site/parallax.js sets "--parallax-x" and "--parallax-y" (-1 to 1)
+// Image: set per theme in _data/themes.yml (background:)
+// Behavior: assets/js/site/parallax.js sets --parallax-x and --parallax-y (-1 to 1)
 @if $theme-background != none {
   body::before {
     content: "";
@@ -11,5 +11,4 @@
   }
 
   .main { background-color: rgba($body-background-color, $panel-opacity); }
-  .side-bar { background-color: rgba($sidebar-color, $panel-opacity); }
 }
