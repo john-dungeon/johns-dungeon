@@ -1,4 +1,6 @@
 // Behavior: assets/js/site/effects.js and assets/js/site/effects/*.js
+
+// Each running JS effect gets a full-screen layer that never blocks clicks.
 .fx-layer {
   position: fixed;
   inset: 0;
@@ -7,10 +9,16 @@
   pointer-events: none;
 }
 
-// Torch Glow (assets/js/site/effects/torch-glow.js)
+// Torch Glow (effects/torch-glow.js)
 @mixin glow-frame($opacity, $scale) {
   opacity: $opacity;
   transform: translate(-50%, -50%) scale($scale);
+}
+
+@mixin glow($color, $opacity, $size) {
+  width: $size;
+  height: $size;
+  background: radial-gradient(circle, rgba($color, $opacity) 0%, rgba($color, 0) 70%);
 }
 
 @keyframes torch-flicker {
@@ -29,25 +37,16 @@ html.fx-torch-glow #site-cursor {
     content: "";
     position: absolute;
     z-index: -1;
-    left: var(--fx-torch-glow-x, 16px);
-    top: var(--fx-torch-glow-y, 16px);
+    left: var(--fx-torch-glow-x);
+    top: var(--fx-torch-glow-y);
     border-radius: 50%;
     pointer-events: none;
+    @include glow-frame(0.85, 1);
+    animation: torch-flicker $torch-flicker-duration infinite;
   }
 
-  &::before {
-    width: $torch-glow-size;
-    height: $torch-glow-size;
-    background: radial-gradient(circle, rgba($torch-glow-color, 0.45) 0%, rgba($torch-glow-color, 0) 70%);
-    animation: torch-flicker 2.3s infinite;
-  }
-
-  &::after {
-    width: $torch-glow-size * 0.4;
-    height: $torch-glow-size * 0.4;
-    background: radial-gradient(circle, rgba(mix(#ffffff, $torch-glow-color, 35%), 0.7) 0%, rgba($torch-glow-color, 0) 70%);
-    animation: torch-flicker 1.4s infinite;
-  }
+  &::before { @include glow($torch-glow-color, 0.45, $torch-glow-size); }
+  &::after { @include glow($torch-glow-core-color, 0.7, $torch-glow-size * 0.4); }
 }
 
 @media (prefers-reduced-motion: reduce) {
