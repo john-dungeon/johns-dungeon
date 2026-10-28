@@ -40,7 +40,7 @@
   sounds: dungeon
   music: dungeon
   effects:
-    - { id: torch-glow, x: 16, y: 6 }
+    - { id: torch-glow, x: 16, y: 16 }
 - id: parchment
   label: "Parchment 📜"
   body_font: IM Fell English
