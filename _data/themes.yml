@@ -2,6 +2,7 @@
 #  id: (Must match _sass/color_schemes/ID.scss and assets/css/just-the-docs-ID.scss)
 #  label: (The name shown in the theme menu)
 #  body_font / heading_font: (Google Font names; optional)
+#  body_size / heading_size: (Text size in percent of normal; optional; defaults to "100")
 #  heading_weight: (Bold headings; ranges from 100 to 900, or "normal" or "bold"; optional; defaults to "400")
 #  font_fallback: (Used if the font fails to load; optional; default "Georgia, serif")
 #   fonts:
@@ -21,6 +22,8 @@
   label: "Dungeon 🔥"
   body_font: Pixelify Sans
   heading_font: Jersey 10
+  body_size: 100
+  heading_size: 110
   heading_weight: normal
   background: assets/images/dungeon-bg.webp
   cursor: torch
@@ -33,6 +36,8 @@
   label: "Parchment 📜"
   body_font: IM Fell English
   heading_font: IM Fell English SC
+  body_size: 110
+  heading_size: 100
   heading_weight: bold
   background: assets/images/parchment-bg.webp
   sounds: parchment
