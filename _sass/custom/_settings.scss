@@ -12,17 +12,24 @@ $marker-colors: (
   "legendary": #ffc846,
   "artifact": #fa2323
 ) !default; // Rarity Symbol Color
+$panel-opacity: 0.8 !default; // Page Panels Over The Background Image (1 = solid)
+$parallax-margin: 3% !default; // Extra Background Size Past Each Screen Edge
+$parallax-range: 2.5% !default; // Furthest Background Shift
+$parallax-smoothing: 0.3s !default; // Background Follow Delay
+
+// Theme
 $theme-body-font: null !default; // Body Text Font
 $theme-heading-font: null !default; // Heading Text Font
 $dialog-title-size: 1.75rem !default; // Pop-Up Heading Font Size
 $heading-weight: 700 !default; // Heading Font Weight
 $theme-background: none !default; // Page Background Image
-$panel-opacity: 0.9 !default; // Page Panels Over The Background Image (1 = solid)
-$parallax-margin: 3% !default; // Extra Background Size Past Each Screen Edge
-$parallax-range: 2.5% !default; // Furthest Background Shift
-$parallax-smoothing: 0.3s !default; // Background Follow Delay
 $theme-cursor: none !default; // Page Cursor
 $theme-cursor-pointer: none !default; // Cursor Over Links And Buttons
 $heading-weight: 400 !default; // Heading Font Weight
 $body-size: 100 !default; // Body Text Size
 $heading-size: 100 !default; // Heading Text Size
+
+// Effects
+$torch-glow-color: #ff9a2e !default; // Torch Glow Color
+$torch-glow-size: 96px !default; // Torch Glow Width
+$effect-layer-z: 50 !default; // Ambient Effects Height (Below The Dock)
