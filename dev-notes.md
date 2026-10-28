@@ -33,7 +33,7 @@ These are the rules the overhaul followed. New work should follow them too.
 - `_sass/custom/` – all custom CSS, loaded in this order by `custom.scss` (import each file once):
   - `_settings` – every adjustable visual value, each with `!default`.
   - `_helpers` – derived variables and mixins (loaded second), including `parallax-layer`.
-  - `_theme` – fonts, heading weight, the theme cross-fade.
+  - `_theme` – fonts, heading weight and size, the body size variable, the theme cross-fade.
   - `_base` – links, scrollbar, the `.indent` and `.italic` classes, the animation speed variable.
   - `_tables` – flat, striped tables.
   - `_search-table` – everything for search tables, including the popup.
@@ -100,15 +100,15 @@ These are the rules the overhaul followed. New work should follow them too.
 | The entrance screen: on or off, delay, fade | `_data/gate.yml` |
 | How long the site must be closed before a visit ends, and what is forgotten then | `_data/session.yml` |
 | Text size limits and step | `_data/text_size.yml` |
-| Animation speed, popup widths, tooltip width, rarity colors, the default heading weight, popup title size | `_sass/custom/_settings.scss` |
-| One theme's heading weight | `_data/themes.yml` (`heading_weight`) |
+| Animation speed, popup widths, tooltip width, rarity colors, the default heading weight, the default body and heading sizes, popup title size | `_sass/custom/_settings.scss` |
+| One theme's heading weight, body text size, and heading size | `_data/themes.yml` (`heading_weight`, `body_size`, `heading_size`) |
 | Panel see-through level, parallax strength and delay | `_sass/custom/_settings.scss` |
 | A theme's colors | `_sass/color_schemes/ID.scss` |
 | A table's columns, filters, limits | `_data/tables/NAME.yml` |
 
 **Strings.** Use `{name}` as a fill-in spot, such as `{title}`. Only `nav_footer` and `unfinished` accept Markdown and `[[links]]`. Wrap a value in quotes if it contains a colon followed by a space.
 
-**Settings.** Every value in `_settings.scss` ends in `!default`, so any color scheme can override one for just that theme by writing the same variable name without `!default`. Don't set `$theme-body-font`, `$theme-heading-font`, `$theme-background`, `$theme-cursor`, or `$theme-cursor-pointer` in a color scheme. They come from `themes.yml` through `theme.scss.liquid`, which also writes `$heading-weight` for a theme that has `heading_weight`.
+**Settings.** Every value in `_settings.scss` ends in `!default`, so any color scheme can override one for just that theme by writing the same variable name without `!default`. Don't set `$theme-body-font`, `$theme-heading-font`, `$theme-background`, `$theme-cursor`, or `$theme-cursor-pointer` in a color scheme. They come from `themes.yml` through `theme.scss.liquid`, which also writes `$heading-weight`, `$body-size`, and `$heading-size` for a theme that sets `heading_weight`, `body_size`, or `heading_size`.
 
 **Other color scheme overrides:** `$stripe-odd-color`, `$stripe-even-color`, `$unlisted-color`, `$marker-colors`.
 
@@ -184,6 +184,8 @@ Other rules:
 - `id`, `label` – the name in code and the name shown in the menu.
 - `body_font`, `heading_font`, `font_fallback`, `fonts` – see "Add Fonts to a Theme".
 - `heading_weight` – how bold all headings are in this theme: a number from 100 to 900, or `normal` or `bold`. Optional. Without it, the theme uses `$heading-weight` from `_settings.scss` (700).
+- `body_size` – the size of body text in this theme, in percent of normal (100 changes nothing). Optional. The Size buttons adjust from this base.
+- `heading_size` – the size of headings in this theme, in percent of normal. Optional. It is independent of `body_size`: raising `body_size` does not also enlarge headings.
 - `background` – a picture for the page background (see section 4b).
 - `cursor` – a custom mouse cursor: `image`, `hotspot`, and optional `pointer` (see section 4b).
 - `sounds` – the name of a sound effect set in `audio.yml`. A theme with no `sounds` is silent.
@@ -199,7 +201,9 @@ Other rules:
    ```
    `weight` is 400 by default. Use a quoted range such as `"200 900"` for a variable font. `preload: false` skips the early download for a file that isn't needed on the first view.
 
-**Heading weight.** Headings use the theme's `heading_weight` (default "400"). If the heading font has no file at that weight, the browser fakes the bold, which looks smeared and blocky. Set `heading_weight` to a weight you have a file for.
+**Heading weight.** Headings use the theme's `heading_weight` (default 700). If the heading font has no file at that weight, the browser fakes the bold, which looks smeared and blocky. Set `heading_weight` to a weight you have a file for. A font with only a Regular file wants `heading_weight: 400`.
+
+**Text size.** Fonts differ in how big they look at the same size. Use `body_size` and `heading_size` (percent of normal) to calibrate a theme. They are independent: `_theme.scss` works out `--heading-ratio` (heading size divided by body size) so a headings-only change doesn't move the body text, and the other way around.
 
 How it works: `theme.scss.liquid` writes one `@font-face` rule per file into that theme's stylesheet, plus the Sass variables for the theme's fonts, background, and cursor. `theme-switcher.js` adds a preload hint for the active theme's files, so the download starts before the stylesheet is read.
 
@@ -310,7 +314,7 @@ cursor:
 ### Text Size
 - Settings: `_data/text_size.yml` (`min`, `max`, `step`, in percent). The Size menu has a minus button, the current percent, a plus button, and Reset. A button is greyed out at its limit.
 - `text-size.js` runs in the page head, so the saved size is applied before the page paints.
-- The size is set as an inline `font-size` on `<html>` marked `!important`, which beats any stylesheet. At 100% the inline style is removed completely. Everything on the site is sized in `rem`, so everything scales together (except the dock, which uses `px`).
+- The size is set as an inline `font-size` on `<html>` marked `!important`, which beats any stylesheet. It is `calc(PERCENT% * var(--body-scale, 1))`. `--body-scale` is the theme's `body_size`, written by `_theme.scss`, so the buttons adjust from each theme's own base size and follow along when the theme is switched. Everything on the site is sized in `rem`, so everything scales together (except the dock, which uses `px`).
 - If some text doesn't scale, it is sized in `px` somewhere. Change it to `rem`.
 
 ### Checkboxes
@@ -467,6 +471,7 @@ The first four files never touch the page, so they can be tested on their own.
 - **`theme.scss.liquid` must assign every `th_` variable it prints, and must not hide a missing one with `| default:`.** An unassigned variable prints nothing and breaks the build with an "expected expression" error, which is the right outcome. A `default` guard instead makes the build pass while silently dropping a font, background, or cursor.
 - **Saved settings are read in the page head, so the script that forgets them (`session.js`) must load before the scripts that read them (`theme-switcher.js`, `text-size.js`).** Keep that order in `head_custom.html`.
 - **A dialog's `::backdrop` ignores the dialog's `opacity`.** To fade a modal dialog, make its backdrop transparent and let the dialog paint the screen.
+- **Heading size is applied with `zoom`**, because Just the Docs sets each heading's size with `!important` in `rem`, so a multiplier can't be applied to the size itself. Zoom also scales the heading's margins, which is usually what you want. It is only written when `heading_size` and `body_size` differ.
 - **Sass can't read data files.** A stylesheet only knows what is written into it. `_settings.scss` holds the defaults, and `theme.scss.liquid` writes each theme's fonts, background, and cursor. Just the Docs also builds stylesheets of its own that load `custom.scss`, which is why every setting has a `!default`.
 - **Never delete `assets/css/just-the-docs-default.scss`.** Every page loads it first. If it doesn't use the theme include, the first view shows the wrong fonts.
 - **For Sass compatibility**, halve with `* 0.5`, not `/ 2`. Avoid `@use` and `math.div`: the theme loads this folder with `@import`.
