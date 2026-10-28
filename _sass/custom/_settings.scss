@@ -3,6 +3,7 @@ $motion-duration: 0.5s !default; // All Slide/Fade Animation Speed
 $motion-ease: cubic-bezier(0.65, 0, 0.35, 1) !default;
 $tooltip-width: 18rem !default; // Widest Hover Bubble
 $dialog-width: 60rem !default; // Widest Text Pop-Up
+$dialog-title-size: 1.75rem !default; // Pop-Up Heading Font Size
 $statblock-width: 42rem !default; // Widest Stat Block Pop-Up
 $marker-colors: (
   "common": #8c969b,
@@ -17,19 +18,19 @@ $parallax-margin: 3% !default; // Extra Background Size Past Each Screen Edge
 $parallax-range: 2.5% !default; // Furthest Background Shift
 $parallax-smoothing: 0.3s !default; // Background Follow Delay
 
-// Theme
+// Theme (themes.yml supplies fonts, background, and cursor through theme.scss.liquid)
 $theme-body-font: null !default; // Body Text Font
 $theme-heading-font: null !default; // Heading Text Font
-$dialog-title-size: 1.75rem !default; // Pop-Up Heading Font Size
-$heading-weight: 700 !default; // Heading Font Weight
 $theme-background: none !default; // Page Background Image
 $theme-cursor: none !default; // Page Cursor
 $theme-cursor-pointer: none !default; // Cursor Over Links And Buttons
-$heading-weight: 400 !default; // Heading Font Weight
+$heading-weight: 700 !default; // Heading Font Weight
 $body-size: 100 !default; // Body Text Size
 $heading-size: 100 !default; // Heading Text Size
 
 // Effects
-$torch-glow-color: #da863e !default; // Torch Glow Color
-$torch-glow-size: 128px !default; // Torch Glow Width
 $effect-layer-z: 50 !default; // Ambient Effects Height (Below The Dock)
+$torch-glow-color: #da863e !default; // Torch Glow Outer Color
+$torch-glow-core-color: #ffd45c !default; // Torch Glow Inner Color
+$torch-glow-size: 128px !default; // Torch Glow Width
+$torch-flicker-duration: 2.3s !default; // Torch Flicker Cycle Length
