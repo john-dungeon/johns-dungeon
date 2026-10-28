@@ -1,7 +1,6 @@
-import { root, CALM, save } from './shared.js';
+import { root, CALM, announce, save } from './shared.js';
 
 const gate = document.getElementById('gate');
-const announce = type => document.dispatchEvent(new CustomEvent(type));
 
 function run() {
   const calm = CALM.matches;
