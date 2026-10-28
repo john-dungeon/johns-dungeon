@@ -28,6 +28,9 @@
   background: assets/images/backgrounds/dungeon.webp
   cursor:
     image: assets/images/cursors/torch.webp
+    animated: true
+    size: 32
+    hotspot: 8 2
   sounds: dungeon
   music: dungeon
   fonts:
