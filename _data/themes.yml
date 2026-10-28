@@ -36,7 +36,7 @@
   label: "Parchment 📜"
   body_font: IM Fell English
   heading_font: IM Fell English SC
-  body_size: 110
+  body_size: 100
   heading_size: 100
   heading_weight: bold
   background: assets/images/parchment-bg.webp
