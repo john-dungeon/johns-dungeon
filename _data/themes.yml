@@ -25,7 +25,7 @@
   body_size: 100
   heading_size: 120
   heading_weight: normal
-  background: assets/images/dungeon-bg.webp
+  background: assets/images/backgrounds/dungeon-bg.webp
   cursor: torch
   sounds: dungeon
   music: dungeon
