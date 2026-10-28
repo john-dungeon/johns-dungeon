@@ -3,7 +3,7 @@
 #  label: (The name shown in the theme menu)
 #  body_font / heading_font: (Font family names from "fonts"; optional)
 #  body_size / heading_size: (Text size in percent of normal; optional; defaults to 100)
-#  heading_weight: (100 to 900, or "normal" or "bold"; optional; defaults to 700)
+#  heading_weight: (100 to 900, or "normal" or "bold"; optional; defaults to 400)
 #  font_fallback: (Used if the font fails to load; optional; defaults to "Georgia, serif")
 #  fonts:
 #   family: (Font name)

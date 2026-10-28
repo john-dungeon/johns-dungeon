@@ -149,7 +149,7 @@ Also:
 4. To make it the default, set `color_scheme: NAME` in `_config.yml`.
 
 ### Theme Keys (`themes.yml`; the file's header comment lists them too)
-`id`, `label`, `body_font`, `heading_font`, `font_fallback`, `fonts`, `heading_weight` (default 700), `body_size`, `heading_size`, `background`, `cursor`, `sounds`, `music`, `effects`. Background is section 6.5, cursor 6.6, effects 6.7, sound 6.8.
+`id`, `label`, `body_font`, `heading_font`, `font_fallback`, `fonts`, `heading_weight` (default 400), `body_size`, `heading_size`, `background`, `cursor`, `sounds`, `music`, `effects`. Background is section 6.5, cursor 6.6, effects 6.7, sound 6.8.
 
 ### Add Fonts to a Theme
 Put files in `assets/fonts/` (names are case-sensitive, no spaces; `.woff2` is smallest, `.ttf` works). Add one line per file under `fonts:`, then name the families in `body_font` and `heading_font`:
