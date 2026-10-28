@@ -6,3 +6,22 @@
     &, * { cursor: $theme-cursor-pointer !important; }
   }
 }
+
+html.fake-cursor {
+  &, *, ::backdrop { cursor: none !important; }
+}
+
+#site-cursor {
+  position: fixed;
+  inset: 0 auto auto 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+  background: transparent;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+
+  img, video { display: block; }
+}
