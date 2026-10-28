@@ -14,7 +14,7 @@
 
 {%- assign th_cursor = "none" -%}
 {%- assign th_cursor_pointer = "none" -%}
-{%- if th.cursor.image -%}
+{%- if th.cursor.image and th.cursor.animated != true -%}
   {%- assign th_hotspot = th.cursor.hotspot | default: "0 0" -%}
   {%- assign th_pointer_image = th.cursor.pointer | default: th.cursor.image -%}
   {%- assign th_cursor_path = th.cursor.image | prepend: '/' | relative_url -%}
