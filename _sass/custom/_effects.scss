@@ -13,7 +13,7 @@
   transform: translate(-50%, -50%) scale($scale);
 }
 
-@keyframes torch-flicker-wide {
+@keyframes torch-flicker {
   0%, 100% { @include glow-frame(0.85, 1); }
   12% { @include glow-frame(0.6, 0.92); }
   27% { @include glow-frame(1, 1.06); }
@@ -21,14 +21,6 @@
   58% { @include glow-frame(0.95, 1.1); }
   73% { @include glow-frame(0.65, 0.9); }
   88% { @include glow-frame(0.9, 1.03); }
-}
-
-@keyframes torch-flicker-core {
-  0%, 100% { @include glow-frame(0.9, 1); }
-  18% { @include glow-frame(0.7, 0.85); }
-  35% { @include glow-frame(1, 1.15); }
-  52% { @include glow-frame(0.75, 0.9); }
-  79% { @include glow-frame(1, 1.1); }
 }
 
 html.fx-torch-glow #site-cursor {
@@ -47,14 +39,14 @@ html.fx-torch-glow #site-cursor {
     width: $torch-glow-size;
     height: $torch-glow-size;
     background: radial-gradient(circle, rgba($torch-glow-color, 0.45) 0%, rgba($torch-glow-color, 0) 70%);
-    animation: torch-flicker-wide 2.3s infinite;
+    animation: torch-flicker 2.3s infinite;
   }
 
   &::after {
     width: $torch-glow-size * 0.4;
     height: $torch-glow-size * 0.4;
     background: radial-gradient(circle, rgba(mix(#ffffff, $torch-glow-color, 35%), 0.7) 0%, rgba($torch-glow-color, 0) 70%);
-    animation: torch-flicker-core 1.4s infinite;
+    animation: torch-flicker 1.4s infinite;
   }
 }
 
