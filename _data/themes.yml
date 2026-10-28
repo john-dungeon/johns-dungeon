@@ -30,7 +30,7 @@
     image: assets/images/cursors/torch.webp
     animated: true
     size: 32
-    hotspot: 8 2
+    hotspot: 16 16
   sounds: dungeon
   music: dungeon
   fonts:
