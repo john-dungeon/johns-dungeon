@@ -1,0 +1,25 @@
+$sidebar-box-color: if($theme-background != none, rgba($sidebar-color, $panel-opacity), $sidebar-color);
+
+.side-bar { background-color: $sidebar-box-color; }
+
+@include mq(md) {
+  .side-bar {
+    background-color: transparent;
+    border-right: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: $nav-width;
+      border: 1px solid $border-color;
+      border-top: 0;
+      border-bottom: 0;
+      background-color: $sidebar-box-color;
+    }
+  }
+}
