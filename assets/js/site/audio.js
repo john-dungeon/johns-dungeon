@@ -47,6 +47,7 @@ document.addEventListener('pointerover', event => {
 document.addEventListener('popupopen', () => play('open'));
 document.addEventListener('popupclose', () => play('close'));
 document.addEventListener('gateenter', () => play('enter'));
+document.addEventListener('fxsound', event => play(event.detail));
 
 // ---- Background music ----
 const music = new Audio();
