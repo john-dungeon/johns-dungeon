@@ -39,6 +39,7 @@ These are the rules the overhaul followed. New work should follow them too.
   - `_search-table` – everything for search tables, including the popup.
   - `_statblock` – the monster popup's inner parts and width.
   - `_navbar-toggle` – the sidebar hide and show button.
+  - `_sidebar` – the navigation sidebar as a box with a margin on its left.
   - `_tooltip` – the hover bubble.
   - `_dropdown` – collapsible `<details>` sections.
   - `_checkbox` – the look of every checkbox on the site.
@@ -270,12 +271,20 @@ The row of buttons at the bottom right (Sound, Size, Theme).
 - **To add a dock button:** copy a `.dock-item` in `footer_custom.html`, give the menu and its button matching `id` and `aria-controls`, and add the wording to `strings.yml`.
 - **Dock sizes are in `px` on purpose.** Everything else on the site scales with the text size buttons. If the dock scaled too, its buttons would move out from under the pointer while clicking them.
 
+### The Sidebar Box
+Just the Docs stretches the sidebar from the screen's left edge to the content column and right-aligns the menu inside it, so its background fills the whole left side. `_sidebar.scss` turns it into a box instead.
+
+- From the md breakpoint up, `.side-bar` itself has no background or border. The box is drawn on its `::before`, at the menu's own width (`$nav-width`). The empty space to the left of the box is the margin, so it grows and shrinks with the screen like the content column does.
+- The sidebar element keeps its original size and position, so the hide and show slide (`_navbar-toggle.scss`), the toggle button's position, and the content column all work as before.
+- The box color is `$sidebar-box-color`: the sidebar color, slightly see-through (`$panel-opacity`) when the theme has a background image.
+- Below the md breakpoint the sidebar is the page's top bar and keeps a normal full-width background.
+
 ### Background and Parallax
 - Set `background: assets/images/NAME.webp` in a theme's `themes.yml` entry. A theme without it keeps its plain color, and none of the background CSS is built for it.
 - `theme.scss.liquid` writes the image into `$theme-background`. `_background.scss` draws it on `body::before`, a fixed layer behind the page that is slightly bigger than the screen so it has room to move.
 - `site/parallax.js` writes `--parallax-x` and `--parallax-y` (-1 to 1) from the mouse position, once per screen refresh. The CSS turns them into a slide in the opposite direction. It does nothing for touchscreens, or for visitors who ask for reduced motion.
 - The slide itself is the `parallax-layer` mixin in `_helpers.scss` (the oversized box plus the movement). The page background and the entrance screen both use it.
-- `.main` and `.side-bar` are made slightly see-through (`$panel-opacity`) so the picture shows around the text. If the picture is hidden, inspect the page for another element with a solid background and add it in `_background.scss`.
+- `.main` is made slightly see-through (`$panel-opacity`) so the picture shows around the text. The sidebar box does the same in `_sidebar.scss`. If the picture is hidden, inspect the page for another element with a solid background and add it in `_background.scss`.
 - **Image size:** 2560 × 1440 px, WebP, ideally under about 500 KB. The picture is scaled to cover the screen and cropped, so keep important detail near the middle. Keep `$parallax-range` smaller than `$parallax-margin`, or the layer's edge becomes visible.
 
 ### Custom Cursor
@@ -294,6 +303,7 @@ cursor:
 - It is pure CSS: `theme.scss.liquid` writes `$theme-cursor` and `$theme-cursor-pointer`, and `_cursor.scss` applies them. Each theme's stylesheet has its own cursor, so switching themes swaps it. No script is involved.
 - The rules use `!important`, because Just the Docs and the site set `cursor: pointer` in many places.
 - A missing image falls back to the normal arrow.
+- **To check a cursor by hand:** open the theme's stylesheet (for example `/assets/css/just-the-docs-dungeon.css`) and search for `cursor:`. No match means the theme has no valid `cursor:` block with an `image` in `themes.yml` (an old one-word value like `cursor: torch` is ignored). A match means the build is fine: open the URL it contains in a new tab, and if that shows an error, the file name, folder, or capital letters are wrong.
 - A cursor image can't animate. Animated files show only their first frame.
 
 ### Sound
