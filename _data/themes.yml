@@ -5,12 +5,12 @@
 #  body_size / heading_size: (Text size in percent of normal; optional; defaults to "100")
 #  heading_weight: (Bold headings; ranges from 100 to 900, or "normal" or "bold"; optional; defaults to "400")
 #  font_fallback: (Used if the font fails to load; optional; default "Georgia, serif")
-#   fonts:
-#    family: (Font name)
-#    file: (File path)
-#    weight: ("400" by default; use "200 900" for a variable font)
-#    style: ("normal" by default; "italic")
-#    preload: ("false" skips the early download)
+#  fonts:
+#   family: (Font name)
+#   file: (File path)
+#   weight: ("400" by default; use "200 900" for a variable font)
+#   style: ("normal" by default; "italic")
+#   preload: ("false" skips the early download)
 #  background: (WEBP file; 2560 × 1440 px; optional)
 #  cursor: (Custom cursor; optional)
 #   image: (WEBP file; 32 x 32 px)
@@ -18,6 +18,9 @@
 #   pointer: (Image shown over links and buttons; optional; defaults to the main image)
 #  sounds: (Sound effect set from _data/audio.yml)
 #  music: (Music playlist from _data/audio.yml; optional)
+#  effects: (Ambient effects for this theme; optional)
+#   id: (File name in assets/js/site/effects/, without .js)
+#   any other keys: (Options handed to that effect)
 - id: dungeon
   label: "Dungeon 🔥"
   body_font: Pixelify Sans
@@ -25,6 +28,9 @@
   body_size: 100
   heading_size: 120
   heading_weight: normal
+  fonts:
+    - { family: Pixelify Sans, file: assets/fonts/PixelifySans-VariableFont_wght.ttf }
+    - { family: Jersey 10, file: assets/fonts/Jersey10-Regular.ttf }
   background: assets/images/backgrounds/dungeon.webp
   cursor:
     image: assets/images/cursors/torch.webp
@@ -33,9 +39,8 @@
     hotspot: 16 16
   sounds: dungeon
   music: dungeon
-  fonts:
-    - { family: Pixelify Sans, file: assets/fonts/PixelifySans-VariableFont_wght.ttf }
-    - { family: Jersey 10, file: assets/fonts/Jersey10-Regular.ttf }
+  effects:
+    - { id: torch-glow, x: 16, y: 6 }
 - id: parchment
   label: "Parchment 📜"
   body_font: IM Fell English
@@ -43,13 +48,13 @@
   body_size: 100
   heading_size: 100
   heading_weight: bold
-  background: assets/images/parchment-bg.webp
-  sounds: parchment
-  music: parchment
   fonts:
     - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Regular.ttf }
     - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Italic.ttf, style: italic }
     - { family: IM Fell English SC, file: assets/fonts/IMFellEnglishSC-Regular.ttf }
+  background: assets/images/parchment-bg.webp
+  sounds: parchment
+  music: parchment
 - id: dark
   label: "Dark 🌑"
   sounds: basic
