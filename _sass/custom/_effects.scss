@@ -38,7 +38,7 @@ html.fx-torch-glow #site-cursor {
     position: absolute;
     z-index: -1;
     left: var(--fx-torch-glow-x, 16px);
-    top: var(--fx-torch-glow-y, 6px);
+    top: var(--fx-torch-glow-y, 16px);
     border-radius: 50%;
     pointer-events: none;
   }
