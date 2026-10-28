@@ -1,6 +1,5 @@
-import { root, CALM, themeConfig, onThemeChange } from './shared.js';
+import { CALM, waiting, announce, themeConfig, onThemeChange } from './shared.js';
 
-const waiting = () => root.dataset.gate === 'pending';
 const random = (min, max) => min + Math.random() * (max - min);
 
 let current = '';
@@ -28,12 +27,12 @@ function makeContext(options, layer) {
       next();
       undo.push(() => clearTimeout(id));
     },
-    sound: name => document.dispatchEvent(new CustomEvent('fxsound', { detail: name })),
+    sound: name => announce('fxsound', name),
     stop: () => undo.splice(0).forEach(fn => fn())
   };
 }
 
-async function load(options, myRound) {
+async function loadEffect(options, myRound) {
   let module;
   try {
     module = await import(`./effects/${options.id}.js`);
@@ -63,7 +62,7 @@ function restart() {
   cleanups.splice(0).forEach(fn => fn());
   if (waiting()) return;
   const list = themeConfig(current).effects || [];
-  list.forEach(entry => load(typeof entry === 'string' ? { id: entry } : entry, round));
+  list.forEach(entry => loadEffect(typeof entry === 'string' ? { id: entry } : entry, round));
 }
 
 onThemeChange(id => {
