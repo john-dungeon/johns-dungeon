@@ -2,163 +2,131 @@
 
 ## 0. Design Rules
 
-These are the rules the overhaul followed. New work should follow them too.
-
-- **One place per setting.** Wording lives in `strings.yml`, themes and fonts in `themes.yml`, shared lists in `lists.yml`, sound in `audio.yml`, look and feel in `_settings.scss`, table behavior in `_data/tables/`.
-- **Universal rules over local fixes.** All text goes through `text.html`. All tooltips go through `tooltip.html`. All quotes go through `quote.html`. All numbers are shown by `format.html`. Don't reimplement these in one spot.
+- **One place per setting.** Wording: `strings.yml`. Themes, fonts, cursors, effects: `themes.yml`. Shared lists: `lists.yml`. Sound: `audio.yml`. Look and feel: `_settings.scss`. Table behavior: `_data/tables/`.
+- **Universal rules over local fixes.** All text goes through `text.html`, tooltips through `tooltip.html`, quotes through `quote.html`, numbers through `format.html`. Don't reimplement these in one spot.
 - **Logic is separate from the page.** The search table's `columns`, `records`, `query`, and `filters` scripts never touch the page. Only `panel`, `dialog`, and `main` do.
-- **Announce, don't call.** Scripts that don't depend on each other talk through events on `document` (see section 4b), not by calling each other.
+- **Announce, don't call.** Scripts that don't depend on each other talk through events on `document` (section 6.1).
 - **Delete before adding.** A new feature should first look for an existing rule to extend.
 
 ## 1. Project Map
 
-### Settings and Data
+### Root
 - `_config.yml` – site settings.
-  - The theme version is pinned (`remote_theme: just-the-docs/just-the-docs@v0.12.0`). Change it on purpose, never by accident.
-  - `color_scheme` is the theme first-time visitors see. It must match an `id` in `themes.yml`.
-  - `exclude` keeps `dev-notes.md`, `README.md`, and `assets/PERSONAL-NOTES.md` off the website. The files stay in the repository, which is public.
-- `_data/strings.yml` – every piece of site wording that isn't page content.
-- `_data/themes.yml` – the themes in the switcher menu, and each theme's fonts, background image, cursor, sound set, and music playlist.
-- `_data/lists.yml` – lists shared by several search table columns (worlds, creature types, sizes).
-- `_data/audio.yml` – sound defaults, volumes, the sound effect sets, and the music playlists.
-- `_data/gate.yml` – the entrance screen: on or off, the delay before it fades, the fade time, and its idle and active pictures.
-- `_data/session.yml` – how long the site must be closed before a visit counts as over, and which saved choices are forgotten then.
-- `_data/text_size.yml` – the lowest size, highest size, and step of the text size buttons.
-- `_data/challenge.yml` – Challenge Rating to XP and Proficiency Bonus (used by the monster template). Fractions are decimals (`0.5`).
-- `_data/tables/` – one settings file per search table.
+  - The theme version is pinned (`just-the-docs@v0.12.0`). Change it on purpose.
+  - `color_scheme` is the theme first-time visitors see. It must match a `themes.yml` `id`.
+  - `exclude` keeps `dev-notes.md`, `README.md`, and `assets/PERSONAL-NOTES.md` off the website. They stay in the (public) repository.
+
+### Data (`_data/`)
+- `strings.yml` – all site wording that isn't page content.
+- `themes.yml` – the switcher's themes: fonts, background, cursor, sounds, music, effects.
+- `lists.yml` – lists shared by several table columns (settings, creature types, sizes).
+- `audio.yml` – sound defaults, volumes, effect sets, music playlists.
+- `gate.yml` – the entrance screen: on/off, delay, fade, idle and active pictures.
+- `session.yml` – how long the site must be closed before a visit ends, and what is forgotten then.
+- `text_size.yml` – lowest size, highest size, and step of the Size buttons.
+- `challenge.yml` – Challenge Rating to XP and Proficiency Bonus (monster template). Fractions are decimals (`0.5`).
+- `tables/` – one settings file per search table.
 
 ### Styling
-- `_sass/color_schemes/` – one file per theme (colors only). Just the Docs' own `dark` and `light` need no file here.
-- `assets/css/just-the-docs-ID.scss` – one 3-line stub per theme. Jekyll needs each one as a separate file. `just-the-docs-default.scss` is the stylesheet every page loads first. It builds the default theme (`color_scheme` in `_config.yml`), so never delete it.
+- `_sass/color_schemes/` – one colors-only file per theme. Just the Docs' own `dark` and `light` need none.
+- `assets/css/just-the-docs-ID.scss` – one 3-line stub per theme (Jekyll needs each as a separate file). `just-the-docs-default.scss` is loaded by every page first and builds the `color_scheme` theme. Never delete it.
 - `_sass/custom/` – all custom CSS, loaded in this order by `custom.scss` (import each file once):
   - `_settings` – every adjustable visual value, each with `!default`.
-  - `_helpers` – derived variables and mixins (loaded second), including `parallax-layer`.
-  - `_theme` – fonts, heading weight and size, the body size variable, the theme cross-fade.
-  - `_base` – links, scrollbar, the `.indent` and `.italic` classes, the animation speed variable.
+  - `_helpers` – derived variables and mixins, including `parallax-layer`.
+  - `_theme` – fonts, heading weight and size, body size variable, theme cross-fade.
+  - `_base` – links, scrollbar, `.indent`, `.italic`, animation speed variable.
   - `_tables` – flat, striped tables.
-  - `_search-table` – everything for search tables, including the popup.
-  - `_statblock` – the monster popup's inner parts and width.
-  - `_navbar-toggle` – the sidebar hide and show button.
-  - `_sidebar` – the navigation sidebar as a box with a margin on its left.
-  - `_tooltip` – the hover bubble.
-  - `_dropdown` – collapsible `<details>` sections.
-  - `_checkbox` – the look of every checkbox on the site.
-  - `_dock` – the Sound, Size, and Theme buttons and their menus.
-  - `_background` – the page background image, its parallax movement, and the see-through panels.
-  - `_cursor` – the custom mouse cursor.
+  - `_search-table` – search tables and their popup.
+  - `_statblock` – the monster popup.
+  - `_navbar-toggle` – the sidebar hide/show button.
+  - `_sidebar` – the sidebar as a box with a left margin.
+  - `_tooltip`, `_dropdown`, `_checkbox`, `_dock` – hover bubble, `<details>`, checkboxes, dock.
+  - `_background` – page background image, parallax, see-through panels.
+  - `_cursor` – native (static) cursor rules and the animated cursor element.
+  - `_effects` – the ambient effect layer and the torch glow.
   - `_gate` – the entrance screen.
-- `assets/fonts/` – the font files named in `themes.yml`.
-- `assets/images/` – background images (`dungeon-bg.webp`, `parchment-bg.webp`). `assets/images/cursors/` – cursor images.
-- `assets/audio/` – sound effects (one folder per set) and music (one folder per playlist).
+- `assets/fonts/`, `assets/images/` (backgrounds and `cursors/`; paths are set in `themes.yml`), `assets/audio/` (effects, one folder per set; music, one folder per playlist).
 
 ### Layout and Reusable HTML
-- `_layouts/wiki.html` – the page layout. See section 2.
-- `_includes/text.html` – the universal text formatter. See section 3.
-- `_includes/quote.html` – an italic blockquote. `tooltip.html` – a `data-tooltip` attribute.
-- `_includes/catalog.html` – link tables. `search-table.html` – search tables.
-- `_includes/backlink.html` – the automatic "Back to..." link in the footer.
-- `_includes/gate.html` – the entrance screen (see section 4b).
-- `_includes/head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – Just the Docs hook points. `head_custom` loads every script and hands data to them. `footer_custom` holds the "unfinished" quote, the back link, the dock, and the entrance screen.
-- `_includes/theme.scss.liquid` – builds one theme's stylesheet (fonts, background, cursor, font rules, color scheme).
-- `_includes/table/` – helpers for `search-table.html`:
-  - `parse-entry.html` – turns an entry's text into packed fields.
-  - `field.html` – reads one field from the packed fields.
-  - `value.html` – a cell's raw value (applies `zero_label` and list cleanup).
-  - `format.html` – shows a number: `money` (`5 SP`), `weight` (`1.2 oz.`), `cr` (`1/2`), `signed` (`+3`, `−1`), or a prefix and suffix.
-  - `cell.html` – builds a table cell (symbols, formats, notes, red “missing” cells). List cells wrap each item in a `<span class="st-item">`.
-  - `list.html` – cleans a comma-separated list. With `plain`, it removes "(notes)".
-  - `join-words.html` – "A, B, or C" style joining, in the order written.
-  - `named-list.html` – turns `- key: Name` and `description:` lists into bold-italic titled paragraphs. Optional `row="class"` wraps each item in a `<div>` with that class.
-  - `tags.html` – an entry's tags, including the ones `auto_tags` adds.
-  - `marker.html` – the symbols next to item names.
-  - `templates/` – popup layouts: `item.md`, `species.md`, `spell.md`, `monster.md`, `feat.md`.
+- `_layouts/wiki.html` – the page layout (section 3).
+- `_includes/text.html` – the universal text formatter (section 4). `quote.html` – italic blockquote. `tooltip.html` – a `data-tooltip` attribute.
+- `catalog.html` – link tables. `search-table.html` – search tables. `backlink.html` – the automatic "Back to..." link.
+- `gate.html` – the entrance screen.
+- `head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – Just the Docs hook points. `head_custom` loads every script and hands data to them. `footer_custom` holds the "unfinished" quote, back link, dock, and entrance screen.
+- `theme.scss.liquid` – builds one theme's stylesheet: `@font-face` rules, Sass variables for fonts, background, static cursor, and sizes, then the color scheme.
+- `table/` – helpers for `search-table.html`: `parse-entry` (entry text to packed fields), `field` (reads one field), `value` (a cell's raw value), `format` (numbers: `money`, `weight`, `cr`, `signed`, or prefix/suffix), `cell`, `list`, `join-words` ("A, B, or C"), `named-list` (`- key: Name` lists to titled paragraphs; optional `row="class"` wraps each in a `<div>`), `tags` (including `auto_tags`), `marker`, and `templates/` (`item`, `species`, `spell`, `monster`, `feat`).
 
 ### Scripts (`assets/js/`)
-- `session.js` – runs first in the page head. Decides whether this is a new visit, forgets the old visit's saved choices, and decides whether the entrance screen shows (see section 4b).
-- `theme-switcher.js` – remembers the chosen theme, swaps its stylesheet, preloads that theme's fonts, sets `<html data-theme>`, and announces `themechange`.
-- `text-size.js` – the saved text size, applied early so the page doesn't flash, and the Size buttons.
-- `navbar-toggle.js` – remembers whether the sidebar is hidden. `tooltips.js` – shows the bubble for any `data-tooltip`.
-- `site/` – the visual effects. Modules started by `site/main.js`:
-  - `shared.js` – small helpers used by the others.
-  - `dock.js` – opens and closes the dock's menus.
-  - `parallax.js` – moves the background with the mouse.
-  - `gate.js` – the entrance screen.
-  - `audio.js` – sound effects, the music playlist, and the Sound menu.
-- `search-table/` – see section 7.
+- `session.js` – runs first in the head. Decides if this is a new visit, forgets old choices, decides if the entrance screen shows.
+- `theme-switcher.js` – remembers the theme, swaps its stylesheet, preloads its fonts, sets `<html data-theme>`, announces `themechange`.
+- `text-size.js` – saved text size (applied early, no flash) and the Size buttons.
+- `navbar-toggle.js` – remembers whether the sidebar is hidden. `tooltips.js` – the bubble for any `data-tooltip`.
+- `site/` – visual effects, started by `site/main.js`: `shared.js` (helpers), `dock.js`, `parallax.js`, `gate.js`, `audio.js`, `cursor.js`, `effects.js`, and `effects/` (one file per effect).
+- `search-table/` – section 8. These scripts don't import from `site/`.
 
 ### Content Folders
-- `feats/`, `items/`, `monsters/`, `rules/`, `settings/`, `species/`, `spells/`, `subclasses/`. Each has an `index.md`.
-- Feats, items, monsters, species, and spells also have an `_entries.md` holding their table entries.
+`feats/`, `items/`, `monsters/`, `rules/`, `settings/`, `species/`, `spells/`, `subclasses/`. Each has an `index.md`. Feats, items, monsters, species, and spells also have an `_entries.md` holding their table entries.
 
-## 1b. Customizing
+## 2. Customizing
 
 | To change | Edit |
 |---|---|
-| Any site wording (footer text, button labels, messages, table wording) | `_data/strings.yml` |
-| Which themes exist, their fonts, background, cursor, sounds, music | `_data/themes.yml` |
+| Any site wording | `_data/strings.yml` |
+| Themes: fonts, background, cursor, sounds, music, effects | `_data/themes.yml` |
 | Worlds, creature types, sizes | `_data/lists.yml` |
-| Sound defaults, volumes, which file plays for which event, music playlists | `_data/audio.yml` |
-| The entrance screen: on or off, delay, fade | `_data/gate.yml` |
-| How long the site must be closed before a visit ends, and what is forgotten then | `_data/session.yml` |
+| Sound defaults, volumes, event-to-file mapping, playlists | `_data/audio.yml` |
+| Entrance screen | `_data/gate.yml` |
+| Visit length, what is forgotten | `_data/session.yml` |
 | Text size limits and step | `_data/text_size.yml` |
-| Animation speed, popup widths, tooltip width, rarity colors, the default heading weight, the default body and heading sizes, popup title size | `_sass/custom/_settings.scss` |
-| One theme's heading weight, body text size, and heading size | `_data/themes.yml` (`heading_weight`, `body_size`, `heading_size`) |
-| Panel see-through level, parallax strength and delay | `_sass/custom/_settings.scss` |
+| Animation speed, popup widths, tooltip width, rarity colors, default heading weight and sizes, panel see-through level, parallax, effect colors and sizes | `_sass/custom/_settings.scss` |
+| One theme's heading weight, body size, heading size | `_data/themes.yml` (`heading_weight`, `body_size`, `heading_size`) |
 | A theme's colors | `_sass/color_schemes/ID.scss` |
 | A table's columns, filters, limits | `_data/tables/NAME.yml` |
 
-**Strings.** Use `{name}` as a fill-in spot, such as `{title}`. Only `nav_footer` and `unfinished` accept Markdown and `[[links]]`. Wrap a value in quotes if it contains a colon followed by a space.
+**Strings.** `{name}` is a fill-in spot, such as `{title}`. Only `nav_footer` and `unfinished` accept Markdown and `[[links]]`. Quote a value that contains a colon followed by a space.
 
-**Settings.** Every value in `_settings.scss` ends in `!default`, so any color scheme can override one for just that theme by writing the same variable name without `!default`. Don't set `$theme-body-font`, `$theme-heading-font`, `$theme-background`, `$theme-cursor`, or `$theme-cursor-pointer` in a color scheme. They come from `themes.yml` through `theme.scss.liquid`, which also writes `$heading-weight`, `$body-size`, and `$heading-size` for a theme that sets `heading_weight`, `body_size`, or `heading_size`.
+**Settings.** Every value in `_settings.scss` ends in `!default`, so a color scheme can override one for just that theme by writing the same variable without `!default`. Never set `$theme-body-font`, `$theme-heading-font`, `$theme-background`, `$theme-cursor`, or `$theme-cursor-pointer` in a color scheme. They come from `themes.yml` through `theme.scss.liquid`, which also writes `$heading-weight`, `$body-size`, and `$heading-size` for themes that set them.
 
 **Other color scheme overrides:** `$stripe-odd-color`, `$stripe-even-color`, `$unlisted-color`, `$marker-colors`.
 
-## 2. Pages
+## 3. Pages
 
 ### Front matter
 - `title` – required. For sections and pages, `parent` is the exact title of the section page. For subclasses, `parent` is the class and `grand_parent` is `Subclasses`.
 - `has_children: true` – on section pages and class stubs.
-- `layout: wiki` – builds the page from the keys below. Without it, the page is a normal Just the Docs page. Home uses the normal layout.
-- `tagline` – an italic line under the title. It is also the first line of the page's tooltip in link tables.
-- `summary` – the rest of that tooltip.
-- `intro` – the paragraph under the title (wiki layout).
-- `catalog` – a link table. `catalog: true` lists every page whose `parent` is this page's title. Or give a map of `grand_parent`, `group_by` (a front matter key), `columns` (minimum, default 3), and `max_columns` (default 5).
+- `layout: wiki` – builds the page from the keys below. Without it, the page is a normal Just the Docs page (Home uses this).
+- `tagline` – italic line under the title; also the first line of the page's tooltip in link tables. `summary` – the rest of that tooltip.
+- `intro` – the paragraph under the title.
+- `catalog` – a link table. `catalog: true` lists every page whose `parent` is this page's title. Or give a map of `grand_parent`, `group_by` (a front matter key), `columns` (minimum, default 3), `max_columns` (default 5).
 - `table` – a search table, by name (a file in `_data/tables/`).
-- `quote` – the closing quote. Write the text only, without outer quotation marks.
-- `unfinished: true` – shows the "not constructed yet" message and the Back link. Leave the body empty.
+- `quote` – the closing quote, without outer quotation marks.
+- `unfinished: true` – shows the "not constructed yet" message and Back link. Leave the body empty.
 - `nav_exclude`, `search_exclude`, `redirect_url` – Just the Docs and class stub settings.
-- `has_toc: false` is already the default for every page. Don't repeat it.
+- `has_toc: false` is already the default. Don't repeat it.
 
-A value can't contain a colon followed by a space or a space followed by `#`. Wrap it in single quotes if it does.
+A value can't contain a colon followed by a space, or a space followed by `#`. Wrap it in single quotes if it does.
 
-The wiki layout order is: title, tagline, intro, page body, link table, search table, divider, quote. Back links are automatic. They point to `grand_parent`, else `parent`, else Home. Never write one by hand.
+Wiki layout order: title, tagline, intro, page body, link table, search table, divider, quote. Back links are automatic (to `grand_parent`, else `parent`, else Home). Never write one by hand.
 
-### Add a Section
-Create `NAME/index.md` with `title`, `parent: Home`, `has_children: true`, `layout: wiki`, `intro`, `quote`, and either `catalog: true` or `table: NAME`. Do not set `nav_order`: sections sort alphabetically (only Home has `nav_order: 1`), and the Home link table picks the new one up.
+### Adding pages
+- **Section:** `NAME/index.md` with `title`, `parent: Home`, `has_children: true`, `layout: wiki`, `intro`, `quote`, and either `catalog: true` or `table: NAME`. No `nav_order`: sections sort alphabetically, and the Home link table picks them up.
+- **Page:** a `.md` file in the right folder with `title` and `parent`. An unfinished page is only front matter plus `unfinished: true`.
+- **Class (for Subclasses):** `subclasses/CLASS.md` with `title`, `parent: Subclasses`, `has_children: true`, `redirect_url: /subclasses/`, `search_exclude: true`, and no body.
 
-### Add a Page
-Create a `.md` file in the right folder with `title` and `parent`. An unfinished page is only front matter with `unfinished: true`.
+## 4. Text Rules
 
-### Add a Class (for Subclasses)
-Create `subclasses/CLASS.md` with `title`, `parent: Subclasses`, `has_children: true`, `redirect_url: /subclasses/`, `search_exclude: true`, and no body.
+Everything passes through `text.html`, so these work everywhere:
 
-## 3. Text Rules
-
-Everything on the site passes through `text.html`, so these rules work everywhere:
-
-- Markdown works: `*italic*`, `**bold**`, lists.
-- `<br>` makes a line break. Use it in tooltips and stat blocks (a lone `\` there prints literally). In other popups, a trailing `\` also works. If one prints a stray `\`, use `\\` or `<br>`.
+- Markdown: `*italic*`, `**bold**`, lists. `<br>` makes a line break (use it in tooltips and stat blocks; in other popups a trailing `\` also works, and a stray `\` means use `\\` or `<br>`).
 - Links: `[[Name]]`, `[[Name|label]]`, `[[table:Name]]`, `[[table:Name|label]]`. They open that entry's popup. `table` defaults to the page's own table.
-- It applies to page `intro` and `tagline`, quotes, tooltips, the footer text, text cells, and every popup.
-- It does not apply to attributes (search box hint, aria labels), number cells, or the wording used by scripts. Those are plain text.
+- Applies to `intro`, `tagline`, quotes, tooltips, footer text, text cells, and popups. It does **not** apply to attributes (search hint, aria labels), number cells, or script wording.
 
-Other rules:
-
-- **Headings are bold automatically.** Never write `**` in a heading. The weight is `$heading-weight` in `_settings.scss`, and a theme can set its own with `heading_weight` in `themes.yml`.
-- **Quotes:** `{% include quote.html text="..." %}`. Don't type the outer quotation marks.
+Also:
+- **Headings are bold automatically.** Never write `**` in a heading.
+- **Quotes:** `{% include quote.html text="..." %}`, without outer quotation marks.
 - **Tooltips:** `{% include tooltip.html text="..." %}` prints a full `data-tooltip="..."` attribute. The bubble inserts the text as HTML, so only use text you wrote.
-- **Italic blocks:** put `{: .italic }` on the line after the text. Other classes: `.indent`, `.catalog` (a plain table), `.headless` (hide the header row).
-- **Dropdown text:** use raw HTML with Kramdown's `markdown` attributes:
+- **Italic blocks:** `{: .italic }` on the line after the text. Other classes: `.indent`, `.catalog` (plain table), `.headless` (hide the header row).
+- **Dropdowns:** raw HTML with Kramdown attributes, with a blank line after `</summary>` and before each `<details>`:
   ```
   <details markdown="1">
   <summary markdown="span">**Title**</summary>
@@ -166,9 +134,8 @@ Other rules:
   Body text
   </details>
   ```
-  Keep a blank line after `</summary>` and before each `<details>`.
 
-## 4. Themes and Fonts
+## 5. Themes and Fonts
 
 ### Add a Theme
 1. Add `_sass/color_schemes/NAME.scss` (copy an existing one).
@@ -178,189 +145,161 @@ Other rules:
    ---
    {% include theme.scss.liquid id="NAME" %}
    ```
-3. Add an entry to `_data/themes.yml` (`id` must match both file names). Only `id` and `label` are required. See "Theme Keys" below for the rest.
-4. To make it the default for new visitors, set `color_scheme: NAME` in `_config.yml`.
+3. Add an entry to `themes.yml` (`id` must match both file names; only `id` and `label` are required).
+4. To make it the default, set `color_scheme: NAME` in `_config.yml`.
 
-### Theme Keys (`themes.yml`)
-- `id`, `label` – the name in code and the name shown in the menu.
-- `body_font`, `heading_font`, `font_fallback`, `fonts` – see "Add Fonts to a Theme".
-- `heading_weight` – how bold all headings are in this theme: a number from 100 to 900, or `normal` or `bold`. Optional. Without it, the theme uses `$heading-weight` from `_settings.scss` (700).
-- `body_size` – the size of body text in this theme, in percent of normal (100 changes nothing). Optional. The Size buttons adjust from this base.
-- `heading_size` – the size of headings in this theme, in percent of normal. Optional. It is independent of `body_size`: raising `body_size` does not also enlarge headings.
-- `background` – a picture for the page background (see section 4b).
-- `cursor` – a custom mouse cursor: `image`, `hotspot`, and optional `pointer` (see section 4b).
-- `sounds` – the name of a sound effect set in `audio.yml`. A theme with no `sounds` is silent.
-- `music` – the name of a music playlist in `audio.yml`. Optional.
+### Theme Keys (`themes.yml`; the file's header comment lists them too)
+`id`, `label`, `body_font`, `heading_font`, `font_fallback`, `fonts`, `heading_weight` (default 700), `body_size`, `heading_size`, `background`, `cursor`, `sounds`, `music`, `effects`. Background is section 6.5, cursor 6.6, effects 6.7, sound 6.8.
 
 ### Add Fonts to a Theme
-1. Put the font files in `assets/fonts/`. File names are case-sensitive and should have no spaces. `.woff2` is the smallest format. `.ttf` also works.
-2. In the theme's entry in `themes.yml`, add one line per file under `fonts:`, then name the families in `body_font` and `heading_font`:
-   ```
-   fonts:
-     - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Regular.ttf }
-     - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Italic.ttf, style: italic }
-   ```
-   `weight` is 400 by default. Use a quoted range such as `"200 900"` for a variable font. `preload: false` skips the early download for a file that isn't needed on the first view.
+Put files in `assets/fonts/` (names are case-sensitive, no spaces; `.woff2` is smallest, `.ttf` works). Add one line per file under `fonts:`, then name the families in `body_font` and `heading_font`:
+```
+fonts:
+  - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Regular.ttf }
+  - { family: Crimson Pro, file: assets/fonts/CrimsonPro-Italic.ttf, style: italic }
+```
+`weight` is 400 by default (`"200 900"` for a variable font). `preload: false` skips the early download.
 
-**Heading weight.** Headings use the theme's `heading_weight` (default 700). If the heading font has no file at that weight, the browser fakes the bold, which looks smeared and blocky. Set `heading_weight` to a weight you have a file for. A font with only a Regular file wants `heading_weight: 400`.
+- **Heading weight:** if the heading font has no file at `heading_weight`, the browser fakes bold, which looks smeared. A font with only a Regular file wants `heading_weight: 400` (or `normal`).
+- **Text size:** use `body_size` and `heading_size` (percent of normal) to calibrate fonts. They are independent: `_theme.scss` computes `--heading-ratio` so changing one doesn't move the other.
+- **How it works:** `theme.scss.liquid` writes one `@font-face` per file plus the Sass variables. `theme-switcher.js` preloads the active theme's font files.
 
-**Text size.** Fonts differ in how big they look at the same size. Use `body_size` and `heading_size` (percent of normal) to calibrate a theme. They are independent: `_theme.scss` works out `--heading-ratio` (heading size divided by body size) so a headings-only change doesn't move the body text, and the other way around.
+## 6. Site Features
 
-How it works: `theme.scss.liquid` writes one `@font-face` rule per file into that theme's stylesheet, plus the Sass variables for the theme's fonts, background, and cursor. `theme-switcher.js` adds a preload hint for the active theme's files, so the download starts before the stylesheet is read.
-
-## 4b. Effects (Dock, Background, Cursor, Sound, Text Size)
-
-### Events and the Active Theme
-Scripts that don't know about each other communicate through events on `document`:
+### 6.1 Events and Stored Settings
+Scripts that don't know each other communicate through events on `document`. To react to something new, listen for an event; don't call another script's functions.
 
 | Event | Sent by | Meaning |
 |---|---|---|
-| `themechange` | `theme-switcher.js` | The theme was switched. `event.detail` is the theme's `id`. Sent after the new stylesheet is in place. |
-| `popupopen` | `search-table/dialog.js` | A search table popup just opened. |
-| `popupclose` | `search-table/dialog.js` | A search table popup just closed. |
-| `gateenter` | `site/gate.js` | The entrance screen was clicked. The delay starts now. |
-| `gateopen` | `site/gate.js` | The delay is over and the entrance screen is fading away. |
+| `themechange` | `theme-switcher.js` | Theme switched. `detail` is the theme `id`. Sent after the new stylesheet is in place. |
+| `popupopen`, `popupclose` | `search-table/dialog.js` | A table popup opened or closed. |
+| `gateenter` | `site/gate.js` | Entrance screen clicked. |
+| `gateopen` | `site/gate.js` | Delay over; the screen is fading away. |
+| `fxsound` | `site/effects.js` | An effect asked for a sound. `detail` is the sound name. `audio.js` plays it. |
 
-The active theme's `id` is always on `<html data-theme="...">`, so CSS can use `html[data-theme="dungeon"]` and scripts can read `document.documentElement.dataset.theme`. `site/shared.js` has `onThemeChange(fn)`, which runs `fn` now for the current theme and again after every switch.
+The active theme's `id` is always on `<html data-theme="...">` (CSS: `html[data-theme="dungeon"]`). `site/shared.js` has `onThemeChange(fn)`, which runs `fn` now and after every switch, plus `waiting()` (is the entrance screen still pending?) and `announce(type, detail)`.
 
-To react to something new, listen for an event. Don't call another script's functions.
-
-### Stored Settings
-Visitors' choices live in the browser's `localStorage`:
+**Stored settings** (`localStorage`; every read and write is wrapped in `try`/`catch`):
 
 | Key | Set by | Value |
 |---|---|---|
 | `theme` | `theme-switcher.js` | a theme `id` |
-| `navbar-collapsed` | `navbar-toggle.js` | `true` or `false` |
+| `navbar-collapsed` | `navbar-toggle.js` | `true` / `false` |
 | `text-size` | `text-size.js` | a percent, like `110` |
-| `sound-effects` | `audio.js` | `true` or `false` |
-| `sound-music` | `audio.js` | `true` or `false` |
-| `last-seen` | `session.js` | the last time any page of the site was open, in milliseconds |
+| `sound-effects`, `sound-music` | `audio.js` | `true` / `false` |
+| `last-seen` | `session.js` | last time any page was open, in ms |
 | `gate-passed` | `gate.js` | `true` once the entrance screen was clicked this visit |
-| `music-state` | `audio.js` | the playlist, song, and position where the last page left off |
+| `music-state` | `audio.js` | playlist, song, and position where the last page left off |
 
-Every read and write is wrapped in `try`/`catch`, because storage can be blocked.
+### 6.2 Visits and the Entrance Screen
+A "visit" lasts until the site has been closed, in every tab, for `timeout` minutes (`session.yml`).
 
-### Visits and the Entrance Screen
-A "visit" lasts until the site has been closed, in every tab, for long enough.
+- While any page is open, `session.js` writes `last-seen` every 15 seconds and on page leave. When a page loads and `last-seen` is missing or too old, the visit is over: the keys in `reset`, plus `gate-passed` and `music-state`, are removed.
+- The entrance screen shows when `gate-passed` is missing. `session.js` sets `<html data-gate="pending">` before paint (CSS hides the page, not the gate). `gate.js` opens the gate as a modal `<dialog>`, so the page is unclickable underneath. Escape can't close it.
+- Clicking (or Enter) does, in order: add `.is-opening`, announce `gateenter` (doors sound); after `delay` seconds save `gate-passed`, set `data-gate="open"`, add `.is-leaving` (fades for `fade` seconds), announce `gateopen` (music starts); then close the dialog.
+- **Pictures:** `idle` is the still picture (and a video's poster). `active` starts on the click: a `.webm`/`.mp4` video (holds its last frame) or an animated `.webp`/`.gif` (export it to play once). Set `delay` to its length. Both optional; an animated image also needs `idle`. Videos use `preload="none"` and are fetched only when the screen will show. Both pictures slide with the mouse via the `parallax-layer` mixin. With reduced motion, only `idle` shows and delay and fade are skipped.
+- **The fade is the dialog's `opacity`.** `::backdrop` ignores it, so `_gate.scss` makes the backdrop transparent and lets the dialog paint the screen.
+- If storage is blocked, visits can't be tracked, so both the reset and the entrance screen are skipped. If `timeout` is missing or not positive, `session.js` warns in the console and visits never expire (a missing value must never count as 0). If `gate.js` fails, the page appears after 5 seconds (`data-gate-late`). If there is no `#gate` element, `session.js` warns and skips the screen.
+- **Check by hand:** `SITE_SESSION` in the console shows the settings (`timeout` should be a number). `localStorage` `last-seen` should keep changing; `gate-passed` should be `true` after entering. `document.getElementById('gate')` should print the dialog.
+- `data-gate` is missing (no gate), `pending`, or `open`. `audio.js` stays silent and `effects.js` and `deeplink.js` wait while it is `pending`.
 
-- Settings: `_data/session.yml` (the timeout in minutes, and which saved choices are forgotten) and `_data/gate.yml` (whether the entrance screen exists, the delay, and the fade). Behavior: `assets/js/session.js` (runs first in the page head), `site/gate.js`, and `site/audio.js`. Markup: `_includes/gate.html`. Styles: `_gate.scss`.
-- **Open means open.** While any page of the site is open in any tab, `session.js` writes `last-seen` to `localStorage` every 15 seconds (and when a page is left), so the timer never starts. When a page loads and `last-seen` is missing or older than the timeout, the last visit is over. The keys listed under `reset` in `session.yml` are removed (so the theme goes back to the `color_scheme` default and the text size to 100%), and so are `gate-passed` and `music-state`.
-- **The entrance screen** shows when `gate-passed` is missing. `session.js` sets `<html data-gate="pending">` before the page paints, and the CSS hides the page (but not the gate) while it is pending, so nothing flashes. `gate.js` then opens the gate as a modal `<dialog>`, which makes the rest of the page unclickable and untabbable by itself. Escape can't close it.
-- Clicking anywhere (or pressing Enter) does this, in order:
-  1. The gate gets `.is-opening`, and `gateenter` is announced. The `enter` sound in the sound set plays (the doors).
-  2. After `delay` seconds, `gate-passed` is saved, `data-gate` becomes `open` (the page shows underneath), the gate gets `.is-leaving` and fades for `fade` seconds, and `gateopen` is announced. The music starts.
-  3. The gate closes.
-- **Pictures:** `idle` in `gate.yml` is the still picture shown until the click (and a video's poster). `active` is the animation that starts on the click: a `.webm` or `.mp4` video (it holds its last frame), or an animated `.webp` or `.gif` (export it to play once, or it loops during the fade). Set `delay` to the animation's length so the fade starts when it ends. Both are optional, and an animated image needs `idle` too. Other pages don't download the animation: the video starts with `preload="none"` and `gate.js` fetches it only when the screen is going to show. With reduced motion, only the idle picture shows.
-- **The pictures slide with the mouse** like the page background. `.gate-art` uses the same `parallax-layer` mixin, so the two always move the same way.
-- **Your own CSS animation** can go in `.gate-art` too: use `#gate.is-opening` to start it.
-- **The fade is the dialog's `opacity`.** The dialog's `::backdrop` is a separate layer that the dialog's opacity doesn't touch, so `_gate.scss` makes the backdrop transparent and lets the dialog itself paint the whole screen. If the backdrop were opaque, the screen would stay solid for the whole fade and then vanish at once.
-- With reduced motion turned on, the delay and fade are skipped.
-- If the browser blocks storage, a visit can't be tracked, so the reset and the entrance screen are both skipped.
-- If `timeout` is missing or not a positive number, `session.js` logs a warning in the console and visits never expire. A missing value must never count as 0 minutes, because then every page load would look like a new visit and the entrance screen would show on every page.
-- **To check a visit by hand:** open the browser console and type `SITE_SESSION` to see the settings the script received (`timeout` should be a number). Under Application, then Local Storage, look at `last-seen` (it should keep changing while a page is open) and `gate-passed` (it should be `true` after entering).
-- If `gate.js` fails to run, the page appears anyway after 5 seconds (`session.js` sets `data-gate-late`).
-- If the page has no `#gate` element (`gate.html` isn't included in `footer_custom.html`), `session.js` logs a warning in the console and skips the entrance screen, instead of leaving the page hidden. To check by hand, type `document.getElementById('gate')` in the console: it should print the dialog, not `null`.
-- `data-gate` is missing (no gate this visit), `pending` (waiting for the click), or `open` (entered). Other scripts check it: `audio.js` stays silent while it is pending, and `deeplink.js` waits for `gateopen` before opening a popup from the URL.
+### 6.3 The Dock
+The Sound, Size, and Theme buttons at the bottom right. Markup: `footer_custom.html`; behavior: `site/dock.js`; styles: `_dock.scss`.
+- Each `.dock-item` holds a button and its `.dock-menu` (starts `hidden`). One menu is open at a time; clicking outside or pressing Escape closes all. A `role="menuitem"` button also closes its menu; checkboxes and plain buttons don't.
+- **Add a button:** copy a `.dock-item`, give the menu and button matching `id` and `aria-controls`, add wording to `strings.yml`.
+- **Dock sizes are in `px` on purpose.** If it scaled with the Size buttons, they would move out from under the pointer while clicking.
 
-### The Dock
-The row of buttons at the bottom right (Sound, Size, Theme).
+### 6.4 The Sidebar Box
+Just the Docs stretches the sidebar to the content column. `_sidebar.scss` turns it into a box from the md breakpoint up.
+- `.side-bar` has no background or border; the box is its `::before`, at `$nav-width`. The space to its left is the margin. The element keeps its original size, so the hide/show slide, toggle button, and content column work as before.
+- `.site-nav > .nav-list` has a 1px side margin (`$sidebar-border-width`) so highlighted links stop inside the box's border instead of painting over it.
+- The box color is `$sidebar-box-color`: the sidebar color, slightly see-through when the theme has a background image. Below md, the sidebar is the top bar with a normal background.
 
-- Markup: `footer_custom.html`. Behavior: `site/dock.js`. Styles: `_dock.scss`.
-- Each button sits in a `.dock-item` next to its `.dock-menu`, which starts `hidden`. `dock.js` opens one menu at a time. Pressing outside the dock or pressing Escape closes them all. A button with `role="menuitem"` also closes its menu when clicked. Checkboxes and plain buttons don't.
-- **To add a dock button:** copy a `.dock-item` in `footer_custom.html`, give the menu and its button matching `id` and `aria-controls`, and add the wording to `strings.yml`.
-- **Dock sizes are in `px` on purpose.** Everything else on the site scales with the text size buttons. If the dock scaled too, its buttons would move out from under the pointer while clicking them.
+### 6.5 Background and Parallax
+- `background: assets/images/.../NAME.webp` in a theme. Without it, the theme keeps its plain color and no background CSS is built.
+- `theme.scss.liquid` writes `$theme-background`; `_background.scss` draws it on `body::before`, a fixed layer slightly bigger than the screen. `parallax.js` writes `--parallax-x` and `--parallax-y` (-1 to 1) from the mouse (not for touchscreens or reduced motion). The slide itself is the `parallax-layer` mixin (also used by the entrance screen).
+- `.main` and the sidebar box are slightly see-through (`$panel-opacity`). If the picture is hidden, another element has a solid background; add it in `_background.scss`.
+- **Image:** 2560 × 1440 px WebP, ideally under about 500 KB, scaled to cover and cropped, so keep detail near the middle. Keep `$parallax-range` smaller than `$parallax-margin`.
 
-### The Sidebar Box
-Just the Docs stretches the sidebar from the screen's left edge to the content column and right-aligns the menu inside it, so its background fills the whole left side. `_sidebar.scss` turns it into a box instead.
-
-- From the md breakpoint up, `.side-bar` itself has no background or border. The box is drawn on its `::before`, at the menu's own width (`$nav-width`). The empty space to the left of the box is the margin, so it grows and shrinks with the screen like the content column does.
-- The sidebar element keeps its original size and position, so the hide and show slide (`_navbar-toggle.scss`), the toggle button's position, and the content column all work as before.
-- The box color is `$sidebar-box-color`: the sidebar color, slightly see-through (`$panel-opacity`) when the theme has a background image.
-- Below the md breakpoint the sidebar is the page's top bar and keeps a normal full-width background.
-
-### Background and Parallax
-- Set `background: assets/images/NAME.webp` in a theme's `themes.yml` entry. A theme without it keeps its plain color, and none of the background CSS is built for it.
-- `theme.scss.liquid` writes the image into `$theme-background`. `_background.scss` draws it on `body::before`, a fixed layer behind the page that is slightly bigger than the screen so it has room to move.
-- `site/parallax.js` writes `--parallax-x` and `--parallax-y` (-1 to 1) from the mouse position, once per screen refresh. The CSS turns them into a slide in the opposite direction. It does nothing for touchscreens, or for visitors who ask for reduced motion.
-- The slide itself is the `parallax-layer` mixin in `_helpers.scss` (the oversized box plus the movement). The page background and the entrance screen both use it.
-- `.main` is made slightly see-through (`$panel-opacity`) so the picture shows around the text. The sidebar box does the same in `_sidebar.scss`. If the picture is hidden, inspect the page for another element with a solid background and add it in `_background.scss`.
-- **Image size:** 2560 × 1440 px, WebP, ideally under about 500 KB. The picture is scaled to cover the screen and cropped, so keep important detail near the middle. Keep `$parallax-range` smaller than `$parallax-margin`, or the layer's edge becomes visible.
-
-### Custom Cursor
-Each theme can have its own cursor, set in `themes.yml`:
-
+### 6.6 Custom Cursor
+Set per theme in `themes.yml`:
 ```
 cursor:
-  image: assets/images/cursors/quill.webp
-  hotspot: 2 30
-  pointer: assets/images/cursors/quill-link.webp
+  image: assets/images/cursors/torch.webp
+  animated: true
+  size: 32
+  hotspot: 16 16
+  pointer: assets/images/cursors/torch-link.webp
 ```
+- `image` – the cursor. `hotspot` – `x y` in displayed pixels, the exact clicking point (default `0 0`). `pointer` – optional image over links and buttons (default `image`).
+- **Static (default):** pure CSS. `theme.scss.liquid` writes `$theme-cursor` and `$theme-cursor-pointer`, and `_cursor.scss` applies them with `!important` (Just the Docs sets `cursor: pointer` in many places). Use a 32 × 32 px transparent WebP or PNG (browsers allow up to 128 × 128, but Chrome hides cursors over 32 × 32 near the window edge). Browsers show only the first frame of animated files. A missing image falls back to the arrow. To check: open the theme's stylesheet and search for `cursor:`.
+- **Animated (`animated: true`):** browsers can't animate a native cursor, so `site/cursor.js` hides the real one (`html.fake-cursor`) and moves `#site-cursor` to the pointer once per frame. It is a `popover="manual"` element, which puts it in the browser's top layer above the dialogs; the script re-raises it on `popupopen`. `image` can be an animated `.webp`, `.gif`, `.apng`, or a `.webm`/`.mp4` video (chosen by extension; videos autoplay, muted, looped). `size` is the displayed width (default 32); the hotspot is in those pixels. `theme.scss.liquid` skips the native cursor for animated themes.
+- Animated WebP is the best format: smooth transparency everywhere. GIF has only on/off transparency, and WebM transparency doesn't work in Safari.
+- The fake cursor is off for touchscreens (`FINE_POINTER`) and themes without `animated`. It trails the real pointer by about one frame and appears after the first mouse move.
 
-- `image` – the cursor. 32 × 32 px with a transparent background. WebP and PNG both work. Browsers allow up to 128 × 128, but Chrome hides cursors bigger than 32 × 32 near the window's edge.
-- `hotspot` – `x y`, in image pixels: the exact point that does the clicking (for a quill, the tip of the nib). Default `0 0`.
-- `pointer` – optional. The image shown over links and buttons. Defaults to `image`.
-- It is pure CSS: `theme.scss.liquid` writes `$theme-cursor` and `$theme-cursor-pointer`, and `_cursor.scss` applies them. Each theme's stylesheet has its own cursor, so switching themes swaps it. No script is involved.
-- The rules use `!important`, because Just the Docs and the site set `cursor: pointer` in many places.
-- A missing image falls back to the normal arrow.
-- **To check a cursor by hand:** open the theme's stylesheet (for example `/assets/css/just-the-docs-dungeon.css`) and search for `cursor:`. No match means the theme has no valid `cursor:` block with an `image` in `themes.yml` (an old one-word value like `cursor: torch` is ignored). A match means the build is fine: open the URL it contains in a new tab, and if that shows an error, the file name, folder, or capital letters are wrong.
-- A cursor image can't animate. Animated files show only their first frame.
+### 6.7 Ambient Effects
+Theme-specific effects: one small file each, listed per theme in `themes.yml`:
+```
+effects:
+  - { id: torch-glow, x: 16, y: 16 }
+```
+An entry is `{ id: NAME, ...options }` or just `NAME`.
 
-### Sound
-- Settings: `_data/audio.yml`. Behavior: `site/audio.js`. The Sound menu has two checkboxes, `data-sound="effects"` and `data-sound="music"`.
-- `defaults` is what first-time visitors get. Music is on, because clicking the entrance screen gives the browser permission to play it. `volume` runs from 0 to 1.
-- `sets` are groups of effect files. A theme picks one with `sounds: NAME`. Dark and Light share the `basic` set, which only has `click`. The events are:
-  - `click` – any link, button, input, or table row is clicked.
-  - `hover` – the mouse moves onto a new link, button, or table row.
-  - `open` and `close` – a search table popup opens or closes.
-  - `enter` – the entrance screen was clicked (the doors opening).
-  - An event missing from a set is silent.
-- **Playlists:** `playlists` in `audio.yml` holds named lists of music files. A theme picks one with `music: NAME`. When a song ends, another one is picked at random from the same playlist (never the same song twice in a row, unless it is the only one, which then loops). A theme with no `music` plays nothing.
-- **Saved position:** when a page is left, `audio.js` saves the playlist, song, and position to `localStorage` (`music-state`). The next page resumes there, but only if its theme has the same playlist. It is forgotten when a visit ends.
-- Music pauses when the tab is hidden. It stays silent until the entrance screen is passed. If the browser blocks it on a later page (some do), it starts on the visitor's first click or key press.
-- Use `.mp3` files, which play in every browser. Keep effects short (under about a second) and small. A missing file fails silently.
-- The set of clickable things is `INTERACTIVE` in `site/shared.js`. Add a selector there to include more.
+- `site/effects.js` runs on every theme change and on `gateopen`. It stops the old theme's effects, then starts the new theme's list, so effects never pile up. Each file loads on demand (`import()`), so themes without effects download nothing.
+- Effects don't start while the entrance screen is pending. They are skipped for reduced motion unless the file has `export const calmSafe = true`.
+- **An effect file** exports a default function that receives `ctx` and may return a cleanup function:
+  ```js
+  export default function myEffect(ctx) {
+    ctx.timer(() => { /* add an element to ctx.layer */ }, 8, 20);
+  }
+  ```
+- **The `ctx` toolkit:**
+  - `options` – the entry's other keys.
+  - `layer` – this effect's own full-screen `.fx-layer` (never blocks clicks; removed on stop).
+  - `random(min, max)`.
+  - `on(target, type, handler)` – a listener removed on stop.
+  - `timer(run, min, max)` – runs `run` every min to max seconds, skipping hidden tabs; cleared on stop.
+  - `sound(name)` – plays `name` from the theme's sound set in `audio.yml` (the Sound menu and entrance silence apply automatically).
+  - Everything registered through `ctx` is undone automatically.
+- **To add an effect:** create `effects/NAME.js`, add it to a theme's `effects`, put its CSS in `_effects.scss` and settings in `_settings.scss`, and add any sound names to that theme's set in `audio.yml`.
+- **Torch glow (`torch-glow.js`):** adds `html.fx-torch-glow` and sets `--fx-torch-glow-x` and `--fx-torch-glow-y` from the options `x` and `y` (where the flame sits in the cursor image, in displayed pixels from its top-left). CSS draws two soft lights as the `::before` (outer) and `::after` (inner) of `#site-cursor`, sharing one `torch-flicker` keyframe set and one duration so they flicker together. It needs an `animated: true` cursor. Settings: `$torch-glow-color`, `$torch-glow-core-color`, `$torch-glow-size`, `$torch-flicker-duration`. Reduced-motion visitors get a steady glow. To aim it live: `document.documentElement.style.setProperty('--fx-torch-glow-x', '12px')`.
 
-### Text Size
-- Settings: `_data/text_size.yml` (`min`, `max`, `step`, in percent). The Size menu has a minus button, the current percent, a plus button, and Reset. A button is greyed out at its limit.
-- `text-size.js` runs in the page head, so the saved size is applied before the page paints.
-- The size is set as an inline `font-size` on `<html>` marked `!important`, which beats any stylesheet. It is `calc(PERCENT% * var(--body-scale, 1))`. `--body-scale` is the theme's `body_size`, written by `_theme.scss`, so the buttons adjust from each theme's own base size and follow along when the theme is switched. Everything on the site is sized in `rem`, so everything scales together (except the dock, which uses `px`).
-- If some text doesn't scale, it is sized in `px` somewhere. Change it to `rem`.
+### 6.8 Sound
+Settings: `audio.yml`. Behavior: `site/audio.js`. The Sound menu has two checkboxes (`data-sound="effects"` and `"music"`).
+- `defaults` is what first-time visitors get (music on, since clicking the entrance screen grants playback permission). `volume` runs 0 to 1.
+- **Sets** are groups of effect files; a theme picks one with `sounds: NAME` (none means silent). Dark and Light share `basic` (only `click`). Events: `click` (link, button, input, table row), `hover`, `open` and `close` (table popup), `enter` (entrance screen), plus any name an effect requests with `ctx.sound()`. A missing event is silent.
+- **Playlists** are named lists of music files; a theme picks one with `music: NAME`. When a song ends, another is picked at random (never the same twice in a row, unless it's the only one, which loops).
+- **Saved position:** on page leave, `audio.js` saves the playlist, song, and position (`music-state`). The next page resumes there if its theme has the same playlist. Forgotten when a visit ends.
+- Music pauses when the tab is hidden and stays silent until the entrance screen is passed. If the browser blocks it on a later page, it starts on the first click or key press.
+- Use `.mp3`. Keep effects short (under about a second). A missing file fails silently. The clickable set is `INTERACTIVE` in `site/shared.js`.
 
-### Checkboxes
-`_checkbox.scss` restyles every `<input type="checkbox">` on the site (the dock menus and the Filter panel's "match any" box) in the color scheme's colors. A new checkbox needs no extra class. Don't add `accent-color` to a checkbox, because it no longer does anything. The size is `$checkbox-size`, in `em`, so it follows the text around it.
+### 6.9 Text Size and Checkboxes
+- **Text size:** settings in `text_size.yml`. `text-size.js` runs in the head and sets an inline `font-size` on `<html>`, `!important`, as `calc(PERCENT% * var(--body-scale, 1))`, where `--body-scale` is the theme's `body_size` (so the buttons adjust from each theme's base and follow theme switches). Everything is sized in `rem`, so it all scales together except the dock. Text that doesn't scale is in `px` somewhere.
+- **Checkboxes:** `_checkbox.scss` restyles every `<input type="checkbox">` in the color scheme's colors. A new checkbox needs no class. Don't add `accent-color`. Size is `$checkbox-size`, in `em`.
 
-### Entry Point
-`site/main.js` imports `dock.js`, `parallax.js`, `gate.js`, and `audio.js`. Each starts itself when imported. Remove an import to switch that feature off.
+### 6.10 Entry Point
+`site/main.js` imports `dock`, `parallax`, `gate`, `audio`, `cursor`, `effects`. Each starts itself when imported. Remove an import to switch that feature off. Keep `gate` before `cursor`, so the cursor joins the top layer after the entrance dialog and lands above it.
 
-## 5. Search Tables
+## 7. Search Tables
 
 Put `layout: wiki` and `table: items` in a section page's front matter. A table named `items` uses three files:
-- `_data/tables/items.yml` – settings and columns (see "Table Settings" and "Column Options").
-- `items/_entries.md` – the entries. This is the file you edit.
-- `_includes/table/templates/<template>.md` – how an entry's fields become popup text.
+- `_data/tables/items.yml` – settings and columns.
+- `items/_entries.md` – the entries (the file you edit).
+- `_includes/table/templates/<template>.md` – how fields become popup text.
 
-### Add a Table
-Create all three files, then point a page at it with `table: NAME`. The `template` setting names the popup layout file.
-
-### Add an Entry
-Add it to the table's `_entries.md`, separated from the next one by a line that is exactly `---`.
-
-### Add a Column or Field
-Add the key to the entry, add a column in the table's `.yml` file, and (if it should appear in the popup) use it in the template.
+**Add a table:** create all three, then point a page at it with `table: NAME`. **Add an entry:** add it to `_entries.md`. **Add a column or field:** add the key to the entry, a column in the `.yml`, and (for the popup) use it in the template.
 
 ### Entry Format
-- Entries are separated by a line that is exactly `---`. Never use `---` inside a description. Use `***`.
-- One `key: value` per line. A line starting with a field name and `: ` starts a field. Field names are **all lowercase** (letters, digits, underscores). A capitalized name like `Resistances:` is not recognized and gets glued onto the field above it. Every other line continues the field above it.
+- Entries are separated by a line that is exactly `---`. Never use `---` inside a description; use `***`.
+- One `key: value` per line. Field names are **all lowercase** (letters, digits, underscores); a capitalized name like `Resistances:` isn't recognized and gets glued onto the field above. Every other line continues the field above.
 - Lists are comma-separated. Write cost and weight as plain numbers.
 - `tags` – comma-separated, shown in the popup.
-- `options_KEY` (for example `options_rarity`) – lists other values the entry counts as, for search and filters. Excluding hides the entry only if all of its values are excluded.
-- On number columns, `options_cost` and `options_weight` list amounts or ranges instead, like `options_cost: 50, 200, 3-36`. Use plain numbers, no thousands commas. A slider or Min/Max filter keeps the entry if any listed amount or range overlaps it.
+- `options_KEY` (like `options_rarity`) – other values the entry counts as, for search and filters. Excluding hides the entry only if all its values are excluded.
+- `options_cost` and `options_weight` list amounts or ranges, like `50, 200, 3-36`. Plain numbers, no thousands commas. A slider or Min/Max filter keeps the entry if any amount or range overlaps.
 - Entry names must be unique within a table: each row's `id` is its slugified name, and links rely on it.
 
-### Named Lists (traits, actions, and so on)
-Fields such as species `traits` and monster `traits` and `actions` use indented list items. The first key's name is ignored (`trait_1`, `action_2`, anything). Its value is the item's title.
-
+### Named Lists (traits, actions, ...)
+Species `traits` and monster `traits`, `actions`, and so on use indented list items. The first key's name is ignored (`trait_1`, anything); its value is the item's title.
 ```
 actions:
 - action_1: Multiattack
@@ -370,128 +309,95 @@ actions:
 
   A second paragraph can follow after a blank line.
 ```
-
-Indent anything that starts with `- ` inside a description (like a bullet list) by two spaces, or it is read as a new item.
+Indent anything starting with `- ` inside a description by two spaces, or it is read as a new item.
 
 ### Fields by Table
-
-**Items** (`item.md`): `name`, `prefix_category`, `category`, `note_category`, `rarity`, `options_rarity`, `note_rarity`, `attunement`, `cost`, `options_cost`, `note_cost`, `weight`, `options_weight`, `note_weight`, `setting`, `note_setting`, `tags`, `description`.
-- `prefix_category` goes before the category in the popup's first line (`prefix_category: Simple Melee` with `category: Weapon` shows "Simple Melee Weapon"). It isn't shown in the table's Category column.
-- `setting` is comma-separated. It auto-adds the Setting-Specific tag and appends the "can only be found in…" note to the popup. Never hand-write that note or tag.
-- `note_setting` is an extra sentence added to the end of that note.
-
-**Species** (`species.md`): `name`, `article` (optional), `description`, `age`, `type`, `size`, `speed`, `settings`, `tags`, `traits`. Several `type` values are joined with "and", and several `size` values with "or", in the order written.
-
-**Spells** (`spell.md`): `name`, `level` (`Cantrip` or 1–9), `school`, `classes`, `casting_time`, `condition`, `ritual` (`true`), `range`, `area`, `components` (`V, S, M`), `material`, `duration`, `concentration_max`, `tags`, `description`.
-- `condition` is added to the end of the casting time exactly as written, so begin it with its own punctuation, like `condition: , which you take when you are hit by an attack roll`.
-
-**Monsters** (`monster.md`): `name`, `size`, `type`, `alignment`, `ac`, `initiative`, `hp`, `speed`, `str`–`cha`, `saves`, `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages`, `cr`, `settings`, `tags`, `flavor`, and the sections `traits`, `actions`, `bonus_actions`, `reactions`, `legendary_actions`.
-- `name` is also the stat block's title.
-- The scores `str`–`cha` give modifiers and saves automatically. `saves: Dex, Wis` adds the Proficiency Bonus to those saves.
-- `cr` is a plain number, with fractions as decimals (`0.125`, `0.25`, `0.5`). The Proficiency Bonus and XP come from `_data/challenge.yml`. The search box doesn't understand `1/2`. Search `cr:0.5`.
-- `initiative` is optional and replaces the computed value, shown as written.
-- `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, and `languages` are free text. A line shows only if the entry has that field.
-- Passive Perception is added to the end of the Senses line automatically. Don't type it into `senses`. Write negative bonuses with a plain hyphen (`Perception -1`).
-- Each section can have an optional `KEY_intro` field, shown as a plain paragraph above its first row.
-- `flavor` is optional: one paragraph, shown in italics as a blockquote at the bottom.
-
-**Feats** (`feat.md`): `name`, `category`, `prerequisite`, `repeatable` (`true` or `false`, blank means false), `tags`, `description`.
+- **Items** (`item.md`): `name`, `prefix_category`, `category`, `note_category`, `rarity`, `options_rarity`, `note_rarity`, `attunement`, `cost`, `options_cost`, `note_cost`, `weight`, `options_weight`, `note_weight`, `setting`, `note_setting`, `tags`, `description`.
+  - `prefix_category` goes before the category in the popup (`Simple Melee` + `Weapon`); not shown in the table column.
+  - `setting` is comma-separated. It auto-adds the Setting-Specific tag and the "can only be found in…" note. Never hand-write either. `note_setting` adds a sentence to that note.
+- **Species** (`species.md`): `name`, `article` (optional), `description`, `age`, `type`, `size`, `speed`, `settings`, `tags`, `traits`. Several `type` values join with "and", several `size` values with "or", in the order written.
+- **Spells** (`spell.md`): `name`, `level` (`Cantrip` or 1–9), `school`, `classes`, `casting_time`, `condition`, `ritual` (`true`), `range`, `area`, `components` (`V, S, M`), `material`, `duration`, `concentration_max`, `tags`, `description`.
+  - `condition` is appended to the casting time exactly as written, so start it with punctuation: `condition: , which you take when you are hit by an attack roll`.
+- **Monsters** (`monster.md`): `name` (also the stat block title), `size`, `type`, `alignment`, `ac`, `initiative`, `hp`, `speed`, `str`–`cha`, `saves`, `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages`, `cr`, `settings`, `tags`, `flavor`, and the sections `traits`, `actions`, `bonus_actions`, `reactions`, `legendary_actions`.
+  - Scores give modifiers and saves automatically; `saves: Dex, Wis` adds the Proficiency Bonus to those.
+  - `cr` is a plain number, fractions as decimals (`0.125`, `0.25`, `0.5`). PB and XP come from `challenge.yml`. Search `cr:0.5`, not `1/2`.
+  - `initiative` is optional and replaces the computed value. `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages` are free text and show only if present.
+  - Passive Perception is added to the Senses line automatically; don't type it. Write negative bonuses with a plain hyphen (`Perception -1`).
+  - Each section can have an optional `KEY_intro` paragraph. `flavor` is one optional italic paragraph at the bottom.
+- **Feats** (`feat.md`): `name`, `category`, `prerequisite`, `repeatable` (`true`/`false`, blank is false), `tags`, `description`.
 
 ### Table Settings (`_data/tables/NAME.yml`)
-- `template` – popup layout file in `_includes/table/templates/` (required).
-- `noun` – word used in "Showing 5 of 20 items".
-- `default_sort` – column key (default: the first column). `default_dir` – `asc` or `desc` (default `asc`).
-- `placeholder` – search box hint text (default is in `strings.yml`).
-- `dialog` – optional popup style. Adds the class `st-dialog--NAME` to the popup. Only `statblock` exists (monsters).
-- `tags` – the tags the Filter panel offers, in the order shown, even if no entry uses them yet. A tag an entry uses that isn’t listed appears in red in its popup, and its table row turns red. `tags: false` hides tags in the Filter panel and popup, but the search box still understands them.
-- `auto_tags` – rules that add a tag automatically, like `- { tag: Concentration, field: duration, equals: Concentration }` (case doesn't matter). Add the tag to `tags` too so it gets a filter button. Leave out `equals` to fire whenever the field has any value.
-- `markers` – symbols next to names. Each has `symbol`, `tag`, `color_by` (the entry field whose value picks the color from `$marker-colors`), and `label` (hover text prefix).
+- `template` (required), `noun` ("Showing 5 of 20 items"), `default_sort` (column key; default the first), `default_dir` (`asc`/`desc`), `placeholder` (search hint; default in `strings.yml`).
+- `dialog` – optional popup style class `st-dialog--NAME`. Only `statblock` exists.
+- `tags` – the tags the Filter panel offers, in order, even if unused. A tag an entry uses that isn't listed shows in red in its popup and turns its row red. `tags: false` hides tags in the panel and popup (search still understands them).
+- `auto_tags` – rules adding a tag automatically, like `- { tag: Concentration, field: duration, equals: Concentration }` (case-insensitive; omit `equals` to fire whenever the field has a value). Also add the tag to `tags`.
+- `markers` – symbols next to names: `symbol`, `tag`, `color_by` (entry field whose value picks the color from `$marker-colors`), `label` (hover text prefix).
 - `limit_default` (100), `limit_min` (25), `limit_max` (500), `limit_step` (25) – the results-shown slider.
-- `columns` – see below. The first column is always the name.
+- `columns` – below. The first column is always the name.
 
 ### Column Options
-
 **Core**
-- `key` – matches the field in entries. `label` – the heading.
-- `type` – how the column behaves:
-  - `text` (default) – substring search.
-  - `list` – the cell holds `a, b, c`. Each item is searched and filtered separately.
-  - `rank` – ordered categories (like Rarity). Sorts by `order`. Search must match the whole value.
-  - `number` – plain numbers. Sorts by amount, with a Min/Max filter or a slider.
-  - `measure` – amounts with units (`10 minutes`, `120 feet`). Sorts by size using `units`. Filters with `buckets`.
-- `abbreviate` – the cell shows the first N letters of each comma-separated part of the cell followed by a period, with the full name in the hover bubble. Works on text and list columns (not on columns with `format`, `symbols`, or a number type). The popup, filters, and search still use the full names. Use plain text only (no `[[links]]`).
-- `order` – the categories for this column's Filter buttons, in the order shown, even if no entry uses them yet. Give a list, or the name of a list in `_data/lists.yml` (`order: settings`).
-  - Rank, number, and measure columns also sort by it.
-  - A cell value that isn't listed turns red, unless a number or measure column can read it as an amount.
-  - Leave `order` out and the column gets no buttons and nothing is flagged.
-  - A quoted `"..."` marks where amounts go. Names before it sort first, and names after it sort last. Without it, amounts come after all names.
-- `blank_as` – blank entries count as this value in search, filters, and sorting. The cell shows its `symbols` entry if it has one, otherwise "—". A blank cell in a column without `blank_as` (and not `in_table: false`) is highlighted red as a missing value.
+- `key` (matches the entry field), `label` (heading).
+- `type`: `text` (default; substring search), `list` (`a, b, c`; each item searched and filtered separately), `rank` (ordered categories; sorts by `order`; search matches the whole value), `number` (sorts by amount; Min/Max filter or slider), `measure` (amounts with units like `10 minutes`; sorts by `units`; filters with `buckets`).
+- `abbreviate` – shows the first N letters of each comma-separated part plus a period, with the full name in the hover bubble. Text and list columns only (not with `format`, `symbols`, or numbers). Popup, filters, and search use full names. Plain text only.
+- `order` – the Filter buttons' categories, in order, even if unused. A list, or the name of a list in `lists.yml`. Rank, number, and measure columns also sort by it. An unlisted cell value turns red (unless a number or measure column can read it as an amount). Without `order`, the column gets no buttons and nothing is flagged. A quoted `"..."` marks where amounts go: names before it sort first, names after it sort last; without it, amounts come after all names.
+- `blank_as` – blank entries count as this value in search, filters, and sorting. The cell shows its `symbols` entry if any, otherwise "—". A blank cell in a column without `blank_as` (and not `in_table: false`) is highlighted red as missing.
 
 **Display**
-- `format: cr` – `0.5` displays as `1/2`. `format: money` – cells display as GP/SP/CP. `format: weight` – weights of 0.1 or less display in ounces, others in pounds. All display only. Sorting and filters use the exact number.
-- `prefix` and `suffix` – for other numbers. `unit` – shown in the Filter heading, like "Cost (GP)".
-- `zero_label` – number columns: an entry whose value is exactly `0` is shown as this word (for example `Weightless`) in both the table and the popup.
+- `format: cr` (`0.5` shows `1/2`), `money` (GP/SP/CP), `weight` (0.1 or less in ounces, others in pounds). Display only; sorting and filters use the exact number.
+- `prefix` and `suffix` for other numbers. `unit` shows in the Filter heading ("Cost (GP)").
+- `zero_label` – a value of exactly `0` shows as this word (like `Weightless`) in the table and popup.
 - `plain: true` – list cells hide "(notes)".
 - `symbols` (value to icon) and `labels` (value to friendly text). Quote `"true"` and `"false"` keys.
 - `in_table: false` – searchable and filterable but hidden from the table.
-- `note` – adds an entry field to the table cell: `field` is the entry key, `format` is the added text with `%s` for the value (default ` (%s)`), `show_if` shows the note only when the entry's value equals it, and `sort: true` also sorts by the note's value.
+- `note` – adds an entry field to the cell: `field`, `format` (`%s` for the value; default ` (%s)`), `show_if` (only when the entry's value equals it), `sort: true` (also sort by the note's value).
 
 **Behavior**
-- `sortable: false` – not clickable. `filter: false` – skip its Filter group.
-- `match: exact` – search must match the whole value (the default for `rank`).
-- `units` – measure columns: unit word to size in a base unit, like `{foot: 1, feet: 1, mile: 5280}`. A plural ending in "s" is matched automatically.
-- `slider` – number columns: `{ max, min_label, max_label }` turns the Min/Max boxes into a double-ended slider. Positions are `0` (min label, no lower limit), `1` to `max` (amounts), and `max+1` (max label, no upper limit). Entries whose text equals a label word count as 0 or infinity.
-- `buckets` – replaces the `order`-based Filter buttons. A plain word matches that exact value. `{ label, up_to }` catches amounts up to that size (like `10 minutes`, using the column's `units`). `{ label }` with no `up_to` catches every larger amount. List amount buckets from smallest to largest. Concentration spells are bucketed by their "up to" time.
+- `sortable: false`, `filter: false` (skip its Filter group), `match: exact` (default for `rank`).
+- `units` – measure columns: unit word to size, like `{foot: 1, feet: 1, mile: 5280}`. Plurals ending in "s" match automatically.
+- `slider` – number columns: `{ max, min_label, max_label }` makes a double-ended slider. Positions: `0` (min label, no lower limit), `1` to `max` (amounts), `max+1` (max label, no upper limit). Entries whose text equals a label count as 0 or infinity.
+- `buckets` – replaces the `order`-based buttons. A plain word matches that exact value. `{ label, up_to }` catches amounts up to that size (using the column's `units`). `{ label }` with no `up_to` catches every larger amount. List amount buckets smallest to largest.
 
 ### Shared Lists
-`_data/lists.yml` holds lists used by several tables. Adding a world means adding its name to `settings` there (and creating its page in `settings/`). Every table picks it up.
+`lists.yml` holds lists used by several tables. To add a world, add its name to `settings` there and create its page in `settings/`.
 
 ### Search Box
 - Plain words search names. `field:value` searches a column. `"quoted phrase"` keeps words together. `-word` excludes.
 - `#tag` or `tag:word` searches tags.
-- Numbers accept `cost:>=100`, `cost:<50`, `weight:1-5`, or `cr:0.5`.
+- Numbers accept `cost:>=100`, `cost:<50`, `weight:1-5`, `cr:0.5`.
 
-## 6. How a Table Is Built
+## 8. How a Table Is Built
 
-Liquid builds each row and popup at build time. A script then makes it interactive. The two sides share a few attributes:
-
+Liquid builds each row and popup at build time; a script then makes it interactive. They share these attributes:
 - `data-config` on `.search-table` – the table's settings file as JSON.
-- On each row: `id` (the slugified name), `data-tag-names`, and `data-v-KEY` (the lowercase displayed value), `data-o-KEY` (the `options_` values), and `data-s-KEY` (a sort override from a column `note`).
-- The popup HTML sits in `.st-details`, one `<div data-for="ROW-ID">` per entry.
-- `deeplink.js` opens a popup when the URL ends in `#entry-name`.
+- On each row: `id` (slugified name), `data-tag-names`, `data-v-KEY` (lowercase displayed value), `data-o-KEY` (the `options_` values), `data-s-KEY` (sort override from a column `note`).
+- Popup HTML sits in `.st-details`, one `<div data-for="ROW-ID">` per entry. `deeplink.js` opens a popup when the URL ends in `#entry-name` (after the entrance screen is passed).
 
-## 7. Search Table Scripts (`assets/js/search-table/`)
+**Scripts (`assets/js/search-table/`).** The first four never touch the page, so they can be tested alone.
+- `utils.js` – `t()` wording helper (reads `strings.yml`), number syntax (`NUMBER`, `parseSpan`), small DOM helpers.
+- `columns.js` – column types. **To add a type, add one line to `TYPES`.** Also prepares each column and adds the tag column (tags behave as one more list column, so search, filters, and sorting need no special cases).
+- `records.js` – reads rows into records, sorts, flags unlisted values.
+- `query.js` – parses the search box and matches terms. `filters.js` – Filter panel state and matching.
+- `panel.js` – the panel's buttons, boxes, and sliders. `dialog.js` – the popup (announces `popupopen` and `popupclose`). `deeplink.js` – popup from the URL. `main.js` – wires it together.
 
-The first four files never touch the page, so they can be tested on their own.
+## 9. Reminders
 
-- `utils.js` – the `t()` wording helper (reads `strings.yml`), the one number syntax (`NUMBER`, `parseSpan`), and small DOM helpers.
-- `columns.js` – the column types. **To add a column type, add one line to `TYPES`.** It also prepares each column (lists, order, buckets) and adds the tag column. Tags behave as one more list column, so search, filters, and sorting need no special cases for them.
-- `records.js` – reads the rows into records, sorts, and flags unlisted values (a row with an unlisted tag gets `st-row-unlisted`).
-- `query.js` – turns the search box text into terms and matches them.
-- `filters.js` – what the Filter panel has selected, and how it matches.
-- `panel.js` – the Filter panel's buttons, boxes, and sliders.
-- `dialog.js` – the popup. It also announces `popupopen` and `popupclose` (see section 4b). `deeplink.js` – opens a popup from the URL (after the entrance screen is passed). `main.js` – the entry point that wires it all together.
-
-## 8. Reminders
-
-- **Liquid runs in every normal `.md` page**, even inside backticks. Wrap documentation examples in raw tags. This file is excluded from the build, so it doesn't need them.
-- **Never put `}` inside a `{{ }}` tag.** Liquid ends the tag at the first `}`. Assign the value first with `{% assign %}`, then print it. (`{% %}` tags are fine.)
-- **Includes share variables with the page that calls them.** Give every include its own prefix (`mk_`, `cl_`, `pe_`, `jw_`, `ni_`, `fm_`, `ms_`, `sps_`, `sp_`, `it_`, `ft_`, `tx_`, `qt_`, `tt_`, `tg_`, `th_`...). Pass what an include needs as a parameter instead of relying on a shared variable.
-- **Include parameters must be plain values or dotted names** (`key=col.key`). Brackets like `list[0]` break the include tag, so assign the value to a variable first.
-- **`theme.scss.liquid` must assign every `th_` variable it prints, and must not hide a missing one with `| default:`.** An unassigned variable prints nothing and breaks the build with an "expected expression" error, which is the right outcome. A `default` guard instead makes the build pass while silently dropping a font, background, or cursor.
-- **Saved settings are read in the page head, so the script that forgets them (`session.js`) must load before the scripts that read them (`theme-switcher.js`, `text-size.js`).** Keep that order in `head_custom.html`.
-- **A dialog's `::backdrop` ignores the dialog's `opacity`.** To fade a modal dialog, make its backdrop transparent and let the dialog paint the screen.
-- **Heading size is applied with `zoom`**, because Just the Docs sets each heading's size with `!important` in `rem`, so a multiplier can't be applied to the size itself. Zoom also scales the heading's margins, which is usually what you want. It is only written when `heading_size` and `body_size` differ.
-- **Sass can't read data files.** A stylesheet only knows what is written into it. `_settings.scss` holds the defaults, and `theme.scss.liquid` writes each theme's fonts, background, and cursor. Just the Docs also builds stylesheets of its own that load `custom.scss`, which is why every setting has a `!default`.
-- **Never delete `assets/css/just-the-docs-default.scss`.** Every page loads it first. If it doesn't use the theme include, the first view shows the wrong fonts.
-- **For Sass compatibility**, halve with `* 0.5`, not `/ 2`. Avoid `@use` and `math.div`: the theme loads this folder with `@import`.
-- **Colors and fonts come from the color scheme variables**, never hard-coded in `_sass/custom/`.
-- **Just the Docs** sets heading (`h1`–`h6`) and table (`th`, `td`) font sizes with `!important`. A custom `font-size` on those elements only works if it is `!important` too.
-- **Entry files are named `_entries.md`** so Jekyll doesn't publish them as raw pages. They're loaded with `include_relative`, so they must sit in the same folder as the page that shows the table.
-- **YAML:** quote a value that contains a colon followed by a space, or starts with `,` or `#`. Quote the keys `"true"` and `"false"`. Use spaces, never tabs. A value like `hotspot: 8 2` is fine unquoted.
-- **File names on GitHub Pages are case-sensitive.** A wrong capital in a font, image, or audio file name gives the fallback with no error message.
-- **Before deleting a CSS class**, search the whole repo for its name (GitHub's search box works).
-- **After changing a script,** hard refresh (Ctrl+Shift+R). GitHub Pages and browsers cache scripts for several minutes. A mix of old and new script files stops every table from working.
-- **When something stops working, open the browser console first** (F12, then the Console tab). A script error stops the rest of that script, so one mistake can break a whole feature. The message names the file and line.
-- **When adding code to a script, check which function it goes inside.** A line pasted a level too high or too low can run before the variables it needs exist, and that stops the whole file.
-- **Bulk edits:** press `.` on the repository page to open github.dev, a browser editor with Search and Replace across files (regex supported).
+- **Liquid runs in every normal `.md` page**, even inside backticks. Wrap documentation examples in raw tags. (This file is excluded from the build.)
+- **Never put `}` inside a `{{ }}` tag.** Assign the value first with `{% assign %}`, then print it.
+- **Includes share variables with their caller.** Give every include its own prefix (`mk_`, `cl_`, `pe_`, `jw_`, `ni_`, `fm_`, `ms_`, `sps_`, `sp_`, `it_`, `ft_`, `tx_`, `qt_`, `tt_`, `tg_`, `th_`...) and pass what it needs as a parameter.
+- **Include parameters must be plain values or dotted names** (`key=col.key`). Brackets like `list[0]` break the tag; assign to a variable first.
+- **`theme.scss.liquid` must assign every `th_` variable it prints and must not hide a missing one with `| default:`.** A missing one should break the build, not silently drop a font, background, or cursor.
+- **Saved settings are read in the head**, so `session.js` must load before `theme-switcher.js` and `text-size.js`. Keep that order in `head_custom.html`.
+- **A dialog's `::backdrop` ignores the dialog's `opacity`.** To fade a modal dialog, make its backdrop transparent.
+- **Heading size uses `zoom`**, because Just the Docs sets heading sizes with `!important` in `rem`. Zoom also scales margins. It's only written when `heading_size` and `body_size` differ. Just the Docs also sets `th`, `td`, and heading font sizes with `!important`, so a custom `font-size` there needs `!important` too.
+- **Sass can't read data files.** `_settings.scss` holds defaults, and `theme.scss.liquid` writes each theme's fonts, background, and cursor. Just the Docs builds extra stylesheets that load `custom.scss`, which is why every setting has `!default`.
+- **Sass compatibility:** halve with `* 0.5`, not `/ 2`. Avoid `@use` and `math.div`: the theme loads this folder with `@import`.
+- **Colors and fonts come from color scheme variables**, never hard-coded in `_sass/custom/`.
+- **Entry files are named `_entries.md`** so Jekyll doesn't publish them. They load with `include_relative`, so they must sit in the same folder as the page showing the table.
+- **YAML:** quote values containing a colon followed by a space, or starting with `,` or `#`. Quote the keys `"true"` and `"false"`. Spaces only, never tabs.
+- **GitHub Pages file names are case-sensitive.** A wrong capital in a font, image, or audio name gives the fallback with no error.
+- **Before deleting a CSS class**, search the whole repo for its name.
+- **After changing a script,** hard refresh (Ctrl+Shift+R). A mix of old and new script files stops every table working.
+- **When something breaks, open the console first** (F12). A script error stops the rest of that script, and the message names the file and line.
+- **When pasting code into a script,** check which function it goes inside. A line a level too high can run before its variables exist.
+- **Bulk edits:** press `.` on the repository page to open github.dev, a browser editor with multi-file Search and Replace (regex supported).
