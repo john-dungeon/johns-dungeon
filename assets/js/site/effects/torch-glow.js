@@ -4,7 +4,7 @@ export const calmSafe = true;
 
 export default function torchGlow({ options }) {
   root.style.setProperty('--fx-torch-glow-x', (options.x ?? 16) + 'px');
-  root.style.setProperty('--fx-torch-glow-y', (options.y ?? 6) + 'px');
+  root.style.setProperty('--fx-torch-glow-y', (options.y ?? 16) + 'px');
   root.classList.add('fx-torch-glow');
 
   return () => {
