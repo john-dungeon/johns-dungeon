@@ -968,7 +968,7 @@ When the miniature sailboat becomes a Sailing Ship, its weight becomes that of a
 
 Statistics for the Sailing Ship appear in the Player's Handbook. If the Sailing Ship is reduced to 0 Hit Points, the Ship in a Bottle is destroyed, leaving only an empty nonmagical bottle.
 
-***Store Ship.*** If no creatures are aboard the Sailing Ship, you can utter the following command words while holding the bottle: “Make fast!” If the Sailing Ship is within 30 feet of you, it shrinks back to a miniature sailboat and is sucked back into the bottle, and the cork flies over to seal it. When the Sailing Ship shrinks, it leaves behind in its space anything that wasn't part of it when it appeared.
+***Store Ship.*** You can utter the following command words while holding the bottle: “Make fast!” If the Sailing Ship is within 30 feet of you, it shrinks back to a miniature sailboat and is sucked back into the bottle, and the cork flies over to seal it. When the Sailing Ship shrinks, it leaves behind in its space any creature aboard it and any object that wasn't part of it when it appeared.
 
 ---
 
