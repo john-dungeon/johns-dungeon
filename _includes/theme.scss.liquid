@@ -39,4 +39,10 @@ $theme-cursor-pointer: {{ th_cursor_pointer }};
 {%- if th.heading_weight %}
 $heading-weight: {{ th.heading_weight }};
 {%- endif %}
+{%- if th.body_size %}
+$body-size: {{ th.body_size }};
+{%- endif %}
+{%- if th.heading_size %}
+$heading-size: {{ th.heading_size }};
+{%- endif %}
 {% include css/just-the-docs.scss.liquid color_scheme=include.id %}
