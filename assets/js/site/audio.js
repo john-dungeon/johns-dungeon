@@ -1,4 +1,4 @@
-import { root, load, save, themeConfig, onThemeChange, INTERACTIVE } from './shared.js';
+import { load, save, waiting, themeConfig, onThemeChange, INTERACTIVE } from './shared.js';
 
 const { defaults, volume, sets, playlists = {} } = globalThis.SITE_AUDIO;
 const url = file => globalThis.SITE_ROOT + file;
@@ -8,9 +8,7 @@ const prefs = {
   music: load('sound-music', defaults.music)
 };
 
-const waiting = () => root.dataset.gate === 'pending';
-
-// Sound Effects
+// Background Music
 const clips = new Map();
 let effects = {};
 
