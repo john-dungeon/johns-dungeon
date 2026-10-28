@@ -3,10 +3,8 @@
   const NORMAL = 100;
   const root = document.documentElement;
 
-  const paint = percent => {
-    if (percent === NORMAL) root.style.removeProperty('font-size');
-    else root.style.setProperty('font-size', percent + '%', 'important');
-  };
+  const paint = percent =>
+    root.style.setProperty('font-size', `calc(${percent}% * var(--body-scale, 1))`, 'important');
   const remember = value => { try { localStorage.setItem(KEY, value); } catch (e) {} };
 
   let size = NORMAL;
