@@ -1,20 +1,33 @@
-import { root } from '../shared.js';
+import { root, CALM } from '../shared.js';
 
 export const calmSafe = true;
 export const gateSafe = true;
 
-// Options (optionally set per theme).
+// Options (optionally set per theme in themes.yml).
 const DEFAULTS = {
-  pixels: 16,
-  levels: 4,
-  core: 0.4,
-  outerAlpha: 0.3,
-  coreAlpha: 0.6
+  pixels: 16, // Height, Width
+  levels: 3, // Bands of Brightness
+  core: 0.4, // Core Radius Ratio
+  outerAlpha: 0.4, // Outer Opacity.
+  coreAlpha: 0.6, // Core Opacity.
+  minDelay: 0.12, // Shortest Flicker Wait (seconds)
+  maxDelay: 0.35 // Longest Flicker Wait (seconds)
 };
+
+const FRAMES = [
+  { scale: 1, opacity: 0.85 },
+  { scale: 0.92, opacity: 0.6 },
+  { scale: 1.06, opacity: 1 },
+  { scale: 0.95, opacity: 0.7 },
+  { scale: 1.1, opacity: 0.95 },
+  { scale: 0.9, opacity: 0.65 },
+  { scale: 1.03, opacity: 0.9 }
+];
+const BIGGEST = Math.max(...FRAMES.map(frame => frame.scale));
 
 const posterize = (value, levels) => (value <= 0 ? 0 : Math.round(value * levels) / levels);
 
-function makeSprite({ pixels, levels, core, outerAlpha, coreAlpha }) {
+function makeDrawer({ pixels, levels, core, outerAlpha, coreAlpha }) {
   const style = getComputedStyle(root);
   const outerColor = style.getPropertyValue('--torch-glow-color').trim();
   const coreColor = style.getPropertyValue('--torch-glow-core-color').trim();
@@ -38,19 +51,36 @@ function makeSprite({ pixels, levels, core, outerAlpha, coreAlpha }) {
     }
   }
 
-  paintLayer(outerColor, outerAlpha, 1);
-  paintLayer(coreColor, coreAlpha, core);
-  return `url("${canvas.toDataURL()}")`;
+  return ({ scale, opacity }) => {
+    pen.clearRect(0, 0, pixels, pixels);
+    const radius = scale / BIGGEST;
+    paintLayer(outerColor, outerAlpha * opacity, radius);
+    paintLayer(coreColor, coreAlpha * opacity, radius * core);
+    return `url("${canvas.toDataURL()}")`;
+  };
 }
 
-export default function torchGlow({ options }) {
+export default function torchGlow({ options, timer, random }) {
   const settings = { ...DEFAULTS };
   Object.keys(DEFAULTS).forEach(key => { settings[key] = options[key] ?? DEFAULTS[key]; });
 
+  const draw = makeDrawer(settings);
+  const show = frame => root.style.setProperty('--fx-torch-glow-image', draw(frame));
+
   root.style.setProperty('--fx-torch-glow-x', (options.x ?? 16) + 'px');
   root.style.setProperty('--fx-torch-glow-y', (options.y ?? 16) + 'px');
-  root.style.setProperty('--fx-torch-glow-image', makeSprite(settings));
+  show(FRAMES[0]);
   root.classList.add('fx-torch-glow');
+
+  if (!CALM.matches) {
+    let last = 0;
+    timer(() => {
+      let next;
+      do { next = Math.floor(random(0, FRAMES.length)); } while (next === last);
+      last = next;
+      show(FRAMES[next]);
+    }, settings.minDelay, settings.maxDelay);
+  }
 
   return () => {
     root.classList.remove('fx-torch-glow');
