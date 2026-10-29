@@ -845,6 +845,21 @@ The potion's rarity and purchase cost, and the number of Hit Points it restores 
 
 ---
 
+name: Potion of Inebriation
+category: Potion
+rarity: Common
+attunement: false
+cost: 1
+weight: 0.5
+tags: Condition, Consumable, Magic Item, Saving Throw
+description: Bubbles fizz and foam in this potion's amber liquid, disappearing after a short while.
+
+When you drink this potion, you must succeed on a DC 13 Constitution saving throw or have the Poisoned condition for 1 hour. If you fail this save while Poisoned by a Potion of Inebriation, you take 1 Poison damage.
+
+> *"Wait... Isn't this just beer?"*
+
+---
+
 name: Potion of Mana
 category: Potion
 rarity: Varies
