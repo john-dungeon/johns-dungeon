@@ -12,6 +12,7 @@ html.fake-cursor {
 }
 
 #site-cursor {
+  visibility: visible;
   position: fixed;
   inset: 0 auto auto 0;
   margin: 0;
