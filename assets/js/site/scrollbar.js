@@ -75,7 +75,11 @@ function makeBar(scroller, axis) {
     const move = moved => {
       const travel = track[axis.size] - thumb.getBoundingClientRect()[axis.length];
       const room = scroller[axis.total] - scroller[axis.size];
-      if (travel > 0) scroller[axis.pos] = from.pos + (moved[axis.mouse] - from.mouse) * room / travel;
+      if (travel <= 0) return;
+      scroller.scrollTo({
+        [axis.start]: from.pos + (moved[axis.mouse] - from.mouse) * room / travel,
+        behavior: 'instant'
+      });
     };
     thumb.addEventListener('pointermove', move);
     thumb.addEventListener('lostpointercapture', () => {
