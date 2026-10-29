@@ -54,3 +54,7 @@ $shadow-dialog: 0 8px 30px rgba(0, 0, 0, 0.5);
   transition: transform $parallax-smoothing ease-out;
   will-change: transform;
 }
+
+@function css-max($a, $b) {
+  @return unquote("max(#{$a}, #{$b})");
+}
