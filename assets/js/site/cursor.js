@@ -2,6 +2,7 @@ import { root, FINE_POINTER, INTERACTIVE, themeConfig, onThemeChange } from './s
 
 const VIDEO = /\.(webm|mp4)$/i;
 const url = file => globalThis.SITE_ROOT + file;
+const SAVED = 'cursor-position';
 
 const holder = document.createElement('div');
 holder.id = 'site-cursor';
@@ -16,7 +17,17 @@ let link = null;
 let overLink = false;
 let x = 0;
 let y = 0;
+let placed = false;
 let frame = 0;
+
+try {
+  const saved = JSON.parse(sessionStorage.getItem(SAVED));
+  if (saved) {
+    x = saved.x;
+    y = saved.y;
+    placed = true;
+  }
+} catch (e) {}
 
 function media(file, size) {
   const node = document.createElement(VIDEO.test(file) ? 'video' : 'img');
@@ -41,6 +52,11 @@ function paintLayers() {
   if (link !== normal) link.style.display = overLink ? '' : 'none';
 }
 
+function paint() {
+  frame = 0;
+  holder.style.transform = `translate3d(${x - hotspot[0]}px, ${y - hotspot[1]}px, 0)`;
+}
+
 function enable(config) {
   spec = config;
   const size = config.size || 32;
@@ -56,6 +72,11 @@ function enable(config) {
 
   root.classList.add('fake-cursor');
   raise();
+
+  if (placed) {
+    holder.style.opacity = 1;
+    paint();
+  }
 }
 
 function disable() {
@@ -65,15 +86,12 @@ function disable() {
   try { holder.hidePopover(); } catch (e) {}
 }
 
-function paint() {
-  frame = 0;
-  holder.style.transform = `translate3d(${x - hotspot[0]}px, ${y - hotspot[1]}px, 0)`;
-}
-
 document.addEventListener('pointermove', event => {
-  if (!spec || event.pointerType === 'touch') return;
+  if (event.pointerType === 'touch') return;
   x = event.clientX;
   y = event.clientY;
+  placed = true;
+  if (!spec) return;
   holder.style.opacity = 1;
   frame ||= requestAnimationFrame(paint);
 });
@@ -86,7 +104,18 @@ document.addEventListener('pointerover', event => {
   paintLayers();
 });
 
-root.addEventListener('pointerleave', () => { holder.style.opacity = 0; });
+root.addEventListener('pointerleave', () => {
+  holder.style.opacity = 0;
+  placed = false;
+});
+
+addEventListener('pagehide', () => {
+  try {
+    if (placed) sessionStorage.setItem(SAVED, JSON.stringify({ x, y }));
+    else sessionStorage.removeItem(SAVED);
+  } catch (e) {}
+});
+
 document.addEventListener('popupopen', raise);
 
 onThemeChange(id => {
