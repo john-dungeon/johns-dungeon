@@ -27,6 +27,7 @@ html[data-gate="pending"]:not([data-gate-late]) body { visibility: hidden; }
   &::after {
     content: "";
     position: absolute;
+    z-index: 2;
     inset: 0;
     background: $gate-blackout-color;
     opacity: 0;
