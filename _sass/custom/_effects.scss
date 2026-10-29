@@ -26,3 +26,20 @@ html.fx-torch-glow #site-cursor::before {
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
+
+// Vignette (effects/vignette.js)
+:root { --vignette-color: #{$vignette-color}; }
+
+html.fx-vignette .fx-layer[data-effect="vignette"],
+html.fx-vignette #gate::before {
+  background: var(--fx-vignette-image) center / 100% 100% no-repeat;
+  image-rendering: pixelated;
+}
+
+html.fx-vignette #gate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
