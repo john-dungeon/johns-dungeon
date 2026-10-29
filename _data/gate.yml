@@ -1,7 +1,7 @@
 # Entrance Screen
 enabled: true # "false" to skip
 image: assets/images/entrance.webp
-focus: 45% 45% # The point the image zooms into (x y, from top-left)
+focus: 50% 45% # The point the image zooms into (x y, from top-left)
 scale: 4 # Zoom
 zoom: 2 # Zoom Duration
 darken: 1 # Fade to Black Duration
