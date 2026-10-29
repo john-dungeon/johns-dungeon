@@ -5,6 +5,7 @@ const random = (min, max) => min + Math.random() * (max - min);
 let current = '';
 let round = 0;
 let cleanups = [];
+let started = new Set();
 
 function makeContext(options, layer) {
   const undo = [];
@@ -32,7 +33,10 @@ function makeContext(options, layer) {
   };
 }
 
-async function loadEffect(options, myRound) {
+async function loadEffect(options, slot, myRound) {
+  if (started.has(slot)) return;
+  started.add(slot);
+
   let module;
   try {
     module = await import(`./effects/${options.id}.js`);
@@ -42,6 +46,10 @@ async function loadEffect(options, myRound) {
   }
   if (myRound !== round) return;
   if (CALM.matches && !module.calmSafe) return;
+  if (waiting() && !module.gateSafe) {
+    started.delete(slot);
+    return;
+  }
 
   const layer = document.createElement('div');
   layer.className = 'fx-layer';
@@ -57,16 +65,22 @@ async function loadEffect(options, myRound) {
   });
 }
 
+function start() {
+  const list = themeConfig(current).effects || [];
+  list.forEach((entry, slot) => {
+    loadEffect(typeof entry === 'string' ? { id: entry } : entry, slot, round);
+  });
+}
+
 function restart() {
   round++;
+  started = new Set();
   cleanups.splice(0).forEach(fn => fn());
-  if (waiting()) return;
-  const list = themeConfig(current).effects || [];
-  list.forEach(entry => loadEffect(typeof entry === 'string' ? { id: entry } : entry, round));
+  start();
 }
 
 onThemeChange(id => {
   current = id;
   restart();
 });
-document.addEventListener('gateopen', restart);
+document.addEventListener('gateopen', start);
