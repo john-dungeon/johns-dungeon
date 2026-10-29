@@ -4,5 +4,5 @@ image: assets/images/entrance.webp
 focus: 50% 40% # The point the image zooms into (x y, from top-left)
 scale: 4 # Zoom
 zoom: 2 # Zoom Duration
-darken: 1 # Fade to Black Duration
-fade: 1.5 # Fade to Site Duration
+darken: 3 # Fade to Black Duration
+fade: 3 # Fade to Site Duration
