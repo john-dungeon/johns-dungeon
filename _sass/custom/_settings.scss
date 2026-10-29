@@ -17,6 +17,7 @@ $panel-opacity: 0.7 !default; // Page Panels Over The Background Image (1 = soli
 $parallax-margin: 3% !default; // Extra Background Size Past Each Screen Edge
 $parallax-range: 2.5% !default; // Furthest Background Shift
 $parallax-smoothing: 0.3s !default; // Background Follow Delay
+$gate-blackout-color: #000000 !default; // Entrance Screen Fade-To-Black Color
 
 // Theme (themes.yml supplies fonts, background, and cursor through theme.scss.liquid)
 $theme-body-font: null !default; // Body Text Font
