@@ -14,8 +14,8 @@ $marker-colors: (
   "artifact": #fa2323
 ) !default; // Rarity Symbol Color
 $panel-opacity: 0.7 !default; // Page Panels Over The Background Image (1 = solid)
-$parallax-margin: 5.5% !default; // Extra Background Size Past Each Screen Edge
-$parallax-range: 5% !default; // Furthest Background Shift
+$parallax-margin: 3% !default; // Extra Background Size Past Each Screen Edge
+$parallax-range: 2.5% !default; // Furthest Background Shift
 $parallax-smoothing: 0.3s !default; // Background Follow Delay
 
 // Theme (themes.yml supplies fonts, background, and cursor through theme.scss.liquid)
