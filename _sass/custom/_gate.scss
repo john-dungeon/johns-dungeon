@@ -23,6 +23,19 @@ html[data-gate="pending"]:not([data-gate-late]) body { visibility: hidden; }
 
   &::backdrop { background: transparent; }
   &.is-leaving { opacity: 0; }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: $gate-blackout-color;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--gate-darken, 0s) ease
+      css-max(0s, calc(var(--gate-zoom, 0s) - var(--gate-darken, 0s)));
+  }
+
+  &.is-opening::after { opacity: 1; }
 }
 
 html[data-gate="pending"] #gate,
@@ -39,7 +52,11 @@ html[data-gate="pending"] #gate,
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform-origin: var(--gate-focus, 50% 50%);
+  transition: transform var(--gate-zoom, 0s) $motion-ease;
 }
+
+#gate.is-opening .gate-media { transform: scale(var(--gate-scale, 1)); }
 
 #gate-enter {
   position: relative;
@@ -60,8 +77,4 @@ html[data-gate="pending"] #gate,
 #gate.is-opening #gate-enter {
   opacity: 0;
   transition: opacity $motion;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #gate { transition: none; }
 }
