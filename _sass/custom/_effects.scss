@@ -13,21 +13,6 @@
   --torch-glow-core-color: #{$torch-glow-core-color};
 }
 
-@mixin glow-frame($opacity, $scale) {
-  opacity: $opacity;
-  transform: translate(-50%, -50%) scale($scale);
-}
-
-@keyframes torch-flicker {
-  0%, 100% { @include glow-frame(0.85, 1); }
-  12% { @include glow-frame(0.6, 0.92); }
-  27% { @include glow-frame(1, 1.06); }
-  41% { @include glow-frame(0.7, 0.95); }
-  58% { @include glow-frame(0.95, 1.1); }
-  73% { @include glow-frame(0.65, 0.9); }
-  88% { @include glow-frame(0.9, 1.03); }
-}
-
 html.fx-torch-glow #site-cursor::before {
   content: "";
   position: absolute;
@@ -38,11 +23,6 @@ html.fx-torch-glow #site-cursor::before {
   height: $torch-glow-size;
   background: var(--fx-torch-glow-image) center / 100% 100% no-repeat;
   image-rendering: pixelated;
+  transform: translate(-50%, -50%);
   pointer-events: none;
-  @include glow-frame(0.85, 1);
-  animation: torch-flicker $torch-flicker-duration steps(1, end) infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html.fx-torch-glow #site-cursor::before { animation: none; }
 }
