@@ -1,6 +1,6 @@
 # Entrance Screen
 enabled: true # "false" to skip
-image: assets/images/gate-idle.webp
+image: assets/images/entrance.webp
 focus: 45% 45% # The point the image zooms into (x y, from top-left)
 scale: 4 # Zoom
 zoom: 2 # Zoom Duration
