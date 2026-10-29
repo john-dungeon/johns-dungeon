@@ -2,5 +2,5 @@
 enabled: true # "false" to skip
 delay: 0 # Seconds between the click and the fade. Set it to your animation's length
 fade: 1.5 # Seconds the screen takes to fade away
-idle: 
+idle: assets/images/gate-idle.webp
 active: 
