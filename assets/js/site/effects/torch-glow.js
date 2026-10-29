@@ -10,7 +10,7 @@ const DEFAULTS = {
   core: 0.4, // Core Radius Ratio
   outerAlpha: 0.4, // Outer Opacity.
   coreAlpha: 0.6, // Core Opacity.
-  fps: 12 // Frames Per Second
+  fps: 6 // Frames Per Second
 };
 
 const FRAMES = [
