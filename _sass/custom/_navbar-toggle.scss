@@ -15,9 +15,7 @@ $navbar-toggle-clearance: $navbar-toggle-size + $navbar-toggle-inset * 2;
   .main { transition: margin-left $motion; }
 
   @include mq(lg) {
-    .main {
-      margin-left: max(#{$nav-width}, calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width}));
-    }
+    .main { margin-left: css-max($navbar-toggle-clearance, calc((100% - #{$content-width}) / 2)); }
   }
 
   #navbar-toggle {
