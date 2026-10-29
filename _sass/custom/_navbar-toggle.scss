@@ -2,7 +2,6 @@
 // Behavior: assets/js/navbar-toggle.js
 $navbar-toggle-size: 2rem;
 $navbar-toggle-inset: 1rem;
-// Space the content box must leave for the button: its width plus a gap on each side.
 $navbar-toggle-clearance: $navbar-toggle-size + $navbar-toggle-inset * 2;
 
 #navbar-toggle { display: none; }
