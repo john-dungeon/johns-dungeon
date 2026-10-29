@@ -1,6 +1,4 @@
 // Behavior: assets/js/site/effects.js and assets/js/site/effects/*.js
-
-// Each running JS effect gets a full-screen layer that never blocks clicks.
 .fx-layer {
   position: fixed;
   inset: 0;
@@ -10,15 +8,14 @@
 }
 
 // Torch Glow (effects/torch-glow.js)
+:root {
+  --torch-glow-color: #{$torch-glow-color};
+  --torch-glow-core-color: #{$torch-glow-core-color};
+}
+
 @mixin glow-frame($opacity, $scale) {
   opacity: $opacity;
   transform: translate(-50%, -50%) scale($scale);
-}
-
-@mixin glow($color, $opacity, $size) {
-  width: $size;
-  height: $size;
-  background: radial-gradient(circle, rgba($color, $opacity) 0%, rgba($color, 0) 70%);
 }
 
 @keyframes torch-flicker {
@@ -31,27 +28,21 @@
   88% { @include glow-frame(0.9, 1.03); }
 }
 
-html.fx-torch-glow #site-cursor {
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: var(--fx-torch-glow-x);
-    top: var(--fx-torch-glow-y);
-    border-radius: 50%;
-    pointer-events: none;
-    @include glow-frame(0.85, 1);
-    animation: torch-flicker $torch-flicker-duration infinite;
-  }
-
-  &::before { @include glow($torch-glow-color, 0.45, $torch-glow-size); }
-  &::after { @include glow($torch-glow-core-color, 0.7, $torch-glow-size * 0.4); }
+html.fx-torch-glow #site-cursor::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: var(--fx-torch-glow-x);
+  top: var(--fx-torch-glow-y);
+  width: $torch-glow-size;
+  height: $torch-glow-size;
+  background: var(--fx-torch-glow-image) center / 100% 100% no-repeat;
+  image-rendering: pixelated;
+  pointer-events: none;
+  @include glow-frame(0.85, 1);
+  animation: torch-flicker $torch-flicker-duration steps(1, end) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html.fx-torch-glow #site-cursor {
-    &::before,
-    &::after { animation: none; }
-  }
+  html.fx-torch-glow #site-cursor::before { animation: none; }
 }
