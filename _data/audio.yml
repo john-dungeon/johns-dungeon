@@ -8,7 +8,7 @@ sets:
   basic:
     click: assets/audio/basic/click.mp3
   dungeon:
-    click: assets/audio/footsteps.ogg
+    click: ssets/audio/dungeon/click.mp3
     hover: assets/audio/dungeon/hover.mp3
     open: assets/audio/dungeon/open.mp3
     close: assets/audio/dungeon/close.mp3
