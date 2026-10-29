@@ -1,0 +1,41 @@
+// Behavior: assets/js/site/scrollbar.js
+$scrollbar-size: 0.75rem;
+
+html.fake-cursor {
+  &, * { scrollbar-width: none; }
+  &::-webkit-scrollbar,
+  *::-webkit-scrollbar { display: none; }
+}
+
+.sb-host { position: relative; }
+
+.sb-track {
+  position: absolute;
+  z-index: 5;
+  background: $sidebar-color;
+
+  &--y { width: $scrollbar-size; }
+  &--x { height: $scrollbar-size; }
+
+  &--page {
+    position: fixed;
+    z-index: 90;
+    &.sb-track--y { top: 0; right: 0; bottom: 0; }
+    &.sb-track--x { right: 0; bottom: 0; left: 0; }
+  }
+}
+
+.sb-thumb {
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: $nav-child-link-color;
+  background-clip: padding-box;
+  touch-action: none;
+
+  .sb-track--y > & { width: 100%; }
+  .sb-track--x > & { height: 100%; }
+
+  &:hover,
+  &.is-dragging { background-color: $link-color; }
+}
