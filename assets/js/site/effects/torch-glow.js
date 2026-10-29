@@ -61,7 +61,6 @@ function makeDrawer({ pixels, levels, core, outerAlpha, coreAlpha }) {
 
 export default function torchGlow({ options, timer, random }) {
   const settings = { ...DEFAULTS };
-  Object.keys(DEFAULTS).forEach(key => { settings[key] = options[key] ?? DEFAULTS[key]; });
 
   const draw = makeDrawer(settings);
   const show = frame => root.style.setProperty('--fx-torch-glow-image', draw(frame));
