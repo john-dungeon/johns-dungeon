@@ -25,3 +25,5 @@ export function load(key, fallback) {
 export function save(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
 }
+
+export const posterize = (value, levels) => (value <= 0 ? 0 : Math.round(value * levels) / levels);
