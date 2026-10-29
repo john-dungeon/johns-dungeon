@@ -66,6 +66,11 @@
   root.dataset.theme = active;
   preloadFonts(active);
 
+  const startCursor = (THEMES.find(theme => theme.id === active) || {}).cursor;
+  if (startCursor && startCursor.animated && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    root.classList.add('fake-cursor');
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const links = themeLinks();
     link = links[links.length - 1];
