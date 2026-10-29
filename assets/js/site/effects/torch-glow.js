@@ -1,6 +1,7 @@
 import { root } from '../shared.js';
 
 export const calmSafe = true;
+export const gateSafe = true;
 
 export default function torchGlow({ options }) {
   root.style.setProperty('--fx-torch-glow-x', (options.x ?? 16) + 'px');
