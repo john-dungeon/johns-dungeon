@@ -5,7 +5,7 @@ export const gateSafe = true;
 
 // Options (optionally set per theme in themes.yml).
 const DEFAULTS = {
-  pixels: 16, // Height, Width
+  pixels: 32, // Height, Width
   levels: 3, // Bands of Brightness
   core: 0.4, // Core Radius Ratio
   outerAlpha: 0.4, // Outer Opacity.
