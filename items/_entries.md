@@ -851,10 +851,12 @@ rarity: Common
 attunement: false
 cost: 1
 weight: 0.5
-tags: Condition, Consumable, Magic Item, Saving Throw
+tags: Buff, Condition, Consumable, Damage, Magic Item, Saving Throw
 description: Bubbles fizz and foam in this potion's amber liquid, disappearing after a short while.
 
-When you drink this potion, you must succeed on a DC 13 Constitution saving throw or have the Poisoned condition for 1 hour. If you fail this save while Poisoned by a Potion of Inebriation, you take 1 Poison damage.
+When you drink this potion, you must make a DC 13 Constitution saving throw. On a failed save, you have the Poisoned condition for 1 hour, and you take 1 Poison damage if you were already Poisoned in this way. While Poisoned in this way, you have Advantage on saving throws you make to avoid or end the Frightened condition.
+
+If you drink 20 or more Potions of Inebriation in a day, you gain 1 Exhaustion level instead of reducing your Exhaustion level the next time you finish a Long Rest.
 
 > *"Wait... Isn't this just beer?"*
 
