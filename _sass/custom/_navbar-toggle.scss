@@ -2,6 +2,7 @@
 // Behavior: assets/js/navbar-toggle.js
 $navbar-toggle-size: 2rem;
 $navbar-toggle-inset: 1rem;
+$navbar-toggle-clearance: $navbar-toggle-size + $navbar-toggle-inset * 2;
 
 #navbar-toggle { display: none; }
 
@@ -12,6 +13,12 @@ $navbar-toggle-inset: 1rem;
   }
 
   .main { transition: margin-left $motion; }
+
+  @include mq(lg) {
+    .main {
+      margin-left: max(#{$nav-width}, calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width}));
+    }
+  }
 
   #navbar-toggle {
     @include outlined-button(999px, $sidebar-color);
@@ -37,7 +44,7 @@ $navbar-toggle-inset: 1rem;
       transition: transform $motion, visibility 0s var(--motion-duration);
     }
 
-    .main { margin-left: calc((100% - #{$content-width}) / 2); }
+    .main { margin-left: max(#{$navbar-toggle-clearance}, calc((100% - #{$content-width}) / 2)); }
 
     #navbar-toggle {
       visibility: visible;
