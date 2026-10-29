@@ -4,28 +4,14 @@ const gate = document.getElementById('gate');
 
 function run() {
   const calm = CALM.matches;
-  const seconds = name => (calm ? 0 : Number(gate.dataset[name]) || 0) * 1000;
-  const delay = seconds('delay');
-  const fade = seconds('fade');
-  const media = gate.querySelector('.gate-media');
+  const seconds = name => (calm ? 0 : Number(gate.dataset[name]) || 0);
   let leaving = false;
 
-  gate.style.setProperty('--gate-fade', fade + 'ms');
-
-  if (media && !calm) {
-    if (media.play) {
-      media.preload = 'auto';
-      media.load();
-    } else if (media.dataset.active) {
-      new Image().src = media.dataset.active;
-    }
-  }
-
-  function activate() {
-    if (!media || calm) return;
-    if (media.play) media.play().catch(() => {});
-    else if (media.dataset.active) media.src = media.dataset.active;
-  }
+  ['zoom', 'darken', 'fade'].forEach(name => {
+    gate.style.setProperty(`--gate-${name}`, seconds(name) + 's');
+  });
+  gate.style.setProperty('--gate-focus', gate.dataset.focus);
+  gate.style.setProperty('--gate-scale', calm ? 1 : gate.dataset.scale);
 
   function open() {
     leaving = true;
@@ -33,7 +19,7 @@ function run() {
     root.dataset.gate = 'open';
     gate.classList.add('is-leaving');
     announce('gateopen');
-    setTimeout(() => gate.close(), fade);
+    setTimeout(() => gate.close(), seconds('fade') * 1000);
   }
 
   gate.addEventListener('cancel', event => event.preventDefault());
@@ -43,8 +29,7 @@ function run() {
   gate.addEventListener('click', () => {
     announce('gateenter');
     gate.classList.add('is-opening');
-    activate();
-    setTimeout(open, delay);
+    setTimeout(open, seconds('zoom') * 1000);
   }, { once: true });
 }
 
