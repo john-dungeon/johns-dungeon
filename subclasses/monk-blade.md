@@ -26,7 +26,7 @@ When you attack with the Aura Blade, you can make the extra attack granted by th
 The Aura Blade lasts for 10 minutes or until you have the Incapacitated condition, at the end of which it reverts to normal. The Aura Blade also reverts to normal if you are no longer holding it or choose to revert it (no action required).
 
 ## Level 3: Focus
-Once per turn when you make an attack roll with a Melee weapon, you can expend 1 Focus Point to roll your Martial Arts die and add the result to the attack roll. If you hit, add the result to the attack’s damage.
+Once per turn when you make an attack roll with a Melee weapon, you can expend 1 Focus Point to roll your Martial Arts die and add the result to the attack roll. If you hit, the attack deals extra Force damage equal to the result.
 
 ## Level 6: Hone
 You have a +1 bonus to attack and damage rolls made with Aura Blades you make with your Blade feature. This bonus increases when you reach Monk levels 11 (+2) and 17 (+3). If the object used to create the Aura Blade is a magic weapon that has a bonus to attack or damage rolls, use either the Aura Blade's or the original weapon's, not both.
