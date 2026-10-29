@@ -10,8 +10,7 @@ const DEFAULTS = {
   core: 0.4, // Core Radius Ratio
   outerAlpha: 0.4, // Outer Opacity.
   coreAlpha: 0.6, // Core Opacity.
-  minDelay: 0.12, // Shortest Flicker Wait (seconds)
-  maxDelay: 0.35 // Longest Flicker Wait (seconds)
+  fps: 8 // Frames Per Second
 };
 
 const FRAMES = [
@@ -79,7 +78,7 @@ export default function torchGlow({ options, timer, random }) {
       do { next = Math.floor(random(0, FRAMES.length)); } while (next === last);
       last = next;
       show(FRAMES[next]);
-    }, settings.minDelay, settings.maxDelay);
+    }, 1 / settings.fps, 1 / settings.fps);
   }
 
   return () => {
