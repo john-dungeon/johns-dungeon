@@ -3,6 +3,6 @@ enabled: true # "false" to skip
 image: assets/images/entrance.webp
 focus: 50% 40% # The point the image zooms into (x y, from top-left)
 scale: 4 # Zoom
-zoom: 2 # Zoom Duration
+zoom: 5 # Zoom Duration
 darken: 3 # Fade to Black Duration
 fade: 3 # Fade to Site Duration
