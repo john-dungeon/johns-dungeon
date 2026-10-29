@@ -12,7 +12,7 @@ sets:
     hover: assets/audio/dungeon/hover.mp3
     open: assets/audio/dungeon/open.mp3
     close: assets/audio/dungeon/close.mp3
-    enter: assets/audio/dungeon/doors.mp3
+    enter: assets/audio/entering.ogg
   parchment:
     click: assets/audio/parchment/click.mp3
     hover: assets/audio/parchment/hover.mp3
