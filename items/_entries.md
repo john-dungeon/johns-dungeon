@@ -12,7 +12,7 @@ note_weight: +50% to normal counterpart
 setting: Erisia
 note_setting: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
 tags: Area, Charge, Damage, Forced Movement, Magic Item, Resistance, Saving Throw
-description: This magic suit of armor is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The armor is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. While wearing the armor, you can use the following properties.
+description: This magic suit of armor is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The armor is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. While wearing the armor, you can use the following properties.
 
 ***Resistance.*** You have Resistance to Bludgeoning, Piercing, and Slashing damage.
 
@@ -37,7 +37,7 @@ options_weight: 9
 note_weight: +50% to normal counterpart
 setting: Erisia
 tags: Area, Armor Class Bonus, Charge, Condition, Damage, Immunity, Magic Item, Saving Throw
-description: This magic Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class, in addition to the Shield's normal bonus to AC.
+description: This magic Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class, in addition to the Shield's normal bonus to AC.
 
 ***Impact Absorption.*** When you take Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to absorb the impact with the Shield. You gain Immunity to Bludgeoning, Piercing, or Slashing damage against the triggering damage, and the Shield gains 1 charge, up to a maximum of 6 charges. You can't take this Reaction while the Shield has 6 charges.
 
@@ -59,7 +59,7 @@ note_weight: +50% to normal counterpart
 setting: Erisia
 note_setting: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
 tags: Attack Bonus, Charge, Condition, Damage Bonus, Extra Damage, Magic Item
-description: This magic weapon is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The weapon is nearly indestructible, being destroyed only by a level 8+ *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
+description: This magic weapon is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The weapon is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
 ***Unbreakable.*** Whenever this weapon hits an object, the hit is a Critical Hit.
 
