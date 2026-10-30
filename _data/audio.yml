@@ -3,7 +3,7 @@ defaults: { effects: true, music: true }
 volume: { effects: 0.5, music: 0.25 }
 
 # Sound Effect Sets
-# Events: click, hover, open (pop-up), close (pop-up), enter (entrance screen)
+# Events: hover, open (pop-up), close (pop-up), enter (entrance screen), transition (page change)
 sets:
   basic:
     transition: assets/audio/basic/transition.mp3
