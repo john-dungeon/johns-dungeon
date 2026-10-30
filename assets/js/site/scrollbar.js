@@ -1,10 +1,10 @@
 import { root, CALM } from './shared.js';
 
 const SCROLLERS = ['.st-dialog-inner', '.st-table-wrap', '.site-nav'];
-const MIN_THUMB = 24;
-const PAGE_STEP = 0.9;
-const LINE = 16;
-const EASE = 0.22;
+const MIN_THUMB = 24; // Thickness
+const PAGE_STEP = 0.9; // Jump to Click
+const LINE = 1; // Scroll Snapping
+const EASE = 0.2; // Snapping Ease
 const wheelUnit = (event, pageSize) => [1, LINE, pageSize][event.deltaMode];
 
 const AXES = [
