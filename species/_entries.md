@@ -47,8 +47,8 @@ traits:
 - trait_2: Powerful Build
   description: You have Advantage on any ability check you make to end the Grappled condition. You also count as one size larger when determining your carrying capacity.
 - trait_3: Regeneration
-  description: While you’re Bloodied, you regain Hit Points equal to your Proficiency Bonus at the start of each of your turns. If you take Acid or Fire damage, this trait doesn’t function on your next turn. This trait also doesn’t function if you have 0 Hit Points and aren’t Stable.
+  description: While you’re Bloodied, you regain Hit Points equal to your Proficiency Bonus at the start of each of your turns. If you take Acid or Fire damage, this trait doesn’t function on your next turn. This trait also doesn’t function if you have 0 Hit Points and are not Stable.
 - trait_4: Troll Resilience
   description: You have Resistance to Poison damage. You also have Advantage on saving throws you make to avoid or end the Poisoned condition.
 - trait_5: Vital Surge
-  description: As a Bonus Action, you can roll a number of d6s equal to two times your Proficiency Bonus. You regain a number of Hit Points equal to the roll’s total. Once you use this trait, you can't do so again until you finish a Long Rest, and your Regeneration trait doesn't function until you finish a Short or Long Rest.
+  description: As a Bonus Action, you can roll a number of d4s equal to two times your Proficiency Bonus. You regain a number of Hit Points equal to the roll’s total. Once you use this trait, you can't do so again until you finish a Long Rest, and your Regeneration trait doesn't function until you finish a Short or Long Rest.
