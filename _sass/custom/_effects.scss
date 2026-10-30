@@ -28,18 +28,32 @@ html.fx-torch-glow #site-cursor::before {
 }
 
 // Vignette (effects/vignette.js)
-:root { --vignette-color: #{$vignette-color}; }
-
-html.fx-vignette .fx-layer[data-effect="vignette"],
-html.fx-vignette #gate::before {
-  background: var(--fx-vignette-image) center / 100% 100% no-repeat;
-  image-rendering: pixelated;
+button {
+  position: relative;
+  z-index: $above-effects-z;
 }
 
-html.fx-vignette #gate::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
+:root { --vignette-color: #{$vignette-color}; }
+
+html.fx-vignette {
+  body::after {
+    @include vignette-picture;
+    position: fixed;
+  }
+
+  #gate::before {
+    @include vignette-picture;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+@include mq(md) {
+  .side-bar { z-index: $above-effects-z; }
+
+  html.fx-vignette .side-bar::after {
+    @include vignette-picture;
+    position: absolute;
+    background-size: 100vw 100vh;
+  }
 }
