@@ -13,6 +13,10 @@
 <link rel="prefetch" href="{{ '/assets/css/just-the-docs-' | append: theme.id | append: '.css' | relative_url }}">
 {%- endfor %}
 
+<!-- EFFECTS SNAPSHOT -->
+<script>window.SITE_BUILD = {{ site.time | date: "%s" | jsonify }};</script>
+<script src="{{ '/assets/js/effects-snapshot.js' | relative_url }}"></script>
+
 <!-- SITE DATA FOR SCRIPTS -->
 <script>window.SITE_STRINGS = {{ site.data.strings | jsonify }}; window.SITE_LISTS = {{ site.data.lists | jsonify }}; window.SITE_AUDIO = {{ site.data.audio | jsonify }};</script>
 
