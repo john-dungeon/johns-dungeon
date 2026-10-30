@@ -7,7 +7,7 @@ export const gateSafe = true;
 const DEFAULTS = {
   cell: 32, // Width, Height
   levels: 8,// Bands of Darkness
-  start: 0.5, // Darkness Edge (0 = center, 1 = corner)
+  start: 0.7, // Darkness Edge (0 = center, 1 = corner)
   strength: 0.9 // Corner Opacity
 };
 
