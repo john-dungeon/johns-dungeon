@@ -30,10 +30,6 @@ function play(name) {
   sound.play().catch(() => {});
 }
 
-document.addEventListener('click', event => {
-  if (event.target.closest(INTERACTIVE)) play('click');
-});
-
 let hovered = null;
 document.addEventListener('pointerover', event => {
   if (event.pointerType !== 'mouse') return;
@@ -47,7 +43,16 @@ document.addEventListener('popupclose', () => play('close'));
 document.addEventListener('gateenter', () => play('enter'));
 document.addEventListener('fxsound', event => play(event.detail));
 
-// ---- Background music ----
+function cameFromThisSite() {
+  const nav = performance.getEntriesByType('navigation')[0];
+  if (nav && nav.type === 'reload') return false;
+  return document.referrer.startsWith(location.origin + globalThis.SITE_ROOT);
+}
+
+addEventListener('pageshow', event => {
+  if (event.persisted || cameFromThisSite()) play('transition');
+});
+
 const music = new Audio();
 music.volume = volume.music;
 
