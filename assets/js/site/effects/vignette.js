@@ -5,10 +5,10 @@ export const gateSafe = true;
 
 // Options (optionally set per theme in themes.yml).
 const DEFAULTS = {
-  cell: 64, // Width, Height
-  levels: 4,// Bands of Darkness
+  cell: 32, // Width, Height
+  levels: 8,// Bands of Darkness
   start: 0.5, // Darkness Edge (0 = center, 1 = corner)
-  strength: 0.85 // Corner Opacity
+  strength: 0.9 // Corner Opacity
 };
 
 export default function vignette({ options, on }) {
