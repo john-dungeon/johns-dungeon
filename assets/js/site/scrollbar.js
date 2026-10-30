@@ -3,6 +3,8 @@ import { root } from './shared.js';
 const SCROLLERS = ['.st-dialog-inner', '.st-table-wrap', '.site-nav'];
 const MIN_THUMB = 24;
 const PAGE_STEP = 0.9;
+const LINE = 16;
+const wheelUnit = (event, pageSize) => [1, LINE, pageSize][event.deltaMode];
 
 const AXES = [
   { name: 'y', size: 'clientHeight', total: 'scrollHeight', pos: 'scrollTop', mouse: 'clientY', length: 'height', start: 'top' },
@@ -94,6 +96,20 @@ function makeBar(scroller, axis) {
     scroller[axis.pos] += (before ? -1 : 1) * scroller[axis.size] * PAGE_STEP;
   });
 
+  if (!isPage) {
+    track.addEventListener('wheel', event => {
+      if (event.ctrlKey) return;
+      const before = [scroller.scrollLeft, scroller.scrollTop];
+      scroller.scrollBy({
+        left: event.deltaX * wheelUnit(event, scroller.clientWidth),
+        top: event.deltaY * wheelUnit(event, scroller.clientHeight),
+        behavior: 'instant'
+      });
+      const moved = scroller.scrollLeft !== before[0] || scroller.scrollTop !== before[1];
+      if (moved) event.preventDefault();
+    }, { passive: false });
+  }
+  
   return bar;
 }
 
