@@ -53,6 +53,7 @@ html[data-gate="pending"] #gate,
   width: 100%;
   height: 100%;
   object-fit: cover;
+  image-rendering: pixelated;
   transform-origin: var(--gate-focus, 50% 50%);
   transition: transform var(--gate-zoom, 0s) $motion-ease;
 }
