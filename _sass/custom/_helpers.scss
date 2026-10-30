@@ -3,12 +3,21 @@ $stripe-odd-color: if($is-light-theme, mix(#000000, $body-background-color, 6%),
 $stripe-even-color: if($is-light-theme, $body-background-color, mix(#ffffff, $body-background-color, 10%)) !default;
 $marker-colors: map-merge(("varies": $body-text-color), $marker-colors);
 $motion: var(--motion-duration) $motion-ease;
-
 $unlisted-color: if($is-light-theme, #b3261e, #ff6b6b) !default;
 $missing-background: rgba($unlisted-color, 0.3) !default;
 $shadow-small: 0 2px 6px rgba(0, 0, 0, 0.3);
 $shadow-popup: 0 4px 12px rgba(0, 0, 0, 0.35);
 $shadow-dialog: 0 8px 30px rgba(0, 0, 0, 0.5);
+$above-effects-z: $effect-layer-z + 1;
+
+@mixin vignette-picture {
+  content: "";
+  inset: 0;
+  z-index: $effect-layer-z;
+  background: var(--fx-vignette-image) 0 0 / 100% 100% no-repeat;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
 
 @mixin outlined($radius: 0.4rem) {
   border: 1px solid $border-color;
