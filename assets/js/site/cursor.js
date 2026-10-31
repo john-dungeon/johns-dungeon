@@ -1,4 +1,5 @@
-import { root, FINE_POINTER, announce, clickableFrom, themeConfig, onThemeChange } from './shared.js';
+import { root, FINE_POINTER, themeConfig, onThemeChange } from './shared.js';
+import { isHovering } from './hover.js';
 
 const VIDEO = /\.(webm|mp4)$/i;
 const url = file => globalThis.SITE_ROOT + file;
@@ -14,7 +15,6 @@ let spec = null;
 let hotspot = [0, 0];
 let normal = null;
 let link = null;
-let overLink = false;
 let x = 0;
 let y = 0;
 let placed = false;
@@ -48,8 +48,10 @@ function raise() {
 }
 
 function paintLayers() {
-  normal.style.display = overLink && link !== normal ? 'none' : '';
-  if (link !== normal) link.style.display = overLink ? '' : 'none';
+  if (!spec || link === normal) return;
+  const over = isHovering();
+  normal.style.display = over ? 'none' : '';
+  link.style.display = over ? '' : 'none';
 }
 
 function paint() {
@@ -67,7 +69,6 @@ function enable(config) {
   holder.textContent = '';
   holder.append(normal);
   if (link !== normal) holder.append(link);
-  overLink = false;
   paintLayers();
 
   root.classList.add('fake-cursor');
@@ -96,14 +97,8 @@ document.addEventListener('pointermove', event => {
   frame ||= requestAnimationFrame(paint);
 });
 
-document.addEventListener('pointerover', event => {
-  if (!spec) return;
-  const now = Boolean(clickableFrom(event.target));
-  if (now === overLink) return;
-  overLink = now;
-  paintLayers();
-  announce('cursorlink', now);
-});
+document.addEventListener('hoverstart', paintLayers);
+document.addEventListener('hoverend', paintLayers);
 
 root.addEventListener('pointerleave', () => {
   holder.style.opacity = 0;
