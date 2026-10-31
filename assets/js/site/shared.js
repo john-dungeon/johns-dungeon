@@ -2,6 +2,10 @@ export const root = document.documentElement;
 export const FINE_POINTER = matchMedia('(hover: hover) and (pointer: fine)');
 export const CALM = matchMedia('(prefers-reduced-motion: reduce)');
 export const INTERACTIVE = 'a, button, summary, input, select, [role="menuitem"], .st-row';
+export const clickableFrom = node => {
+  const hit = node.closest(INTERACTIVE);
+  return hit && !hit.closest('#gate') ? hit : null;
+};
 
 export const waiting = () => root.dataset.gate === 'pending';
 export const announce = (type, detail) => document.dispatchEvent(new CustomEvent(type, { detail }));
