@@ -37,6 +37,7 @@ function play(name) {
 
 document.addEventListener('popupopen', () => play('open'));
 document.addEventListener('popupclose', () => play('close'));
+document.addEventListener('hoverstart', () => play('hover'));
 document.addEventListener('fxsound', event => play(event.detail));
 document.addEventListener('pointerover', event => {
   if (event.pointerType === 'touch') return;
