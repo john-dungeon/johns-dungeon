@@ -1,4 +1,4 @@
-import { load, save, waiting, themeConfig, onThemeChange } from './shared.js';
+import { load, save, waiting, themeConfig, onThemeChange, INTERACTIVE } from './shared.js';
 
 const { defaults, volume, sets, playlists = {} } = globalThis.SITE_AUDIO;
 const url = file => globalThis.SITE_ROOT + file;
@@ -21,18 +21,29 @@ function clip(file) {
   return clips.get(file);
 }
 
+const playing = new Map();
+
 function play(name) {
   const file = effects[name];
   if (!prefs.effects || !file) return;
   if (waiting() && name !== 'enter') return;
+
+  playing.get(name)?.pause();
   const sound = clip(file).cloneNode();
   sound.volume = volume.effects;
+  playing.set(name, sound);
   sound.play().catch(() => {});
 }
 
 document.addEventListener('popupopen', () => play('open'));
 document.addEventListener('popupclose', () => play('close'));
 document.addEventListener('fxsound', event => play(event.detail));
+document.addEventListener('pointerover', event => {
+  if (event.pointerType === 'touch') return;
+  const target = event.target.closest(INTERACTIVE);
+  if (!target || target.contains(event.relatedTarget)) return;
+  play('hover');
+});
 
 function cameFromThisSite() {
   const nav = performance.getEntriesByType('navigation')[0];
