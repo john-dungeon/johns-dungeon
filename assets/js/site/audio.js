@@ -59,7 +59,6 @@ music.volume = volume.music;
 let playlist = [];
 let listName = '';
 let track = '';
-let entered = false;
 let saved = load('music-state', null);
 
 function start(file, from = 0) {
@@ -76,7 +75,7 @@ function pick() {
 }
 
 function syncMusic() {
-  const silent = !prefs.music || !playlist.length || document.hidden || (waiting() && !entered);
+  const silent = !prefs.music || !playlist.length || document.hidden || waiting();
   if (silent) {
     music.pause();
     return;
@@ -99,11 +98,20 @@ document.addEventListener('visibilitychange', () => {
   syncMusic();
 });
 
+function unlockMusic() {
+  if (!prefs.music || !playlist.length) return;
+  if (!track) start(pick());
+  music.muted = true;
+  const restore = () => { music.pause(); music.muted = false; };
+  music.play().then(restore, () => { music.muted = false; });
+}
+
 document.addEventListener('gateenter', () => {
   play('enter');
-  entered = true;
-  syncMusic();
+  unlockMusic();
 });
+
+document.addEventListener('gateopen', syncMusic);
 
 ['pointerdown', 'pointerup', 'keydown'].forEach(type => document.addEventListener(type, syncMusic));
 
