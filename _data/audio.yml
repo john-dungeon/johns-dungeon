@@ -6,21 +6,25 @@ volume: { effects: 0.5, music: 0.25 }
 # Events: hover, open (pop-up), close (pop-up), enter (entrance screen), transition (page change)
 sets:
   basic:
-    transition: assets/audio/basic/transition.mp3
+    open: assets/audio/click.ogg
+    close: assets/audio/click.ogg
+    transition: assets/audio/click.ogg
   dungeon:
-    hover: assets/audio/dungeon/hover.mp3
-    open: assets/audio/dungeon/open.mp3
-    close: assets/audio/dungeon/close.mp3
+    hover: assets/audio/light.ogg
+    open: assets/audio/grind-in.ogg
+    close: assets/audio/grind-out.ogg
     enter: assets/audio/entering.ogg
     transition: assets/audio/footsteps.ogg
   parchment:
-    hover: assets/audio/parchment/hover.mp3
-    open: assets/audio/parchment/open.mp3
-    close: assets/audio/parchment/close.mp3
-    transition: assets/audio/parchment/transition.mp3
+    hover: assets/audio/pen.ogg
+    open: assets/audio/page.ogg
+    close: assets/audio/page.ogg
+    transition: assets/audio/page.ogg
 
 # Music Playlists
 playlists:
+  basic:
+    - assets/audio/music/Hia.ogg
   dungeon:
     - assets/audio/music/Anxiety.ogg
     - assets/audio/music/Silence.ogg
