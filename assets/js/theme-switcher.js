@@ -60,6 +60,7 @@
     const saved = localStorage.getItem('theme');
     if (IDS.includes(saved) && saved !== currentTheme()) {
       document.write(`<link rel="stylesheet" href="${hrefFor(saved)}">`);
+      link.remove();
       active = saved;
     }
   } catch (e) {}
@@ -72,9 +73,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const links = themeLinks();
-    link = links[links.length - 1];
-    links.slice(0, -1).forEach(old => old.remove());
+    link = themeLinks()[0];
 
     const menu = document.getElementById('theme-menu');
     if (!menu) return;
