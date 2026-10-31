@@ -1,4 +1,4 @@
-import { root, FINE_POINTER, clickableFrom, themeConfig, onThemeChange } from './shared.js';
+import { root, FINE_POINTER, announce, clickableFrom, themeConfig, onThemeChange } from './shared.js';
 
 const VIDEO = /\.(webm|mp4)$/i;
 const url = file => globalThis.SITE_ROOT + file;
@@ -102,6 +102,7 @@ document.addEventListener('pointerover', event => {
   if (now === overLink) return;
   overLink = now;
   paintLayers();
+  announce('cursorlink', now);
 });
 
 root.addEventListener('pointerleave', () => {
