@@ -11,7 +11,7 @@ html.fake-cursor {
 
 .sb-track {
   position: absolute;
-  z-index: 5;
+  z-index: $scrollbar-z;
   background: $sidebar-color;
 
   &--y { width: $scrollbar-size; }
@@ -19,7 +19,6 @@ html.fake-cursor {
 
   &--page {
     position: fixed;
-    z-index: 90;
     &.sb-track--y { top: 0; right: 0; bottom: 0; }
     &.sb-track--x { right: 0; bottom: 0; left: 0; }
   }
