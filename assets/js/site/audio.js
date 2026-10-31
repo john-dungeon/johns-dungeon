@@ -8,7 +8,7 @@ const prefs = {
   music: load('sound-music', defaults.music)
 };
 
-// Background Music
+// Sound Effects
 const clips = new Map();
 let effects = {};
 
@@ -40,7 +40,6 @@ document.addEventListener('pointerover', event => {
 
 document.addEventListener('popupopen', () => play('open'));
 document.addEventListener('popupclose', () => play('close'));
-document.addEventListener('gateenter', () => play('enter'));
 document.addEventListener('fxsound', event => play(event.detail));
 
 function cameFromThisSite() {
@@ -53,12 +52,14 @@ addEventListener('pageshow', event => {
   if (event.persisted || cameFromThisSite()) play('transition');
 });
 
+// Background Music
 const music = new Audio();
 music.volume = volume.music;
 
 let playlist = [];
 let listName = '';
 let track = '';
+let entered = false;
 let saved = load('music-state', null);
 
 function start(file, from = 0) {
@@ -75,7 +76,8 @@ function pick() {
 }
 
 function syncMusic() {
-  if (!prefs.music || !playlist.length || document.hidden || waiting()) {
+  const silent = !prefs.music || !playlist.length || document.hidden || (waiting() && !entered);
+  if (silent) {
     music.pause();
     return;
   }
@@ -97,8 +99,13 @@ document.addEventListener('visibilitychange', () => {
   syncMusic();
 });
 
-document.addEventListener('gateopen', syncMusic);
-['pointerdown', 'keydown'].forEach(type => document.addEventListener(type, syncMusic));
+document.addEventListener('gateenter', () => {
+  play('enter');
+  entered = true;
+  syncMusic();
+});
+
+['pointerdown', 'pointerup', 'keydown'].forEach(type => document.addEventListener(type, syncMusic));
 
 // Theme Changes, Sound Menu
 onThemeChange(id => {
@@ -119,7 +126,7 @@ onThemeChange(id => {
 });
 
 document.querySelectorAll('[data-sound]').forEach(box => {
-  const kind = box.dataset.sound;   // "effects" or "music"
+  const kind = box.dataset.sound;
   box.checked = prefs[kind];
   box.addEventListener('change', () => {
     prefs[kind] = box.checked;
