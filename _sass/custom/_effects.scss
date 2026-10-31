@@ -11,6 +11,8 @@
 :root {
   --torch-glow-color: #{$torch-glow-color};
   --torch-glow-core-color: #{$torch-glow-core-color};
+  --torch-glow-link-color: #{$torch-glow-link-color};
+  --torch-glow-link-core-color: #{$torch-glow-link-core-color};
 }
 
 html.fx-torch-glow #site-cursor::before {
