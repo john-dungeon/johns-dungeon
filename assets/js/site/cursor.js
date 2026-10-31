@@ -1,4 +1,4 @@
-import { root, FINE_POINTER, INTERACTIVE, themeConfig, onThemeChange } from './shared.js';
+import { root, FINE_POINTER, clickableFrom, themeConfig, onThemeChange } from './shared.js';
 
 const VIDEO = /\.(webm|mp4)$/i;
 const url = file => globalThis.SITE_ROOT + file;
@@ -98,7 +98,7 @@ document.addEventListener('pointermove', event => {
 
 document.addEventListener('pointerover', event => {
   if (!spec) return;
-  const now = Boolean(event.target.closest(INTERACTIVE));
+  const now = Boolean(clickableFrom(event.target));
   if (now === overLink) return;
   overLink = now;
   paintLayers();
