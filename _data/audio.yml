@@ -3,20 +3,18 @@ defaults: { effects: true, music: true }
 volume: { effects: 0.5, music: 0.25 }
 
 # Sound Effect Sets
-# Events: hover, open (pop-up), close (pop-up), enter (entrance screen), transition (page change)
+# Events: open (pop-up), close (pop-up), enter (entrance screen), transition (page change)
 sets:
   basic:
     open: assets/audio/click.ogg
     close: assets/audio/click.ogg
     transition: assets/audio/click.ogg
   dungeon:
-    hover: assets/audio/light.ogg
     open: assets/audio/grind-in.ogg
     close: assets/audio/grind-out.ogg
     enter: assets/audio/entering.ogg
     transition: assets/audio/footsteps.ogg
   parchment:
-    hover: assets/audio/pen.ogg
     open: assets/audio/page.ogg
     close: assets/audio/page.ogg
     transition: assets/audio/page.ogg
