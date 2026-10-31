@@ -61,6 +61,8 @@
 - id: dark
   label: "Dark 🌑"
   sounds: basic
+  music: basic
 - id: light
   label: "Light ☀️"
   sounds: basic
+  music: basic
