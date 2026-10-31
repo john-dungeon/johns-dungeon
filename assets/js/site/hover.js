@@ -1,4 +1,4 @@
-import { root, INTERACTIVE, announce } from './shared.js';
+import { root, hoverableFrom, announce } from './shared.js';
 
 let over = false;
 
@@ -12,7 +12,7 @@ function set(next) {
 
 document.addEventListener('pointerover', event => {
   if (event.pointerType === 'touch') return;
-  set(Boolean(event.target.closest?.(INTERACTIVE)));
+  set(Boolean(hoverableFrom(event.target)));
 });
 
 root.addEventListener('pointerleave', () => set(false));
