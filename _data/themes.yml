@@ -14,10 +14,10 @@
 #  background: (WEBP file; 2560 × 1440 px; optional)
 #  cursor: (Custom cursor; optional)
 #   image: (Static: 32 × 32 px WEBP or PNG. Animated: WEBP, GIF, APNG, WEBM, or MP4)
+#   pointer: (Image shown over links and buttons; optional; defaults to the main image)
 #   animated: (true draws the cursor with a script so it can move; defaults to false)
 #   size: (Animated only: displayed width in px; defaults to 32)
 #   hotspot: ("x y" in displayed pixels; the exact point of clicking; defaults to "0 0")
-#   pointer: (Image shown over links and buttons; optional; defaults to the main image)
 #  sounds: (Sound effect set from _data/audio.yml; optional)
 #  music: (Music playlist from _data/audio.yml; optional)
 #  effects: (Ambient effects for this theme; optional)
@@ -35,7 +35,8 @@
     - { family: Jersey 10, file: assets/fonts/Jersey10-Regular.ttf }
   background: assets/images/backgrounds/dungeon.webp
   cursor:
-    image: assets/images/cursors/torch.webp
+    image: assets/images/cursors/torch-orange.webp
+    pointer: assets/images/cursors/torch-blue.webp
     animated: true
     size: 32
     hotspot: 16 16
