@@ -28,8 +28,11 @@ const posterize = (value, levels) => (value <= 0 ? 0 : Math.round(value * levels
 
 function makeDrawer({ pixels, levels, core, outerAlpha, coreAlpha }) {
   const style = getComputedStyle(root);
-  const outerColor = style.getPropertyValue('--torch-glow-color').trim();
-  const coreColor = style.getPropertyValue('--torch-glow-core-color').trim();
+  const read = name => style.getPropertyValue(name).trim();
+  const palettes = {
+    normal: { outer: read('--torch-glow-color'), core: read('--torch-glow-core-color') },
+    link: { outer: read('--torch-glow-link-color'), core: read('--torch-glow-link-core-color') }
+  };
 
   const canvas = document.createElement('canvas');
   canvas.width = pixels;
@@ -50,25 +53,33 @@ function makeDrawer({ pixels, levels, core, outerAlpha, coreAlpha }) {
     }
   }
 
-  return ({ scale, opacity }) => {
+  return ({ scale, opacity }, linked) => {
+    const colors = linked ? palettes.link : palettes.normal;
     pen.clearRect(0, 0, pixels, pixels);
     const radius = scale / BIGGEST;
-    paintLayer(outerColor, outerAlpha * opacity, radius);
-    paintLayer(coreColor, coreAlpha * opacity, radius * core);
+    paintLayer(colors.outer, outerAlpha * opacity, radius);
+    paintLayer(colors.core, coreAlpha * opacity, radius * core);
     return `url("${canvas.toDataURL()}")`;
   };
 }
 
-export default function torchGlow({ options, timer, random }) {
+export default function torchGlow({ options, on, timer, random }) {
   const settings = { ...DEFAULTS };
-
   const draw = makeDrawer(settings);
-  const show = frame => root.style.setProperty('--fx-torch-glow-image', draw(frame));
+
+  let frame = FRAMES[0];
+  let linked = false;
+  const show = () => root.style.setProperty('--fx-torch-glow-image', draw(frame, linked));
 
   root.style.setProperty('--fx-torch-glow-x', (options.x ?? 16) + 'px');
   root.style.setProperty('--fx-torch-glow-y', (options.y ?? 16) + 'px');
-  show(FRAMES[0]);
+  show();
   root.classList.add('fx-torch-glow');
+
+  on(document, 'cursorlink', event => {
+    linked = event.detail;
+    show();
+  });
 
   if (!CALM.matches) {
     let last = 0;
@@ -76,7 +87,8 @@ export default function torchGlow({ options, timer, random }) {
       let next;
       do { next = Math.floor(random(0, FRAMES.length)); } while (next === last);
       last = next;
-      show(FRAMES[next]);
+      frame = FRAMES[next];
+      show();
     }, 1 / settings.fps, 1 / settings.fps);
   }
 
