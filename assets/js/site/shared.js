@@ -1,9 +1,11 @@
 export const root = document.documentElement;
 export const FINE_POINTER = matchMedia('(hover: hover) and (pointer: fine)');
 export const CALM = matchMedia('(prefers-reduced-motion: reduce)');
-export const INTERACTIVE = 'a, button, summary, input, select, [role="menuitem"], .st-row';
-export const clickableFrom = node => {
-  const hit = node.closest(INTERACTIVE);
+
+const INTERACTIVE = 'a, button, summary, select, label, input[type="checkbox"], [role="menuitem"], .st-row';
+
+export const hoverableFrom = node => {
+  const hit = node.closest?.(INTERACTIVE);
   return hit && !hit.closest('#gate') ? hit : null;
 };
 
