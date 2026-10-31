@@ -40,8 +40,8 @@ document.addEventListener('popupclose', () => play('close'));
 document.addEventListener('fxsound', event => play(event.detail));
 document.addEventListener('pointerover', event => {
   if (event.pointerType === 'touch') return;
-  const target = event.target.closest(INTERACTIVE);
-  if (!target || target.closest('#gate') || target.contains(event.relatedTarget)) return;
+  const target = clickableFrom(event.target);
+  if (!target || target.contains(event.relatedTarget)) return;
   play('hover');
 });
 
