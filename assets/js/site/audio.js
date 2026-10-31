@@ -1,4 +1,4 @@
-import { load, save, waiting, themeConfig, onThemeChange, INTERACTIVE } from './shared.js';
+import { load, save, waiting, themeConfig, onThemeChange, clickableFrom } from './shared.js';
 
 const { defaults, volume, sets, playlists = {} } = globalThis.SITE_AUDIO;
 const url = file => globalThis.SITE_ROOT + file;
