@@ -1,4 +1,5 @@
-import { root, CALM } from '../shared.js';
+import { root, CALM, posterize } from '../shared.js';
+import { isHovering } from '../hover.js';
 
 export const calmSafe = true;
 export const gateSafe = true;
@@ -8,8 +9,8 @@ const DEFAULTS = {
   pixels: 32, // Height, Width
   levels: 3, // Bands of Brightness
   core: 0.4, // Core Radius Ratio
-  outerAlpha: 0.4, // Outer Opacity.
-  coreAlpha: 0.6, // Core Opacity.
+  outerAlpha: 0.4, // Outer Opacity
+  coreAlpha: 0.6, // Core Opacity
   fps: 6 // Frames Per Second
 };
 
@@ -23,8 +24,6 @@ const FRAMES = [
   { scale: 1.03, opacity: 0.9 }
 ];
 const BIGGEST = Math.max(...FRAMES.map(frame => frame.scale));
-
-const posterize = (value, levels) => (value <= 0 ? 0 : Math.round(value * levels) / levels);
 
 function makeDrawer({ pixels, levels, core, outerAlpha, coreAlpha }) {
   const style = getComputedStyle(root);
@@ -64,11 +63,11 @@ function makeDrawer({ pixels, levels, core, outerAlpha, coreAlpha }) {
 }
 
 export default function torchGlow({ options, on, timer, random }) {
-  const settings = { ...DEFAULTS };
+  const settings = { ...DEFAULTS, ...options };
   const draw = makeDrawer(settings);
 
   let frame = FRAMES[0];
-  let linked = false;
+  let linked = isHovering();
   const show = () => root.style.setProperty('--fx-torch-glow-image', draw(frame, linked));
 
   root.style.setProperty('--fx-torch-glow-x', (options.x ?? 16) + 'px');
@@ -76,10 +75,12 @@ export default function torchGlow({ options, on, timer, random }) {
   show();
   root.classList.add('fx-torch-glow');
 
-  on(document, 'cursorlink', event => {
-    linked = event.detail;
+  const sync = () => {
+    linked = isHovering();
     show();
-  });
+  };
+  on(document, 'hoverstart', sync);
+  on(document, 'hoverend', sync);
 
   if (!CALM.matches) {
     let last = 0;
