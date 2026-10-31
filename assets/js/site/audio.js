@@ -1,4 +1,4 @@
-import { load, save, waiting, themeConfig, onThemeChange, INTERACTIVE } from './shared.js';
+import { load, save, waiting, themeConfig, onThemeChange } from './shared.js';
 
 const { defaults, volume, sets, playlists = {} } = globalThis.SITE_AUDIO;
 const url = file => globalThis.SITE_ROOT + file;
@@ -29,14 +29,6 @@ function play(name) {
   sound.volume = volume.effects;
   sound.play().catch(() => {});
 }
-
-let hovered = null;
-document.addEventListener('pointerover', event => {
-  if (event.pointerType !== 'mouse') return;
-  const item = event.target.closest(INTERACTIVE);
-  if (item && item !== hovered) play('hover');
-  hovered = item;
-});
 
 document.addEventListener('popupopen', () => play('open'));
 document.addEventListener('popupclose', () => play('close'));
