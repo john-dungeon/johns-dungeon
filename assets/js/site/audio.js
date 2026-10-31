@@ -1,4 +1,4 @@
-import { load, save, waiting, themeConfig, onThemeChange, clickableFrom } from './shared.js';
+import { load, save, waiting, themeConfig, onThemeChange } from './shared.js';
 
 const { defaults, volume, sets, playlists = {} } = globalThis.SITE_AUDIO;
 const url = file => globalThis.SITE_ROOT + file;
@@ -39,12 +39,6 @@ document.addEventListener('popupopen', () => play('open'));
 document.addEventListener('popupclose', () => play('close'));
 document.addEventListener('hoverstart', () => play('hover'));
 document.addEventListener('fxsound', event => play(event.detail));
-document.addEventListener('pointerover', event => {
-  if (event.pointerType === 'touch') return;
-  const target = clickableFrom(event.target);
-  if (!target || target.contains(event.relatedTarget)) return;
-  play('hover');
-});
 
 function cameFromThisSite() {
   const nav = performance.getEntriesByType('navigation')[0];
