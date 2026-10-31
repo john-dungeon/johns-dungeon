@@ -4,9 +4,9 @@
 
   a, button, summary, select, label, input[type="checkbox"], [role="menuitem"], .st-row {
     &, * { cursor: $theme-cursor-pointer !important; }
+  }
 
   #gate, #gate * { cursor: $theme-cursor !important; }
-  }
 }
 
 html.fake-cursor {
