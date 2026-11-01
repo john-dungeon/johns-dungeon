@@ -113,6 +113,6 @@ actions:
   
 **At Will:** *Elementalism*, *Mage Hand*, *Mending*
 
-**1/Day Each:** *Disintegrate*, *Move Earth*, *Stone Shape*
+**1/Day Each:** *Disintegrate* (no sight required; the stone lion only needs to detect the target with its senses), *Move Earth*, *Stone Shape*
 
 ---
