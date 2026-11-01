@@ -102,7 +102,7 @@ The amulet closes all wounds, neutralizes any poison, cures all magical contagio
 
 **Earned Insight.** Your Wisdom score and another ability score of your choice, except Constitution, increase by 1, to a maximum of 24.
 
-**Death's Neighbor.** You gain the following benefits based on how many of the amulet's charges have been expended: you have Immunity to the Frightened condition (1 charge expended). You have Advantage on Wisdom checks and saving throws (3 charges expended). You have Advantage on Death Saving Throws (5 charges expended).
+**Death's Neighbor.** You gain the following benefits based on how many of the amulet's charges have been expended: you have Immunity to the Frightened condition (1 charge expended). You have Advantage on Wisdom checks and saving throws (3 charges expended). You have Advantage on Death Saving Throws and die only after failing six Death saving throws instead of three (5 charges expended).
 
 ***Curse.*** The amulet is cursed. Attuning to the amulet extends the curse to you. Only a *Wish* spell, dying from old age, or dying when the amulet has no remaining charges can remove this curse. As long as you remain cursed, the amulet magically reappears on your person if it is more than 30 feet away from you. If you die while attuned to the amulet, you can be revived only by a *True Resurrection* or a *Wish* spell.
 
