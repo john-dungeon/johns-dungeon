@@ -1021,6 +1021,7 @@ The scroll's rarity and purchase cost, the level of the spell on it, and the spe
 ***Copying a Scroll into a Spellbook.*** A Wizard spell on a Tear Scroll can be copied into a spellbook. When a spell is copied in this way, the copier must succeed on an Intelligence (Arcana) check with a DC equal to 10 plus the spell's level. On a successful check, the spell is copied. Whether the check succeeds or fails, the Tear Scroll is destroyed.
 
 > *The following rule isn't often relevant, but may be important when it is.*\
+> ***Concentration.*** A Tear Scroll can never bear the words of a spell that requires Concentration.
 > ***Rage.*** *Due to the simple nature of its activation, a Barbarian can use this magic item to cast a spell while their Rage is active. At the DM's discretion, similar effects that prevent a creature from casting spells can also be circumvented by this magic item.*
 
 ---
