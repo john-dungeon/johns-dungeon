@@ -516,7 +516,7 @@ options_cost: 160015-160050
 note_cost: +160,000 GP to normal counterpart
 weight: 0.5
 tags: Buff, Consumable, Extra Damage, Magic Item
-description: You have Advantage on attack rolls made with this magic weapon. In addition, the weapon ignores Resistance to its damage type.
+description: You have Advantage on attack rolls made with this magic weapon. In addition, the weapon ignores Resistance to Slashing damage.
 
 ***Fragile.*** If you roll a 1 on any d20 rolled as part of an attack roll using this weapon, the weapon shatters into pieces immediately after the attack hits or misses; this includes any rerolled dice or additional dice rolled for Advantage or Disadvantage. For example, if you make an attack roll using this weapon with Advantage and roll a 17 and a 1 for it, you use the 17 for the attack. However, the weapon still shatters after you hit or miss.
 
