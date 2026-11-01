@@ -459,7 +459,7 @@ weight: 1
 tags: Attack Bonus, Consumable, Damage Bonus, Magic Item
 description: This whetstone can sharpen one Melee weapon that deals Slashing or Piercing damage. Using the whetstone takes 1 hour, which can be done during a Short Rest, after which the whetstone crumbles to dust and the weapon is magically sharpened, granting it a permanent bonus to attack rolls and damage rolls determined by the whetstone's potency, as shown in the table below.
 
-If the weapon was nonmagical, it becomes magical after being sharpened with the whetstone. If the weapon already had a bonus to attack rolls and damage rolls, its bonus is changed to the one granted by the whetstone, and its rarity changes to the whetstone's rarity if it is lower. For example, an Uncommon magic weapon sharpened by a Rare Enchanted Whetstone becomes a Rare magic weapon, but a Very Rare magic weapon's rarity wouldn't change.
+If the weapon was nonmagical, it becomes magical after being sharpened with the whetstone. If the weapon already had a bonus to attack rolls and damage rolls, its bonus is changed to the one granted by the whetstone. The weapon's rarity changes to the whetstone's rarity if it is lower. For example, an Uncommon magic weapon sharpened by a Rare Enchanted Whetstone becomes a Rare magic weapon, but a Very Rare magic weapon's rarity wouldn't change.
 
 | Potency | Rarity | Bonus Granted | Cost |
 | :---: | :--- | :---: | :---: |
