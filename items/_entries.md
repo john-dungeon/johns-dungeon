@@ -63,7 +63,7 @@ description: This magic weapon is made of adamantine, an alloy made of iron and 
 
 ***Unbreakable.*** Whenever this weapon hits an object, the hit is a Critical Hit.
 
-***Impact Absorption.*** When you hit a target with the weapon, it gains 1 charge, up to a maximum of 6 charges. Immediately after you hit a target with the weapon, you can take a Bonus Action to expend all of the weapon's charges to unleash a concentrated blast of magical force from the weapon. The target takes an extra 1d8 Force damage from the attack for each charge expended and has the Prone condition.
+***Impact Absorption.*** When you hit a target with the weapon, it gains 1 charge, up to a maximum of 6 charges. Immediately after you hit a target with the weapon, you can take a Bonus Action to expend all of the weapon's charges and unleash a concentrated blast of magical force against the target. The target takes an extra 1d8 Force damage from the attack for each charge expended, and it has the Prone condition if it is Huge or smaller.
 
 ---
 
