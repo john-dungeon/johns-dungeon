@@ -1074,7 +1074,7 @@ The scroll's rarity and purchase cost, and the level of the spell on it, are det
 
 Any spell that you prepare from a Tutorial Scroll is no longer prepared when you finish another Long Rest, unless you spend that rest studying the scroll again.
 
-***Copying a Scroll into a Spellbook.*** A Wizard spell on a Tutorial Scroll can be copied into a spellbook. When a spell is copied in this way, the copier must succeed on an Intelligence (Arcana) check with a DC equal to 10 plus the spell's level. On a successful check, the spell is copied. Whether the check succeeds or fails, the Tutorial Scroll is destroyed.
+***Copying a Scroll into a Spellbook.*** A Wizard spell on a Tutorial Scroll can be copied into a spellbook. When the spell is copied, the Tutorial Scroll is destroyed.
 
 ---
 
