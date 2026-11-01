@@ -158,9 +158,9 @@ The creature remains bound until another creature within 5 feet of it takes 1 mi
 name: Bagpipes of Invisibility
 category: Wondrous Item
 note_category: Bagpipes
-rarity: Common
+rarity: Uncommon
 attunement: false
-cost: 100.3
+cost: 400.3
 weight: 6
 tags: Condition, Magic Item
 description: While playing this Musical Instrument, you have the Invisible condition. You remain Invisible until you stop playing.
