@@ -618,7 +618,7 @@ cost: 4
 weight: 30
 description: As a Utilize action, you can deploy the Mantlet, placing it in a space within your reach. While deployed, it has AC 15, HP 15, Immunity to Poison and Psychic damage, and Vulnerability to Fire damage. Reducing the Mantlet to 0 Hit Points destroys it. The broad side of the Mantlet is large enough to provide Three-Quarters Cover for a Medium creature standing behind it.
 
-Holding a Mantlet provides no benefit to your Armor Class, since it is too cumbersome to maneuver defensively.
+Holding a Mantlet provides no benefit to your Armor Class, since it is too cumbersome to maneuver defensively. You can pick up a deployed Mantlet as a Utilize action.
 
 ---
 
