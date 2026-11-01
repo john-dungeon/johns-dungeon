@@ -556,7 +556,7 @@ description: You have a +1 bonus to attack and damage rolls made with this magic
 
 ***Rope.*** The weapon has a 60-foot length of rope attached to it. The rope has AC 20, HP 20, and Immunity to all damage except Force damage. It regains 1 Hit Point every 5 minutes as long as it has at least 1 Hit Point. If the rope drops to 0 Hit Points, it is destroyed. After 3 days, the rope is restored and regains all of its Hit Points.
 
-As a Magic action, you can magically fix or unfix one end of the rope to yourself, preventing it from flying out of your reach. While the rope is fixed to you, the weapon's normal range and long range are no more than 60 feet.
+As a Magic action, you can magically fix or unfix one end of the rope to yourself, preventing it from flying out of your reach. While the rope is fixed to you, the weapon's normal range and long range are no more than the rope's length.
 
 ***Harpoon.*** When you hit a target with an attack roll with the weapon, you can harpoon the target with the weapon, leaving it pinned in the target. While pinned in a target, the weapon can't be used to make attacks. The pinned creature or another creature that can reach it can take an action to make a DC 17 Strength (Athletics) check, dislodging the weapon on a success.
 
