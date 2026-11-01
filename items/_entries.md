@@ -524,7 +524,7 @@ description: You have Advantage on attack rolls made with this magic weapon. In 
 
 ---
 
-name: Glass Sword
+name: Glass Weapon
 category: Weapon
 note_category: Any Melee Weapon That Deals Piercing or Slashing Damage
 rarity: Very Rare
