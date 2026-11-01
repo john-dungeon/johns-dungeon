@@ -927,7 +927,7 @@ cost: 50
 weight: 20
 description: A Scutum is a type of Shield. Shields require the Utilize action to Don or Doff. You gain the Armor Class benefit of a Shield only if you have training with it.
 
-While carrying this Shield, you have Disadvantage on Dexterity checks and Dexterity saving throws.
+If you have a Strength score lower than 15, you have Disadvantage on Dexterity checks and your Speed is reduced by 10 feet while carrying this Shield.
 
 | Name | Cost | Armor Class | Strength | Stealth | Weight |
 | :---: | :---: | :---: | :---: | :---: | :---: |
