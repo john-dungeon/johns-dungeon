@@ -16,7 +16,7 @@ description: This piece of magic ammunition is made of adamantine, an alloy made
 
 ***Unbreakable.*** Whenever the ammunition hits an object, the hit is a Critical Hit. In addition, you can always recover the ammunition after a combat, unless it was destroyed or taken—picked up by an enemy that fled, for example.
 
-***Impact Absorption.*** You can spend 1 minute charging up to 10 pieces of the ammunition with energy by hitting them against other objects. The charge on the ammunition lasts until you hit or miss with an attack roll using the ammunition. When you hit or miss with an attack roll using a piece of charged ammunition, the ammunition explodes with magical force. The target of the attack and each creature within 10 feet of it must make a DC 17 Dexterity saving throw, taking 6d8 Force damage on a failed save or half as much damage on a successful one.
+***Impact Absorption.*** You can spend 1 minute charging up to 10 pieces of the ammunition with energy by hitting them against other objects, granting each piece 1 charge when you finish. When you hit or miss with an attack roll using a piece of charged ammunition, the ammunition's charge is expended and the ammunition unleashes a burst with magical force. The target of the attack and each creature within 10 feet of it must make a DC 17 Dexterity saving throw, taking 6d8 Force damage on a failed save or half as much damage on a successful one.
 
 ---
 
