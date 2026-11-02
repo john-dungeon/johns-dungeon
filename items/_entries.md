@@ -822,6 +822,9 @@ When you hit a target with the ammunition, the ammunition becomes embedded in th
 
 You can make attacks against spells with the ammunition, potentially ending them. When you do so, choose one creature, object, or magical effect within your range with a Ranged weapon and make an attack roll with the ammunition against one ongoing spell of level 5 or lower affecting it (AC 13 plus that spell's level). On a hit, the spell ends.
 
+> *The following rule isn't often relevant, but may be important when it is.*\
+> ***Antimagic.*** *The* Antimagic Field *spell and other spells or magical effects that aren't affected by the* Dispel Magic *spell are also not affected by this magic item.*
+
 ---
 
 name: Orichalcum Armor
