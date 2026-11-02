@@ -1,3 +1,25 @@
+name: Adamantine Ammunition
+category: Weapon
+note_category: Any Ammunition
+rarity: Legendary
+attunement: false
+cost: Varies
+options_cost: 30000.002-30000.3
+note_cost: +30,000 GP to normal counterpart
+weight: Varies
+options_weight: 0.03-0.3
+note_weight: +50% to normal counterpart
+setting: Erisia
+note_setting: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
+tags: Area, Attack Bonus, Consumable, Damage, Damage Bonus, Magic Item, Saving Throw
+description: This piece of magic ammunition is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The ammunition is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
+
+***Unbreakable.*** Whenever the ammunition hits an object, the hit is a Critical Hit. In addition, you can always recover the ammunition after a combat, unless it was destroyed or taken—picked up by an enemy that fled, for example.
+
+***Impact Absorption.*** You can spend 1 minute charging up to 10 pieces of the ammunition with energy by hitting them against other objects. When you hit or miss with an attack roll using a piece of charged ammunition, the ammunition explodes with magical force. The target of the attack and each creature within 10 feet of it must make a DC 17 Dexterity saving throw, taking 6d8 Force damage on a failed save or half as much damage on a successful one.
+
+---
+
 name: Adamantine Armor
 category: Armor
 note_category: Half-Plate Armor or Plate Armor
@@ -61,7 +83,7 @@ note_setting: Its setting-agnostic variant is the Adamantine Weapon from the Dun
 tags: Attack Bonus, Charge, Condition, Damage Bonus, Extra Damage, Magic Item
 description: This magic weapon is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The weapon is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
-***Unbreakable.*** Whenever this weapon hits an object, the hit is a Critical Hit.
+***Unbreakable.*** Whenever the weapon hits an object, the hit is a Critical Hit.
 
 ***Impact Absorption.*** When you hit a target with the weapon, it gains 1 charge, up to a maximum of 6 charges. Immediately after you hit a target with the weapon, you can take a Bonus Action to expend all of the weapon's charges and unleash a concentrated blast of magical force against the target. The target takes an extra 1d8 Force damage from the attack for each charge expended, and it has the Prone condition if it is Huge or smaller.
 
