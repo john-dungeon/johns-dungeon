@@ -7,7 +7,7 @@ cost: Varies
 options_cost: 30000.002-30000.3
 note_cost: +30,000 GP to normal counterpart
 weight: Varies
-options_weight: 0.03-0.3
+options_weight: 0.03-0.75
 note_weight: +50% to normal counterpart
 setting: Erisia
 note_setting: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
@@ -236,7 +236,7 @@ cost: Varies
 options_cost: 10.002-10.3
 note_cost: +10 GP to normal counterpart
 weight: Varies
-options_weight: 0.02-0.2
+options_weight: 0.02-0.5
 tags: Area, Consumable, Damage, Magic Item, Saving Throw
 description: When you hit or miss with an attack roll using this piece of magic ammunition, the ammunition explodes and is destroyed. The target of the attack and each creature within 5 feet of it must make a DC 13 Dexterity saving throw, taking 2d6 Fire damage on a failed save or half as much damage on a successful one.
 
@@ -314,6 +314,26 @@ This weapon has the following mastery property. To use this property, you must h
 | :---: | :---: | :---: | :---: | :---: |
 | Cestus | 5 SP | 1d4 Piercing | 2 lb. | Free-Handed, Light, Unarmed, Sap |
 {: .catalog }
+
+---
+
+name: Cold Iron Ammunition
+category: Weapon
+note_category: Any Ammunition
+rarity: Rare
+attunement: false
+cost: Varies
+options_cost: 415.002-415.3
+note_cost: +415 GP to normal counterpart
+weight: Varies
+options_weight: 0.02-0.5
+setting: Erisia
+tags: Attack Bonus, Condition, Consumable, Damage Bonus, Extra Damage, Magic Item, Saving Throw
+description: This piece of magic ammunition is made of cold iron, a special type of iron that repels Undead and supernatural beings. You have a +1 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
+
+***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the ammunition, the ammunition turns black. The ammunition returns to normal if no creatures of those types are in the Emanation.
+
+***Supernatural Deterrent.*** When you hit an Aberration, Fey, Fiend, or Undead with the ammunition, the target takes an extra 1d6 Force damage and must succeed on a DC 15 Wisdom saving throw or have the Frightened condition for 1 minute. While Frightened, the target has the Incapacitated condition. At the end of each of its turns, the Frightened target can make a DC 15 Wisdom saving throw, ending the effect on itself on a success.
 
 ---
 
@@ -453,7 +473,7 @@ cost: Varies
 options_cost: 20.002-20.3
 note_cost: +20 GP to normal counterpart
 weight: Varies
-options_weight: 0.02-0.2
+options_weight: 0.02-0.5
 tags: Ability Check, Area, Condition, Consumable, Damage, Forced Movement, Magic Item, Saving Throw
 description: A creature hit by this magic ammunition suffers an effect corresponding to its damage type. Damage types and their corresponding effects are shown in the table below.
 
@@ -667,6 +687,27 @@ This weapon has the following mastery property. To use this property, you must h
 
 ---
 
+name: Mithril Ammunition
+category: Weapon
+note_category: Any Ammunition
+rarity: Uncommon
+attunement: false
+cost: Varies
+options_cost: 50.002-50.3
+note_cost: +50 GP to normal counterpart
+weight: Varies
+options_weight: 0.01-0.25
+note_weight: -50% to normal counterpart
+setting: Erisia
+tags: Ability Check, Consumable, Magic Item
+description: This piece of magic ammunition is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The ammunition magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, fragments of the ammunition move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the ammunition's original state.
+
+When you hit a target with the ammunition, the ammunition becomes embedded in the target. A creature can take the Utilize action to make a DC 10 Strength (Athletics) or Dexterity (Sleight of Hand) check, dislodging the ammunition on a success.
+
+In addition, you can always recover the ammunition after a combat, unless it was destroyed or taken—picked up by an enemy that fled, for example. If the ammunition is linked to a Mithril Compass, the compass can determine the ammunition's direction, possibly tracking a target if the ammunition is embedded in it.
+
+---
+
 name: Mithril Armor
 category: Armor
 note_category: Any Light, Medium, or Heavy Armor
@@ -681,9 +722,23 @@ note_weight: -50% to normal counterpart
 setting: Erisia
 note_setting: Its setting-agnostic variant is Mithral Armor from the Dungeon Master's Guide (5.5e).
 tags: Magic Item
-description: This magic suit of armor is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The armor magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the armor move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the armor's original state.
+description: This magic suit of armor is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The armor magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, fragments of the armor move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the armor's original state.
 
 In addition, the armor can be worn under normal clothes, and you can doff it as a Utilize action. If the armor normally imposes Disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithril version of the armor doesn't.
+
+---
+
+name: Mithril Compass
+category: Wondrous Item
+rarity: Uncommon
+attunement: false
+options_cost: 350
+weight: 0.02
+setting: Erisia
+tags: Magic Item
+description: This magic compass uses the self-mending properties of mithril to locate mithril objects linked to it. As a Magic action, you can touch the compass to an object made of mithril. A minuscule fragment of the object transforms into the compass's needle, linking the object to the compass. The needle always points to the object while the two of them are on the same plane of existence. If the needle and the object are on different planes of existence, the needle spins around chaotically.
+
+As a Magic action, you can release the needle from the compass, allowing the needle to move to its original object and mend itself.
 
 ---
 
@@ -700,7 +755,7 @@ options_weight: 3
 note_weight: -50% to normal counterpart
 setting: Erisia
 tags: Damage Reduction, Magic Item
-description: This magic Shield is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The Shield magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the Shield move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the Shield's original state.
+description: This magic Shield is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The Shield magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, fragments of the Shield move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the Shield's original state.
 
 In addition, when you're holding the Shield and an attack roll hits you, you can take a Reaction to reduce the attack's damage against you by 1d10.
 
@@ -719,7 +774,7 @@ options_weight: 0.5-9
 note_weight: -50% to normal counterpart
 setting: Erisia
 tags: Magic Item
-description: This magic weapon is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The weapon magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, pieces of the weapon move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the weapon's original state.
+description: This magic weapon is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The weapon magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, fragments of the weapon move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the weapon's original state.
 
 In addition, if the weapon normally has the Heavy property, the mithril version of the weapon doesn't. If the weapon normally lacks the Heavy and Light properties, the mithril version of the weapon has the Light property.
 
@@ -757,16 +812,15 @@ cost: Varies
 options_cost: 4500.002-4500.3
 note_cost: +4,500 GP to normal counterpart
 weight: Varies
-options_weight: 0.025-0.25
+options_weight: 0.025-0.625
 note_weight: +25% to normal counterpart
 setting: Erisia
-tags: Attack Bonus, Consumable, Damage Bonus, Magic Item
-description: This piece of magic ammunition is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the ammunition. Once it hits a target, the ammunition is no longer magical, losing its magical properties.
+tags: Ability Check, Attack Bonus, Consumable, Damage Bonus, Magic Item
+description: This piece of magic ammunition is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the ammunition. However, while carrying the ammunition, you have Disadvantage on spell attack rolls and your targets have Advantage on saving throws against spells you cast.
+
+When you hit a target with the ammunition, the ammunition becomes embedded in the target. A creature can take the Utilize action to make a DC 10 Strength (Athletics) or Dexterity (Sleight of Hand) check, dislodging the ammunition on a success. A target that is embedded with one or more pieces of the ammunition can't cast or maintain Concentration on spells.
 
 You can make attacks against spells with the ammunition, potentially ending them. When you do so, choose one creature, object, or magical effect within your range with a Ranged weapon and make an attack roll with the ammunition against one ongoing spell of level 5 or lower affecting it (AC 13 plus that spell's level). On a hit, the spell ends.
-
-> *The following rule isn't often relevant, but may be important when it is.*\
-> ***Antimagic.*** *The* Antimagic Field *spell and other spells or magical effects that aren't affected by the* Dispel Magic *spell are also not affected by this magic item.*
 
 ---
 
@@ -1043,7 +1097,7 @@ The scroll's rarity and purchase cost, the level of the spell on it, and the spe
 ***Copying a Scroll into a Spellbook.*** A Wizard spell on a Tear Scroll can be copied into a spellbook. When a spell is copied in this way, the copier must succeed on an Intelligence (Arcana) check with a DC equal to 10 plus the spell's level. On a successful check, the spell is copied. Whether the check succeeds or fails, the Tear Scroll is destroyed.
 
 > *The following rule isn't often relevant, but may be important when it is.*\
-> ***Concentration.*** A Tear Scroll can never bear the words of a spell that requires Concentration.
+> ***Concentration.*** *A Tear Scroll can never bear the words of a spell that requires Concentration.*\
 > ***Rage.*** *Due to the simple nature of its activation, a Barbarian can use this magic item to cast a spell while their Rage is active. At the DM's discretion, similar effects that prevent a creature from casting spells can also be circumvented by this magic item.*
 
 ---
@@ -1057,7 +1111,7 @@ cost: Varies
 options_cost: 10.002-10.3
 note_cost: +10 GP to normal counterpart
 weight: Varies
-options_weight: 0.02-0.2
+options_weight: 0.02-0.5
 tags: Consumable, Light, Magic Item
 description: A creature hit by this magic ammunition is marked for 1 hour. For the duration, the target emits Dim Light in a 5-foot radius and can't benefit from the Invisible condition, as its silhouette glows white. The glowing silhouette can be seen through Total Cover.
 
