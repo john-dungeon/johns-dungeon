@@ -736,7 +736,7 @@ cost: 350
 weight: 0.02
 setting: Erisia
 tags: Magic Item
-description: This magic compass uses the self-mending properties of mithril to locate mithril objects linked to it. As a Magic action, you can touch the compass to an object made of mithril. A minuscule fragment of the object transforms into the compass's needle, linking the object to the compass. The needle always points to the object while the two of them are on the same plane of existence. If the needle and the object are on different planes of existence, the needle spins around chaotically.
+description: This magic compass uses the self-mending properties of mithril to locate mithril objects linked to it. As a Magic action, you can touch the compass to an object made of mithril. A minuscule fragment of the object transforms into the compass's needle, linking the object to the compass. The needle always points to the object while the two of them are on the same plane of existence. If the needle and the object are on different planes of existence, the needle's connection with the object is permanently severed, and it won't fuse back with the object if it is released from the compass.
 
 As a Magic action, you can release the needle from the compass, allowing the needle to move to its original object and mend itself.
 
