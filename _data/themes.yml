@@ -56,7 +56,12 @@
     - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Regular.ttf }
     - { family: IM Fell English, file: assets/fonts/IMFellEnglish-Italic.ttf, style: italic }
     - { family: IM Fell English SC, file: assets/fonts/IMFellEnglishSC-Regular.ttf }
-  background: assets/images/parchment-bg.webp
+  background: assets/images/backgrounds/parchment.webp
+  cursor:
+    image: assets/images/cursors/quill-white.webp
+    pointer: assets/images/cursors/quill-red.webp
+    size: 64
+    hotspot: 0 64
   sounds: parchment
   music: parchment
 - id: dark
