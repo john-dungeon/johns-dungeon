@@ -60,8 +60,8 @@
   cursor:
     image: assets/images/cursors/quill-white.webp
     pointer: assets/images/cursors/quill-red.webp
-    size: 64
-    hotspot: 0 64
+    size: 32
+    hotspot: 0 32
   sounds: parchment
   music: parchment
 - id: dark
