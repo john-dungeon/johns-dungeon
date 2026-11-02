@@ -816,7 +816,7 @@ options_weight: 0.025-0.625
 note_weight: +25% to normal counterpart
 setting: Erisia
 tags: Ability Check, Attack Bonus, Consumable, Damage Bonus, Magic Item
-description: This piece of magic ammunition is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the ammunition. However, while carrying the ammunition, you have Disadvantage on spell attack rolls and your targets have Advantage on saving throws against spells you cast.
+description: This piece of magic ammunition is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the ammunition. However, while carrying 10 or more pieces of the ammunition, you have Disadvantage on spell attack rolls and your targets have Advantage on saving throws against spells you cast.
 
 When you hit a target with the ammunition, the ammunition becomes embedded in the target. A creature can take the Utilize action to make a DC 10 Strength (Athletics) or Dexterity (Sleight of Hand) check, dislodging the ammunition on a success. A target that is embedded with one or more pieces of the ammunition can't cast or maintain Concentration on spells.
 
