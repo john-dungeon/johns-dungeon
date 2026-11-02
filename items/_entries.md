@@ -732,7 +732,7 @@ name: Mithril Compass
 category: Wondrous Item
 rarity: Uncommon
 attunement: false
-options_cost: 350
+cost: 350
 weight: 0.02
 setting: Erisia
 tags: Magic Item
