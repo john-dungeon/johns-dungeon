@@ -702,7 +702,7 @@ setting: Erisia
 tags: Ability Check, Consumable, Magic Item
 description: This piece of magic ammunition is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The ammunition magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, fragments of the ammunition move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the ammunition's original state.
 
-When you hit a target with the ammunition, the ammunition becomes embedded in the target. A creature can take the Utilize action to make a DC 10 Strength (Athletics) or Dexterity (Sleight of Hand) check, dislodging the ammunition on a success.
+When you hit a target with the ammunition, you can cause the ammunition to become embedded in the target. A creature can take the Utilize action to make a DC 10 Strength (Athletics) or Dexterity (Sleight of Hand) check, dislodging the ammunition on a success.
 
 In addition, you can always recover the ammunition after a combat, unless it was destroyed or taken—picked up by an enemy that fled, for example. If the ammunition is linked to a Mithril Compass, the compass can determine the ammunition's direction, possibly tracking a target if the ammunition is embedded in it.
 
@@ -822,7 +822,8 @@ When you hit a target with the ammunition, the ammunition becomes embedded in th
 
 You can make attacks against spells with the ammunition, potentially ending them. When you do so, choose one creature, object, or magical effect within your range with a Ranged weapon and make an attack roll with the ammunition against one ongoing spell of level 5 or lower affecting it (AC 13 plus that spell's level). On a hit, the spell ends.
 
-> *The following rule isn't often relevant, but may be important when it is.*\
+> *The following rule isn't often relevant, but may be important when it is.*
+> 
 > ***Antimagic.*** *The* Antimagic Field *spell and other spells or magical effects that aren't affected by the* Dispel Magic *spell are also not affected by this magic item.*
 
 ---
@@ -880,7 +881,8 @@ description: This magic weapon is made of orichalcum, a strange bronze-like meta
 
 You can make attacks against spells with the weapon, potentially ending them. When you do so, choose one creature, object, or magical effect within your reach with the weapon and make an attack roll with the weapon against one ongoing spell of level 5 or lower affecting it (AC 13 plus that spell's level). On a hit, the spell ends.
 
-> *The following rule isn't often relevant, but may be important when it is.*\
+> *The following rule isn't often relevant, but may be important when it is.*
+> 
 > ***Antimagic.*** *The* Antimagic Field *spell and other spells or magical effects that aren't affected by the* Dispel Magic *spell are also not affected by this magic item.*
 
 ---
@@ -1031,7 +1033,8 @@ This weapon has the following mastery property. To use this property, you must h
 | Scythe | 5 SP | 1d8 Slashing | 4 lb. | Two-Handed, Cleave |
 {: .catalog }
 
-> *The following rule isn't often relevant, but may be important when it is.*\
+> *The following rule isn't often relevant, but may be important when it is.*
+> 
 > ***Polearm.*** *This weapon can benefit from the Polearm Master feat, like a Quarterstaff or a Spear.*
 
 ---
@@ -1099,8 +1102,10 @@ The scroll's rarity and purchase cost, the level of the spell on it, and the spe
 
 ***Copying a Scroll into a Spellbook.*** A Wizard spell on a Tear Scroll can be copied into a spellbook. When a spell is copied in this way, the copier must succeed on an Intelligence (Arcana) check with a DC equal to 10 plus the spell's level. On a successful check, the spell is copied. Whether the check succeeds or fails, the Tear Scroll is destroyed.
 
-> *The following rule isn't often relevant, but may be important when it is.*\
-> ***Concentration.*** *A Tear Scroll can never bear the words of a spell that requires Concentration.*\
+> *The following rule isn't often relevant, but may be important when it is.*
+> 
+> ***Concentration.*** *A Tear Scroll can never bear the words of a spell that requires Concentration.*
+> 
 > ***Rage.*** *Due to the simple nature of its activation, a Barbarian can use this magic item to cast a spell while their Rage is active. At the DM's discretion, similar effects that prevent a creature from casting spells can also be circumvented by this magic item.*
 
 ---
