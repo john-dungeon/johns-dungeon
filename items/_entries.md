@@ -11,7 +11,7 @@ options_weight: 0.03-0.75
 note_weight: +50% to normal counterpart
 setting: Erisia
 note_setting: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
-tags: Area, Attack Bonus, Consumable, Damage, Damage Bonus, Magic Item, Saving Throw
+tags: Area, Attack Bonus, Charge, Consumable, Damage, Damage Bonus, Magic Item, Saving Throw
 description: This piece of magic ammunition is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The ammunition is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
 
 ***Unbreakable.*** Whenever the ammunition hits an object, the hit is a Critical Hit. In addition, you can always recover the ammunition after a combat, unless it was destroyed or taken—picked up by an enemy that fled, for example.
