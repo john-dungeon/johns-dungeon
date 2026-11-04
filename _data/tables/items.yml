@@ -17,7 +17,7 @@ columns:
     label: Name
   - key: category
     label: Category
-    order: [Adventuring Gear, Armor, Augment, Implant, Mount, Potion, Ring, Rod, Scroll, Staff, Tool, Vehicle, Wand, Weapon, Wondrous Item]
+    order: [Adventuring Gear, Armor, Augment, Implant, Ingredient, Mount, Potion, Ring, Rod, Scroll, Staff, Tool, Vehicle, Wand, Weapon, Wondrous Item]
   - key: rarity
     label: Rarity
     type: rank
