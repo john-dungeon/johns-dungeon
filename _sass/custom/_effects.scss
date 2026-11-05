@@ -59,3 +59,48 @@ html.fx-vignette {
     background-size: 100vw 100vh;
   }
 }
+
+// Stone Crumble (effects/stone-crumble.js)
+:root { --effect-pixel: #{$effect-pixel}; }
+
+.fx-stone {
+  position: absolute;
+  background: unquote("color-mix(in srgb, #{$stone-light} calc(var(--tone) * 100%), #{$stone-dark})");
+  box-shadow:
+    inset $effect-pixel $effect-pixel 0 rgba(#ffffff, 0.2),
+    inset (-$effect-pixel) (-$effect-pixel) 0 rgba(#000000, 0.35);
+  animation: stone-fall var(--time) cubic-bezier(0.11, 0, 0.5, 0) var(--delay) both;
+}
+
+@keyframes stone-fall {
+  to { translate: var(--drift) var(--fall); }
+}
+
+.fx-dust {
+  position: absolute;
+  width: $effect-pixel;
+  height: $effect-pixel;
+  color: $dust-color;
+  background: currentcolor;
+  opacity: 0;
+  animation: dust-poof var(--time) steps(5) var(--delay) forwards;
+}
+
+@keyframes dust-poof {
+  from { transform: scale(0.4); opacity: 0.9; }
+  to { transform: scale(1.4); opacity: 0; }
+}
+
+html.shaking {
+  overflow-x: hidden;
+
+  .side-bar,
+  .st-dialog,
+  body::before { translate: var(--shake-x, 0) var(--shake-y, 0); }
+
+  .main {
+    position: relative;
+    left: var(--shake-x, 0);
+    top: var(--shake-y, 0);
+  }
+}
