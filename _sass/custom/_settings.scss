@@ -39,3 +39,7 @@ $torch-glow-link-color: #2f7bff !default; // Torch Glow Outer Color Hover
 $torch-glow-link-core-color: #a8d4ff !default; // Torch Glow Inner Color Hover
 $torch-glow-size: 128px !default; // Torch Glow Width
 $vignette-color: #000000 !default; // Vignette Color
+$effect-pixel: 4px !default; // Pixel Size Of Effect Sprites
+$stone-light: mix($body-text-color, $body-background-color, 45%) !default; // Falling Stone Lightest Color
+$stone-dark: mix($body-text-color, $body-background-color, 20%) !default; // Falling Stone Darkest Color
+$dust-color: mix($body-text-color, $body-background-color, 70%) !default; // Dust Cloud Color
