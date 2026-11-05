@@ -327,7 +327,6 @@ options_cost: 415.002-415.3
 note_cost: +415 GP to normal counterpart
 weight: Varies
 options_weight: 0.02-0.5
-setting: Erisia
 tags: Attack Bonus, Condition, Consumable, Damage Bonus, Extra Damage, Magic Item, Saving Throw
 description: This piece of magic ammunition is made of cold iron, a special type of iron that repels Undead and supernatural beings. You have a +1 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
 
@@ -347,7 +346,6 @@ options_cost: 4900-5650
 note_cost: +4,150 GP to normal counterpart
 weight: Varies
 options_weight: 40-65
-setting: Erisia
 tags: Area, Debuff, Magic Item, Resistance
 description: This magic suit of armor is made of cold iron, a special type of iron that repels Undead and other supernatural beings. You have Resistance to Necrotic damage while you wear the armor. The armor also has the following properties.
 
@@ -367,7 +365,6 @@ options_cost: 4160
 note_cost: +4,150 GP to normal counterpart
 weight: Varies
 options_weight: 6
-setting: Erisia
 tags: Area, Armor Class Bonus, Condition, Forced Movement, Magic Item, Saving Throw
 description: This magic Shield is made of cold iron, a special type of iron that repels Undead and other supernatural beings. While holding the Shield, you have a +1 bonus to Armor Class, in addition to the Shield's normal bonus to AC. The Shield also has the following properties.
 
@@ -387,7 +384,6 @@ options_cost: 4150.1-4200
 note_cost: +4,150 GP to normal counterpart
 weight: Varies
 options_weight: 1-18
-setting: Erisia
 tags: Attack Bonus, Condition, Damage Bonus, Extra Damage, Magic Item, Saving Throw
 description: This magic weapon is made of cold iron, a special type of iron that repels Undead and supernatural beings. You have a +1 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
