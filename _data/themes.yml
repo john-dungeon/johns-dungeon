@@ -45,6 +45,7 @@
   effects:
     - { id: torch-glow, x: 16, y: 16 }
     - { id: vignette }
+    - { id: stone-crumble }
 - id: parchment
   label: "Parchment 📜"
   body_font: IM Fell English
