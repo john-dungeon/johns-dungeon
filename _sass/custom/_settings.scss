@@ -41,5 +41,7 @@ $torch-glow-size: 128px !default; // Torch Glow Width
 $vignette-color: #000000 !default; // Vignette Color
 $effect-pixel: 4px !default; // Pixel Size Of Effect Sprites
 $stone-light: mix($body-text-color, $body-background-color, 45%) !default; // Falling Stone Lightest Color
+$stone-mid: mix($body-text-color, $body-background-color, 32%) !default; // Falling Stone Middle Color
 $stone-dark: mix($body-text-color, $body-background-color, 20%) !default; // Falling Stone Darkest Color
 $dust-color: mix($body-text-color, $body-background-color, 70%) !default; // Dust Cloud Color
+$dust-opacity: 0.6 !default; // Dust Cloud Strongest Opacity
