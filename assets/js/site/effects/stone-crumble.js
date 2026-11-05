@@ -2,18 +2,92 @@ import { root, posterize } from '../shared.js';
 
 // Options (optionally set per theme in themes.yml).
 const DEFAULTS = {
-  min: 60, // Fewest Seconds Between Triggers
-  max: 300, // Most Seconds Between Triggers
-  duration: 2, // Effect Duration
-  stones: 18, // Particles per Trigger
-  dust: 7, // Dust Clouds per Trigger
-  shake: 6 // Strongest Screen Shake (px)
+  min: 120, // Min Time Between Triggers (s)
+  max: 300, // Max Time Between Triggers (s)
+  duration: 2, // Effect Duration (s)
+  stones: 36, // Stones per Trigger
+  dust: 16, // Dust per Trigger
+  dustSize: 360, // Average Dust Width (px)
+  shake: 6 // Strongest Shake (px)
 };
-const JOLT = 50;
+const JOLT = 50; // Time Between Jolts (ms)
+const STONE_SHAPES = 8; // Stone Sprite Variants
+const CLOUD_SHAPES = 5; // Dust Sprite Variants
+
+const css = name => getComputedStyle(root).getPropertyValue(name).trim();
+const sign = () => (Math.random() < 0.5 ? -1 : 1);
+
+function sprite(cells, paint) {
+  const canvas = document.createElement('canvas');
+  canvas.width = cells;
+  canvas.height = cells;
+  const pen = canvas.getContext('2d');
+  for (let row = 0; row < cells; row++) {
+    for (let col = 0; col < cells; col++) paint(pen, col, row);
+  }
+  return `url("${canvas.toDataURL()}")`;
+}
+
+function inside(x, y, corners) {
+  let hit = false;
+  for (let i = 0, j = corners.length - 1; i < corners.length; j = i++) {
+    const [xi, yi] = corners[i];
+    const [xj, yj] = corners[j];
+    if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) hit = !hit;
+  }
+  return hit;
+}
+
+function stoneSprite(random, colors) {
+  const cells = Math.round(random(4, 10));
+  const half = cells / 2;
+  const count = Math.round(random(5, 8));
+  const corners = Array.from({ length: count }, (_, i) => {
+    const angle = ((i + random(-0.3, 0.3)) / count) * Math.PI * 2;
+    const reach = half * random(0.6, 1);
+    return [half + Math.cos(angle) * reach, half + Math.sin(angle) * reach];
+  });
+  const filled = (col, row) =>
+    col >= 0 && row >= 0 && col < cells && row < cells && inside(col + 0.5, row + 0.5, corners);
+
+  const url = sprite(cells, (pen, col, row) => {
+    if (!filled(col, row)) return;
+    const lit = !filled(col - 1, row) || !filled(col, row - 1);
+    const shaded = !filled(col + 1, row) || !filled(col, row + 1);
+    const speckle = random(0, 1) < 0.15;
+    pen.fillStyle = shaded ? colors.dark : lit ? colors.light : speckle ? colors.dark : colors.mid;
+    pen.fillRect(col, row, 1, 1);
+  });
+  return { cells, url };
+}
+
+function cloudSprite(random, cells, color) {
+  const blobs = Array.from({ length: 6 }, () => ({
+    x: random(0.35, 0.65) * cells,
+    y: random(0.35, 0.65) * cells,
+    reach: random(0.15, 0.3) * cells
+  }));
+  return sprite(cells, (pen, col, row) => {
+    const density = Math.max(...blobs.map(b => 1 - Math.hypot(col + 0.5 - b.x, row + 0.5 - b.y) / b.reach));
+    const alpha = Math.min(1, posterize(density + random(-0.15, 0.15), 4));
+    if (alpha <= 0) return;
+    pen.fillStyle = color;
+    pen.globalAlpha = alpha;
+    pen.fillRect(col, row, 1, 1);
+  });
+}
 
 export default function stoneCrumble({ options, layer, random, timer, sound }) {
   const settings = { ...DEFAULTS, ...options };
-  const pixel = parseFloat(getComputedStyle(root).getPropertyValue('--effect-pixel'));
+  const pixel = parseFloat(css('--effect-pixel'));
+  const colors = { light: css('--stone-light'), mid: css('--stone-mid'), dark: css('--stone-dark') };
+
+  const stones = Array.from({ length: STONE_SHAPES }, () => stoneSprite(random, colors));
+  const cloudCells = Math.round(settings.dustSize / pixel);
+  const clouds = Array.from({ length: CLOUD_SHAPES }, () => cloudSprite(random, cloudCells, css('--dust-color')));
+
+  const pick = list => list[Math.floor(random(0, list.length))];
+  const spin = (min, max) => `${sign() * random(min, max) * 360}deg`;
   let jolting = 0;
 
   function spawn(className, style) {
@@ -24,36 +98,41 @@ export default function stoneCrumble({ options, layer, random, timer, sound }) {
     layer.appendChild(node);
   }
 
-  function stone(x) {
-    const size = Math.round(random(2, 4)) * pixel;
+  function stone() {
+    const shape = pick(stones);
+    const size = shape.cells * pixel * (1 + Math.floor(random(0, 3)));
     spawn('fx-stone', {
-      left: `${x}px`,
+      left: `${random(0, innerWidth - size)}px`,
       top: `${-size}px`,
       width: `${size}px`,
       height: `${size}px`,
-      '--tone': posterize(random(0, 1), 3),
-      '--drift': `${random(-40, 40)}px`,
+      '--sprite': shape.url,
+      '--drift': `${random(-0.3, 0.3) * innerWidth}px`,
+      '--lift': `${random(-80, 10)}px`,
       '--fall': `${innerHeight + size}px`,
-      '--time': `${random(0.4, 0.6) * settings.duration}s`,
+      '--spin': spin(0.5, 3),
+      '--time': `${random(0.45, 0.8) * settings.duration}s`,
       '--delay': `${random(0, 0.4) * settings.duration}s`
     });
   }
 
-  function dust(x) {
-    const radius = Math.round(random(2, 4));
-    const puffs = [];
-    for (let row = -radius; row <= radius; row++) {
-      for (let col = -radius; col <= radius; col++) {
-        if (Math.hypot(col, row) <= radius + random(-0.7, 0.3)) {
-          puffs.push(`${col * pixel}px ${row * pixel}px`);
-        }
-      }
-    }
+  function dust(edge, along) {
+    const size = settings.dustSize * random(0.7, 1.3);
+    const inset = random(-0.1, 0.3) * size;
+    const [x, y] = [
+      [along * innerWidth, inset],
+      [innerWidth - inset, along * innerHeight],
+      [along * innerWidth, innerHeight - inset],
+      [inset, along * innerHeight]
+    ][edge];
     spawn('fx-dust', {
-      left: `${x}px`,
-      top: `${random(0, 0.15) * innerHeight}px`,
-      'box-shadow': puffs.join(', '),
-      '--time': `${random(0.5, 0.9)}s`,
+      left: `${x - size / 2}px`,
+      top: `${y - size / 2}px`,
+      width: `${size}px`,
+      height: `${size}px`,
+      '--sprite': pick(clouds),
+      '--spin': spin(0.25, 1),
+      '--time': `${random(1.5, 2.5) * settings.duration}s`,
       '--delay': `${random(0, 0.5) * settings.duration}s`
     });
   }
@@ -80,14 +159,14 @@ export default function stoneCrumble({ options, layer, random, timer, sound }) {
   }
 
   function crumble() {
-    const center = random(0.2, 0.8) * innerWidth;
-    const spread = innerWidth * 0.25;
-    const at = () => Math.min(innerWidth, Math.max(0, center + random(-spread, spread)));
-
     sound('crumble');
     shake();
-    for (let i = 0; i < settings.stones; i++) stone(at());
-    for (let i = 0; i < settings.dust; i++) dust(at());
+
+    const perEdge = Math.ceil(settings.dust / 4);
+    for (let i = 0; i < settings.dust; i++) {
+      dust(i % 4, (Math.floor(i / 4) + random(0.1, 0.9)) / perEdge);
+    }
+    for (let i = 0; i < settings.stones; i++) stone();
   }
 
   timer(crumble, settings.min, settings.max);
