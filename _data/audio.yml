@@ -16,6 +16,7 @@ sets:
     close: assets/audio/grind-out.ogg
     enter: assets/audio/entering.ogg
     transition: assets/audio/footsteps.ogg
+    crumble: assets/audio/rumbling.ogg
   parchment:
     hover: assets/audio/pen.ogg
     open: assets/audio/page.ogg
