@@ -3,7 +3,7 @@ import { root, posterize } from '../shared.js';
 // Options (optionally set per theme in themes.yml).
 const DEFAULTS = {
   min: 60, // Fewest Seconds Between Triggers
-  max: 180, // Most Seconds Between Triggers
+  max: 300, // Most Seconds Between Triggers
   duration: 1.6, // Effect Duration
   stones: 18, // Particles per Trigger
   dust: 7, // Dust Clouds per Trigger
