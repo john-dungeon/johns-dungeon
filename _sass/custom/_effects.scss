@@ -61,46 +61,65 @@ html.fx-vignette {
 }
 
 // Stone Crumble (effects/stone-crumble.js)
-:root { --effect-pixel: #{$effect-pixel}; }
+:root {
+  --effect-pixel: #{$effect-pixel};
+  --stone-light: #{$stone-light};
+  --stone-mid: #{$stone-mid};
+  --stone-dark: #{$stone-dark};
+  --dust-color: #{$dust-color};
+}
+
+@mixin sprite {
+  background: var(--sprite) center / 100% 100% no-repeat;
+  image-rendering: pixelated;
+}
 
 .fx-stone {
   position: absolute;
-  background: unquote("color-mix(in srgb, #{$stone-light} calc(var(--tone) * 100%), #{$stone-dark})");
-  box-shadow:
-    inset $effect-pixel $effect-pixel 0 rgba(#ffffff, 0.2),
-    inset (-$effect-pixel) (-$effect-pixel) 0 rgba(#000000, 0.35);
-  animation: stone-fall var(--time) cubic-bezier(0.11, 0, 0.5, 0) var(--delay) both;
+  animation:
+    stone-drift var(--time) linear var(--delay) both,
+    stone-fall var(--time) linear var(--delay) both;
+
+  &::before {
+    @include sprite;
+    content: "";
+    position: absolute;
+    inset: 0;
+    animation: stone-spin var(--time) linear var(--delay) both;
+  }
+}
+
+@keyframes stone-drift {
+  to { translate: var(--drift) 0; }
 }
 
 @keyframes stone-fall {
-  to { translate: var(--drift) var(--fall); }
+  0% { animation-timing-function: cubic-bezier(0.2, 0.7, 0.4, 1); }
+  25% {
+    transform: translateY(var(--lift));
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.7);
+  }
+  100% { transform: translateY(var(--fall)); }
+}
+
+@keyframes stone-spin {
+  to { rotate: var(--spin); }
 }
 
 .fx-dust {
+  @include sprite;
   position: absolute;
-  width: $effect-pixel;
-  height: $effect-pixel;
-  color: $dust-color;
-  background: currentcolor;
-  opacity: 0;
-  animation: dust-poof var(--time) steps(5) var(--delay) forwards;
+  animation:
+    dust-fade var(--time) ease-in-out var(--delay) both,
+    dust-spin var(--time) linear var(--delay) both;
 }
 
-@keyframes dust-poof {
-  from { transform: scale(0.4); opacity: 0.9; }
-  to { transform: scale(1.4); opacity: 0; }
+@keyframes dust-fade {
+  0%, 100% { opacity: 0; }
+  40% { opacity: $dust-opacity; }
 }
 
-html.shaking {
-  overflow-x: hidden;
-
-  .side-bar,
-  .st-dialog,
-  body::before { translate: var(--shake-x, 0) var(--shake-y, 0); }
-
-  .main {
-    position: relative;
-    left: var(--shake-x, 0);
-    top: var(--shake-y, 0);
-  }
+@keyframes dust-spin {
+  from { rotate: 0deg; scale: 0.75; }
+  to { rotate: var(--spin); scale: 1.25; }
 }
