@@ -4,7 +4,7 @@ import { root, posterize } from '../shared.js';
 const DEFAULTS = {
   min: 60, // Fewest Seconds Between Triggers
   max: 300, // Most Seconds Between Triggers
-  duration: 1.6, // Effect Duration
+  duration: 2, // Effect Duration
   stones: 18, // Particles per Trigger
   dust: 7, // Dust Clouds per Trigger
   shake: 6 // Strongest Screen Shake (px)
