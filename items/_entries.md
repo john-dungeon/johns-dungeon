@@ -1,3 +1,22 @@
+name: A Placeholder
+category: Weapon
+note_category: Any Ammunition
+rarity: Legendary
+attunement: false
+cost: Varies
+options_cost: 30000.002-30000.3
+note_cost: +30,000 GP to normal counterpart
+weight: Varies
+options_weight: 0.03-0.75
+note_weight: +50% to normal counterpart
+setting: Erisia
+note_setting: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
+variant: true
+note_variant: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
+description: Placeholder
+
+---
+
 name: Adamantine Ammunition
 category: Weapon
 note_category: Any Ammunition
