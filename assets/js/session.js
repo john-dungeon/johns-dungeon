@@ -3,6 +3,7 @@
   const root = document.documentElement;
   const LAST_SEEN = 'last-seen';
   const GATE_PASSED = 'gate-passed';
+  const EFFECT_TIMERS = 'effect-timers';
   const HEARTBEAT = 15000;
 
   try {
@@ -22,7 +23,7 @@
   const lastSeen = Number(read(LAST_SEEN));
   const expired = !lastSeen || (minutes > 0 && Date.now() - lastSeen > minutes * 60000);
   if (expired) {
-    [...(CONFIG.reset || []), GATE_PASSED, 'music-state'].forEach(forget);
+    [...(CONFIG.reset || []), GATE_PASSED, 'music-state', EFFECT_TIMERS].forEach(forget);
   }
 
   const beat = () => write(LAST_SEEN, Date.now());
