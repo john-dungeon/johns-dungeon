@@ -1,4 +1,4 @@
-import { root, posterize } from '../shared.js';
+import { root, posterize, cssVar } from '../shared.js';
 
 // Options (optionally set per theme in themes.yml).
 const DEFAULTS = {
@@ -78,16 +78,17 @@ function cloudSprite(random, cells, color) {
 
 export default function stoneCrumble({ options, layer, random, timer, sound }) {
   const settings = { ...DEFAULTS, ...options };
-  const pixel = parseFloat(css('--effect-pixel'));
-  const colors = { light: css('--stone-light'), mid: css('--stone-mid'), dark: css('--stone-dark') };
+  const pixel = parseFloat(cssVar('--effect-pixel'));
+  const colors = { light: cssVar('--stone-light'), mid: cssVar('--stone-mid'), dark: cssVar('--stone-dark') };
 
   const baseCells = settings.stoneSize / pixel / 2;
   const stones = Array.from({ length: STONE_SHAPES }, () =>
     stoneSprite(random, colors, Math.max(3, Math.round(baseCells * random(0.5, 1.5)))));
   const cloudCells = Math.round(settings.dustSize / pixel);
-  const clouds = Array.from({ length: CLOUD_SHAPES }, () => cloudSprite(random, cloudCells, css('--dust-color')));
+  const clouds = Array.from({ length: CLOUD_SHAPES }, () => cloudSprite(random, cloudCells, cssVar('--dust-color')));
 
   const pick = list => list[Math.floor(random(0, list.length))];
+  const sign = () => (random(0, 1) < 0.5 ? -1 : 1);
   const spin = (min, max) => `${sign() * random(min, max) * 360}deg`;
   let jolting = 0;
 
