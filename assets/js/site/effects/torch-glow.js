@@ -1,4 +1,4 @@
-import { root, CALM, posterize } from '../shared.js';
+import { root, CALM, posterize, cssVar } from '../shared.js';
 import { isHovering } from '../hover.js';
 
 export const calmSafe = true;
@@ -26,11 +26,9 @@ const FRAMES = [
 const BIGGEST = Math.max(...FRAMES.map(frame => frame.scale));
 
 function makeDrawer({ pixels, levels, core, outerAlpha, coreAlpha }) {
-  const style = getComputedStyle(root);
-  const read = name => style.getPropertyValue(name).trim();
   const palettes = {
-    normal: { outer: read('--torch-glow-color'), core: read('--torch-glow-core-color') },
-    link: { outer: read('--torch-glow-link-color'), core: read('--torch-glow-link-core-color') }
+    normal: { outer: cssVar('--torch-glow-color'), core: cssVar('--torch-glow-core-color') },
+    link: { outer: cssVar('--torch-glow-link-color'), core: cssVar('--torch-glow-link-core-color') }
   };
 
   const canvas = document.createElement('canvas');
