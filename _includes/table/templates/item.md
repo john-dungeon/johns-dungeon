@@ -9,6 +9,8 @@
 {%- capture it_description %}{% include table/field.html packed=include.packed key="description" %}{% endcapture -%}
 {%- capture it_setting %}{% include table/field.html packed=include.packed key="setting" %}{% endcapture -%}
 {%- capture it_note_setting %}{% include table/field.html packed=include.packed key="note_setting" %}{% endcapture -%}
+{%- capture it_variant %}{% include table/field.html packed=include.packed key="variant" %}{% endcapture -%}
+{%- capture it_note_variant %}{% include table/field.html packed=include.packed key="note_variant" %}{% endcapture -%}
 
 {%- assign it_line1 = it_prefix_category | append: " " | append: it_category | strip -%}
 {%- if it_note_category != "" -%}{%- assign it_line1 = it_line1 | append: " (" | append: it_note_category | append: ")" -%}{%- endif -%}
@@ -62,9 +64,22 @@
 {%- endif %}
 {: .italic }
 
+{%- capture it_nl %}
+{% endcapture -%}
+{%- assign it_notes = "" -%}
+{%- if it_setting_line != "" -%}
+  {%- assign it_notes = "> ***Setting-Specific.*** " | append: it_setting_line -%}
+{%- endif -%}
+{%- assign it_variant_l = it_variant | downcase -%}
+{%- if it_variant_l == "true" and it_note_variant != "" -%}
+  {%- if it_notes != "" -%}
+    {%- assign it_notes = it_notes | append: it_nl | append: ">" | append: it_nl -%}
+  {%- endif -%}
+  {%- assign it_notes = it_notes | append: "> ***Variant.*** " | append: it_note_variant -%}
+{%- endif -%}
 {{ it_description }}
-{%- if it_setting_line != "" %}
+{%- if it_notes != "" %}
 
-> ***Setting-Specific.*** {{ it_setting_line }}
+{{ it_notes }}
 {: .italic }
 {%- endif %}
