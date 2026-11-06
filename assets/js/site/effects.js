@@ -57,7 +57,15 @@ async function loadEffect(options, slot, myRound) {
   document.body.appendChild(layer);
 
   const ctx = makeContext(options, layer);
-  const finish = module.default(ctx);
+  let finish;
+  try {
+    finish = module.default(ctx);
+  } catch (error) {
+    console.warn(`effects.js: the effect "${options.id}" failed to start.`, error);
+    ctx.stop();
+    layer.remove();
+    return;
+  }
   cleanups.push(() => {
     ctx.stop();
     if (typeof finish === 'function') finish();
