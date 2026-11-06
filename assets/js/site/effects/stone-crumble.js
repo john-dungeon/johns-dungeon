@@ -6,8 +6,11 @@ const DEFAULTS = {
   max: 300, // Max Time Between Triggers (s)
   duration: 2, // Effect Duration (s)
   stones: 36, // Stones per Trigger
-  dust: 16, // Dust per Trigger
+  stoneSize: 32, // Average Stone Width (px)
+  dust: 20, // Dust per Trigger
   dustSize: 360, // Average Dust Width (px)
+  dustFadeIn: 0.5, // Average Dust Fade In Time (s)
+  dustFadeOut: 5, // Average Dust Fade Out Time (s)
   shake: 6 // Strongest Shake (px)
 };
 const JOLT = 50; // Time Between Jolts (ms)
