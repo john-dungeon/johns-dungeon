@@ -41,8 +41,7 @@ function inside(x, y, corners) {
   return hit;
 }
 
-function stoneSprite(random, colors) {
-  const cells = Math.round(random(4, 10));
+function stoneSprite(random, colors, cells) {
   const half = cells / 2;
   const count = Math.round(random(5, 8));
   const corners = Array.from({ length: count }, (_, i) => {
@@ -85,7 +84,9 @@ export default function stoneCrumble({ options, layer, random, timer, sound }) {
   const pixel = parseFloat(css('--effect-pixel'));
   const colors = { light: css('--stone-light'), mid: css('--stone-mid'), dark: css('--stone-dark') };
 
-  const stones = Array.from({ length: STONE_SHAPES }, () => stoneSprite(random, colors));
+  const baseCells = settings.stoneSize / pixel / 2;
+  const stones = Array.from({ length: STONE_SHAPES }, () =>
+    stoneSprite(random, colors, Math.max(3, Math.round(baseCells * random(0.5, 1.5)))));
   const cloudCells = Math.round(settings.dustSize / pixel);
   const clouds = Array.from({ length: CLOUD_SHAPES }, () => cloudSprite(random, cloudCells, css('--dust-color')));
 
@@ -93,11 +94,13 @@ export default function stoneCrumble({ options, layer, random, timer, sound }) {
   const spin = (min, max) => `${sign() * random(min, max) * 360}deg`;
   let jolting = 0;
 
-  function spawn(className, style) {
+  function spawn(className, style, last) {
     const node = document.createElement('div');
     node.className = className;
     Object.entries(style).forEach(([name, value]) => node.style.setProperty(name, value));
-    node.addEventListener('animationend', () => node.remove(), { once: true });
+    node.addEventListener('animationend', event => {
+      if (event.animationName === last) node.remove();
+    });
     layer.appendChild(node);
   }
 
@@ -116,6 +119,7 @@ export default function stoneCrumble({ options, layer, random, timer, sound }) {
       '--spin': spin(0.5, 3),
       '--time': `${random(0.45, 0.8) * settings.duration}s`,
       '--delay': `${random(0, 0.4) * settings.duration}s`
+    }, 'stone-fall');
     });
   }
 
@@ -135,8 +139,10 @@ export default function stoneCrumble({ options, layer, random, timer, sound }) {
       height: `${size}px`,
       '--sprite': pick(clouds),
       '--spin': spin(0.25, 1),
-      '--time': `${random(1.5, 2.5) * settings.duration}s`,
+      '--in': `${settings.dustFadeIn * random(0.8, 1.2)}s`,
+      '--out': `${settings.dustFadeOut * random(0.8, 1.2)}s`,
       '--delay': `${random(0, 0.5) * settings.duration}s`
+    }, 'dust-out');
     });
   }
 
