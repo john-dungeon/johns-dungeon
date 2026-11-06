@@ -7,7 +7,7 @@
     {%- capture mk_value %}{% include table/field.html packed=include.packed key=mk.color_by %}{% endcapture -%}
   {%- endif -%}
   {%- assign mk_text = mk.label | default: "Marked" -%}
-  {%- if mk_value != blank -%}
+  {%- if mk_value != "" -%}
     {%- if mk.label -%}{%- assign mk_text = mk_text | append: " · " | append: mk_value -%}
     {%- else -%}{%- assign mk_text = mk_value -%}
     {%- endif -%}
