@@ -17,9 +17,6 @@ const JOLT = 50; // Time Between Jolts (ms)
 const STONE_SHAPES = 8; // Stone Sprite Variants
 const CLOUD_SHAPES = 5; // Dust Sprite Variants
 
-const css = name => getComputedStyle(root).getPropertyValue(name).trim();
-const sign = () => (Math.random() < 0.5 ? -1 : 1);
-
 function sprite(cells, paint) {
   const canvas = document.createElement('canvas');
   canvas.width = cells;
@@ -120,7 +117,6 @@ export default function stoneCrumble({ options, layer, random, timer, sound }) {
       '--time': `${random(0.45, 0.8) * settings.duration}s`,
       '--delay': `${random(0, 0.4) * settings.duration}s`
     }, 'stone-fall');
-    });
   }
 
   function dust(edge, along) {
@@ -143,7 +139,6 @@ export default function stoneCrumble({ options, layer, random, timer, sound }) {
       '--out': `${settings.dustFadeOut * random(0.8, 1.2)}s`,
       '--delay': `${random(0, 0.5) * settings.duration}s`
     }, 'dust-out');
-    });
   }
 
   function stopShake() {
