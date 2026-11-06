@@ -9,5 +9,6 @@
     {%- else -%}{%- assign mk_text = mk_value -%}
     {%- endif -%}
   {%- endif -%}
-  <span class="st-marker" role="img" aria-label="{{ mk_text | escape }}"{% include tooltip.html text=mk_text %} data-marker="{{ mk_value | downcase | escape }}">{{ mk.symbol | default: "✦" }}</span>
+  {%- assign mk_color = mk_value | default: mk.tag | downcase -%}
+  <span class="st-marker" role="img" aria-label="{{ mk_text | escape }}"{% include tooltip.html text=mk_text %} data-marker="{{ mk_color | escape }}">{{ mk.symbol | default: "✦" }}</span>
 {%- endif -%}
