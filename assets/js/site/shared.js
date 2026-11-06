@@ -14,6 +14,8 @@ export const announce = (type, detail) => document.dispatchEvent(new CustomEvent
 
 export const themeConfig = id => (globalThis.SITE_THEMES || []).find(theme => theme.id === id) || {};
 
+export const cssVar = name => getComputedStyle(root).getPropertyValue(name).trim();
+
 export function onThemeChange(run) {
   run(root.dataset.theme);
   document.addEventListener('themechange', event => run(event.detail));
