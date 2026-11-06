@@ -5,9 +5,9 @@ const DEFAULTS = {
   min: 120, // Min Time Between Triggers (s)
   max: 300, // Max Time Between Triggers (s)
   duration: 2, // Effect Duration (s)
-  stones: 36, // Stones per Trigger
+  stones: 36, // Stones Per Trigger
   stoneSize: 32, // Average Stone Width (px)
-  dust: 20, // Dust per Trigger
+  dust: 20, // Dust Per Trigger
   dustSize: 360, // Average Dust Width (px)
   dustFadeIn: 0.5, // Average Dust Fade In Time (s)
   dustFadeOut: 5, // Average Dust Fade Out Time (s)
