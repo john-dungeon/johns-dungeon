@@ -1,7 +1,7 @@
 $is-light-theme: lightness($body-background-color) > 50% !default;
 $stripe-odd-color: if($is-light-theme, mix(#000000, $body-background-color, 6%), $body-background-color) !default;
 $stripe-even-color: if($is-light-theme, $body-background-color, mix(#ffffff, $body-background-color, 10%)) !default;
-$marker-colors: map-merge(("varies": $body-text-color), $marker-colors);
+$marker-colors: map-merge(("varies": $body-text-color, "variant": $body-text-color), $marker-colors);
 $motion: var(--motion-duration) $motion-ease;
 $unlisted-color: if($is-light-theme, #b3261e, #ff6b6b) !default;
 $missing-background: rgba($unlisted-color, 0.3) !default;
