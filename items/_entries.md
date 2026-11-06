@@ -1,22 +1,3 @@
-name: A Placeholder
-category: Weapon
-note_category: Any Ammunition
-rarity: Legendary
-attunement: false
-cost: Varies
-options_cost: 30000.002-30000.3
-note_cost: +30,000 GP to normal counterpart
-weight: Varies
-options_weight: 0.03-0.75
-note_weight: +50% to normal counterpart
-setting: Erisia
-note_setting: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
-variant: true
-note_variant: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
-description: Placeholder
-
----
-
 name: Adamantine Ammunition
 category: Weapon
 note_category: Any Ammunition
@@ -30,6 +11,7 @@ options_weight: 0.03-0.75
 note_weight: +50% to normal counterpart
 setting: Erisia
 note_setting: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
+variant: true
 tags: Area, Attack Bonus, Charge, Consumable, Damage, Damage Bonus, Magic Item, Saving Throw
 description: This piece of magic ammunition is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The ammunition is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
 
@@ -52,6 +34,7 @@ options_weight: 60-97.5
 note_weight: +50% to normal counterpart
 setting: Erisia
 note_setting: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
+variant: true
 tags: Area, Charge, Damage, Forced Movement, Magic Item, Resistance, Saving Throw
 description: This magic suit of armor is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The armor is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. While wearing the armor, you can use the following properties.
 
@@ -99,6 +82,7 @@ options_weight: 1.5-27
 note_weight: +50% to normal counterpart
 setting: Erisia
 note_setting: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
+variant: true
 tags: Attack Bonus, Charge, Condition, Damage Bonus, Extra Damage, Magic Item
 description: This magic weapon is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The weapon is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
@@ -265,6 +249,8 @@ name: Bola
 category: Adventuring Gear
 cost: 0.05
 weight: 2
+variant: true
+note_variant: The official variant of the Bola is from D&D Beyond Drops.
 tags: Ability Check, Condition, Consumable, Saving Throw
 description: When you take the Attack action, you can replace one of your attacks with throwing a Bola. Target one Medium or smaller creature you can see within 20 feet of yourself. The target must succeed on a Dexterity saving throw (DC 8 plus your Dexterity modifier and Proficiency Bonus) or have the Restrained condition until it escapes.
 
@@ -736,6 +722,7 @@ options_weight: 4-32.5
 note_weight: -50% to normal counterpart
 setting: Erisia
 note_setting: Its setting-agnostic variant is Mithral Armor from the Dungeon Master's Guide (5.5e).
+variant: true
 tags: Magic Item
 description: This magic suit of armor is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The armor magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, fragments of the armor move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the armor's original state.
 
