@@ -174,6 +174,6 @@ export default function stoneCrumble({ options, layer, random, timer, sound }) {
     for (let i = 0; i < settings.stones; i++) stone();
   }
 
-  timer(crumble, settings.min, settings.max);
+  timer(crumble, settings.min, settings.max, true);
   return stopShake;
 }
