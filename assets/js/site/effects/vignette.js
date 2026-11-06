@@ -1,4 +1,4 @@
-import { root, posterize } from '../shared.js';
+import { root, posterize, cssVar } from '../shared.js';
 
 export const calmSafe = true;
 export const gateSafe = true;
@@ -13,7 +13,7 @@ const DEFAULTS = {
 
 export default function vignette({ options, on }) {
   const { cell, levels, start, strength } = { ...DEFAULTS, ...options };
-  const color = getComputedStyle(root).getPropertyValue('--vignette-color').trim();
+  const color = cssVar('--vignette-color');
 
   const canvas = document.createElement('canvas');
   const pen = canvas.getContext('2d');
