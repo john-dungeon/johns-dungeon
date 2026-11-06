@@ -129,3 +129,17 @@ html.fx-vignette {
   from { rotate: 0deg; scale: 0.75; }
   to { rotate: var(--spin); scale: 1.25; }
 }
+
+html.shaking {
+  overflow-x: hidden;
+
+  .side-bar,
+  .st-dialog,
+  body::before { translate: var(--shake-x, 0) var(--shake-y, 0); }
+
+  .main {
+    position: relative;
+    left: var(--shake-x, 0);
+    top: var(--shake-y, 0);
+  }
+}
