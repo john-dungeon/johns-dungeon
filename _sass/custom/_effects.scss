@@ -110,13 +110,19 @@ html.fx-vignette {
   @include sprite;
   position: absolute;
   animation:
-    dust-fade var(--time) ease-in-out var(--delay) both,
-    dust-spin var(--time) linear var(--delay) both;
+    dust-in var(--in) ease-out var(--delay) both,
+    dust-out var(--out) ease-in calc(var(--delay) + var(--in)) forwards,
+    dust-spin calc(var(--in) + var(--out)) linear var(--delay) both;
 }
 
-@keyframes dust-fade {
-  0%, 100% { opacity: 0; }
-  40% { opacity: $dust-opacity; }
+@keyframes dust-in {
+  from { opacity: 0; }
+  to { opacity: $dust-opacity; }
+}
+
+@keyframes dust-out {
+  from { opacity: $dust-opacity; }
+  to { opacity: 0; }
 }
 
 @keyframes dust-spin {
