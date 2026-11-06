@@ -58,12 +58,6 @@
   {%- endif -%}
   {%- if it_note_setting != "" -%}{%- assign it_setting_line = it_setting_line | append: " " | append: it_note_setting -%}{%- endif -%}
 {%- endif -%}
-{{ it_line1 }}
-{%- if it_line2 != "" %}\
-{{ it_line2 }}
-{%- endif %}
-{: .italic }
-
 {%- capture it_nl %}
 {% endcapture -%}
 {%- assign it_notes = "" -%}
@@ -77,6 +71,12 @@
   {%- endif -%}
   {%- assign it_notes = it_notes | append: "> ***Variant.*** " | append: it_note_variant -%}
 {%- endif -%}
+{{ it_line1 }}
+{%- if it_line2 != "" %}\
+{{ it_line2 }}
+{%- endif %}
+{: .italic }
+
 {{ it_description }}
 {%- if it_notes != "" %}
 
