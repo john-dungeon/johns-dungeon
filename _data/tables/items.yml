@@ -8,7 +8,7 @@ markers:
     tag: Magic Item
     color_by: rarity
     label: Magic Item
-  - symbol: "☗"
+  - symbol: "☁︎"
     tag: Setting-Specific
     color_by: setting
     label: Setting
