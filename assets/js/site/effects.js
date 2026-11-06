@@ -1,6 +1,8 @@
-import { CALM, waiting, announce, themeConfig, onThemeChange } from './shared.js';
+import { CALM, waiting, announce, themeConfig, onThemeChange, load, save } from './shared.js';
 
 const random = (min, max) => min + Math.random() * (max - min);
+
+const TIMERS = 'effect-timers';
 
 let current = '';
 let round = 0;
@@ -17,15 +19,18 @@ function makeContext(options, layer) {
       target.addEventListener(type, handler);
       undo.push(() => target.removeEventListener(type, handler));
     },
-    timer(run, min, max) {
+    timer(run, min, max, persist = false) {
       let id;
-      const next = () => {
+      const wait = () => random(min, max) * 1000;
+      const schedule = delay => {
+        if (persist) save(TIMERS, { ...load(TIMERS, {}), [options.id]: Date.now() + delay });
         id = setTimeout(() => {
           if (!document.hidden) run();
-          next();
-        }, random(min, max) * 1000);
+          schedule(wait());
+        }, delay);
       };
-      next();
+      const left = persist ? (load(TIMERS, {})[options.id] || 0) - Date.now() : 0;
+      schedule(left > 0 ? Math.min(left, max * 1000) : wait());
       undo.push(() => clearTimeout(id));
     },
     sound: name => announce('fxsound', name),
