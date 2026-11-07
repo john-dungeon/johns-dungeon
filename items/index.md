@@ -17,7 +17,7 @@ An item in the Augment category, such as a rune, a magic gemstone, or a mechanic
 
 ***Augmented Objects.*** When at least one augment is attached to an object, that object becomes an augmented object. Augmented objects have the following rules:
 
-**Magic Item.** An augmented object is a magic item that requires Attunement; augments can still be attached to an augmented object, ignoring this rule. You can attune to an augmented object during the same Short Rest used to attach an augment to it. Your Attunement with an augmented object immediately ends if its last augment has been removed, causing it to revert to a nonmagical object.
+**Magic Item.** An augmented object is a magic item that requires Attunement; augments can still be attached to an augmented object, ignoring this rule. Attuning to an augmented object allows you to use the magical properties of any augment attached to it. You can attune to an augmented object during the same Short Rest used to attach an augment to it. Your Attunement with an augmented object immediately ends if its last augment has been removed, causing it to revert to a nonmagical object.
 
 **No More Than Three Augments.** No more than three augments can be attached to an augmented object at a time. Any attempt to attach a fourth augment fails; you must detach an augment first. Additionally, you can’t benefit from more than one copy of an augment attached to an augmented object you are attuned to at a time.
 
