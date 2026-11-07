@@ -202,6 +202,68 @@ The creature remains bound until another creature within 5 feet of it takes 1 mi
 
 ---
 
+name: Arm Cannon
+category: Implant
+note_category: Replacement
+rarity: Varies
+options_rarity: Uncommon, Rare, Very Rare
+note_rarity: See table
+attunement: true
+cost: Varies
+options_cost: 450, 4500, 45000
+note_cost: See table
+weight: 10
+tags: Area, Charge, Damage, Magic Item, Saving Throw
+description: This magical arm replaces one that was lost or removed. While the arm is attached to you, you can use and move it as if it were your natural arm (no Attunement required). You can attach or remove the arm as a Magic action, and it can't be removed against your will while you are alive.
+
+The arm has 7 charges. As a Bonus Action, you can transform the arm into a cannon, or vice versa. While the cannon is active, you can take the Magic action to expend 1 charge and fire a blast from the cannon that explodes a 10-foot-radius Sphere centered on a point within 60 feet of you. Each creature in the Sphere makes a Dexterity saving throw, taking Fire damage on a failed save or half as much damage on a successful one. A Construct has Disadvantage on the save. A nonmagical object that isn’t being worn or carried also takes the damage if it’s in the blast’s area.
+
+While your arm is transformed into a cannon, you can’t use that hand for any other purpose but to fire blasts.
+
+***Regaining Charges.*** The arm regains 1d6 + 1 expended charges daily at dawn. If you expend the arm’s last charge, roll 1d20. On a 1, the arm overheats and deals 3d8 Fire damage to you. After overheating, the arm can't be used as a cannon for 3 days.
+
+The arm's saving throw DC, Fire damage, and purchase cost are determined by its potency, as shown in the table below.
+
+| Potency | Rarity | Save DC | Damage | Cost |
+| :---: | :--- | :---: | :---: | :---: |
+| +1 | Uncommon | 13 | 1d8 | 450 GP |
+| +2 | Rare | 15 | 3d8 | 4,500 GP |
+| +3 | Very Rare | 17 | 5d8 | 45,000 GP |
+{: .catalog }
+
+---
+
+name: Arm Gun
+category: Implant
+note_category: Replacement
+rarity: Varies
+options_rarity: Uncommon, Rare, Very Rare
+note_rarity: See table
+attunement: true
+cost: Varies
+options_cost: 500, 5000, 50000
+note_cost: See table
+weight: 10
+tags: Attack, Charge, Damage, Magic Item
+description: This magical arm replaces one that was lost or removed. While the arm is attached to you, you can use and move it as if it were your natural arm (no Attunement required). You can attach or remove the arm as a Magic action, and it can't be removed against your will while you are alive.
+
+The arm has 7 charges. As a Bonus Action, you can transform the arm into a machine gun, or vice versa. While the machine gun is active, when you take the Attack action on your turn, you can expend 1 to 3 charges to replace one of your attacks with a barrage of bullets at targets within 120 feet of you. For each charge spent, make a ranged attack against a target. These attacks can target the same target or different ones. On a hit, the target takes Piercing damage.
+
+While your arm is transformed into a machine gun, you can’t use that hand for any other purpose but to unleash bullet barrages.
+
+***Regaining Charges.*** The arm regains 1d6 + 1 expended charges daily at dawn. If you expend the arm’s last charge, roll 1d20. On a 1, the arm overheats and deals 3d8 Fire damage to you. After overheating, the arm can't be used as a machine gun for 3 days.
+
+The arm's Piercing damage and purchase cost are determined by its potency, as shown in the table below.
+
+| Potency | Rarity | Damage | Cost |
+| :---: | :--- | :---: | :---: |
+| +1 | Uncommon | 3d6 + 3 | 500 GP |
+| +2 | Rare | 4d6 + 4 | 5,000 GP |
+| +3 | Very Rare | 5d6 + 5 | 50,000 GP |
+{: .catalog }
+
+---
+
 name: Bagpipes of Invisibility
 category: Wondrous Item
 note_category: Bagpipes
