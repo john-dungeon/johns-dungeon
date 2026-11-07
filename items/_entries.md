@@ -1099,7 +1099,7 @@ name: Surgeon's Tools
 category: Tool
 cost: 100
 weight: 3
-description: **Ability:** Wisdom
+description: **Ability:** Wisdom\
 
 **Utilize:** Collect a tissue sample from a creature (DC 10), or identify a disease or injury (DC 15)
 
