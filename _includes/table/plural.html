@@ -1,0 +1,3 @@
+{%- assign pl_key = include.text | downcase -%}
+{%- assign pl_irregular = site.data.plurals[pl_key] -%}
+{%- if pl_irregular -%}{{- pl_irregular -}}{%- else -%}{{- include.text }}s{%- endif -%}
