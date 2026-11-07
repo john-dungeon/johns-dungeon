@@ -21,9 +21,9 @@ settings: Orobis
 tags: Welterbeast
 flavor: Agony is the manifestation of human suffering, born of one man's despair and his ultimate sacrifice in a futile attempt to become something greater than he is. If left to its own devices, it will certainly go on to share, or rather inflict, its suffering upon thousands of others.
 traits:
-- trait_1: Aura of Rot
-  description: *Constitution Saving Throw:* DC 16, any creature that starts its turn in a 10-foot Emanation originating from Agony. Failure: 9 (2d8) Necrotic damage, and the target has Disadvantage on D20 Tests until the start of its next turn.
-- trait_2: Legendary Resistance (3/Day)
+- trait_1: Aura of Affliction
+  description: *Constitution Saving Throw:* DC 16, any creature that starts its turn in a 10-foot Emanation originating from Agony. *Failure:* 9 (2d8) Necrotic damage, and the target has Disadvantage on D20 Tests until the start of its next turn.
+- trait_2: Legendary Resistance (1/Day)
   description: If Agony fails a saving throw, it can choose to succeed instead.
 - trait_3: Pain Sense
   description: Agony has Advantage on attack rolls against any creature that is Bloodied. In addition, Agony always knows the location of any Bloodied creature within 300 feet of it, but only while the two of them are on the same plane of existence. A Bloodied creature can't become hidden from Agony, and if it has the Invisible condition, it gains no benefit from that condition against Agony.
@@ -38,17 +38,16 @@ actions:
   description: Agony marks one creature it can see within 60 feet of itself. Until Agony loses Concentration (as if concentrating on a spell), the target has Vulnerability to Necrotic and Psychic damage.
 intro_charged_actions: At the end of each of its turns, Agony can take one of the following actions.
 charged_actions:
-- charged_action_1: Placeholder
-  description: Placeholder
+- charged_action_1: Graveyard of Blades
+  description: Agony summons a rain of crimson swords at three different points it can see within 120 feet. *Dexterity Saving Throw (start of Agony's next turn):* DC 16, each creature in a 15-foot-radius, 60-foot-high Cylinder centered on each point. *Failure:* 42 (12d6) Necrotic damage. *Success:* Half damage. A creature in the area of more than one Cylinder is affected only once.
+- charged_action_2: Penance
+  description: Agony stabs its own sword through its chest. Agony dies and begins to unleash a wave of pure agony from its body. *Constitution Saving Throw (start of Agony's next turn):* DC 16, each creature in a 120-foot Emanation originating from Agony. *Failure:* 78 (12d12) Necrotic damage. *Success:* Half damage.
 intro_legendary_actions: Legendary Action Uses: 3. Immediately after another creature’s turn, Agony can expend a use to take one of the following actions. Agony regains all expended uses at the start of each of its turns.
 legendary_actions:
 - legendary_action_1: Chains of Punishment
-  description: *Strength Saving Throw:* DC 16, up to three creatures within 60 feet. *Failure:* 10 (3d6) Necrotic damage, and the target is pulled straight toward Agony to the nearest unoccupied space within 5 feet of it. *Success:* Half damage, and the target is pulled only up to 15 feet.
+  description: *Strength Saving Throw:* DC 16, up to three creatures within 30 feet. *Failure:* 10 (3d6) Necrotic damage, and the target is pulled straight toward Agony to the nearest unoccupied space within 5 feet of it. *Success:* Half damage, and the target is pulled only up to 15 feet.
 - legendary_action_2: Lunge
   description: Agony moves up to half its Speed, and it makes one Sanguine Sword attack.
-regional_effects:
-- regional_effect_1: Text
-  description: Text
   
 ---
 
