@@ -4,6 +4,8 @@ dialog: statblock
 tags: [Boss, Legendary, Spellcaster, Slime, Stone Lion, Swarm, Welterbeast]
 auto_tags:
   - { tag: Legendary, field: legendary_actions }
+  - { tag: Boss, field: charged_actions }
+  - { tag: Spellcaster, field: actions, item: Spellcasting }
 columns:
   - key: name
     label: Name
