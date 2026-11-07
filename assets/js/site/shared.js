@@ -2,7 +2,7 @@ export const root = document.documentElement;
 export const FINE_POINTER = matchMedia('(hover: hover) and (pointer: fine)');
 export const CALM = matchMedia('(prefers-reduced-motion: reduce)');
 
-const INTERACTIVE = 'a, button, summary, select, label, input[type="checkbox"], [role="menuitem"], .st-row';
+const INTERACTIVE = globalThis.SITE_INTERACTIVE;
 
 export const hoverableFrom = node => {
   const hit = node.closest?.(INTERACTIVE);
