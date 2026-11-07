@@ -1,6 +1,6 @@
 name: Agony
 size: Large
-type: Humanoid, Monstrosity
+type: Monstrosity
 alignment: Chaotic Evil
 ac: 16
 hp: 13 (2d6 + 6)
