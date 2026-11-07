@@ -18,26 +18,23 @@ senses: Blindsight 60 ft.
 languages: None
 cr: 0.125
 settings: Orobis
-tags: Boss, Legendary, Welterbeast
+tags: Welterbeast
 flavor: Agony is the manifestation of human suffering, born of one man's despair and his ultimate sacrifice in a futile attempt to become something greater than he is. If left to its own devices, it will certainly go on to share, or rather inflict, its suffering upon thousands of others.
 traits:
-- trait_1: Amorphous
-  description: The slime can move through a space as narrow as 1 inch without expending extra movement to do so.
-- trait_2: Bouncy Form
-  description: When the slime falls, it takes no damage from the fall.
-
-  When an attacker hits the slime with a melee attack roll, the slime is pushed 10 feet away from the attacker.
-- trait_3: Pack Tactics
-  description: The slime has Advantage on an attack roll against a creature if at least one of the slime’s allies is within 5 feet of the creature and the ally doesn’t have the Incapacitated condition.
-- trait_4: Standing Leap
-  description: The slime's Long Jump is up to 20 feet and its High Jump is up to 10 feet with or without a running start.
+- trait_1: Placeholder
+  description: Placeholder
 actions:
-- action_1: Bouncy Pseudopod
-  description: *Melee Attack Roll:* +3, reach 5 ft. *Hit:* 3 (1d4 + 1) Bludgeoning damage. If the target is a Medium or larger creature, the slime is pushed 5 feet away from the target.
+- action_1: Placeholder
+  description: Placeholder
+charged_actions:
+- intro_charged_action: At the end of each of its turns, Agony can take one of the following actions.
+- charged_action_1: Placeholder
+  description: Placeholder
 legendary_actions:
-- legendary_action_1: bruh
-  description: bruh
-
+- intro_legendary_action: Legendary Action Uses: 3 (4 in Lair). Immediately after another creature’s turn, Agony can expend a use to take one of the following actions. Agony regains all expended uses at the start of each of its turns.
+- legendary_action_1: Placeholder
+  description: Placeholder
+  
 ---
 
 name: Autonomous Mech
