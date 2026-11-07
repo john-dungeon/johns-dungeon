@@ -1,8 +1,50 @@
+name: Agony
+size: Large
+type: Humanoid, Monstrosity
+alignment: Chaotic Evil
+ac: 16
+hp: 13 (2d6 + 6)
+speed: 30 ft., Swim 30 ft.
+str: 12
+dex: 6
+con: 16
+int: 1
+wis: 6
+cha: 2
+vulnerabilities: Fire
+resistances: Acid, Bludgeoning
+immunities: Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Prone, Restrained
+senses: Blindsight 60 ft.
+languages: None
+cr: 0.125
+settings: Orobis
+tags: Boss, Legendary, Welterbeast
+flavor: Agony is the manifestation of human suffering, born of one man's despair and his ultimate sacrifice in a futile attempt to become something greater than he is. If left to its own devices, it will certainly go on to share, or rather inflict, its suffering upon thousands of others.
+traits:
+- trait_1: Amorphous
+  description: The slime can move through a space as narrow as 1 inch without expending extra movement to do so.
+- trait_2: Bouncy Form
+  description: When the slime falls, it takes no damage from the fall.
+
+  When an attacker hits the slime with a melee attack roll, the slime is pushed 10 feet away from the attacker.
+- trait_3: Pack Tactics
+  description: The slime has Advantage on an attack roll against a creature if at least one of the slime’s allies is within 5 feet of the creature and the ally doesn’t have the Incapacitated condition.
+- trait_4: Standing Leap
+  description: The slime's Long Jump is up to 20 feet and its High Jump is up to 10 feet with or without a running start.
+actions:
+- action_1: Bouncy Pseudopod
+  description: *Melee Attack Roll:* +3, reach 5 ft. *Hit:* 3 (1d4 + 1) Bludgeoning damage. If the target is a Medium or larger creature, the slime is pushed 5 feet away from the target.
+legendary_actions:
+- legendary_action_1: bruh
+  description: bruh
+
+---
+
 name: Autonomous Mech
 size: Medium
 type: Construct
 alignment: Unaligned
-ac: equals the AC offered by the armor 
+ac: equals the AC offered by the augmented armor 
 hp: 67 (9d8 + 27)
 speed: 30 ft.
 str: 18
@@ -51,6 +93,7 @@ senses: Blindsight 60 ft.
 languages: None
 cr: 0.125
 settings: Erisia
+tags: Slime
 flavor: Unlike other slimes, blue slimes bounce instead of crawl, making them significantly faster. Many find this bouncy nature cute, but for the slimes themselves, it is a means of survival. They typically live on mountains and hills where they can leap off cliffs and roll down inclines at breakneck speeds, fleeing from threats in pathetic but effective fashion.
 traits:
 - trait_1: Amorphous
@@ -88,6 +131,7 @@ senses: Tremorsense 40 ft.; always Blinded
 languages: Common; telepathy 300 ft. (only with **[[Stone Warden|Stone Wardens]]** and other **Stone Sentinels**)
 cr: 6
 settings: Jingyu City
+tags: Stone Lion
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
 traits:
 - trait_1: Immutable Form
@@ -126,6 +170,7 @@ senses: Tremorsense 120 ft.; always Blinded
 languages: Common; telepathy 300 ft. (only with **[[Stone Sentinel|Stone Sentinels]]** and other **Stone Wardens**)
 cr: 8
 settings: Jingyu City
+tags: Stone Lion
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
 traits:
 - trait_1: Immutable Form
