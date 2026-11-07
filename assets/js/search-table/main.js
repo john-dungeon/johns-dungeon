@@ -17,14 +17,14 @@ function init(root) {
   const { columns, byKey, nameKey, tagCol } = prepareColumns(config, LISTS);
 
   const limits = {
-    min: intOr(config.limit_min, 25),
-    max: intOr(config.limit_max, 500),
-    step: intOr(config.limit_step, 25)
+    min: intOr(config.limit_min, 50),
+    max: intOr(config.limit_max, 1000),
+    step: intOr(config.limit_step, 50)
   };
 
   const state = {
     filters: newFilters(),
-    limit: Math.min(limits.max, Math.max(limits.min, intOr(config.limit_default, 100))),
+    limit: Math.min(limits.max, Math.max(limits.min, intOr(config.limit_default, 500))),
     sortKey: byKey[config.default_sort] ? config.default_sort : nameKey,
     sortDir: config.default_dir === 'desc' ? -1 : 1
   };
