@@ -84,7 +84,7 @@
     {%- assign ms_key = ms_pair[0] -%}
     {%- capture ms_list %}{% include table/field.html packed=include.packed key=ms_key %}{% endcapture -%}
     {%- if ms_list == "" -%}{%- continue -%}{%- endif -%}
-    {%- assign ms_intro_key = ms_key | append: "_intro" -%}
+    {%- assign ms_intro_key = "intro_" | append: ms_key -%}
     {%- capture ms_intro %}{% include table/field.html packed=include.packed key=ms_intro_key %}{% endcapture -%}
     {{- "<div class='statblock-section' markdown='1'>" | append: ms_nl | append: ms_nl -}}
     {{- "<h3 class='statblock-heading'>" | append: ms_pair[1] | append: "</h3>" | append: ms_nl | append: ms_nl -}}
