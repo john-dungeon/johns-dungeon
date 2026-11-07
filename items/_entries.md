@@ -106,11 +106,11 @@ description: This magic weapon is made of adamantine, an alloy made of iron and 
 name: Adrenaline Mask
 category: Wondrous Item
 rarity: Rare
-attunement: false
+attunement: true
 cost: 4150
 weight: 1
 tags: Buff, Magic Item, Speed Bonus
-description: If you wear this helmet while Bloodied, your Speed increases by 10 feet and you have Advantage on melee attack rolls.
+description: If you wear this helmet while Bloodied, your Speed increases by 15 feet and you have Advantage on melee attack rolls.
 
 ---
 
@@ -214,7 +214,7 @@ options_cost: 450, 4500, 45000
 note_cost: See table
 weight: 10
 tags: Area, Charge, Damage, Magic Item, Saving Throw
-description: This magical arm replaces one that was lost or removed. While the arm is attached to you, you can use and move it as if it were your natural arm (no Attunement required). You can attach or remove the arm as a Magic action, and it can't be removed against your will while you are alive.
+description: This magical arm replaces one that was lost or removed. You can attach the arm to yourself or remove it as a Magic action (no Attunement required), and it can't be removed against your will while you are alive. While the arm is attached to you, you can use and move it as if it were your natural arm.
 
 The arm has 7 charges. As a Bonus Action, you can transform the arm into a cannon, or vice versa. While the cannon is active, you can take the Magic action to expend 1 charge and fire a blast from the cannon that explodes a 10-foot-radius Sphere centered on a point within 60 feet of you. Each creature in the Sphere makes a Dexterity saving throw, taking Fire damage on a failed save or half as much damage on a successful one. A Construct has Disadvantage on the save. A nonmagical object that isn’t being worn or carried also takes the damage if it’s in the blast’s area.
 
@@ -245,7 +245,7 @@ options_cost: 500, 5000, 50000
 note_cost: See table
 weight: 10
 tags: Attack, Charge, Damage, Magic Item
-description: This magical arm replaces one that was lost or removed. While the arm is attached to you, you can use and move it as if it were your natural arm (no Attunement required). You can attach or remove the arm as a Magic action, and it can't be removed against your will while you are alive.
+description: This magical arm replaces one that was lost or removed. You can attach the arm to yourself or remove it as a Magic action (no Attunement required), and it can't be removed against your will while you are alive. While the arm is attached to you, you can use and move it as if it were your natural arm.
 
 The arm has 7 charges. As a Bonus Action, you can transform the arm into a machine gun, or vice versa. While the machine gun is active, when you take the Attack action on your turn, you can expend 1 to 3 charges to replace one of your attacks with a barrage of bullets at targets within 120 feet of you. For each charge spent, make a ranged attack against a target. These attacks can target the same target or different ones. On a hit, the target takes Piercing damage.
 
