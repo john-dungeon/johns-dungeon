@@ -26,7 +26,9 @@ traits:
 - trait_2: Legendary Resistance (1/Day)
   description: If Agony fails a saving throw, it can choose to succeed instead.
 - trait_3: Pain Sense
-  description: Agony has Advantage on attack rolls against any creature that is Bloodied. In addition, Agony always knows the location of any Bloodied creature within 300 feet of it, but only while the two of them are on the same plane of existence. A Bloodied creature can't become hidden from Agony, and if it has the Invisible condition, it gains no benefit from that condition against Agony.
+  description: Agony has Advantage on attack rolls against any creature that is Bloodied.
+
+  In addition, Agony always knows the location of any Bloodied creature within 300 feet of it, but only while the two of them are on the same plane of existence. A Bloodied creature can't become hidden from Agony, and if it has the Invisible condition, it gains no benefit from that condition against Agony.
 actions:
 - action_1: Multiattack
   description: Agony makes two attacks, using Sanguine Sword or Torment Spike in any combination, and uses Mark of the Scourge if available.
