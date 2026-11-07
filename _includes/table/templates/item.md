@@ -24,7 +24,7 @@
   {%- assign it_extra = "" -%}
   {%- assign it_attunement_l = it_attunement | downcase -%}
   {%- if it_attunement_l == "true" -%}{%- assign it_extra = "Requires Attunement" -%}{%- endif -%}
-  {%- if it_note_rarity != "" -%}{%- assign it_extra = it_extra | append: " " | append: it_note_rarity | strip -%}{%- endif -%}
+  {%- if it_note_rarity != "" -%}{%- assign it_extra = it_extra | append: it_note_rarity -%}{%- endif -%}
   {%- if it_extra != "" -%}{%- assign it_line1 = it_line1 | append: " (" | append: it_extra | append: ")" -%}{%- endif -%}
 {%- endif -%}
 
