@@ -6,7 +6,7 @@ layout: default
 <p><em>{% include text.html text=page.tagline %}</em></p>
 {%- endif %}
 {% include text.html text=page.intro block=true %}
-{{ content }}
+{% include links.html text=content %}
 {%- if page.catalog %}
 {% include catalog.html parent=page.title grand_parent=page.catalog.grand_parent group_by=page.catalog.group_by columns=page.catalog.columns max_columns=page.catalog.max_columns %}
 {%- endif %}
