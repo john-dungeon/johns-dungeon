@@ -289,6 +289,26 @@ This weapon has the following mastery property. To use this property, you must h
 
 ---
 
+name: Autonomous Mech Core
+category: Augment
+rarity: Very Rare
+note_rarity: Requires Attaching to a Mech
+attunement: false
+cost: 60000
+weight: 300
+tags: Buff, Forced Movement, Magic Item, Summon
+description: This magic item is a module that can transform a mech into an autonomous war machine. While the module is attached, the augmented armor (mech) gains the following magical properties:
+
+**Autonomous.** While doffed, the mech enters an autonomous state, becoming a Construct that uses the [[monsters:Autonomous Mech]] stat block. In combat, it acts during your turn. It can move on its own, but the only action it takes is the Dodge action unless you take a Bonus Action to telepathically command it to take an action. You can also take a Reaction to command it to take a Reaction. If you have the Incapacitated condition, the mech also has the Incapacitated condition and its Speed becomes 0 and can’t increase.
+
+While donned, the mech becomes armor and can't be targeted as a creature, but it retains its current Hit Points. If the mech is reduced to 0 Hit Points, it is broken, and you can no longer don it. If the mech is reduced to 0 Hit Points while you’re wearing it, you are ejected from the mech; you are forced to doff the mech and are moved to an unoccupied space within 10 feet of it.
+
+You can spend 2 hours, which can occur during a Long Rest, to repair a broken mech, returning it to life with all its Hit Points restored. In addition, the mech returns to life, if it is dead, and regains all of its Hit Points daily at dawn.
+
+**Protective Frame.** If you are targeted by an attack roll or a spell while wearing the mech, you can take a Reaction to cause the mech to become the target of the attack roll or spell instead; the mech suffers the effects of the attack roll or spell as if it were in its autonomous state (see stat block).
+
+---
+
 name: Bagpipes of Invisibility
 category: Wondrous Item
 note_category: Bagpipes
