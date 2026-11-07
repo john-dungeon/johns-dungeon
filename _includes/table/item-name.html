@@ -1,0 +1,7 @@
+{%- assign in_rest = include.line | remove_first: "- " | append: " " -%}
+{%- assign in_key = in_rest | split: ": " | first -%}
+{%- if in_rest contains ": " -%}
+  {{- in_rest | remove_first: in_key | remove_first: ": " | strip -}}
+{%- else -%}
+  {{- in_rest | strip -}}
+{%- endif -%}
