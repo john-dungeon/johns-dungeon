@@ -21,7 +21,8 @@
 
 ## 1. Design Rules
 
-- **One place per setting.** Wording: `strings.yml`. Themes, fonts, cursors, effects: `themes.yml`. Shared lists: `lists.yml`. Sound: `audio.yml`. Entrance screen: `gate.yml`. Look and feel numbers: `_settings.scss`. Table behavior: `_data/tables/`.
+- **One place per setting.** Wording: `strings.yml`. Themes, fonts, cursors, effects: `themes.yml`. Shared lists: `lists.yml`. Sound: `audio.yml`. Entrance screen: `gate.yml`. Clickable elements: `interactive.yml`. Look and feel numbers: `_settings.scss`. Table behavior: `_data/tables/`.
+- **A list needed by both Sass and JavaScript lives in `_data/` and is written into both by Liquid.** Sass can't read JS and neither can read `_data/` directly, so Liquid is the bridge: `theme.scss.liquid` writes a Sass variable, `head_custom.html` writes a JS global. The clickable-element list (`interactive.yml`) is the model. Never copy such a list into a script or stylesheet by hand.
 - **Universal rules over local fixes.** All text goes through `text.html`, tooltips through `tooltip.html`, quotes through `quote.html`, numbers through `format.html`, links through `links.html`. Don't reimplement these in one spot.
 - **Logic is separate from the page.** The search table's `columns`, `records`, `query`, and `filters` scripts never touch the page. Only `panel`, `dialog`, `deeplink`, and `main` do.
 - **Announce, don't call.** Scripts that don't depend on each other talk through events on `document` (section 9.1).
@@ -49,6 +50,7 @@
 - `gate.yml` – the entrance screen: on/off, picture, zoom point, zoom size, and three timings.
 - `session.yml` – how long the site must be closed before a visit ends, and what is forgotten then.
 - `text_size.yml` – lowest size, highest size, and step of the Size buttons.
+- `interactive.yml` – the CSS selectors that count as "clickable" (hover cursor, hover sound, torch glow). Read by both the stylesheets and the scripts (section 9.6).
 - `challenge.yml` – Challenge Rating to XP and Proficiency Bonus (monster template). Fractions are decimals (`0.5`).
 - `plurals.yml` – irregular plurals for Swarm stat blocks (`fey`, `monstrosity`, `undead`; anything unlisted gets an "s").
 - `tables/` – one settings file per search table: `feats`, `items`, `monsters`, `species`, `spells`.
@@ -79,8 +81,8 @@
 - `text.html` – the universal text formatter (section 5). `links.html` – `[[links]]`. `quote.html` – italic blockquote. `tooltip.html` – a `data-tooltip` attribute.
 - `catalog.html` – link tables. `search-table.html` – search tables. `backlink.html` – the automatic "Back to..." link.
 - `gate.html` – the entrance screen.
-- `head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – Just the Docs hook points. `head_custom` loads every script and hands data to them. `footer_custom` holds the "unfinished" quote, back link, dock, and entrance screen. `nav_footer_custom` holds the sidebar toggle button and footer line.
-- `theme.scss.liquid` – builds one theme's stylesheet: `@font-face` rules, Sass variables for fonts, background, static cursor, and sizes, then the color scheme.
+- `head_custom.html`, `footer_custom.html`, `nav_footer_custom.html` – Just the Docs hook points. `head_custom` loads every script and hands data to them (`SITE_STRINGS`, `SITE_LISTS`, `SITE_AUDIO`, `SITE_INTERACTIVE`, and the theme and session settings). `footer_custom` holds the "unfinished" quote, back link, dock, and entrance screen. `nav_footer_custom` holds the sidebar toggle button and footer line.
+- `theme.scss.liquid` – builds one theme's stylesheet: `@font-face` rules, Sass variables for fonts, background, static cursor, sizes, and the clickable selector (`$interactive-selector`), then the color scheme.
 - `table/` – helpers for `search-table.html`:
   - `parse-entry` (entry text to packed fields), `field` (reads one field), `value` (a cell's raw value), `cell` (one `<td>`), `format` (numbers: `money`, `weight`, `cr`, `signed`, or prefix/suffix).
   - `list` (comma list cleaner), `join-words` ("A, B, or C"; optional plural), `plural`, `named-list` (`- key: Name` lists to titled paragraphs; optional `row="class"` wraps each in a `<div>`), `item-name` (reads a list item's title), `tags` (including `auto_tags`), `marker`.
@@ -109,6 +111,7 @@
 | Entrance screen picture, zoom point, timings | `_data/gate.yml` |
 | Visit length, what is forgotten | `_data/session.yml` |
 | Text size limits and step | `_data/text_size.yml` |
+| What counts as clickable (cursor swap, hover sound, torch glow) | `_data/interactive.yml` |
 | Irregular plurals for Swarms | `_data/plurals.yml` |
 | Animation speed, popup widths, tooltip width, rarity colors, panel see-through level, parallax, entrance and scrollbar heights, effect colors and sizes | `_sass/custom/_settings.scss` |
 | One theme's heading weight, body size, heading size | `_data/themes.yml` (`heading_weight`, `body_size`, `heading_size`) |
@@ -121,7 +124,7 @@
 
 **Strings.** `{name}` is a fill-in spot, such as `{title}` or `{shown}`. Only `nav_footer` and `unfinished` accept Markdown and `[[links]]`. Quote a value that contains a colon followed by a space.
 
-**Settings.** Every value in `_settings.scss` ends in `!default`, so a color scheme can override one for just that theme by writing the same variable without `!default`. Never set `$theme-body-font`, `$theme-heading-font`, `$theme-background`, `$theme-cursor`, or `$theme-cursor-pointer` in a color scheme. They come from `themes.yml` through `theme.scss.liquid`, which also writes `$heading-weight`, `$body-size`, and `$heading-size` for themes that set them.
+**Settings.** Every value in `_settings.scss` ends in `!default`, so a color scheme can override one for just that theme by writing the same variable without `!default`. Never set `$theme-body-font`, `$theme-heading-font`, `$theme-background`, `$theme-cursor`, `$theme-cursor-pointer`, or `$interactive-selector` in a color scheme. They come from `themes.yml` and `interactive.yml` through `theme.scss.liquid`, which also writes `$heading-weight`, `$body-size`, and `$heading-size` for themes that set them.
 
 **Other color scheme overrides:** `$stripe-odd-color`, `$stripe-even-color`, `$unlisted-color`, `$missing-background`, `$marker-colors` (`_helpers.scss` adds `varies` and `variant` to it).
 
@@ -257,6 +260,7 @@ name: Next Entry
 
 - Entries are separated by a line that is exactly `---`. Never use `---` inside a description; use `***`.
 - One `key: value` per line. Field names are **all lowercase** (letters, digits, underscores). Every other line continues the field above. So a description line that starts with a lowercase word and a colon (`note: ...`) silently becomes a new field. Capitalized `Resistances:` is fine because it isn't recognized as a field name.
+- Values are whitespace-trimmed, so a leading space in a value is lost. A field that gets glued onto other text (`condition`, `note_rarity`) must supply its own leading punctuation instead (see below).
 - Don't write `{{` or `{%` in entries. Includes are processed as Liquid.
 - Lists are comma-separated. Don't put a comma inside parentheses in a list field (`Medium (4–5 ft, stocky)` breaks into two items).
 - Write cost and weight as plain numbers (no thousands commas).
@@ -264,6 +268,16 @@ name: Next Entry
 - `options_KEY` (like `options_rarity`) – other values the entry counts as, for search and filters. Excluding hides the entry only if all its values are excluded.
 - `options_cost` and `options_weight` list amounts or ranges, like `50, 200, 3-36`. A slider or Min/Max filter keeps the entry if any amount or range overlaps.
 - Entry names must be unique within a table: each row's `id` is its slugified name, and links and deep links rely on it. Two names that slugify the same (`Bob's` and `Bob’s`) collide.
+
+### Appended Fields (author supplies the punctuation)
+Some fields are added to the end of other text exactly as written, with no automatic space, comma, or semicolon. This is on purpose: the template can't know what punctuation the sentence needs, so the entry author writes it.
+
+| Field | Appended to | Example |
+|---|---|---|
+| `condition` (spells) | the casting time | `condition: , which you take when you are hit by an attack roll` |
+| `note_rarity` (items) | the parenthetical after the rarity | `note_rarity: ; See table` |
+
+If an item has `attunement: true` and a `note_rarity`, begin the note with its own punctuation (`; See table`), giving `(Requires Attunement; See table)`. With no attunement the note stands alone, so it is written plainly (`See table`, giving `(See table)`). Without the punctuation, the two run together as `Requires AttunementSee table`.
 
 ### Named Lists (traits, actions, ...)
 Species `traits` and monster `traits`, `actions`, and so on use indented list items. The first key's name is ignored (`trait_1`, anything); its value is the item's title.
@@ -282,7 +296,7 @@ Indent anything starting with `- ` inside a description by two spaces, or it is 
 
 **Items** (`item.md`): `name`, `prefix_category`, `category`, `note_category`, `rarity`, `options_rarity`, `note_rarity`, `attunement`, `cost`, `options_cost`, `note_cost`, `weight`, `options_weight`, `note_weight`, `setting`, `note_setting`, `variant`, `note_variant`, `tags`, `description`.
 - `prefix_category` goes before the category in the popup (`Martial Melee` + `Weapon`); not shown in the table column.
-- Rarity: leave blank or `none` for mundane items. `Varies` shows "Rarity Varies". `attunement: true` adds "Requires Attunement"; `note_rarity` is appended inside the same parentheses.
+- Rarity: leave blank or `none` for mundane items. `Varies` shows "Rarity Varies". `attunement: true` adds "Requires Attunement". `note_rarity` is appended inside the same parentheses exactly as written (see "Appended Fields" above).
 - Cost is in gold: the tenths digit is silver and the hundredths digit is copper (`0.5` = 5 SP, `0.05` = 5 CP, `400.3` = 400 GP 3 SP). `cost: 0` shows as "None", `Varies` and `Priceless` are shown as written. Weight is in pounds (0.1 lb. or less shows in ounces); `0` shows "Weightless".
 - `setting` is comma-separated. It auto-adds the Setting-Specific tag, the ☁ marker, and the "can only be found in…" note. Never hand-write any of those. `note_setting` adds a sentence to that note.
 - `variant: true` auto-adds the Variant tag and the ⧨ marker. With `note_variant`, it also adds the "Variant." note in the popup.
@@ -366,7 +380,7 @@ Liquid builds each row and popup at build time; a script then makes it interacti
 - On each row: `id` (slugified name), `data-tag-names`, `data-v-KEY` (lowercase displayed value), `data-o-KEY` (the `options_` values), `data-s-KEY` (sort override from a column `note`).
 - Popup HTML sits in `.st-details`, one `<div data-for="ROW-ID">` per entry. `deeplink.js` opens a popup when the URL ends in `#entry-name` (after the entrance screen is passed), and removes the hash again when the popup closes.
 
-The build steps in `search-table.html`: read `_entries.md` from the page's own folder (`include_relative`), split on `---`, parse each entry into packed fields, compute tags (including `auto_tags`), build each row's cells and the popup from the template, then wrap everything in the toolbar, table, and dialog markup.
+The build steps in `search-table.html`: read `_entries.md` from the page's own folder (`include_relative`), split on `---`, parse each entry into packed fields, compute tags (including `auto_tags`), build each row's cells and the popup from the template, then wrap everything in the toolbar, table, and dialog markup. Every variable it creates starts with `st_`.
 
 **Scripts (`assets/js/search-table/`).** The first four never touch the page, so they can be tested alone.
 - `utils.js` – `t()` wording helper (reads `strings.yml`), number syntax (`NUMBER`, `parseSpan`), small DOM helpers.
@@ -384,12 +398,14 @@ Scripts that don't know each other communicate through events on `document`. To 
 |---|---|---|
 | `themechange` | `theme-switcher.js` | Theme switched. `detail` is the theme `id`. Sent after the new stylesheet is in place. |
 | `popupopen`, `popupclose` | `search-table/dialog.js` | A table popup opened or closed. |
-| `hoverstart`, `hoverend` | `site/hover.js` | The pointer entered or left something clickable (links, buttons, table rows...). Neighboring clickables with no gap count as one hover. |
+| `hoverstart`, `hoverend` | `site/hover.js` | The pointer entered or left something clickable (section 9.6). Neighboring clickables with no gap count as one hover. |
 | `gateenter` | `site/gate.js` | Entrance screen clicked. |
 | `gateopen` | `site/gate.js` | Zoom is over; the screen is fading away. |
 | `fxsound` | `site/effects.js` | An effect asked for a sound. `detail` is the sound name. `audio.js` plays it. |
 
 The active theme's `id` is always on `<html data-theme="...">` (CSS: `html[data-theme="dungeon"]`). `site/shared.js` is the shared toolbox: `root`, `FINE_POINTER` and `CALM` (media queries: mouse available, reduced motion), `hoverableFrom`, `waiting()` (is the entrance screen still pending?), `announce(type, detail)`, `themeConfig(id)`, `cssVar(name)`, `onThemeChange(fn)` (runs `fn` now and after every switch), `load(key, fallback)` / `save(key, value)`, and `posterize`.
+
+**Data handed to scripts.** `head_custom.html` writes these globals from `_data/` before any module runs: `SITE_STRINGS`, `SITE_LISTS`, `SITE_AUDIO`, `SITE_INTERACTIVE` (the clickable selector as one string), `SITE_THEMES`, `SITE_DEFAULT_THEME`, `SITE_ROOT`, `SITE_SESSION`, and `SITE_BUILD`. To give a script a new data file, add a global there.
 
 **Stored settings.**
 
@@ -463,7 +479,15 @@ cursor:
 - **Animated (`animated: true`):** browsers can't animate a native cursor, so `site/cursor.js` hides the real one (`html.fake-cursor`, which `theme-switcher.js` also sets early) and moves `#site-cursor` to the pointer once per frame. It is a `popover="manual"` element, which puts it in the browser's top layer above the dialogs; the script re-raises it on `popupopen`. `image` can be an animated `.webp`, `.gif`, `.apng`, or a `.webm`/`.mp4` video (chosen by extension; videos autoplay, muted, looped). `size` is the displayed width (default 32); the hotspot is in those pixels. `theme.scss.liquid` skips the native cursor for animated themes. Both current themes are animated.
 - Animated WebP is the best format: smooth transparency everywhere. GIF has only on/off transparency, and WebM transparency doesn't work in Safari.
 - The fake cursor is off for touchscreens (`FINE_POINTER`) and themes without `animated`. It trails the real pointer by about one frame and appears after the first mouse move.
-- **What counts as "hovering":** `hover.js` uses the `INTERACTIVE` selector in `shared.js` (`a, button, summary, select, label, checkbox, [role=menuitem], .st-row`, excluding anything inside the entrance screen). It announces `hoverstart`/`hoverend`, which swap the cursor to its `pointer` image, play the `hover` sound, and switch the torch glow to its blue palette. `_cursor.scss` repeats the same selector list for the static cursor; if you add a clickable kind of element, update both.
+
+**What counts as "hovering" (one list, two readers).** The list lives in `_data/interactive.yml`, one CSS selector per item (links, buttons, summaries, selects, labels, checkboxes, menu items, table rows). Liquid writes it to both sides:
+- **JavaScript:** `head_custom.html` writes `window.SITE_INTERACTIVE` (the items joined with `, `). `site/shared.js` reads it as `INTERACTIVE`, and `hoverableFrom` uses it (excluding anything inside the entrance screen). `hover.js` announces `hoverstart`/`hoverend`, which swap the cursor to its `pointer` image, play the `hover` sound, and switch the torch glow to its blue palette.
+- **Sass:** `theme.scss.liquid` writes `$interactive-selector`, and `_cursor.scss` uses it (`#{$interactive-selector} { ... }`) for the static pointer cursor.
+
+To add or remove a clickable kind of element, edit only `interactive.yml`. Rules for the file:
+- Use **single quotes** inside selectors (`"input[type='checkbox']"`), so the string prints safely into Sass.
+- Quote any item that starts with `[` (YAML would read it as a list).
+- `theme.scss.liquid` prints the list with no `default:` on purpose: if the file goes missing, the Sass build fails loudly instead of every hover effect silently vanishing.
 
 ### 9.7 Ambient Effects
 Theme-specific effects: one small file each, listed per theme in `themes.yml`:
@@ -518,7 +542,8 @@ Settings: `audio.yml`. Behavior: `site/audio.js`. The Sound menu has two checkbo
 2. Add a line `---` after the last entry, then the new entry's fields (section 7, "Fields by Table"). Copy a similar entry as a starting point.
 3. Use only listed values for the `order`ed columns (category, rarity, school, settings...). Unlisted values show in red; add the value to the column's `order` (or to `lists.yml`) if it is genuinely new.
 4. Use only tags from the table's `tags` list. Don't type auto-tags.
-5. Commit, wait for the build, hard refresh, open the entry's popup and check it.
+5. If a field is appended to other text (`condition`, `note_rarity`), start it with its own punctuation (section 7, "Appended Fields").
+6. Commit, wait for the build, hard refresh, open the entry's popup and check it.
 
 ### Add a tag
 Add it to `tags` in the table's `.yml`. If it should be added automatically, add an `auto_tags` rule too (section 7).
@@ -559,6 +584,14 @@ Create `NAME/index.md` with `title`, `parent: Home`, `has_children: true`, `layo
 ### Change wording on the site
 Find the string in `_data/strings.yml` and edit it. Don't edit wording inside includes or scripts.
 
+### Make a clickable element behave like a link (cursor, sound, glow)
+Add its selector to `_data/interactive.yml` (section 9.6). Nothing else needs to change.
+
+### Share a data list between Sass and JavaScript
+1. Put the list in `_data/NAME.yml`.
+2. For Sass: assign it in `theme.scss.liquid` with an `th_` variable (no `default:`), print it as a `$variable` beside the other `$theme-...` lines, and use `jsonify` so it becomes a quoted string.
+3. For JavaScript: add a `window.SITE_NAME` global in `head_custom.html` and read it in the script.
+
 ### Add a theme, font, effect, sound, dock button
 See sections 6, 9.7, 9.8, and 9.3.
 
@@ -566,16 +599,16 @@ See sections 6, 9.7, 9.8, and 9.3.
 
 - **Liquid runs in every normal `.md` page and included file**, even inside backticks. Wrap documentation examples in raw tags. (This file is excluded from the build.)
 - **Never put `}` inside a `{{ }}` tag.** Assign the value first with `{% assign %}`, then print it.
-- **Includes share variables with their caller.** Give every include its own prefix (`mk_`, `cl_`, `cat_`, `lk_`, `pe_`, `jw_`, `ni_`, `fm_`, `ms_`, `sps_`, `sp_`, `it_`, `ft_`, `tx_`, `qt_`, `tt_`, `tg_`, `th_`, `gt_`, `bl_`, `pl_`, `in_`...) and pass what it needs as a parameter.
+- **Includes share variables with their caller.** Any variable an include creates is visible to the page and to every include that runs afterward, so two files using the same name silently overwrite each other. Give every include its own prefix (`mk_`, `cl_`, `cat_`, `lk_`, `pe_`, `jw_`, `ni_`, `fm_`, `ms_`, `sps_`, `sp_`, `it_`, `ft_`, `tx_`, `qt_`, `tt_`, `tg_`, `th_`, `gt_`, `bl_`, `pl_`, `in_`, `st_`, `fld_`, `lst_`, `val_`...) and pass what it needs as a parameter. When you rename variables for a prefix, do **not** rename the parameter names on the left of `key=value` in an include call (`packed=`, `cols=`, `col=`, `cell=`, `note=`); other includes read those as `include.packed` and so on. Only the values on the right change.
 - **Include parameters must be plain values or dotted names** (`key=col.key`). Brackets like `list[0]` break the tag; assign to a variable first.
-- **`theme.scss.liquid` must assign every `th_` variable it prints and must not hide a missing one with `| default:`.** A missing one should break the build, not silently drop a font, background, or cursor.
-- **Saved settings are read in the head**, so `session.js` must load before `theme-switcher.js` and `text-size.js`, and `effects-snapshot.js` after `theme-switcher.js`. Keep that order in `head_custom.html`.
+- **`theme.scss.liquid` must assign every `th_` variable it prints and must not hide a missing one with `| default:`.** A missing one should break the build, not silently drop a font, background, cursor, or the clickable selector.
+- **Saved settings are read in the head**, so `session.js` must load before `theme-switcher.js` and `text-size.js`, and `effects-snapshot.js` after `theme-switcher.js`. Keep that order in `head_custom.html`. The `SITE_*` data globals must also be written before the module scripts that read them.
 - **A dialog's `::backdrop` ignores the dialog's `opacity`.** To fade a modal dialog, make its backdrop transparent.
 - **Heading size uses `zoom`**, because Just the Docs sets heading sizes with `!important` in `rem`. Zoom also scales margins. It's only written when `heading_size` and `body_size` differ. Just the Docs also sets `th`, `td`, and heading font sizes with `!important`, so a custom `font-size` there needs `!important` too.
-- **Sass can't read data files.** `_settings.scss` holds defaults, and `theme.scss.liquid` writes each theme's fonts, background, and cursor. Just the Docs builds extra stylesheets that load `custom.scss`, which is why every setting has `!default`.
+- **Sass can't read data files.** `_settings.scss` holds defaults, and `theme.scss.liquid` writes each theme's fonts, background, cursor, and the clickable selector. Just the Docs builds extra stylesheets that load `custom.scss`, which is why every setting has `!default`.
 - **Sass compatibility:** halve with `* 0.5`, not `/ 2`. Avoid `@use` and `math.div`: the theme loads this folder with `@import`.
 - **Entry files are named `_entries.md`** so Jekyll doesn't publish them. They load with `include_relative`, so they must sit in the same folder as the page showing the table.
-- **YAML (`.yml` files and front matter):** quote values containing a colon followed by a space, or starting with `,` or `#`. Quote the keys `"true"` and `"false"`. Spaces only, never tabs.
+- **YAML (`.yml` files and front matter):** quote values containing a colon followed by a space, or starting with `,`, `#`, or `[`. Quote the keys `"true"` and `"false"`. Spaces only, never tabs.
 - **GitHub Pages file names are case-sensitive.** A wrong capital in a font, image, or audio name gives the fallback with no error.
 - **Before deleting a CSS class**, search the whole repo for its name.
 - **After changing a script,** hard refresh (Ctrl+Shift+R). A mix of old and new script files stops every table working.
