@@ -1,70 +1,75 @@
-{%- assign ui = site.data.strings -%}
-{%- assign cfg = site.data.tables[include.data] -%}
-{%- assign cols = cfg.columns -%}
-{%- capture nl %}
-{% endcapture -%}
-{%- assign template_file = "table/templates/" | append: cfg.template | append: ".md" -%}
+{%- comment -%}
+  Search Table
+  Params: data (required; the table's name, a file in _data/tables/)
+{%- endcomment -%}
 
-{%- capture raw_entries -%}{% include_relative _entries.md %}{%- endcapture -%}
-{%- assign raw_lines = raw_entries | split: nl -%}
-{%- capture marked_entries -%}
-  {%- for raw_line in raw_lines -%}
-    {%- assign raw_trim = raw_line | strip -%}
-    {%- if raw_trim == "---" -%}¶¶{%- else -%}{{ raw_line }}{{ nl }}{%- endif -%}
+{%- assign st_ui = site.data.strings -%}
+{%- assign st_cfg = site.data.tables[include.data] -%}
+{%- assign st_cols = st_cfg.columns -%}
+{%- capture st_nl %}
+{% endcapture -%}
+{%- assign st_template = "table/templates/" | append: st_cfg.template | append: ".md" -%}
+
+{%- capture st_raw_entries -%}{% include_relative _entries.md %}{%- endcapture -%}
+{%- assign st_raw_lines = st_raw_entries | split: st_nl -%}
+{%- capture st_marked_entries -%}
+  {%- for st_raw_line in st_raw_lines -%}
+    {%- assign st_raw_trim = st_raw_line | strip -%}
+    {%- if st_raw_trim == "---" -%}¶¶{%- else -%}{{ st_raw_line }}{{ st_nl }}{%- endif -%}
   {%- endfor -%}
 {%- endcapture -%}
-{%- assign entry_texts = marked_entries | split: "¶¶" -%}
+{%- assign st_entry_texts = st_marked_entries | split: "¶¶" -%}
 
-{%- assign rows_html = "" -%}
-{%- assign details_html = "" -%}
-{%- for entry_text in entry_texts -%}
-  {%- assign entry_probe = entry_text | strip -%}
-  {%- if entry_probe == "" -%}{%- continue -%}{%- endif -%}
+{%- assign st_rows_html = "" -%}
+{%- assign st_details_html = "" -%}
+{%- for st_entry_text in st_entry_texts -%}
+  {%- assign st_entry_probe = st_entry_text | strip -%}
+  {%- if st_entry_probe == "" -%}{%- continue -%}{%- endif -%}
 
-  {%- capture packed %}{% include table/parse-entry.html text=entry_text %}{% endcapture -%}
-  {%- capture tags_csv %}{% include table/tags.html packed=packed rules=cfg.auto_tags %}{% endcapture -%}
-  {%- capture marker_html -%}
-    {%- for marker_cfg in cfg.markers -%}
-      {%- include table/marker.html marker=marker_cfg packed=packed tags=tags_csv -%}
+  {%- capture st_packed %}{% include table/parse-entry.html text=st_entry_text %}{% endcapture -%}
+  {%- capture st_tags_csv %}{% include table/tags.html packed=st_packed rules=st_cfg.auto_tags %}{% endcapture -%}
+  {%- capture st_marker_html -%}
+    {%- for st_marker_cfg in st_cfg.markers -%}
+      {%- include table/marker.html marker=st_marker_cfg packed=st_packed tags=st_tags_csv -%}
     {%- endfor -%}
   {%- endcapture -%}
 
-  {%- assign row_attrs = "" -%}
-  {%- assign row_cells = "" -%}
-  {%- for col in cols -%}
-    {%- capture cell %}{% include table/value.html packed=packed col=col %}{% endcapture -%}
-    {%- assign opt_key = "options_" | append: col.key -%}
-    {%- capture opts_raw %}{% include table/field.html packed=packed key=opt_key %}{% endcapture -%}
-    {%- capture opts_text %}{% include table/list.html csv=opts_raw sep=", " %}{% endcapture -%}
-    {%- capture note_raw %}{% if col.note %}{% include table/field.html packed=packed key=col.note.field %}{% endif %}{% endcapture -%}
-    {%- capture attr_text %} data-v-{{ col.key }}="{{ cell | downcase | escape }}"{% if opts_text != "" %} data-o-{{ col.key }}="{{ opts_text | escape }}"{% endif %}{% if col.note.sort and note_raw != "" %} data-s-{{ col.key }}="{{ note_raw | downcase | escape }}"{% endif %}{% endcapture -%}
-    {%- assign row_attrs = row_attrs | append: attr_text -%}
-    {%- if forloop.first -%}{%- assign entry_name = cell -%}{%- continue -%}{%- endif -%}
-    {%- capture td_html %}{% include table/cell.html col=col cell=cell note=note_raw %}{% endcapture -%}
-    {%- assign row_cells = row_cells | append: td_html -%}
+  {%- assign st_row_attrs = "" -%}
+  {%- assign st_row_cells = "" -%}
+  {%- for st_col in st_cols -%}
+    {%- capture st_cell %}{% include table/value.html packed=st_packed col=st_col %}{% endcapture -%}
+    {%- assign st_opt_key = "options_" | append: st_col.key -%}
+    {%- capture st_opts_raw %}{% include table/field.html packed=st_packed key=st_opt_key %}{% endcapture -%}
+    {%- capture st_opts_text %}{% include table/list.html csv=st_opts_raw sep=", " %}{% endcapture -%}
+    {%- capture st_note_raw %}{% if st_col.note %}{% include table/field.html packed=st_packed key=st_col.note.field %}{% endif %}{% endcapture -%}
+    {%- capture st_attr_text %} data-v-{{ st_col.key }}="{{ st_cell | downcase | escape }}"{% if st_opts_text != "" %} data-o-{{ st_col.key }}="{{ st_opts_text | escape }}"{% endif %}{% if st_col.note.sort and st_note_raw != "" %} data-s-{{ st_col.key }}="{{ st_note_raw | downcase | escape }}"{% endif %}{% endcapture -%}
+    {%- assign st_row_attrs = st_row_attrs | append: st_attr_text -%}
+    {%- if forloop.first -%}{%- assign st_entry_name = st_cell -%}{%- continue -%}{%- endif -%}
+    {%- capture st_td_html %}{% include table/cell.html col=st_col cell=st_cell note=st_note_raw %}{% endcapture -%}
+    {%- assign st_row_cells = st_row_cells | append: st_td_html -%}
   {%- endfor -%}
 
-  {%- assign entry_slug = entry_name | slugify -%}
-  {%- capture row_html -%}
-  <tr class="st-row" id="{{ entry_slug }}" tabindex="0" data-tag-names="{{ tags_csv | escape }}"{{ row_attrs }}>
-    <td><span class="st-name">{{ entry_name | escape }}</span>{{ marker_html }}</td>
-    {{ row_cells }}
+  {%- assign st_entry_slug = st_entry_name | slugify -%}
+  {%- capture st_row_html -%}
+  <tr class="st-row" id="{{ st_entry_slug }}" tabindex="0" data-tag-names="{{ st_tags_csv | escape }}"{{ st_row_attrs }}>
+    <td><span class="st-name">{{ st_entry_name | escape }}</span>{{ st_marker_html }}</td>
+    {{ st_row_cells }}
   </tr>
   {%- endcapture -%}
 
-  {%- capture popup_md %}{% include {{ template_file }} packed=packed cols=cols tags=tags_csv %}{% endcapture -%}
-  {%- capture detail_html -%}
-  <div data-for="{{ entry_slug }}">{% include text.html text=popup_md block=true table=include.data %}</div>
+  {%- capture st_popup_md %}{% include {{ st_template }} packed=st_packed cols=st_cols tags=st_tags_csv %}{% endcapture -%}
+  {%- capture st_detail_html -%}
+  <div data-for="{{ st_entry_slug }}">{% include text.html text=st_popup_md block=true table=include.data %}</div>
   {%- endcapture -%}
 
-  {%- assign rows_html = rows_html | append: row_html -%}
-  {%- assign details_html = details_html | append: detail_html -%}
+  {%- assign st_rows_html = st_rows_html | append: st_row_html -%}
+  {%- assign st_details_html = st_details_html | append: st_detail_html -%}
 {%- endfor -%}
 
-<div class="search-table" data-config="{{ cfg | jsonify | escape }}">
+<div class="search-table" data-config="{{ st_cfg | jsonify | escape }}">
   <div class="st-tools">
-    <input type="search" class="st-search" placeholder="{{ cfg.placeholder | default: ui.table_placeholder | escape }}" aria-label="{{ ui.table_search | escape }}" autocomplete="off">
-    <button type="button" class="st-filter-toggle" aria-expanded="false">{{ ui.table_filter }}</button>
+    <input type="search" class="st-search" placeholder="{{ st_cfg.placeholder | default: st_ui.table_placeholder | escape }}" aria-label="{{ st_ui.table_search | escape }}" autocomplete="off">
+    <button type="button" class="st-filter-toggle" aria-expanded="false">{{ st_ui.table_filter }}</button>
     <span class="st-count" aria-live="polite"></span>
   </div>
 
@@ -74,28 +79,28 @@
     <table class="st-table">
       <thead>
         <tr>
-          {%- for col in cols -%}
-            {%- if col.in_table == false -%}{%- continue -%}{%- endif -%}
-            {%- if col.sortable == false -%}
-          <th>{{ col.label | escape }}</th>
+          {%- for st_col in st_cols -%}
+            {%- if st_col.in_table == false -%}{%- continue -%}{%- endif -%}
+            {%- if st_col.sortable == false -%}
+          <th>{{ st_col.label | escape }}</th>
             {%- else -%}
-          <th data-key="{{ col.key }}" aria-sort="none"><button type="button">{{ col.label | escape }}</button></th>
+          <th data-key="{{ st_col.key }}" aria-sort="none"><button type="button">{{ st_col.label | escape }}</button></th>
             {%- endif -%}
           {%- endfor -%}
         </tr>
       </thead>
-      <tbody>{{ rows_html }}</tbody>
+      <tbody>{{ st_rows_html }}</tbody>
     </table>
   </div>
 
-  <p class="st-empty" hidden>{{ ui.table_empty }}</p>
+  <p class="st-empty" hidden>{{ st_ui.table_empty }}</p>
 
-  <div class="st-details" hidden>{{ details_html }}</div>
+  <div class="st-details" hidden>{{ st_details_html }}</div>
 
-  <dialog class="st-dialog{% if cfg.dialog %} st-dialog--{{ cfg.dialog | escape }}{% endif %}" aria-label="{{ ui.table_details | escape }}">
+  <dialog class="st-dialog{% if st_cfg.dialog %} st-dialog--{{ st_cfg.dialog | escape }}{% endif %}" aria-label="{{ st_ui.table_details | escape }}">
     <div class="st-dialog-inner">
       <div class="st-dialog-header">
-        <button type="button" class="st-dialog-close" aria-label="{{ ui.table_close | escape }}">✕</button>
+        <button type="button" class="st-dialog-close" aria-label="{{ st_ui.table_close | escape }}">✕</button>
       </div>
       <h2 class="st-dialog-title"></h2>
       <div class="st-dialog-body"></div>
