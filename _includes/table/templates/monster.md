@@ -81,7 +81,7 @@
 {%- endif -%}
 {%- assign ms_props = ms_props | remove_first: ms_break -%}
 
-{%- assign ms_section_defs = "traits|Traits,actions|Actions,bonus_actions|Bonus Actions,reactions|Reactions,charged_actions|Charged Actions,legendary_actions|Legendary Actions" | split: "," -%}
+{%- assign ms_section_defs = "traits|Traits,actions|Actions,bonus_actions|Bonus Actions,reactions|Reactions,charged_actions|Charged Actions,legendary_actions|Legendary Actions,regional_effects|Regional Effects" | split: "," -%}
 {%- capture ms_sections -%}
   {%- for ms_def in ms_section_defs -%}
     {%- assign ms_pair = ms_def | split: "|" -%}
