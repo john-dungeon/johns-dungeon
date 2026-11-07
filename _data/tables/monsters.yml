@@ -1,7 +1,7 @@
 template: monster
 noun: monsters
 dialog: statblock
-tags: [Boss, Legendary, Spellcaster, Swarm]
+tags: [Boss, Legendary, Spellcaster, Slime, Stone Lion, Swarm, Welterbeast]
 auto_tags:
   - { tag: Legendary, field: legendary_actions }
 columns:
