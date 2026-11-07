@@ -1,3 +1,14 @@
+name: Acoustic Sensor
+category: Wondrous Item
+rarity: Uncommon
+attunement: false
+cost: 400
+weight: 4
+tags: Buff, Debuff, Magic Item, Special Sense, Vulnerability
+description: While wearing this helmet, you have Blindsight with a range of 5 feet and Advantage on Wisdom (Perception) checks that rely on hearing. However, you have Vulnerability to Thunder damage and have Disadvantage on saving throws you make to avoid or end the Deafened condition.
+
+---
+
 name: Adamantine Ammunition
 category: Weapon
 note_category: Any Ammunition
@@ -89,6 +100,17 @@ description: This magic weapon is made of adamantine, an alloy made of iron and 
 ***Unbreakable.*** Whenever the weapon hits an object, the hit is a Critical Hit.
 
 ***Impact Absorption.*** When you hit a target with the weapon, it gains 1 charge, up to a maximum of 6 charges. Immediately after you hit a target with the weapon, you can take a Bonus Action to expend all of the weapon's charges and unleash a concentrated blast of magical force against the target. The target takes an extra 1d8 Force damage from the attack for each charge expended, and it has the Prone condition if it is Huge or smaller.
+
+---
+
+name: Adrenaline Mask
+category: Wondrous Item
+rarity: Rare
+attunement: false
+cost: 4150
+weight: 1
+tags: Buff, Magic Item, Speed Bonus
+description: If you wear this helmet while Bloodied, your Speed increases by 10 feet and you have Advantage on melee attack rolls.
 
 ---
 
