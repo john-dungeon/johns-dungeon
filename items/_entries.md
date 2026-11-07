@@ -211,7 +211,7 @@ note_rarity: See table
 attunement: true
 cost: Varies
 options_cost: 450, 4500, 45000
-note_cost: See table
+note_cost: ; See table
 weight: 10
 tags: Area, Charge, Damage, Magic Item, Saving Throw
 description: This magical arm replaces one that was lost or removed. You can attach the arm to yourself or remove it as a Magic action (no Attunement required), and it can't be removed against your will while you are alive. While the arm is attached to you, you can use and move it as if it were your natural arm.
@@ -242,7 +242,7 @@ note_rarity: See table
 attunement: true
 cost: Varies
 options_cost: 500, 5000, 50000
-note_cost: See table
+note_cost: ; See table
 weight: 10
 tags: Attack, Charge, Damage, Magic Item
 description: This magical arm replaces one that was lost or removed. You can attach the arm to yourself or remove it as a Magic action (no Attunement required), and it can't be removed against your will while you are alive. While the arm is attached to you, you can use and move it as if it were your natural arm.
@@ -260,6 +260,31 @@ The arm's Piercing damage and purchase cost are determined by its potency, as sh
 | +1 | Uncommon | 3d6 + 3 | 500 GP |
 | +2 | Rare | 4d6 + 4 | 5,000 GP |
 | +3 | Very Rare | 5d6 + 5 | 50,000 GP |
+{: .catalog }
+
+---
+
+name: Arm-Mounted Taser
+prefix_category: Martial Ranged
+category: Weapon
+cost: 800
+weight: 2
+tags: Special Property
+description: Proficiency with an Arm-Mounted Taser allows you to add your proficiency bonus to the attack roll for any attack you make with it.
+
+This weapon has the following special properties.
+
+***Electrocution.*** When you hit a creature with a ranged attack using an Electrocution weapon, that creature must succeed on a DC 15 Constitution saving throw or have the Paralyzed condition until the start of your next turn.
+
+***Free-Handed.*** You can wield a Free-Handed weapon in your hand while keeping that hand free.
+
+This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
+
+***Vex.*** If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn.
+
+| Name | Cost | Damage | Weight | Properties |
+| :---: | :---: | :---: | :---: | :---: |
+| Arm-Mounted Taser | 800 GP | 1d4 Piercing | 2 lb. | Ammunition (Range 30/90; Taser Charge), Free-Handed, Light, Loading, Vex |
 {: .catalog }
 
 ---
@@ -403,6 +428,14 @@ This weapon has the following mastery property. To use this property, you must h
 | :---: | :---: | :---: | :---: | :---: |
 | Cestus | 5 SP | 1d4 Piercing | 2 lb. | Free-Handed, Light, Unarmed, Sap |
 {: .catalog }
+
+---
+
+name: Charge Pack
+category: Adventuring Gear
+cost: 1
+weight: 1
+description: A Charge Pack holds up to 10 Taser Charges.
 
 ---
 
@@ -1165,6 +1198,18 @@ description: **Ability:** Wisdom\
 **Utilize:** Collect a tissue sample from a creature (DC 10), or identify a disease or injury (DC 15)
 
 If you have proficiency with a tool, add your Proficiency Bonus to any ability check you make that uses the tool. If you have proficiency in a skill that’s used with that check, you have Advantage on the check too.
+
+---
+
+name: Taser Charge
+category: Weapon
+note_category: Ammunition
+cost: 50
+weight: 0.15
+tags: Consumable
+description: Taser Charges are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield.
+
+Taser Charges are typically stored in a Charge Pack (bought separately).
 
 ---
 
