@@ -2,7 +2,7 @@
   * { cursor: $theme-cursor !important; }
   ::backdrop { cursor: $theme-cursor !important; }
 
-  a, button, summary, select, label, input[type="checkbox"], [role="menuitem"], .st-row {
+  #{$interactive-selector} {
     &, * { cursor: $theme-cursor-pointer !important; }
   }
 
