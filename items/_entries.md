@@ -274,7 +274,7 @@ description: Proficiency with an Arm-Mounted Taser allows you to add your profic
 
 This weapon has the following special properties.
 
-***Electrocution.*** When you hit a creature with a ranged attack using an Electrocution weapon, that creature takes extra Lightning damage from the attack and must succeed on a Constitution saving throw or have the Paralyzed condition until the start of your next turn. The extra Lightning damage and save DC are determined by the potency of the Taser Charge used as ammunition.
+***Electrocution.*** When you hit a creature with a ranged attack using an Electrocution weapon, that creature takes extra Lightning damage from the attack and must succeed on a Constitution saving throw or have the Paralyzed condition until the start of your next turn. The extra Lightning damage and save DC are determined by the potency of the [[Taser Charge]] used as ammunition.
 
 ***Free-Handed.*** You can wield a Free-Handed weapon in your hand while keeping that hand free.
 
@@ -284,7 +284,7 @@ This weapon has the following mastery property. To use this property, you must h
 
 | Name | Cost | Damage | Weight | Properties |
 | :---: | :---: | :---: | :---: | :---: |
-| Arm-Mounted Taser | 800 GP | 1 Piercing | 2 lb. | Ammunition (Range 30/90; Taser Charge), Free-Handed, Light, Loading, Vex |
+| Arm-Mounted Taser | 800 GP | 1 Piercing | 2 lb. | Ammunition (Range 30/90; [[Taser Charge]]), Free-Handed, Light, Loading, Vex |
 {: .catalog }
 
 ---
@@ -455,7 +455,7 @@ name: Charge Pack
 category: Adventuring Gear
 cost: 1
 weight: 1
-description: A Charge Pack holds up to 10 Taser Charges.
+description: A Charge Pack holds up to 10 [[Taser Charge|Taser Charges]].
 
 ---
 
@@ -864,7 +864,7 @@ description: This piece of magic ammunition is made of mithril, a light, silvery
 
 When you hit a target with the ammunition, you can cause the ammunition to become embedded in the target. A creature can take the Utilize action to make a DC 10 Strength (Athletics) or Dexterity (Sleight of Hand) check, dislodging the ammunition on a success.
 
-In addition, you can always recover the ammunition at the end of a battle, unless it was destroyed or taken—picked up by an enemy that fled, for example. If the ammunition is linked to a Mithril Compass, the compass can determine the ammunition's direction, possibly tracking a target if the ammunition is embedded in it.
+In addition, you can always recover the ammunition at the end of a battle, unless it was destroyed or taken—picked up by an enemy that fled, for example. If the ammunition is linked to a [[Mithril Compass]], the compass can determine the ammunition's direction, possibly tracking a target if the ammunition is embedded in it.
 
 ---
 
@@ -1254,7 +1254,7 @@ weight: 0.15
 tags: Consumable, Extra Damage, Saving Throw
 description: Taser Charges are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). Taser Charges can't be recovered at the end of a battle.
 
-Taser Charges are typically stored in a Charge Pack (bought separately).
+Taser Charges are typically stored in a [[Charge Pack]] (bought separately).
 
 Each Taser Charge has a potency, shown in the table below, which determines the extra Lightning damage and save DC when it is used as ammunition for an Electrocution weapon.
 
