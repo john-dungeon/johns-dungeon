@@ -1025,6 +1025,19 @@ The potion's rarity and purchase cost, the number of Hit Points it restores, and
 
 ---
 
+name: Reinforced Instrument
+category: Weapon
+note_category: Club
+cost: Varies
+options_cost: 3-66
+note_cost: +1 GP to Musical Instrument
+weight: Varies
+options_weight: 2-11
+note_weight: +1 lb. to Musical Instrument
+description: A Reinforced Instrument is reinforced with metal. It can be used as both a Club and a Musical Instrument.
+
+---
+
 name: Scutum
 category: Armor
 note_category: Shield
@@ -1063,19 +1076,6 @@ This weapon has the following mastery property. To use this property, you must h
 
 ---
 
-name: Reinforced Instrument
-category: Weapon
-note_category: Club
-cost: Varies
-options_cost: 3-66
-note_cost: +1 GP to Musical Instrument
-weight: Varies
-options_weight: 2-11
-note_weight: +1 lb. to Musical Instrument
-description: A Reinforced Instrument is reinforced with metal. It can be used as both a Club and a Musical Instrument.
-
----
-
 name: Ship in a Bottle
 category: Wondrous Item
 rarity: Very Rare
@@ -1092,6 +1092,18 @@ When the miniature sailboat becomes a Sailing Ship, its weight becomes that of a
 Statistics for the Sailing Ship appear in the Player's Handbook. If the Sailing Ship is reduced to 0 Hit Points, the Ship in a Bottle is destroyed, leaving only an empty nonmagical bottle.
 
 ***Store Ship.*** You can utter the following command words while holding the bottle: “Make fast!” If the Sailing Ship is within 30 feet of you, it shrinks back to a miniature sailboat and is sucked back into the bottle, and the cork flies over to seal it. When the Sailing Ship shrinks, it leaves behind in its space any creature aboard it and any object that wasn't part of it when it appeared.
+
+---
+
+name: Surgeon's Tools
+category: Tool
+cost: 100
+weight: 3
+description: **Ability:** Wisdom
+
+**Utilize:** Collect a tissue sample from a creature (DC 10), or identify a disease or injury (DC 15)
+
+If you have proficiency with a tool, add your Proficiency Bonus to any ability check you make that uses the tool. If you have proficiency in a skill that’s used with that check, you have Advantage on the check too.
 
 ---
 
