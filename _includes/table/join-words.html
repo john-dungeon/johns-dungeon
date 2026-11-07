@@ -2,9 +2,14 @@
 {%- assign jw_items = jw_csv | split: "," -%}
 {%- assign jw_count = jw_items | size -%}
 {%- for jw_item in jw_items -%}
-  {%- if forloop.first -%}{{ jw_item }}
-  {%- elsif forloop.last -%}{% if jw_count > 2 %},{% endif %} {{ include.word }} {{ jw_item }}
-  {%- else -%}, {{ jw_item }}
+  {%- if include.plural -%}
+    {%- capture jw_word %}{% include table/plural.html text=jw_item %}{% endcapture -%}
+  {%- else -%}
+    {%- assign jw_word = jw_item -%}
+  {%- endif -%}
+  {%- if forloop.first -%}{{ jw_word }}
+  {%- elsif forloop.last -%}{% if jw_count > 2 %},{% endif %} {{ include.word }} {{ jw_word }}
+  {%- else -%}, {{ jw_word }}
   {%- endif -%}
 {%- endfor -%}
 {%- if include.note and jw_count > 1 -%}{{ include.note }}{%- endif -%}
