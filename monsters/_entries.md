@@ -46,7 +46,7 @@ hp: 67 (9d8 + 27)
 speed: 30 ft.
 str: 18
 dex: 14
-con: 117
+con: 17
 int: 4
 wis: 10
 cha: 6
