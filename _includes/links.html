@@ -1,0 +1,26 @@
+{%- comment -%}
+  Link Converter
+  Params: text (required), table (default table for [[Name]] links; defaults to the page's table).
+  Replaces only the [[...]] links with <a> tags. It does not run Markdown.
+  Link syntax: [[Name]], [[Name|label]], [[table:Name]], [[table:Name|label]]
+{%- endcomment -%}
+
+{%- assign lk_table = include.table | default: page.table -%}
+{%- assign lk_parts = include.text | split: "[[" -%}
+{{- lk_parts.first -}}
+{%- for lk_part in lk_parts offset: 1 -%}
+  {%- assign lk_pair = lk_part | split: "]]" -%}
+  {%- assign lk_ref = lk_pair.first | split: "|" -%}
+  {%- assign lk_dest = lk_ref.first | split: ":" -%}
+  {%- if lk_dest.size > 1 -%}
+    {%- assign lk_from = lk_dest[0] | strip -%}
+    {%- assign lk_name = lk_dest[1] | strip -%}
+  {%- else -%}
+    {%- assign lk_from = lk_table -%}
+    {%- assign lk_name = lk_dest[0] | strip -%}
+  {%- endif -%}
+  {%- assign lk_label = lk_ref[1] | default: lk_name | strip -%}
+  {%- assign lk_slug = lk_name | slugify -%}
+  <a href="{{ '/' | append: lk_from | append: '/' | relative_url }}#{{ lk_slug }}">{{ lk_label }}</a>
+  {{- lk_part | remove_first: lk_pair.first | remove_first: "]]" -}}
+{%- endfor -%}
