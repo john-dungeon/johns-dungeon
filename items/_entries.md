@@ -299,7 +299,7 @@ weight: 300
 tags: Buff, Forced Movement, Magic Item, Summon
 description: This magic item is a module that can transform a mech into an autonomous war machine. While the module is attached, the augmented armor (mech) gains the following magical properties:
 
-**Autonomous.** While doffed, the mech enters an autonomous state, becoming a Construct that uses the [[monsters:Autonomous Mech]] stat block. In combat, it acts during your turn. It can move on its own, but the only action it takes is the Dodge action unless you take a Bonus Action to telepathically command it to take an action. You can also take a Reaction to command it to take a Reaction. If you have the Incapacitated condition, the mech also has the Incapacitated condition and its Speed becomes 0 and can’t increase.
+**Autonomous.** While doffed, the mech enters an autonomous state, becoming a Construct that uses the **[[monsters:Autonomous Mech]]** stat block. In combat, it acts during your turn. It can move on its own, but the only action it takes is the Dodge action unless you take a Bonus Action to telepathically command it to take an action. You can also take a Reaction to command it to take a Reaction. If you have the Incapacitated condition, the mech also has the Incapacitated condition and its Speed becomes 0 and can’t increase.
 
 While donned, the mech becomes armor and can't be targeted as a creature, but it retains its current Hit Points. If the mech is reduced to 0 Hit Points, it is broken, and you can no longer don it. If the mech is reduced to 0 Hit Points while you’re wearing it, you are ejected from the mech; you are forced to doff the mech and are moved to an unoccupied space within 10 feet of it.
 
