@@ -18,7 +18,7 @@
 <script src="{{ '/assets/js/effects-snapshot.js' | relative_url }}"></script>
 
 <!-- SITE DATA FOR SCRIPTS -->
-<script>window.SITE_STRINGS = {{ site.data.strings | jsonify }}; window.SITE_LISTS = {{ site.data.lists | jsonify }}; window.SITE_AUDIO = {{ site.data.audio | jsonify }};</script>
+<script>window.SITE_STRINGS = {{ site.data.strings | jsonify }}; window.SITE_LISTS = {{ site.data.lists | jsonify }}; window.SITE_AUDIO = {{ site.data.audio | jsonify }}; window.SITE_INTERACTIVE = {{ site.data.interactive | join: ", " | jsonify }};</script>
 
 <!-- SCRIPTS -->
 <script src="{{ '/assets/js/navbar-toggle.js' | relative_url }}"></script>
