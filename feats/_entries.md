@@ -8,7 +8,7 @@ description: You gain the following benefits.
 
 ***Boundless Vitality.*** You have a pool of ten d10s. As a Bonus Action, you can expend dice from the pool, roll those dice, and regain a number of Hit Points equal to the roll's total. You regain all the expended dice when you finish a Long Rest.
 
-***Evergreen.*** You have @variantrule[Immunity|XPHB] to Necrotic damage.
+***Evergreen.*** You have Immunity to Necrotic damage.
 
 ***Verdant Stride.*** Your Speed increases by 15 feet. In addition, your Speed increases by a further 15 feet until the start of your next turn when you start your turn on an area of vegetation, such as the base of a tree or a patch of grass.
 
