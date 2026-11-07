@@ -92,7 +92,9 @@
     {%- capture ms_intro %}{% include table/field.html packed=include.packed key=ms_intro_key %}{% endcapture -%}
     {{- "<div class='statblock-section' markdown='1'>" | append: ms_nl | append: ms_nl -}}
     {{- "<h3 class='statblock-heading'>" | append: ms_pair[1] | append: "</h3>" | append: ms_nl | append: ms_nl -}}
-    {%- if ms_intro != "" -%}{{- ms_intro | append: ms_nl | append: ms_nl -}}{%- endif -%}
+    {%- if ms_intro != "" -%}
+      {{- "<div class='italic' markdown='1'>" | append: ms_nl | append: ms_nl | append: ms_intro | append: ms_nl | append: ms_nl | append: "</div>" | append: ms_nl | append: ms_nl -}}
+    {%- endif -%}
     {%- include table/named-list.html text=ms_list row="statblock-row" -%}
     {{- "</div>" | append: ms_nl | append: ms_nl -}}
   {%- endfor -%}
