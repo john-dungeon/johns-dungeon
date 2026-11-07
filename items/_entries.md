@@ -269,7 +269,7 @@ prefix_category: Martial Ranged
 category: Weapon
 cost: 800
 weight: 2
-tags: Special Property
+tags: Condition, Extra Damage, Saving Throw, Special Property
 description: Proficiency with an Arm-Mounted Taser allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -319,7 +319,7 @@ prefix_category: Simple Melee
 category: Weapon
 cost: 0.5
 weight: 2
-tags: Special Property
+tags: Buff, Special Property
 description: Proficiency with a Bladed Gauntlet allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -372,7 +372,7 @@ prefix_category: Martial Melee
 category: Weapon
 cost: 0.1
 weight: 1
-tags: Special Property
+tags: Debuff, Special Property
 description: Proficiency with a Boomerang allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -411,7 +411,7 @@ prefix_category: Simple Melee
 category: Weapon
 cost: 0.5
 weight: 2
-tags: Special Property
+tags: Debuff, Special Property
 description: Proficiency with a Cestus allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -646,7 +646,7 @@ prefix_category: Simple Melee
 category: Weapon
 cost: 0.5
 weight: 2
-tags: Special Property
+tags: Condition, Special Property
 description: Proficiency with a Gauntlet allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -735,7 +735,7 @@ prefix_category: Martial Melee
 category: Weapon
 cost: 30
 weight: 2
-tags: Special Mastery Property
+tags: Debuff, Special Mastery Property
 description: Proficiency with a Hook Sword allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special mastery property. To use this property, you must have a feature that lets you use it.
@@ -782,12 +782,34 @@ You can pick up a deployed Mantlet as a Utilize action. Carrying a Mantlet provi
 
 ---
 
+name: Mech Frame
+category: Augment
+rarity: Uncommon
+note_rarity: Requires Attaching to Any Medium or Heavy Armor, Except Hide Armor
+attunement: false
+cost: 600
+weight: 200
+tags: Buff, Magic Item
+description: This magic item is a module that can transform armor into a combat mech. Once the module is attached, the augmented armor has the following magical properties:
+
+**Mech.** The armor is considered a mech for the purpose of any rule that cares whether it is a mech or not.
+
+**Fixed Speed.** While wearing the armor, your Speed becomes 30 feet and can’t increase, and you can’t use any special speeds you have. If you don the armor and lack training in it, your Speed becomes 0 and can’t increase.
+
+**No Strength Requirement.** If the armor normally has a Strength requirement, the armor lacks this requirement. In addition, the armor and any augments attached to it are weightless for its wearer.
+
+**Quick Don and Doff.** You can don or doff the armor as a Utilize action, exiting into an unoccupied space within 5 feet of it. While doffed, the armor remains standing and occupies its own space.
+
+**Powerful Build.** While wearing the armor, you have Advantage on any ability check you make to end the Grappled condition. You also count as one size larger when determining your carrying capacity.
+
+---
+
 name: Meteor Hammer
 prefix_category: Martial Melee
 category: Weapon
 cost: 25
 weight: 12
-tags: Special Property
+tags: Condition, Special Property
 description: Proficiency with a Meteor Hammer allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -904,7 +926,7 @@ prefix_category: Martial Melee
 category: Weapon
 cost: 0.05
 weight: 1
-tags: Special Property
+tags: Attack, Special Property
 description: Proficiency with Nunchaku allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -1154,6 +1176,7 @@ prefix_category: Simple Melee
 category: Weapon
 cost: 0.5
 weight: 4
+tags: Attack
 description: Proficiency with a Scythe allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
@@ -1208,7 +1231,7 @@ cost: Varies
 options_cost: 50, 200, 2000
 note_cost: See table
 weight: 0.15
-tags: Consumable
+tags: Consumable, Extra Damage, Saving Throw
 description: Taser Charges are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). Taser Charges can't be recovered at the end of a battle.
 
 Taser Charges are typically stored in a Charge Pack (bought separately).
@@ -1320,7 +1343,7 @@ prefix_category: Martial Ranged
 category: Weapon
 cost: 75
 weight: 3
-tags: Special Property
+tags: Forced Movement, Special Property
 description: Proficiency with a Warbow allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
