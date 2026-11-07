@@ -1,0 +1,9 @@
+# Clickable Elements
+- a
+- button
+- summary
+- select
+- label
+- "input[type='checkbox']"
+- "[role='menuitem']"
+- .st-row
