@@ -26,7 +26,7 @@ variant: true
 tags: Area, Attack Bonus, Charge, Consumable, Damage, Damage Bonus, Magic Item, Saving Throw
 description: This piece of magic ammunition is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The ammunition is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
 
-***Unbreakable.*** Whenever the ammunition hits an object, the hit is a Critical Hit. In addition, you can always recover the ammunition after a combat, unless it was destroyed or taken—picked up by an enemy that fled, for example.
+***Unbreakable.*** Whenever the ammunition hits an object, the hit is a Critical Hit. In addition, you can always recover the ammunition at the end of a battle, unless it was destroyed or taken—picked up by an enemy that fled, for example.
 
 ***Impact Absorption.*** You can spend 1 minute charging up to 10 pieces of the ammunition with energy by hitting them against other objects, granting each piece 1 charge when you finish. When you hit or miss with an attack roll using a piece of charged ammunition, the ammunition's charge is expended and the ammunition unleashes a burst with magical force. The target of the attack and each creature within 10 feet of it must make a DC 17 Dexterity saving throw, taking 6d8 Force damage on a failed save or half as much damage on a successful one.
 
@@ -207,11 +207,11 @@ category: Implant
 note_category: Replacement
 rarity: Varies
 options_rarity: Uncommon, Rare, Very Rare
-note_rarity: See table
+note_rarity: ; See table
 attunement: true
 cost: Varies
 options_cost: 450, 4500, 45000
-note_cost: ; See table
+note_cost: See table
 weight: 10
 tags: Area, Charge, Damage, Magic Item, Saving Throw
 description: This magical arm replaces one that was lost or removed. You can attach the arm to yourself or remove it as a Magic action (no Attunement required), and it can't be removed against your will while you are alive. While the arm is attached to you, you can use and move it as if it were your natural arm.
@@ -222,7 +222,7 @@ While your arm is transformed into a cannon, you can’t use that hand for any o
 
 ***Regaining Charges.*** The arm regains 1d6 + 1 expended charges daily at dawn. If you expend the arm’s last charge, roll 1d20. On a 1, the arm overheats and deals 3d8 Fire damage to you. After overheating, the arm can't be used as a cannon for 3 days.
 
-The arm's saving throw DC, Fire damage, and purchase cost are determined by its potency, as shown in the table below.
+The arm's save DC, Fire damage, and purchase cost are determined by its potency, as shown in the table below.
 
 | Potency | Rarity | Save DC | Damage | Cost |
 | :---: | :--- | :---: | :---: | :---: |
@@ -238,11 +238,11 @@ category: Implant
 note_category: Replacement
 rarity: Varies
 options_rarity: Uncommon, Rare, Very Rare
-note_rarity: See table
+note_rarity: ; See table
 attunement: true
 cost: Varies
 options_cost: 500, 5000, 50000
-note_cost: ; See table
+note_cost: See table
 weight: 10
 tags: Attack, Charge, Damage, Magic Item
 description: This magical arm replaces one that was lost or removed. You can attach the arm to yourself or remove it as a Magic action (no Attunement required), and it can't be removed against your will while you are alive. While the arm is attached to you, you can use and move it as if it were your natural arm.
@@ -274,7 +274,7 @@ description: Proficiency with an Arm-Mounted Taser allows you to add your profic
 
 This weapon has the following special properties.
 
-***Electrocution.*** When you hit a creature with a ranged attack using an Electrocution weapon, that creature must succeed on a DC 15 Constitution saving throw or have the Paralyzed condition until the start of your next turn.
+***Electrocution.*** When you hit a creature with a ranged attack using an Electrocution weapon, that creature takes extra Lightning damage from the attack and must succeed on a Constitution saving throw or have the Paralyzed condition until the start of your next turn. The extra Lightning damage and save DC are determined by the potency of the Taser Charge used as ammunition.
 
 ***Free-Handed.*** You can wield a Free-Handed weapon in your hand while keeping that hand free.
 
@@ -284,7 +284,7 @@ This weapon has the following mastery property. To use this property, you must h
 
 | Name | Cost | Damage | Weight | Properties |
 | :---: | :---: | :---: | :---: | :---: |
-| Arm-Mounted Taser | 800 GP | 1d4 Piercing | 2 lb. | Ammunition (Range 30/90; Taser Charge), Free-Handed, Light, Loading, Vex |
+| Arm-Mounted Taser | 800 GP | 1 Piercing | 2 lb. | Ammunition (Range 30/90; Taser Charge), Free-Handed, Light, Loading, Vex |
 {: .catalog }
 
 ---
@@ -822,7 +822,7 @@ description: This piece of magic ammunition is made of mithril, a light, silvery
 
 When you hit a target with the ammunition, you can cause the ammunition to become embedded in the target. A creature can take the Utilize action to make a DC 10 Strength (Athletics) or Dexterity (Sleight of Hand) check, dislodging the ammunition on a success.
 
-In addition, you can always recover the ammunition after a combat, unless it was destroyed or taken—picked up by an enemy that fled, for example. If the ammunition is linked to a Mithril Compass, the compass can determine the ammunition's direction, possibly tracking a target if the ammunition is embedded in it.
+In addition, you can always recover the ammunition at the end of a battle, unless it was destroyed or taken—picked up by an enemy that fled, for example. If the ammunition is linked to a Mithril Compass, the compass can determine the ammunition's direction, possibly tracking a target if the ammunition is embedded in it.
 
 ---
 
@@ -1204,12 +1204,23 @@ If you have proficiency with a tool, add your Proficiency Bonus to any ability c
 name: Taser Charge
 category: Weapon
 note_category: Ammunition
-cost: 50
+cost: Varies
+options_cost: 50, 200, 2000
+note_cost: See table
 weight: 0.15
 tags: Consumable
-description: Taser Charges are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield.
+description: Taser Charges are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). Taser Charges can't be recovered at the end of a battle.
 
 Taser Charges are typically stored in a Charge Pack (bought separately).
+
+Each Taser Charge has a potency, shown in the table below, which determines the extra Lightning damage and save DC when it is used as ammunition for an Electrocution weapon.
+
+| Potency | Lightning Damage | Save DC | Cost |
+| :---: | :---: | :---: | :---: |
+| +1 | 1d6 | 13 | 50 GP |
+| +2 | 2d6 | 15 | 200 GP |
+| +3 | 3d6 | 17 | 2000 GP |
+{: .catalog }
 
 ---
 
