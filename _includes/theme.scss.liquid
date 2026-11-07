@@ -22,6 +22,7 @@
   {%- assign th_cursor = 'url("' | append: th_cursor_path | append: '") ' | append: th_hotspot | append: ', auto' -%}
   {%- assign th_cursor_pointer = 'url("' | append: th_pointer_path | append: '") ' | append: th_hotspot | append: ', auto' -%}
 {%- endif -%}
+{%- assign th_interactive = site.data.interactive | join: ", " -%}
 {% for f in th.fonts %}
 @font-face {
   font-family: "{{ f.family }}";
@@ -36,6 +37,7 @@ $theme-heading-font: {{ th_heading }};
 $theme-background: {{ th_background }};
 $theme-cursor: {{ th_cursor }};
 $theme-cursor-pointer: {{ th_cursor_pointer }};
+$interactive-selector: {{ th_interactive | jsonify }};
 {%- if th.heading_weight %}
 $heading-weight: {{ th.heading_weight }};
 {%- endif %}
