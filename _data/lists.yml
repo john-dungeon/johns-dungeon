@@ -1,4 +1,4 @@
 # Shared Lists for Search Tables ("order: LISTNAME")
-settings: [Any, Akherum, Amber Frontier, Bettlewick University, Big Blue, City 13, Chayu, Drachenfell, Erisia, Great Luminant, Hollow Earth, Jingyu City, Morwald, New Moon City, Nexus, Orobis, Solachia]
+settings: [Any, Akherum, Amber Frontier, Bettlewick University, Big Blue, Chayu, City 13, Drachenfell, Erisia, Great Luminant, Hollow Earth, Jingyu City, Morwald, New Moon City, Nexus, Orobis, Solachia]
 creature_types: [Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant, Undead]
 sizes: [Tiny, Small, Medium, Large, Huge, Gargantuan]
