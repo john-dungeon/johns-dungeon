@@ -34,4 +34,5 @@ columns:
   - key: settings
     label: Settings
     type: list
+    blank_as: "Any"
     order: settings
