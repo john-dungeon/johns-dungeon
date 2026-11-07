@@ -43,7 +43,7 @@ charged_actions:
 - charged_action_1: Graveyard of Blades
   description: Agony summons a rain of crimson swords at three different points it can see within 120 feet. *Dexterity Saving Throw (start of Agony's next turn):* DC 16, each creature in a 15-foot-radius, 60-foot-high Cylinder centered on each point. *Failure:* 42 (12d6) Necrotic damage. *Success:* Half damage. A creature in the area of more than one Cylinder is affected only once.
 - charged_action_2: Penance
-  description: Agony stabs its own sword through its chest. Agony dies and begins to unleash a wave of pure agony from its body. *Constitution Saving Throw (start of Agony's next turn):* DC 16, each creature in a 120-foot Emanation originating from Agony. *Failure:* 78 (12d12) Necrotic damage. *Success:* Half damage.
+  description: Agony stabs its own sword through its chest to unleash a wave of pure agony from its body. Immediately after this action takes effect, Agony dies. *Constitution Saving Throw (start of Agony's next turn):* DC 16, each creature in a 120-foot Emanation originating from Agony. *Failure:* 78 (12d12) Necrotic damage. *Success:* Half damage.
 intro_legendary_actions: Legendary Action Uses: 3. Immediately after another creature’s turn, Agony can expend a use to take one of the following actions. Agony regains all expended uses at the start of each of its turns.
 legendary_actions:
 - legendary_action_1: Chains of Punishment
