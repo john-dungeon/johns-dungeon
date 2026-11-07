@@ -25,8 +25,11 @@ columns:
   - key: rarity
     label: Rarity
     type: rank
-    blank_as: "N/A"
-    order: ["N/A", Varies, Common, Uncommon, Rare, Very Rare, Legendary, Artifact]
+    blank_as: "n/a"
+    order: ["n/a", Varies, Common, Uncommon, Rare, Very Rare, Legendary, Artifact]
+    symbols: { "n/a": "—" }
+    labels:
+      "n/a": "N/A"
   - key: cost
     label: Cost
     type: number
