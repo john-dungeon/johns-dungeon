@@ -790,7 +790,7 @@ attunement: false
 cost: 600
 weight: 200
 tags: Buff, Magic Item
-description: This magic item is a module that can transform armor into a combat mech. Once the module is attached, the augmented armor has the following magical properties:
+description: This magic item is a module that can transform armor into a combat mech. While the module is attached, the augmented armor gains the following magical properties:
 
 **Mech.** The armor is considered a mech for the purpose of any rule that cares whether it is a mech or not.
 
