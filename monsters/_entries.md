@@ -26,12 +26,12 @@ traits:
 actions:
 - action_1: Placeholder
   description: Placeholder
+intro_charged_actions: At the end of each of its turns, Agony can take one of the following actions.
 charged_actions:
-intro_charged_action: At the end of each of its turns, Agony can take one of the following actions.
 - charged_action_1: Placeholder
   description: Placeholder
+intro_legendary_actions: Legendary Action Uses: 3 (4 in Lair). Immediately after another creature’s turn, Agony can expend a use to take one of the following actions. Agony regains all expended uses at the start of each of its turns.
 legendary_actions:
-intro_legendary_action: Legendary Action Uses: 3 (4 in Lair). Immediately after another creature’s turn, Agony can expend a use to take one of the following actions. Agony regains all expended uses at the start of each of its turns.
 - legendary_action_1: Placeholder
   description: Placeholder
   
