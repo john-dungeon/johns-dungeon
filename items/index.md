@@ -11,7 +11,7 @@ quote: Welcome to the Items aisle. It's where I keep all of my stuff. All sorts 
 <details markdown="1">
 <summary markdown="span">**Augments**</summary>
 
-An item in the Augment category, such as a rune, a magic gemstone, or a mechanical module, must be attached to a nonmagical object to use its properties.
+An item in the Augment category, such as a rune, a magic gemstone, or a mechanical module, must be attached to a nonmagical object to use its properties. Often, an augment's description specifies what type of objects it must be attached to.
 
 ***Attachment.*** Attaching an augment to a nonmagical object requires you to make an augmentation using Smith's Tools, Tinker's Tools, or Thieves' Tools with which you are proficient. The augmentation takes 1 hour of uninterrupted work and can be done during a Short Rest, throughout which the object and augment must be within your reach. At the end of the augmentation, you attach the augment to the object. If the augmentation is interrupted, the augment is not attached. You can detach an augment from an object by performing another augmentation on it.
 
