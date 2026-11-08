@@ -113,6 +113,8 @@ addEventListener('pagehide', () => {
 });
 
 document.addEventListener('popupopen', raise);
+document.addEventListener('popupopen', raise);
+document.addEventListener('layerraised', raise);
 
 onThemeChange(id => {
   const config = themeConfig(id).cursor;
