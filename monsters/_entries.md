@@ -119,7 +119,7 @@ senses: Blindsight 60 ft., Darkvision 120 ft.
 languages: None
 cr: 8
 settings: Big Blue
-tags: Skith
+tags: Lair, Skith
 flavor: Born in the depths of a submarine volcano, Atar the Elder Skith is an enormous scorpion-like leviathan that can harness the power of primordial fire, shooting flaming lasers out of her eyes and wielding a stinger that melts through steel. As a mature leviathan, Atar is also the broodmother of a massive army of skiths. They rip through the oceans like a swarm of locusts, and thus, they must remain itinerant or risk famine.
 
 traits:
@@ -190,7 +190,6 @@ cha: 6
 skills: Athletics +6
 immunities: Poison, Psychic; Charmed, Exhaustion, Frightened, Poisoned
 languages: Understands the languages you know
-cr: 4
 traits:
 - trait_1: Bound
   description: The mech is magically bound to the [[items:Autonomous Mech Core]] that created it, as well as the creature attuned to the augmented armor; that creature is considered the mech’s pilot. While the mech and pilot are on the same plane of existence, the pilot can telepathically call the mech to travel to it, and the mech knows the distance and direction to the pilot.
