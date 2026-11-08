@@ -2,6 +2,7 @@
 {% endcapture -%}
 {%- capture ms_size %}{% include table/field.html packed=include.packed key="size" %}{% endcapture -%}
 {%- capture ms_type %}{% include table/field.html packed=include.packed key="type" %}{% endcapture -%}
+{%- capture ms_note_type %}{% include table/field.html packed=include.packed key="note_type" %}{% endcapture -%}
 {%- capture ms_alignment %}{% include table/field.html packed=include.packed key="alignment" %}{% endcapture -%}
 {%- capture ms_ac %}{% include table/field.html packed=include.packed key="ac" %}{% endcapture -%}
 {%- capture ms_initiative %}{% include table/field.html packed=include.packed key="initiative" %}{% endcapture -%}
@@ -46,6 +47,7 @@
 {%- capture ms_size_text %}{% include table/join-words.html items=ms_size word="or" %}{% endcapture -%}
 {%- capture ms_type_text %}{% include table/join-words.html items=ms_type word="and" plural=ms_is_swarm %}{% endcapture -%}
 {%- assign ms_summary = ms_size_text | append: " " | append: ms_type_text -%}
+{%- if ms_note_type != "" -%}{%- assign ms_summary = ms_summary | append: " (" | append: ms_note_type | append: ")" -%}{%- endif -%}
 {%- if ms_is_swarm -%}{%- assign ms_summary = "Swarm of " | append: ms_summary -%}{%- endif -%}
 {%- if ms_alignment != "" -%}{%- assign ms_summary = ms_summary | append: ", " | append: ms_alignment -%}{%- endif -%}
 
@@ -96,3 +98,28 @@
     {{- "<h3 class='statblock-heading'>" | append: ms_pair[1] | append: "</h3>" | append: ms_nl | append: ms_nl -}}
     {%- if ms_intro != "" -%}
       {{- "<div class='italic' markdown='1'>" | append: ms_nl | append: ms_nl | append: ms_intro | append: ms_nl | append: ms_nl | append: "</div>" | append: ms_nl | append: ms_nl -}}
+    {%- endif -%}
+    {%- include table/named-list.html text=ms_list row="statblock-row" -%}
+    {%- if ms_outro != "" -%}
+      {{- ms_outro | append: ms_nl | append: ms_nl -}}
+    {%- endif -%}
+    {{- "</div>" | append: ms_nl | append: ms_nl -}}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- assign ms_flavor_md = "" -%}
+{%- if ms_flavor != "" -%}{%- assign ms_flavor_md = "> " | append: ms_flavor | append: ms_nl | append: "{: .italic }" -%}{%- endif -%}
+{{ ms_summary }}
+{: .statblock-type }
+
+**AC** {{ ms_ac }}<span class="statblock-gap"></span>**Initiative** {{ ms_initiative }}<br>
+**HP** {{ ms_hp }}<br>
+**Speed** {{ ms_speed }}
+
+| | | MOD | SAVE | | | MOD | SAVE |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+{{ ms_table }}{: .statblock-abilities }
+
+{{ ms_props }}
+
+{{ ms_sections }}{{ ms_flavor_md }}
