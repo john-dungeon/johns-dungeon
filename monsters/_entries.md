@@ -43,14 +43,14 @@ actions:
 - action_4: Mark of the Scourge (3/Day)
   description: Agony marks one creature it can see within 60 feet of itself. Until Agony loses Concentration (as if concentrating on a spell), the target has Vulnerability to Necrotic and Psychic damage.
 
-intro_charged_actions: At the end of each of its turns, Agony can take one of the following actions.
+intro_charged_actions: *At the end of each of its turns, Agony can take one of the following actions.*
 charged_actions:
 - charged_action_1: Graveyard of Blades
   description: Agony summons a rain of crimson swords at three different points it can see within 120 feet. *Dexterity Saving Throw (start of Agony's next turn):* DC 16, each creature in a 15-foot-radius, 60-foot-high Cylinder centered on each point. *Failure:* 42 (12d6) Necrotic damage. *Success:* Half damage. A creature in the area of more than one Cylinder is affected only once.
 - charged_action_2: Penance
   description: Agony stabs its own sword through its chest to unleash a wave of pure agony from its body. Immediately after this action takes effect, Agony dies. *Constitution Saving Throw (start of Agony's next turn):* DC 16, each creature in a 120-foot Emanation originating from Agony. *Failure:* 78 (12d12) Necrotic damage. *Success:* Half damage.
 
-intro_legendary_actions: Legendary Action Uses: 3. Immediately after another creature’s turn, Agony can expend a use to take one of the following actions. Agony regains all expended uses at the start of each of its turns.
+intro_legendary_actions: *Legendary Action Uses: 3. Immediately after another creature’s turn, Agony can expend a use to take one of the following actions. Agony regains all expended uses at the start of each of its turns.*
 legendary_actions:
 - legendary_action_1: Chains of Punishment
   description: *Strength Saving Throw:* DC 16, up to three creatures within 30 feet. *Failure:* 10 (3d6) Necrotic damage, and the target is pulled straight toward Agony to the nearest unoccupied space within 5 feet of it. *Success:* Half damage, and the target is pulled only up to 15 feet.
@@ -146,7 +146,7 @@ actions:
 - action_5: Deadly Leap (Awakened only)
   description: Atar spends 15 feet of movement to jump to a space within 40 feet that contains one or more Gargantuan or smaller creatures. *Dexterity Saving Throw:* DC 18, each creature in Atar’s destination space. *Failure:* 19 (3d12) Bludgeoning damage plus 19 (3d12) Fire damage, and the target has the Prone condition. *Success:* Half damage, and the target is pushed to the nearest unoccupied space outside of Atar's space.
 
-intro_charged_actions: At the end of each of her turns, Atar can take one of the following actions.
+intro_charged_actions: *At the end of each of her turns, Atar can take one of the following actions.*
 charged_actions:
 - charged_action_1: Leviathan Slam
   description: *Strength Saving Throw (start of Atar's next turn):* DC 18, each creature Grappled by Atar. *Failure:* 42 (12d6) Bludgeoning damage. *Success:* Half damage. *Failure or Success:* The target has the Prone condition.
@@ -155,7 +155,7 @@ charged_actions:
 
   *Dexterity Saving Throw (start of Atar's next turn):* DC 18, each creature in a 120-foot Cone (one edge must line up with the Line). *Failure:* 31 (9d6) Fire damage. *Success:* Half damage.
 
-intro_legendary_actions: Legendary Action Uses: 3 (4 in Lair). Immediately after another creature’s turn, Atar can expend a use to take one of the following actions. Atar regains all expended uses at the start of each of her turns.
+intro_legendary_actions: *Legendary Action Uses: 3 (4 in Lair). Immediately after another creature’s turn, Atar can expend a use to take one of the following actions. Atar regains all expended uses at the start of each of her turns.*
 legendary_actions:
 - legendary_action_1: Hellfire
   description: Atar makes one Searing Pincer or Flaming Ray attack.
