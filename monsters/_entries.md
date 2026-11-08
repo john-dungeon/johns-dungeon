@@ -151,9 +151,9 @@ charged_actions:
 - charged_action_1: Leviathan Slam
   description: *Strength Saving Throw (start of Atar's next turn):* DC 18, each creature Grappled by Atar. *Failure:* 42 (12d6) Bludgeoning damage. *Success:* Half damage. *Failure or Success:* The target has the Prone condition.
 - charged_action_2: Sweeping Inferno (Awakened only)
-  description: Atar fires a concentrated beam of fire from her eyes, maintaining it until the start of her next turn, then sweeps it across a large area. Until the start of her next turn, Atar can't make Flaming Ray attacks. *Dexterity Saving Throw (immediately):* DC 18, each creature in a 120-foot-long, 5-foot-wide Line. *Failure:* 38 (11d6) Fire damage. *Success:* Half damage.
+  description: Atar fires a concentrated beam of fire from her eyes, maintaining it until the start of her next turn, then sweeps it across a large area. Until the start of her next turn, Atar can't make Flaming Ray attacks. *Dexterity Saving Throw (immediately):* DC 15, each creature in a 120-foot-long, 5-foot-wide Line. *Failure:* 38 (11d6) Fire damage. *Success:* Half damage.
 
-  *Dexterity Saving Throw (start of Atar's next turn):* DC 18, each creature in a 120-foot Cone (one edge must line up with the Line). *Failure:* 31 (9d6) Fire damage. *Success:* Half damage.
+  *Dexterity Saving Throw (start of Atar's next turn):* DC 15, each creature in a 120-foot Cone (one edge must line up with the Line). *Failure:* 31 (9d6) Fire damage. *Success:* Half damage.
 
 intro_legendary_actions: *Legendary Action Uses: 3 (4 in Lair). Immediately after another creature’s turn, Atar can expend a use to take one of the following actions. Atar regains all expended uses at the start of each of her turns.*
 legendary_actions:
