@@ -1,4 +1,4 @@
-import { cssVar, fadeOut } from '../shared.js';
+import { root, cssVar, fadeOut } from '../shared.js';
 
 export const calmSafe = true;
 
@@ -19,6 +19,7 @@ export default function inkWriting({ options, on, topLayer, painter }) {
 
   let strokes = [];
   let stroke = null;
+  let writing = false;
 
   function paint(pen, now) {
     pen.strokeStyle = color;
@@ -55,26 +56,35 @@ export default function inkWriting({ options, on, topLayer, painter }) {
   topLayer();
 
   function add(x, y) {
+    if (!stroke) {
+      stroke = [];
+      strokes.push(stroke);
+    }
     const last = stroke[stroke.length - 1];
     if (last && Math.hypot(x - last.x, y - last.y) < gap) return;
     stroke.push({ x, y, t: performance.now() });
   }
 
-  on(document, 'pointerdown', event => {
-    if (event.pointerType === 'touch' || event.button !== 0) return;
-    stroke = [];
-    strokes.push(stroke);
-    add(event.clientX, event.clientY);
+  on(document, 'dblclick', event => {
+    writing = !writing;
+    stroke = null;
+    if (writing) add(event.clientX, event.clientY);
   });
 
   on(document, 'pointermove', event => {
-    if (!stroke) return;
-    if (!(event.buttons & 1)) {
-      stroke = null;
-      return;
-    }
+    if (!writing || event.pointerType === 'touch') return;
     const moves = event.getCoalescedEvents?.() || [];
     (moves.length ? moves : [event]).forEach(move => add(move.clientX, move.clientY));
     wake();
+  });
+
+  on(root, 'pointerleave', () => { stroke = null; });
+
+  on(document, 'mousedown', event => {
+    if (event.detail > 1 && !event.target.closest('input, textarea')) event.preventDefault();
+  });
+
+  on(document, 'selectstart', event => {
+    if (writing) event.preventDefault();
   });
 }
