@@ -125,7 +125,7 @@ flavor: Born in the depths of a submarine volcano, Atar the Elder Skith is an en
 traits:
 - trait_1: Amphibious
   description: Atar can breathe air and water.
-- trait_2: Fire Aura
+- trait_2: Fire Aura (Awakened only)
   description: At the end of each of Atar's turns, each creature of Atar's choice in a 15-foot Emanation originating from Atar takes 7 (2d6) Fire damage. In addition, Atar emits Bright Light in a 30-foot radius and Dim Light for an additional 30 feet.
 
   This trait doesn't function while Atar is completely underwater.
@@ -162,7 +162,7 @@ legendary_actions:
 - legendary_action_2: Skith Skyfall (Awakened only)
   description: Atar uses Deadly Leap. Atar can't take this action again until the start of her next turn.
 - legendary_action_3: Summon Hatchling (Awakened only)
-  description: Atar launches an egg to an unoccupied space within 30 feet of her. One [[monsters:Hellfire Skith]] appears in that space. Atar can't take this action again until the start of her next turn.
+  description: Atar launches an egg to an unoccupied space within 30 feet of her, causing one **[[monsters:Hellfire Skith]]** to appear in that space. Atar can't take this action again until the start of her next turn.
 
 intro_regional_effects: The region containing Atar's lair is warped by her presence, creating the following effects:
 regional_effects:
