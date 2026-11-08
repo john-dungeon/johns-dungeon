@@ -102,7 +102,7 @@ size: Gargantuan
 type: Monstrosity
 note_type: Skith
 alignment: Unaligned
-ac: 15
+ac: 14
 hp: 101 (7d20 + 28)
 speed: 50 ft., Climb 50 ft., Swim 50 ft.
 str: 25
