@@ -279,6 +279,8 @@ Some fields are added to the end of other text exactly as written, with no autom
 
 If an item has `attunement: true` and a `note_rarity`, begin the note with its own punctuation (`; See table`), giving `(Requires Attunement; See table)`. With no attunement the note stands alone, so it is written plainly (`See table`, giving `(See table)`). Without the punctuation, the two run together as `Requires AttunementSee table`.
 
+Not every `note_` field works this way. `note_category` (items) and `note_type` (monsters) get their parentheses from the template, so write only the words (`note_type: Dinosaur`, not `note_type: (Dinosaur)`).
+
 ### Named Lists (traits, actions, ...)
 Species `traits` and monster `traits`, `actions`, and so on use indented list items. The first key's name is ignored (`trait_1`, anything); its value is the item's title.
 ```text
@@ -309,14 +311,17 @@ Indent anything starting with `- ` inside a description by two spaces, or it is 
 - `area` shows in the Range column as `(30-foot Emanation)`. `concentration_max` shows after Concentration (`, up to 1 minute`) and also sorts the column. `ritual: true` adds "or Ritual" to the casting time.
 - `Esoteric` is a tag; the Spells page explains it in a dropdown.
 
-**Monsters** (`monster.md`): `name` (also the stat block title), `size`, `type`, `alignment`, `ac`, `initiative`, `hp`, `speed`, `str`–`cha`, `saves`, `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages`, `cr`, `settings`, `tags`, `flavor`, and the sections below.
-- Sections, in the order shown: `traits`, `actions`, `bonus_actions`, `reactions`, `charged_actions`, `legendary_actions`, `regional_effects`. Each is a named list. Each can have an optional intro paragraph named `intro_KEY` (like `intro_charged_actions`, `intro_legendary_actions`), shown in italics under the section heading.
+**Monsters** (`monster.md`): `name` (also the stat block title), `size`, `type`, `note_type`, `alignment`, `ac`, `initiative`, `hp`, `speed`, `str`–`cha`, `saves`, `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages`, `cr`, `settings`, `tags`, `flavor`, and the sections below.
+- Sections, in the order shown: `traits`, `actions`, `bonus_actions`, `reactions`, `charged_actions`, `legendary_actions`, `regional_effects`. Each is a named list.
+- **Section intro and outro.** Each section can have an optional intro paragraph named `intro_KEY` (like `intro_charged_actions`, `intro_legendary_actions`), shown in italics between the heading and the list. It can also have an optional outro paragraph named `outro_KEY` (like `outro_regional_effects`), shown as plain, non-italic text right after the list. Both accept Markdown and `[[links]]`. A section with neither field is unchanged. An intro or outro with no matching list shows nothing, because an empty section is skipped.
+- **Subtype.** `note_type` is the creature's subtype, shown in parentheses right after the type in the summary line: `size: Large`, `type: Beast`, `note_type: Dinosaur` reads "Large Beast (Dinosaur)". Write only the words (the parentheses come from the template) and leave the field out when there is no subtype. It appears on the stat block only. The table's Creature Type column, search, and filters don't see it, so use a tag (like `Skith` or `Welterbeast`) for anything you want to filter by.
 - `cr` is **required** (Proficiency Bonus and XP come from it via `challenge.yml`). Write a plain number, fractions as decimals (`0.125`, `0.25`, `0.5`). Search `cr:0.5`, not `1/2`.
 - Scores give modifiers and saves automatically; `saves: Dex, Wis` adds the Proficiency Bonus to those.
 - `initiative` is optional and replaces the computed value. `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages` are free text and show only if present.
 - Passive Perception is added to the Senses line automatically (from a Perception skill if listed, otherwise from Wisdom); don't type it. Write negative bonuses with a plain hyphen (`Perception -1`).
 - A blank `settings` shows as "Any" in the table.
-- `size` joins with "or", `type` with "and". Tag `Swarm` and the heading becomes "Swarm of" + size + plural type (e.g. "Swarm of Tiny Beasts"); irregular plurals live in `plurals.yml`.
+- `size` joins with "or", `type` with "and". Tag `Swarm` and the heading becomes "Swarm of" + size + plural type (e.g. "Swarm of Tiny Beasts"). A `note_type` goes after the plural type and is not pluralized ("Swarm of Tiny Beasts (Rat)"). Irregular plurals live in `plurals.yml`.
+- Summary line order: size, type, subtype in parentheses, then a comma and the alignment ("Large Monstrosity (Welterbeast), Chaotic Evil").
 - Auto tags: Legendary (has `legendary_actions`), Boss (has `charged_actions`), Spellcaster (has an action named "Spellcasting"). Don't hand-write them.
 - `flavor` is one optional italic paragraph at the bottom.
 - The Monsters page explains Charged Actions in a dropdown.
@@ -356,7 +361,7 @@ Indent anything starting with `- ` inside a description by two spaces, or it is 
 - `plain: true` – list cells hide "(notes)".
 - `symbols` (value to icon) and `labels` (value to friendly text, also used on Filter buttons). Quote `"true"` and `"false"` keys.
 - `in_table: false` – searchable and filterable but hidden from the table.
-- `note` – adds an entry field to the cell: `field`, `format` (`%s` for the value; default ` (%s)`), `show_if` (only when the entry's value equals it), `sort: true` (also sort by the note's value).
+- `note` – adds an entry field to the cell: `field`, `format` (`%s` for the value; default ` (%s)`), `show_if` (only when the entry's value equals it), `sort: true` (also sort by the note's value). Works on text columns only, not list columns.
 
 **Behavior**
 - `sortable: false`, `filter: false` (skip its Filter group), `match: exact` (default for `rank`).
@@ -570,7 +575,7 @@ Add it to the right list in `lists.yml` (`creature_types`, `sizes`) or to the co
 
 ### Add a new section to monster stat blocks (like Charged Actions)
 1. Add `key|Heading` to `ms_section_defs` in `_includes/table/templates/monster.md`, in the position it should appear.
-2. In entries, use a named list under that key; its intro is `intro_KEY`.
+2. In entries, use a named list under that key. Its optional intro is `intro_KEY` and its optional outro is `outro_KEY`; the template already reads both for every section, so they need no extra code.
 3. For an automatic tag, add an `auto_tags` rule in `monsters.yml` and put the tag in `tags`.
 4. If it is homebrew, explain it in a dropdown in `monsters/index.md`.
 
@@ -601,6 +606,7 @@ See sections 6, 9.7, 9.8, and 9.3.
 - **Never put `}` inside a `{{ }}` tag.** Assign the value first with `{% assign %}`, then print it.
 - **Includes share variables with their caller.** Any variable an include creates is visible to the page and to every include that runs afterward, so two files using the same name silently overwrite each other. Give every include its own prefix (`mk_`, `cl_`, `cat_`, `lk_`, `pe_`, `jw_`, `ni_`, `fm_`, `ms_`, `sps_`, `sp_`, `it_`, `ft_`, `tx_`, `qt_`, `tt_`, `tg_`, `th_`, `gt_`, `bl_`, `pl_`, `in_`, `st_`, `fld_`, `lst_`, `val_`...) and pass what it needs as a parameter. When you rename variables for a prefix, do **not** rename the parameter names on the left of `key=value` in an include call (`packed=`, `cols=`, `col=`, `cell=`, `note=`); other includes read those as `include.packed` and so on. Only the values on the right change.
 - **Include parameters must be plain values or dotted names** (`key=col.key`). Brackets like `list[0]` break the tag; assign to a variable first.
+- **A Liquid syntax error names the including file, not the broken one.** An error like `'if' tag was never closed` reported in `search-table.html` can actually come from a template it includes (for example `templates/monster.md`). The reported line number is the clue: look for a file whose last line (or the line where it stops) matches that number. The usual cause is a file cut off by an incomplete paste or commit, so after editing a template, check that its last line is the one you expect, and replace a whole file by selecting all before pasting.
 - **`theme.scss.liquid` must assign every `th_` variable it prints and must not hide a missing one with `| default:`.** A missing one should break the build, not silently drop a font, background, cursor, or the clickable selector.
 - **Saved settings are read in the head**, so `session.js` must load before `theme-switcher.js` and `text-size.js`, and `effects-snapshot.js` after `theme-switcher.js`. Keep that order in `head_custom.html`. The `SITE_*` data globals must also be written before the module scripts that read them.
 - **A dialog's `::backdrop` ignores the dialog's `opacity`.** To fade a modal dialog, make its backdrop transparent.
