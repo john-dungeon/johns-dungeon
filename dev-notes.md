@@ -24,6 +24,7 @@
 - **One place per setting.** Wording: `strings.yml`. Themes, fonts, cursors, effects: `themes.yml`. Shared lists: `lists.yml`. Sound: `audio.yml`. Entrance screen: `gate.yml`. Clickable elements: `interactive.yml`. Look and feel numbers: `_settings.scss`. Table behavior: `_data/tables/`.
 - **A list needed by both Sass and JavaScript lives in `_data/` and is written into both by Liquid.** Sass can't read JS and neither can read `_data/` directly, so Liquid is the bridge: `theme.scss.liquid` writes a Sass variable, `head_custom.html` writes a JS global. The clickable-element list (`interactive.yml`) is the model. Never copy such a list into a script or stylesheet by hand.
 - **Universal rules over local fixes.** All text goes through `text.html`, tooltips through `tooltip.html`, quotes through `quote.html`, numbers through `format.html`, links through `links.html`. Don't reimplement these in one spot.
+- **Work it out, don't hand-write it.** If the site can derive a value (tags, passive Perception, lair XP, saves), derive it. Hand-written copies drift out of date.
 - **Logic is separate from the page.** The search table's `columns`, `records`, `query`, and `filters` scripts never touch the page. Only `panel`, `dialog`, `deeplink`, and `main` do.
 - **Announce, don't call.** Scripts that don't depend on each other talk through events on `document` (section 9.1).
 - **Colors and fonts come from the color scheme and `themes.yml`**, never hard-coded in `_sass/custom/`.
@@ -51,7 +52,7 @@
 - `session.yml` – how long the site must be closed before a visit ends, and what is forgotten then.
 - `text_size.yml` – lowest size, highest size, and step of the Size buttons.
 - `interactive.yml` – the CSS selectors that count as "clickable" (hover cursor, hover sound, torch glow). Read by both the stylesheets and the scripts (section 9.6).
-- `challenge.yml` – Challenge Rating to XP and Proficiency Bonus (monster template). Fractions are decimals (`0.5`).
+- `challenge.yml` – Challenge Rating to XP and Proficiency Bonus (monster template). Fractions are decimals (`0.5`). **Row order matters:** a monster with a lair gets the XP of the row after its own (section 7, Monsters).
 - `plurals.yml` – irregular plurals for Swarm stat blocks (`fey`, `monstrosity`, `undead`; anything unlisted gets an "s").
 - `tables/` – one settings file per search table: `feats`, `items`, `monsters`, `species`, `spells`.
 
@@ -113,6 +114,7 @@
 | Text size limits and step | `_data/text_size.yml` |
 | What counts as clickable (cursor swap, hover sound, torch glow) | `_data/interactive.yml` |
 | Irregular plurals for Swarms | `_data/plurals.yml` |
+| CR to XP and Proficiency Bonus | `_data/challenge.yml` |
 | Animation speed, popup widths, tooltip width, rarity colors, panel see-through level, parallax, entrance and scrollbar heights, effect colors and sizes | `_sass/custom/_settings.scss` |
 | One theme's heading weight, body size, heading size | `_data/themes.yml` (`heading_weight`, `body_size`, `heading_size`) |
 | A theme's colors | `_sass/color_schemes/ID.scss` |
@@ -188,7 +190,7 @@ Also:
   ```
 
 ### Content conventions
-- The rules text follows the 2024 (5.5e) style: Capitalized terms (Magic action, Bonus Action, Bloodied, Prone, Emanation), "Hit Points", "Proficiency Bonus".
+- The rules text follows the 2024 (5.5e) style: Capitalized terms (Magic action, Bonus Action, Bloodied, Prone, Emanation), "Hit Points", "Proficiency Bonus". Monsters follow the 2025 Monster Manual (MM25).
 - Run-in headings: `***Feature.***` (bold italic). Sub-headings inside a feature: `**Name.**`.
 - Quiet side rules: a blockquote of italics, opening with `*The following rule isn't often relevant, but may be important when it is.*`, then `> ***Name.*** *text*`.
 - Tables inside descriptions end with `{: .catalog }`.
@@ -313,16 +315,20 @@ Indent anything starting with `- ` inside a description by two spaces, or it is 
 
 **Monsters** (`monster.md`): `name` (also the stat block title), `size`, `type`, `note_type`, `alignment`, `ac`, `initiative`, `hp`, `speed`, `str`–`cha`, `saves`, `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages`, `cr`, `settings`, `tags`, `flavor`, and the sections below.
 - Sections, in the order shown: `traits`, `actions`, `bonus_actions`, `reactions`, `charged_actions`, `legendary_actions`, `regional_effects`. Each is a named list.
-- **Section intro and outro.** Each section can have an optional intro paragraph named `intro_KEY` (like `intro_charged_actions`, `intro_legendary_actions`), shown in italics between the heading and the list. It can also have an optional outro paragraph named `outro_KEY` (like `outro_regional_effects`), shown as plain, non-italic text right after the list. Both accept Markdown and `[[links]]`. A section with neither field is unchanged. An intro or outro with no matching list shows nothing, because an empty section is skipped.
+- **Section intro and outro.** Each section can have an optional intro paragraph named `intro_KEY` (like `intro_charged_actions`, `intro_legendary_actions`), shown between the heading and the list. It can also have an optional outro paragraph named `outro_KEY` (like `outro_regional_effects`), shown right after the list. Both accept Markdown and `[[links]]`. **Neither is styled automatically.** If you want an intro in italics, wrap it in asterisks yourself, and give each paragraph of a multi-paragraph intro its own pair. A section with neither field is unchanged. An intro or outro with no matching list shows nothing, because an empty section is skipped.
 - **Subtype.** `note_type` is the creature's subtype, shown in parentheses right after the type in the summary line: `size: Large`, `type: Beast`, `note_type: Dinosaur` reads "Large Beast (Dinosaur)". Write only the words (the parentheses come from the template) and leave the field out when there is no subtype. It appears on the stat block only. The table's Creature Type column, search, and filters don't see it, so use a tag (like `Skith` or `Welterbeast`) for anything you want to filter by.
-- `cr` is **required** (Proficiency Bonus and XP come from it via `challenge.yml`). Write a plain number, fractions as decimals (`0.125`, `0.25`, `0.5`). Search `cr:0.5`, not `1/2`.
+- **`cr` is required.** Write a plain number (fractions as decimals: `0.125`, `0.25`, `0.5`; search `cr:0.5`, not `1/2`), or `None` (any capitalization). Proficiency Bonus and XP come from `challenge.yml`.
+  - **Normal CR:** the stat block shows `CR 8 (XP 3,900; PB +3)`. Saves with proficiency get the Proficiency Bonus added automatically.
+  - **Lair XP is automatic.** A monster with a `regional_effects` section is worth the XP of the next CR up (MM25 rule), shown as `CR 8 (XP 3,900, or 5,000 in lair; PB +3)`. The "next CR" is simply the next row of `challenge.yml`, so keep that file in order. CR 30 has no next row and shows no lair XP. Don't type lair XP by hand.
+  - **`cr: None` is for summons** (subclass features, spells). The stat block shows `CR None (XP 0; PB equals your Proficiency Bonus)`. Because the PB isn't known, each proficient save is shown as the modifier plus the text `+ PB` (`+5 + PB`), and **no Passive Perception is added to Senses**. Type any attack bonuses or DCs that use PB however you like (`PB + 4` and so on). No lair XP is ever shown for `None`.
+  - In the table, `None` sorts first (the `cr` column's `order` is `[None, "..."]`), searches as `cr:none`, and is skipped by a Min/Max CR filter.
 - Scores give modifiers and saves automatically; `saves: Dex, Wis` adds the Proficiency Bonus to those.
 - `initiative` is optional and replaces the computed value. `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages` are free text and show only if present.
-- Passive Perception is added to the Senses line automatically (from a Perception skill if listed, otherwise from Wisdom); don't type it. Write negative bonuses with a plain hyphen (`Perception -1`).
+- Passive Perception is added to the Senses line automatically (from a Perception skill if listed, otherwise from Wisdom); don't type it. Write negative bonuses with a plain hyphen (`Perception -1`). Not added when `cr: None`.
 - A blank `settings` shows as "Any" in the table.
 - `size` joins with "or", `type` with "and". Tag `Swarm` and the heading becomes "Swarm of" + size + plural type (e.g. "Swarm of Tiny Beasts"). A `note_type` goes after the plural type and is not pluralized ("Swarm of Tiny Beasts (Rat)"). Irregular plurals live in `plurals.yml`.
 - Summary line order: size, type, subtype in parentheses, then a comma and the alignment ("Large Monstrosity (Welterbeast), Chaotic Evil").
-- Auto tags: Legendary (has `legendary_actions`), Boss (has `charged_actions`), Spellcaster (has an action named "Spellcasting"). Don't hand-write them.
+- Auto tags: Legendary (has `legendary_actions`), Boss (has `charged_actions`), Lair (has `regional_effects`), Spellcaster (has an action named "Spellcasting"). Don't hand-write them.
 - `flavor` is one optional italic paragraph at the bottom.
 - The Monsters page explains Charged Actions in a dropdown.
 
@@ -351,11 +357,11 @@ Indent anything starting with `- ` inside a description by two spaces, or it is 
   - `number` (sorts by amount; Min/Max filter or slider)
   - `measure` (amounts with units like `10 minutes`; sorts by `units`; filters with `buckets`)
 - `abbreviate` – shows the first N letters of each comma-separated part plus a period, with the full name in the hover bubble. Text and list columns only (not with `format`, `symbols`, or numbers). Popup, filters, and search use full names. Plain text only.
-- `order` – the Filter buttons' categories, in order, even if unused. A list, or the name of a list in `lists.yml` (an unknown name logs a warning in the console). Rank, number, and measure columns also sort by it. An unlisted cell value turns red (unless a number or measure column can read it as an amount). Without `order`, the column gets no buttons and nothing is flagged. A quoted `"..."` marks where amounts go: names before it sort first, names after it sort last; without it, amounts come after all names.
+- `order` – the Filter buttons' categories, in order, even if unused. A list, or the name of a list in `lists.yml` (an unknown name logs a warning in the console). Rank, number, and measure columns also sort by it. An unlisted cell value turns red (unless a number or measure column can read it as an amount). Without `order`, the column gets no buttons and nothing is flagged. A quoted `"..."` marks where amounts go: names before it sort first, names after it sort last; without it, amounts come after all names. (The monsters `cr` column uses `[None, "..."]`; the items `cost` column uses `[None, "...", Varies, Priceless]`.)
 - `blank_as` – blank entries count as this value in search, filters, and sorting. The cell shows its `symbols` entry if any, otherwise the value (or "—" when there is none). A blank cell in a column without `blank_as` (and not `in_table: false`) is highlighted red as missing.
 
 **Display**
-- `format: cr` (`0.5` shows `1/2`), `money` (GP/SP/CP), `weight` (0.1 or less in ounces, others in pounds), `signed` (`+3`, `−1`). Display only; sorting and filters use the exact number. Anything that isn't a plain number (like "Varies") is shown as written.
+- `format: cr` (`0.5` shows `1/2`), `money` (GP/SP/CP), `weight` (0.1 or less in ounces, others in pounds), `signed` (`+3`, `−1`). Display only; sorting and filters use the exact number. Anything that isn't a plain number (like "Varies" or "None") is shown as written.
 - `prefix` and `suffix` for other numbers. `unit` shows in the Filter heading ("Cost (GP)").
 - `zero_label` – a value of exactly `0` shows as this word (like `Weightless`) in the table and popup.
 - `plain: true` – list cells hide "(notes)".
@@ -375,7 +381,7 @@ Indent anything starting with `- ` inside a description by two spaces, or it is 
 ### Search Box
 - Plain words search names. `field:value` searches a column (`classes:wizard`). `"quoted phrase"` keeps words together. `-word` excludes.
 - `#tag` or `tag:word` searches tags.
-- Numbers accept `cost:>=100`, `cost:<50`, `weight:1-5`, `cr:0.5`.
+- Numbers accept `cost:>=100`, `cost:<50`, `weight:1-5`, `cr:0.5`. Words in a number column match its text (`cr:none`).
 - The Filter panel: click a button once to include, twice to exclude, three times to clear. Tags match all included tags unless "Match any" is ticked.
 
 ## 8. How a Table Is Built
@@ -550,6 +556,9 @@ Settings: `audio.yml`. Behavior: `site/audio.js`. The Sound menu has two checkbo
 5. If a field is appended to other text (`condition`, `note_rarity`), start it with its own punctuation (section 7, "Appended Fields").
 6. Commit, wait for the build, hard refresh, open the entry's popup and check it.
 
+### Add a summon
+A summon (from a spell or subclass feature) is a normal monster entry with `cr: None`. Leave out `settings` unless it belongs to a world. Write `saves` as usual (each proficient save will show `+ PB`), and type attack bonuses and DCs in terms of PB or the summoner's modifiers. Section 7 (Monsters) lists exactly what `None` changes.
+
 ### Add a tag
 Add it to `tags` in the table's `.yml`. If it should be added automatically, add an `auto_tags` rule too (section 7).
 
@@ -575,9 +584,10 @@ Add it to the right list in `lists.yml` (`creature_types`, `sizes`) or to the co
 
 ### Add a new section to monster stat blocks (like Charged Actions)
 1. Add `key|Heading` to `ms_section_defs` in `_includes/table/templates/monster.md`, in the position it should appear.
-2. In entries, use a named list under that key. Its optional intro is `intro_KEY` and its optional outro is `outro_KEY`; the template already reads both for every section, so they need no extra code.
+2. In entries, use a named list under that key. Its optional intro is `intro_KEY` and its optional outro is `outro_KEY`; the template already reads both for every section, so they need no extra code. Neither is italicized for you.
 3. For an automatic tag, add an `auto_tags` rule in `monsters.yml` and put the tag in `tags`.
-4. If it is homebrew, explain it in a dropdown in `monsters/index.md`.
+4. If the new section should also grant lair XP (like `regional_effects`), add its key to the lair check in the CR block of `monster.md`.
+5. If it is homebrew, explain it in a dropdown in `monsters/index.md`.
 
 ### Add a new table
 1. Create `_data/tables/NAME.yml`, `NAME/_entries.md` (at least one entry), and a template `_includes/table/templates/TEMPLATE.md` (copy `feat.md` as the simplest example; prefix its variables).
@@ -587,7 +597,7 @@ Add it to the right list in `lists.yml` (`creature_types`, `sizes`) or to the co
 Create `NAME/index.md` with `title`, `parent: Home`, `has_children: true`, `layout: wiki`, `intro`, `quote`, and `catalog: true`.
 
 ### Change wording on the site
-Find the string in `_data/strings.yml` and edit it. Don't edit wording inside includes or scripts.
+Find the string in `_data/strings.yml` and edit it. Don't edit wording inside includes or scripts. (The stat block's own labels, like `**CR**` and `**HP**`, live in `monster.md` because they are part of the stat block's layout.)
 
 ### Make a clickable element behave like a link (cursor, sound, glow)
 Add its selector to `_data/interactive.yml` (section 9.6). Nothing else needs to change.
@@ -605,6 +615,7 @@ See sections 6, 9.7, 9.8, and 9.3.
 - **Liquid runs in every normal `.md` page and included file**, even inside backticks. Wrap documentation examples in raw tags. (This file is excluded from the build.)
 - **Never put `}` inside a `{{ }}` tag.** Assign the value first with `{% assign %}`, then print it.
 - **Includes share variables with their caller.** Any variable an include creates is visible to the page and to every include that runs afterward, so two files using the same name silently overwrite each other. Give every include its own prefix (`mk_`, `cl_`, `cat_`, `lk_`, `pe_`, `jw_`, `ni_`, `fm_`, `ms_`, `sps_`, `sp_`, `it_`, `ft_`, `tx_`, `qt_`, `tt_`, `tg_`, `th_`, `gt_`, `bl_`, `pl_`, `in_`, `st_`, `fld_`, `lst_`, `val_`...) and pass what it needs as a parameter. When you rename variables for a prefix, do **not** rename the parameter names on the left of `key=value` in an include call (`packed=`, `cols=`, `col=`, `cell=`, `note=`); other includes read those as `include.packed` and so on. Only the values on the right change.
+- **Reset flags and running totals before using them.** A template like `monster.md` runs once per entry in the same page, so a leftover value from the last entry carries into the next one. Start every flag (`ms_no_cr`, `ms_found`) and every accumulator (`ms_lair_xp`, `ms_props`) with an `assign` to `false` or `""`.
 - **Include parameters must be plain values or dotted names** (`key=col.key`). Brackets like `list[0]` break the tag; assign to a variable first.
 - **A Liquid syntax error names the including file, not the broken one.** An error like `'if' tag was never closed` reported in `search-table.html` can actually come from a template it includes (for example `templates/monster.md`). The reported line number is the clue: look for a file whose last line (or the line where it stops) matches that number. The usual cause is a file cut off by an incomplete paste or commit, so after editing a template, check that its last line is the one you expect, and replace a whole file by selecting all before pasting.
 - **`theme.scss.liquid` must assign every `th_` variable it prints and must not hide a missing one with `| default:`.** A missing one should break the build, not silently drop a font, background, cursor, or the clickable selector.
