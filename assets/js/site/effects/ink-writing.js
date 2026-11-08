@@ -5,8 +5,8 @@ export const calmSafe = true;
 // Options (optionally set per theme in themes.yml).
 const DEFAULTS = {
   width: 3, // Pen Width (px)
-  hold: 1, // Time Ink Stays Fully Dark (s)
-  fade: 3, // Time Ink Takes To Fade Away (s)
+  hold: 1, // Ink Duration (s)
+  fade: 3, // Ink Fade Out (s)
   gap: 2 // Smallest Distance Between Trail Points (px)
 };
 const LEVELS = 24; // Opacity Steps
