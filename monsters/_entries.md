@@ -14,12 +14,13 @@ cha: 15
 skills: Athletics +9, Intimidation +8
 resistances: Psychic
 immunities: Necrotic, Poison; Charmed, Exhaustion, Frightened, Poisoned
-senses: Darkvision 120 ft.
+senses: Darkvision 300 ft.
 languages: Abyssal; telepathy 300 ft. (only with other welterbeasts)
 cr: 8
 settings: Orobis
 tags: Welterbeast
 flavor: Agony is the manifestation of human suffering, born of one man's despair and his ultimate sacrifice in a futile attempt to become something greater than he is. If left to its own devices, it will certainly go on to share, or rather inflict, its suffering upon thousands of others.
+
 traits:
 - trait_1: Aura of Affliction
   description: *Constitution Saving Throw:* DC 16, any creature that starts its turn in a 10-foot Emanation originating from Agony. *Failure:* 9 (2d8) Necrotic damage, and the target has Disadvantage on D20 Tests until the start of its next turn.
@@ -29,6 +30,7 @@ traits:
   description: Agony has Advantage on attack rolls against any creature that is Bloodied.
 
   In addition, Agony always knows the location of any Bloodied creature within 300 feet of it, but only while the two of them are on the same plane of existence. A Bloodied creature can't become hidden from Agony, and if it has the Invisible condition, it gains no benefit from that condition against Agony.
+
 actions:
 - action_1: Multiattack
   description: Agony makes two attacks, using Sanguine Sword or Torment Spike in any combination, and uses Mark of the Scourge if available.
@@ -38,12 +40,14 @@ actions:
   description: *Ranged Attack Roll:* +8, range 150 ft. *Hit:* 24 (4d8 + 6) Psychic damage, and the target has the Frightened condition until the start of Agony's next turn.
 - action_4: Mark of the Scourge (3/Day)
   description: Agony marks one creature it can see within 60 feet of itself. Until Agony loses Concentration (as if concentrating on a spell), the target has Vulnerability to Necrotic and Psychic damage.
+
 intro_charged_actions: At the end of each of its turns, Agony can take one of the following actions.
 charged_actions:
 - charged_action_1: Graveyard of Blades
   description: Agony summons a rain of crimson swords at three different points it can see within 120 feet. *Dexterity Saving Throw (start of Agony's next turn):* DC 16, each creature in a 15-foot-radius, 60-foot-high Cylinder centered on each point. *Failure:* 42 (12d6) Necrotic damage. *Success:* Half damage. A creature in the area of more than one Cylinder is affected only once.
 - charged_action_2: Penance
   description: Agony stabs its own sword through its chest to unleash a wave of pure agony from its body. Immediately after this action takes effect, Agony dies. *Constitution Saving Throw (start of Agony's next turn):* DC 16, each creature in a 120-foot Emanation originating from Agony. *Failure:* 78 (12d12) Necrotic damage. *Success:* Half damage.
+
 intro_legendary_actions: Legendary Action Uses: 3. Immediately after another creature’s turn, Agony can expend a use to take one of the following actions. Agony regains all expended uses at the start of each of its turns.
 legendary_actions:
 - legendary_action_1: Chains of Punishment
@@ -51,6 +55,43 @@ legendary_actions:
 - legendary_action_2: Lunge
   description: Agony moves up to half its Speed, and it makes one Sanguine Sword attack.
   
+---
+
+name: Anxiety
+size: Large
+type: Monstrosity
+alignment: Chaotic Evil
+ac: 15
+hp: 102 (12d10 + 36)
+speed: 5 ft., Fly 20 ft. (hover)
+str: 14
+dex: 8
+con: 16
+int: 10
+wis: 17
+cha: 5
+immunities: Poison, Psychic; Charmed, Exhaustion, Frightened, Poisoned
+senses: Darkvision 120 ft.
+languages: Abyssal; telepathy 120 ft. (only with other welterbeasts)
+cr: 5
+settings: Orobis
+tags: Welterbeast
+flavor: Welterbeasts are anomalous creatures that embody negative emotions, spawning from the ruins of lost civilizations and flocking to sites of immense suffering. It was once said that the sight of them would spell the end of times, but now hordes of them roam the lands. They march tirelessly, devouring anything in their path, perhaps to prepare Orobis for a new aeon.
+
+traits:
+- trait_1: Fear Sense
+  description: The welterbeast has Advantage on attack rolls against any creature with the Frightened condition.
+
+  In addition, the welterbeast always knows the location of any Frightened creature within 120 feet of it, but only while the two of them are on the same plane of existence. A Frightened creature can't become hidden from the welterbeast, and if it has the Invisible condition, it gains no benefit from that condition against the welterbeast.
+
+actions:
+- action_1: Multiattack
+  description: The welterbeast makes two Dread Burst attacks. It can replace one attack with a use of Insidious Dread.
+- action_2: Dread Burst
+  description: *Melee or Ranged Attack Roll:* +6, reach 5 ft. or range 120 ft. *Hit:* 13 (3d6 + 3) Psychic damage, and the target has the Frightened condition until the end of its next turn.
+- action_3: Insidious Dread
+  description: *Wisdom Saving Throw:* DC 14, one creature the welterbeast can see within 60 feet. *Failure:* The target has the Frightened condition. At the end of each of its turns, the target takes 5 (1d10) Psychic damage and repeats the save, ending the effect on itself on a success. After 1 minute, it succeeds automatically. *Success:* The target is immune to this welterbeast's Insidious Dread for 24 hours.
+
 ---
 
 name: Autonomous Mech
