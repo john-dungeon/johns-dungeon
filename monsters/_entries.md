@@ -144,7 +144,11 @@ actions:
 - action_4: Inferno Stinger
   description: *Melee Attack Roll:* +11 (with Advantage if the target is Grappled by Atar), reach 15 ft. *Hit:* 20 (2d12 + 7) Piercing damage plus 11 (2d10) Fire damage.
 - action_5: Deadly Leap (Awakened only)
-  description: Atar spends 15 feet of movement to jump to a space within 40 feet that contains one or more Gargantuan or smaller creatures. *Dexterity Saving Throw:* DC 19, each creature in Atar’s destination space. *Failure:* 19 (3d12) Bludgeoning damage plus 19 (3d12) Fire damage, and the target has the Prone condition. *Success:* Half damage, and the target is pushed to the nearest unoccupied space outside of Atar's space.
+  description: Atar spends 10 feet of movement to jump to a space within 30 feet that contains one or more Gargantuan or smaller creatures. *Dexterity Saving Throw:* DC 19, each creature in Atar’s destination space. *Failure:* 19 (3d12) Bludgeoning damage plus 19 (3d12) Fire damage, and the target has the Prone condition. *Success:* Half damage, and the target is pushed to the nearest unoccupied space outside of Atar's space.
+
+bonus_actions:
+- bonus_action_1: Leap
+  description: Atar jumps up to 30 feet by spending 10 feet of movement.
 
 intro_charged_actions: *At the end of each of her turns, Atar can take one of the following actions.*
 charged_actions:
