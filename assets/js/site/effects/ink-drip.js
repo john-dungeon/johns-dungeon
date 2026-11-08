@@ -2,19 +2,19 @@ import { root, cssVar, fadeOut } from '../shared.js';
 
 // Options (optionally set per theme in themes.yml).
 const DEFAULTS = {
-  idle: 1.5, // Time The Cursor Must Rest Before Dripping (s)
-  min: 0.8, // Shortest Time Between Drops (s)
-  max: 2, // Longest Time Between Drops (s)
-  slop: 4, // Movement Ignored As A Shaky Hand (px)
+  idle: 1.5, // Start Timer (s)
+  min: 1, // Shortest Time Between Drops (s)
+  max: 2.5, // Longest Time Between Drops (s)
+  slop: 4, // Ignore Shaky Hand (px)
   dropSize: 3, // Drop Radius (px)
   fallMin: 24, // Shortest Fall (px)
   fallMax: 48, // Longest Fall (px)
   fallTime: 0.35, // Fall Duration (s)
-  poolStart: 5, // Pool Radius After Its First Drop (px)
-  poolGrow: 3, // Radius Added By Each Further Drop (px)
-  poolMax: 16, // Largest Pool Radius (px)
-  hold: 4, // Time A Pool Stays Dark After Its Last Drop (s)
-  fade: 3 // Time A Pool Takes To Fade Away (s)
+  poolStart: 5, // Initial Pool Radius (px)
+  poolGrow: 2, // Radius Added Per Drop (px)
+  poolMax: 24, // Largest Pool Radius (px)
+  hold: 4, // Pool Duration (s)
+  fade: 3 // Pool Fade Out (s)
 };
 const SETTLE = 8; // How Fast Pools Spread To Their Size
 const TAU = Math.PI * 2;
