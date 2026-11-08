@@ -37,9 +37,9 @@ actions:
 - action_1: Multiattack
   description: Agony makes two attacks, using Sanguine Sword or Torment Spike in any combination, and uses Mark of the Scourge if available.
 - action_2: Sanguine Sword
-  description: *Melee Attack Roll:* +8, reach 10 ft. *Hit:* 13 (2d6 + 6) Slashing damage plus 11 (2d10) Necrotic damage, and the target has the Poisoned condition until the start of Agony's next turn. While Poisoned, the target can't regain Hit Points.
+  description: *Melee Attack Roll:* +9, reach 10 ft. *Hit:* 13 (2d6 + 6) Slashing damage plus 11 (2d10) Necrotic damage, and the target has the Poisoned condition until the start of Agony's next turn. While Poisoned, the target can't regain Hit Points.
 - action_3: Torment Spike
-  description: *Ranged Attack Roll:* +8, range 150 ft. *Hit:* 24 (4d8 + 6) Psychic damage, and the target has the Frightened condition until the start of Agony's next turn.
+  description: *Ranged Attack Roll:* +9, range 150 ft. *Hit:* 24 (4d8 + 6) Psychic damage, and the target has the Frightened condition until the start of Agony's next turn.
 - action_4: Mark of the Scourge (3/Day)
   description: Agony marks one creature it can see within 60 feet of itself. Until Agony loses Concentration (as if concentrating on a spell), the target has Vulnerability to Necrotic and Psychic damage.
 
@@ -103,7 +103,7 @@ type: Monstrosity
 note_type: Skith
 alignment: Unaligned
 ac: 16
-hp: 126 (12d12 + 48)
+hp: 130 (9d20 + 36)
 speed: 50 ft., Climb 50 ft.
 str: 25
 dex: 13
@@ -138,22 +138,22 @@ actions:
 - action_1: Multiattack
   description: Atar makes two attacks, using Searing Pincer or Flaming Ray in any combination, and one Inferno Stinger attack.
 - action_2: Searing Pincer
-  description: *Melee Attack Roll:* +10, reach 10 ft. *Hit:* 14 (2d6 + 7) Bludgeoning damage plus 11 (2d10) Fire damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 17) from one of two claws.
+  description: *Melee Attack Roll:* +10, reach 10 ft. *Hit:* 14 (2d6 + 7) Bludgeoning damage plus 11 (2d10) Fire damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 18) from one of two claws.
 - action_3: Flaming Ray
   description: *Ranged Attack Roll:* +10, range 120 ft. *Hit:* 25 (4d8 + 7) Fire damage.
 - action_4: Inferno Stinger
   description: *Melee Attack Roll:* +10 (with Advantage if the target is Grappled by Atar), reach 15 ft. *Hit:* 20 (2d12 + 7) Piercing damage plus 11 (2d10) Fire damage.
 - action_5: Deadly Leap (Awakened only)
-  description: Atar spends 15 feet of movement to jump to a space within 40 feet that contains one or more Gargantuan or smaller creatures. *Dexterity Saving Throw:* DC 17, each creature in Atar’s destination space. *Failure:* 19 (3d12) Bludgeoning damage plus 19 (3d12) Fire damage, and the target has the Prone condition. *Success:* Half damage, and the target is pushed to the nearest unoccupied space outside of Atar's space.
+  description: Atar spends 15 feet of movement to jump to a space within 40 feet that contains one or more Gargantuan or smaller creatures. *Dexterity Saving Throw:* DC 18, each creature in Atar’s destination space. *Failure:* 19 (3d12) Bludgeoning damage plus 19 (3d12) Fire damage, and the target has the Prone condition. *Success:* Half damage, and the target is pushed to the nearest unoccupied space outside of Atar's space.
 
 intro_charged_actions: At the end of each of her turns, Atar can take one of the following actions.
 charged_actions:
 - charged_action_1: Leviathan Slam
-  description: *Strength Saving Throw (start of Atar's next turn):* DC 17, each creature Grappled by Atar. *Failure:* 42 (12d6) Bludgeoning damage. *Success:* Half damage. *Failure or Success:* The target has the Prone condition.
+  description: *Strength Saving Throw (start of Atar's next turn):* DC 18, each creature Grappled by Atar. *Failure:* 42 (12d6) Bludgeoning damage. *Success:* Half damage. *Failure or Success:* The target has the Prone condition.
 - charged_action_2: Sweeping Inferno (Awakened only)
-  description: Atar fires a concentrated beam of fire from her eyes, maintaining it until the start of her next turn, then sweeps it across a large area. Until the start of her next turn, Atar can't make Flaming Ray attacks. *Dexterity Saving Throw (immediately):* DC 17, each creature in a 120-foot-long, 5-foot-wide Line. *Failure:* 38 (11d6) Fire damage. *Success:* Half damage.
+  description: Atar fires a concentrated beam of fire from her eyes, maintaining it until the start of her next turn, then sweeps it across a large area. Until the start of her next turn, Atar can't make Flaming Ray attacks. *Dexterity Saving Throw (immediately):* DC 18, each creature in a 120-foot-long, 5-foot-wide Line. *Failure:* 38 (11d6) Fire damage. *Success:* Half damage.
 
-  *Dexterity Saving Throw (start of Atar's next turn):* DC 17, each creature in a 120-foot Cone (one edge must line up with the Line). *Failure:* 31 (9d6) Fire damage. *Success:* Half damage.
+  *Dexterity Saving Throw (start of Atar's next turn):* DC 18, each creature in a 120-foot Cone (one edge must line up with the Line). *Failure:* 31 (9d6) Fire damage. *Success:* Half damage.
 
 intro_legendary_actions: Legendary Action Uses: 3 (4 in Lair). Immediately after another creature’s turn, Atar can expend a use to take one of the following actions. Atar regains all expended uses at the start of each of her turns.
 legendary_actions:
@@ -200,7 +200,7 @@ actions:
 - action_1: Multiattack
   description: The mech makes two Force Slam attacks.
 - action_2: Force Slam
-  description: *Melee Attack Roll:* +6, reach 5 ft. *Hit:* 8 (2d6 + 4) Force damage. If the target is a Medium or smaller creature, it has the Prone condition.
+  description: *Melee Attack Roll:* +6, reach 5 ft. *Hit:* 11 (2d6 + 4) Force damage. If the target is a Medium or smaller creature, it has the Prone condition.
 reactions:
 - reaction_1: Bodily Interception
   description: *Trigger:* A creature the mech can see within 15 feet of itself is targeted by an attack roll. *Response:* The mech moves up to half its Speed without provoking Opportunity Attacks toward the triggering attack’s target. If it ends its movement within 5 feet of the target and within the reach or range of the attack, the mech can become the target of the attack roll instead.
@@ -322,7 +322,7 @@ actions:
 - action_2: Castigation Ray
   description: *Ranged Attack Roll:* +8, range 90 ft. *Hit:* 32 (6d8 + 5) Force damage, and the target's Speed is halved until the end of its next turn.
 - action_3: Rend
-  description: *Melee Attack Roll:* +8, reach 5 ft. *Hit:* 16 (2d10 + 5) Bludgeoning damage plus 9 (2d8) Force damage.
+  description: *Melee Attack Roll:* +6, reach 5 ft. *Hit:* 14 (2d10 + 3) Bludgeoning damage plus 9 (2d8) Force damage.
 - action_4: Spellcasting
   description: The stone lion casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 16):
   
