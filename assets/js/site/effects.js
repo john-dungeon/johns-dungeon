@@ -11,28 +11,71 @@ let started = new Set();
 
 function makeContext(options, layer) {
   const undo = [];
+
+  function on(target, type, handler) {
+    target.addEventListener(type, handler);
+    undo.push(() => target.removeEventListener(type, handler));
+  }
+
+  function timer(run, min, max, persist = false) {
+    let id;
+    const wait = () => random(min, max) * 1000;
+    const schedule = delay => {
+      if (persist) save(TIMERS, { ...load(TIMERS, {}), [options.id]: Date.now() + delay });
+      id = setTimeout(() => {
+        if (!document.hidden) run();
+        schedule(wait());
+      }, delay);
+    };
+    const left = persist ? (load(TIMERS, {})[options.id] || 0) - Date.now() : 0;
+    schedule(left > 0 ? Math.min(left, max * 1000) : wait());
+    undo.push(() => clearTimeout(id));
+  }
+
+  function topLayer() {
+    layer.setAttribute('popover', 'manual');
+    const raise = () => {
+      try { layer.hidePopover(); } catch (e) {}
+      try { layer.showPopover(); } catch (e) {}
+      announce('layerraised');
+    };
+    raise();
+    on(document, 'popupopen', raise);
+  }
+
+  function painter(draw) {
+    const canvas = document.createElement('canvas');
+    const pen = canvas.getContext('2d');
+    layer.appendChild(canvas);
+    let frame = 0;
+
+    const fit = () => {
+      const ratio = devicePixelRatio || 1;
+      canvas.width = Math.round(innerWidth * ratio);
+      canvas.height = Math.round(innerHeight * ratio);
+      pen.setTransform(ratio, 0, 0, ratio, 0, 0);
+    };
+    const tick = now => {
+      frame = 0;
+      pen.clearRect(0, 0, innerWidth, innerHeight);
+      if (draw(pen, now)) wake();
+    };
+    const wake = () => { frame ||= requestAnimationFrame(tick); };
+
+    fit();
+    on(window, 'resize', () => { fit(); wake(); });
+    undo.push(() => cancelAnimationFrame(frame));
+    return wake;
+  }
+
   return {
     options,
     layer,
     random,
-    on(target, type, handler) {
-      target.addEventListener(type, handler);
-      undo.push(() => target.removeEventListener(type, handler));
-    },
-    timer(run, min, max, persist = false) {
-      let id;
-      const wait = () => random(min, max) * 1000;
-      const schedule = delay => {
-        if (persist) save(TIMERS, { ...load(TIMERS, {}), [options.id]: Date.now() + delay });
-        id = setTimeout(() => {
-          if (!document.hidden) run();
-          schedule(wait());
-        }, delay);
-      };
-      const left = persist ? (load(TIMERS, {})[options.id] || 0) - Date.now() : 0;
-      schedule(left > 0 ? Math.min(left, max * 1000) : wait());
-      undo.push(() => clearTimeout(id));
-    },
+    on,
+    timer,
+    topLayer,
+    painter,
     sound: name => announce('fxsound', name),
     stop: () => undo.splice(0).forEach(fn => fn())
   };
