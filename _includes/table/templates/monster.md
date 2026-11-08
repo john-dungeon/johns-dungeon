@@ -13,6 +13,11 @@
 {%- capture ms_cr %}{% include table/field.html packed=include.packed key="cr" %}{% endcapture -%}
 {%- capture ms_flavor %}{% include table/field.html packed=include.packed key="flavor" %}{% endcapture -%}
 
+{%- comment -%} "cr: None" is for summons: no XP, and PB is the summoner's. {%- endcomment -%}
+{%- assign ms_no_cr = false -%}
+{%- assign ms_cr_l = ms_cr | downcase -%}
+{%- if ms_cr_l == "none" -%}{%- assign ms_no_cr = true -%}{%- endif -%}
+
 {%- assign ms_challenge = site.data.challenge | where: "cr", ms_cr | first -%}
 {%- assign ms_pb = ms_challenge.pb -%}
 
@@ -23,11 +28,16 @@
   {%- capture ms_score %}{% include table/field.html packed=include.packed key=ms_ab %}{% endcapture -%}
   {%- assign ms_mod = ms_score | minus: 10 | divided_by: 2 -%}
   {%- assign ms_ab_up = ms_ab | upcase -%}
+  {%- assign ms_proficient = false -%}
+  {%- if ms_saves_up contains ms_ab_up -%}{%- assign ms_proficient = true -%}{%- endif -%}
   {%- assign ms_save = ms_mod -%}
-  {%- if ms_saves_up contains ms_ab_up -%}{%- assign ms_save = ms_mod | plus: ms_pb -%}{%- endif -%}
+  {%- if ms_proficient and ms_no_cr == false -%}{%- assign ms_save = ms_mod | plus: ms_pb -%}{%- endif -%}
   {%- if ms_ab == "dex" -%}{%- assign ms_dex_mod = ms_mod -%}{%- endif -%}
   {%- if ms_ab == "wis" -%}{%- assign ms_wis_mod = ms_mod -%}{%- endif -%}
-  {%- capture ms_cells %}| {{ ms_ab_up }} | {{ ms_score }} | {% include table/format.html type="signed" amount=ms_mod %} | {% include table/format.html type="signed" amount=ms_save %} {% endcapture -%}
+  {%- capture ms_save_text %}{% include table/format.html type="signed" amount=ms_save %}{% endcapture -%}
+  {%- assign ms_save_text = ms_save_text | strip -%}
+  {%- if ms_proficient and ms_no_cr -%}{%- assign ms_save_text = ms_save_text | append: " + PB" -%}{%- endif -%}
+  {%- capture ms_cells %}| {{ ms_ab_up }} | {{ ms_score }} | {% include table/format.html type="signed" amount=ms_mod %} | {{ ms_save_text }} {% endcapture -%}
   {%- assign ms_cell_list = ms_cell_list | append: ms_cells | append: "¦" -%}
 {%- endfor -%}
 {%- assign ms_cell_items = ms_cell_list | split: "¦" -%}
@@ -76,7 +86,9 @@
     {%- assign ms_props = ms_props | append: ms_break | append: "**" | append: ms_pair[1] | append: "** " | append: ms_val -%}
   {%- endif -%}
 {%- endfor -%}
-{%- if ms_cr != "" -%}
+{%- if ms_no_cr -%}
+  {%- assign ms_props = ms_props | append: ms_break | append: "**CR** None (XP 0; PB equals your Proficiency Bonus)" -%}
+{%- elsif ms_cr != "" -%}
   {%- capture ms_cr_text %}{% include table/format.html type="cr" amount=ms_cr %}{% endcapture -%}
   {%- capture ms_pb_text %}{% include table/format.html type="signed" amount=ms_pb %}{% endcapture -%}
   {%- capture ms_lair_field %}{% include table/field.html packed=include.packed key="regional_effects" %}{% endcapture -%}
