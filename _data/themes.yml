@@ -66,6 +66,9 @@
     hotspot: 0 64
   sounds: parchment
   music: parchment
+  effects:
+    - { id: ink-writing }
+    - { id: ink-drip }
 - id: dark
   label: "Dark 🌑"
   sounds: basic
