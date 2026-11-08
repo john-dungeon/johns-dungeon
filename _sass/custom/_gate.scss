@@ -19,6 +19,8 @@ html[data-gate="pending"]:not([data-gate-late]) body { visibility: hidden; }
   overflow: hidden;
   background: $body-background-color;
   color: $body-heading-color;
+  user-select: none;
+  -webkit-user-select: none;
   transition: opacity var(--gate-fade, 1s) ease;
 
   &::backdrop { background: transparent; }
