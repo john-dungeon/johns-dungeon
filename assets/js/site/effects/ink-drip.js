@@ -72,7 +72,6 @@ export default function inkDrip({ options, random, on, topLayer, painter }) {
   }
 
   const wake = painter(paint, topLayer());
-  topLayer();
 
   let anchor = null;
   let waiting = 0;
