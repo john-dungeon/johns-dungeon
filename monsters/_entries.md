@@ -190,16 +190,22 @@ cha: 6
 skills: Athletics +6
 immunities: Poison, Psychic; Charmed, Exhaustion, Frightened, Poisoned
 languages: Understands the languages you know
+cr: 4
+
 traits:
 - trait_1: Bound
   description: The mech is magically bound to the [[items:Autonomous Mech Core]] that created it, as well as the creature attuned to the augmented armor; that creature is considered the mech’s pilot. While the mech and pilot are on the same plane of existence, the pilot can telepathically call the mech to travel to it, and the mech knows the distance and direction to the pilot.
 - trait_2: Magic Resistance
   description: The mech has Advantage on saving throws against spells and other magical effects.
+- trait_3: Spell Immunity
+  description: The mech is immune to the *Heat Metal* spell.
+
 actions:
 - action_1: Multiattack
   description: The mech makes two Force Slam attacks.
 - action_2: Force Slam
   description: *Melee Attack Roll:* +6, reach 5 ft. *Hit:* 11 (2d6 + 4) Force damage. If the target is a Medium or smaller creature, it has the Prone condition.
+
 reactions:
 - reaction_1: Bodily Interception
   description: *Trigger:* A creature the mech can see within 15 feet of itself is targeted by an attack roll. *Response:* The mech moves up to half its Speed without provoking Opportunity Attacks toward the triggering attack’s target. If it ends its movement within 5 feet of the target and within the reach or range of the attack, the mech can become the target of the attack roll instead.
@@ -229,6 +235,7 @@ cr: 0.125
 settings: Erisia
 tags: Slime
 flavor: Unlike other slimes, blue slimes bounce instead of crawl, making them significantly faster. Many find this bouncy nature cute, but for the slimes themselves, it is a means of survival. They typically live on mountains and hills where they can leap off cliffs and roll down inclines at breakneck speeds, fleeing from threats in pathetic but effective fashion.
+
 traits:
 - trait_1: Amorphous
   description: The slime can move through a space as narrow as 1 inch without expending extra movement to do so.
@@ -240,6 +247,7 @@ traits:
   description: The slime has Advantage on an attack roll against a creature if at least one of the slime’s allies is within 5 feet of the creature and the ally doesn’t have the Incapacitated condition.
 - trait_4: Standing Leap
   description: The slime's Long Jump is up to 20 feet and its High Jump is up to 10 feet with or without a running start.
+
 actions:
 - action_1: Bouncy Pseudopod
   description: *Melee Attack Roll:* +3, reach 5 ft. *Hit:* 3 (1d4 + 1) Bludgeoning damage. If the target is Medium or larger, the slime is pushed 5 feet away from the target.
@@ -268,11 +276,13 @@ cr: 6
 settings: Jingyu City
 tags: Stone Lion
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
+
 traits:
 - trait_1: Immutable Form
   description: The stone lion can't shape-shift.
 - trait_2: Pack Tactics
   description: The stone lion has Advantage on an attack roll against a creature if at least one of the stone lion's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
 actions:
 - action_1: Multiattack
   description: The stone lion makes one Rend attack and one Stone Cudgel attack.
@@ -308,6 +318,7 @@ cr: 8
 settings: Jingyu City
 tags: Stone Lion
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
+
 traits:
 - trait_1: Immutable Form
   description: The stone lion can't shape-shift.
@@ -315,6 +326,7 @@ traits:
   description: The stone lion has Advantage on saving throws against spells and other magical effects.
 - trait_3: Pack Tactics
   description: The stone lion has Advantage on an attack roll against a creature if at least one of the stone lion's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
 actions:
 - action_1: Multiattack
   description: The stone lion makes two attacks, using Castigation Ray or Rend in any combination.
