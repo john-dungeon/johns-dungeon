@@ -12,9 +12,9 @@ let started = new Set();
 function makeContext(options, layer) {
   const undo = [];
 
-  function on(target, type, handler) {
-    target.addEventListener(type, handler);
-    undo.push(() => target.removeEventListener(type, handler));
+  function on(target, type, handler, options) {
+    target.addEventListener(type, handler, options);
+    undo.push(() => target.removeEventListener(type, handler, options));
   }
 
   function timer(run, min, max, persist = false) {
