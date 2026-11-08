@@ -41,7 +41,7 @@ actions:
 - action_3: Torment Spike
   description: *Ranged Attack Roll:* +9, range 150 ft. *Hit:* 24 (4d8 + 6) Psychic damage, and the target has the Frightened condition until the start of Agony's next turn.
 - action_4: Mark of the Scourge (3/Day)
-  description: Agony marks one creature it can see within 60 feet of itself. Until Agony loses Concentration (as if concentrating on a spell), the target has Vulnerability to Necrotic and Psychic damage.
+  description: *Wisdom Saving Throw:* DC 16, one creature Agony can see within 60 feet. *Failure:* The target has Vulnerability to Necrotic and Psychic damage until Agony loses Concentration (as if concentrating on a spell).
 
 intro_charged_actions: *At the end of each of its turns, Agony can take one of the following actions.*
 charged_actions:
@@ -102,7 +102,7 @@ size: Gargantuan
 type: Monstrosity
 note_type: Skith
 alignment: Unaligned
-ac: 13
+ac: 15
 hp: 101 (7d20 + 28)
 speed: 50 ft., Climb 50 ft.
 str: 25
