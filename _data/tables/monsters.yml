@@ -14,6 +14,7 @@ columns:
     label: CR
     type: number
     format: cr
+    order: [None, "..."]
   - key: type
     label: Creature Type
     type: list
