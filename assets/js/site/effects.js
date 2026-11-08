@@ -33,20 +33,26 @@ function makeContext(options, layer) {
   }
 
   function topLayer() {
-    layer.setAttribute('popover', 'manual');
+    const host = document.createElement('div');
+    host.className = 'fx-layer';
+    host.setAttribute('popover', 'manual');
+    document.body.appendChild(host);
+    undo.push(() => host.remove());
+
     const raise = () => {
-      try { layer.hidePopover(); } catch (e) {}
-      try { layer.showPopover(); } catch (e) {}
+      try { host.hidePopover(); } catch (e) {}
+      try { host.showPopover(); } catch (e) {}
       announce('layerraised');
     };
     raise();
     on(document, 'popupopen', raise);
+    return host;
   }
 
-  function painter(draw) {
+  function painter(draw, host = layer) {
     const canvas = document.createElement('canvas');
     const pen = canvas.getContext('2d');
-    layer.appendChild(canvas);
+    host.appendChild(canvas);
     let frame = 0;
 
     const fit = () => {
