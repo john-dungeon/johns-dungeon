@@ -320,11 +320,11 @@ Indent anything starting with `- ` inside a description by two spaces, or it is 
 - **`cr` is required.** Write a plain number (fractions as decimals: `0.125`, `0.25`, `0.5`; search `cr:0.5`, not `1/2`), or `None` (any capitalization). Proficiency Bonus and XP come from `challenge.yml`.
   - **Normal CR:** the stat block shows `CR 8 (XP 3,900; PB +3)`. Saves with proficiency get the Proficiency Bonus added automatically.
   - **Lair XP is automatic.** A monster with a `regional_effects` section is worth the XP of the next CR up (MM25 rule), shown as `CR 8 (XP 3,900, or 5,000 in lair; PB +3)`. The "next CR" is simply the next row of `challenge.yml`, so keep that file in order. CR 30 has no next row and shows no lair XP. Don't type lair XP by hand.
-  - **`cr: None` is for summons** (subclass features, spells). The stat block shows `CR None (XP 0; PB equals your Proficiency Bonus)`. Because the PB isn't known, each proficient save is shown as the modifier plus the text `+ PB` (`+5 + PB`), and **no Passive Perception is added to Senses**. Type any attack bonuses or DCs that use PB however you like (`PB + 4` and so on). No lair XP is ever shown for `None`.
+  - **`cr: None` is for summons** (subclass features, spells). The stat block shows `CR None (XP 0; PB equals your Proficiency Bonus)`. Because the PB isn't known, each proficient save is shown as the modifier plus the text `+ PB` (`+5 + PB`). Passive Perception is unaffected, since it never uses PB (see below). Type any attack bonuses or DCs that use PB however you like (`PB + 4` and so on). No lair XP is ever shown for `None`.
   - In the table, `None` sorts first (the `cr` column's `order` is `[None, "..."]`), searches as `cr:none`, and is skipped by a Min/Max CR filter.
 - Scores give modifiers and saves automatically; `saves: Dex, Wis` adds the Proficiency Bonus to those.
 - `initiative` is optional and replaces the computed value. `skills`, `resistances`, `vulnerabilities`, `immunities`, `gear`, `senses`, `languages` are free text and show only if present.
-- Passive Perception is added to the Senses line automatically (from a Perception skill if listed, otherwise from Wisdom); don't type it. Write negative bonuses with a plain hyphen (`Perception -1`). Not added when `cr: None`.
+- Passive Perception is added to the Senses line automatically for every monster, including `cr: None` ones. It is 10 plus the Perception bonus if a Perception skill is listed, otherwise 10 plus the Wisdom modifier. Proficiency Bonus is never added on its own, so a summon with no Perception skill gets a plain Wisdom-based number. Don't type it. Write negative bonuses with a plain hyphen (`Perception -1`), and write a listed Perception bonus as a plain number.
 - A blank `settings` shows as "Any" in the table.
 - `size` joins with "or", `type` with "and". Tag `Swarm` and the heading becomes "Swarm of" + size + plural type (e.g. "Swarm of Tiny Beasts"). A `note_type` goes after the plural type and is not pluralized ("Swarm of Tiny Beasts (Rat)"). Irregular plurals live in `plurals.yml`.
 - Summary line order: size, type, subtype in parentheses, then a comma and the alignment ("Large Monstrosity (Welterbeast), Chaotic Evil").
@@ -557,7 +557,7 @@ Settings: `audio.yml`. Behavior: `site/audio.js`. The Sound menu has two checkbo
 6. Commit, wait for the build, hard refresh, open the entry's popup and check it.
 
 ### Add a summon
-A summon (from a spell or subclass feature) is a normal monster entry with `cr: None`. Leave out `settings` unless it belongs to a world. Write `saves` as usual (each proficient save will show `+ PB`), and type attack bonuses and DCs in terms of PB or the summoner's modifiers. Section 7 (Monsters) lists exactly what `None` changes.
+A summon (from a spell or subclass feature) is a normal monster entry with `cr: None`. Leave out `settings` unless it belongs to a world. Write `saves` as usual (each proficient save will show `+ PB`), and type attack bonuses and DCs in terms of PB or the summoner's modifiers. Passive Perception still appears and comes from Wisdom or a listed Perception bonus. Section 7 (Monsters) lists exactly what `None` changes.
 
 ### Add a tag
 Add it to `tags` in the table's `.yml`. If it should be added automatically, add an `auto_tags` rule too (section 7).
@@ -610,7 +610,7 @@ Add its selector to `_data/interactive.yml` (section 9.6). Nothing else needs to
 ### Add a theme, font, effect, sound, dock button
 See sections 6, 9.7, 9.8, and 9.3.
 
-## 11. Reminders and Pitfalls
+## 11. Reminders
 
 - **Liquid runs in every normal `.md` page and included file**, even inside backticks. Wrap documentation examples in raw tags. (This file is excluded from the build.)
 - **Never put `}` inside a `{{ }}` tag.** Assign the value first with `{% assign %}`, then print it.
