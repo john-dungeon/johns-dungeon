@@ -164,6 +164,8 @@ legendary_actions:
 - legendary_action_3: Summon Hatchling (Awakened only)
   description: Atar launches an egg to an unoccupied space within 30 feet of her, causing one **[[monsters:Hellfire Skith]]** to appear in that space. Atar can't take this action again until the start of her next turn.
 
+  A maximum of 3 **[[monsters:Hellfire Skith|Hellfire Skiths]]** summoned in this way can be active at a time; attempting to summon a fourth fails, with the egg being a dud. When Atar dies, any skith summoned in this way also dies.
+
 intro_regional_effects: The region containing Atar's lair is warped by her presence, creating the following effects:
 regional_effects:
 - regional_effect_1: Burning Heat
