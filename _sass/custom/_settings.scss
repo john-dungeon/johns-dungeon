@@ -46,3 +46,4 @@ $stone-dark: mix($body-text-color, $body-background-color, 20%) !default; // Fal
 $dust-color: mix($body-text-color, $body-background-color, 70%) !default; // Dust Cloud Color
 $dust-opacity: 0.6 !default; // Dust Cloud Strongest Opacity
 $ink-color: $body-text-color !default; // Ink Color
+$ink-layer-z: $scrollbar-z - 1 !default; // Ink Layers
