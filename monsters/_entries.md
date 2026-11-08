@@ -102,8 +102,8 @@ size: Gargantuan
 type: Monstrosity
 note_type: Skith
 alignment: Unaligned
-ac: 16
-hp: 130 (9d20 + 36)
+ac: 13
+hp: 101 (7d20 + 28)
 speed: 50 ft., Climb 50 ft.
 str: 25
 dex: 13
@@ -138,7 +138,7 @@ actions:
 - action_1: Multiattack
   description: Atar makes two attacks, using Searing Pincer or Flaming Ray in any combination, and one Inferno Stinger attack.
 - action_2: Searing Pincer
-  description: *Melee Attack Roll:* +10, reach 10 ft. *Hit:* 14 (2d6 + 7) Bludgeoning damage plus 11 (2d10) Fire damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 18) from one of two claws.
+  description: *Melee Attack Roll:* +10, reach 10 ft. *Hit:* 12 (1d10 + 7) Bludgeoning damage plus 11 (2d10) Fire damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 18) from one of two claws.
 - action_3: Flaming Ray
   description: *Ranged Attack Roll:* +10, range 120 ft. *Hit:* 25 (4d8 + 7) Fire damage.
 - action_4: Inferno Stinger
