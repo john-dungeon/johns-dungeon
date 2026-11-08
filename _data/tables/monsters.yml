@@ -3,8 +3,9 @@ noun: monsters
 dialog: statblock
 tags: [Boss, Lair, Legendary, Spellcaster, Skith, Slime, Stone Lion, Swarm, Welterbeast]
 auto_tags:
-  - { tag: Legendary, field: legendary_actions }
   - { tag: Boss, field: charged_actions }
+  - { tag: Lair, field: regional_effects }
+  - { tag: Legendary, field: legendary_actions }
   - { tag: Spellcaster, field: actions, item: Spellcasting }
 columns:
   - key: name
