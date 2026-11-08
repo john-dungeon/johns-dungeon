@@ -35,3 +35,5 @@ export function save(key, value) {
 }
 
 export const posterize = (value, levels) => (value <= 0 ? 0 : Math.round(value * levels) / levels);
+
+export const fadeOut = (age, hold, fade) => Math.min(1, Math.max(0, 1 - (age - hold) / fade));
