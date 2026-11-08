@@ -119,7 +119,7 @@ senses: Blindsight 60 ft., Darkvision 120 ft.
 languages: None
 cr: 8
 settings: Big Blue
-tags: Lair, Skith
+tags: Skith
 flavor: Born in the depths of a submarine volcano, Atar the Elder Skith is an enormous scorpion-like leviathan that can harness the power of primordial fire, shooting flaming lasers out of her eyes and wielding a stinger that melts through steel. As a mature leviathan, Atar is also the broodmother of a massive army of skiths. They rip through the oceans like a swarm of locusts, and thus, they must remain itinerant or risk famine.
 
 traits:
