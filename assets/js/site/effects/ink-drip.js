@@ -71,7 +71,7 @@ export default function inkDrip({ options, random, on, topLayer, painter }) {
     return drops.length > 0 || pools.length > 0;
   }
 
-  const wake = painter(paint);
+  const wake = painter(paint, topLayer());
   topLayer();
 
   let anchor = null;
