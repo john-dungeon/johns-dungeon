@@ -90,29 +90,9 @@
     {%- if ms_list == "" -%}{%- continue -%}{%- endif -%}
     {%- assign ms_intro_key = "intro_" | append: ms_key -%}
     {%- capture ms_intro %}{% include table/field.html packed=include.packed key=ms_intro_key %}{% endcapture -%}
+    {%- assign ms_outro_key = "outro_" | append: ms_key -%}
+    {%- capture ms_outro %}{% include table/field.html packed=include.packed key=ms_outro_key %}{% endcapture -%}
     {{- "<div class='statblock-section' markdown='1'>" | append: ms_nl | append: ms_nl -}}
     {{- "<h3 class='statblock-heading'>" | append: ms_pair[1] | append: "</h3>" | append: ms_nl | append: ms_nl -}}
     {%- if ms_intro != "" -%}
       {{- "<div class='italic' markdown='1'>" | append: ms_nl | append: ms_nl | append: ms_intro | append: ms_nl | append: ms_nl | append: "</div>" | append: ms_nl | append: ms_nl -}}
-    {%- endif -%}
-    {%- include table/named-list.html text=ms_list row="statblock-row" -%}
-    {{- "</div>" | append: ms_nl | append: ms_nl -}}
-  {%- endfor -%}
-{%- endcapture -%}
-
-{%- assign ms_flavor_md = "" -%}
-{%- if ms_flavor != "" -%}{%- assign ms_flavor_md = "> " | append: ms_flavor | append: ms_nl | append: "{: .italic }" -%}{%- endif -%}
-{{ ms_summary }}
-{: .statblock-type }
-
-**AC** {{ ms_ac }}<span class="statblock-gap"></span>**Initiative** {{ ms_initiative }}<br>
-**HP** {{ ms_hp }}<br>
-**Speed** {{ ms_speed }}
-
-| | | MOD | SAVE | | | MOD | SAVE |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-{{ ms_table }}{: .statblock-abilities }
-
-{{ ms_props }}
-
-{{ ms_sections }}{{ ms_flavor_md }}
