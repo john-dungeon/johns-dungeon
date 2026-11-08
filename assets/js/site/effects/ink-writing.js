@@ -1,4 +1,4 @@
-import { root, cssVar, fadeOut } from '../shared.js';
+import { cssVar, fadeOut } from '../shared.js';
 
 export const calmSafe = true;
 
@@ -11,6 +11,9 @@ const DEFAULTS = {
 };
 const LEVELS = 24; // Opacity Steps
 
+const startsInk = event =>
+  event.shiftKey && event.button === 0 && !event.target.closest('input, textarea');
+
 export default function inkWriting({ options, on, topLayer, painter }) {
   const { width, hold, fade, gap } = { ...DEFAULTS, ...options };
   const holdMs = hold * 1000;
@@ -19,7 +22,7 @@ export default function inkWriting({ options, on, topLayer, painter }) {
 
   let strokes = [];
   let stroke = null;
-  let writing = false;
+  let swallowClick = false;
 
   function paint(pen, now) {
     pen.strokeStyle = color;
@@ -56,35 +59,43 @@ export default function inkWriting({ options, on, topLayer, painter }) {
   topLayer();
 
   function add(x, y) {
-    if (!stroke) {
-      stroke = [];
-      strokes.push(stroke);
-    }
     const last = stroke[stroke.length - 1];
     if (last && Math.hypot(x - last.x, y - last.y) < gap) return;
     stroke.push({ x, y, t: performance.now() });
   }
 
-  on(document, 'dblclick', event => {
-    writing = !writing;
-    stroke = null;
-    if (writing) add(event.clientX, event.clientY);
+  on(document, 'mousedown', event => {
+    if (startsInk(event)) event.preventDefault();
+  });
+
+  on(document, 'pointerdown', event => {
+    swallowClick = false;
+    if (!startsInk(event)) return;
+    stroke = [];
+    strokes.push(stroke);
+    add(event.clientX, event.clientY);
   });
 
   on(document, 'pointermove', event => {
-    if (!writing || event.pointerType === 'touch') return;
+    if (!stroke) return;
+    if (!(event.buttons & 1)) {
+      stroke = null;
+      return;
+    }
     const moves = event.getCoalescedEvents?.() || [];
     (moves.length ? moves : [event]).forEach(move => add(move.clientX, move.clientY));
     wake();
   });
 
-  on(root, 'pointerleave', () => { stroke = null; });
-
-  on(document, 'mousedown', event => {
-    if (event.detail > 1 && !event.target.closest('input, textarea')) event.preventDefault();
+  on(document, 'pointerup', () => {
+    if (stroke && stroke.length > 1) swallowClick = true;
+    stroke = null;
   });
 
-  on(document, 'selectstart', event => {
-    if (writing) event.preventDefault();
-  });
+  on(document, 'click', event => {
+    if (!swallowClick) return;
+    swallowClick = false;
+    event.preventDefault();
+    event.stopPropagation();
+  }, true);
 }
