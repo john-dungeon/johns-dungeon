@@ -79,7 +79,23 @@
 {%- if ms_cr != "" -%}
   {%- capture ms_cr_text %}{% include table/format.html type="cr" amount=ms_cr %}{% endcapture -%}
   {%- capture ms_pb_text %}{% include table/format.html type="signed" amount=ms_pb %}{% endcapture -%}
-  {%- assign ms_props = ms_props | append: ms_break | append: "**CR** " | append: ms_cr_text | append: " (XP " | append: ms_challenge.xp | append: "; PB " | append: ms_pb_text | append: ")" -%}
+  {%- capture ms_lair_field %}{% include table/field.html packed=include.packed key="regional_effects" %}{% endcapture -%}
+  {%- assign ms_xp_text = ms_challenge.xp -%}
+  {%- assign ms_lair_xp = "" -%}
+  {%- if ms_lair_field != "" -%}
+    {%- assign ms_found = false -%}
+    {%- for ms_step in site.data.challenge -%}
+      {%- if ms_found -%}
+        {%- assign ms_lair_xp = ms_step.xp -%}
+        {%- break -%}
+      {%- endif -%}
+      {%- if ms_step.cr == ms_challenge.cr -%}{%- assign ms_found = true -%}{%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+  {%- if ms_lair_xp != "" -%}
+    {%- assign ms_xp_text = ms_xp_text | append: ", or " | append: ms_lair_xp | append: " in lair" -%}
+  {%- endif -%}
+  {%- assign ms_props = ms_props | append: ms_break | append: "**CR** " | append: ms_cr_text | append: " (XP " | append: ms_xp_text | append: "; PB " | append: ms_pb_text | append: ")" -%}
 {%- endif -%}
 {%- assign ms_props = ms_props | remove_first: ms_break -%}
 
@@ -97,7 +113,7 @@
     {{- "<div class='statblock-section' markdown='1'>" | append: ms_nl | append: ms_nl -}}
     {{- "<h3 class='statblock-heading'>" | append: ms_pair[1] | append: "</h3>" | append: ms_nl | append: ms_nl -}}
     {%- if ms_intro != "" -%}
-      {{- "<div class='italic' markdown='1'>" | append: ms_nl | append: ms_nl | append: ms_intro | append: ms_nl | append: ms_nl | append: "</div>" | append: ms_nl | append: ms_nl -}}
+      {{- ms_intro | append: ms_nl | append: ms_nl -}}
     {%- endif -%}
     {%- include table/named-list.html text=ms_list row="statblock-row" -%}
     {%- if ms_outro != "" -%}
