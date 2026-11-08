@@ -14,49 +14,64 @@ const LEVELS = 24; // Opacity Steps
 const startsInk = event =>
   event.shiftKey && event.button === 0 && !event.target.closest('input, textarea');
 
+const popupOpen = () => Boolean(document.querySelector('.st-dialog[open]'));
+
 export default function inkWriting({ options, on, topLayer, painter }) {
   const { width, hold, fade, gap } = { ...DEFAULTS, ...options };
   const holdMs = hold * 1000;
   const fadeMs = fade * 1000;
   const color = cssVar('--ink-color');
 
-  let strokes = [];
   let stroke = null;
   let swallowClick = false;
 
-  function paint(pen, now) {
-    pen.strokeStyle = color;
-    pen.lineWidth = width;
-    pen.lineJoin = 'round';
+  function makeTrail(host) {
+    let strokes = [];
 
-    strokes.forEach(points => {
-      while (points.length && now - points[0].t >= holdMs + fadeMs) points.shift();
+    function paint(pen, now) {
+      pen.strokeStyle = color;
+      pen.lineWidth = width;
+      pen.lineJoin = 'round';
 
-      let level = 0;
-      const finish = () => {
-        if (!level) return;
-        pen.globalAlpha = level / LEVELS;
-        pen.stroke();
-      };
-      for (let i = 1; i < points.length; i++) {
-        const next = Math.ceil(fadeOut(now - points[i].t, holdMs, fadeMs) * LEVELS);
-        if (next !== level) {
-          finish();
-          level = next;
-          pen.beginPath();
-          pen.moveTo(points[i - 1].x, points[i - 1].y);
+      strokes.forEach(points => {
+        while (points.length && now - points[0].t >= holdMs + fadeMs) points.shift();
+
+        let level = 0;
+        const finish = () => {
+          if (!level) return;
+          pen.globalAlpha = level / LEVELS;
+          pen.stroke();
+        };
+        for (let i = 1; i < points.length; i++) {
+          const next = Math.ceil(fadeOut(now - points[i].t, holdMs, fadeMs) * LEVELS);
+          if (next !== level) {
+            finish();
+            level = next;
+            pen.beginPath();
+            pen.moveTo(points[i - 1].x, points[i - 1].y);
+          }
+          pen.lineTo(points[i].x, points[i].y);
         }
-        pen.lineTo(points[i].x, points[i].y);
-      }
-      finish();
-    });
+        finish();
+      });
 
-    strokes = strokes.filter(points => points.length > 1 || points === stroke);
-    return strokes.some(points => points.length > 1);
+      strokes = strokes.filter(points => points.length > 1 || points === stroke);
+      return strokes.some(points => points.length > 1);
+    }
+
+    return {
+      wake: painter(paint, host),
+      start() {
+        const points = [];
+        strokes.push(points);
+        return points;
+      }
+    };
   }
 
-  const wake = painter(paint);
-  topLayer();
+  const page = makeTrail();
+  const above = makeTrail(topLayer());
+  let trail = page;
 
   function add(x, y) {
     const last = stroke[stroke.length - 1];
@@ -71,8 +86,8 @@ export default function inkWriting({ options, on, topLayer, painter }) {
   on(document, 'pointerdown', event => {
     swallowClick = false;
     if (!startsInk(event)) return;
-    stroke = [];
-    strokes.push(stroke);
+    trail = popupOpen() ? above : page;
+    stroke = trail.start();
     add(event.clientX, event.clientY);
   });
 
@@ -84,7 +99,7 @@ export default function inkWriting({ options, on, topLayer, painter }) {
     }
     const moves = event.getCoalescedEvents?.() || [];
     (moves.length ? moves : [event]).forEach(move => add(move.clientX, move.clientY));
-    wake();
+    trail.wake();
   });
 
   on(document, 'pointerup', () => {
