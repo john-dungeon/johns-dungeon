@@ -91,7 +91,7 @@ actions:
 - action_1: Multiattack
   description: The welterbeast makes two Dread Burst attacks. It can replace one attack with a use of Insidious Dread.
 - action_2: Dread Burst
-  description: *Melee or Ranged Attack Roll:* +6, reach 5 ft. or range 120 ft. *Hit:* 13 (3d6 + 3) Psychic damage, and the target has the Frightened condition until the end of its next turn.
+  description: *Melee or Ranged Attack Roll:* +6, reach 5 ft. or range 120 ft. *Hit:* 17 (4d6 + 3) Psychic damage, and the target has the Frightened condition until the end of its next turn.
 - action_3: Insidious Dread
   description: *Wisdom Saving Throw:* DC 14, one creature the welterbeast can see within 60 feet. *Failure:* The target has the Frightened condition. At the end of each of its turns, the target takes 5 (1d10) Psychic damage and repeats the save, ending the effect on itself on a success. After 1 minute, it succeeds automatically. *Success:* The target is immune to this welterbeast's Insidious Dread for 24 hours.
 
@@ -117,10 +117,10 @@ resistances: Poison
 immunities: Cold, Fire; Charmed, Frightened
 senses: Blindsight 60 ft., Darkvision 120 ft.
 languages: None
-cr: 8
+cr: 9
 settings: Big Blue
 tags: Skith
-flavor: Born in the depths of a submarine volcano, Atar the Elder Skith is an enormous scorpion-like leviathan that can harness the power of primordial fire, shooting flaming lasers out of her eyes and wielding a stinger that melts through steel. As a mature leviathan, Atar is also the broodmother of a massive army of skiths. They rip through the oceans like a swarm of locusts, and thus, they must remain itinerant or risk famine.
+flavor: Born in the depths of a submarine volcano, Atar the Elder Skith is an enormous scorpion-like leviathan that can harness the power of primordial fire, shooting flaming beams out of her eyes and wielding a stinger that melts through steel. As a mature leviathan, Atar is also the broodmother of a massive army of skiths. They rip through the oceans like a swarm of locusts, and thus, they must remain itinerant or risk famine.
 
 traits:
 - trait_1: Amphibious
@@ -138,29 +138,29 @@ actions:
 - action_1: Multiattack
   description: Atar makes two attacks, using Searing Pincer or Flaming Ray in any combination, and one Inferno Stinger attack.
 - action_2: Searing Pincer
-  description: *Melee Attack Roll:* +10, reach 10 ft. *Hit:* 12 (1d10 + 7) Bludgeoning damage plus 11 (2d10) Fire damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 18) from one of two claws.
+  description: *Melee Attack Roll:* +11, reach 10 ft. *Hit:* 11 (1d8 + 7) Bludgeoning damage plus 11 (2d10) Fire damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 19) from one of two claws.
 - action_3: Flaming Ray
-  description: *Ranged Attack Roll:* +10, range 120 ft. *Hit:* 25 (4d8 + 7) Fire damage.
+  description: *Ranged Attack Roll:* +11, range 120 ft. *Hit:* 21 (4d6 + 7) Fire damage.
 - action_4: Inferno Stinger
-  description: *Melee Attack Roll:* +10 (with Advantage if the target is Grappled by Atar), reach 15 ft. *Hit:* 20 (2d12 + 7) Piercing damage plus 11 (2d10) Fire damage.
+  description: *Melee Attack Roll:* +11 (with Advantage if the target is Grappled by Atar), reach 15 ft. *Hit:* 20 (2d12 + 7) Piercing damage plus 11 (2d10) Fire damage.
 - action_5: Deadly Leap (Awakened only)
-  description: Atar spends 15 feet of movement to jump to a space within 40 feet that contains one or more Gargantuan or smaller creatures. *Dexterity Saving Throw:* DC 18, each creature in Atar’s destination space. *Failure:* 19 (3d12) Bludgeoning damage plus 19 (3d12) Fire damage, and the target has the Prone condition. *Success:* Half damage, and the target is pushed to the nearest unoccupied space outside of Atar's space.
+  description: Atar spends 15 feet of movement to jump to a space within 40 feet that contains one or more Gargantuan or smaller creatures. *Dexterity Saving Throw:* DC 19, each creature in Atar’s destination space. *Failure:* 19 (3d12) Bludgeoning damage plus 19 (3d12) Fire damage, and the target has the Prone condition. *Success:* Half damage, and the target is pushed to the nearest unoccupied space outside of Atar's space.
 
 intro_charged_actions: *At the end of each of her turns, Atar can take one of the following actions.*
 charged_actions:
 - charged_action_1: Leviathan Slam
-  description: *Strength Saving Throw (start of Atar's next turn):* DC 18, each creature Grappled by Atar. *Failure:* 42 (12d6) Bludgeoning damage. *Success:* Half damage. *Failure or Success:* The target has the Prone condition.
+  description: *Strength Saving Throw (start of Atar's next turn):* DC 19, each creature Grappled by Atar. *Failure:* 42 (12d6) Bludgeoning damage. *Success:* Half damage. *Failure or Success:* The target has the Prone condition.
 - charged_action_2: Sweeping Inferno (Awakened only)
-  description: Atar fires a concentrated beam of fire from her eyes, maintaining it until the start of her next turn, then sweeps it across a large area. Until the start of her next turn, Atar can't make Flaming Ray attacks. *Dexterity Saving Throw (immediately):* DC 15, each creature in a 120-foot-long, 5-foot-wide Line. *Failure:* 38 (11d6) Fire damage. *Success:* Half damage.
+  description: Atar fires a concentrated beam of fire from her eyes, maintaining it until the start of her next turn, then sweeps it across a large area. Until the start of her next turn, Atar can't make Flaming Ray attacks. *Dexterity Saving Throw (immediately):* DC 16, each creature in a 120-foot-long, 5-foot-wide Line. *Failure:* 35 (10d6) Fire damage. *Success:* Half damage.
 
-  *Dexterity Saving Throw (start of Atar's next turn):* DC 15, each creature in a 120-foot Cone (one edge must line up with the Line). *Failure:* 31 (9d6) Fire damage. *Success:* Half damage.
+  *Dexterity Saving Throw (start of Atar's next turn):* DC 16, each creature in a 120-foot Cone (one edge must line up with the Line). *Failure:* 28 (8d6) Fire damage. *Success:* Half damage.
 
 intro_legendary_actions: *Legendary Action Uses: 3 (4 in Lair). Immediately after another creature’s turn, Atar can expend a use to take one of the following actions. Atar regains all expended uses at the start of each of her turns.*
 legendary_actions:
 - legendary_action_1: Hellfire
   description: Atar makes one Searing Pincer or Flaming Ray attack.
 - legendary_action_2: Skith Skyfall (Awakened only)
-  description: Atar uses Deadly Leap. Atar can't take this action again until the start of her next turn.
+  description: Atar uses Deadly Leap without spending movement. Atar can't take this action again until the start of her next turn.
 - legendary_action_3: Summon Hatchling (Awakened only)
   description: Atar launches an egg to an unoccupied space within 30 feet of her, causing one **[[monsters:Hellfire Skith]]** to appear in that space. Atar can't take this action again until the start of her next turn.
 
@@ -169,7 +169,7 @@ legendary_actions:
 intro_regional_effects: The region containing Atar's lair is warped by her presence, creating the following effects:
 regional_effects:
 - regional_effect_1: Burning Heat
-  description: The area within 1 mile of the lair is an area of extreme heat. A burning creature or object takes an additional 1d4 Fire damage at the start of each of its turns.
+  description: The area within 1 mile of the lair is an area of extreme heat. A burning creature or object takes an additional 1d4 Fire damage at the start of each of its turns. Creatures and objects don't gain Resistance to Fire damage from being underwater.
 - regional_effect_2: Foul Water
   description: Water sources within 1 mile of the lair are supernaturally fouled. Creatures other than Atar and her allies that drink such water must succeed on a DC 15 Constitution saving throw or have the Poisoned condition for 1 hour.
 outro_regional_effects: If Atar dies or moves her lair elsewhere, these effects end immediately.
