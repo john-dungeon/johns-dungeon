@@ -35,12 +35,14 @@ traits:
 
 actions:
 - action_1: Multiattack
-  description: Agony makes two attacks, using Sanguine Sword or Torment Spike in any combination, and uses Mark of the Scourge if available.
+  description: Agony makes two attacks, using Sanguine Sword or Torment Spike in any combination.
 - action_2: Sanguine Sword
   description: *Melee Attack Roll:* +9, reach 10 ft. *Hit:* 13 (2d6 + 6) Slashing damage plus 11 (2d10) Necrotic damage, and the target has the Poisoned condition until the start of Agony's next turn. While Poisoned, the target can't regain Hit Points.
 - action_3: Torment Spike
   description: *Ranged Attack Roll:* +9, range 150 ft. *Hit:* 24 (4d8 + 6) Psychic damage, and the target has the Frightened condition until the start of Agony's next turn.
-- action_4: Mark of the Scourge (3/Day)
+
+bonus_actions:
+- bonus_action_1: Mark of the Scourge (3/Day)
   description: *Wisdom Saving Throw:* DC 16, one creature Agony can see within 60 feet. *Failure:* The target has Vulnerability to Necrotic and Psychic damage until Agony loses Concentration (as if concentrating on a spell).
 
 intro_charged_actions: *At the end of each of its turns, Agony can take one of the following actions.*
