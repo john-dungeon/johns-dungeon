@@ -50,23 +50,14 @@ html.fx-vignette {
   }
 }
 
-@include mq(md) {
-  .side-bar { z-index: $above-effects-z; }
-
-  html.fx-vignette .side-bar::after {
-    @include vignette-picture;
-    position: absolute;
-    background-size: 100vw 100vh;
-    background-position: calc(#{$sidebar-width} - var(--main-left)) 0;
-  }
-}
-
-@include toc-fits {
-  html.fx-vignette .toc-bar::after {
-    @include vignette-picture;
-    position: absolute;
-    background-size: 100vw 100vh;
-    background-position: calc((var(--main-left) + #{$content-width}) * -1) 0;
+@each $side, $cfg in $panels {
+  @include panel-fits($side) {
+    html.fx-vignette .panel--#{$side}::after {
+      @include vignette-picture;
+      position: absolute;
+      background-size: 100vw 100vh;
+      background-position: calc(-1 * #{map-get($cfg, start)}) 0;
+    }
   }
 }
 
@@ -143,8 +134,7 @@ html.fx-vignette {
 html.shaking {
   overflow-x: hidden;
 
-  .side-bar,
-  .toc-bar,
+  .panel,
   .panel-toggle,
   .st-dialog,
   body::before { translate: var(--shake-x, 0) var(--shake-y, 0); }
