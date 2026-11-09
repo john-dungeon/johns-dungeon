@@ -1,0 +1,18 @@
+{%- comment -%}
+  Sidebars (replaces Just the Docs' sidebar)
+  Builds the left panel (site navigation), the right panel (page outline, only when the page has an outline), and the hide/show buttons.
+{%- endcomment -%}
+
+{%- assign sb_ui = site.data.strings -%}
+{%- assign sb_home = '/' | relative_url -%}
+
+{%- capture sb_left_body %}{% include_cached components/site_nav.html %}{% endcapture -%}
+{%- capture sb_left_footer %}{% include nav_footer_custom.html %}{% endcapture -%}
+{% include panel.html side="left" title=site.title href=sb_home body=sb_left_body footer=sb_left_footer menu=true %}
+
+{%- if page.outline %}
+  {%- capture sb_right_body %}{% include outline.html %}{% endcapture %}
+{% include panel.html side="right" title=sb_ui.outline_title href="#top" body=sb_right_body %}
+{%- endif %}
+
+{% include panel-toggles.html %}
