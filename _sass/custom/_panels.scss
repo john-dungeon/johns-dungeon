@@ -38,7 +38,7 @@
 }
 
 @include mq(md) {
-  .main { margin-left: var(--main-left); }
+  .side-bar + .main { margin-left: var(--main-left); }
 
   .panel-toggle[data-panel-toggle="navbar"] {
     display: block;
