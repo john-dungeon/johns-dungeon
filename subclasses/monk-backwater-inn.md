@@ -6,6 +6,12 @@ layout: wiki
 tagline: Keep the Peace On and Off Business Hours
 summary: A Monk subclass specialized in defense and counterattacks.
 quote: I learned this martial art from a jaded innkeeper. Quite the temper, that fellow, but it's understandable if you knew his plight.
+outline:
+  - "Level 3: Innkeeper’s Experience"
+  - "Level 3: Protect the Customer"
+  - "Level 6: Pacify the Rowdy"
+  - "Level 11: Nerves of Steel"
+  - "Level 17: Backwater Guardian"
 ---
 
 A veteran innkeeper once said, “Look here, bud. I’m just trying to run an honest business, but these damn adventuring vagrants keep showing up and wrecking the place over petty disagreements. Eventually, as a business owner, you just stop tolerating that nonsense.”
