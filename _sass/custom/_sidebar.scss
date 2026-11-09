@@ -1,28 +1,22 @@
-$sidebar-box-color: if($theme-background != none, rgba($sidebar-color, $panel-opacity), $sidebar-color);
-$sidebar-border-width: 1px;
-
+// Markup: Just the Docs' sidebar plus _includes/nav_footer_custom.html
+// Hide/Show: .navbar-collapsed on <html> slides it under main (mixins in _helpers.scss).
 .side-bar { background-color: $sidebar-box-color; }
 
 @include mq(md) {
   .side-bar {
-    background-color: transparent;
-    border-right: 0;
-
-    &::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      max-width: $nav-width;
-      border: $sidebar-border-width solid $border-color;
-      border-top: 0;
-      border-bottom: 0;
-      background-color: $sidebar-box-color;
-    }
+    @include panel-in-place;
+    top: 0;
+    left: calc(var(--main-left) - #{$sidebar-width});
+    width: $sidebar-width;
+    min-width: $sidebar-width;
+    border: $sidebar-border-width solid $border-color;
+    border-top: 0;
+    border-bottom: 0;
+    transition: transform $motion, clip-path $motion, visibility 0s;
   }
 
-  .site-nav > .nav-list { margin: 0 $sidebar-border-width; }
+  .navbar-collapsed .side-bar {
+    @include panel-under-main(left, $sidebar-width);
+    transition: transform $motion, clip-path $motion, visibility 0s var(--motion-duration);
+  }
 }
