@@ -17,6 +17,26 @@ $sidebar-width: unquote("calc(#{$nav-width} + #{$sidebar-border-width * 2})");
 $toggle-clearance: $toggle-size + $toggle-inset * 2;
 $toc-min-viewport: unquote("calc(#{$sidebar-width} + #{$content-width} + #{$toc-width})");
 
+// Panels
+//  width: Panel Width
+//  start: Panel Left Edge
+//  edge: Panel Slide Direction ('left' or 'right')
+//  clear: Hide/Show Button Space
+$panels: (
+  left: (
+    width: $sidebar-width,
+    start: unquote("calc(var(--main-left) - #{$sidebar-width})"),
+    edge: left,
+    clear: right
+  ),
+  right: (
+    width: $toc-width,
+    start: unquote("calc(var(--main-left) + #{$content-width})"),
+    edge: right,
+    clear: left
+  )
+);
+
 @mixin vignette-picture {
   content: "";
   inset: 0;
@@ -79,7 +99,14 @@ $toc-min-viewport: unquote("calc(#{$sidebar-width} + #{$content-width} + #{$toc-
   @media (min-width: #{$toc-min-viewport}) { @content; }
 }
 
-// Panels
+@mixin panel-fits($side) {
+  @if $side == left {
+    @include mq(md) { @content; }
+  } @else {
+    @include toc-fits { @content; }
+  }
+}
+
 @mixin panel-in-place {
   transform: translateX(0);
   clip-path: inset(0 0 0 0);
