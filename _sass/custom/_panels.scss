@@ -1,5 +1,6 @@
-// Markup: _includes/panel-toggles.html (buttons), Just the Docs' sidebar (left), _includes/outline.html (right)
-// Behavior: assets/js/panel-toggle.js (adds .NAME-collapsed to <html>)
+// Markup: _includes/panel.html (both panels), _includes/components/sidebar.html (builds them), _includes/panel-toggles.html (buttons)
+// Behavior: assets/js/panel-toggle.js (adds .left-collapsed / .right-collapsed to <html>)
+// Per-side settings: $panels in _helpers.scss. Sizes: _settings.scss.
 :root {
   --left-w: #{$sidebar-width}; // Left Sidebar Width
   --left-min: #{$sidebar-width}; // Minimum Left Margin
@@ -8,16 +9,123 @@
   transition: #{"--main-left"} $motion;
 }
 
-.navbar-collapsed {
+.left-collapsed {
   --left-w: 0px;
   --left-min: #{$toggle-clearance};
 }
 
 @include toc-fits {
-  .has-toc:not(.toc-collapsed) { --right-w: #{$toc-width}; }
+  .has-right:not(.right-collapsed) { --right-w: #{$toc-width}; }
 }
 
-// Buttons
+// Frame
+.panel {
+  display: flex;
+  flex-direction: column;
+  border: 0 solid $border-color;
+  background-color: $sidebar-box-color;
+}
+
+.panel--left { border-bottom-width: $sidebar-border-width; }
+.panel--right { display: none; }
+
+// Heading Button
+.panel-head {
+  display: flex;
+  align-items: center;
+}
+
+.panel-title {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: $toggle-clearance;
+  margin: 0;
+  padding: $toggle-inset;
+  color: $body-heading-color;
+  font-size: calc(#{$panel-title-size} * var(--heading-ratio));
+  font-weight: $heading-weight;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  @if $theme-heading-font { font-family: $theme-heading-font; }
+
+  &:hover { color: $link-color; }
+}
+
+// Menu Button
+.panel-menu {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  padding: 0 $toggle-inset;
+  border: 0;
+  background: transparent;
+  color: $link-color;
+  cursor: pointer;
+
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+  }
+
+  @include mq(md) { display: none; }
+}
+
+// Body (Scrolls), Footer
+.panel-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+
+  > .site-nav { width: 100%; }
+}
+
+.panel-footer {
+  @include muted(0.8rem);
+  display: none;
+  padding: $toggle-inset;
+  border-top: 1px solid $border-color;
+}
+
+@include mq(md) {
+  .panel-body > .site-nav {
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  .panel-footer { display: block; }
+}
+
+// Outline List (Right Panel Body)
+.panel-list {
+  margin: 0;
+  padding: 0 $toggle-inset $toggle-inset;
+  list-style: none;
+
+  li { margin: 0.25rem 0; }
+
+  a {
+    display: block;
+    padding: 0.2rem 0.5rem;
+    color: $nav-child-link-color;
+
+    &:hover { color: $link-color; }
+  }
+}
+
+.panel .panel-list li::before { content: none; }
+
+.outline-missing {
+  display: block;
+  padding: 0.2rem 0.5rem;
+  color: $unlisted-color;
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+// Hide/Show Buttons
 .panel-toggle {
   @include outlined-button(999px, $sidebar-color);
   @include accent-on-hover;
@@ -31,24 +139,50 @@
   box-shadow: $shadow-small;
 }
 
-// Arrows
-@each $panel, $open, $closed in (navbar "\2039" "\203A"), (toc "\203A" "\2039") {
-  .panel-toggle[data-panel-toggle="#{$panel}"]::before { content: $open; }
-  .#{$panel}-collapsed .panel-toggle[data-panel-toggle="#{$panel}"]::before { content: $closed; }
-}
-
 @include mq(md) {
-  .side-bar + .main { margin-left: var(--main-left); }
-
-  .panel-toggle[data-panel-toggle="navbar"] {
-    display: block;
-    left: calc(var(--main-left) - #{$toggle-size + $toggle-inset});
-  }
+  .panel--left ~ .main { margin-left: var(--main-left); }
 }
 
-@include toc-fits {
-  .panel-toggle[data-panel-toggle="toc"] {
-    display: block;
-    left: calc(var(--main-left) + #{$content-width} + #{$toggle-inset});
+@each $side, $cfg in $panels {
+  $width: map-get($cfg, width);
+  $start: map-get($cfg, start);
+  $edge: map-get($cfg, edge);
+  $clear: map-get($cfg, clear);
+  $open: if($edge == left, "\2039", "\203A");
+  $closed: if($edge == left, "\203A", "\2039");
+
+  .panel-toggle[data-panel-toggle="#{$side}"]::before { content: $open; }
+  .#{$side}-collapsed .panel-toggle[data-panel-toggle="#{$side}"]::before { content: $closed; }
+
+  @include panel-fits($side) {
+    .panel--#{$side} {
+      @include panel-in-place;
+      display: flex;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: $start;
+      z-index: $above-effects-z;
+      width: $width;
+      min-width: $width;
+      border-width: 0 $sidebar-border-width;
+      transition: transform $motion, clip-path $motion, visibility 0s;
+
+      .panel-title { padding-#{$clear}: $toggle-clearance; }
+    }
+
+    .#{$side}-collapsed .panel--#{$side} {
+      @include panel-under-main($edge, $width);
+      transition: transform $motion, clip-path $motion, visibility 0s var(--motion-duration);
+    }
+
+    .panel-toggle[data-panel-toggle="#{$side}"] {
+      display: block;
+      @if $clear == right {
+        left: calc(#{$start} + #{$width} - #{$toggle-size + $toggle-inset});
+      } @else {
+        left: calc(#{$start} + #{$toggle-inset});
+      }
+    }
   }
 }
