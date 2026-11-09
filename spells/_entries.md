@@ -114,8 +114,7 @@ casting_time: Action
 range: Touch
 components: S, M
 material: a sharp object
-duration: Concentration
-concentration_max: 1 minute
+duration: Instantaneous
 tags: Damage, Debuff, Esoteric, Upcast
 description: You extract a portion of blood or flesh from a willing creature you touch. The target takes 4d10 Necrotic damage, which can't be reduced or prevented in any way. The target's Hit Point maximum decreases by an amount equal to the Necrotic damage taken. The extracted blood or flesh then transforms into an amount of GP equal to the Necrotic damage dealt.
 
@@ -131,7 +130,8 @@ casting_time: Action
 range: 60 feet
 components: S, M
 material: a metal knife and a bowl
-duration: Instantaneous
+duration: Concentration
+concentration_max: 1 minute
 tags: Damage, Esoteric, Upcast
 description: You cause a bleeding cut to suddenly appear on a creature within range. The target takes 2d8 Slashing damage. Until the spell ends, you can take a Bonus Action on each of your later turns to deal this damage again if the target is within range.
 
