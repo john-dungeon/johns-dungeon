@@ -1148,6 +1148,8 @@ cost: Varies
 options_cost: 75, 300, 3000, 30000, 150000
 note_cost: See table
 weight: 0.5
+variant: true
+note_variant: The official variant of this item is the Troll's Blood Elixir from D&D: World of Warcraft.
 tags: Consumable, Healing, Magic Item
 description: This potion's pink liquid has an earthy scent and a bittersweet taste, like a blend of berries and herbs.
 
