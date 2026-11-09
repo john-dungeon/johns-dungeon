@@ -103,6 +103,8 @@ function layout(bar) {
   const { scroller, axis, track, thumb, isPage } = bar;
   const room = scroller[axis.total] - scroller[axis.size];
   track.hidden = !active() || room < 1;
+  // Lets CSS make room beside a visible bar (not for the page itself: its class list is watched below).
+  if (!isPage) scroller.classList.toggle(`sb-has-${axis.name}`, !track.hidden);
   if (track.hidden) return;
 
   if (!isPage) place(bar);
