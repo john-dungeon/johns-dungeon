@@ -5,6 +5,9 @@ $tooltip-width: 18rem !default; // Widest Hover Bubble
 $dialog-width: 60rem !default; // Widest Text Pop-Up
 $dialog-title-size: 1.75rem !default; // Pop-Up Heading Font Size
 $statblock-width: 42rem !default; // Widest Stat Block Pop-Up
+$toc-width: 240px !default; // Right Sidebar Width
+$toggle-size: 2rem !default; // Sidebar Hide/Show Button Size
+$toggle-inset: 1rem !default; // Gap Around The Sidebar Hide/Show Buttons
 $marker-colors: (
   "common": #8c969b,
   "uncommon": #73d746,
