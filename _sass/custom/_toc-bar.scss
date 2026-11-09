@@ -40,10 +40,7 @@
   padding: 0 $toggle-inset $toggle-inset;
   list-style: none;
 
-  li {
-    margin: 0.25rem 0;
-    &::before { content: none; }
-  }
+  li { margin: 0.25rem 0; }
 
   a {
     display: block;
@@ -53,6 +50,8 @@
     &:hover { color: $link-color; }
   }
 }
+
+.toc-bar .toc-list li::before { content: none; }
 
 .outline-missing {
   display: block;
