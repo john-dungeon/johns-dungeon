@@ -29,6 +29,7 @@
   margin: 0;
   padding: $toggle-inset $toggle-inset $toggle-inset $toggle-clearance;
   color: $body-heading-color;
+  font-size: $toc-title-size;
   font-weight: $heading-weight;
   line-height: $toggle-size;
   @if $theme-heading-font { font-family: $theme-heading-font; }
@@ -39,7 +40,10 @@
   padding: 0 $toggle-inset $toggle-inset;
   list-style: none;
 
-  li { margin: 0.25rem 0; }
+  li {
+    margin: 0.25rem 0;
+    &::before { content: none; }
+  }
 
   a {
     display: block;
