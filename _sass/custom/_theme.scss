@@ -2,8 +2,8 @@
   body, button, input { font-family: $theme-body-font; }
 }
 
-@if $theme-heading-font {
-  h1, h2, h3, h4, h5, h6, .site-title { font-family: $theme-heading-font; }
+@if $heading-size != $body-size {
+  h1, h2, h3, h4, h5, h6 { zoom: var(--heading-ratio); }
 }
 
 h1, h2, h3, h4, h5, h6 { font-weight: $heading-weight; }
