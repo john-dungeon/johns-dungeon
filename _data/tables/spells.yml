@@ -1,6 +1,6 @@
 template: spell
 noun: spells
-tags: [Ability Check, Area, Armor Class Bonus, Attack, Buff, Cleanse, Condition, Concentration, Damage, Debuff, Difficult Terrain, Esoteric, Forced Movement, Healing, Immunity, Light, Resistance, Revival, Saving Throw, Special Speed, Speed, Summon, Teleportation, Upcast]
+tags: [Ability Check, Area, Armor Class Bonus, Attack, Buff, Cleanse, Condition, Concentration, Damage, Debuff, Difficult Terrain, Esoteric, Forced Movement, Healing, Immunity, Light, Requires Sight, Resistance, Revival, Saving Throw, Special Speed, Speed, Summon, Teleportation, Upcast]
 auto_tags:
   - { tag: Concentration, field: duration, equals: Concentration }
 columns:
