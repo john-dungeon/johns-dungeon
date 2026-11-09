@@ -1,6 +1,5 @@
 // Behavior: assets/js/site/scrollbar.js
-$scrollbar-size: 0.75rem;
-
+// Settings: _settings.scss
 html.fake-cursor {
   &, * { scrollbar-width: none; }
   &::-webkit-scrollbar,
