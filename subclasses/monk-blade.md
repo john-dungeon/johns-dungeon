@@ -6,6 +6,12 @@ layout: wiki
 tagline: Become the Pinnacle of Swordsmanship
 summary: A Monk subclass specialized in high damage and the ability to use anything as a weapon.
 quote: Most of the sword styles that I've seen usually have some sort of gimmick, like using a flying sword or imbuing one with unquenchable flames. I suppose, then, the gimmick of this one is that it has no gimmick—just one sharp blade to face the world.
+outline:
+  - "Level 3: Blade"
+  - "Level 3: Focus"
+  - "Level 6: Hone"
+  - "Level 11: Slash"
+  - "Level 17: Execute"
 ---
 
 Warriors of the Blade devote their entire lives to honing their bladework. Their style distills swordsmanship to its core, stripping away the unnecessary flair and accessories that hinder other sword arts, even in the names of their techniques.
