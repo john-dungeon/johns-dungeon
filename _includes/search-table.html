@@ -6,18 +6,9 @@
 {%- assign st_ui = site.data.strings -%}
 {%- assign st_cfg = site.data.tables[include.data] -%}
 {%- assign st_cols = st_cfg.columns -%}
-{%- capture st_nl %}
-{% endcapture -%}
 {%- assign st_template = "table/templates/" | append: st_cfg.template | append: ".md" -%}
 
-{%- capture st_raw_entries -%}{% include_relative _entries.md %}{%- endcapture -%}
-{%- assign st_raw_lines = st_raw_entries | split: st_nl -%}
-{%- capture st_marked_entries -%}
-  {%- for st_raw_line in st_raw_lines -%}
-    {%- assign st_raw_trim = st_raw_line | strip -%}
-    {%- if st_raw_trim == "---" -%}¶¶{%- else -%}{{ st_raw_line }}{{ st_nl }}{%- endif -%}
-  {%- endfor -%}
-{%- endcapture -%}
+{%- capture st_marked_entries %}{% include table/split-entries.html file="_entries.md" %}{% endcapture -%}
 {%- assign st_entry_texts = st_marked_entries | split: "¶¶" -%}
 
 {%- assign st_rows_html = "" -%}
