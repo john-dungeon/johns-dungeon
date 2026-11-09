@@ -76,8 +76,9 @@ permalink: /assets/js/search-data.json
 {%- capture sx_nl %}
 {% endcapture -%}
 {%- assign sx_default_fields = "description" | split: "," -%}
-{%- assign sx_pages = site.pages | where_exp: "p", "p.table and p.search_exclude != true" -%}
+{%- assign sx_pages = site.pages | where_exp: "p", "p.table" -%}
 {%- for sx_page in sx_pages -%}
+  {%- if sx_page.search_exclude == true -%}{%- continue -%}{%- endif -%}
   {%- assign sx_cfg = site.data.tables[sx_page.table] -%}
   {%- assign sx_fields = sx_cfg.search_fields | default: sx_default_fields -%}
   {%- assign sx_name_key = sx_cfg.columns.first.key -%}
