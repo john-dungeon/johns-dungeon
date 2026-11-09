@@ -1,0 +1,124 @@
+---
+layout: null
+permalink: /assets/js/search-data.json
+---
+{
+{%- assign i = 0 -%}
+{%- assign pages_array = "" | split: "" -%}
+{%- assign pages_array = pages_array | push: site.html_pages -%}
+{%- if site.just_the_docs.collections -%}
+  {%- for collection_entry in site.just_the_docs.collections -%}
+    {%- assign collection_key = collection_entry[0] -%}
+    {%- assign collection_value = collection_entry[1] -%}
+    {%- assign collection = site[collection_key] -%}
+    {%- if collection_value.search_exclude != true -%}
+      {%- assign pages_array = pages_array | push: collection -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- for pages in pages_array -%}
+  {%- for page in pages -%}
+    {%- if page.title and page.search_exclude != true -%}
+      {%- assign page_content = page.content -%}
+      {%- assign heading_level = site.search.heading_level | default: 2 -%}
+      {%- for j in (2..heading_level) -%}
+        {%- assign tag = '<h' | append: j -%}
+        {%- assign closing_tag = '</h' | append: j -%}
+        {%- assign page_content = page_content | replace: tag, '<h1' | replace: closing_tag, '</h1' -%}
+      {%- endfor -%}
+      {%- assign parts = page_content | split: '<h1' -%}
+      {%- assign title_found = false -%}
+      {%- for part in parts offset: 1 -%}
+        {%- assign titleAndContent = part | split: '</h1>' -%}
+        {%- assign title = titleAndContent[0] | replace_first: '>', '<h1>' | split: '<h1>' -%}
+        {%- assign title = title[1] | strip_html -%}
+        {%- assign content = titleAndContent[1] -%}
+        {%- assign url = page.url -%}
+        {%- if title == page.title and parts[0] == '' -%}
+          {%- assign title_found = true -%}
+        {%- else -%}
+          {%- assign id = titleAndContent[0] -%}
+          {%- assign id = id | split: 'id="' -%}
+          {%- if id.size == 2 -%}
+            {%- assign id = id[1] -%}
+            {%- assign id = id | split: '"' -%}
+            {%- assign id = id[0] -%}
+            {%- capture url -%}{{ url | append: '#' | append: id }}{%- endcapture -%}
+          {%- endif -%}
+        {%- endif -%}
+  {%- unless i == 0 -%},{%- endunless -%}
+  "{{ i }}": {
+    "doc": {{ page.title | jsonify }},
+    "title": {{ title | jsonify }},
+    "content": {{ content | replace: '</h', ' . </h' | replace: '<hr', ' . <hr' | replace: '</p', ' . </p' | replace: '<ul', ' . <ul' | replace: '</ul', ' . </ul' | replace: '<ol', ' . <ol' | replace: '</ol', ' . </ol' | replace: '</tr', ' . </tr' | replace: '<li', ' | <li' | replace: '</li', ' | </li' | replace: '</td', ' | </td' | replace: '<td', ' | <td' | replace: '</th', ' | </th' | replace: '<th', ' | <th' | strip_html | remove: 'Table of contents' | normalize_whitespace | replace: '. . .', '.' | replace: '. .', '.' | replace: '| |', '|' | append: ' ' | jsonify }},
+    "url": "{{ url | relative_url }}",
+    {% include lunr/custom-data.json page=page %}
+    "relUrl": "{{ url }}"
+  }
+        {%- assign i = i | plus: 1 -%}
+      {%- endfor -%}
+      {%- unless title_found -%}
+  {%- unless i == 0 -%},{%- endunless -%}
+  "{{ i }}": {
+    "doc": {{ page.title | jsonify }},
+    "title": {{ page.title | jsonify }},
+    "content": {{ parts[0] | replace: '</h', ' . </h' | replace: '<hr', ' . <hr' | replace: '</p', ' . </p' | replace: '<ul', ' . <ul' | replace: '</ul', ' . </ul' | replace: '<ol', ' . <ol' | replace: '</ol', ' . </ol' | replace: '</tr', ' . </tr' | replace: '<li', ' | <li' | replace: '</li', ' | </li' | replace: '</td', ' | </td' | replace: '<td', ' | <td' | replace: '</th', ' | </th' | replace: '<th', ' | <th' | strip_html | remove: 'Table of contents' | normalize_whitespace | replace: '. . .', '.' | replace: '. .', '.' | replace: '| |', '|' | append: ' ' | jsonify }},
+    "url": "{{ page.url | relative_url }}",
+    {% include lunr/custom-data.json page=page %}
+    "relUrl": "{{ page.url }}"
+  }
+        {%- assign i = i | plus: 1 -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- capture sx_nl %}
+{% endcapture -%}
+{%- assign sx_default_fields = "description" | split: "," -%}
+{%- assign sx_pages = site.pages | where_exp: "p", "p.table and p.search_exclude != true" -%}
+{%- for sx_page in sx_pages -%}
+  {%- assign sx_cfg = site.data.tables[sx_page.table] -%}
+  {%- assign sx_fields = sx_cfg.search_fields | default: sx_default_fields -%}
+  {%- assign sx_name_key = sx_cfg.columns.first.key -%}
+  {%- assign sx_path = sx_page.dir | remove_first: "/" | append: "_entries.md" -%}
+  {%- capture sx_raw -%}{% include_relative {{ sx_path }} %}{%- endcapture -%}
+  {%- assign sx_lines = sx_raw | split: sx_nl -%}
+  {%- capture sx_marked -%}
+    {%- for sx_line in sx_lines -%}
+      {%- assign sx_trim = sx_line | strip -%}
+      {%- if sx_trim == "---" -%}¶¶{%- else -%}{{ sx_line }}{{ sx_nl }}{%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- assign sx_entries = sx_marked | split: "¶¶" -%}
+  {%- for sx_entry in sx_entries -%}
+    {%- assign sx_probe = sx_entry | strip -%}
+    {%- if sx_probe == "" -%}{%- continue -%}{%- endif -%}
+    {%- capture sx_packed %}{% include table/parse-entry.html text=sx_entry %}{% endcapture -%}
+    {%- capture sx_title %}{% include table/field.html packed=sx_packed key=sx_name_key %}{% endcapture -%}
+    {%- assign sx_md = "" -%}
+    {%- for sx_field in sx_fields -%}
+      {%- capture sx_val %}{% include table/field.html packed=sx_packed key=sx_field %}{% endcapture -%}
+      {%- if sx_val == "" -%}{%- continue -%}{%- endif -%}
+      {%- assign sx_head = sx_val | slice: 0, 2 -%}
+      {%- if sx_head == "- " -%}
+        {%- capture sx_list %}{% include table/named-list.html text=sx_val %}{% endcapture -%}
+        {%- assign sx_val = sx_list -%}
+      {%- endif -%}
+      {%- assign sx_md = sx_md | append: sx_val | append: sx_nl | append: sx_nl -%}
+    {%- endfor -%}
+    {%- capture sx_html %}{% include text.html text=sx_md block=true table=sx_page.table %}{% endcapture -%}
+    {%- assign sx_plain = sx_html | replace: '</p', ' </p' | replace: '</td', ' </td' | replace: '</th', ' </th' | replace: '</li', ' </li' | replace: '</h', ' </h' | replace: '<br', ' <br' | strip_html | replace: '&rsquo;', "'" | replace: '&lsquo;', "'" | replace: '&ldquo;', '"' | replace: '&rdquo;', '"' | replace: '&amp;', '&' | replace: '&nbsp;', ' ' | normalize_whitespace -%}
+    {%- assign sx_url = sx_page.url | append: '#' | append: sx_title | slugify -%}
+  {%- unless i == 0 -%},{%- endunless -%}
+  "{{ i }}": {
+    "doc": {{ sx_page.title | jsonify }},
+    "title": {{ sx_title | strip | jsonify }},
+    "content": {{ sx_plain | append: ' ' | jsonify }},
+    "url": "{{ sx_url | relative_url }}",
+    "relUrl": "{{ sx_url }}"
+  }
+    {%- assign i = i | plus: 1 -%}
+  {%- endfor -%}
+{%- endfor %}
+}
