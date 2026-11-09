@@ -1,3 +1,4 @@
+search_fields: [description, traits]
 template: species
 noun: species
 tags: [Monstrous]
