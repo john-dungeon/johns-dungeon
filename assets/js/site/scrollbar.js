@@ -1,6 +1,6 @@
 import { root, CALM } from './shared.js';
 
-const SCROLLERS = ['.st-dialog-inner', '.st-table-wrap', '.site-nav'];
+const SCROLLERS = ['.st-dialog-inner', '.st-table-wrap', '.panel-body'];
 const MIN_THUMB = 24; // Thickness
 const PAGE_STEP = 0.9; // Jump to Click
 const LINE = 1; // Scroll Snapping
