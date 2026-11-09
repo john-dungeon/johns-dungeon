@@ -13,9 +13,9 @@ $above-effects-z: $effect-layer-z + 1;
 // Sidebars
 $sidebar-box-color: if($theme-background != none, rgba($sidebar-color, $panel-opacity), $sidebar-color);
 $sidebar-border-width: 1px;
-$sidebar-width: $nav-width + $sidebar-border-width * 2;
+$sidebar-width: unquote("calc(#{$nav-width} + #{$sidebar-border-width * 2})");
 $toggle-clearance: $toggle-size + $toggle-inset * 2;
-$toc-min-viewport: $sidebar-width + $content-width + $toc-width;
+$toc-min-viewport: unquote("calc(#{$sidebar-width} + #{$content-width} + #{$toc-width})");
 
 @mixin vignette-picture {
   content: "";
@@ -79,6 +79,7 @@ $toc-min-viewport: $sidebar-width + $content-width + $toc-width;
   @media (min-width: #{$toc-min-viewport}) { @content; }
 }
 
+// Panels
 @mixin panel-in-place {
   transform: translateX(0);
   clip-path: inset(0 0 0 0);
