@@ -6,9 +6,10 @@ gate_enter: Enter Dungeon
 
 # Navigation, Footer
 nav_footer: "It's rather dark down here... Try not to get lost, my friend."
-nav_toggle: Toggle nav bar
+nav_toggle: Toggle Nav Bar
+menu_toggle: Toggle Menu
 outline_title: On This Page
-outline_toggle: Toggle page outline
+outline_toggle: Toggle Page Outline
 outline_missing: "No section titled {title}"
 back_to: "← Back to {title}"
 unfinished: "Wait! This part of the archive hasn't been constructed yet. How about we come back later when it is?"
