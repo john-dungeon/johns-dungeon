@@ -1,0 +1,54 @@
+// Markup: _includes/panel-toggles.html (buttons), Just the Docs' sidebar (left), _includes/outline.html (right)
+// Behavior: assets/js/panel-toggle.js (adds .NAME-collapsed to <html>)
+:root {
+  --left-w: #{$sidebar-width}; // Left Sidebar Width
+  --left-min: #{$sidebar-width}; // Minimum Left Margin
+  --right-w: 0px; // Right Sidebar Width
+  --main-left: max(var(--left-min), calc((100vw - var(--left-w) - #{$content-width} - var(--right-w)) / 2 + var(--left-w)));
+  transition: #{"--main-left"} $motion;
+}
+
+.navbar-collapsed {
+  --left-w: 0px;
+  --left-min: #{$toggle-clearance};
+}
+
+@include toc-fits {
+  .has-toc:not(.toc-collapsed) { --right-w: #{$toc-width}; }
+}
+
+// Buttons
+.panel-toggle {
+  @include outlined-button(999px, $sidebar-color);
+  @include accent-on-hover;
+  display: none;
+  position: fixed;
+  top: $toggle-inset;
+  z-index: 100;
+  width: $toggle-size;
+  height: $toggle-size;
+  padding: 0;
+  box-shadow: $shadow-small;
+}
+
+// Arrows
+@each $panel, $open, $closed in (navbar "\2039" "\203A"), (toc "\203A" "\2039") {
+  .panel-toggle[data-panel-toggle="#{$panel}"]::before { content: $open; }
+  .#{$panel}-collapsed .panel-toggle[data-panel-toggle="#{$panel}"]::before { content: $closed; }
+}
+
+@include mq(md) {
+  .main { margin-left: var(--main-left); }
+
+  .panel-toggle[data-panel-toggle="navbar"] {
+    display: block;
+    left: calc(var(--main-left) - #{$toggle-size + $toggle-inset});
+  }
+}
+
+@include toc-fits {
+  .panel-toggle[data-panel-toggle="toc"] {
+    display: block;
+    left: calc(var(--main-left) + #{$content-width} + #{$toggle-inset});
+  }
+}
