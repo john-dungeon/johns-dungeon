@@ -1,3 +1,4 @@
+search_fields: [flavor, traits, actions, bonus_actions, reactions, charged_actions, legendary_actions, regional_effects]
 template: monster
 noun: monsters
 dialog: statblock
