@@ -110,7 +110,8 @@ permalink: /assets/js/search-data.json
     {%- endfor -%}
     {%- capture sx_html %}{% include text.html text=sx_md block=true table=sx_page.table %}{% endcapture -%}
     {%- assign sx_plain = sx_html | replace: '</p', ' </p' | replace: '</td', ' </td' | replace: '</th', ' </th' | replace: '</li', ' </li' | replace: '</h', ' </h' | replace: '<br', ' <br' | strip_html | replace: '&rsquo;', "'" | replace: '&lsquo;', "'" | replace: '&ldquo;', '"' | replace: '&rdquo;', '"' | replace: '&amp;', '&' | replace: '&nbsp;', ' ' | normalize_whitespace -%}
-    {%- assign sx_url = sx_page.url | append: '#' | append: sx_title | slugify -%}
+    {%- assign sx_slug = sx_title | strip | slugify -%}
+    {%- assign sx_url = sx_page.url | append: '#' | append: sx_slug -%}
   {%- unless i == 0 -%},{%- endunless -%}
   "{{ i }}": {
     "doc": {{ sx_page.title | jsonify }},
