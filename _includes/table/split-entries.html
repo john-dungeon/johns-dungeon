@@ -1,0 +1,14 @@
+{%- comment -%}
+  Entry Splitter
+  Params: file (required; the entries file, relative to the page being rendered, like "_entries.md" or "items/_entries.md")
+{%- endcomment -%}
+
+{%- assign se_file = include.file -%}
+{%- capture se_nl %}
+{% endcapture -%}
+{%- capture se_raw %}{% include_relative {{ se_file }} %}{% endcapture -%}
+{%- assign se_lines = se_raw | split: se_nl -%}
+{%- for se_line in se_lines -%}
+  {%- assign se_trim = se_line | strip -%}
+  {%- if se_trim == "---" -%}¶¶{%- else -%}{{ se_line }}{{ se_nl }}{%- endif -%}
+{%- endfor -%}
