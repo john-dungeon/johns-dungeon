@@ -1,5 +1,5 @@
 {%- assign pt_ui = site.data.strings -%}
-<button type="button" class="panel-toggle" data-panel-toggle="navbar" aria-controls="site-nav" aria-expanded="true" aria-label="{{ pt_ui.nav_toggle | escape }}"></button>
+<button type="button" class="panel-toggle" data-panel-toggle="left" aria-controls="panel-left" aria-expanded="true" aria-label="{{ pt_ui.nav_toggle | escape }}"></button>
 {%- if page.outline %}
-<button type="button" class="panel-toggle" data-panel-toggle="toc" aria-controls="toc-bar" aria-expanded="true" aria-label="{{ pt_ui.outline_toggle | escape }}"></button>
+<button type="button" class="panel-toggle" data-panel-toggle="right" aria-controls="panel-right" aria-expanded="true" aria-label="{{ pt_ui.outline_toggle | escape }}"></button>
 {%- endif %}
