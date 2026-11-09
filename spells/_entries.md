@@ -23,7 +23,7 @@ A Restrained target or a creature that can reach it can take an action to make a
 
 **Frozen Fist.** The hand strikes a target within 5 feet of it. Make a melee spell attack. On a hit, the target takes 4d8 Cold damage and its Speed is halved until the start of your next turn.
 
-**Shattering Hand.** The hand explodes into shards of ice, reducing itself to 0 Hit Points. Each creature in a 20-foot Sphere centered on the hand must make a Dexterity saving throw. On a failed save, a target takes 6d8 Cold damage, or 3d8 Cold damage if the hand had half its Hit Points or fewer remaining when it exploded. On a successful save, a target takes half as much damage.
+**Shattering Hand.** The hand explodes into shards of ice, reducing itself to 0 Hit Points. Each creature in a 20-foot-radius Sphere centered on the hand must make a Dexterity saving throw. On a failed save, a target takes 6d8 Cold damage, or 3d8 Cold damage if the hand had half its Hit Points or fewer remaining when it exploded. On a successful save, a target takes half as much damage.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 2d8 for each spell slot level above 5.
 
@@ -106,6 +106,23 @@ When the spell ends, the target takes 1d8 Acid, Cold, Fire, Lightning, Poison, o
 
 ---
 
+name: Blood Money
+level: 1
+school: Transmutation
+classes: Warlock
+casting_time: Action
+range: Touch
+components: S, M
+material: a sharp object
+duration: Concentration
+concentration_max: 1 minute
+tags: Damage, Debuff, Esoteric, Upcast
+description: You extract a portion of blood or flesh from a willing creature you touch. The target takes 4d10 Necrotic damage, which can't be reduced or prevented in any way. The target's Hit Point maximum decreases by an amount equal to the Necrotic damage taken. The extracted blood or flesh then transforms into an amount of GP equal to the Necrotic damage dealt.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 2d10 for each spell slot level above 1.
+
+---
+
 name: Bloodletting
 level: 1
 school: Evocation
@@ -114,14 +131,111 @@ casting_time: Action
 range: 60 feet
 components: S, M
 material: a metal knife and a bowl
-duration: Concentration
-concentration_max: 1 minute
+duration: Instantaneous
 tags: Damage, Esoteric, Upcast
 description: You cause a bleeding cut to suddenly appear on a creature within range. The target takes 2d8 Slashing damage. Until the spell ends, you can take a Bonus Action on each of your later turns to deal this damage again if the target is within range.
 
 The spell ends if the target regains Hit Points from a spell, magic item, or other magical effect.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d8 for each spell slot level above 1.
+
+---
+
+name: Cacophonic Burst
+level: 1
+school: Evocation
+classes: Bard, Sorcerer, Wizard
+casting_time: Action
+range: 60 feet
+components: V, S, M
+material: a bell
+duration: Instantaneous
+tags: Area, Condition, Damage, Esoteric, Saving Throw, Upcast
+description: A thunderous crash erupts from a point of your choice within range. Each creature in a 5-foot-radius Sphere centered there makes a Constitution saving throw. On a failed save, a target takes 3d6 Thunder damage and has the Deafened condition until the start of your next turn. On a successful save, a target takes half as much damage only.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 1.
+
+---
+
+name: Charge Orb
+level: 2
+school: Evocation
+classes: Sorcerer, Wizard
+casting_time: Action
+range: 60 feet
+components: V, S, M
+material: a diamond worth 50+ GP
+duration: Concentration
+concentration_max: 1 minute
+tags: Area, Damage, Esoteric, Saving Throw, Upcast
+description: You draw magical energy from yourself, condensing it into a glowing orb in your hand for the duration. When the spell ends, you hurl the orb to a chosen point within range where it explodes. Each creature in a 10-foot-radius Sphere centered on that point makes a Dexterity saving throw, taking Force damage equal to the total accumulated damage on a failed save or half as much damage on a successful one.
+
+The spell’s base damage is 2d4, and the damage increases by 1d4 whenever your turn ends and the spell hasn’t ended.
+
+If the spell ends because you gained the Incapacitated condition, you are unable to hurl the orb, which explodes in a 10-foot-radius Sphere centered on you.
+
+***Using a Higher-Level Spell Slot.*** The base damage increases by 1d4 for each spell slot level above 2.
+
+---
+
+name: Conjure Instrument
+level: Cantrip
+school: Conjuration
+classes: Artificer, Bard
+casting_time: Bonus Action
+range: Self
+components: S
+duration: 1 hour
+tags: Esoteric, Upcast
+description: You create a spectral instrument in your hand—any Musical Instrument of your choice. When you play the spectral instrument, you make it sound up to three times as loud as normal.
+
+As a Magic action, you can unleash a booming sound from the spectral instrument that can be heard from up to 500 feet away. Each creature in a 10-foot Emanation originating from you must succeed on a Constitution saving throw or take 1d4 Thunder damage.
+
+The spectral instrument vanishes at the end of the duration, when you cast this spell again, or when the instrument is more than 5 feet away from you for 1 minute or more.
+
+***Cantrip Upgrade.*** The damage increases by 1d4 when you reach levels 5 (2d4), 11 (3d4), and 17 (4d4).
+
+---
+
+name: Conjure Weapon
+level: Cantrip
+school: Conjuration
+classes: Artificer, Paladin, Ranger, Warlock
+casting_time: Bonus Action
+range: Self
+components: S
+duration: 1 hour
+tags: Esoteric
+description: You create a spectral weapon in your hand—any Simple or Martial weapon of your choice. Whenever you attack with the spectral weapon, you can use your spellcasting ability modifier for the attack and damage rolls instead of using Strength or Dexterity, and you can cause the weapon to deal Force damage or its normal damage type (your choice).
+
+If the spectral weapon lacks ammunition, it produces its own, automatically creating one piece of spectral ammunition when you make a ranged attack roll with it. The spectral ammunition vanishes the instant after it hits or misses a target.
+
+The spectral weapon vanishes at the end of the duration, when you cast this spell again, or when the weapon is more than 5 feet away from you for 1 minute or more.
+
+---
+
+name: Corrosive Slime
+level: 3
+school: Transmutation
+classes: Druid, Warlock, Wizard
+casting_time: Action
+range: 60 feet
+components: V, S, M
+material: a vial of water and a chunk of sulfur
+duration: Concentration
+concentration_max: 1 minute
+tags: Area, Damage, Debuff, Difficult Terrain, Esoteric, Saving Throw, Upcast
+description: Corrosive slime covers the ground in a 20-foot square centered on a point within range for the duration, turning the area into Difficult Terrain.
+
+When the slime appears, each creature standing in its area must make a Dexterity saving throw. On a failed save, a target takes 3d6 Acid damage, and any nonmagical armor it is wearing takes a cumulative -1 penalty to the AC it offers. On a successful save, a target takes half as much damage only. A creature also makes this save when it enters the area for the first time on a turn or ends its turn there. A creature makes this save only once per turn.
+
+Nonmagical ammunition is destroyed immediately upon contact with the slime. Any nonmagical weapon that comes into contact with the slime takes a cumulative -1 penalty to attack rolls.
+
+Penalties to AC and attack rolls from this spell persist after the spell ends. Armor is destroyed if the penalty reduces its AC to 10 (ignoring the wearer’s Dexterity modifier), and a weapon is destroyed if its penalty reaches -5. Casting the *Mending* spell on the armor or weapon removes the penalty.
+
+In 1 minute, the slime can eat through 2 feet of nonmagical wood (or any other organic material, such as leather or wool) or metal. In addition, the slime immediately destroys Tiny objects made of those materials upon contact if they aren’t being worn or carried.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 3.
 
 ---
 
@@ -155,6 +269,21 @@ tags: Area, Esoteric
 description: For the duration, you sense the location of any creatures that have shape-shifted (as a result of the *Polymorph* spell, for example) in a 30-foot Emanation originating from you.
 
 The spell is blocked by 1 foot of stone, dirt, or wood; 1 inch of metal; or a thin sheet of lead.
+
+---
+
+name: Dramatic Wind
+level: Cantrip
+school: Evocation
+classes: Bard, Druid
+casting_time: Reaction
+condition: , which you take when you make a Charisma check
+range: Self
+components: M
+material: a cape or cloak
+duration: Instantaneous
+tags: Buff, Esoteric
+description: A dramatic wind subtly enhances your natural charm, even while indoors, granting you Advantage on the triggering Charisma check. For example, you might let the wind sweep dramatically into a tavern when you enter, cause your cloak to billow with an air of mystery, or ripple your hair with a romantic breeze. If the check then succeeds, you can’t be affected by this spell again for 1 hour.
 
 ---
 
@@ -202,7 +331,7 @@ casting_time: Action
 range: 30 feet
 components: V, S
 duration: Instantaneous
-tags: Damage, Esoteric, Saving Throw
+tags: Damage, Esoteric, Saving Throw, Upcast
 description: Describe or name a creature that has dealt damage to you within 1 hour of the spell’s casting and send a bolt of negative energy after it. If the creature is within range, it must succeed on a Dexterity saving throw or take 1d8 Necrotic damage. The bolt phases in and out of the Ethereal Plane until it reaches the target; the target gains no benefit from Half Cover, Three-Quarters Cover, or Total Cover for this save.
 
 ***Cantrip Upgrade.*** The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
@@ -233,7 +362,7 @@ casting_time: Action
 range: 120 feet
 components: V, S
 duration: Instantaneous
-tags: Attack, Damage, Esoteric
+tags: Attack, Damage, Esoteric, Upcast
 description: You fire a high-pressure blade of wind at a creature or an object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 Slashing damage, or 1d12 Slashing damage if it is Bloodied.
 
 ***Cantrip Upgrade.*** The damage increases by one die when you reach levels 5 (2d8 or 2d12), 11 (3d8 or 3d12), and 17 (4d8 or 4d12).
