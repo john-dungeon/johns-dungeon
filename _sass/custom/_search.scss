@@ -1,0 +1,9 @@
+// Just the Docs' Search Bar
+@include mq(md) {
+  .search-input-wrap,
+  .search-results,
+  .search-active .search-input-wrap {
+    width: 100%;
+    max-width: none;
+  }
+}
