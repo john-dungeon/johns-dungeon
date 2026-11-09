@@ -62,7 +62,7 @@ permalink: /assets/js/search-data.json
   "{{ i }}": {
     "doc": {{ page.title | jsonify }},
     "title": {{ page.title | jsonify }},
-    "content": {{ parts[0] | replace: '</h', ' . </h' | replace: '<hr', ' . <hr' | replace: '</p', ' . </p' | replace: '<ul', ' . <ul' | replace: '</ul', ' . </ul' | replace: '<ol', ' . <ol' | replace: '</ol', ' . </ol' | replace: '</tr', ' . </tr' | replace: '<li', ' | <li' | replace: '</li', ' | </li' | replace: '</td', ' | </td' | replace: '<td', ' | <td' | replace: '</th', ' | </th' | replace: '<th', ' | <th' | strip_html | remove: 'Table of contents' | normalize_whitespace | replace: '. . .', '.' | replace: '. .', '.' | replace: '| |', '|' | append: ' ' | jsonify }},
+    "content": {{ parts[0] | replace: '</h', ' . </h' | replace: '<hr', ' . <hr' | replace: '</p', ' . </p' | replace: '<ul', ' . <ul' | replace: '</ul', ' . </ul' | replace: '<ol', ' . <ol' | replace: '</ol', ' . </ol' | replace: '<li', ' | <li' | replace: '</li', ' | </li' | replace: '</td', ' | </td' | replace: '<td', ' | <td' | replace: '</th', ' | </th' | replace: '<th', ' | <th' | strip_html | remove: 'Table of contents' | normalize_whitespace | replace: '. . .', '.' | replace: '. .', '.' | replace: '| |', '|' | append: ' ' | jsonify }},
     "url": "{{ page.url | relative_url }}",
     {% include lunr/custom-data.json page=page %}
     "relUrl": "{{ page.url }}"
@@ -83,14 +83,7 @@ permalink: /assets/js/search-data.json
   {%- assign sx_fields = sx_cfg.search_fields | default: sx_default_fields -%}
   {%- assign sx_name_key = sx_cfg.columns.first.key -%}
   {%- assign sx_path = sx_page.dir | remove_first: "/" | append: "_entries.md" -%}
-  {%- capture sx_raw -%}{% include_relative {{ sx_path }} %}{%- endcapture -%}
-  {%- assign sx_lines = sx_raw | split: sx_nl -%}
-  {%- capture sx_marked -%}
-    {%- for sx_line in sx_lines -%}
-      {%- assign sx_trim = sx_line | strip -%}
-      {%- if sx_trim == "---" -%}¶¶{%- else -%}{{ sx_line }}{{ sx_nl }}{%- endif -%}
-    {%- endfor -%}
-  {%- endcapture -%}
+  {%- capture sx_marked %}{% include table/split-entries.html file=sx_path %}{% endcapture -%}
   {%- assign sx_entries = sx_marked | split: "¶¶" -%}
   {%- for sx_entry in sx_entries -%}
     {%- assign sx_probe = sx_entry | strip -%}
