@@ -17,11 +17,17 @@
 <script>window.SITE_BUILD = {{ site.time | date: "%s" | jsonify }};</script>
 <script src="{{ '/assets/js/effects-snapshot.js' | relative_url }}"></script>
 
+<!-- PANELS (--main-left is the one length every panel follows; registering it lets the browser animate it) -->
+<style>@property --main-left { syntax: "<length>"; inherits: true; initial-value: 0px; }</style>
+{%- if page.outline %}
+<script>document.documentElement.classList.add('has-toc');</script>
+{%- endif %}
+
 <!-- SITE DATA FOR SCRIPTS -->
 <script>window.SITE_STRINGS = {{ site.data.strings | jsonify }}; window.SITE_LISTS = {{ site.data.lists | jsonify }}; window.SITE_AUDIO = {{ site.data.audio | jsonify }}; window.SITE_INTERACTIVE = {{ site.data.interactive | join: ", " | jsonify }};</script>
 
 <!-- SCRIPTS -->
-<script src="{{ '/assets/js/navbar-toggle.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/panel-toggle.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/text-size.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/tooltips.js' | relative_url }}" defer></script>
 <script type="module" src="{{ '/assets/js/search-table/main.js' | relative_url }}"></script>
