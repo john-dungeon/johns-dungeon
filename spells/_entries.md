@@ -225,7 +225,7 @@ material: a vial of water and a chunk of sulfur
 duration: Concentration
 concentration_max: 1 minute
 tags: Area, Damage, Debuff, Difficult Terrain, Esoteric, Saving Throw, Upcast
-description: Corrosive slime covers surfaces in a 20-foot-square area within range for the duration, turning the area into Difficult Terrain.
+description: Corrosive slime covers surfaces in a 20-foot-square area that you can see within range for the duration, turning that area into Difficult Terrain.
 
 When the slime appears, each creature standing in its area must make a Constitution saving throw. On a failed save, a target takes 4d6 Acid damage, and any nonmagical armor it is wearing takes a cumulative -1 penalty to the AC it offers. On a successful save, a target takes half as much damage only. A creature also makes this save when it enters the area for the first time on a turn or ends its turn there. A creature makes this save only once per turn.
 
