@@ -1,24 +1,19 @@
 {%- comment -%}
-  Right Sidebar (Page Outline)
+  Right Panel Body (Page Outline)
   Reads the page's outline and links each matching heading. A title with no matching heading is shown in red with a tooltip.
 {%- endcomment -%}
 
-{%- if page.outline -%}
-<aside id="toc-bar" class="toc-bar" aria-label="{{ site.data.strings.outline_title | escape }}">
-  <p class="toc-title">{{ site.data.strings.outline_title }}</p>
-  <ul class="toc-list">
-    {%- for ol_title in page.outline -%}
-      {%- assign ol_marker = ">" | append: ol_title | append: "</h" -%}
-      {%- assign ol_parts = content | split: ol_marker -%}
-      {%- if ol_parts.size > 1 -%}
-        {%- assign ol_tag = ol_parts.first | split: "<h" | last -%}
-        {%- assign ol_id = ol_tag | split: 'id="' | last | split: '"' | first -%}
-    <li><a href="#{{ ol_id }}">{{ ol_title | escape }}</a></li>
-      {%- else -%}
-        {%- assign ol_tip = site.data.strings.outline_missing | replace: "{title}", ol_title -%}
-    <li><span class="outline-missing"{% include tooltip.html text=ol_tip %}>{{ ol_title | escape }}</span></li>
-      {%- endif -%}
-    {%- endfor -%}
-  </ul>
-</aside>
-{%- endif -%}
+<ul class="panel-list">
+  {%- for ol_title in page.outline -%}
+    {%- assign ol_marker = ">" | append: ol_title | append: "</h" -%}
+    {%- assign ol_parts = content | split: ol_marker -%}
+    {%- if ol_parts.size > 1 -%}
+      {%- assign ol_tag = ol_parts.first | split: "<h" | last -%}
+      {%- assign ol_id = ol_tag | split: 'id="' | last | split: '"' | first -%}
+  <li><a href="#{{ ol_id }}">{{ ol_title | escape }}</a></li>
+    {%- else -%}
+      {%- assign ol_tip = site.data.strings.outline_missing | replace: "{title}", ol_title -%}
+  <li><span class="outline-missing"{% include tooltip.html text=ol_tip %}>{{ ol_title | escape }}</span></li>
+    {%- endif -%}
+  {%- endfor -%}
+</ul>
