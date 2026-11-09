@@ -379,7 +379,7 @@ category: Adventuring Gear
 cost: 0.05
 weight: 2
 variant: true
-note_variant: The official variant of the Bola is from D&D Beyond Drops.
+note_variant: The official variant of this item is the Bola from D&D Beyond Drops.
 tags: Ability Check, Condition, Consumable, Saving Throw
 description: When you take the Attack action, you can replace one of your attacks with throwing a Bola. Target one Medium or smaller creature you can see within 20 feet of yourself. The target must succeed on a Dexterity saving throw (DC 8 plus your Dexterity modifier and Proficiency Bonus) or have the Restrained condition until it escapes.
 
@@ -1069,6 +1069,8 @@ cost: Varies
 options_cost: 50, 200, 2000, 20000, 100000
 note_cost: See table
 weight: 0.5
+variant: true
+note_variant: The official variant of this item is the Potion of Healing from the Dungeon Master's Guide (5.5e).
 tags: Consumable, Healing, Magic Item
 description: This potion's red liquid glimmers when agitated.
 
@@ -1114,6 +1116,8 @@ cost: Varies
 options_cost: 75, 300, 3000, 30000, 150000
 note_cost: See table
 weight: 0.5
+variant: true
+note_variant: The official variant of this item is the Potion of Mana from D&D: World of Warcraft.
 tags: Consumable, Magic Item
 description: This potion's blue liquid crackles and sparks when agitated.
 
