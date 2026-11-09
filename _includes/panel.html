@@ -1,0 +1,26 @@
+{%- comment -%}
+  Panel
+  Params:
+    side (required; "left" or "right"; see $panels in _helpers.scss)
+    title (required;  heading text)
+    href (required; heading button location)
+    body (required; panel HTML)
+    footer (optional; HTML under the body)
+    menu (optional; 'true' adds menu button)
+{%- endcomment -%}
+
+{%- assign pnl_footer = include.footer | strip -%}
+<aside id="panel-{{ include.side }}" class="panel panel--{{ include.side }}" aria-label="{{ include.title | escape }}">
+  <div class="panel-head">
+    <a class="panel-title" href="{{ include.href }}">{{ include.title | escape }}</a>
+    {%- if include.menu %}
+    <button id="menu-button" class="panel-menu btn-reset" aria-label="{{ site.data.strings.menu_toggle | escape }}" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+    {%- endif %}
+  </div>
+  <div class="panel-body">{{ include.body }}</div>
+  {%- if pnl_footer != "" %}
+  <div class="panel-footer">{{ pnl_footer }}</div>
+  {%- endif %}
+</aside>
