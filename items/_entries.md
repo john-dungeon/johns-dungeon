@@ -20,8 +20,8 @@ note_cost: +30,000 GP to normal counterpart
 weight: Varies
 options_weight: 0.03-0.75
 note_weight: +50% to normal counterpart
-setting: Erisia
-note_setting: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
+settings: Erisia
+note_settings: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
 variant: true
 tags: Area, Attack Bonus, Charge, Consumable, Damage, Damage Bonus, Magic Item, Saving Throw
 description: This piece of magic ammunition is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The ammunition is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
@@ -43,8 +43,8 @@ note_cost: +300,000 GP to normal counterpart
 weight: Varies
 options_weight: 60-97.5
 note_weight: +50% to normal counterpart
-setting: Erisia
-note_setting: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
+settings: Erisia
+note_settings: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
 variant: true
 tags: Area, Charge, Damage, Forced Movement, Magic Item, Resistance, Saving Throw
 description: This magic suit of armor is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The armor is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. While wearing the armor, you can use the following properties.
@@ -70,7 +70,7 @@ note_cost: +300,000 GP to normal counterpart
 weight: Varies
 options_weight: 9
 note_weight: +50% to normal counterpart
-setting: Erisia
+settings: Erisia
 tags: Area, Armor Class Bonus, Charge, Condition, Damage, Immunity, Magic Item, Saving Throw
 description: This magic Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class, in addition to the Shield's normal bonus to AC.
 
@@ -91,8 +91,8 @@ note_cost: +300,000 GP to normal counterpart
 weight: Varies
 options_weight: 1.5-27
 note_weight: +50% to normal counterpart
-setting: Erisia
-note_setting: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
+settings: Erisia
+note_settings: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
 variant: true
 tags: Attack Bonus, Charge, Condition, Damage Bonus, Extra Damage, Magic Item
 description: This magic weapon is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The weapon is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
@@ -858,7 +858,7 @@ note_cost: +50 GP to normal counterpart
 weight: Varies
 options_weight: 0.01-0.25
 note_weight: -50% to normal counterpart
-setting: Erisia
+settings: Erisia
 tags: Ability Check, Consumable, Magic Item
 description: This piece of magic ammunition is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The ammunition magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, fragments of the ammunition move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the ammunition's original state.
 
@@ -879,8 +879,8 @@ note_cost: +500 GP to normal counterpart
 weight: Varies
 options_weight: 4-32.5
 note_weight: -50% to normal counterpart
-setting: Erisia
-note_setting: Its setting-agnostic variant is Mithral Armor from the Dungeon Master's Guide (5.5e).
+settings: Erisia
+note_settings: Its setting-agnostic variant is Mithral Armor from the Dungeon Master's Guide (5.5e).
 variant: true
 tags: Magic Item
 description: This magic suit of armor is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The armor magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, fragments of the armor move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the armor's original state.
@@ -895,7 +895,7 @@ rarity: Uncommon
 attunement: false
 cost: 350
 weight: 0.02
-setting: Erisia
+settings: Erisia
 tags: Magic Item
 description: This magic compass uses the self-mending properties of mithril to locate mithril objects linked to it. As a Magic action, you can touch the compass to an object made of mithril. A minuscule fragment of the object transforms into the compass's needle, linking the object to the compass. The needle always points to the object while the two of them are on the same plane of existence. If the needle and the object are on different planes of existence, the needle's connection with the object is permanently severed, and it won't fuse back with the object if it is released from the compass.
 
@@ -914,7 +914,7 @@ note_cost: +500 GP to normal counterpart
 weight: Varies
 options_weight: 3
 note_weight: -50% to normal counterpart
-setting: Erisia
+settings: Erisia
 tags: Damage Reduction, Magic Item
 description: This magic Shield is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The Shield magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, fragments of the Shield move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the Shield's original state.
 
@@ -933,7 +933,7 @@ note_cost: +500 GP to normal counterpart
 weight: Varies
 options_weight: 0.5-9
 note_weight: -50% to normal counterpart
-setting: Erisia
+settings: Erisia
 tags: Magic Item
 description: This magic weapon is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The weapon magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, fragments of the weapon move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the weapon's original state.
 
@@ -975,7 +975,7 @@ note_cost: +4,500 GP to normal counterpart
 weight: Varies
 options_weight: 0.025-0.625
 note_weight: +25% to normal counterpart
-setting: Erisia
+settings: Erisia
 tags: Ability Check, Attack Bonus, Consumable, Damage Bonus, Magic Item
 description: This piece of magic ammunition is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the ammunition. However, while carrying 5 or more pieces of the ammunition, you have Disadvantage on spell attack rolls and your targets have Advantage on saving throws against spells you cast. You can't cast spells while carrying 10 or more pieces of the ammunition.
 
@@ -1000,7 +1000,7 @@ note_cost: +45,000 GP to normal counterpart
 weight: Varies
 options_weight: 50-81.25
 note_weight: +25% to normal counterpart
-setting: Erisia
+settings: Erisia
 tags: Armor Class Bonus, Buff, Magic Item, Saving Throw
 description: This magic suit of armor is made of orichalcum, a bronze-like metal that absorbs mana and nullifies magic. You have a +1 bonus to AC while wearing the armor. In addition, you have Advantage on saving throws against spells and other magical effects, and spell attack rolls have Disadvantage against you. However, you can't cast spells while wearing the armor.
 
@@ -1017,7 +1017,7 @@ note_cost: +45,000 GP to normal counterpart
 weight: Varies
 options_weight: 7.5
 note_weight: +25% to normal counterpart
-setting: Erisia
+settings: Erisia
 tags: Ability Check, Armor Class Bonus, Charge, Magic Item
 description: This magic Shield is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. While holding the Shield, you have a +2 bonus to Armor Class, in addition to the Shield's normal bonus to AC. However, you can't cast spells while carrying the Shield.
 
@@ -1036,7 +1036,7 @@ note_cost: +45,000 GP to normal counterpart
 weight: Varies
 options_weight: 1.25-22.5
 note_weight: +25% to normal counterpart
-setting: Erisia
+settings: Erisia
 tags: Attack Bonus, Damage Bonus, Magic Item
 description: This magic weapon is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the weapon. However, you can't cast spells while carrying the weapon.
 
