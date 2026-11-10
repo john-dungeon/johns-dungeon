@@ -2,7 +2,7 @@ template: item
 noun: items
 tags: [Ability Check, Area, Armor Class, Attack, Attack Bonus, Buff, Charge, Command Word, Condition, Consumable, Cursed, Damage, Damage Bonus, Damage Reduction, Debuff, Extra Damage, Forced Movement, Healing, Immunity, Light, Magic Item, Resistance, Revival, Saving Throw, Setting-Specific, Special Mastery Property, Special Property, Special Sense, Special Speed, Speed, Spell, Summon, Variant, Vulnerability]
 auto_tags:
-  - { tag: Setting-Specific, field: setting }
+  - { tag: Setting-Specific, field: settings }
   - { tag: Variant, field: variant, equals: "true" }
 markers:
   - symbol: "✦"
@@ -11,8 +11,8 @@ markers:
     label: Magic Item
   - symbol: "☁"
     tag: Setting-Specific
-    color_by: setting
-    label: Setting
+    color_by: settings
+    label: Settings
   - symbol: "⧨"
     tag: Variant
     label: Variant
@@ -59,8 +59,8 @@ columns:
       "n/a": "N/A"
       "false": "None"
       "true": "Required"
-  - key: setting
-    label: Setting
+  - key: settings
+    label: Settings
     type: list
     in_table: false
     order: settings
