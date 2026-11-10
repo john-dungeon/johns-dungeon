@@ -52,9 +52,9 @@
   {%- capture it_settings_text %}{% include table/join-words.html items=it_settings_csv word="and" %}{% endcapture -%}
   {%- assign it_settings_count = it_settings_csv | split: "," | size -%}
   {%- if it_settings_count == 1 -%}
-    {%- assign it_settings_line = "This item can only be found in the " | append: it_settings_text | append: " settings." -%}
+    {%- assign it_settings_line = "This item can only be found in the " | append: it_settings_text | append: " setting." -%}
   {%- else -%}
-    {%- assign it_settings_line = "This item can only be found in the following settingss: " | append: it_settings_text | append: "." -%}
+    {%- assign it_settings_line = "This item can only be found in the following settings: " | append: it_settings_text | append: "." -%}
   {%- endif -%}
   {%- if it_note_settings != "" -%}{%- assign it_settings_line = it_settings_line | append: " " | append: it_note_settings -%}{%- endif -%}
 {%- endif -%}
@@ -62,7 +62,7 @@
 {% endcapture -%}
 {%- assign it_notes = "" -%}
 {%- if it_settings_line != "" -%}
-  {%- assign it_notes = "> ***setting-Specific.*** " | append: it_settings_line -%}
+  {%- assign it_notes = "> ***Setting-Specific.*** " | append: it_settings_line -%}
 {%- endif -%}
 {%- assign it_variant_l = it_variant | downcase -%}
 {%- if it_variant_l == "true" and it_note_variant != "" -%}
