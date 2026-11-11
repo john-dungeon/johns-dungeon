@@ -1,10 +1,17 @@
 import { NUMBER, parseSpan } from './utils.js';
-import { TAG } from './columns.js';
+import { TAG, SUBTAG, splitTag } from './columns.js';
 import { isExcluded } from './records.js';
 
 export function createQueryParser(columns, nameKey) {
   const fieldPattern = columns.map(col => col.key).join('|');
   const halfTyped = new RegExp(`^(${fieldPattern}):$`);
+  const groups = columns.find(col => col.key === TAG).groups;
+
+  const isSubtag = value => {
+    const [group, sub] = splitTag(value);
+    return sub !== '' && groups.has(group);
+  };
+  const isGroupPrefix = value => value.endsWith(SUBTAG) && groups.has(value.slice(0, -SUBTAG.length));
 
   return function parseQuery(text) {
     const terms = [];
@@ -16,8 +23,10 @@ export function createQueryParser(columns, nameKey) {
       if (!match[2] && value.startsWith('#')) {
         field = TAG;
         value = value.slice(1);
+      } else if (!match[2] && isSubtag(value)) {
+        field = TAG;
       }
-      if (!match[2] && (value === '-' || halfTyped.test(value))) continue;
+      if (!match[2] && (value === '-' || halfTyped.test(value) || isGroupPrefix(value))) continue;
       if (value) terms.push({ negate: match[1] === '-', field, value });
     }
     return terms;
