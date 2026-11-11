@@ -2,7 +2,7 @@ search_fields: [flavor, traits, actions, bonus_actions, reactions, charged_actio
 template: monster
 noun: monsters
 dialog: statblock
-tags: [Boss, Lair, Legendary, Spellcaster, Skith, Slime, Stone Lion, Swarm, Welterbeast]
+tags: [Ability Check, Area, Boss, Buff, Condition, Damage Reduction, Debuff, Forced Movement, Healing, Immunity, Lair, Legendary, Light, Obscured Area, Resistance, Revival, Saving Throw, Spellcaster, Skith, Slime, Special Sense, Special Speed, Stone Lion, Swarm, Vulnerability, Welterbeast]
 auto_tags:
   - { tag: Boss, field: charged_actions }
   - { tag: Lair, field: regional_effects }
