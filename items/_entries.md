@@ -269,7 +269,7 @@ prefix_category: Martial Ranged
 category: Weapon
 cost: 800
 weight: 2
-tags: Damage:Piercing, Mastery Property:Vex, Special Property, Weapon Property:Ammunition, Weapon Property:Light, Weapon Property:Loading
+tags: Condition:Paralyzed, Damage:Piercing, Damage:Lightning, Mastery Property:Vex, Saving Throw:Constitution, Special Property, Weapon Property:Ammunition, Weapon Property:Light, Weapon Property:Loading
 description: Proficiency with an Arm-Mounted Taser allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -1287,7 +1287,7 @@ cost: Varies
 options_cost: 30, 50, 200, 300, 2000, 3000, 20000, 25000, 30000, 100000
 note_cost: See table
 weight: 0
-tags: Ability Check:Intelligence, Consumable, Damage:Force, Magic Item, Saving Throw:Constitution
+tags: Ability Check:Intelligence, Consumable, Damage:Force, Magic Item, Saving Throw:Constitution, Spell
 description: A Tear Scroll bears the words of a single spell, written in a mystical cipher. You can take a Utilize action to tear the scroll and roll a d6. If you roll a 1 on the d6, the scroll backfires, and you must make a DC 15 Constitution saving throw, taking 1d6 Force damage for each level of the scroll's spell on a failed save or half as much damage on a successful one. Otherwise, you cast the spell without any Verbal or Material components as part of the action used to tear the scroll; the spell gains a Somatic component—the act of tearing the scroll—if it lacks one. Once torn, the scroll crumbles to dust. If the casting is interrupted, the spell automatically backfires.
 
 The scroll's rarity and purchase cost, the level of the spell on it, and the spell's saving throw DC and attack bonus are determined by the scroll's potency, as shown in the table below.
