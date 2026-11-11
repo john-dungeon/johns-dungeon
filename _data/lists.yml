@@ -1,7 +1,10 @@
 # Shared Lists for Search Tables ("order: LISTNAME")
+classes: [Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard]
 creature_types: [Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant, Undead]
 feat_types: [Dragonmark, Dark Gift, Epic Boon, Fighting Style, General, Origin, Planar Pact]
 item_types: [Adventuring Gear, Armor, Augment, Implant, Ingredient, Mount, Potion, Ring, Rod, Scroll, Staff, Tool, Vehicle, Wand, Weapon, Wondrous Item]
 rarities: ["n/a", Varies, Common, Uncommon, Rare, Very Rare, Legendary, Artifact]
+schools: [Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, Transmutation]
 settings: [Any, Akherum, Amber Frontier, Bettlewick University, Big Blue, Chayu, City 13, Drachenfell, Erisia, Great Luminant, Hollow Earth, Jingyu City, Morwald, New Moon City, Nexus, Orobis, Solachia]
 sizes: [Tiny, Small, Medium, Large, Huge, Gargantuan]
+spell_levels: [Cantrip, 1, 2, 3, 4, 5, 6, 7, 8, 9]
