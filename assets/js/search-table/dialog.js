@@ -1,18 +1,7 @@
 import { el, t, markUnlisted } from './utils.js';
-import { SUBTAG, splitTag } from './columns.js';
+import { SUBTAG, groupTags } from './tags.js';
 
 const announce = type => document.dispatchEvent(new CustomEvent(type));
-
-function groupTags(names) {
-  const groups = new Map();
-  names.forEach(name => {
-    const [head, sub] = splitTag(name);
-    const key = head.toLowerCase();
-    if (!groups.has(key)) groups.set(key, { name: head, subs: [] });
-    if (sub) groups.get(key).subs.push(sub);
-  });
-  return [...groups.values()];
-}
 
 const tagLabel = (text, full, tagCol) =>
   tagCol.listed.has(full.toLowerCase()) ? text : markUnlisted(el('span', '', text), 'unlisted_tag');
