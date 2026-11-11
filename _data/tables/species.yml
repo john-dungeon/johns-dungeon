@@ -1,7 +1,7 @@
 search_fields: [description, traits]
 template: species
 noun: species
-tags: [universal, Attack, Bonus, Damage, Monstrous]
+tags: [universal, Bonus, Monstrous]
 columns:
   - key: name
     label: Name
