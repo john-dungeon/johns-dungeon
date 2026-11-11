@@ -11,6 +11,7 @@ type: Humanoid
 size: Medium (about 4–5 feet tall), Small (about 2–4 feet tall)
 speed: 30 feet
 settings: Erisia
+tags: Bonus:Hit Points, Buff, Resistance:Poison, Special Sense:Darkvision, Special Sense:Tremorsense, Special Speed:Burrow
 traits:
 - trait_1: Darkvision
   description: You have Darkvision with a range of 120 feet.
@@ -40,7 +41,7 @@ type: Giant, Humanoid
 size: Medium (about 6–8 feet tall)
 speed: 35 feet
 settings: Erisia
-tags: Monstrous
+tags: Buff, Healing, Monstrous, Resistance:Poison, Saving Throw, Special Sense:Darkvision
 traits:
 - trait_1: Darkvision
   description: You have Darkvision with a range of 60 feet.
