@@ -1,5 +1,5 @@
 import { NUMBER, parseSpan } from './utils.js';
-import { TAG, SUBTAG, splitTag } from './columns.js';
+import { TAG, SUBTAG, splitTag } from './tags.js';
 import { isExcluded } from './records.js';
 
 export function createQueryParser(columns, nameKey) {
