@@ -31,6 +31,7 @@ tag_groups:
   Attack: [attacks]
   Bonus: [bonuses]
   Condition: [conditions]
+  Cover: [covers]
   Damage: [damage_types]
   Immunity: [conditions, damage_types]
   Light: [lights]
