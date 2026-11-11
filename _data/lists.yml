@@ -1,6 +1,6 @@
 # Shared Lists
 abilities: [Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma]
-area_shapes: [Cone, Cube, Cylinder, Emanation, Line, Sphere]
+area_shapes: [Cone, Cube, Cylinder, Emanation, Line, Sphere, Square]
 bonus_types: [Ability Check, Armor Class, Attack, Damage, Hit Points, Saving Throw, Speed]
 classes: [Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard]
 conditions: [Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Incapacitated, Invisible, Paralyzed, Petrified, Poisoned, Prone, Restrained, Stunned, Unconscious]
