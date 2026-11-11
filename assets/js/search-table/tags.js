@@ -1,3 +1,5 @@
+import { compareText } from './utils.js';
+
 export const TAG = 'tag';
 export const SUBTAG = ':';
 const UNIVERSAL = 'universal';
@@ -41,11 +43,11 @@ export function expandTags(tags, lists) {
   const groups = Object.fromEntries(
     Object.entries(lists.tag_groups || {}).map(([name, sources]) => [name.toLowerCase(), sources])
   );
-  return unique(withUniversal(tags, lists)).flatMap(tag => {
+  return unique(withUniversal(tags, lists)).sort(compareText).flatMap(tag => {
     const subtags = (groups[tag.toLowerCase()] || []).flatMap(source => {
       if (!lists[source]) console.warn(`Unknown list "${source}" in tag group "${tag}"`);
       return lists[source] || [];
     });
-    return [tag, ...subtags.map(sub => tag + SUBTAG + sub)];
+    return [tag, ...subtags.sort(compareText).map(sub => tag + SUBTAG + sub)];
   });
 }
