@@ -1,6 +1,6 @@
 template: feat
 noun: feats
-tags: [universal, Attack, Bonus, Damage, Spell]
+tags: [universal, Bonus, Spell]
 columns:
   - key: name
     label: Name
