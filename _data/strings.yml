@@ -47,7 +47,8 @@ unlisted_value: Value
 unlisted_tag: Tag
 
 # Filter Panel (Search Table)
-filter_hint: "Click a tag or category once to include it, twice to exclude it, and a third time to clear it. A ▾ button opens a tag's subtags."
+filter_hint: "Click a tag once to include it, twice to exclude it, and a third time to clear it. A ▾ tag opens its subtags; pick Any to cover all of them."
+filter_any: Any
 filter_tags: Tags
 filter_match_any: "Match any included tag (instead of all)."
 filter_clear: Clear Filters
