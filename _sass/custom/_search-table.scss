@@ -199,6 +199,23 @@ $slider-height: 1.5rem;
   }
 }
 
+// Sub-Tag Dropdown
+.st-opt-caret {
+  padding: 0.15rem 0.5rem;
+
+  &[data-active="true"] { border-color: $link-color; color: $link-color; }
+}
+
+.st-opt-menu {
+  @include outlined(0.4rem);
+  flex: 1 1 100%;
+  margin: 0.15rem 0 0.35rem;
+  padding: 0.5rem 0.6rem;
+  background: $code-background-color;
+
+  &[hidden] { display: none; }
+}
+
 .st-range { display: flex; align-items: center; gap: 0.5rem; }
 
 .st-range-input {
