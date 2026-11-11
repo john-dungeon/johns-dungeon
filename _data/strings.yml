@@ -41,12 +41,13 @@ table_raise_limit: " · Raise the limit under Filter to see more"
 table_filter_active: "Filter ({count})"
 tag_one: "Tag: "
 tag_many: "Tags: "
+word_and: and
 unlisted: "Unlisted {kind}"
 unlisted_value: Value
 unlisted_tag: Tag
 
 # Filter Panel (Search Table)
-filter_hint: "Click a tag or category once to include it, twice to exclude it, and a third time to clear it."
+filter_hint: "Click a tag or category once to include it, twice to exclude it, and a third time to clear it. A ▾ button opens a tag's subtags."
 filter_tags: Tags
 filter_match_any: "Match any included tag (instead of all)."
 filter_clear: Clear Filters
@@ -58,6 +59,7 @@ filter_to: to
 filter_min_label: "{label} minimum"
 filter_max_label: "{label} maximum"
 option_label: "{label}, {state}"
+option_more: "Show {label} subtags"
 state_off: not filtered
 state_include: included
 state_exclude: excluded
