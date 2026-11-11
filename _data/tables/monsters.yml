@@ -2,7 +2,7 @@ search_fields: [flavor, traits, actions, bonus_actions, reactions, charged_actio
 template: monster
 noun: monsters
 dialog: statblock
-tags: [universal, Boss, Lair, Legendary, Spellcaster, Skith, Slime, Stone Lion, Swarm, Welterbeast]
+tags: [universal, Boss, Lair, Legendary, Spellcaster, Skith, Slime, Stone Lion, Swarm, Telepathy, Welterbeast]
 auto_tags:
   - { tag: Boss, field: charged_actions }
   - { tag: Lair, field: regional_effects }
