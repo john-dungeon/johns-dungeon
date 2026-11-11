@@ -20,7 +20,7 @@ senses: Darkvision 300 ft.
 languages: Abyssal; telepathy 300 ft. (only with other welterbeasts)
 cr: 8
 settings: Orobis
-tags: Welterbeast
+tags: Area:Cylinder, Area:Emanation, Condition:Frightened, Condition:Poisoned, Damage:Necrotic, Damage:Psychic, Damage:Slashing, Debuff, Forced Movement, Immunity:Charmed, Immunity:Exhaustion, Immunity:Frightened, Immunity:Necrotic, Immunity:Poison, Immunity:Poisoned, Resistance:Psychic, Saving Throw:Constitution, Saving Throw:Dexterity, Saving Throw:Strength, Saving Throw:Wisdom, Special Sense:Darkvision, Telepathy, Welterbeast
 flavor: Agony is the manifestation of human suffering, born of one man's despair and his ultimate sacrifice in a futile attempt to become something greater than he is. If left to its own devices, it will certainly go on to share, or rather inflict, its suffering upon thousands of others.
 
 traits:
@@ -80,7 +80,7 @@ senses: Darkvision 120 ft.
 languages: Abyssal; telepathy 120 ft. (only with other welterbeasts)
 cr: 5
 settings: Orobis
-tags: Welterbeast
+tags: Condition:Frightened, Damage:Psychic, Immunity:Charmed, Immunity:Exhaustion, Immunity:Frightened, Immunity:Poison, Immunity:Poisoned, Immunity:Psychic, Saving Throw:Wisdom, Special Sense:Darkvision, Special Speed:Fly, Telepathy, Welterbeast
 flavor: Welterbeasts are anomalous creatures that embody negative emotions, spawning from the ruins of lost civilizations and flocking to sites of immense suffering. It was once said that the sight of them would spell the end of times, but now hordes of them roam the lands. They march tirelessly, devouring anything in their path, perhaps to prepare Orobis for a new aeon.
 
 traits:
@@ -121,7 +121,7 @@ senses: Blindsight 60 ft., Darkvision 120 ft.
 languages: None
 cr: 9
 settings: Big Blue
-tags: Skith
+tags: Area:Cone, Area:Emanation, Area:Line, Condition:Grappled, Condition:Poisoned, Condition:Prone, Damage:Bludgeoning, Damage:Fire, Damage:Piercing, Forced Movement, Immunity:Charmed, Immunity:Cold, Immunity:Fire, Immunity:Frightened, Light:Bright Light, Light:Dim Light, Resistance:Poison, Revival, Saving Throw:Constitution, Saving Throw:Dexterity, Saving Throw:Strength, Skith, Special Sense:Blindsight, Special Sense:Darkvision, Special Speed:Climb, Special Speed:Swim, Summon
 flavor: Born in the depths of a submarine volcano, Atar the Elder Skith is an enormous scorpion-like leviathan that can harness the power of primordial fire, shooting flaming beams out of her eyes and wielding a stinger that melts through steel. As a mature leviathan, Atar is also the broodmother of a massive army of skiths. They rip through the oceans like a swarm of locusts, and thus, they must remain itinerant or risk famine.
 
 traits:
@@ -199,6 +199,7 @@ skills: Athletics +6
 immunities: Poison, Psychic; Charmed, Exhaustion, Frightened, Poisoned
 languages: Understands the languages you know
 cr: 4
+tags: Condition:Prone, Damage:Force, Immunity:Charmed, Immunity:Exhaustion, Immunity:Frightened, Immunity:Poison, Immunity:Poisoned, Immunity:Psychic
 
 traits:
 - trait_1: Bound
@@ -241,7 +242,7 @@ senses: Blindsight 60 ft.
 languages: None
 cr: 0.125
 settings: Erisia
-tags: Slime
+tags: Damage:Bludgeoning, Forced Movement, Immunity:Blinded, Immunity:Charmed, Immunity:Deafened, Immunity:Exhaustion, Immunity:Frightened, Immunity:Grappled, Immunity:Prone, Immunity:Restrained, Resistance:Acid, Resistance:Bludgeoning, Slime, Special Sense:Blindsight, Special Speed:Swim, Vulnerability:Fire
 flavor: Unlike other slimes, blue slimes bounce instead of crawl, making them significantly faster. Many find this bouncy nature cute, but for the slimes themselves, it is a means of survival. They typically live on mountains and hills where they can leap off cliffs and roll down inclines at breakneck speeds, fleeing from threats in pathetic but effective fashion.
 
 traits:
@@ -282,7 +283,7 @@ senses: Tremorsense 40 ft.; always Blinded
 languages: Common; telepathy 300 ft. (only with **[[Stone Warden|Stone Wardens]]** and other **Stone Sentinels**)
 cr: 6
 settings: Jingyu City
-tags: Stone Lion
+tags: Condition:Prone, Damage:Bludgeoning, Forced Movement, Immunity:Charmed, Immunity:Deafened, Immunity:Exhaustion, Immunity:Frightened, Immunity:Paralyzed, Immunity:Petrified, Immunity:Poison, Immunity:Psychic, Immunity:Restrained, Resistance:Piercing, Resistance:Slashing, Saving Throw:Dexterity, Special Sense:Tremorsense, Stone Lion
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
 
 traits:
@@ -324,7 +325,7 @@ senses: Tremorsense 120 ft.; always Blinded
 languages: Common; telepathy 300 ft. (only with **[[Stone Sentinel|Stone Sentinels]]** and other **Stone Wardens**)
 cr: 8
 settings: Jingyu City
-tags: Stone Lion
+tags: Damage:Bludgeoning, Damage:Force, Debuff, Immunity:Charmed, Immunity:Deafened, Immunity:Exhaustion, Immunity:Frightened, Immunity:Paralyzed, Immunity:Petrified, Immunity:Poison, Immunity:Psychic, Immunity:Restrained, Resistance:Piercing, Resistance:Slashing, Special Sense:Tremorsense, Stone Lion
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
 
 traits:
