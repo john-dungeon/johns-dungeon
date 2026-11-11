@@ -8,7 +8,7 @@ components: V, S, M
 material: a severed arm and a book
 duration: Concentration
 concentration_max: 1 minute
-tags: Ability Check:Strength, Area:Sphere, Attack:Melee, Attack:Spell, Condition:Grappled, Condition:Restrained, Damage:Cold, Debuff, Esoteric, Requires Sight, Saving Throw:Constitution, Saving Throw:Dexterity, Summon, Upcast
+tags: Ability Check:Strength, Area:Sphere, Attack:Melee, Attack:Spell, Condition:Grappled, Condition:Restrained, Cover:Three-Quarters, Damage:Cold, Debuff, Esoteric, Requires Sight, Saving Throw:Constitution, Saving Throw:Dexterity, Summon, Upcast
 description: You create a Large hand of frigid magical energy in an unoccupied space that you can see within range. The hand lasts for the duration, and it moves at your command, mimicking the movements of your hand.
 
 The hand is an object that has AC 13 and Hit Points equal to your Hit Points maximum. If it drops to 0 Hit Points, the spell ends. The hand occupies its space and grants creatures behind it Three-Quarters Cover.
