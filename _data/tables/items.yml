@@ -1,6 +1,6 @@
 template: item
 noun: items
-tags: [universal, Attack, Bonus, Charge, Command Word, Consumable, Cursed, Damage, Magic Item, Mastery Property, Setting-Specific, Special Mastery Property, Special Property, Spell, Summon, Variant, Weapon Property]
+tags: [universal, Bonus, Charge, Command Word, Consumable, Cursed, Magic Item, Mastery Property, Setting-Specific, Special Mastery Property, Special Property, Spell, Variant, Weapon Property]
 auto_tags:
   - { tag: Setting-Specific, field: settings }
   - { tag: Variant, field: variant, equals: "true" }
