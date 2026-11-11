@@ -1341,7 +1341,7 @@ cost: Varies
 options_cost: 75, 125, 500, 750, 5000, 7500, 50000, 62500, 75000, 250000
 note_cost: See table
 weight: 0
-tags: Magic Item, Spell
+tags: Magic Item
 description: A Tutorial Scroll bears the words of a single spell, written in a mystical cipher, along with notes clearly explaining its arcane mechanisms. If the spell is on your spell list, you can read the scroll. Otherwise, the scroll is unintelligible.
 
 The scroll's rarity and purchase cost, and the level of the spell on it, are determined by the scroll's potency, as shown in the table below.
