@@ -1,5 +1,6 @@
 import { toNumber, parseSpan, compareText, markUnlisted } from './utils.js';
-import { amountOf, TAG, withGroups } from './columns.js';
+import { amountOf } from './columns.js';
+import { TAG, withGroups } from './tags.js';
 
 function bucketsFor(col, text) {
   if (!text) return [];
