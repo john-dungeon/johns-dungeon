@@ -1,5 +1,6 @@
 export const TAG = 'tag';
 export const SUBTAG = ':';
+const UNIVERSAL = 'universal';
 
 export function splitTag(tag) {
   const at = tag.indexOf(SUBTAG);
@@ -19,11 +20,28 @@ export function groupTags(names) {
   return [...groups.values()];
 }
 
+function withUniversal(tags, lists) {
+  if (tags.some(tag => tag.toLowerCase() === UNIVERSAL) && !lists[UNIVERSAL]) {
+    console.warn(`Unknown list "${UNIVERSAL}" used in a table's tags`);
+  }
+  return tags.flatMap(tag => (tag.toLowerCase() === UNIVERSAL ? lists[UNIVERSAL] || [] : [tag]));
+}
+
+function unique(tags) {
+  const seen = new Set();
+  return tags.filter(tag => {
+    const key = tag.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 export function expandTags(tags, lists) {
   const groups = Object.fromEntries(
     Object.entries(lists.tag_groups || {}).map(([name, sources]) => [name.toLowerCase(), sources])
   );
-  return tags.flatMap(tag => {
+  return unique(withUniversal(tags, lists)).flatMap(tag => {
     const subtags = (groups[tag.toLowerCase()] || []).flatMap(source => {
       if (!lists[source]) console.warn(`Unknown list "${source}" in tag group "${tag}"`);
       return lists[source] || [];
