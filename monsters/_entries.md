@@ -283,7 +283,7 @@ senses: Tremorsense 40 ft.; always Blinded
 languages: Common; telepathy 300 ft. (only with **[[Stone Warden|Stone Wardens]]** and other **Stone Sentinels**)
 cr: 6
 settings: Jingyu City
-tags: Condition:Prone, Damage:Bludgeoning, Forced Movement, Immunity:Charmed, Immunity:Deafened, Immunity:Exhaustion, Immunity:Frightened, Immunity:Paralyzed, Immunity:Petrified, Immunity:Poison, Immunity:Psychic, Immunity:Restrained, Resistance:Piercing, Resistance:Slashing, Saving Throw:Dexterity, Special Sense:Tremorsense, Stone Lion
+tags: Condition:Prone, Damage:Bludgeoning, Forced Movement, Immunity:Charmed, Immunity:Deafened, Immunity:Exhaustion, Immunity:Frightened, Immunity:Paralyzed, Immunity:Petrified, Immunity:Poison, Immunity:Psychic, Immunity:Restrained, Resistance:Piercing, Resistance:Slashing, Saving Throw:Dexterity, Special Sense:Tremorsense, Stone Lion, Telepathy
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
 
 traits:
@@ -325,7 +325,7 @@ senses: Tremorsense 120 ft.; always Blinded
 languages: Common; telepathy 300 ft. (only with **[[Stone Sentinel|Stone Sentinels]]** and other **Stone Wardens**)
 cr: 8
 settings: Jingyu City
-tags: Damage:Bludgeoning, Damage:Force, Debuff, Immunity:Charmed, Immunity:Deafened, Immunity:Exhaustion, Immunity:Frightened, Immunity:Paralyzed, Immunity:Petrified, Immunity:Poison, Immunity:Psychic, Immunity:Restrained, Resistance:Piercing, Resistance:Slashing, Special Sense:Tremorsense, Stone Lion
+tags: Damage:Bludgeoning, Damage:Force, Debuff, Immunity:Charmed, Immunity:Deafened, Immunity:Exhaustion, Immunity:Frightened, Immunity:Paralyzed, Immunity:Petrified, Immunity:Poison, Immunity:Psychic, Immunity:Restrained, Resistance:Piercing, Resistance:Slashing, Special Sense:Tremorsense, Stone Lion, Telepathy
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
 
 traits:
