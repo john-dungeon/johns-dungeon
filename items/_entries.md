@@ -1261,7 +1261,7 @@ cost: Varies
 options_cost: 50, 200, 2000
 note_cost: See table
 weight: 0.15
-tags: Consumable, Damage:Lightning, Saving Throw:Constitution
+tags: Consumable
 description: Taser Charges are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). Taser Charges can't be recovered at the end of a battle.
 
 Taser Charges are typically stored in a [[Charge Pack]] (bought separately).
