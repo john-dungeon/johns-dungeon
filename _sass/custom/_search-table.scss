@@ -200,11 +200,9 @@ $slider-height: 1.5rem;
 }
 
 // Sub-Tag Dropdown
-.st-opt-caret {
-  padding: 0.15rem 0.5rem;
+.st-opt-group[data-partial="true"] { border-color: $link-color; color: $link-color; }
 
-  &[data-active="true"] { border-color: $link-color; color: $link-color; }
-}
+.st-caret { display: inline-block; margin-left: 0.35em; text-decoration: none; }
 
 .st-opt-menu {
   @include outlined(0.4rem);
