@@ -1,6 +1,6 @@
 template: spell
 noun: spells
-tags: [universal, Attack, Bonus, Damage, Cleanse, Concentration, Difficult Terrain, Esoteric, Requires Sight, Summon, Teleportation, Upcast]
+tags: [universal, Bonus, Cleanse, Concentration, Difficult Terrain, Esoteric, Requires Sight, Teleportation, Upcast]
 auto_tags:
   - { tag: Concentration, field: duration, equals: Concentration }
 columns:
