@@ -6,7 +6,7 @@ columns:
     label: Name
   - key: category
     label: Category
-    order: [Dragonmark, Dark Gift, Epic Boon, Fighting Style, General, Origin, Planar Pact]
+    order: feat_types
   - key: prerequisite
     label: Prerequisite
     in_table: false
