@@ -1,10 +1,29 @@
-# Shared Lists for Search Tables ("order: LISTNAME")
+# Shared Lists
+abilities: [Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma]
+area_shapes: [Cone, Cube, Cylinder, Emanation, Line, Sphere]
+bonus_types: [Ability Check, Armor Class, Attack, Damage, Hit Points, Saving Throw, Speed]
 classes: [Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard]
+conditions: [Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Incapacitated, Invisible, Paralyzed, Petrified, Poisoned, Prone, Restrained, Stunned, Unconscious]
 creature_types: [Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant, Undead]
+damage_types: [Acid, Bludgeoning, Cold, Fire, Force, Lightning, Necrotic, Piercing, Poison, Psychic, Radiant, Slashing, Thunder]
 feat_types: [Dragonmark, Dark Gift, Epic Boon, Fighting Style, General, Origin, Planar Pact]
 item_types: [Adventuring Gear, Armor, Augment, Implant, Ingredient, Mount, Potion, Ring, Rod, Scroll, Staff, Tool, Vehicle, Wand, Weapon, Wondrous Item]
 rarities: ["n/a", Varies, Common, Uncommon, Rare, Very Rare, Legendary, Artifact]
 schools: [Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, Transmutation]
 settings: [Any, Akherum, Amber Frontier, Bettlewick University, Big Blue, Chayu, City 13, Drachenfell, Erisia, Great Luminant, Hollow Earth, Jingyu City, Morwald, New Moon City, Nexus, Orobis, Solachia]
 sizes: [Tiny, Small, Medium, Large, Huge, Gargantuan]
+special_speeds: [Burrow, Climb, Fly, Swim]
 spell_levels: [Cantrip, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Tag Subcategories
+tag_groups:
+  Ability Check: [abilities]
+  Area: [area_shapes]
+  Bonus: [bonus_types]
+  Condition: [conditions]
+  Damage: [damage_types]
+  Immunity: [damage_types, conditions]
+  Resistance: [damage_types]
+  Saving Throw: [abilities]
+  Special Speed: [special_speeds]
+  Vulnerability: [damage_types]
