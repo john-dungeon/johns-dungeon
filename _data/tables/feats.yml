@@ -1,6 +1,6 @@
 template: feat
 noun: feats
-tags: [Healing, Immunity, Resistance, Special Speed, Speed, Spell]
+tags: [Bonus, Healing, Immunity, Resistance, Special Speed, Speed, Spell]
 columns:
   - key: name
     label: Name
