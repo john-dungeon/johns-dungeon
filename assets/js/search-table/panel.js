@@ -21,8 +21,8 @@ function categoryGroup(col, { state, onChange }) {
   const wrap = el('div', 'st-filter-options');
   const states = () => (state.filters.cats[col.key] = state.filters.cats[col.key] || {});
 
-  col.choices.forEach(choice => {
-    const button = el('button', 'st-opt', choice.label);
+  function makeOption(choice, text, onToggle) {
+    const button = el('button', 'st-opt', text);
     button.type = 'button';
 
     const paint = () => {
@@ -36,9 +36,42 @@ function categoryGroup(col, { state, onChange }) {
     button.addEventListener('click', () => {
       writeState(states(), choice.value, NEXT_STATE[readState(states(), choice.value)]);
       paint();
-      onChange();
+      onToggle();
     });
-    wrap.appendChild(button);
+    return button;
+  }
+
+// Sub-Tag Dropdown
+  function dropdown(node) {
+    const caret = el('button', 'st-opt st-opt-caret');
+    caret.type = 'button';
+    const menu = el('div', 'st-filter-options st-opt-menu');
+    menu.hidden = true;
+
+    const paintCaret = () => {
+      const open = !menu.hidden;
+      const active = node.subs.filter(sub => readState(states(), sub.value) !== 'off').length;
+      caret.textContent = (active ? active + ' ' : '') + (open ? '▴' : '▾');
+      caret.setAttribute('aria-expanded', String(open));
+      caret.setAttribute('aria-label', t('option_more', { label: node.label }));
+      caret.dataset.active = active > 0;
+    };
+
+    node.subs.forEach(sub => {
+      menu.appendChild(makeOption(sub, sub.text, () => { paintCaret(); onChange(); }));
+    });
+    caret.addEventListener('click', () => {
+      menu.hidden = !menu.hidden;
+      paintCaret();
+    });
+
+    paintCaret();
+    return [caret, menu];
+  }
+
+  col.tree.forEach(node => {
+    wrap.appendChild(makeOption(node, node.label, onChange));
+    if (node.subs.length) wrap.append(...dropdown(node));
   });
 
   return filterGroup(col.label, wrap);
