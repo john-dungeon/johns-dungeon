@@ -19,59 +19,74 @@ function filterTitle(col) {
 // Category Buttons
 function categoryGroup(col, { state, onChange }) {
   const wrap = el('div', 'st-filter-options');
-  const states = () => (state.filters.cats[col.key] = state.filters.cats[col.key] || {});
+  const states = () => (state.filters.cats[col.key] ||= {});
+  const stateOf = choice => readState(states(), choice.value);
 
-  function makeOption(choice, text, onToggle) {
+  function makeOption(choice, text, { label = choice.label, rivals = [], refresh } = {}) {
     const button = el('button', 'st-opt', text);
     button.type = 'button';
 
     const paint = () => {
-      const current = readState(states(), choice.value);
-      button.setAttribute('aria-label', t('option_label', { label: choice.label, state: t('state_' + current) }));
-      button.setAttribute('data-state', current);
-      button.setAttribute('aria-pressed', current === 'off' ? 'false' : 'true');
+      const current = stateOf(choice);
+      button.setAttribute('aria-label', t('option_label', { label, state: t('state_' + current) }));
+      button.dataset.state = current;
+      button.setAttribute('aria-pressed', String(current !== 'off'));
     };
 
-    paint();
     button.addEventListener('click', () => {
-      writeState(states(), choice.value, NEXT_STATE[readState(states(), choice.value)]);
-      paint();
-      onToggle();
+      writeState(states(), choice.value, NEXT_STATE[stateOf(choice)]);
+      if (stateOf(choice) !== 'off') {
+        rivals.forEach(rival => writeState(states(), rival.value, 'off'));
+      }
+      (refresh || paint)();
+      onChange();
     });
-    return button;
+
+    paint();
+    return { button, paint };
   }
 
-// Sub-Tag Dropdown
-  function dropdown(node) {
-    const caret = el('button', 'st-opt st-opt-caret');
-    caret.type = 'button';
+  function makeGroup(node) {
+    const header = el('button', 'st-opt st-opt-group');
+    header.type = 'button';
+    header.setAttribute('aria-label', t('option_more', { label: node.label }));
     const menu = el('div', 'st-filter-options st-opt-menu');
     menu.hidden = true;
 
-    const paintCaret = () => {
-      const open = !menu.hidden;
-      const active = node.subs.filter(sub => readState(states(), sub.value) !== 'off').length;
-      caret.textContent = (active ? active + ' ' : '') + (open ? '▴' : '▾');
-      caret.setAttribute('aria-expanded', String(open));
-      caret.setAttribute('aria-label', t('option_more', { label: node.label }));
-      caret.dataset.active = active > 0;
-    };
+    const options = [
+      makeOption(node, t('filter_any'), {
+        label: `${node.label}: ${t('filter_any')}`,
+        rivals: node.subs,
+        refresh: repaint
+      }),
+      ...node.subs.map(sub => makeOption(sub, sub.text, { rivals: [node], refresh: repaint }))
+    ];
+    menu.append(...options.map(option => option.button));
 
-    node.subs.forEach(sub => {
-      menu.appendChild(makeOption(sub, sub.text, () => { paintCaret(); onChange(); }));
-    });
-    caret.addEventListener('click', () => {
+    function repaint() {
+      options.forEach(option => option.paint());
+      const picked = node.subs.filter(sub => stateOf(sub) !== 'off').length;
+      header.dataset.state = stateOf(node);
+      header.dataset.partial = String(picked > 0);
+      header.setAttribute('aria-expanded', String(!menu.hidden));
+      header.replaceChildren(
+        node.label + (picked ? ` · ${picked}` : ''),
+        el('span', 'st-caret', menu.hidden ? '▾' : '▴')
+      );
+    }
+
+    header.addEventListener('click', () => {
       menu.hidden = !menu.hidden;
-      paintCaret();
+      repaint();
     });
 
-    paintCaret();
-    return [caret, menu];
+    repaint();
+    return [header, menu];
   }
 
   col.tree.forEach(node => {
-    wrap.appendChild(makeOption(node, node.label, onChange));
-    if (node.subs.length) wrap.append(...dropdown(node));
+    if (node.subs.length) wrap.append(...makeGroup(node));
+    else wrap.append(makeOption(node, node.label).button);
   });
 
   return filterGroup(col.label, wrap);
