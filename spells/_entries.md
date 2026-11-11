@@ -347,7 +347,7 @@ condition: , which you take when you are hit by an attack roll
 range: Self
 components: V, S
 duration: Instantaneous
-tags: Bonus:Armor Class, Buff, Damage:Piercing, Esoteric, Saving Throw:Dexterity, Upcast
+tags: Bonus:Armor Class, Damage:Piercing, Esoteric, Saving Throw:Dexterity, Upcast
 description: A barrier of magical glass protects you and shatters from the incoming impact. You have a +5 bonus to AC against the triggering attack. Immediately after the attack hits or misses, the barrier shatters, and each creature of your choice within 5 feet of you must make a Dexterity saving throw, taking 1d12 Piercing damage on a failed save or half as much damage on a successful one.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d12 for each spell slot level above 1.
