@@ -1,7 +1,7 @@
 name: Boon of the Azure Dragon
 category: Epic Boon
 prerequisite: Azure Dragon's Favor
-tags: Healing, Immunity, Speed Bonus
+tags: Bonus:Speed, Healing, Immunity:Necrotic
 description: You gain the following benefits.
 
 ***Ability Score Increase.*** Increase one ability score of your choice by 1, to a maximum of 30.
