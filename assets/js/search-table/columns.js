@@ -1,4 +1,5 @@
 import { t, toNumber } from './utils.js';
+import { TAG, splitTag, expandTags } from './tags.js';
 
 const TYPES = {
   text: {},
@@ -9,15 +10,6 @@ const TYPES = {
 };
 
 const AMOUNTS = '...';
-export const TAG = 'tag';
-export const SUBTAG = ':';
-
-export function splitTag(tag) {
-  const at = tag.indexOf(SUBTAG);
-  return at === -1 ? [tag, ''] : [tag.slice(0, at), tag.slice(at + 1)];
-}
-
-export const withGroups = tags => [...new Set(tags.flatMap(tag => [splitTag(tag)[0], tag]))];
 
 export function amountOf(col, text) {
   if (col.numeric) return toNumber(text);
@@ -44,23 +36,15 @@ function buildTree(col) {
   const nodes = new Map();
   col.choices.forEach(choice => {
     const [group, sub] = col.nested ? splitTag(choice.label) : [choice.label, ''];
-    if (!sub) nodes.set(choice.value, { ...choice, subs: [] });
-    else nodes.get(group.toLowerCase())?.subs.push({ ...choice, text: sub });
+    if (!sub) {
+      nodes.set(choice.value, { ...choice, subs: [] });
+      return;
+    }
+    const parent = nodes.get(group.toLowerCase());
+    if (parent) parent.subs.push({ ...choice, text: sub });
+    else console.warn(`Subtag "${choice.label}" has no parent listed before it in column "${col.key}"`);
   });
   return [...nodes.values()];
-}
-
-function expandTags(tags, lists) {
-  const groups = Object.fromEntries(
-    Object.entries(lists.tag_groups || {}).map(([name, sources]) => [name.toLowerCase(), sources])
-  );
-  return tags.flatMap(tag => {
-    const subtags = (groups[tag.toLowerCase()] || []).flatMap(source => {
-      if (!lists[source]) console.warn(`Unknown list "${source}" in tag group "${tag}"`);
-      return lists[source] || [];
-    });
-    return [tag, ...subtags.map(sub => tag + SUBTAG + sub)];
-  });
 }
 
 function prepareColumn(col, index, lists) {
@@ -69,7 +53,6 @@ function prepareColumn(col, index, lists) {
   Object.assign(col, TYPES[col.type]);
   if (col.match) col.exact = col.match === 'exact';
 
-  // "order" is a list, or the name of a shared list in _data/lists.yml.
   const shared = typeof col.order === 'string';
   const source = shared ? lists[col.order] : col.order;
   if (shared && !source) console.warn(`Unknown list "${col.order}" in column "${col.key}"`);
@@ -87,6 +70,7 @@ function prepareColumn(col, index, lists) {
   col.lead = (slot === -1 ? named : items.slice(0, slot)).map(item => item.toLowerCase());
   col.trail = (slot === -1 ? [] : items.slice(slot + 1)).map(item => item.toLowerCase());
   col.tree = buildTree(col);
+  col.groups = new Set(col.tree.filter(node => node.subs.length).map(node => node.value));
 }
 
 export function prepareColumns(config, lists = {}) {
@@ -105,8 +89,6 @@ export function prepareColumns(config, lists = {}) {
     virtual: true
   };
   prepareColumn(tagCol, columns.length, lists);
-  // The tags that have subtags, used by the search box shortcut (see query.js).
-  tagCol.groups = new Set(tagCol.tree.filter(node => node.subs.length).map(node => node.value));
   columns.push(tagCol);
 
   const byKey = Object.fromEntries(columns.map(col => [col.key, col]));
