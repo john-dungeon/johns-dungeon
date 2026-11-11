@@ -1,5 +1,5 @@
 import { toNumber, parseSpan, compareText, markUnlisted } from './utils.js';
-import { amountOf, TAG } from './columns.js';
+import { amountOf, TAG, withGroups } from './columns.js';
 
 function bucketsFor(col, text) {
   if (!text) return [];
@@ -48,7 +48,8 @@ function readColumn(rec, row, col) {
   const optionsRaw = row.getAttribute('data-o-' + key);
 
   const blank = col.blank_as === undefined ? [] : [String(col.blank_as).toLowerCase()];
-  const own = raw === '' ? blank : (col.multi ? raw.split(', ') : [raw]);
+  const listed = raw === '' ? blank : (col.multi ? raw.split(', ') : [raw]);
+  const own = key === TAG ? withGroups(listed) : listed;
   const extra = optionsRaw && !col.numeric ? optionsRaw.split(', ') : [];
   const values = [...own];
   extra.forEach(label => {
