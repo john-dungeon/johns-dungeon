@@ -1,6 +1,6 @@
 template: item
 noun: items
-tags: [Ability Check, Area, Attack, Bonus, Buff, Charge, Command Word, Condition, Consumable, Cursed, Damage, Damage Reduction, Debuff, Extra Damage, Forced Movement, Healing, Immunity, Light, Magic Item, Resistance, Revival, Saving Throw, Setting-Specific, Special Mastery Property, Special Property, Special Sense, Special Speed, Speed, Spell, Summon, Variant, Vulnerability]
+tags: [universal, Charge, Command Word, Consumable, Cursed, Magic Item, Mastery Property, Setting-Specific, Special Mastery Property, Special Property, Spell, Summon, Variant, Weapon Property]
 auto_tags:
   - { tag: Setting-Specific, field: settings }
   - { tag: Variant, field: variant, equals: "true" }
