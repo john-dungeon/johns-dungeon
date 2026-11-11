@@ -21,12 +21,12 @@ columns:
     label: Name
   - key: category
     label: Category
-    order: [Adventuring Gear, Armor, Augment, Implant, Ingredient, Mount, Potion, Ring, Rod, Scroll, Staff, Tool, Vehicle, Wand, Weapon, Wondrous Item]
+    order: item_types
   - key: rarity
     label: Rarity
     type: rank
     blank_as: "n/a"
-    order: ["n/a", Varies, Common, Uncommon, Rare, Very Rare, Legendary, Artifact]
+    order: rarities
     symbols: { "n/a": "—" }
     labels:
       "n/a": "N/A"
