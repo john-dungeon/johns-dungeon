@@ -3,6 +3,7 @@ title: Warrior of the Blade
 parent: Monk
 grand_parent: Subclasses
 layout: wiki
+intro: Warriors of the Blade devote their entire lives to honing their bladework. Their style distills swordsmanship to its core, stripping away the unnecessary flair and accessories that hinder other sword arts, even in the names of their techniques.
 tagline: Become the Pinnacle of Swordsmanship
 summary: A Monk subclass specialized in high damage and the ability to use anything as a weapon.
 quote: Most of the sword styles that I've seen usually have some sort of gimmick, like using a flying sword or imbuing one with unquenchable flames. I suppose, then, the gimmick of this one is that it has no gimmick—just one sharp blade to face the world.
@@ -13,8 +14,6 @@ outline:
   - "Level 11: Slash"
   - "Level 17: Execute"
 ---
-
-Warriors of the Blade devote their entire lives to honing their bladework. Their style distills swordsmanship to its core, stripping away the unnecessary flair and accessories that hinder other sword arts, even in the names of their techniques.
 
 ## Level 3: Blade
 In your hands, anything can become a weapon. When you take the Attack action on your turn, you can expend 1 Focus Point to transform an object that you’re carrying into a magical Aura Blade. In this form, the object loses its original properties and becomes a weapon with the following traits:
