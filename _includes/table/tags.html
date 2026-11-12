@@ -3,41 +3,77 @@
 {%- capture tg_raw %}{% include table/field.html packed=include.packed key="tags" %}{% endcapture -%}
 {%- capture tg_csv %}{% include table/list.html csv=tg_raw sep="," %}{% endcapture -%}
 {%- assign tg_have = tg_csv | downcase | split: "," -%}
+
 {%- for tg_rule in include.rules -%}
-  {%- assign tg_tag_l = tg_rule.tag | downcase -%}
-  {%- if tg_have contains tg_tag_l -%}{%- continue -%}{%- endif -%}
-  {%- assign tg_hit = false -%}
-  {%- assign tg_fields = tg_rule.field | split: "," -%}
-  {%- for tg_field_raw in tg_fields -%}
-    {%- assign tg_field = tg_field_raw | strip -%}
-    {%- capture tg_value %}{% include table/field.html packed=include.packed key=tg_field %}{% endcapture -%}
-    {%- if tg_rule.item -%}
-      {%- assign tg_item_l = tg_rule.item | downcase -%}
-      {%- assign tg_lines = tg_value | split: tg_nl -%}
-      {%- for tg_line in tg_lines -%}
-        {%- assign tg_head = tg_line | slice: 0, 2 -%}
-        {%- if tg_head == "- " -%}
-          {%- capture tg_name %}{% include table/item-name.html line=tg_line %}{% endcapture -%}
-          {%- assign tg_name_l = tg_name | downcase -%}
-          {%- if tg_name_l == tg_item_l -%}{%- assign tg_hit = true -%}{%- break -%}{%- endif -%}
-        {%- endif -%}
-      {%- endfor -%}
-    {%- elsif tg_rule.equals -%}
-      {%- assign tg_value_l = tg_value | downcase -%}
-      {%- assign tg_equals_l = tg_rule.equals | downcase -%}
-      {%- if tg_value_l == tg_equals_l -%}{%- assign tg_hit = true -%}{%- endif -%}
-    {%- elsif tg_value != "" -%}
-      {%- assign tg_hit = true -%}
-    {%- endif -%}
-    {%- if tg_hit -%}{%- break -%}{%- endif -%}
-  {%- endfor -%}
-  {%- if tg_hit -%}
+  {%- assign tg_new = "" -%}
+
+  {%- if tg_rule.prefix -%}
+    {%- comment -%} Values rule: build "|fire|cold|charmed|..." so a word can be checked with one "contains". {%- endcomment -%}
+    {%- assign tg_pool = "|" -%}
+    {%- for tg_list in tg_rule.values -%}
+      {%- assign tg_joined = site.data.lists[tg_list] | join: "|" | downcase -%}
+      {%- assign tg_pool = tg_pool | append: tg_joined | append: "|" -%}
+    {%- endfor -%}
+    {%- capture tg_value %}{% include table/field.html packed=include.packed key=tg_rule.field %}{% endcapture -%}
+    {%- assign tg_tokens = tg_value | replace: ";", "," | split: "," -%}
+    {%- for tg_token in tg_tokens -%}
+      {%- assign tg_word = tg_token | strip | split: " " | first | downcase -%}
+      {%- assign tg_probe = "|" | append: tg_word | append: "|" -%}
+      {%- if tg_word != "" and tg_pool contains tg_probe -%}
+        {%- assign tg_name = tg_word | capitalize -%}
+        {%- assign tg_new = tg_new | append: tg_rule.prefix | append: ":" | append: tg_name | append: "," -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+  {%- elsif tg_rule.copy -%}
+    {%- capture tg_value %}{% include table/field.html packed=include.packed key=tg_rule.field %}{% endcapture -%}
+    {%- assign tg_new = tg_value -%}
+
+  {%- else -%}
+    {%- assign tg_hit = false -%}
+    {%- assign tg_fields = tg_rule.field | split: "," -%}
+    {%- for tg_field_raw in tg_fields -%}
+      {%- assign tg_field = tg_field_raw | strip -%}
+      {%- capture tg_value %}{% include table/field.html packed=include.packed key=tg_field %}{% endcapture -%}
+      {%- if tg_rule.item -%}
+        {%- assign tg_item_l = tg_rule.item | downcase -%}
+        {%- assign tg_lines = tg_value | split: tg_nl -%}
+        {%- for tg_line in tg_lines -%}
+          {%- assign tg_head = tg_line | slice: 0, 2 -%}
+          {%- if tg_head == "- " -%}
+            {%- capture tg_name %}{% include table/item-name.html line=tg_line %}{% endcapture -%}
+            {%- assign tg_name_l = tg_name | downcase -%}
+            {%- if tg_name_l == tg_item_l -%}{%- assign tg_hit = true -%}{%- break -%}{%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- elsif tg_rule.equals -%}
+        {%- assign tg_value_l = tg_value | downcase -%}
+        {%- assign tg_equals_l = tg_rule.equals | downcase -%}
+        {%- if tg_value_l == tg_equals_l -%}{%- assign tg_hit = true -%}{%- endif -%}
+      {%- elsif tg_rule.contains -%}
+        {%- assign tg_value_l = tg_value | downcase -%}
+        {%- assign tg_contains_l = tg_rule.contains | downcase -%}
+        {%- if tg_value_l contains tg_contains_l -%}{%- assign tg_hit = true -%}{%- endif -%}
+      {%- elsif tg_value != "" -%}
+        {%- assign tg_hit = true -%}
+      {%- endif -%}
+      {%- if tg_hit -%}{%- break -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if tg_hit -%}{%- assign tg_new = tg_rule.tag -%}{%- endif -%}
+  {%- endif -%}
+
+  {%- comment -%} Every kind ends here: add each new tag unless the entry already has it. {%- endcomment -%}
+  {%- assign tg_adds = tg_new | split: "," -%}
+  {%- for tg_add in tg_adds -%}
+    {%- assign tg_clean = tg_add | strip -%}
+    {%- assign tg_clean_l = tg_clean | downcase -%}
+    {%- if tg_clean == "" or tg_have contains tg_clean_l -%}{%- continue -%}{%- endif -%}
     {%- if tg_csv == "" -%}
-      {%- assign tg_csv = tg_rule.tag -%}
+      {%- assign tg_csv = tg_clean -%}
     {%- else -%}
-      {%- assign tg_csv = tg_csv | append: "," | append: tg_rule.tag -%}
+      {%- assign tg_csv = tg_csv | append: "," | append: tg_clean -%}
     {%- endif -%}
     {%- assign tg_have = tg_csv | downcase | split: "," -%}
-  {%- endif -%}
+  {%- endfor -%}
 {%- endfor -%}
 {{- tg_csv | split: "," | sort_natural | join: "," -}}
