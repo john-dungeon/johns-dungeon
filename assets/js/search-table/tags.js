@@ -11,6 +11,16 @@ export function splitTag(tag) {
 
 export const withGroups = tags => [...new Set(tags.flatMap(tag => [splitTag(tag)[0], tag]))];
 
+export function withAnySubtags(tags, tree) {
+  const listed = new Set(tags);
+  const expanded = [...tags];
+  tree.forEach(node => {
+    if (!listed.has(node.value) || node.subs.some(sub => listed.has(sub.value))) return;
+    node.subs.forEach(sub => expanded.push(sub.value));
+  });
+  return expanded;
+}
+
 export function groupTags(names) {
   const groups = new Map();
   names.forEach(name => {
