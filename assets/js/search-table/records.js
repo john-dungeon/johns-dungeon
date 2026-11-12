@@ -1,6 +1,6 @@
 import { toNumber, parseSpan, compareText, markUnlisted } from './utils.js';
 import { amountOf } from './columns.js';
-import { TAG, withGroups } from './tags.js';
+import { TAG, withGroups, withAnySubtags } from './tags.js';
 
 function bucketsFor(col, text) {
   if (!text) return [];
@@ -50,7 +50,7 @@ function readColumn(rec, row, col) {
 
   const blank = col.blank_as === undefined ? [] : [String(col.blank_as).toLowerCase()];
   const listed = raw === '' ? blank : (col.multi ? raw.split(', ') : [raw]);
-  const own = key === TAG ? withGroups(listed) : listed;
+  const own = key === TAG ? withGroups(withAnySubtags(listed, col.tree)) : listed;
   const extra = optionsRaw && !col.numeric ? optionsRaw.split(', ') : [];
   const values = [...own];
   extra.forEach(label => {
