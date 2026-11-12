@@ -1,6 +1,7 @@
 {%- capture ms_nl %}
 {% endcapture -%}
 {%- capture ms_size %}{% include table/field.html packed=include.packed key="size" %}{% endcapture -%}
+{%- capture ms_swarm %}{% include table/field.html packed=include.packed key="swarm" %}{% endcapture -%}
 {%- capture ms_type %}{% include table/field.html packed=include.packed key="type" %}{% endcapture -%}
 {%- capture ms_note_type %}{% include table/field.html packed=include.packed key="note_type" %}{% endcapture -%}
 {%- capture ms_alignment %}{% include table/field.html packed=include.packed key="alignment" %}{% endcapture -%}
@@ -51,9 +52,10 @@
   {%- capture ms_initiative %}{% include table/format.html type="signed" amount=ms_dex_mod %} ({{ ms_dex_mod | plus: 10 }}){% endcapture -%}
 {%- endif -%}
 
-{%- assign ms_tag_list = include.tags | downcase | split: "," -%}
+{%- comment -%} "swarm: true" makes the summary read "Swarm of" + size + plural type. Missing means false. {%- endcomment -%}
+{%- assign ms_swarm_l = ms_swarm | downcase -%}
 {%- assign ms_is_swarm = false -%}
-{%- if ms_tag_list contains "swarm" -%}{%- assign ms_is_swarm = true -%}{%- endif -%}
+{%- if ms_swarm_l == "true" -%}{%- assign ms_is_swarm = true -%}{%- endif -%}
 {%- capture ms_size_text %}{% include table/join-words.html items=ms_size word="or" %}{% endcapture -%}
 {%- capture ms_type_text %}{% include table/join-words.html items=ms_type word="and" plural=ms_is_swarm %}{% endcapture -%}
 {%- assign ms_summary = ms_size_text | append: " " | append: ms_type_text -%}
