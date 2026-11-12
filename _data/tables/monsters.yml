@@ -8,6 +8,14 @@ auto_tags:
   - { tag: Lair, field: regional_effects }
   - { tag: Legendary, field: legendary_actions }
   - { tag: Spellcaster, field: actions, item: Spellcasting }
+  - { tag: Swarm, field: swarm, equals: "true" }
+  - { tag: Telepathy, field: languages, contains: telepathy }
+  - { prefix: Immunity, field: immunities, values: [damage_types, conditions] }
+  - { prefix: Resistance, field: resistances, values: [damage_types] }
+  - { prefix: Vulnerability, field: vulnerabilities, values: [damage_types] }
+  - { prefix: Special Sense, field: senses, values: [special_senses] }
+  - { prefix: Special Speed, field: speed, values: [special_speeds] }
+  - { copy: true, field: note_type } # Creature Sub-Type
 columns:
   - key: name
     label: Name
