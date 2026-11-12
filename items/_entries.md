@@ -71,7 +71,6 @@ weight: Varies
 options_weight: 9
 note_weight: +50% to normal counterpart
 settings: Erisia
-variant: true
 tags: Area:Cone, Bonus:Armor Class, Charge, Condition:Incapacitated, Damage:Force, Immunity:Bludgeoning, Immunity:Piercing, Immunity:Slashing, Magic Item, Saving Throw:Constitution
 description: This magic Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class, in addition to the Shield's normal bonus to AC.
 
