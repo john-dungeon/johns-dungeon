@@ -14,7 +14,6 @@
 {%- capture ms_cr %}{% include table/field.html packed=include.packed key="cr" %}{% endcapture -%}
 {%- capture ms_flavor %}{% include table/field.html packed=include.packed key="flavor" %}{% endcapture -%}
 
-{%- comment -%} "cr: None" is for summons: no XP, and PB is the summoner's. {%- endcomment -%}
 {%- assign ms_no_cr = false -%}
 {%- assign ms_cr_l = ms_cr | downcase -%}
 {%- if ms_cr_l == "none" -%}{%- assign ms_no_cr = true -%}{%- endif -%}
@@ -52,7 +51,6 @@
   {%- capture ms_initiative %}{% include table/format.html type="signed" amount=ms_dex_mod %} ({{ ms_dex_mod | plus: 10 }}){% endcapture -%}
 {%- endif -%}
 
-{%- comment -%} "swarm: true" makes the summary read "Swarm of" + size + plural type. Missing means false. {%- endcomment -%}
 {%- assign ms_swarm_l = ms_swarm | downcase -%}
 {%- assign ms_is_swarm = false -%}
 {%- if ms_swarm_l == "true" -%}{%- assign ms_is_swarm = true -%}{%- endif -%}
