@@ -334,6 +334,30 @@ Once the banner is raised, the banner can't be used in that way again until the 
 
 ---
 
+name: Bare Suit
+category: Wondrous Item
+rarity: Uncommon
+attunement: false
+cost: 400
+weight: 2
+tags: Bonus:Armor Class, Bonus:Speed, Debuff, Magic Item
+description: While wearing this suit, you gain a +1 bonus to AC and your Speed increases by 10 feet. However, you can't wear any armor. You can use a Shield and still gain this benefit.
+
+---
+
+name: Black Lotus
+category: Wondrous Item
+rarity: Rare
+attunement: false
+cost: 3333
+weight: 0
+tags: Consumable, Magic Item, Revival, Spell
+description: This inky lotus emits an unsettling aura and stinks of death. If you can stomach it, it will certainly save your life. As a Utilize action, you can eat the lotus and gain the effects of the *Death Ward* spell for 24 hours.
+
+Alternatively, you can take a Utilize action to grind the lotus into a paste and feed it to a creature that has died within the last minute. That creature revives with 1 Hit Point. The lotus can't revive a creature that has died of old age, nor does it restore any missing body parts.
+
+---
+
 name: Bladed Gauntlet
 prefix_category: Simple Melee
 category: Weapon
