@@ -52,10 +52,6 @@
   {%- capture ms_initiative %}{% include table/format.html type="signed" amount=ms_dex_mod %} ({{ ms_dex_mod | plus: 10 }}){% endcapture -%}
 {%- endif -%}
 
-{%- comment -%}
-  "swarm: true" makes the summary read "<group word> of" + size + plural type. Missing means false.
-  "rename_swarm" replaces the group word ("Swarm" by default), e.g. "Gang". It does nothing unless swarm is true.
-{%- endcomment -%}
 {%- assign ms_swarm_l = ms_swarm | downcase -%}
 {%- assign ms_is_swarm = false -%}
 {%- if ms_swarm_l == "true" -%}{%- assign ms_is_swarm = true -%}{%- endif -%}
