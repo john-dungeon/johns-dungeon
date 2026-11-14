@@ -2,6 +2,7 @@
 {% endcapture -%}
 {%- capture ms_size %}{% include table/field.html packed=include.packed key="size" %}{% endcapture -%}
 {%- capture ms_swarm %}{% include table/field.html packed=include.packed key="swarm" %}{% endcapture -%}
+{%- capture ms_swarm_name %}{% include table/field.html packed=include.packed key="rename_swarm" %}{% endcapture -%}
 {%- capture ms_type %}{% include table/field.html packed=include.packed key="type" %}{% endcapture -%}
 {%- capture ms_note_type %}{% include table/field.html packed=include.packed key="note_type" %}{% endcapture -%}
 {%- capture ms_alignment %}{% include table/field.html packed=include.packed key="alignment" %}{% endcapture -%}
@@ -51,6 +52,10 @@
   {%- capture ms_initiative %}{% include table/format.html type="signed" amount=ms_dex_mod %} ({{ ms_dex_mod | plus: 10 }}){% endcapture -%}
 {%- endif -%}
 
+{%- comment -%}
+  "swarm: true" makes the summary read "<group word> of" + size + plural type. Missing means false.
+  "rename_swarm" replaces the group word ("Swarm" by default), e.g. "Gang". It does nothing unless swarm is true.
+{%- endcomment -%}
 {%- assign ms_swarm_l = ms_swarm | downcase -%}
 {%- assign ms_is_swarm = false -%}
 {%- if ms_swarm_l == "true" -%}{%- assign ms_is_swarm = true -%}{%- endif -%}
@@ -58,7 +63,10 @@
 {%- capture ms_type_text %}{% include table/join-words.html items=ms_type word="and" plural=ms_is_swarm %}{% endcapture -%}
 {%- assign ms_summary = ms_size_text | append: " " | append: ms_type_text -%}
 {%- if ms_note_type != "" -%}{%- assign ms_summary = ms_summary | append: " (" | append: ms_note_type | append: ")" -%}{%- endif -%}
-{%- if ms_is_swarm -%}{%- assign ms_summary = "Swarm of " | append: ms_summary -%}{%- endif -%}
+{%- if ms_is_swarm -%}
+  {%- assign ms_group_word = ms_swarm_name | default: "Swarm" -%}
+  {%- assign ms_summary = ms_group_word | append: " of " | append: ms_summary -%}
+{%- endif -%}
 {%- if ms_alignment != "" -%}{%- assign ms_summary = ms_summary | append: ", " | append: ms_alignment -%}{%- endif -%}
 
 {%- assign ms_passive = ms_wis_mod | plus: 10 -%}
