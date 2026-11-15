@@ -14,8 +14,10 @@ $marker-colors: (
   "rare": #50a0f5,
   "very rare": #c850fa,
   "legendary": #ffc846,
-  "artifact": #fa2323
-) !default; // Rarity Symbol Color
+  "artifact": #fa2323,
+  "boss": #e63946,
+  "esoteric": #b497e8
+) !default; // Marker Symbol Colors (by rarity or tag name, lowercase)
 $panel-opacity: 0.7 !default; // Page Panels Over The Background Image (1 = solid)
 $parallax-margin: 3% !default; // Extra Background Size Past Each Screen Edge
 $parallax-range: 2.5% !default; // Furthest Background Shift
