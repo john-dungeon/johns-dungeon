@@ -57,7 +57,7 @@ columns:
       "false": "☐"
       "true": "☒"
     labels:
-      "n/a": "None"
+      "n/a": "N/A"
       "false": "None"
       "true": "Required"
   - key: settings
