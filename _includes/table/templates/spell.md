@@ -12,12 +12,17 @@
 {%- capture sp_description %}{% include table/field.html packed=include.packed key="description" %}{% endcapture -%}
 
 {%- capture sp_classes_text %}{% include table/list.html csv=sp_classes sep=", " %}{% endcapture -%}
+
 {%- assign sp_level_l = sp_level | downcase -%}
 {%- if sp_level_l == "cantrip" -%}
-  {%- assign sp_header = sp_school | append: " Cantrip (" | append: sp_classes_text | append: ")" -%}
+  {%- assign sp_kind = sp_school | append: " Cantrip" -%}
 {%- else -%}
-  {%- assign sp_header = "Level " | append: sp_level | append: " " | append: sp_school | append: " (" | append: sp_classes_text | append: ")" -%}
+  {%- assign sp_kind = "Level " | append: sp_level | append: " " | append: sp_school -%}
 {%- endif -%}
+{%- assign sp_tag_list = include.tags | downcase | split: "," -%}
+{%- assign sp_flag = "" -%}
+{%- if sp_tag_list contains "esoteric" -%}{%- assign sp_flag = " (Esoteric)" -%}{%- endif -%}
+{%- assign sp_header = sp_kind | append: sp_flag | append: " (" | append: sp_classes_text | append: ")" -%}
 
 {%- assign sp_cast = sp_casting_time -%}
 {%- assign sp_ritual_l = sp_ritual | downcase -%}
