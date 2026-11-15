@@ -3,6 +3,10 @@ noun: spells
 tags: [universal, Bonus, Cleanse, Concentration, Cover, Difficult Terrain, Esoteric, Requires Sight, Upcast]
 auto_tags:
   - { tag: Concentration, field: duration, equals: Concentration }
+markers:
+  - symbol: "𖦹"
+    tag: Esoteric
+    label: Esoteric
 columns:
   - key: name
     label: Name
