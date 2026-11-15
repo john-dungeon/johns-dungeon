@@ -12,7 +12,8 @@ markers:
   - symbol: "☁"
     tag: Setting-Specific
     color_by: settings
-    label: Settings
+    label: Setting
+    label_plural: Settings
   - symbol: "⧨"
     tag: Variant
     label: Variant
@@ -56,7 +57,7 @@ columns:
       "false": "☐"
       "true": "☒"
     labels:
-      "n/a": "N/A"
+      "n/a": "None"
       "false": "None"
       "true": "Required"
   - key: settings
