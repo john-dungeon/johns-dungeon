@@ -16,6 +16,13 @@ auto_tags:
   - { prefix: Special Sense, field: senses, values: [special_senses] }
   - { prefix: Special Speed, field: speed, values: [special_speeds] }
   - { copy: true, field: note_type } # Creature Sub-Type
+markers:
+  - symbol: "★"
+    tag: Legendary
+    label: Legendary
+  - symbol: "⚠︎"
+    tag: Boss
+    label: Boss
 columns:
   - key: name
     label: Name
