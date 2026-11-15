@@ -16,7 +16,7 @@ markers:
     label_plural: Settings
   - symbol: "⧨"
     tag: Variant
-    label: Variant
+    label: Variant Item
 columns:
   - key: name
     label: Name
