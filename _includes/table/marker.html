@@ -1,14 +1,26 @@
+{%- comment -%}
+  Params: marker, packed, tags.
+  Marker settings: symbol, tag, color_by,
+    label, label_plural (optional; used instead of label when color_by holds more than one value).
+{%- endcomment -%}
+
 {%- assign mk = include.marker -%}
 {%- assign mk_tags = include.tags | downcase | split: "," -%}
 {%- assign mk_wanted = mk.tag | downcase -%}
 {%- if mk.tag == nil or mk_tags contains mk_wanted -%}
   {%- assign mk_value = "" -%}
+  {%- assign mk_count = 0 -%}
   {%- if mk.color_by -%}
-    {%- capture mk_value %}{% include table/field.html packed=include.packed key=mk.color_by %}{% endcapture -%}
+    {%- capture mk_raw %}{% include table/field.html packed=include.packed key=mk.color_by %}{% endcapture -%}
+    {%- capture mk_list %}{% include table/list.html csv=mk_raw sep=", " %}{% endcapture -%}
+    {%- assign mk_value = mk_list | strip -%}
+    {%- assign mk_count = mk_value | split: ", " | size -%}
   {%- endif -%}
-  {%- assign mk_text = mk.label | default: "Marked" -%}
+  {%- assign mk_label = mk.label | default: "Marked" -%}
+  {%- if mk_count > 1 and mk.label_plural -%}{%- assign mk_label = mk.label_plural -%}{%- endif -%}
+  {%- assign mk_text = mk_label -%}
   {%- if mk_value != "" -%}
-    {%- if mk.label -%}{%- assign mk_text = mk_text | append: " · " | append: mk_value -%}
+    {%- if mk.label -%}{%- assign mk_text = mk_label | append: " · " | append: mk_value -%}
     {%- else -%}{%- assign mk_text = mk_value -%}
     {%- endif -%}
   {%- endif -%}
