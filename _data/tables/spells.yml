@@ -6,7 +6,7 @@ auto_tags:
 markers:
   - symbol: "𖦹"
     tag: Esoteric
-    label: Esoteric
+    label: Esoteric Spell
 columns:
   - key: name
     label: Name
