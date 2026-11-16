@@ -10,7 +10,7 @@
     {%- if ol_parts.size > 1 -%}
       {%- assign ol_tag = ol_parts.first | split: "<h" | last -%}
       {%- assign ol_id = ol_tag | split: 'id="' | last | split: '"' | first -%}
-  <li><a href="#{{ ol_id }}">{{ ol_title | escape }}</a></li>
+  <li><a class="panel-link" href="#{{ ol_id }}">{{ ol_title | escape }}</a></li>
     {%- else -%}
       {%- assign ol_tip = site.data.strings.outline_missing | replace: "{title}", ol_title -%}
   <li><span class="outline-missing"{% include tooltip.html text=ol_tip %}>{{ ol_title | escape }}</span></li>
