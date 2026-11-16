@@ -78,8 +78,11 @@
   flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
+  font-size: $panel-text-size;
 
   > .site-nav { width: 100%; }
+
+  .nav-list-item { font-size: inherit; }
 
   &.sb-has-y { padding-right: $scrollbar-size + $scrollbar-gap; }
 }
@@ -107,14 +110,14 @@
   list-style: none;
 
   li { margin: 0.25rem 0; }
+}
 
-  a {
-    display: block;
-    padding: 0.2rem 0.5rem;
-    color: $nav-child-link-color;
+.panel-link {
+  display: block;
+  padding: 0.2rem 0.5rem;
+  color: $nav-child-link-color;
 
-    &:hover { color: $link-color; }
-  }
+  &:hover { color: $link-color; }
 }
 
 .panel .panel-list li::before { content: none; }
@@ -170,7 +173,11 @@
       border-width: 0 $sidebar-border-width;
       transition: transform $motion, clip-path $motion, visibility 0s;
 
-      .panel-title { padding-#{$clear}: $toggle-clearance; }
+      .panel-title {
+        padding-#{$clear}: $toggle-clearance;
+        justify-content: if($clear == right, flex-end, flex-start);
+        text-align: if($clear == right, right, left);
+      }
     }
 
     .#{$side}-collapsed .panel--#{$side} {
