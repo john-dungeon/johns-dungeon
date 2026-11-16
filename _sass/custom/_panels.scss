@@ -1,6 +1,7 @@
-// Markup: _includes/panel.html (both panels), _includes/components/sidebar.html (builds them), _includes/panel-toggles.html (buttons)
-// Behavior: assets/js/panel-toggle.js (adds .left-collapsed / .right-collapsed to <html>)
-// Per-side settings: $panels in _helpers.scss. Sizes: _settings.scss.
+// Markup: _includes/panel.html, _includes/components/sidebar.html, _includes/panel-toggles.html
+// Behavior: assets/js/panel-toggle.js
+// Per-side settings: $panels in _helpers.scss
+// Sizes: _settings.scss
 :root {
   --left-w: #{$sidebar-width}; // Left Sidebar Width
   --left-min: #{$sidebar-width}; // Minimum Left Margin
