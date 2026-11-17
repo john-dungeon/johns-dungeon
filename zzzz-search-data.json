@@ -18,7 +18,7 @@ permalink: /assets/js/search-data.json
 {%- endif -%}
 {%- for pages in pages_array -%}
   {%- for page in pages -%}
-    {%- if page.title and page.search_exclude != true -%}
+    {%- if page.title and page.search_exclude != true and page.locked != true -%}
       {%- assign page_content = page.content -%}
       {%- assign heading_level = site.search.heading_level | default: 2 -%}
       {%- for j in (2..heading_level) -%}
@@ -78,7 +78,7 @@ permalink: /assets/js/search-data.json
 {%- assign sx_default_fields = "description" | split: "," -%}
 {%- assign sx_pages = site.pages | where_exp: "p", "p.table" -%}
 {%- for sx_page in sx_pages -%}
-  {%- if sx_page.search_exclude == true -%}{%- continue -%}{%- endif -%}
+  {%- if sx_page.search_exclude == true or sx_page.locked == true -%}{%- continue -%}{%- endif -%}
   {%- assign sx_cfg = site.data.tables[sx_page.table] -%}
   {%- assign sx_fields = sx_cfg.search_fields | default: sx_default_fields -%}
   {%- assign sx_name_key = sx_cfg.columns.first.key -%}
