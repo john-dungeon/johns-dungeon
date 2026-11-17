@@ -26,8 +26,6 @@ html[data-lock="pending"] .main { visibility: hidden; }
   line-height: 1.1;
 }
 
-.lock-prompt { margin: 0; }
-
 .lock-input {
   @include outlined;
   box-sizing: border-box;
