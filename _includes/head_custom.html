@@ -2,9 +2,14 @@
 <link rel="icon" type="image/webp" href="{{ '/assets/favicon.webp' | relative_url }}">
 <link rel="apple-touch-icon" href="{{ '/assets/favicon.webp' | relative_url }}">
 
-<!-- VISIT (must come first: it may reset what the theme and text size scripts read) -->
+<!-- VISIT -->
 <script>window.SITE_SESSION = { timeout: {{ site.data.session.timeout | jsonify }}, reset: {{ site.data.session.reset | jsonify }}, gate: {{ site.data.gate.enabled | jsonify }} };</script>
 <script src="{{ '/assets/js/session.js' | relative_url }}"></script>
+
+<!-- LOCK -->
+{%- if page.locked %}
+<script>document.documentElement.dataset.lock = 'pending';</script>
+{%- endif %}
 
 <!-- THEME -->
 <script>window.SITE_THEMES = {{ site.data.themes | jsonify }}; window.SITE_DEFAULT_THEME = {{ site.color_scheme | jsonify }}; window.SITE_ROOT = {{ '/' | relative_url | jsonify }};</script>
@@ -17,14 +22,14 @@
 <script>window.SITE_BUILD = {{ site.time | date: "%s" | jsonify }};</script>
 <script src="{{ '/assets/js/effects-snapshot.js' | relative_url }}"></script>
 
-<!-- PANELS (--main-left is the one length every panel follows; registering it lets the browser animate it) -->
+<!-- PANELS -->
 <style>@property --main-left { syntax: "<length>"; inherits: true; initial-value: 0px; }</style>
 {%- if page.outline %}
 <script>document.documentElement.classList.add('has-right');</script>
 {%- endif %}
 
 <!-- SITE DATA FOR SCRIPTS -->
-<script>window.SITE_STRINGS = {{ site.data.strings | jsonify }}; window.SITE_LISTS = {{ site.data.lists | jsonify }}; window.SITE_AUDIO = {{ site.data.audio | jsonify }}; window.SITE_INTERACTIVE = {{ site.data.interactive | join: ", " | jsonify }};</script>
+<script>window.SITE_STRINGS = {{ site.data.strings | jsonify }}; window.SITE_LISTS = {{ site.data.lists | jsonify }}; window.SITE_AUDIO = {{ site.data.audio | jsonify }}; window.SITE_INTERACTIVE = {{ site.data.interactive | join: ", " | jsonify }}; window.SITE_LOCKED = {{ site.pages | where_exp: "p", "p.locked == true" | map: "url" | jsonify }};</script>
 
 <!-- SCRIPTS -->
 <script src="{{ '/assets/js/panel-toggle.js' | relative_url }}"></script>
