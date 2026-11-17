@@ -1,0 +1,4 @@
+# Locked Pages
+password_hash: "5c95538907fb47cf2bb9057e81bd39e8e74f28bca76338088c4c37abe10b976a"
+
+# Hash Command: crypto.subtle.digest('SHA-256', new TextEncoder().encode('PASSWORD')).then(b => console.log([...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('')))
