@@ -2,7 +2,7 @@
 <dialog id="lock" class="lock-dialog" data-hash="{{ site.data.lock.password_hash | escape }}" aria-label="{{ lck_ui.lock_label | escape }}">
   <form class="lock-form">
     <h2 class="lock-title">{{ lck_ui.lock_title }}</h2>
-    <p class="lock-prompt">{{ lck_ui.lock_prompt }}</p>
+    {% include quote.html text=lck_ui.lock_prompt %}
     <input id="lock-input" class="lock-input" type="password" autocomplete="off" aria-label="{{ lck_ui.lock_input | escape }}" required autofocus>
     <div class="lock-actions">
       <button type="button" id="lock-cancel">{{ lck_ui.lock_cancel }}</button>
