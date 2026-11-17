@@ -4,6 +4,14 @@
 gate_label: Entrance
 gate_enter: Enter Dungeon
 
+# Locked Pages
+lock_label: Locked Page
+lock_title: Sealed
+lock_prompt: "This part of the archive is restricted access, my friend. Speak the password to proceed."
+lock_input: Password
+lock_cancel: Cancel
+lock_enter: Enter
+
 # Navigation, Footer
 nav_footer: "It's rather dark down here... Try not to get lost, my friend."
 nav_toggle: Toggle Nav Bar
