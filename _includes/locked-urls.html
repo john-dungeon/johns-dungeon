@@ -1,0 +1,14 @@
+{%- assign lu_urls = "" | split: "" -%}
+{%- for lu_page in site.pages -%}
+  {%- assign lu_node = lu_page -%}
+  {%- for lu_step in (1..10) -%}
+    {%- if lu_node.locked == true -%}
+      {%- assign lu_urls = lu_urls | push: lu_page.url -%}
+      {%- break -%}
+    {%- endif -%}
+    {%- unless lu_node.parent -%}{%- break -%}{%- endunless -%}
+    {%- assign lu_node = site.pages | where: "title", lu_node.parent | first -%}
+    {%- unless lu_node -%}{%- break -%}{%- endunless -%}
+  {%- endfor -%}
+{%- endfor -%}
+{{- lu_urls | jsonify -}}
