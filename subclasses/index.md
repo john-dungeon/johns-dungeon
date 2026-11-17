@@ -8,4 +8,5 @@ catalog:
   grand_parent: Subclasses
   group_by: parent
 quote: Welcome to the Subclasses aisle. As you peruse my collection, you might notice that there lies a surplus of Monk subclasses. Why is that? Well, it's because Monk is my favorite class. Simple as that.
+locked: true
 ---
