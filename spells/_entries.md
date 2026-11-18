@@ -287,6 +287,96 @@ description: A dramatic wind subtly enhances your natural charm, even while indo
 
 ---
 
+name: Ecladion’s Compelled Duel
+level: 3
+school: Enchantment
+classes: Paladin
+casting_time: Action
+ritual: true
+range: 30 feet
+components: V
+duration: 1 minute
+tags: Area, Buff, Condition:Incapacitated, Damage:Psychic, Debuff, Esoteric, Saving Throw:Wisdom
+description: You issue a challenge to a willing creature within range and commence an honorable duel. You and the target are considered duelists for the duration and are subject to the following effects.
+
+***Dueling.*** A duelist can’t willingly target a creature other than the other duelist with an attack roll or a damaging effect. If a duelist uses a damaging effect that targets creatures in an area of effect, one of the targets must be the other duelist.
+
+***Resolve.*** A duelist can’t willingly move to a space that is more than 60 feet away from the other duelist. If a duelist starts its turn further than 60 feet away from the other duelist, it must spend its movement on that turn to move toward the other duelist by the safest route if it can see the other duelist.
+
+***Unimpeded.*** Any creature other than a duelist that targets a duelist with an attack roll or an effect must succeed on a Wisdom saving throw or either choose a new target that isn’t a duelist or lose the attack or effect. This spell doesn't protect a duelist from areas of effect.
+
+***Restriction.*** When you cast the spell, you can impose any number of restrictions from the list below if the other duelist agrees to them:
+
+- **No Death.** If a duelist kills the other duelist, it takes 6d10 Psychic damage and loses the duel.
+- **No Spells.** If a duelist casts a spell, it loses the duel.
+- **No Weapons.** If a duelist makes an attack roll with a weapon, it loses the duel.
+
+***Victory Condition.*** When you cast the spell, you can impose one victory condition from the list below if the other duelist agrees to it:
+
+- **First Blood.** When a duelist becomes Bloodied, it loses the duel. You can’t impose this victory condition if one of the duelists is already Bloodied.
+- **King of the Hill.** Designate an area no larger than 30 feet on each side. When a duelist is moved to a space outside of that area, it loses the duel.
+- **Point Score.** Designate a point goal, which is a number between 3 and 10. When a duelist is hit by an attack roll from the other duelist a number of times equal to the point goal, it loses the duel.
+
+A duelist loses the duel if it is reduced to 0 Hit Points. Alternatively, a duelist can surrender (no action required), losing the duel automatically. When a duelist loses the duel, it has the Incapacitated condition until the end of its next turn.
+
+---
+
+name: Elemental Blast
+level: Cantrip
+school: Evocation
+classes: Druid, Sorcerer, Wizard
+casting_time: Action
+range: 30 feet
+components: V, S
+duration: Instantaneous
+tags: Attack:Ranged, Attack:Spell, Damage:Acid, Damage:Bludgeoning, Damage:Cold, Damage:Fire, Damage:Lightning, Damage:Necrotic, Damage:Psychic, Damage:Radiant, Damage:Slashing, Damage:Thunder, Debuff, Esoteric, Forced Movement, Light:Dim Light, Temporary Hit Points, Upcast
+description: You fire off an element at a creature or an object within range. Make a ranged spell attack against the target. On a hit, the target suffers one of the following effects of your choice.
+
+***Earth.*** The target takes 1d6 Bludgeoning damage from the attack, and if the target is Large or smaller, you can push it up to 5 feet away from you.
+
+***Fire.*** The target takes 1d8 Fire damage from the attack.
+
+***Frost.*** The target takes 1d4 Cold damage from the attack, and its Speed is reduced by 10 feet until the start of your next turn.
+
+***Light.*** The target takes 1d6 Radiant damage from the attack, and until the start of your next turn, the target emits Dim Light in a 5-foot radius and can't benefit from the Invisible condition.
+
+***Lightning.*** The target takes 1d4 Lightning damage from the attack, and another creature or object of your choice that you can see within 5 feet of the target also takes 1d4 Lightning damage.
+
+***Metal.*** The target takes 1d4 Slashing damage from the attack and 1d4 Slashing damage at the end of its next turn.
+
+***Shadow.*** The target takes 1d4 Psychic damage from the attack, and the next attack roll it makes before the end of its next turn has Disadvantage.
+
+***Water.*** The target takes 1d6 Acid damage from the attack, and if the target is Large or smaller, you can pull it up to 5 feet closer to you.
+
+***Wind.*** The target takes 1d6 Thunder damage from the attack, and the target can't make Opportunity Attacks until the start of its next turn.
+
+***Wood.*** The target takes 1d4 Necrotic damage from the attack, and you gain Temporary Hit Points equal to the amount of Necrotic damage dealt.
+
+***Cantrip Upgrade.*** The damage increases by one die when you reach levels 5 (2d4, 2d6, or 2d8), 11 (3d4, 3d6, or 3d8), and 17 (4d4, 4d6, or 4d8). Only the initial damage increases for Lightning and Metal.
+
+---
+
+name: Enslave Dead
+level: 7
+school: Necromancy
+classes: Cleric, Warlock, Wizard
+casting_time: Action
+range: Touch
+components: V, S, M
+material: a pufferfish
+duration: Concentration
+concentration_max: 1 minute
+tags: Condition:Charmed, Debuff, Esoteric, Revival, Summon
+description: You touch a creature that has died within the last minute and isn’t an Undead. That creature revives with all of its Hit Points, its creature type changes to Undead, and it has the Charmed condition for the duration. The Undead is Hostile to everyone, including you.
+
+You have a telepathic link with the Charmed Undead while the two of you are on the same plane of existence. On your turn, you can use this link to issue commands to the Undead (no action required), such as "Attack that creature," "Move over there," or "Fetch that object." The Undead does its best to obey on its turn. If it completes an order and doesn't receive further direction from you, it acts and moves as it likes, focusing on killing everything it can see.
+
+You can command the Undead to take a Reaction, but you must take your own Reaction to do so.
+
+The Undead crumbles to dust 1 minute after you cast this spell or when it dies. If the spell ends, the Undead is no longer Charmed by you, but it persists until the end of the minute.
+
+---
+
 name: Erect
 level: Cantrip
 school: Transmutation
