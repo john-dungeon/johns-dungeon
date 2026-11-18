@@ -114,9 +114,11 @@ casting_time: Action
 range: Touch
 components: S, M
 material: a sharp object
-duration: Instantaneous
-tags: Damage:Necrotic, Debuff, Esoteric, Upcast
-description: You extract a portion of blood or flesh from a willing creature you touch. The target takes 4d10 Necrotic damage, which can't be reduced or prevented in any way. The target's Hit Point maximum decreases by an amount equal to the Necrotic damage taken. The extracted blood or flesh then transforms into an amount of GP equal to the Necrotic damage dealt.
+duration: 3 days
+tags: Curse, Damage:Necrotic, Debuff, Esoteric, Upcast
+description: You extract a portion of blood or flesh from a willing creature you touch. The target takes 4d10 Necrotic damage, which can't be reduced or prevented in any way, and becomes cursed for the duration. Until the curse ends, the target's Hit Point maximum is reduced by an amount equal to the Necrotic damage taken. The extracted blood or flesh then transforms into an amount of GP equal to the Necrotic damage dealt.
+
+If the target is already cursed by this spell, the previous curse isn't replaced by a new one. Instead, the previous curse's duration is reset, and the Hit Point maximum reduction of this spell's most recent casting is added to the curse's total Hit Point maximum reduction.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 2d10 for each spell slot level above 1.
 
