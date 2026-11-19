@@ -1,16 +1,8 @@
 // Markup: _includes/search-table.html
 // Behavior: assets/js/search-table/...
+// Markers: _markers.scss
 $slider-thumb-size: 1rem;
 $slider-height: 1.5rem;
-
-// Rainbow Marker
-$rainbow-speed: 4s; // Loop Duration
-$rainbow-width: 3em; // Gradient Strip Length
-$rainbow-colors: #ff4d4d, #ffa64d, #ffe14d, #5ce65c, #4dd2ff, #6b6bff, #c77dff, #ff4d4d; // Color Sequence (last color must match the first)
-
-@keyframes rainbow-slide {
-  to { background-position-x: $rainbow-width; }
-}
 
 @mixin slider-thumb {
   box-sizing: border-box;
@@ -324,30 +316,6 @@ $rainbow-colors: #ff4d4d, #ffa64d, #ffe14d, #5ce65c, #4dd2ff, #6b6bff, #c77dff, 
   padding: 0.3rem 0.9rem;
   font-size: 0.85rem;
   @include accent-on-hover;
-}
-
-// Colored Marker
-.st-marker {
-  margin-left: 0.4em;
-  color: $link-color;
-  font-size: 0.9em;
-  cursor: help;
-
-  @each $name, $color in $marker-colors {
-    &[data-marker="#{$name}"] { color: $color; }
-  }
-
-// Tribute Marker
-  &[data-marker="tribute"] {
-    background: linear-gradient(90deg, #{$rainbow-colors}) 0 0 / #{$rainbow-width} 100% repeat-x;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: rainbow-slide $rainbow-speed linear infinite;
-
-    @media (prefers-reduced-motion: reduce) { animation: none; }
-  }
 }
 
 // Missing Entry Values
