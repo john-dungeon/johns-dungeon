@@ -1,7 +1,7 @@
 # Shared Lists
 abilities: [Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma]
 areas: [Cone, Cube, Cylinder, Emanation, Line, Sphere, Square]
-attacks: [Melee, Ranged, Spell]
+attacks: [Melee, Melee Spell, Ranged, Ranged Spell]
 bonuses: [Ability Check, Armor Class, Attack, Damage, Hit Points, Saving Throw, Speed]
 classes: [Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard]
 conditions: [Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Incapacitated, Invisible, Paralyzed, Petrified, Poisoned, Prone, Restrained, Stunned, Unconscious]
