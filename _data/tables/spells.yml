@@ -6,7 +6,7 @@ auto_tags:
   - { tag: Esoteric, field: esoteric, equals: "true" }
   - { tag: Setting-Specific, field: settings }
 markers:
-  - symbol: "𖣠"
+  - symbol: "𖦹"
     tag: Circle
     label: Circle Spell
   - symbol: "𖤐"
