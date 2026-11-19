@@ -1,8 +1,10 @@
 template: spell
 noun: spells
-tags: [universal, Bonus, Circle, Cleanse, Concentration, Cover, Curse, Difficult Terrain, Esoteric, Requires Sight, Shape-Shift, Upcast]
+tags: [universal, Bonus, Circle, Cleanse, Concentration, Cover, Curse, Difficult Terrain, Esoteric, Requires Sight, Setting-Specific, Shape-Shift, Upcast]
 auto_tags:
   - { tag: Concentration, field: duration, equals: Concentration }
+  - { tag: Esoteric, field: esoteric, equals: "true" }
+  - { tag: Setting-Specific, field: settings }
 markers:
   - symbol: "⛧"
     tag: Circle
