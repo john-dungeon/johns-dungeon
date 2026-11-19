@@ -464,6 +464,26 @@ description: A barrier of magical glass protects you and shatters from the incom
 
 ---
 
+name: Summon Greater Lemon
+level: 2
+school: Conjuration
+classes: Warlock, Wizard
+casting_time: 8 hours
+ritual: true
+range: 30 feet
+area: 10-foot Cube
+components: V, S, M
+material: a lemon and candles worth 25+ GP, both of which the spell consumes
+duration: Instantaneous
+tags: Area:Cube, Circle, Esoteric
+description: You create an enormous lemon that can fit in a 10-foot Cube on the ground within range. Any uneaten parts of the lemon spontaneously crumble to smoldering ashes after 7 days.
+
+***Casting as a Circle Spell.*** If the spell is cast as a Circle spell, its casting time decreases by 1 hour for each secondary caster who participates in its casting, to a minimum casting time of 1 hour.
+
+> *"This spell is the result of its creator misspelling one sigil in its formula, but only realizing the mistake when the spell was completed, and then being too lazy to fix the error."*
+
+---
+
 name: Wind Cutter
 level: Cantrip
 school: Evocation
