@@ -11,6 +11,7 @@ markers:
     label: Circle Spell
   - symbol: "𖤐"
     tag: Esoteric
+    color: esoteric
     label: Esoteric Spell
 columns:
   - key: name
