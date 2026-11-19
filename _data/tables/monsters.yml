@@ -19,9 +19,11 @@ auto_tags:
 markers:
   - symbol: "𖤓"
     tag: Legendary
+    color: legendary
     label: Legendary Monster
   - symbol: "⚠︎"
     tag: Boss
+    color: boss
     label: Boss Monster
 columns:
   - key: name
