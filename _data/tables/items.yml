@@ -11,6 +11,7 @@ markers:
     label: Magic Item
   - symbol: "⧨"
     tag: Variant
+    color: text
     label: Variant Item
 columns:
   - key: name
