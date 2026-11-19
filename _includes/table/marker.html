@@ -1,7 +1,11 @@
 {%- comment -%}
   Params: marker, packed, tags.
-  Marker settings: symbol, tag, color_by,
-    label, label_plural (optional; used instead of label when color_by holds more than one value).
+  Settings:
+    symbol (optional; defaults to ✦)
+    tag (optional; tag)
+    label, label_plural (tooltip text; label_plural for when color_by holds more than one value)
+    color (optional; token)
+    color_by (optional; field)
 {%- endcomment -%}
 
 {%- assign mk = include.marker -%}
@@ -24,6 +28,6 @@
     {%- else -%}{%- assign mk_text = mk_value -%}
     {%- endif -%}
   {%- endif -%}
-  {%- assign mk_color = mk_value | default: mk.tag | downcase -%}
-  <span class="st-marker" role="img" aria-label="{{ mk_text | escape }}"{% include tooltip.html text=mk_text %} data-marker="{{ mk_color | escape }}">{{ mk.symbol | default: "✦" }}</span>
+  {%- assign mk_color = mk.color | default: mk_value | downcase -%}
+  <span class="st-marker" role="img" aria-label="{{ mk_text | escape }}"{% include tooltip.html text=mk_text %}{% if mk_color != "" %} data-color="{{ mk_color | escape }}"{% endif %}>{{ mk.symbol | default: "✦" }}</span>
 {%- endif -%}
