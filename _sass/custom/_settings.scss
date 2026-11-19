@@ -8,17 +8,27 @@ $statblock-width: 42rem !default; // Widest Stat Block Pop-Up
 $toc-width: 240px !default; // Right Sidebar Width
 $toggle-size: 2rem !default; // Sidebar Hide/Show Button Size
 $toggle-inset: 1rem !default; // Gap Around The Sidebar Hide/Show Buttons
+
+// Markers
 $marker-colors: (
+  // Rarities
   "common": #8c969b,
   "uncommon": #73d746,
   "rare": #50a0f5,
   "very rare": #c850fa,
   "legendary": #ffc846,
   "artifact": #fa2323,
+  "varies": $body-text-color,
+  // Tags
   "boss": #e63946,
-  "esoteric": #b497e8
-) !default; // Marker Symbol Colors (by rarity or tag name, lowercase)
-$text-colored-markers: ("circle", "variant", "varies") !default; // Markers Matching Body Text Color
+  "esoteric": #b497e8,
+  // Other
+  "highlight": $link-color
+) !default;
+$marker-rainbow-speed: 4s !default; // Rainbow Marker Loop Duration
+$marker-rainbow-width: 3em !default; // Rainbow Marker Gradient Strip Length
+$marker-rainbow-colors: (#ff4d4d, #ffa64d, #ffe14d, #5ce65c, #4dd2ff, #6b6bff, #c77dff, #ff4d4d) !default; // Rainbow Marker Color Sequence (last color must match the first)
+
 $panel-opacity: 0.7 !default; // Page Panels Over The Background Image (1 = solid)
 $parallax-margin: 3% !default; // Extra Background Size Past Each Screen Edge
 $parallax-range: 2.5% !default; // Furthest Background Shift
@@ -27,7 +37,7 @@ $gate-blackout-color: #000000 !default; // Entrance Screen Fade-To-Black Color
 $gate-z: 1000 !default; // Entrance Screen Height
 $scrollbar-z: $gate-z - 1 !default; // Scrollbar Height
 $scrollbar-size: 0.75rem !default; // Scrollbar Thickness
-$scrollbar-gap: 0.25rem !default; // Extra Room Left Beside A Sidebar Scrollbar
+$scrollbar-gap: 0.25rem !default; // Extra Room Left of a Sidebar Scrollbar
 
 // Theme
 $theme-body-font: null !default; // Body Text Font
