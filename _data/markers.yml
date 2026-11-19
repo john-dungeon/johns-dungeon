@@ -1,6 +1,8 @@
 # Shared Markers
+# Settings: _includes/table/marker.html (colors: "color" or "color_by"; palette in _sass/custom/_settings.scss)
 - symbol: "᯽"
   tag: Tribute
+  color: rainbow
   label: Tribute
 - symbol: "🌐︎"
   tag: Setting-Specific
