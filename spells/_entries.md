@@ -395,6 +395,24 @@ description: You touch a willing creature. The creature loses the Prone conditio
 
 ---
 
+name: Ethos’s Replicate Identity
+level: 2
+school: Transmutation
+classes: Bard, Sorcerer, Warlock
+casting_time: Action
+ritual: true
+range: Touch
+components: V, S, M
+material: a Disguise Kit
+duration: Concentration
+concentration_max: 1 hour
+tags: Buff, Esoteric, Shape-Shift
+description: When you cast this spell and as a Magic action before the spell ends, you can touch a Humanoid and shape-shift to change your appearance and your voice to match that Humanoid. The spell fails if the Humanoid has a different arrangement of limbs than you; for example, you might have two arms and two legs, but the Humanoid might have four arms and two legs. Your game statistics, clothing, and equipment don’t change as a result of shape-shifting.
+
+Until the spell ends, you have Advantage on Charisma (Deception) checks.
+
+---
+
 name: Freeze
 level: 3
 school: Evocation
