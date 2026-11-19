@@ -9,11 +9,6 @@ markers:
     tag: Magic Item
     color_by: rarity
     label: Magic Item
-  - symbol: "☁"
-    tag: Setting-Specific
-    color_by: settings
-    label: Setting
-    label_plural: Settings
   - symbol: "⧨"
     tag: Variant
     label: Variant Item
