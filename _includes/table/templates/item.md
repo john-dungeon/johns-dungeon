@@ -46,23 +46,12 @@
 {%- assign it_line2 = it_cost_text -%}
 {%- if it_cost_text != "" and it_weight_text != "" -%}{%- assign it_line2 = it_line2 | append: ", " -%}{%- endif -%}
 {%- assign it_line2 = it_line2 | append: it_weight_text -%}
-{%- assign it_settings_line = "" -%}
-{%- capture it_settings_csv %}{% include table/list.html csv=it_settings sep="," %}{% endcapture -%}
-{%- if it_settings_csv != "" -%}
-  {%- capture it_settings_text %}{% include table/join-words.html items=it_settings_csv word="and" %}{% endcapture -%}
-  {%- assign it_settings_count = it_settings_csv | split: "," | size -%}
-  {%- if it_settings_count == 1 -%}
-    {%- assign it_settings_line = "This item can only be found in the " | append: it_settings_text | append: " setting." -%}
-  {%- else -%}
-    {%- assign it_settings_line = "This item can only be found in the following settings: " | append: it_settings_text | append: "." -%}
-  {%- endif -%}
-  {%- if it_note_settings != "" -%}{%- assign it_settings_line = it_settings_line | append: " " | append: it_note_settings -%}{%- endif -%}
-{%- endif -%}
+{%- capture it_settings_line %}{% include table/setting-note.html kind="item" settings=it_settings note=it_note_settings %}{% endcapture -%}
 {%- capture it_nl %}
 {% endcapture -%}
 {%- assign it_notes = "" -%}
 {%- if it_settings_line != "" -%}
-  {%- assign it_notes = "> ***Setting-Specific.*** " | append: it_settings_line -%}
+  {%- assign it_notes = "> " | append: it_settings_line -%}
 {%- endif -%}
 {%- assign it_variant_l = it_variant | downcase -%}
 {%- if it_variant_l == "true" and it_note_variant != "" -%}
