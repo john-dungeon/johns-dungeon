@@ -8,6 +8,9 @@
 {%- assign st_cols = st_cfg.columns -%}
 {%- assign st_template = "table/templates/" | append: st_cfg.template | append: ".md" -%}
 
+{%- assign st_no_markers = "" | split: "" -%}
+{%- assign st_markers = st_cfg.markers | default: st_no_markers | concat: site.data.markers -%}
+
 {%- capture st_marked_entries %}{% include table/split-entries.html file="_entries.md" %}{% endcapture -%}
 {%- assign st_entry_texts = st_marked_entries | split: "¶¶" -%}
 
@@ -20,7 +23,7 @@
   {%- capture st_packed %}{% include table/parse-entry.html text=st_entry_text %}{% endcapture -%}
   {%- capture st_tags_csv %}{% include table/tags.html packed=st_packed rules=st_cfg.auto_tags %}{% endcapture -%}
   {%- capture st_marker_html -%}
-    {%- for st_marker_cfg in st_cfg.markers -%}
+    {%- for st_marker_cfg in st_markers -%}
       {%- include table/marker.html marker=st_marker_cfg packed=st_packed tags=st_tags_csv -%}
     {%- endfor -%}
   {%- endcapture -%}
