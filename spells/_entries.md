@@ -137,7 +137,6 @@ esoteric: true
 classes: Bard, Sorcerer, Wizard
 casting_time: Action
 range: 60 feet
-area: 5-foot-radius Sphere
 components: V, S, M
 material: a bell
 duration: Instantaneous
@@ -155,7 +154,6 @@ esoteric: true
 classes: Sorcerer, Wizard
 casting_time: Action
 range: 60 feet
-area: 10-foot-radius Sphere
 components: V, S, M
 material: a diamond worth 50+ GP
 duration: Concentration
@@ -278,7 +276,6 @@ classes: Artificer, Druid, Ranger, Wizard
 casting_time: Action
 ritual: true
 range: Self
-area: 30-foot Emanation
 components: V, S, M
 material: a metal lock
 duration: Concentration
@@ -442,7 +439,6 @@ esoteric: true
 classes: Druid, Sorcerer, Warlock, Wizard
 casting_time: Action
 range: 120 feet
-area: 20-foot Cube
 components: V, S, M
 material: a snowball
 duration: Concentration
