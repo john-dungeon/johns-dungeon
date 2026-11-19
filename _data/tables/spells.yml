@@ -50,9 +50,6 @@ columns:
       - Sight
       - Special
       - Unlimited
-    note:
-      field: area
-      format: " (%s)"
   - key: duration
     label: Duration
     type: measure
