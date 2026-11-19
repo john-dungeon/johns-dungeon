@@ -23,7 +23,7 @@ $marker-colors: (
   "boss": #e63946,
   "esoteric": #b497e8,
   // Other
-  "highlight": $link-color
+  "text": $body-text-color
 ) !default;
 $marker-rainbow-speed: 4s !default; // Rainbow Marker Loop Duration
 $marker-rainbow-width: 3em !default; // Rainbow Marker Gradient Strip Length
