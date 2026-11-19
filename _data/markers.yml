@@ -6,6 +6,6 @@
   label: Tribute
 - symbol: "🌐︎"
   tag: Setting-Specific
-  color_by: settings
+  color: highlight
   label: Setting
   label_plural: Settings
