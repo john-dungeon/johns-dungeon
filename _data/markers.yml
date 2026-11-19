@@ -2,3 +2,8 @@
 - symbol: "᯽"
   tag: Tribute
   label: Tribute
+- symbol: "☁"
+  tag: Setting-Specific
+  color_by: settings
+  label: Setting
+  label_plural: Settings
