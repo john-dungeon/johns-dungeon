@@ -1,0 +1,27 @@
+// Markup: _includes/table/marker.html
+// Settings: $marker-colors and $marker-rainbow-* in _settings.scss
+.st-marker {
+  margin-left: 0.4em;
+  color: $link-color; // Default
+  font-size: 0.9em;
+  cursor: help;
+
+  @each $token, $color in $marker-colors {
+    &[data-color="#{$token}"] { color: $color; }
+  }
+
+  &[data-color="rainbow"] {
+    background: linear-gradient(90deg, #{$marker-rainbow-colors}) 0 0 / #{$marker-rainbow-width} 100% repeat-x;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: marker-rainbow-slide $marker-rainbow-speed linear infinite;
+
+    @media (prefers-reduced-motion: reduce) { animation: none; }
+  }
+}
+
+@keyframes marker-rainbow-slide {
+  to { background-position-x: $marker-rainbow-width; }
+}
