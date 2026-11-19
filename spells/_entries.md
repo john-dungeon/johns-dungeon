@@ -130,6 +130,7 @@ school: Evocation
 classes: Bard, Sorcerer, Wizard
 casting_time: Action
 range: 60 feet
+area: 5-foot-radius Sphere
 components: V, S, M
 material: a bell
 duration: Instantaneous
@@ -146,6 +147,7 @@ school: Evocation
 classes: Sorcerer, Wizard
 casting_time: Action
 range: 60 feet
+area: 10-foot-radius Sphere
 components: V, S, M
 material: a diamond worth 50+ GP
 duration: Concentration
@@ -471,12 +473,11 @@ classes: Warlock, Wizard
 casting_time: 8 hours
 ritual: true
 range: 30 feet
-area: 10-foot Cube
 components: V, S, M
 material: a lemon and candles worth 25+ GP, both of which the spell consumes
-duration: Instantaneous
+duration: 7 days
 tags: Area:Cube, Circle, Esoteric
-description: You create an enormous lemon that can fit in a 10-foot Cube on the ground within range. Any uneaten parts of the lemon spontaneously crumble to smoldering ashes after 7 days.
+description: You create an enormous lemon that can fit in a 10-foot Cube on the ground within range. Any uneaten parts of the lemon spontaneously crumble to smoldering ashes at the end of the duration.
 
 ***Casting as a Circle Spell.*** If the spell is cast as a Circle spell, its casting time decreases by 1 hour for each secondary caster who participates in its casting, to a minimum casting time of 1 hour.
 
