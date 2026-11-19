@@ -58,7 +58,7 @@ components: S, M
 material: a key
 duration: Concentration
 concentration_max: 1 hour
-tags: Area:Cube, Esoteric, Upcast
+tags: Area:Cube, Esoteric, Tribute, Upcast
 description: You touch one willing creature other than you and transport it into an extradimensional box for the duration. The box is a 10-foot Cube that exists on a different but harmless plane of existence.
 
 You and the creature can communicate telepathically. You can modify this telepathic connection (no action required), either allowing the creature to see through your eyes and hear what you hear or revoking this ability.
