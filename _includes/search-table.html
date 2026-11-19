@@ -9,7 +9,8 @@
 {%- assign st_template = "table/templates/" | append: st_cfg.template | append: ".md" -%}
 
 {%- assign st_no_markers = "" | split: "" -%}
-{%- assign st_markers = st_cfg.markers | default: st_no_markers | concat: site.data.markers -%}
+{%- assign st_own_markers = st_cfg.markers | default: st_no_markers -%}
+{%- assign st_markers = site.data.markers | concat: st_own_markers -%}
 
 {%- capture st_marked_entries %}{% include table/split-entries.html file="_entries.md" %}{% endcapture -%}
 {%- assign st_entry_texts = st_marked_entries | split: "¶¶" -%}
