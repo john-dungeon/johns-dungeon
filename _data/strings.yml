@@ -72,3 +72,7 @@ option_more: "Show {label} subtags"
 state_off: not filtered
 state_include: included
 state_exclude: excluded
+
+# Setting-Specific Notes
+setting_note_one: "***Setting-Specific.*** This {kind} can only be found in the {settings} setting."
+setting_note_many: "***Setting-Specific.*** This {kind} can only be found in the following settings: {settings}."
