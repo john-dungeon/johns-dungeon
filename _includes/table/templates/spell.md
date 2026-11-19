@@ -1,5 +1,6 @@
 {%- capture sp_level %}{% include table/field.html packed=include.packed key="level" %}{% endcapture -%}
 {%- capture sp_school %}{% include table/field.html packed=include.packed key="school" %}{% endcapture -%}
+{%- capture sp_esoteric %}{% include table/field.html packed=include.packed key="esoteric" %}{% endcapture -%}
 {%- capture sp_classes %}{% include table/field.html packed=include.packed key="classes" %}{% endcapture -%}
 {%- capture sp_casting_time %}{% include table/field.html packed=include.packed key="casting_time" %}{% endcapture -%}
 {%- capture sp_condition %}{% include table/field.html packed=include.packed key="condition" %}{% endcapture -%}
@@ -10,6 +11,8 @@
 {%- capture sp_duration %}{% include table/field.html packed=include.packed key="duration" %}{% endcapture -%}
 {%- capture sp_concentration_max %}{% include table/field.html packed=include.packed key="concentration_max" %}{% endcapture -%}
 {%- capture sp_description %}{% include table/field.html packed=include.packed key="description" %}{% endcapture -%}
+{%- capture sp_settings %}{% include table/field.html packed=include.packed key="settings" %}{% endcapture -%}
+{%- capture sp_note_settings %}{% include table/field.html packed=include.packed key="note_settings" %}{% endcapture -%}
 
 {%- capture sp_classes_text %}{% include table/list.html csv=sp_classes sep=", " %}{% endcapture -%}
 
@@ -19,9 +22,9 @@
 {%- else -%}
   {%- assign sp_kind = "Level " | append: sp_level | append: " " | append: sp_school -%}
 {%- endif -%}
-{%- assign sp_tag_list = include.tags | downcase | split: "," -%}
 {%- assign sp_flag = "" -%}
-{%- if sp_tag_list contains "esoteric" -%}{%- assign sp_flag = " (Esoteric)" -%}{%- endif -%}
+{%- assign sp_esoteric_l = sp_esoteric | downcase -%}
+{%- if sp_esoteric_l == "true" -%}{%- assign sp_flag = " (Esoteric)" -%}{%- endif -%}
 {%- assign sp_header = sp_kind | append: sp_flag | append: " (" | append: sp_classes_text | append: ")" -%}
 
 {%- assign sp_cast = sp_casting_time -%}
@@ -44,6 +47,8 @@
 {%- if sp_duration_l == "concentration" and sp_concentration_max != "" -%}
   {%- assign sp_duration_text = sp_duration | append: ", up to " | append: sp_concentration_max -%}
 {%- endif -%}
+
+{%- capture sp_setting_line %}{% include table/setting-note.html kind="spell" settings=sp_settings note=sp_note_settings %}{% endcapture -%}
 {{ sp_header }}
 {: .italic }
 
@@ -53,3 +58,8 @@
 **Duration:** {{ sp_duration_text }}
 
 {{ sp_description }}
+{%- if sp_setting_line != "" %}
+
+> {{ sp_setting_line }}
+{: .italic }
+{%- endif %}
