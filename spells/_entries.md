@@ -501,7 +501,7 @@ description: You create an enormous lemon that can fit in a 10-foot Cube on the 
 
 ***Casting as a Circle Spell.*** If the spell is cast as a Circle spell, its casting time decreases by 1 hour for each secondary caster who participates in its casting, to a minimum casting time of 1 hour.
 
-> *"This spell is the result of its creator misspelling one sigil in its formula, but only realizing the mistake when the spell was completed, and then being too lazy to fix the error."*
+> *This spell is the result of its creator misspelling one sigil in its formula, but only realizing the mistake when the spell was completed, and then being too lazy to fix the error.*
 
 ---
 
