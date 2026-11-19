@@ -1,0 +1,20 @@
+{%- comment -%}
+  Setting-Specific Note
+  Params: kind (required), settings, note (optional)
+{%- endcomment -%}
+
+{%- capture sn_csv %}{% include table/list.html csv=include.settings sep="," %}{% endcapture -%}
+{%- if sn_csv != "" -%}
+  {%- capture sn_text %}{% include table/join-words.html items=sn_csv word="and" %}{% endcapture -%}
+  {%- assign sn_count = sn_csv | split: "," | size -%}
+  {%- if sn_count == 1 -%}
+    {%- assign sn_line = site.data.strings.setting_note_one -%}
+  {%- else -%}
+    {%- assign sn_line = site.data.strings.setting_note_many -%}
+  {%- endif -%}
+  {%- assign sn_line = sn_line | replace: "{kind}", include.kind | replace: "{settings}", sn_text -%}
+  {%- if include.note and include.note != "" -%}
+    {%- assign sn_line = sn_line | append: " " | append: include.note -%}
+  {%- endif -%}
+  {{- sn_line -}}
+{%- endif -%}
