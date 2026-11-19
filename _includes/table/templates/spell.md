@@ -10,9 +10,9 @@
 {%- capture sp_material %}{% include table/field.html packed=include.packed key="material" %}{% endcapture -%}
 {%- capture sp_duration %}{% include table/field.html packed=include.packed key="duration" %}{% endcapture -%}
 {%- capture sp_concentration_max %}{% include table/field.html packed=include.packed key="concentration_max" %}{% endcapture -%}
-{%- capture sp_description %}{% include table/field.html packed=include.packed key="description" %}{% endcapture -%}
 {%- capture sp_settings %}{% include table/field.html packed=include.packed key="settings" %}{% endcapture -%}
 {%- capture sp_note_settings %}{% include table/field.html packed=include.packed key="note_settings" %}{% endcapture -%}
+{%- capture sp_description %}{% include table/field.html packed=include.packed key="description" %}{% endcapture -%}
 
 {%- capture sp_classes_text %}{% include table/list.html csv=sp_classes sep=", " %}{% endcapture -%}
 
