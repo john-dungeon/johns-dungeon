@@ -8,7 +8,7 @@ components: V, S, M
 material: a severed arm and a book
 duration: Concentration
 concentration_max: 1 minute
-tags: Ability Check:Strength, Area:Sphere, Attack:Melee, Attack:Spell, Condition:Grappled, Condition:Restrained, Cover:Three-Quarters, Damage:Cold, Debuff, Esoteric, Requires Sight, Saving Throw:Constitution, Saving Throw:Dexterity, Summon, Upcast
+tags: Ability Check:Strength, Area:Sphere, Attack:Melee, Attack:Spell, Condition:Grappled, Condition:Restrained, Cover:Three-Quarters, Damage:Cold, Debuff, Esoteric, Requires Sight, Saving Throw:Constitution, Saving Throw:Dexterity, Summon, Tribute, Upcast
 description: You create a Large hand of frigid magical energy in an unoccupied space that you can see within range. The hand lasts for the duration, and it moves at your command, mimicking the movements of your hand.
 
 The hand is an object that has AC 13 and Hit Points equal to your Hit Points maximum. If it drops to 0 Hit Points, the spell ends. The hand occupies its space and grants creatures behind it Three-Quarters Cover.
@@ -26,25 +26,6 @@ A Restrained target or a creature that can reach it can take an action to make a
 **Shattering Hand.** The hand explodes into shards of ice, reducing itself to 0 Hit Points. Each creature in a 20-foot-radius Sphere centered on the hand must make a Dexterity saving throw. On a failed save, a target takes 6d8 Cold damage, or 3d8 Cold damage if the hand had half its Hit Points or fewer remaining when it exploded. On a successful save, a target takes half as much damage.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 2d8 for each spell slot level above 5.
-
----
-
-name: Alacron’s Death Strike
-level: 4
-school: Conjuration 
-classes: Ranger
-casting_time: Reaction
-condition: , which you take when you roll Initiative and are not surprised
-range: 60 feet
-components: S, M
-material: a Melee weapon worth 1+ SP
-duration: Instantaneous
-tags: Attack:Melee, Attack:Spell, Condition:Incapacitated, Condition:Stunned, Damage:Force, Debuff, Esoteric, Requires Sight, Saving Throw:Wisdom, Teleportation, Upcast
-description: You brandish the weapon used in the casting and then vanish to deal an opening death blow to one creature you can see within range. You teleport to an unoccupied space you can see within 5 feet of the target and make a melee spell attack against it. On a hit, the target takes 6d10 Force damage, and it must succeed on a Wisdom saving throw or have the Stunned condition until the end of its next turn.
-
-If the attack roll misses, you have the Incapacitated condition and your Speed is 0 until the end of your next turn, as you are struck with a terrible whiplash.
-
-***Using a Higher-Level Spell Slot.*** The damage increases by 1d10 for each spell slot level above 4.
 
 ---
 
@@ -255,6 +236,25 @@ description: A creature you touch takes 4d6 Slashing or Force damage (your choic
 
 ---
 
+name: Death Strike
+level: 4
+school: Conjuration 
+classes: Ranger
+casting_time: Reaction
+condition: , which you take when you roll Initiative and are not surprised
+range: 60 feet
+components: S, M
+material: a Melee weapon worth 1+ SP
+duration: Instantaneous
+tags: Attack:Melee, Attack:Spell, Condition:Incapacitated, Condition:Stunned, Damage:Force, Debuff, Esoteric, Requires Sight, Saving Throw:Wisdom, Teleportation, Upcast
+description: You brandish the weapon used in the casting and then vanish to deal an opening death blow to one creature you can see within range. You teleport to an unoccupied space you can see within 5 feet of the target and make a melee spell attack against it. On a hit, the target takes 6d10 Force damage, and it must succeed on a Wisdom saving throw or have the Stunned condition until the end of its next turn.
+
+If the attack roll misses, you have the Incapacitated condition and your Speed is 0 until the end of your next turn, as you are struck with a terrible whiplash.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d10 for each spell slot level above 4.
+
+---
+
 name: Detect Mimic
 level: 1
 school: Divination
@@ -406,7 +406,7 @@ components: V, S, M
 material: a Disguise Kit
 duration: Concentration
 concentration_max: 1 hour
-tags: Buff, Esoteric, Shape-Shift
+tags: Buff, Esoteric, Shape-Shift, Tribute
 description: When you cast this spell and as a Magic action before the spell ends, you can touch a Humanoid and shape-shift to change your appearance and your voice to match that Humanoid. The spell fails if the Humanoid has a different arrangement of limbs than you; for example, you might have two arms and two legs, but the Humanoid might have four arms and two legs. Your game statistics, clothing, and equipment don’t change as a result of shape-shifting.
 
 Until the spell ends, you have Advantage on Charisma (Deception) checks.
