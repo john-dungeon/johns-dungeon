@@ -17,7 +17,7 @@ auto_tags:
   - { prefix: Special Speed, field: speed, values: [special_speeds] }
   - { copy: true, field: note_type } # Creature Sub-Type
 markers:
-  - symbol: "★"
+  - symbol: "𖤓"
     tag: Legendary
     label: Legendary Monster
   - symbol: "⚠︎"
