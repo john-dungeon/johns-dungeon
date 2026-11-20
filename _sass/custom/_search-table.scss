@@ -162,11 +162,10 @@ $slider-height: 1.5rem;
 }
 
 .st-opt {
-  @include outlined-button(999px);
+  @include accent-button(999px);
   padding: 0.15rem 0.7rem;
   color: $nav-child-link-color;
   font-size: 0.85rem;
-  @include accent-on-hover;
 
 // Click States
   &[data-state="include"] {
@@ -297,10 +296,9 @@ $slider-height: 1.5rem;
 }
 
 .st-filter-clear {
-  @include outlined-button;
+  @include accent-button;
   padding: 0.3rem 0.9rem;
   font-size: 0.85rem;
-  @include accent-on-hover;
 }
 
 // Missing Entry Values
