@@ -82,6 +82,7 @@ range: 90 feet
 components: V
 duration: Concentration
 concentration_max: 1 minute
+settings: Erisia
 tags: Damage[Acid, Cold, Fire, Lightning, Poison, Thunder], Debuff, Light[Dim Light], Requires Sight, Saving Throw[Dexterity], Upcast
 description: You magically mark one creature you can see within range with the power of elemental spirits. Until the spell ends, the target sheds Dim Light in a 10-foot radius and can't benefit from the Invisible condition. In addition, you have Advantage on attack rolls against the target. Each time you hit the target, the spell gains 1 charge, up to a maximum of 4 charges.
 
@@ -313,6 +314,7 @@ ritual: true
 range: 30 feet
 components: V
 duration: 1 minute
+settings: Erisia
 tags: Area, Buff, Condition[Incapacitated], Damage[Psychic], Debuff, Saving Throw[Wisdom]
 description: You issue a challenge to a willing creature within range and commence an honorable duel. You and the target are considered duelists for the duration and are subject to the following effects.
 
@@ -588,6 +590,154 @@ tags: Attack[Ranged Spell], Damage[Lightning], Upcast
 description: You unleash a bolt of electricity at a creature or an object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 Lightning damage, and electricity leaps from the target to a different creature or object of your choice that you can see within 10 feet of it. The second target takes 1d4 Lightning damage.
 
 ***Cantrip Upgrade.*** The damage increases by one die when you reach levels 5 (2d8 and 2d4), 11 (3d8 and 3d4), and 17 (4d8 and 4d4).
+
+---
+
+name: Liel's Aura Shell
+level: 3
+school: Abjuration
+esoteric: true
+classes: Cleric, Druid
+casting_time: Action
+range: Self
+components: V, S, M
+material: a turtle scute
+duration: Concentration
+concentration_max: 1 minute
+tags: Area[Emanation], Cover[Half, Three-Quarters], Debuff, Forced Movement, Saving Throw[Strength], Upcast, Tribute
+description: An unseeable aura of magical force radiates from you in a 10-foot Emanation for the duration. You and your allies in the Emanation have Half Cover.
+
+Whenever a creature enters the Emanation or starts its turn there, you can force it to make a Strength saving throw. On a failed save, the target's Speed is 0 until the end of the current turn and it is pushed straight away from you, ending in the nearest unoccupied space outside the Emanation. If no such space is available, it is pushed to the furthest unoccupied space from you within the Emanation. A creature makes this save only once per turn.
+
+***Using a Higher-Level Spell Slot.*** You and your allies in the Emanation have Three-Quarters Cover for a spell slot of level 6+.
+
+---
+
+name: Life Exchange
+level: 7
+school: Necromancy
+esoteric: true
+classes: Cleric, Warlock, Wizard
+casting_time: Action
+range: Touch
+components: V, S, M
+material: burning incense worth 100+ GP and a straw doll, both of which the spell consumes
+duration: Concentration
+concentration_max: 1 hour
+tags: Debuff, Revival
+description: When you cast the spell, you must touch a willing Humanoid. That Humanoid dies, and it can be revived only by a *True Resurrection* or a *Wish* spell. Then, if the spell lasts the entire duration, you can touch a different creature when the spell ends; if the creature is dead, it must have been dead no longer than 10 days. That creature is revived (if it was dead), regains all its Hit Points, and any of its missing body parts are regrown. In addition, its physical age is reduced by 30 years, to a minimum of 13 years.
+
+If the target was Undead when the spell was cast, it becomes a Humanoid or another appropriate creature type determined by the DM. The DM might also determine that the target loses any powers it had as an Undead and must use a different stat block.
+
+Coming back from the dead is an ordeal. If the target was revived with this spell, it takes a -4 penalty to D20 Tests. Every time the target finishes a Long Rest, the penalty is reduced by 1 until it becomes 0.
+
+---
+
+name: Ling's Cycle of Vitality
+level: 4
+school: Necromancy
+esoteric: true
+classes: Cleric
+casting_time: Action
+range: Self
+components: V, S, M
+material: a piece of shed snakeskin
+duration: Concentration
+concentration_max: 10 minutes
+tags: Area[Emanation], Damage[Necrotic], Healing, Saving Throw[Wisdom], Upcast, Tribute
+description: An aura radiates from you in a 30-foot Emanation for the duration. When you create the aura and at the start of each of your turns while it persists, you can force one creature in it to make a Wisdom saving throw, taking 4d8 Necrotic damage on a failed save or half as much damage on a successful one. Another creature of your choice in the Emanation then regains Hit Points equal to the Necrotic damage dealt.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d8 for each spell slot level above 4.
+
+---
+
+name: Magic Barrier
+level: 2
+school: Evocation
+esoteric: true
+classes: Artificer, Wizard
+casting_time: Action
+range: 60 feet
+components: V, S, M
+material: a pinch of powdered glass
+duration: Concentration
+concentration_max: 1 minute
+tags: Forced Movement, Summon
+description: You create a translucent wall of force at a point within range. The wall is a flat, 10-foot-by-10-foot, 1/4 inch thick surface that lasts for the duration. The wall appears in any orientation you choose, as a horizontal or vertical barrier or at an angle. It can be free-floating or resting on a solid surface.
+
+While the spell persists, you can teleport the wall to another point within range as a Magic action. You can also change the wall's orientation when you teleport the wall.
+
+If the wall cuts through a creature's space when it appears (when you cast the spell or teleport the wall), the creature is pushed to one side of the wall (it chooses which side).
+
+The wall is an object made of magical force that can be damaged and thus breached. It has AC 15 and 30 Hit Points, and it has Immunity to Poison and Psychic damage. Reducing the wall to 0 Hit Points destroys it, ending the spell.
+
+---
+
+name: Magic Clock
+level: Cantrip
+school: Divination
+esoteric: true
+classes: Artificer, Cleric, Druid, Ranger, Warlock, Wizard
+casting_time: Action
+range: 10 feet
+components: V, S
+duration: 1 minute
+description: You create a Tiny, intangible clock within range that shows the precise time, down to the second, at your location. The clock also shows your position relative to the positions of nearby celestial bodies, such as planets or moons in your planetary system. The clock vanishes at the end of the duration.
+
+---
+
+name: Magic Fists
+level: 1
+school: Evocation
+esoteric: true
+classes: Bard, Paladin, Ranger, Sorcerer, Wizard
+casting_time: Action
+range: 5 feet
+components: V, S
+duration: Instantaneous
+tags: Damage[Force], Upcast
+description: You create three floating fists of magical force. Each fist strikes a creature of your choice that you can see within range. A fist deals 1d6 + 1 Force damage to its target. The fists all strike simultaneously, and you can direct them to hit one creature or several.
+
+***Using a Higher-Level Spell Slot.*** The spell creates one more fist for each spell slot level above 1.
+
+---
+
+name: Mana Marble
+level: 1
+school: Conjuration
+esoteric: true
+classes: Artificer, Paladin, Ranger, Warlock
+casting_time: 1 minute
+range: Touch
+components: S, M
+material: a glass marble, which the spell consumes
+duration: 1 day
+tags: Condition[Exhaustion], Upcast
+description: You infuse your mana into the marble used in the spell's casting. As a Bonus Action, a creature can smash the infused marble, returning the mana inside back to you and causing you to regain an expended level 1 spell slot.
+
+After you regain a spell slot from an infused marble, you gain 1 Exhaustion level each time you regain another one from an infused marble before you finish a Long Rest.
+
+Any infused marbles you create with the spell crumble to dust with no effect at the end of the duration.
+
+***Using a Higher-Level Spell Slot.*** The level of the expended spell slot you regain equals the level of the spell slot used for the spell.
+
+---
+
+name: Mana Transfer
+level: 1 minute
+school: Conjuration
+esoteric: true
+classes: Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard
+casting_time: 1 minute
+range: Touch
+components: S
+duration: Instantaneous
+tags: Condition[Exhaustion], Upcast
+description: You transfer your mana to one willing creature you touch, restoring one expended level 1 spell slot for that creature.
+
+After a creature regains a spell slot from this spell, it gains 1 Exhaustion level each time it regains another one from this spell before it finishes a Long Rest.
+
+***Using a Higher-Level Spell Slot.*** The level of the expended spell slot you restore for the creature equals the level of the spell slot used for the spell.
 
 ---
 
