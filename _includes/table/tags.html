@@ -21,7 +21,7 @@
       {%- assign tg_probe = "|" | append: tg_word | append: "|" -%}
       {%- if tg_word != "" and tg_pool contains tg_probe -%}
         {%- assign tg_name = tg_word | capitalize -%}
-        {%- assign tg_new = tg_new | append: tg_rule.prefix | append: ":" | append: tg_name | append: "," -%}
+        {%- assign tg_new = tg_new | append: tg_rule.prefix | append: "[" | append: tg_name | append: "]" | append: "," -%}
       {%- endif -%}
     {%- endfor -%}
 
