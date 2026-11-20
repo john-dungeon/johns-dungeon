@@ -1,0 +1,34 @@
+{%- comment -%}
+  Tag Group Expander
+  Params: text (required; tag list)
+  Turns "Group[A, B]" into "Group:A,Group:B".
+{%- endcomment -%}
+
+{%- assign eg_out = "" -%}
+{%- assign eg_group = "" -%}
+
+{%- assign eg_chunks = include.text | split: "]" -%}
+{%- for eg_chunk in eg_chunks -%}
+  {%- assign eg_halves = eg_chunk | split: "[" -%}
+  {%- assign eg_has_group = false -%}
+  {%- if eg_halves.size > 1 -%}{%- assign eg_has_group = true -%}{%- endif -%}
+
+  {%- assign eg_names = eg_halves[0] | split: "," -%}
+  {%- for eg_name in eg_names -%}
+    {%- if eg_has_group and forloop.last -%}
+      {%- assign eg_group = eg_name | strip -%}
+    {%- else -%}
+      {%- assign eg_out = eg_out | append: eg_name | append: "," -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if eg_has_group -%}
+    {%- assign eg_subs = eg_halves[1] | split: "," -%}
+    {%- for eg_sub in eg_subs -%}
+      {%- assign eg_item = eg_sub | strip -%}
+      {%- if eg_item == "" -%}{%- continue -%}{%- endif -%}
+      {%- assign eg_out = eg_out | append: eg_group | append: ":" | append: eg_item | append: "," -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+{{- eg_out -}}
