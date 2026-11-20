@@ -574,6 +574,23 @@ description: Your strike rings with thunder that is audible within 500 feet of y
 
 ---
 
+name: Leaping Bolt
+level: Cantrip
+school: Evocation
+esoteric: true
+classes: Druid, Sorcerer, Wizard
+casting_time: Action
+range: 30 feet
+components: V, S, M
+material: a silver wire
+duration: Instantaneous
+tags: Attack:Melee Spell, Damage:Lightning, Upcast
+description: You unleash a bolt of electricity at a creature or an object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 Lightning damage, and electricity leaps from the target to a different creature or object of your choice that you can see within 10 feet of it. The second target takes 1d4 Lightning damage.
+
+***Cantrip Upgrade.*** The damage increases by one die when you reach levels 5 (2d8 and 2d4), 11 (3d8 and 3d4), and 17 (4d8 and 4d4).
+
+---
+
 name: Summon Greater Lemon
 level: 2
 school: Conjuration
