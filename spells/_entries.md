@@ -9,7 +9,7 @@ components: V, S, M
 material: a severed arm and a book
 duration: Concentration
 concentration_max: 1 minute
-tags: Ability Check:Strength, Area:Sphere, Attack:Melee, Attack:Spell, Condition:Grappled, Condition:Restrained, Cover:Three-Quarters, Damage:Cold, Debuff, Requires Sight, Saving Throw:Constitution, Saving Throw:Dexterity, Summon, Tribute, Upcast
+tags: Ability Check:Strength, Area:Sphere, Attack:Melee Spell, Condition:Grappled, Condition:Restrained, Cover:Three-Quarters, Damage:Cold, Debuff, Requires Sight, Saving Throw:Constitution, Saving Throw:Dexterity, Summon, Tribute, Upcast
 description: You create a Large hand of frigid magical energy in an unoccupied space that you can see within range. The hand lasts for the duration, and it moves at your command, mimicking the movements of your hand.
 
 The hand is an object that has AC 13 and Hit Points equal to your Hit Points maximum. If it drops to 0 Hit Points, the spell ends. The hand occupies its space and grants creatures behind it Three-Quarters Cover.
@@ -259,7 +259,7 @@ range: 60 feet
 components: S, M
 material: a Melee weapon worth 1+ SP
 duration: Instantaneous
-tags: Attack:Melee, Attack:Spell, Condition:Incapacitated, Condition:Stunned, Damage:Force, Debuff, Requires Sight, Saving Throw:Wisdom, Teleportation, Upcast
+tags: Attack:Melee Spell, Condition:Incapacitated, Condition:Stunned, Damage:Force, Debuff, Requires Sight, Saving Throw:Wisdom, Teleportation, Upcast
 description: You brandish the weapon used in the casting and then vanish to deal an opening death blow to one creature you can see within range. You teleport to an unoccupied space you can see within 5 feet of the target and make a melee spell attack against it. On a hit, the target takes 6d10 Force damage, and it must succeed on a Wisdom saving throw or have the Stunned condition until the end of its next turn.
 
 If the attack roll misses, you have the Incapacitated condition and your Speed is 0 until the end of your next turn, as you are struck with a terrible whiplash.
@@ -347,7 +347,7 @@ casting_time: Action
 range: 30 feet
 components: V, S
 duration: Instantaneous
-tags: Attack:Ranged, Attack:Spell, Damage:Acid, Damage:Bludgeoning, Damage:Cold, Damage:Fire, Damage:Lightning, Damage:Necrotic, Damage:Psychic, Damage:Radiant, Damage:Slashing, Damage:Thunder, Debuff, Forced Movement, Light:Dim Light, Temporary Hit Points, Upcast
+tags: Attack:Ranged Spell, Damage:Acid, Damage:Bludgeoning, Damage:Cold, Damage:Fire, Damage:Lightning, Damage:Necrotic, Damage:Psychic, Damage:Radiant, Damage:Slashing, Damage:Thunder, Debuff, Forced Movement, Light:Dim Light, Temporary Hit Points, Upcast
 description: You fire off an element at a creature or an object within range. Make a ranged spell attack against the target. On a hit, the target suffers one of the following effects of your choice.
 
 ***Earth.*** The target takes 1d6 Bludgeoning damage from the attack, and if the target is Large or smaller, you can push it up to 5 feet away from you.
@@ -432,6 +432,41 @@ Until the spell ends, you have Advantage on Charisma (Deception) checks.
 
 ---
 
+name: Exchange Time
+level: 2
+school: Transmutation
+esoteric: true
+classes: Sorcerer, Wizard
+casting_time: Reaction
+condition: , which you take when you roll Initiative and are not surprised
+range: 60 feet
+components: S
+duration: Instantaneous
+tags: Saving Throw:Charisma
+description: You swap your Initiative with the Initiative of one other creature in the same combat. If the target is unwilling, it must succeed on a Charisma saving throw or its Initiative is swapped with yours.
+
+---
+
+name: Filibuster
+level: 7
+school: Transmutation
+esoteric: true
+classes: Cleric, Druid, Sorcerer, Warlock, Wizard
+casting_time: Reaction
+condition: , which you take at the start of another creature’s turn
+range: 1,000 feet
+components: V
+duration: Concentration
+concentration_max: 10 minutes
+tags: Debuff
+description: You briefly stop the flow of time for everything but yourself to deliver a dramatic monologue. No time passes for objects and creatures other than you within range, but they can perceive everything that is happening around them. Meanwhile, you take as many turns in a row as the duration allows, during which you can use actions and move as normal. In addition, your voice can be heard by all creatures within range, even if they have the Deafened condition or otherwise wouldn’t normally be able to hear you.
+
+You are allowed to take up to one action (except the Ready action), cast up to one spell, and move to a place up to 60 feet away from the location where you cast this spell throughout the duration. The spell ends if you take more actions, cast more spells, or move further than the allowed amounts. The spell also ends if any action you take, or any effects that you create, affects an affected creature or object.
+
+> *Legendary evil mages of yore grew frustrated with adventurers interrupting the speeches they’d rehearsed weeks in advance, so they came up with a simple solution: localized chronostasis.*
+
+---
+
 name: Freeze
 level: 3
 school: Evocation
@@ -449,6 +484,26 @@ description: You conjure a binding frost in a 20-foot Cube within range. Each cr
 While Restrained, a target takes 2d8 Cold damage at the start of each of its turns. The target or a creature that can reach it can take an action to make a Strength (Athletics) check against your spell save DC. On a success, the target is no longer Restrained by the ice. Also, if a Restrained creature takes Fire damage, it is no longer Restrained.
 
 ***Using a Higher-Level Spell Slot.*** The damage (both initial and later) increases by 1d8 for each spell slot level above 3.
+
+---
+
+name: Frost Blade
+level: 2
+school: Evocation
+esoteric: true
+classes: Druid, Sorcerer
+casting_time: Bonus Action
+range: Self
+components: V, S, M
+material: a spruce needle
+duration: Concentration
+concentration_max: 10 minutes
+tags: Attack:Melee Spell, Damage:Cold, Debuff, Upcast
+description: You evoke a frigid blade in your free hand. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears, but you can evoke it again as a Bonus Action.
+
+As a Magic action, you can make a melee spell attack with the frigid blade. On a hit, the target takes Cold damage equal to 2d6 plus your spellcasting ability modifier, and its Speed is halved until the start of your next turn.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 2.
 
 ---
 
@@ -485,6 +540,40 @@ description: A barrier of magical glass protects you and shatters from the incom
 
 ---
 
+name: Hydro Blast
+level: 2
+school: Evocation
+esoteric: true
+classes: Druid, Sorcerer, Wizard
+casting_time: Action
+range: Self
+components: V, S, M
+material: a mixture of water and iron powder
+duration: Instantaneous
+tags: Area:Line, Damage:Bludgeoning, Forced Movement, Saving Throw:Strength, Upcast
+description: A high-pressure beam of water that forms a 60-foot-long, 10-foot-wide Line blasts out from you in a direction you choose. Each creature in the Line makes a Strength saving throw. On a failed save, a target takes 3d8 Bludgeoning damage and is pushed 30 feet away from you in a direction following the Line. On a successful save, a target takes half as much damage only.
+
+The water quenches magical and nonmagical flames in the area, unless the flame is behind Total Cover.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d8 for each spell slot level above 2.
+
+---
+
+name: Isten’s Stormcaller Smite
+level: 5
+school: Evocation
+esoteric: true
+classes: Cleric, Paladin, Warlock
+casting_time: Bonus Action
+condition: , which you take immediately after hitting a creature with a Melee weapon or an Unarmed Strike
+range: Self
+components: V
+duration: Instantaneous
+tags: Condition:Paralyzed, Damage:Lightning, Damage:Thunder, Saving Throw:Wisdom, Tribute
+description: Your strike rings with thunder that is audible within 500 feet of you. The target hit by the attack roll takes an extra 2d10 Lightning damage and 2d10 Thunder damage from the attack, and the target must succeed on a Wisdom saving throw or have the Paralyzed condition until the start of your next turn or until it is hit by an attack roll.
+
+---
+
 name: Summon Greater Lemon
 level: 2
 school: Conjuration
@@ -514,7 +603,7 @@ casting_time: Action
 range: 120 feet
 components: V, S
 duration: Instantaneous
-tags: Attack:Ranged, Attack:Spell, Damage:Slashing, Upcast
+tags: Attack:Ranged Spell, Damage:Slashing, Upcast
 description: You fire a high-pressure blade of wind at a creature or an object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 Slashing damage, or 1d12 Slashing damage if it is Bloodied.
 
 ***Cantrip Upgrade.*** The damage increases by one die when you reach levels 5 (2d8 or 2d12), 11 (3d8 or 3d12), and 17 (4d8 or 4d12).
