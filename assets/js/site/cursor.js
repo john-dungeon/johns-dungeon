@@ -1,4 +1,4 @@
-import { root, FINE_POINTER, themeConfig, onThemeChange, bringToFront } from './shared.js';
+import { root, FINE_POINTER, themeConfig, onThemeChange, bringToFront, perFrame, session } from './shared.js';
 import { isHovering } from './hover.js';
 
 const VIDEO = /\.(webm|mp4)$/i;
@@ -18,7 +18,6 @@ let link = null;
 let x = 0;
 let y = 0;
 let placed = false;
-let frame = 0;
 
 const saved = session.get(SAVED, null);
 if (saved) {
@@ -50,10 +49,11 @@ function paintLayers() {
   link.style.display = over ? '' : 'none';
 }
 
-function paint() {
-  frame = 0;
+function place() {
   holder.style.transform = `translate3d(${x - hotspot[0]}px, ${y - hotspot[1]}px, 0)`;
 }
+
+const placeNextFrame = perFrame(place);
 
 function enable(config) {
   spec = config;
@@ -72,7 +72,7 @@ function enable(config) {
 
   if (placed) {
     holder.style.opacity = 1;
-    paint();
+    place();
   }
 }
 
@@ -90,7 +90,7 @@ document.addEventListener('pointermove', event => {
   placed = true;
   if (!spec) return;
   holder.style.opacity = 1;
-  frame ||= requestAnimationFrame(paint);
+  placeNextFrame();
 });
 
 document.addEventListener('hoverstart', paintLayers);
