@@ -1,4 +1,4 @@
-name: Abbasi’s Handful of Ice
+name: Abbasi's Handful of Ice
 level: 5
 school: Evocation
 esoteric: true
@@ -12,7 +12,7 @@ concentration_max: 1 minute
 tags: Ability Check:Strength, Area:Sphere, Attack:Melee Spell, Condition[Grappled, Restrained], Cover:Three-Quarters, Damage:Cold, Debuff, Requires Sight, Saving Throw[Constitution, Dexterity], Summon, Tribute, Upcast
 description: You create a Large hand of frigid magical energy in an unoccupied space that you can see within range. The hand lasts for the duration, and it moves at your command, mimicking the movements of your hand.
 
-The hand is an object that has AC 13 and Hit Points equal to your Hit Points maximum. If it drops to 0 Hit Points, the spell ends. The hand occupies its space and grants creatures behind it Three-Quarters Cover.
+The hand is an object that has AC 13 and Hit Points equal to your Hit Point maximum. If it drops to 0 Hit Points, the spell ends. The hand occupies its space and grants creatures behind it Three-Quarters Cover.
 
 A creature killed by the hand becomes a frozen statue until it thaws.
 
@@ -40,16 +40,16 @@ condition: , which you take when you see a creature within 60 feet of yourself c
 range: 60 feet
 components: S
 duration: Instantaneous
-tags: Ability Check, Upcast
+tags: Ability Check, Requires Sight, Upcast
 description: You attempt to interrupt a creature in the process of casting a spell. If the creature is casting a spell of level 4 or lower, the spell dissipates with no effect. If the creature is casting a spell of level 5 or higher, make an ability check using your spellcasting ability (DC 10 plus that spell's level). On a successful check, the spell dissipates with no effect. When a spell dissipates, the action, Bonus Action, or Reaction and resources used to cast it are wasted.
 
-***Using a Higher-Level Spell Slot.*** The triggering spell dissipates with no effect if the spell’s level is equal to or less than the level of the spell slot you use.
+***Using a Higher-Level Spell Slot.*** The triggering spell dissipates with no effect if the spell's level is equal to or less than the level of the spell slot you use.
 
 > *The* Counterspell *spell has been lightly modified and adapted countless times to fit the needs of dueling mages over the years. However, as these minor modifications were passed down from master to disciple, they compounded over generations until the spell was completely bastardized. This version of the spell is its original, undiluted form, an ancient weapon with an unfair advantage against mages of this era.*
 
 ---
 
-name: Argo’s Subspace Box
+name: Argo's Subspace Box
 level: 3
 school: Conjuration
 esoteric: true
@@ -72,7 +72,7 @@ When the spell ends, the creature exits the extradimensional box, appearing in a
 
 ---
 
-name: Arwen’s Spiritual Mark
+name: Arwen's Spiritual Mark
 level: 2
 school: Evocation
 esoteric: true
@@ -83,11 +83,11 @@ components: V
 duration: Concentration
 concentration_max: 1 minute
 tags: Damage[Acid, Cold, Fire, Lightning, Poison, Thunder], Debuff, Light:Dim Light, Requires Sight, Saving Throw:Dexterity, Upcast
-description: You magically mark one creature you can see within range with the power of elemental spirits. Until the spell ends, the target sheds Dim Light in a 10-foot radius and can’t benefit from the Invisible condition. In addition, you have Advantage on attack rolls against the target. Each time you hit the target, the spell gains 1 charge, up to a maximum of 4 charges.
+description: You magically mark one creature you can see within range with the power of elemental spirits. Until the spell ends, the target sheds Dim Light in a 10-foot radius and can't benefit from the Invisible condition. In addition, you have Advantage on attack rolls against the target. Each time you hit the target, the spell gains 1 charge, up to a maximum of 4 charges.
 
 When the spell ends, the target takes 1d8 Acid, Cold, Fire, Lightning, Poison, or Thunder damage (your choice) for each accumulated charge. In addition, each creature within 5 feet of the target must make a Dexterity saving throw, taking the same amount of damage on a failed save or half as much damage on a successful one.
 
-***Using a Higher-Level Spell Slot.*** The number of charges that the spell starts with and the maximum number of charges increases by for each spell slot level above 2.
+***Using a Higher-Level Spell Slot.*** The number of charges that the spell starts with and the maximum number of charges increases by 1 for each spell slot level above 2.
 
 ---
 
@@ -161,7 +161,7 @@ concentration_max: 1 minute
 tags: Area:Sphere, Damage:Force, Saving Throw:Dexterity, Upcast
 description: You draw magical energy from yourself, condensing it into a glowing orb in your hand for the duration. When the spell ends, you hurl the orb to a chosen point within range where it explodes. Each creature in a 10-foot-radius Sphere centered on that point makes a Dexterity saving throw, taking Force damage equal to the total accumulated damage on a failed save or half as much damage on a successful one.
 
-The spell’s base damage is 2d4, and the damage increases by 1d4 whenever your turn ends and the spell hasn’t ended.
+The spell's base damage is 2d4, and the damage increases by 1d4 whenever your turn ends and the spell hasn't ended.
 
 If the spell ends because you gained the Incapacitated condition, you are unable to hurl the orb, which explodes in a 10-foot-radius Sphere centered on you.
 
@@ -178,7 +178,7 @@ casting_time: Bonus Action
 range: Self
 components: S
 duration: 1 hour
-tags: Area:Emanation, Damage:Thunder, Saving Throw:Constitution, Summon, Upcast
+tags: Area:Emanation, Damage:Thunder, Saving Throw:Constitution, Upcast
 description: You create a spectral instrument in your hand—any Musical Instrument of your choice. When you play the spectral instrument, you make it sound up to three times as loud as normal.
 
 As a Magic action, you can unleash a booming sound from the spectral instrument that can be heard from up to 500 feet away. Each creature in a 10-foot Emanation originating from you must succeed on a Constitution saving throw or take 1d4 Thunder damage.
@@ -198,7 +198,7 @@ casting_time: Bonus Action
 range: Self
 components: S
 duration: 1 hour
-tags: Damage:Force, Summon
+tags: Damage:Force
 description: You create a spectral weapon in your hand—any Simple or Martial weapon of your choice. Whenever you attack with the spectral weapon, you can use your spellcasting ability modifier for the attack and damage rolls instead of using Strength or Dexterity, and you can cause the weapon to deal Force damage or its normal damage type (your choice).
 
 If the spectral weapon lacks ammunition, it produces its own, automatically creating one piece of spectral ammunition when you make a ranged attack roll with it. The spectral ammunition vanishes the instant after it hits or misses a target.
@@ -225,9 +225,9 @@ When the slime appears, each creature standing in its area must make a Constitut
 
 Nonmagical ammunition is destroyed immediately upon contact with the slime. Any nonmagical weapon that comes into contact with the slime takes a cumulative -1 penalty to attack rolls.
 
-Penalties to AC and attack rolls from this spell persist after the spell ends. Armor is destroyed if the penalty reduces its AC to 10 (ignoring the wearer’s Dexterity modifier), and a weapon is destroyed if its penalty reaches -5. Casting the *Mending* spell on the armor or weapon removes the penalty.
+Penalties to AC and attack rolls from this spell persist after the spell ends. Armor is destroyed if the penalty reduces its AC to 10 (ignoring the wearer's Dexterity modifier), and a weapon is destroyed if its penalty reaches -5. Casting the *Mending* spell on the armor or weapon removes the penalty.
 
-In 1 minute, the slime can eat through 2 feet of nonmagical wood (or any other organic material, such as leather or wool) or metal. In addition, the slime immediately destroys Tiny objects made of those materials upon contact if they aren’t being worn or carried.
+In 1 minute, the slime can eat through 2 feet of nonmagical wood (or any other organic material, such as leather or wool) or metal. In addition, the slime immediately destroys Tiny objects made of those materials upon contact if they aren't being worn or carried.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 3.
 
@@ -299,11 +299,11 @@ components: M
 material: a cape or cloak
 duration: Instantaneous
 tags: Buff
-description: A dramatic wind subtly enhances your natural charm, even while indoors, granting you Advantage on the triggering Charisma check. For example, you might let the wind sweep dramatically into a tavern when you enter, cause your cloak to billow with an air of mystery, or ripple your hair with a romantic breeze. If the check then succeeds, you can’t be affected by this spell again for 1 hour.
+description: A dramatic wind subtly enhances your natural charm, even while indoors, granting you Advantage on the triggering Charisma check. For example, you might let the wind sweep dramatically into a tavern when you enter, cause your cloak to billow with an air of mystery, or ripple your hair with a romantic breeze. If the check then succeeds, you can't be affected by this spell again for 1 hour.
 
 ---
 
-name: Ecladion’s Compelled Duel
+name: Ecladion's Compelled Duel
 level: 3
 school: Enchantment
 esoteric: true
@@ -316,11 +316,11 @@ duration: 1 minute
 tags: Area, Buff, Condition:Incapacitated, Damage:Psychic, Debuff, Saving Throw:Wisdom
 description: You issue a challenge to a willing creature within range and commence an honorable duel. You and the target are considered duelists for the duration and are subject to the following effects.
 
-***Dueling.*** A duelist can’t willingly target a creature other than the other duelist with an attack roll or a damaging effect. If a duelist uses a damaging effect that targets creatures in an area of effect, one of the targets must be the other duelist.
+***Dueling.*** A duelist can't willingly target a creature other than the other duelist with an attack roll or a damaging effect. If a duelist uses a damaging effect that targets creatures in an area of effect, one of the targets must be the other duelist.
 
-***Resolve.*** A duelist can’t willingly move to a space that is more than 60 feet away from the other duelist. If a duelist starts its turn further than 60 feet away from the other duelist, it must spend its movement on that turn to move toward the other duelist by the safest route if it can see the other duelist.
+***Resolve.*** A duelist can't willingly move to a space that is more than 60 feet away from the other duelist. If a duelist starts its turn further than 60 feet away from the other duelist, it must spend its movement on that turn to move toward the other duelist by the safest route if it can see the other duelist.
 
-***Unimpeded.*** Any creature other than a duelist that targets a duelist with an attack roll or an effect must succeed on a Wisdom saving throw or either choose a new target that isn’t a duelist or lose the attack or effect. This spell doesn't protect a duelist from areas of effect.
+***Unimpeded.*** Any creature other than a duelist that targets a duelist with an attack roll or an effect must succeed on a Wisdom saving throw or either choose a new target that isn't a duelist or lose the attack or effect. This spell doesn't protect a duelist from areas of effect.
 
 ***Restriction.*** When you cast the spell, you can impose any number of restrictions from the list below if the other duelist agrees to them:
 
@@ -330,7 +330,7 @@ description: You issue a challenge to a willing creature within range and commen
 
 ***Victory Condition.*** When you cast the spell, you can impose one victory condition from the list below if the other duelist agrees to it:
 
-- **First Blood.** When a duelist becomes Bloodied, it loses the duel. You can’t impose this victory condition if one of the duelists is already Bloodied.
+- **First Blood.** When a duelist becomes Bloodied, it loses the duel. You can't impose this victory condition if one of the duelists is already Bloodied.
 - **King of the Hill.** Designate an area no larger than 30 feet on each side. When a duelist is moved to a space outside of that area, it loses the duel.
 - **Point Score.** Designate a point goal, which is a number between 3 and 10. When a duelist is hit by an attack roll from the other duelist a number of times equal to the point goal, it loses the duel.
 
@@ -386,7 +386,7 @@ material: a pufferfish
 duration: Concentration
 concentration_max: 1 minute
 tags: Condition:Charmed, Debuff, Revival, Summon
-description: You touch a creature that has died within the last minute and isn’t an Undead. That creature revives with all of its Hit Points, its creature type changes to Undead, and it has the Charmed condition for the duration. The Undead is Hostile to everyone, including you.
+description: You touch a creature that has died within the last minute and isn't an Undead. That creature revives with all of its Hit Points, its creature type changes to Undead, and it has the Charmed condition for the duration. The Undead is Hostile to everyone, including you.
 
 You have a telepathic link with the Charmed Undead while the two of you are on the same plane of existence. On your turn, you can use this link to issue commands to the Undead (no action required), such as "Attack that creature," "Move over there," or "Fetch that object." The Undead does its best to obey on its turn. If it completes an order and doesn't receive further direction from you, it acts and moves as it likes, focusing on killing everything it can see.
 
@@ -407,13 +407,13 @@ components: V, S
 duration: Concentration
 concentration_max: 1 hour
 tags: Buff, Cleanse
-description: You touch a willing creature. The creature loses the Prone condition if it has it and can’t gain the Prone condition until the spell ends.
+description: You touch a willing creature. The creature loses the Prone condition if it has it and can't gain the Prone condition until the spell ends.
 
 > *The old wizard who created this spell was attempting to solve a very particular, very local problem, but wound up making the spell a little too effective.*
 
 ---
 
-name: Ethos’s Replicate Identity
+name: Ethos's Replicate Identity
 level: 2
 school: Transmutation
 esoteric: true
@@ -426,7 +426,7 @@ material: a Disguise Kit
 duration: Concentration
 concentration_max: 1 hour
 tags: Buff, Shape-Shift, Tribute
-description: When you cast this spell and as a Magic action before the spell ends, you can touch a Humanoid and shape-shift to change your appearance and your voice to match that Humanoid. The spell fails if the Humanoid has a different arrangement of limbs than you; for example, you might have two arms and two legs, but the Humanoid might have four arms and two legs. Your game statistics, clothing, and equipment don’t change as a result of shape-shifting.
+description: When you cast this spell and as a Magic action before the spell ends, you can touch a Humanoid and shape-shift to change your appearance and your voice to match that Humanoid. The spell fails if the Humanoid has a different arrangement of limbs than you; for example, you might have two arms and two legs, but the Humanoid might have four arms and two legs. Your game statistics, clothing, and equipment don't change as a result of shape-shifting.
 
 Until the spell ends, you have Advantage on Charisma (Deception) checks.
 
@@ -453,17 +453,17 @@ school: Transmutation
 esoteric: true
 classes: Cleric, Druid, Sorcerer, Warlock, Wizard
 casting_time: Reaction
-condition: , which you take at the start of another creature’s turn
+condition: , which you take at the start of another creature's turn
 range: 1,000 feet
 components: V
 duration: Concentration
 concentration_max: 10 minutes
 tags: Debuff
-description: You briefly stop the flow of time for everything but yourself to deliver a dramatic monologue. No time passes for objects and creatures other than you within range, but they can perceive everything that is happening around them. Meanwhile, you take as many turns in a row as the duration allows, during which you can use actions and move as normal. In addition, your voice can be heard by all creatures within range, even if they have the Deafened condition or otherwise wouldn’t normally be able to hear you.
+description: You briefly stop the flow of time for everything but yourself to deliver a dramatic monologue. No time passes for objects and creatures other than you within range, but they can perceive everything that is happening around them. Meanwhile, you take as many turns in a row as the duration allows, during which you can use actions and move as normal. In addition, your voice can be heard by all creatures within range, even if they have the Deafened condition or otherwise wouldn't normally be able to hear you.
 
 You are allowed to take up to one action (except the Ready action), cast up to one spell, and move to a place up to 60 feet away from the location where you cast this spell throughout the duration. The spell ends if you take more actions, cast more spells, or move further than the allowed amounts. The spell also ends if any action you take, or any effects that you create, affects an affected creature or object.
 
-> *Legendary evil mages of yore grew frustrated with adventurers interrupting the speeches they’d rehearsed weeks in advance, so they came up with a simple solution: localized chronostasis.*
+> *Legendary evil mages of yore grew frustrated with adventurers interrupting the speeches they'd rehearsed weeks in advance, so they came up with a simple solution: localized chronostasis.*
 
 ---
 
@@ -517,7 +517,7 @@ range: 30 feet
 components: V, S
 duration: Instantaneous
 tags: Damage:Necrotic, Saving Throw:Dexterity, Upcast
-description: Describe or name a creature that has dealt damage to you within 1 hour of the spell’s casting and send a bolt of negative energy after it. If the creature is within range, it must succeed on a Dexterity saving throw or take 1d8 Necrotic damage. The bolt phases in and out of the Ethereal Plane until it reaches the target; the target gains no benefit from Half Cover, Three-Quarters Cover, or Total Cover for this save.
+description: Describe or name a creature that has dealt damage to you within 1 hour of the spell's casting and send a bolt of negative energy after it. If the creature is within range, it must succeed on a Dexterity saving throw or take 1d8 Necrotic damage. The bolt phases in and out of the Ethereal Plane until it reaches the target; the target gains no benefit from Half Cover, Three-Quarters Cover, or Total Cover for this save.
 
 ***Cantrip Upgrade.*** The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
 
@@ -559,7 +559,7 @@ The water quenches magical and nonmagical flames in the area, unless the flame i
 
 ---
 
-name: Isten’s Stormcaller Smite
+name: Isten's Stormcaller Smite
 level: 5
 school: Evocation
 esoteric: true
