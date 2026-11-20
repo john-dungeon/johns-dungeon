@@ -1,4 +1,4 @@
-import { root, FINE_POINTER, themeConfig, onThemeChange } from './shared.js';
+import { root, FINE_POINTER, themeConfig, onThemeChange, bringToFront } from './shared.js';
 import { isHovering } from './hover.js';
 
 const VIDEO = /\.(webm|mp4)$/i;
@@ -85,6 +85,10 @@ function disable() {
   root.classList.remove('fake-cursor');
   holder.textContent = '';
   try { holder.hidePopover(); } catch (e) {}
+}
+
+function raise() {
+  if (spec) bringToFront(holder);
 }
 
 document.addEventListener('pointermove', event => {
