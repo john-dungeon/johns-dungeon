@@ -133,8 +133,7 @@
 
 // Hide/Show Buttons
 .panel-toggle {
-  @include outlined-button(999px, $sidebar-color);
-  @include accent-on-hover;
+  @include accent-button(999px, $sidebar-color);
   display: none;
   position: fixed;
   top: $toggle-inset;
