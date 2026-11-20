@@ -753,7 +753,7 @@ material: a handful of dirt
 duration: Concentration
 concentration_max: 1 minute
 tags: Condition[Restrained], Damage[Bludgeoning], Requires Sight, Saving Throw[Dexterity], Summon, Upcast
-description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical earth—any solid stone, soil, clay, crystal, or other earthen material except metal—that isn't being worn or carried that you can see, creating one of the following effects of your choice within range:
+description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical earth—any solid stone, soil, clay, crystal, or other earthen material except metal—that you can see and isn't being worn or carried—unless the creature wearing or carrying it is willing to let you affect it, creating one of the following effects of your choice within range:
 
 **Create Earth.** You create a portion of earth of negligible value (such as dirt, not a gemstone) that fits in a 5-foot Cube of unoccupied space. If you create earth in the air, it is suspended there until the end of your next turn, after which it falls as normal.
 
@@ -761,13 +761,75 @@ description: When you cast the spell and as a Magic action on your later turns b
 
 **Move Earth.** You move an unsecured portion of earth (such as loose sand, not a brick in a wall) that fits in a 5-foot Cube up to 20 feet through unoccupied spaces you can see. The earth must remain within range throughout the movement. If you move the earth into the air, it is suspended there until the end of your next turn, after which it falls as normal if you don't move it with this spell again.
 
-**Sculpt Earth.** You sculpt an unsecured portion of earth (such as loose sand, not a brick in a wall) that fits in a 5-foot Cube into the shape of an object that is worth less than 5 GP and also fits in the Cube. The created object has the same properties as a normal one, except it has a negligible value and crumbles to dust after 1 hour.
+**Sculpt Earth.** You sculpt an unsecured portion of earth (such as loose sand, not a brick in a wall) that fits in a 5-foot Cube into the shape of a solid object that also fits in the Cube. The created object has the same properties as a normal one, except it has a negligible value and crumbles to dust after 1 hour.
 
-**Shape Earth.** You shape a portion of natural earth (such as a boulder, not a brick wall) that fits in a 5-foot Cube to form a shape that fits in the Cube. Alternatively, you can turn the earth into Difficult Terrain or remove it as Difficult Terrain.
+**Shape Earth.** You shape a portion of natural earth (such as a boulder, not a brick wall) that fits in a 5-foot Cube to form a shape that fits in the Cube. Alternatively, you can turn the earth into Difficult Terrain or make it no longer so.
 
 If any earth or structure you affect with this spell falls on a creature, that creature must make a Dexterity saving throw, taking 3d6 Bludgeoning damage (or a different amount at the DM's discretion) on a failed save or half as much damage on a successful one.
 
 If you affect earth with this spell in a way that traps or binds a creature, that creature must succeed on a Dexterity saving throw or it has the Restrained condition until the binding earth is destroyed. Any earth you form with this spell, binding or otherwise, has Immunity to Poison and Psychic damage. Regardless of what type of earth it is, if it fills an entire Cube, it has AC 15 and 15 Hit Points; otherwise, it has AC 15 and 5 Hit Points. Reducing the earth to 0 Hit Points destroys it.
+
+***Using a Higher-Level Spell Slot.*** Your Concentration can last longer with a spell slot of level 5-6 (up to 10 minutes) or 7+ (up to 1 hour).
+
+---
+
+name: Manipulate Fire
+level: 3
+school: Transmutation
+esoteric: true
+classes: Druid, Sorcerer
+casting_time: Action
+range: 30 feet
+components: V, S, M
+material: a handheld flame, like a lit torch or candle
+duration: Concentration
+concentration_max: 1 minute
+tags: Damage[Fire], Requires Sight, Saving Throw[Dexterity], Upcast
+description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical fire that you can see and isn't being worn or carried—unless the creature wearing or carrying it is willing to let you affect it, creating one of the following effects of your choice within range:
+
+**Create Fire.** You create a portion of fire that fits in a 5-foot Cube. Any fire you create in this way casts Bright Light in a 20-foot radius and Dim Light for an additional 20 feet, and it can't be extinguished until the end of your next turn. If you create the fire in a space with no fuel (such as wood or oil), it burns out immediately after the end of your next turn.
+
+**Destroy Earth.** You destroy a portion of fire that fits in a 5-foot Cube. When you do so, you can prevent any fire from spreading into the Cube until the end of your next turn.
+
+**Move Fire.** You move a portion of fire that fits in a 5-foot Cube up to 20 feet through spaces you can see. The fire must remain within range throughout the movement, and you can't move it through walls. Any fire you move with this spell can't be extinguished until the end of your next turn. If you move the fire to a space with no fuel (such as wood or oil), it burns out immediately after the end of your next turn.
+
+**Temper Fire.** You change the temperature of a portion of fire (such as dimming a flame or turning embers into an inferno) that fits in a 5-foot Cube, either heating it or cooling it. A fire can be heated until it can melt 10 pounds of iron over the course of 1 minute, and it can be cooled until it is almost harmless to the touch. You can change the temperature of a fire on a burning creature or object to cause it to take 3d4 (heating) or 1 (cooling) Fire damage at the start of each of its turns instead of the normal damage for burning. These changes last for 1 hour, after which the fire naturally returns to its normal temperature.
+
+If you affect fire with this spell in a way that causes the fire to enter a creature's space, that creature must make a Dexterity saving throw. On a failed save, the creature takes 4d6 Fire damage and starts burning. On a successful save, the creature takes half as much damage only. A creature makes this save only once per turn. Flammable objects that aren't being worn or carried start burning if touched by any fire you affect with this spell.
+
+***Using a Higher-Level Spell Slot.*** Your Concentration can last longer with a spell slot of level 5-6 (up to 10 minutes) or 7+ (up to 1 hour).
+
+---
+
+name: Manipulate Water
+level: 3
+school: Transmutation
+esoteric: true
+classes: Druid, Sorcerer
+casting_time: Action
+range: 30 feet
+components: V, S, M
+material: a cup of water
+duration: Concentration
+concentration_max: 1 minute
+tags: Condition[Prone, Restrained], Damage[Bludgeoning, Cold, Fire], Requires Sight, Saving Throw[Dexterity], Summon, Upcast
+description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical water—ice, liquid, or vapor—that you can see and isn't being worn or carried—unless the creature wearing or carrying it is willing to let you affect it, creating one of the following effects of your choice within range:
+
+**Create Water.** You create a portion of water that fits in a 5-foot Cube of unoccupied space. If you create ice, you can turn its surfaces into Difficult Terrain. If you create vapor, you can make it dense enough to make the Cube Lightly or Heavily Obscured (your choice). If you create water in the air, it is suspended there until the end of your next turn, after which it falls (ice or liquid) or disperses (vapor) as normal. 
+
+**Destroy Water.** You destroy a portion of natural water (such as running water, not an ice statue) that fits in a 5-foot Cube. If you destroy water that is supporting some structure that would collapse without it, the structure remains suspended there until the end of your next turn, after which it falls as normal.
+
+**Move Water.** You move an unsecured portion of water (such as snow, not an ice brick that is part of an igloo) that fits in a 5-foot Cube up to 20 feet through spaces you can see; this movement doesn't move creatures and objects in those spaces, and the spaces must be unoccupied if you're moving ice. The water must remain within range throughout the movement, and you can't move it through walls. If you move the water into the air, it is suspended there until the end of your next turn, after which it falls (ice or liquid) or disperses (vapor) as normal if you don't move it with this spell again.
+
+**Shape Water.** You shape a portion of natural water (such as running water, not an ice statue) that fits in a 5-foot Cube to form a shape that fits in the Cube. If you shape liquid or vapor into the air, it retains its shape until the end of your next turn, after which it falls (liquid) or disperses (vapor) as normal. Alternatively, you can turn ice in the Cube into Difficult Terrain or make it no longer so.
+
+**Temper Water.** You change the temperature of a portion of water that fits in a 5-foot Cube, either heating it or cooling it. Water can be heated until it melts, boils, or evaporates over the course of 1 minute, and it can be cooled until it condenses or freezes over the course of 1 minute. A creature that touches water you boiled takes 1d4 Fire damage, and it takes this damage again at the start of each of its turns while touching the boiling water. These changes last for 1 hour, after which the water naturally returns to its normal temperature.
+
+If any water or structure you affect with this spell falls on a creature, that creature must make a Dexterity saving throw, taking 3d6 Bludgeoning damage (or a different amount at the DM's discretion) on a failed save or half as much damage on a successful one. The DM might change the damage type to Cold or Fire if they deem it appropriate; for example, you might cause ice or scalding water to fall on a creature.
+
+If you affect ice with this spell in a way that traps or binds a creature, that creature must succeed on a Dexterity saving throw or it has the Restrained condition until the binding ice is destroyed. Any ice you form with this spell, binding or otherwise, has Immunity to Poison and Psychic damage and Vulnerability to Fire damage. If it fills an entire Cube, it has AC 12 and 15 Hit Points; otherwise, it has AC 12 and 5 Hit Points. Reducing the ice to 0 Hit Points destroys it.
+
+If you create ice that is Difficult Terrain or turn existing ice into Difficult Terrain with this spell, the ice is slippery. Each creature standing on slippery ice must succeed on a Dexterity saving throw or have the Prone condition. A creature also makes this save when it moves onto the ice for the first time on a turn or ends its turn there. A creature makes this save only once per turn.
 
 ***Using a Higher-Level Spell Slot.*** Your Concentration can last longer with a spell slot of level 5-6 (up to 10 minutes) or 7+ (up to 1 hour).
 
