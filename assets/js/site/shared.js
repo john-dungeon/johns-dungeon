@@ -46,3 +46,12 @@ export function openDialog(dialog) {
   dialog.showModal();
   announce('popupopen');
 }
+
+export function perFrame(run) {
+  let frame = 0;
+  const call = () => {
+    frame ||= requestAnimationFrame(() => { frame = 0; run(); });
+  };
+  call.cancel = () => { cancelAnimationFrame(frame); frame = 0; };
+  return call;
+}
