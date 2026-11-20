@@ -1,5 +1,5 @@
 import { el, t, markUnlisted } from './utils.js';
-import { SUBTAG, groupTags } from './tags.js';
+import { groupTags, joinTag } from './tags.js';
 
 const announce = type => document.dispatchEvent(new CustomEvent(type));
 
@@ -24,7 +24,7 @@ function showTags(tagLine, names, tagCol) {
     tagLine.append(tagLabel(group.name, group.name, tagCol));
     if (!group.subs.length) return;
     tagLine.append(' (');
-    appendJoined(tagLine, group.subs.map(sub => tagLabel(sub, group.name + SUBTAG + sub, tagCol)));
+    appendJoined(tagLine, group.subs.map(sub => tagLabel(sub, joinTag(group.name, sub), tagCol)));
     tagLine.append(')');
   });
 }
