@@ -1,7 +1,6 @@
+import { announce } from '../site/shared.js';
 import { el, t, markUnlisted } from './utils.js';
 import { groupTags, joinTag } from './tags.js';
-
-const announce = type => document.dispatchEvent(new CustomEvent(type));
 
 const tagLabel = (text, full, tagCol) =>
   tagCol.listed.has(full.toLowerCase()) ? text : markUnlisted(el('span', '', text), 'unlisted_tag');
