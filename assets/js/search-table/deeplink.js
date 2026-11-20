@@ -1,4 +1,4 @@
-const waiting = () => document.documentElement.dataset.gate === 'pending';
+import { waiting } from '../site/shared.js';
 
 export function watchHash(root, records, openItem) {
   const dialog = root.querySelector('.st-dialog');
