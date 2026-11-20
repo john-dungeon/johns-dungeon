@@ -1,5 +1,5 @@
 import { NUMBER, parseSpan } from './utils.js';
-import { TAG, SUBTAG, splitTag } from './tags.js';
+import { TAG, OPEN, splitTag } from './tags.js';
 import { isExcluded } from './records.js';
 
 export function createQueryParser(columns, nameKey) {
@@ -11,7 +11,7 @@ export function createQueryParser(columns, nameKey) {
     const [group, sub] = splitTag(value);
     return sub !== '' && groups.has(group);
   };
-  const isGroupPrefix = value => value.endsWith(SUBTAG) && groups.has(value.slice(0, -SUBTAG.length));
+  const isGroupPrefix = value => value.endsWith(OPEN) && groups.has(value.slice(0, -OPEN.length));
 
   return function parseQuery(text) {
     const terms = [];
