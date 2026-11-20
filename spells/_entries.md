@@ -9,7 +9,7 @@ components: V, S, M
 material: a severed arm and a book
 duration: Concentration
 concentration_max: 1 minute
-tags: Ability Check:Strength, Area:Sphere, Attack:Melee Spell, Condition:Grappled, Condition:Restrained, Cover:Three-Quarters, Damage:Cold, Debuff, Requires Sight, Saving Throw:Constitution, Saving Throw:Dexterity, Summon, Tribute, Upcast
+tags: Ability Check:Strength, Area:Sphere, Attack:Melee Spell, Condition[Grappled, Restrained], Cover:Three-Quarters, Damage:Cold, Debuff, Requires Sight, Saving Throw[Constitution, Dexterity], Summon, Tribute, Upcast
 description: You create a Large hand of frigid magical energy in an unoccupied space that you can see within range. The hand lasts for the duration, and it moves at your command, mimicking the movements of your hand.
 
 The hand is an object that has AC 13 and Hit Points equal to your Hit Points maximum. If it drops to 0 Hit Points, the spell ends. The hand occupies its space and grants creatures behind it Three-Quarters Cover.
@@ -82,7 +82,7 @@ range: 90 feet
 components: V
 duration: Concentration
 concentration_max: 1 minute
-tags: Damage:Acid, Damage:Cold, Damage:Fire, Damage:Lightning, Damage:Poison, Damage:Thunder, Debuff, Light:Dim Light, Requires Sight, Saving Throw:Dexterity, Upcast
+tags: Damage[Acid, Cold, Fire, Lightning, Poison, Thunder], Debuff, Light:Dim Light, Requires Sight, Saving Throw:Dexterity, Upcast
 description: You magically mark one creature you can see within range with the power of elemental spirits. Until the spell ends, the target sheds Dim Light in a 10-foot radius and can’t benefit from the Invisible condition. In addition, you have Advantage on attack rolls against the target. Each time you hit the target, the spell gains 1 charge, up to a maximum of 4 charges.
 
 When the spell ends, the target takes 1d8 Acid, Cold, Fire, Lightning, Poison, or Thunder damage (your choice) for each accumulated charge. In addition, each creature within 5 feet of the target must make a Dexterity saving throw, taking the same amount of damage on a failed save or half as much damage on a successful one.
@@ -243,7 +243,7 @@ range: Touch
 components: V, S, M
 material: a sharp metal object
 duration: Instantaneous
-tags: Damage:Force, Damage:Slashing
+tags: Damage[Force, Slashing]
 description: A creature you touch takes 4d6 Slashing or Force damage (your choice), and if the creature is affected by the *Shield* spell, that spell ends.
 
 ---
@@ -259,7 +259,7 @@ range: 60 feet
 components: S, M
 material: a Melee weapon worth 1+ SP
 duration: Instantaneous
-tags: Attack:Melee Spell, Condition:Incapacitated, Condition:Stunned, Damage:Force, Debuff, Requires Sight, Saving Throw:Wisdom, Teleportation, Upcast
+tags: Attack:Melee Spell, Condition[Incapacitated, Stunned], Damage:Force, Debuff, Requires Sight, Saving Throw:Wisdom, Teleportation, Upcast
 description: You brandish the weapon used in the casting and then vanish to deal an opening death blow to one creature you can see within range. You teleport to an unoccupied space you can see within 5 feet of the target and make a melee spell attack against it. On a hit, the target takes 6d10 Force damage, and it must succeed on a Wisdom saving throw or have the Stunned condition until the end of its next turn.
 
 If the attack roll misses, you have the Incapacitated condition and your Speed is 0 until the end of your next turn, as you are struck with a terrible whiplash.
@@ -347,7 +347,7 @@ casting_time: Action
 range: 30 feet
 components: V, S
 duration: Instantaneous
-tags: Attack:Ranged Spell, Damage:Acid, Damage:Bludgeoning, Damage:Cold, Damage:Fire, Damage:Lightning, Damage:Necrotic, Damage:Psychic, Damage:Radiant, Damage:Slashing, Damage:Thunder, Debuff, Forced Movement, Light:Dim Light, Temporary Hit Points, Upcast
+tags: Attack:Ranged Spell, Damage[Acid, Bludgeoning, Cold, Fire, Lightning, Necrotic, Psychic, Radiant, Slashing, Thunder], Debuff, Forced Movement, Light:Dim Light, Temporary Hit Points, Upcast
 description: You fire off an element at a creature or an object within range. Make a ranged spell attack against the target. On a hit, the target suffers one of the following effects of your choice.
 
 ***Earth.*** The target takes 1d6 Bludgeoning damage from the attack, and if the target is Large or smaller, you can push it up to 5 feet away from you.
@@ -569,7 +569,7 @@ condition: , which you take immediately after hitting a creature with a Melee we
 range: Self
 components: V
 duration: Instantaneous
-tags: Condition:Paralyzed, Damage:Lightning, Damage:Thunder, Saving Throw:Wisdom, Tribute
+tags: Condition:Paralyzed, Damage[Lightning, Thunder], Saving Throw:Wisdom, Tribute
 description: Your strike rings with thunder that is audible within 500 feet of you. The target hit by the attack roll takes an extra 2d10 Lightning damage and 2d10 Thunder damage from the attack, and the target must succeed on a Wisdom saving throw or have the Paralyzed condition until the start of your next turn or until it is hit by an attack roll.
 
 ---

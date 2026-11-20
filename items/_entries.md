@@ -23,7 +23,7 @@ note_weight: +50% to normal counterpart
 settings: Erisia
 note_settings: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
 variant: true
-tags: Area, Bonus:Attack, Bonus:Damage, Charge, Consumable, Damage:Force, Magic Item, Saving Throw:Dexterity
+tags: Area, Bonus[Attack, Damage], Charge, Consumable, Damage:Force, Magic Item, Saving Throw:Dexterity
 description: This piece of magic ammunition is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The ammunition is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
 
 ***Unbreakable.*** Whenever the ammunition hits an object, the hit is a Critical Hit. In addition, you can always recover the ammunition at the end of a battle, unless it was destroyed or taken—picked up by an enemy that fled, for example.
@@ -46,7 +46,7 @@ note_weight: +50% to normal counterpart
 settings: Erisia
 note_settings: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
 variant: true
-tags: Area:Emanation, Charge, Damage:Force, Forced Movement, Magic Item, Resistance:Bludgeoning, Resistance:Piercing, Resistance:Slashing, Saving Throw:Strength
+tags: Area:Emanation, Charge, Damage:Force, Forced Movement, Magic Item, Resistance[Bludgeoning, Piercing, Slashing], Saving Throw:Strength
 description: This magic suit of armor is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The armor is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. While wearing the armor, you can use the following properties.
 
 ***Resistance.*** You have Resistance to Bludgeoning, Piercing, and Slashing damage.
@@ -71,7 +71,7 @@ weight: Varies
 options_weight: 9
 note_weight: +50% to normal counterpart
 settings: Erisia
-tags: Area:Cone, Bonus:Armor Class, Charge, Condition:Incapacitated, Damage:Force, Immunity:Bludgeoning, Immunity:Piercing, Immunity:Slashing, Magic Item, Saving Throw:Constitution
+tags: Area:Cone, Bonus:Armor Class, Charge, Condition:Incapacitated, Damage:Force, Immunity[Bludgeoning, Piercing, Slashing], Magic Item, Saving Throw:Constitution
 description: This magic Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class, in addition to the Shield's normal bonus to AC.
 
 ***Impact Absorption.*** When you take Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to absorb the impact with the Shield. You gain Immunity to Bludgeoning, Piercing, and Slashing damage against the triggering damage, and the Shield gains 1 charge, up to a maximum of 6 charges. You can't take this Reaction while the Shield has 6 charges.
@@ -94,7 +94,7 @@ note_weight: +50% to normal counterpart
 settings: Erisia
 note_settings: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
 variant: true
-tags: Bonus:Attack, Bonus:Damage, Charge, Condition:Prone, Damage:Force, Magic Item
+tags: Bonus[Attack, Damage], Charge, Condition:Prone, Damage:Force, Magic Item
 description: This magic weapon is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The weapon is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
 ***Unbreakable.*** Whenever the weapon hits an object, the hit is a Critical Hit.
@@ -161,7 +161,7 @@ rarity: Legendary
 attunement: false
 cost: 350000
 weight: 18
-tags: Area:Emanation, Light:Bright Light, Light:Dim Light, Magic Item, Spell
+tags: Area:Emanation, Light[Bright Light, Dim Light], Magic Item, Spell
 description: This object appears to be a Medium pole with a glowing crystal fixed to one end, forming a beacon that sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. You can deploy the beacon over the course of 1 hour, which can be done during a Short Rest. The beacon must be within your reach throughout the deployment, at the end of which you deploy the beacon in an unoccupied space within 5 feet of yourself. Removing a deployed beacon requires you to spend another hour doing so.
 
 While the beacon is deployed, the beacon emits an aura of antimagic in a 60-foot Emanation. Within the aura, the effects of the *Antimagic Field* spell are active; this doesn't suppress the effects of the beacon or any other Antimagic Beacons.
@@ -193,7 +193,7 @@ rarity: Very Rare
 attunement: false
 cost: 47506
 weight: 6
-tags: Ability Check:Dexterity, Area:Emanation, Condition:Restrained, Magic Item, Saving Throw:Dexterity, Saving Throw:Strength, Spell
+tags: Ability Check:Dexterity, Area:Emanation, Condition:Restrained, Magic Item, Saving Throw[Dexterity, Strength], Spell
 description: As a Utilize action, you can use the manacles on a Small or Medium creature within 5 feet of yourself that has the Grappled, Incapacitated, or Restrained condition. The target must succeed on a Strength or Dexterity saving throw (it chooses which) (DC 8 plus your Strength modifier and Proficiency Bonus) or become bound by the manacles.
 
 While bound in this way, the creature has the Restrained condition and the effects of the *Antimagic Field* spell are active in a 5-foot Emanation originating from it.
@@ -269,7 +269,7 @@ prefix_category: Martial Ranged
 category: Weapon
 cost: 800
 weight: 2
-tags: Condition:Paralyzed, Damage:Piercing, Damage:Lightning, Mastery Property:Vex, Saving Throw:Constitution, Special Property, Weapon Property:Ammunition, Weapon Property:Light, Weapon Property:Loading
+tags: Condition:Paralyzed, Damage[Piercing, Lightning], Mastery Property:Vex, Saving Throw:Constitution, Special Property, Weapon Property[Ammunition, Light, Loading]
 description: Proficiency with an Arm-Mounted Taser allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -327,7 +327,7 @@ rarity: Uncommon
 attunement: true
 cost: 425
 weight: 10
-tags: Area:Emanation, Immunity:Charmed, Immunity:Frightened, Magic Item
+tags: Area:Emanation, Immunity[Charmed, Frightened], Magic Item
 description: This object appears to be a Medium pole with a banner hung on one end. As a Magic action, you can raise the banner, causing an aura of determination to radiate from you in a 20-foot Emanation for 1 minute. While in the Emanation, creatures of your choice have Immunity to the Charmed and Frightened conditions. If a creature was already Charmed or Frightened, those conditions have no effect while in the Emanation. You can plant the banner as a Bonus Action, making the Emanation stationary until you take a Bonus Action to pick up the banner. If a creature other than you picks up the banner, the Emanation ends early.
 
 Once the banner is raised, the banner can't be used in that way again until the next dawn.
@@ -340,7 +340,7 @@ rarity: Uncommon
 attunement: false
 cost: 400
 weight: 2
-tags: Bonus:Armor Class, Bonus:Speed, Debuff, Magic Item
+tags: Bonus[Armor Class, Speed], Debuff, Magic Item
 description: While wearing this suit, you gain a +1 bonus to AC and your Speed increases by 10 feet. However, you can't wear any armor. You can use a Shield and still gain this benefit.
 
 ---
@@ -416,7 +416,7 @@ prefix_category: Martial Melee
 category: Weapon
 cost: 0.1
 weight: 1
-tags: Damage:Bludgeoning, Mastery Property:Slow, Special Property, Weapon Property:Finesse, Weapon Property:Thrown
+tags: Damage:Bludgeoning, Mastery Property:Slow, Special Property, Weapon Property[Finesse, Thrown]
 description: Proficiency with a Boomerang allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -493,7 +493,7 @@ options_cost: 415.002-415.3
 note_cost: +415 GP to normal counterpart
 weight: Varies
 options_weight: 0.02-0.5
-tags: Area:Emanation, Bonus:Attack, Bonus:Damage, Condition:Frightened, Condition:Incapacitated, Consumable, Damage:Force, Magic Item, Saving Throw:Wisdom
+tags: Area:Emanation, Bonus[Attack, Damage], Condition[Frightened, Incapacitated], Consumable, Damage:Force, Magic Item, Saving Throw:Wisdom
 description: This piece of magic ammunition is made of cold iron, a special type of iron that repels Undead and supernatural beings. You have a +1 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
 
 ***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the ammunition, the ammunition turns black. The ammunition returns to normal if no creatures of those types are in the Emanation.
@@ -550,7 +550,7 @@ options_cost: 4150.1-4200
 note_cost: +4,150 GP to normal counterpart
 weight: Varies
 options_weight: 1-18
-tags: Area:Emanation, Bonus:Attack, Bonus:Damage, Condition:Frightened, Damage:Force, Magic Item, Saving Throw:Wisdom
+tags: Area:Emanation, Bonus[Attack, Damage], Condition:Frightened, Damage:Force, Magic Item, Saving Throw:Wisdom
 description: This magic weapon is made of cold iron, a special type of iron that repels Undead and supernatural beings. You have a +1 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
 ***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the weapon, the weapon turns black. The weapon returns to normal if no creatures of those types are in the Emanation.
@@ -636,7 +636,7 @@ options_cost: 20.002-20.3
 note_cost: +20 GP to normal counterpart
 weight: Varies
 options_weight: 0.02-0.5
-tags: Ability Check:Strength, Condition:Restrained, Consumable, Damage:Acid, Damage:Cold, Damage:Fire, Damage:Lightning, Damage:Thunder, Debuff, Forced Movement, Magic Item, Saving Throw:Constitution, Saving Throw:Dexterity, Saving Throw:Strength
+tags: Ability Check:Strength, Condition:Restrained, Consumable, Damage[Acid, Cold, Fire, Lightning, Thunder], Debuff, Forced Movement, Magic Item, Saving Throw[Constitution, Dexterity, Strength]
 description: A creature hit by this magic ammunition suffers an effect corresponding to its damage type. Damage types and their corresponding effects are shown in the table below.
 
 | Damage Type | Effect |
@@ -660,7 +660,7 @@ cost: Varies
 options_cost: 400, 4000, 40000
 note_cost: See table
 weight: 1
-tags: Bonus:Attack, Bonus:Damage, Consumable, Magic Item
+tags: Bonus[Attack, Damage], Consumable, Magic Item
 description: This whetstone can sharpen one Melee weapon that deals Slashing or Piercing damage. Using the whetstone takes 1 hour, which can be done during a Short Rest, after which the whetstone crumbles to dust and the weapon is magically sharpened, granting it a permanent bonus to attack rolls and damage rolls determined by the whetstone's potency, as shown in the table below.
 
 If the weapon was nonmagical, it becomes magical after being sharpened with the whetstone. If the weapon already had a bonus to attack rolls and damage rolls, its bonus is changed to the one granted by the whetstone. The weapon's rarity changes to the whetstone's rarity if it is lower. For example, an Uncommon magic weapon sharpened by a Rare Enchanted Whetstone becomes a Rare magic weapon, but a Very Rare magic weapon's rarity wouldn't change.
@@ -755,7 +755,7 @@ note_cost: +45,000 GP to normal counterpart
 weight: Varies
 options_weight: 7-9
 note_weight: +5 lb. to normal counterpart
-tags: Ability Check:Strength, Bonus:Attack, Bonus:Damage, Forced Movement, Magic Item, Saving Throw:Strength
+tags: Ability Check:Strength, Bonus[Attack, Damage], Forced Movement, Magic Item, Saving Throw:Strength
 description: You have a +1 bonus to attack and damage rolls made with this magic weapon.
 
 ***Rope.*** The weapon has a 60-foot length of rope attached to it. The rope has AC 20, HP 20, and Immunity to all damage except Force damage. It regains 1 Hit Point every 5 minutes as long as it has at least 1 Hit Point. If the rope drops to 0 Hit Points, it is destroyed. After 3 days, the rope is restored and regains all of its Hit Points.
@@ -781,7 +781,7 @@ prefix_category: Martial Melee
 category: Weapon
 cost: 30
 weight: 2
-tags: Damage:Slashing, Special Mastery Property, Weapon Property:Finesse, Weapon Property:Light
+tags: Damage:Slashing, Special Mastery Property, Weapon Property[Finesse, Light]
 description: Proficiency with a Hook Sword allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special mastery property. To use this property, you must have a feature that lets you use it.
@@ -856,7 +856,7 @@ prefix_category: Martial Melee
 category: Weapon
 cost: 25
 weight: 12
-tags: Damage:Bludgeoning, Mastery Property:Topple, Special Property, Weapon Property:Heavy, Weapon Property:Reach, Weapon Property:Two-Handed
+tags: Damage:Bludgeoning, Mastery Property:Topple, Special Property, Weapon Property[Heavy, Reach, Two-Handed]
 description: Proficiency with a Meteor Hammer allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -886,7 +886,7 @@ weight: Varies
 options_weight: 0.01-0.25
 note_weight: -50% to normal counterpart
 settings: Erisia
-tags: Ability Check:Dexterity, Ability Check:Strength, Consumable, Magic Item
+tags: Ability Check[Dexterity, Strength], Consumable, Magic Item
 description: This piece of magic ammunition is made of mithril, a light, silvery metal with unusual toughness and flexibility, as well as the ability to heal itself. The ammunition magically mends itself to its original state, counteracting any damage, even when broken apart. Unless they are ground to dust or melted, fragments of the ammunition move toward each other with a Speed of 5 feet and automatically fuse back together when in contact to restore the ammunition's original state.
 
 When you hit a target with the ammunition, you can cause the ammunition to become embedded in the target. A creature can take the Utilize action to make a DC 10 Strength (Athletics) or Dexterity (Sleight of Hand) check, dislodging the ammunition on a success.
@@ -973,7 +973,7 @@ prefix_category: Martial Melee
 category: Weapon
 cost: 0.05
 weight: 1
-tags: Damage:Bludgeoning, Mastery Property:Nick, Special Property, Weapon Property:Finesse, Weapon Property:Light
+tags: Damage:Bludgeoning, Mastery Property:Nick, Special Property, Weapon Property[Finesse, Light]
 description: Proficiency with Nunchaku allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -1003,7 +1003,7 @@ weight: Varies
 options_weight: 0.025-0.625
 note_weight: +25% to normal counterpart
 settings: Erisia
-tags: Ability Check:Dexterity, Ability Check:Strength, Bonus:Attack, Bonus:Damage, Consumable, Debuff, Magic Item
+tags: Ability Check[Dexterity, Strength], Bonus[Attack, Damage], Consumable, Debuff, Magic Item
 description: This piece of magic ammunition is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the ammunition. However, while carrying 5 or more pieces of the ammunition, you have Disadvantage on spell attack rolls and your targets have Advantage on saving throws against spells you cast. You can't cast spells while carrying 10 or more pieces of the ammunition.
 
 When you hit a target with the ammunition, the ammunition becomes embedded in the target. A creature can take the Utilize action to make a DC 10 Strength (Athletics) or Dexterity (Sleight of Hand) check, dislodging the ammunition on a success. A target that is embedded with one or more pieces of the ammunition can't cast or maintain Concentration on spells.
@@ -1064,7 +1064,7 @@ weight: Varies
 options_weight: 1.25-22.5
 note_weight: +25% to normal counterpart
 settings: Erisia
-tags: Bonus:Attack, Bonus:Damage, Debuff, Magic Item
+tags: Bonus[Attack, Damage], Debuff, Magic Item
 description: This magic weapon is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. You have a +2 bonus to attack and damage rolls made with the weapon. However, you can't cast spells while carrying the weapon.
 
 You can make attacks against spells with the weapon, potentially ending them. When you do so, choose one creature, object, or magical effect within your reach with the weapon and make an attack roll with the weapon against one ongoing spell of level 5 or lower affecting it (AC 13 plus that spell's level). On a hit, the spell ends.
@@ -1122,7 +1122,7 @@ rarity: Common
 attunement: false
 cost: 1
 weight: 0.5
-tags: Buff, Condition:Exhaustion, Condition:Poisoned, Consumable, Damage:Poison, Magic Item, Saving Throw:Constitution
+tags: Buff, Condition[Exhaustion, Poisoned], Consumable, Damage:Poison, Magic Item, Saving Throw:Constitution
 description: Bubbles fizz and foam in this potion's amber liquid, disappearing after a short while.
 
 When you drink this potion, you must make a DC 13 Constitution saving throw. On a failed save, you have the Poisoned condition for 1 hour, and you take 1 Poison damage if you were already Poisoned in this way. While Poisoned in this way, you have Advantage on saving throws you make to avoid or end the Frightened condition.
@@ -1409,7 +1409,7 @@ prefix_category: Martial Ranged
 category: Weapon
 cost: 75
 weight: 3
-tags: Damage:Piercing, Mastery Property:Push, Special Property, Weapon Property:Ammunition, Weapon Property:Heavy, Weapon Property:Two-Handed
+tags: Damage:Piercing, Mastery Property:Push, Special Property, Weapon Property[Ammunition, Heavy, Two-Handed]
 description: Proficiency with a Warbow allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.

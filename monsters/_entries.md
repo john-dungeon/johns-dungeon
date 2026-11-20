@@ -20,7 +20,7 @@ senses: Darkvision 300 ft.
 languages: Abyssal; telepathy 300 ft. (only with other welterbeasts)
 cr: 8
 settings: Orobis
-tags: Area:Cylinder, Area:Emanation, Condition:Frightened, Condition:Poisoned, Damage:Necrotic, Damage:Psychic, Damage:Slashing, Debuff, Forced Movement, Saving Throw:Constitution, Saving Throw:Dexterity, Saving Throw:Strength, Saving Throw:Wisdom
+tags: Area[Cylinder, Emanation], Condition[Frightened, Poisoned], Damage[Necrotic, Psychic, Slashing], Debuff, Forced Movement, Saving Throw[Constitution, Dexterity, Strength, Wisdom]
 flavor: Agony is the manifestation of human suffering, born of one man's despair and his ultimate sacrifice in a futile attempt to become something greater than he is. If left to its own devices, it will certainly go on to share, or rather inflict, its suffering upon thousands of others.
 
 traits:
@@ -121,7 +121,7 @@ senses: Blindsight 60 ft., Darkvision 120 ft.
 languages: None
 cr: 9
 settings: Big Blue
-tags: Area:Cone, Area:Emanation, Area:Line, Condition:Grappled, Condition:Poisoned, Condition:Prone, Damage:Bludgeoning, Damage:Fire, Damage:Piercing, Forced Movement, Light:Bright Light, Light:Dim Light, Revival, Saving Throw:Constitution, Saving Throw:Dexterity, Saving Throw:Strength, Summon
+tags: Area[Cone, Emanation, Line], Condition[Grappled, Poisoned, Prone], Damage[Bludgeoning, Fire, Piercing], Forced Movement, Light[Bright Light, Dim Light], Revival, Saving Throw[Constitution, Dexterity, Strength], Summon
 flavor: Born in the depths of a submarine volcano, Atar the Elder Skith is an enormous scorpion-like leviathan that can harness the power of primordial fire, shooting flaming beams out of her eyes and wielding a stinger that melts through steel. As a mature leviathan, Atar is also the broodmother of a massive army of skiths. They rip through the oceans like a swarm of locusts, and thus, they must remain itinerant or risk famine.
 
 traits:
@@ -325,7 +325,7 @@ senses: Tremorsense 120 ft.; always Blinded
 languages: Common; telepathy 300 ft. (only with **[[Stone Sentinel|Stone Sentinels]]** and other **Stone Wardens**)
 cr: 8
 settings: Jingyu City
-tags: Damage:Bludgeoning, Damage:Force, Debuff
+tags: Damage[Bludgeoning, Force], Debuff
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
 
 traits:
