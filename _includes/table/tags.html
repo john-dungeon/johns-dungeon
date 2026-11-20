@@ -1,14 +1,14 @@
 {%- capture tg_nl %}
 {% endcapture -%}
 {%- capture tg_raw %}{% include table/field.html packed=include.packed key="tags" %}{% endcapture -%}
-{%- capture tg_csv %}{% include table/list.html csv=tg_raw sep="," %}{% endcapture -%}
+{%- capture tg_expanded %}{% include table/expand-tag-groups.html text=tg_raw %}{% endcapture -%}
+{%- capture tg_csv %}{% include table/list.html csv=tg_expanded sep="," %}{% endcapture -%}
 {%- assign tg_have = tg_csv | downcase | split: "," -%}
 
 {%- for tg_rule in include.rules -%}
   {%- assign tg_new = "" -%}
 
   {%- if tg_rule.prefix -%}
-    {%- comment -%} Values rule: build "|fire|cold|charmed|..." so a word can be checked with one "contains". {%- endcomment -%}
     {%- assign tg_pool = "|" -%}
     {%- for tg_list in tg_rule.values -%}
       {%- assign tg_joined = site.data.lists[tg_list] | join: "|" | downcase -%}
@@ -62,7 +62,6 @@
     {%- if tg_hit -%}{%- assign tg_new = tg_rule.tag -%}{%- endif -%}
   {%- endif -%}
 
-  {%- comment -%} Every kind ends here: add each new tag unless the entry already has it. {%- endcomment -%}
   {%- assign tg_adds = tg_new | split: "," -%}
   {%- for tg_add in tg_adds -%}
     {%- assign tg_clean = tg_add | strip -%}
