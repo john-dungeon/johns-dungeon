@@ -690,7 +690,7 @@ name: Magic Fists
 level: 1
 school: Evocation
 esoteric: true
-classes: Bard, Paladin, Ranger, Sorcerer, Wizard
+classes: Artificer, Bard, Paladin, Ranger, Sorcerer, Wizard
 casting_time: Action
 range: 5 feet
 components: V, S
