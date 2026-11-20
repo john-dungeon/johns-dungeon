@@ -34,6 +34,11 @@ export function save(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
 }
 
+export function bringToFront(node) {
+  try { node.hidePopover(); } catch (e) {}
+  try { node.showPopover(); } catch (e) {}
+}
+
 export const posterize = (value, levels) => (value <= 0 ? 0 : Math.round(value * levels) / levels);
 
 export const fadeOut = (age, hold, fade) => Math.min(1, Math.max(0, 1 - (age - hold) / fade));
