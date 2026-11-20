@@ -31,7 +31,16 @@
 {%- endif %}
 
 <!-- SITE DATA FOR SCRIPTS -->
-<script>window.SITE_STRINGS = {{ site.data.strings | jsonify }}; window.SITE_LISTS = {{ site.data.lists | jsonify }}; window.SITE_AUDIO = {{ site.data.audio | jsonify }}; window.SITE_INTERACTIVE = {{ site.data.interactive | join: ", " | jsonify }}; window.SITE_LOCKED = {{ lk_json }};</script>
+{%- assign hc_setting_titles = site.pages | where: "parent", "Settings" | sort_natural: "title" | map: "title" %}
+{%- assign hc_settings = "Any" | split: "," | concat: hc_setting_titles %}
+<script>
+  window.SITE_STRINGS = {{ site.data.strings | jsonify }};
+  window.SITE_LISTS = {{ site.data.lists | jsonify }};
+  window.SITE_LISTS.settings = {{ hc_settings | jsonify }};
+  window.SITE_AUDIO = {{ site.data.audio | jsonify }};
+  window.SITE_INTERACTIVE = {{ site.data.interactive | join: ", " | jsonify }};
+  window.SITE_LOCKED = {{ lk_json }};
+</script>
 
 <!-- SCRIPTS -->
 <script src="{{ '/assets/js/panel-toggle.js' | relative_url }}"></script>
