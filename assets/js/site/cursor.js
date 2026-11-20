@@ -42,9 +42,7 @@ function media(file, size) {
 }
 
 function raise() {
-  if (!spec) return;
-  try { holder.hidePopover(); } catch (e) {}
-  try { holder.showPopover(); } catch (e) {}
+  if (spec) bringToFront(holder);
 }
 
 function paintLayers() {
@@ -85,10 +83,6 @@ function disable() {
   root.classList.remove('fake-cursor');
   holder.textContent = '';
   try { holder.hidePopover(); } catch (e) {}
-}
-
-function raise() {
-  if (spec) bringToFront(holder);
 }
 
 document.addEventListener('pointermove', event => {
