@@ -1,4 +1,4 @@
-import { CALM, waiting, announce, themeConfig, onThemeChange, load, save } from './shared.js';
+import { CALM, waiting, announce, themeConfig, onThemeChange, load, save, bringToFront } from './shared.js';
 
 const random = (min, max) => min + Math.random() * (max - min);
 
@@ -40,8 +40,7 @@ function makeContext(options, layer) {
     undo.push(() => host.remove());
 
     const raise = () => {
-      try { host.hidePopover(); } catch (e) {}
-      try { host.showPopover(); } catch (e) {}
+      bringToFront(host);
       announce('layerraised');
     };
     raise();
