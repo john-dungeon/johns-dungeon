@@ -21,18 +21,10 @@ export function onThemeChange(run) {
   document.addEventListener('themechange', event => run(event.detail));
 }
 
-export function load(key, fallback) {
-  try {
-    const saved = localStorage.getItem(key);
-    return saved === null ? fallback : JSON.parse(saved);
-  } catch (e) {
-    return fallback;
-  }
-}
-
-export function save(key, value) {
-  try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
-}
+const store = globalThis.SiteStore;
+export const load = store.local.get;
+export const save = store.local.set;
+export const session = store.session;
 
 export const posterize = (value, levels) => (value <= 0 ? 0 : Math.round(value * levels) / levels);
 
