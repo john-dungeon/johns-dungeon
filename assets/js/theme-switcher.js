@@ -56,14 +56,12 @@
   }
 
   let active = currentTheme();
-  try {
-    const saved = localStorage.getItem('theme');
-    if (IDS.includes(saved) && saved !== currentTheme()) {
-      document.write(`<link rel="stylesheet" href="${hrefFor(saved)}">`);
-      link.remove();
-      active = saved;
-    }
-  } catch (e) {}
+  const saved = SiteStore.local.get('theme', null);
+  if (IDS.includes(saved) && saved !== currentTheme()) {
+    document.write(`<link rel="stylesheet" href="${hrefFor(saved)}">`);
+    link.remove();
+    active = saved;
+  }
   root.dataset.theme = active;
   preloadFonts(active);
 
@@ -88,7 +86,7 @@
       if (!option) return;
       const theme = option.dataset.theme;
       if (theme === root.dataset.theme) return;
-      try { localStorage.setItem('theme', theme); } catch (e) {}
+      SiteStore.local.set('theme', theme);
       switchTheme(theme).then(() => { announce(theme); markActive(); });
     });
 
