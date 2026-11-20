@@ -34,3 +34,15 @@ export function bringToFront(node) {
   try { node.hidePopover(); } catch (e) {}
   try { node.showPopover(); } catch (e) {}
 }
+
+export function wireDialog(dialog) {
+  dialog.addEventListener('close', () => announce('popupclose'));
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+}
+
+export function openDialog(dialog) {
+  dialog.showModal();
+  announce('popupopen');
+}
