@@ -58,6 +58,33 @@ $panels: (
   cursor: pointer;
 }
 
+// Outlined Text Boxes
+@mixin field-box {
+  @include outlined;
+  background: $search-background-color;
+  color: $body-text-color;
+}
+
+// Popup Window Frame
+@mixin dialog-frame($width) {
+  @include outlined(0.6rem);
+  border-top: 4px solid $link-color;
+  border-bottom: 4px solid $link-color;
+  width: min(#{$width}, calc(100% - 2rem));
+  padding: 0;
+  background: $sidebar-color;
+  color: $body-text-color;
+  box-shadow: $shadow-dialog;
+
+  &::backdrop { background: rgba(0, 0, 0, 0.6); }
+}
+
+@mixin dialog-title {
+  color: $body-heading-color;
+  font-size: $dialog-title-size !important;
+  line-height: 1.1;
+}
+
 @mixin muted($size: 0.85rem) {
   font-size: $size;
   color: $nav-child-link-color;
