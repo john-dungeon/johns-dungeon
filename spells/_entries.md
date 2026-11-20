@@ -53,7 +53,7 @@ name: Argo's Subspace Box
 level: 3
 school: Conjuration
 esoteric: true
-classes: Artificer
+classes: Artificer, Warlock
 casting_time: Action
 ritual: true
 range: Touch
@@ -212,7 +212,7 @@ name: Corrosive Slime
 level: 3
 school: Transmutation
 esoteric: true
-classes: Druid, Warlock, Wizard
+classes: Druid, Sorcerer, Warlock, Wizard
 casting_time: Action
 range: 60 feet
 components: V, S, M
@@ -238,7 +238,7 @@ name: Cut
 level: 1
 school: Evocation
 esoteric: true
-classes: Artificer, Paladin, Ranger, Warlock, Wizard
+classes: Artificer, Paladin, Ranger, Sorcerer, Warlock, Wizard
 casting_time: Action
 range: Touch
 components: V, S, M
@@ -273,7 +273,7 @@ name: Detect Mimic
 level: 1
 school: Divination
 esoteric: true
-classes: Artificer, Druid, Ranger, Wizard
+classes: Artificer, Druid, Ranger
 casting_time: Action
 ritual: true
 range: Self
@@ -453,7 +453,7 @@ name: Filibuster
 level: 7
 school: Transmutation
 esoteric: true
-classes: Cleric, Druid, Sorcerer, Warlock, Wizard
+classes: Bard, Cleric, Druid, Sorcerer, Wizard
 casting_time: Reaction
 condition: , which you take at the start of another creature's turn
 range: 1,000 feet
@@ -513,7 +513,7 @@ name: Ghost Bolt
 level: Cantrip
 school: Necromancy
 esoteric: true
-classes: Cleric, Warlock, Wizard
+classes: Cleric, Warlock
 casting_time: Action
 range: 30 feet
 components: V, S
@@ -617,7 +617,7 @@ name: Life Exchange
 level: 7
 school: Necromancy
 esoteric: true
-classes: Cleric, Warlock, Wizard
+classes: Cleric, Warlock
 casting_time: Action
 range: Touch
 components: V, S, M
@@ -677,7 +677,7 @@ name: Magic Clock
 level: Cantrip
 school: Divination
 esoteric: true
-classes: Artificer, Cleric, Druid, Ranger, Warlock, Wizard
+classes: Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard
 casting_time: Action
 range: 10 feet
 components: V, S
@@ -738,6 +738,38 @@ description: You transfer your mana to one willing creature you touch, restoring
 After a creature regains a spell slot from this spell, it gains 1 Exhaustion level each time it regains another one from this spell before it finishes a Long Rest.
 
 ***Using a Higher-Level Spell Slot.*** The level of the expended spell slot you restore for the creature equals the level of the spell slot used for the spell.
+
+---
+
+name: Manipulate Earth
+level: 3
+school: Transmutation
+esoteric: true
+classes: Druid, Sorcerer
+casting_time: Action
+range: 30 feet
+components: V, S, M
+material: a handful of dirt
+duration: Concentration
+concentration_max: 1 minute
+tags: Condition[Restrained], Damage[Bludgeoning], Requires Sight, Saving Throw[Dexterity], Summon, Upcast
+description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical earth—any solid stone, soil, clay, crystal, or other earthen material except metal—that isn't being worn or carried that you can see, creating one of the following effects of your choice within range:
+
+**Create Earth.** You create a portion of earth of negligible value (such as dirt, not a gemstone) that fits in a 5-foot Cube of unoccupied space. If you create earth in the air, it is suspended there until the end of your next turn, after which it falls as normal.
+
+**Destroy Earth.** You destroy a portion of natural earth (such as a boulder, not a brick wall) that fits in a 5-foot Cube. If you destroy earth that is supporting some structure that would collapse without it, the structure remains suspended there until the end of your next turn, after which it falls as normal.
+
+**Move Earth.** You move an unsecured portion of earth (such as loose sand, not a brick in a wall) that fits in a 5-foot Cube up to 20 feet through unoccupied spaces you can see. The earth must remain within range throughout the movement. If you move the earth into the air, it is suspended there until the end of your next turn, after which it falls as normal if you don't move it with this spell again.
+
+**Sculpt Earth.** You sculpt an unsecured portion of earth (such as loose sand, not a brick in a wall) that fits in a 5-foot Cube into the shape of an object that is worth less than 5 GP and also fits in the Cube. The created object has the same properties as a normal one, except it has a negligible value and crumbles to dust after 1 hour.
+
+**Shape Earth.** You shape a portion of natural earth (such as a boulder, not a brick wall) that fits in a 5-foot Cube to form a shape that fits in the Cube. Alternatively, you can turn the earth into Difficult Terrain or remove it as Difficult Terrain.
+
+If any earth or structure you affect with this spell falls on a creature, that creature must make a Dexterity saving throw, taking 3d6 Bludgeoning damage (or a different amount at the DM's discretion) on a failed save or half as much damage on a successful one.
+
+If you affect earth with this spell in a way that traps or binds a creature, that creature must succeed on a Dexterity saving throw or it has the Restrained condition until the binding earth is destroyed. Any earth you form with this spell, binding or otherwise, has Immunity to Poison and Psychic damage. Regardless of what type of earth it is, if it fills an entire Cube, it has AC 15 and 15 Hit Points; otherwise, it has AC 15 and 5 Hit Points. Reducing the earth to 0 Hit Points destroys it.
+
+***Using a Higher-Level Spell Slot.*** Your Concentration can last longer with a spell slot of level 5-6 (up to 10 minutes) or 7+ (up to 1 hour).
 
 ---
 
