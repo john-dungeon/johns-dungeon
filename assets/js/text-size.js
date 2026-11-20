@@ -2,13 +2,12 @@
   const KEY = 'text-size';
   const NORMAL = 100;
   const root = document.documentElement;
+  const store = SiteStore.local;
 
   const paint = percent =>
     root.style.setProperty('font-size', `calc(${percent}% * var(--body-scale, 1))`, 'important');
-  const remember = value => { try { localStorage.setItem(KEY, value); } catch (e) {} };
 
-  let size = NORMAL;
-  try { size = parseInt(localStorage.getItem(KEY), 10) || NORMAL; } catch (e) {}
+  let size = Number(store.get(KEY, NORMAL)) || NORMAL;
   paint(size);
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -40,7 +39,7 @@
       if (!action) return;
       size = action();
       show();
-      remember(size);
+      store.set(KEY, size);
     });
 
     show();
