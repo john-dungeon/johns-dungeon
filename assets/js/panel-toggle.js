@@ -1,12 +1,11 @@
 (function () {
   const SUFFIX = '-collapsed';
   const root = document.documentElement;
+  const store = SiteStore.local;
 
-  try {
-    Object.keys(localStorage)
-      .filter(key => key.endsWith(SUFFIX) && localStorage.getItem(key) === 'true')
-      .forEach(key => root.classList.add(key));
-  } catch (e) {}
+  store.keys()
+    .filter(key => key.endsWith(SUFFIX) && store.get(key, false) === true)
+    .forEach(key => root.classList.add(key));
 
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-panel-toggle]').forEach(button => {
@@ -15,8 +14,7 @@
         button.setAttribute('aria-expanded', String(!root.classList.contains(state)));
 
       button.addEventListener('click', () => {
-        const collapsed = root.classList.toggle(state);
-        try { localStorage.setItem(state, collapsed); } catch (e) {}
+        store.set(state, root.classList.toggle(state));
         paint();
       });
 
