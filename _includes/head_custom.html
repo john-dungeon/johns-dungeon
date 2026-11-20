@@ -3,6 +3,7 @@
 <link rel="apple-touch-icon" href="{{ '/assets/favicon.webp' | relative_url }}">
 
 <!-- VISIT -->
+<script src="{{ '/assets/js/store.js' | relative_url }}"></script>
 <script>window.SITE_SESSION = { timeout: {{ site.data.session.timeout | jsonify }}, reset: {{ site.data.session.reset | jsonify }}, gate: {{ site.data.gate.enabled | jsonify }} };</script>
 <script src="{{ '/assets/js/session.js' | relative_url }}"></script>
 
