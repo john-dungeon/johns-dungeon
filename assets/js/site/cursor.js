@@ -20,14 +20,12 @@ let y = 0;
 let placed = false;
 let frame = 0;
 
-try {
-  const saved = JSON.parse(sessionStorage.getItem(SAVED));
-  if (saved) {
-    x = saved.x;
-    y = saved.y;
-    placed = true;
-  }
-} catch (e) {}
+const saved = session.get(SAVED, null);
+if (saved) {
+  x = saved.x;
+  y = saved.y;
+  placed = true;
+}
 
 function media(file, size) {
   const node = document.createElement(VIDEO.test(file) ? 'video' : 'img');
@@ -104,10 +102,8 @@ root.addEventListener('pointerleave', () => {
 });
 
 addEventListener('pagehide', () => {
-  try {
-    if (placed) sessionStorage.setItem(SAVED, JSON.stringify({ x, y }));
-    else sessionStorage.removeItem(SAVED);
-  } catch (e) {}
+  if (placed) session.set(SAVED, { x, y });
+  else session.remove(SAVED);
 });
 
 document.addEventListener('popupopen', raise);
