@@ -1,4 +1,4 @@
-import { root, posterize, cssVar } from '../shared.js';
+import { root, posterize, cssVar, perFrame } from '../shared.js';
 
 export const calmSafe = true;
 export const gateSafe = true;
@@ -43,16 +43,14 @@ export default function vignette({ options, on }) {
 
   const show = () => root.style.setProperty('--fx-vignette-image', draw());
 
-  let frame = 0;
-  on(window, 'resize', () => {
-    frame ||= requestAnimationFrame(() => { frame = 0; show(); });
-  });
+  const refresh = perFrame(show);
+  on(window, 'resize', refresh);
 
   show();
   root.classList.add('fx-vignette');
 
   return () => {
-    cancelAnimationFrame(frame);
+    refresh.cancel();
     root.classList.remove('fx-vignette');
     root.style.removeProperty('--fx-vignette-image');
   };
