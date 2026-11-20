@@ -1,4 +1,4 @@
-import { announce } from '../site/shared.js';
+import { wireDialog, openDialog } from '../site/shared.js';
 import { el, t, markUnlisted } from './utils.js';
 import { groupTags, joinTag } from './tags.js';
 
@@ -35,10 +35,7 @@ export function createDialog(root, tagCol) {
   const content = dialog.querySelector('.st-dialog-body');
 
   dialog.querySelector('.st-dialog-close').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('close', () => announce('popupclose'));
-  dialog.addEventListener('click', event => {
-    if (event.target === dialog) dialog.close();
-  });
+  wireDialog(dialog);
 
   return function openItem(row) {
     const source = root.querySelector(`.st-details [data-for="${row.id}"]`);
@@ -51,7 +48,6 @@ export function createDialog(root, tagCol) {
     if (tagNames && tagCol.filter) showTags(tagLine, tagNames.split(','), tagCol);
 
     content.innerHTML = source ? source.innerHTML : '';
-    dialog.showModal();
-    announce('popupopen');
+    openDialog(dialog);
   };
 }
