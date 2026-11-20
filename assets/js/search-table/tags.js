@@ -1,13 +1,17 @@
 import { compareText } from './utils.js';
 
 export const TAG = 'tag';
-export const SUBTAG = ':';
+export const OPEN = '[';
+const CLOSE = ']';
 const UNIVERSAL = 'universal';
 
 export function splitTag(tag) {
-  const at = tag.indexOf(SUBTAG);
-  return at === -1 ? [tag, ''] : [tag.slice(0, at), tag.slice(at + 1)];
+  const at = tag.indexOf(OPEN);
+  if (at === -1 || !tag.endsWith(CLOSE)) return [tag, ''];
+  return [tag.slice(0, at), tag.slice(at + 1, -1)];
 }
+
+export const joinTag = (group, sub) => group + OPEN + sub + CLOSE;
 
 export const withGroups = tags => [...new Set(tags.flatMap(tag => [splitTag(tag)[0], tag]))];
 
@@ -58,6 +62,6 @@ export function expandTags(tags, lists) {
       if (!lists[source]) console.warn(`Unknown list "${source}" in tag group "${tag}"`);
       return lists[source] || [];
     });
-    return [tag, ...subtags.sort(compareText).map(sub => tag + SUBTAG + sub)];
+    return [tag, ...subtags.sort(compareText).map(sub => joinTag(tag, sub))];
   });
 }
