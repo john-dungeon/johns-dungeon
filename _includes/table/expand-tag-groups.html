@@ -1,7 +1,6 @@
 {%- comment -%}
   Tag Group Expander
   Params: text (required; tag list)
-  Turns "Group[A, B]" into "Group:A,Group:B".
 {%- endcomment -%}
 
 {%- assign eg_out = "" -%}
@@ -27,7 +26,7 @@
     {%- for eg_sub in eg_subs -%}
       {%- assign eg_item = eg_sub | strip -%}
       {%- if eg_item == "" -%}{%- continue -%}{%- endif -%}
-      {%- assign eg_out = eg_out | append: eg_group | append: ":" | append: eg_item | append: "," -%}
+      {%- assign eg_out = eg_out | append: eg_group | append: "[" | append: eg_item | append: "]" | append: "," -%}
     {%- endfor -%}
   {%- endif -%}
 {%- endfor -%}
