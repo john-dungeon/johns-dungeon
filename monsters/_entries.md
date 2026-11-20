@@ -80,7 +80,7 @@ senses: Darkvision 120 ft.
 languages: Abyssal; telepathy 120 ft. (only with other welterbeasts)
 cr: 5
 settings: Orobis
-tags: Condition:Frightened, Damage:Psychic, Saving Throw:Wisdom
+tags: Condition[Frightened], Damage[Psychic], Saving Throw[Wisdom]
 flavor: Welterbeasts are anomalous creatures that embody negative emotions, spawning from the ruins of lost civilizations and flocking to sites of immense suffering. It was once said that the sight of them would spell the end of times, but now hordes of them roam the lands. They march tirelessly, devouring anything in their path, perhaps to prepare Orobis for a new aeon.
 
 traits:
@@ -199,7 +199,7 @@ skills: Athletics +6
 immunities: Poison, Psychic; Charmed, Exhaustion, Frightened, Poisoned
 languages: Understands the languages you know
 cr: 4
-tags: Condition:Prone, Damage:Force
+tags: Condition[Prone], Damage[Force]
 
 traits:
 - trait_1: Bound
@@ -242,7 +242,7 @@ senses: Blindsight 60 ft.
 languages: None
 cr: 0.125
 settings: Erisia
-tags: Damage:Bludgeoning, Forced Movement
+tags: Damage[Bludgeoning], Forced Movement
 flavor: Unlike other slimes, blue slimes bounce instead of crawl, making them significantly faster. Many find this bouncy nature cute, but for the slimes themselves, it is a means of survival. They typically live on mountains and hills where they can leap off cliffs and roll down inclines at breakneck speeds, fleeing from threats in pathetic but effective fashion.
 
 traits:
@@ -283,7 +283,7 @@ senses: Tremorsense 40 ft.; always Blinded
 languages: Common; telepathy 300 ft. (only with **[[Stone Warden|Stone Wardens]]** and other **Stone Sentinels**)
 cr: 6
 settings: Jingyu City
-tags: Condition:Prone, Damage:Bludgeoning, Forced Movement, Saving Throw:Dexterity
+tags: Condition[Prone], Damage[Bludgeoning], Forced Movement, Saving Throw[Dexterity]
 flavor: Stone lions guard the gates of ancient temples with unwavering vigilance. However, due to the primitive magic that animates them, there are many ways to circumvent their watch. The simplest method is simply to stay out of their range of Tremorsense, since they are completely blind beyond that.
 
 traits:

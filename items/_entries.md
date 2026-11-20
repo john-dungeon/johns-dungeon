@@ -4,7 +4,7 @@ rarity: Uncommon
 attunement: false
 cost: 400
 weight: 4
-tags: Buff, Debuff, Magic Item, Special Sense:Blindsight, Vulnerability:Thunder
+tags: Buff, Debuff, Magic Item, Special Sense[Blindsight], Vulnerability[Thunder]
 description: While wearing this helmet, you have Blindsight with a range of 5 feet and Advantage on Wisdom (Perception) checks that rely on hearing. However, you have Vulnerability to Thunder damage and have Disadvantage on saving throws you make to avoid or end the Deafened condition.
 
 ---
@@ -23,7 +23,7 @@ note_weight: +50% to normal counterpart
 settings: Erisia
 note_settings: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
 variant: true
-tags: Area, Bonus[Attack, Damage], Charge, Consumable, Damage:Force, Magic Item, Saving Throw:Dexterity
+tags: Area, Bonus[Attack, Damage], Charge, Consumable, Damage[Force], Magic Item, Saving Throw[Dexterity]
 description: This piece of magic ammunition is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The ammunition is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
 
 ***Unbreakable.*** Whenever the ammunition hits an object, the hit is a Critical Hit. In addition, you can always recover the ammunition at the end of a battle, unless it was destroyed or taken—picked up by an enemy that fled, for example.
@@ -46,7 +46,7 @@ note_weight: +50% to normal counterpart
 settings: Erisia
 note_settings: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
 variant: true
-tags: Area:Emanation, Charge, Damage:Force, Forced Movement, Magic Item, Resistance[Bludgeoning, Piercing, Slashing], Saving Throw:Strength
+tags: Area[Emanation], Charge, Damage[Force], Forced Movement, Magic Item, Resistance[Bludgeoning, Piercing, Slashing], Saving Throw[Strength]
 description: This magic suit of armor is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The armor is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. While wearing the armor, you can use the following properties.
 
 ***Resistance.*** You have Resistance to Bludgeoning, Piercing, and Slashing damage.
@@ -71,7 +71,7 @@ weight: Varies
 options_weight: 9
 note_weight: +50% to normal counterpart
 settings: Erisia
-tags: Area:Cone, Bonus:Armor Class, Charge, Condition:Incapacitated, Damage:Force, Immunity[Bludgeoning, Piercing, Slashing], Magic Item, Saving Throw:Constitution
+tags: Area[Cone], Bonus[Armor Class], Charge, Condition[Incapacitated], Damage[Force], Immunity[Bludgeoning, Piercing, Slashing], Magic Item, Saving Throw[Constitution]
 description: This magic Shield is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The Shield is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. While holding the Shield, you have a +3 bonus to Armor Class, in addition to the Shield's normal bonus to AC.
 
 ***Impact Absorption.*** When you take Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to absorb the impact with the Shield. You gain Immunity to Bludgeoning, Piercing, and Slashing damage against the triggering damage, and the Shield gains 1 charge, up to a maximum of 6 charges. You can't take this Reaction while the Shield has 6 charges.
@@ -94,7 +94,7 @@ note_weight: +50% to normal counterpart
 settings: Erisia
 note_settings: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
 variant: true
-tags: Bonus[Attack, Damage], Charge, Condition:Prone, Damage:Force, Magic Item
+tags: Bonus[Attack, Damage], Charge, Condition[Prone], Damage[Force], Magic Item
 description: This magic weapon is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The weapon is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
 ***Unbreakable.*** Whenever the weapon hits an object, the hit is a Critical Hit.
@@ -109,7 +109,7 @@ rarity: Rare
 attunement: true
 cost: 4150
 weight: 1
-tags: Bonus:Speed, Buff, Magic Item
+tags: Bonus[Speed], Buff, Magic Item
 description: If you wear this helmet while Bloodied, your Speed increases by 15 feet and you have Advantage on melee attack rolls.
 
 ---
@@ -121,7 +121,7 @@ rarity: Legendary
 attunement: true
 cost: 450050
 weight: 2
-tags: Buff, Command Word, Damage:Piercing, Magic Item, Tribute
+tags: Buff, Command Word, Damage[Piercing], Magic Item, Tribute
 description: This magic weapon ignores Resistance and Immunity to Piercing damage. In addition, ranged attacks using the weapon ignore Half Cover and Three-Quarters Cover and suffer no Disadvantage due to long range.
 
 When you use this weapon to make a ranged attack against a creature that hasn't taken a turn yet in the current combat, you can utter the following command words: "From the pit where the moonlight goes to die, I summon the dusk to blot out the sky. Let the gloom be my quiver, the void be my string, and the hush of the grave be the only thing. Before the first breath of the fight can start, loose the midnight arrow and still their heart." You have Advantage on that attack roll. If the attack hits, the target dies if it has 100 Hit Points or fewer. Otherwise, it takes an extra 12d12 Piercing damage from the attack. If the target has Legendary Resistance, it can expend one daily use of that trait to avoid dying, taking the extra damage instead. Once you use this property, you can't use it again until you roll Initiative.
@@ -134,7 +134,7 @@ rarity: Artifact
 attunement: true
 cost: Priceless
 weight: 0.5
-tags: Buff, Charge, Cursed, Debuff, Immunity:Frightened, Magic Item, Revival
+tags: Buff, Charge, Cursed, Debuff, Immunity[Frightened], Magic Item, Revival
 description: This amulet consists of five jade coins strung together, each one glowing faintly. The amulet has 5 charges, and when a charge is expended, one of its coins stops glowing. The amulet regains all expended charges when Attunement to it ends.
 
 ***Second Chance.*** When you die for any reason except old age, one of the amulet's charges is expended to resurrect you. You are revived with all of your Hit Points.
@@ -161,7 +161,7 @@ rarity: Legendary
 attunement: false
 cost: 350000
 weight: 18
-tags: Area:Emanation, Light[Bright Light, Dim Light], Magic Item, Spell
+tags: Area[Emanation], Light[Bright Light, Dim Light], Magic Item, Spell
 description: This object appears to be a Medium pole with a glowing crystal fixed to one end, forming a beacon that sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. You can deploy the beacon over the course of 1 hour, which can be done during a Short Rest. The beacon must be within your reach throughout the deployment, at the end of which you deploy the beacon in an unoccupied space within 5 feet of yourself. Removing a deployed beacon requires you to spend another hour doing so.
 
 While the beacon is deployed, the beacon emits an aura of antimagic in a 60-foot Emanation. Within the aura, the effects of the *Antimagic Field* spell are active; this doesn't suppress the effects of the beacon or any other Antimagic Beacons.
@@ -174,7 +174,7 @@ rarity: Very Rare
 attunement: false
 cost: 35000
 weight: 1
-tags: Area:Sphere, Consumable, Magic Item
+tags: Area[Sphere], Consumable, Magic Item
 description: As a Utilize action, you can prime an Antimagic Bomb and throw it at a point up to 60 feet away, where it explodes. Each creature, object, and magical effect in a 20-foot-radius Sphere centered on that point suffers the following effects:
 
 **Dispel Magic.** Ongoing spells of level 5 or lower end.
@@ -193,7 +193,7 @@ rarity: Very Rare
 attunement: false
 cost: 47506
 weight: 6
-tags: Ability Check:Dexterity, Area:Emanation, Condition:Restrained, Magic Item, Saving Throw[Dexterity, Strength], Spell
+tags: Ability Check[Dexterity], Area[Emanation], Condition[Restrained], Magic Item, Saving Throw[Dexterity, Strength], Spell
 description: As a Utilize action, you can use the manacles on a Small or Medium creature within 5 feet of yourself that has the Grappled, Incapacitated, or Restrained condition. The target must succeed on a Strength or Dexterity saving throw (it chooses which) (DC 8 plus your Strength modifier and Proficiency Bonus) or become bound by the manacles.
 
 While bound in this way, the creature has the Restrained condition and the effects of the *Antimagic Field* spell are active in a 5-foot Emanation originating from it.
@@ -213,7 +213,7 @@ cost: Varies
 options_cost: 450, 4500, 45000
 note_cost: See table
 weight: 10
-tags: Area:Sphere, Charge, Damage:Fire, Magic Item, Saving Throw:Dexterity
+tags: Area[Sphere], Charge, Damage[Fire], Magic Item, Saving Throw[Dexterity]
 description: This magical arm replaces one that was lost or removed. You can attach the arm to yourself or remove it as a Magic action (no Attunement required), and it can't be removed against your will while you are alive. While the arm is attached to you, you can use and move it as if it were your natural arm.
 
 The arm has 7 charges. As a Bonus Action, you can transform the arm into a cannon, or vice versa. While the cannon is active, you can take the Magic action to expend 1 charge and fire a blast from the cannon that explodes a 10-foot-radius Sphere centered on a point within 60 feet of you. Each creature in the Sphere makes a Dexterity saving throw, taking Fire damage on a failed save or half as much damage on a successful one. A Construct has Disadvantage on the save. A nonmagical object that isn’t being worn or carried also takes the damage if it’s in the blast’s area.
@@ -244,7 +244,7 @@ cost: Varies
 options_cost: 500, 5000, 50000
 note_cost: See table
 weight: 10
-tags: Attack:Ranged, Charge, Damage:Piercing, Magic Item
+tags: Attack[Ranged], Charge, Damage[Piercing], Magic Item
 description: This magical arm replaces one that was lost or removed. You can attach the arm to yourself or remove it as a Magic action (no Attunement required), and it can't be removed against your will while you are alive. While the arm is attached to you, you can use and move it as if it were your natural arm.
 
 The arm has 7 charges. As a Bonus Action, you can transform the arm into a machine gun, or vice versa. While the machine gun is active, when you take the Attack action on your turn, you can expend 1 to 3 charges to replace one of your attacks with a barrage of bullets at targets within 120 feet of you. For each charge spent, make a ranged attack against a target. These attacks can target the same target or different ones. On a hit, the target takes Piercing damage.
@@ -269,7 +269,7 @@ prefix_category: Martial Ranged
 category: Weapon
 cost: 800
 weight: 2
-tags: Condition:Paralyzed, Damage[Piercing, Lightning], Mastery Property:Vex, Saving Throw:Constitution, Special Property, Weapon Property[Ammunition, Light, Loading]
+tags: Condition[Paralyzed], Damage[Piercing, Lightning], Mastery Property[Vex], Saving Throw[Constitution], Special Property, Weapon Property[Ammunition, Light, Loading]
 description: Proficiency with an Arm-Mounted Taser allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -316,7 +316,7 @@ rarity: Uncommon
 attunement: false
 cost: 400.3
 weight: 6
-tags: Condition:Invisible, Magic Item
+tags: Condition[Invisible], Magic Item
 description: While playing this Musical Instrument, you have the Invisible condition. You remain Invisible until you stop playing.
 
 ---
@@ -327,7 +327,7 @@ rarity: Uncommon
 attunement: true
 cost: 425
 weight: 10
-tags: Area:Emanation, Immunity[Charmed, Frightened], Magic Item
+tags: Area[Emanation], Immunity[Charmed, Frightened], Magic Item
 description: This object appears to be a Medium pole with a banner hung on one end. As a Magic action, you can raise the banner, causing an aura of determination to radiate from you in a 20-foot Emanation for 1 minute. While in the Emanation, creatures of your choice have Immunity to the Charmed and Frightened conditions. If a creature was already Charmed or Frightened, those conditions have no effect while in the Emanation. You can plant the banner as a Bonus Action, making the Emanation stationary until you take a Bonus Action to pick up the banner. If a creature other than you picks up the banner, the Emanation ends early.
 
 Once the banner is raised, the banner can't be used in that way again until the next dawn.
@@ -363,7 +363,7 @@ prefix_category: Simple Melee
 category: Weapon
 cost: 0.5
 weight: 2
-tags: Damage:Slashing, Mastery Property:Vex, Special Property, Weapon Property:Light
+tags: Damage[Slashing], Mastery Property[Vex], Special Property, Weapon Property[Light]
 description: Proficiency with a Bladed Gauntlet allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -393,7 +393,7 @@ options_cost: 10.002-10.3
 note_cost: +10 GP to normal counterpart
 weight: Varies
 options_weight: 0.02-0.5
-tags: Area:Sphere, Consumable, Damage:Fire, Magic Item, Saving Throw:Dexterity
+tags: Area[Sphere], Consumable, Damage[Fire], Magic Item, Saving Throw[Dexterity]
 description: When you hit or miss with an attack roll using this piece of magic ammunition, the ammunition explodes and is destroyed. The target of the attack and each creature within 5 feet of it must make a DC 13 Dexterity saving throw, taking 2d6 Fire damage on a failed save or half as much damage on a successful one.
 
 ---
@@ -404,7 +404,7 @@ cost: 0.05
 weight: 2
 variant: true
 note_variant: The official variant of this item is the Bola from D&D Beyond Drops.
-tags: Ability Check:Strength, Condition:Restrained, Consumable, Saving Throw:Dexterity
+tags: Ability Check[Strength], Condition[Restrained], Consumable, Saving Throw[Dexterity]
 description: When you take the Attack action, you can replace one of your attacks with throwing a Bola. Target one Medium or smaller creature you can see within 20 feet of yourself. The target must succeed on a Dexterity saving throw (DC 8 plus your Dexterity modifier and Proficiency Bonus) or have the Restrained condition until it escapes.
 
 To escape, the target or a creature within 5 feet of it must take an action to make a DC 10 Strength (Athletics) check, freeing the Restrained target on a success. Destroying the Bola, which has AC 10, HP 5, and Immunity to Poison and Psychic damage, also frees the target.
@@ -416,7 +416,7 @@ prefix_category: Martial Melee
 category: Weapon
 cost: 0.1
 weight: 1
-tags: Damage:Bludgeoning, Mastery Property:Slow, Special Property, Weapon Property[Finesse, Thrown]
+tags: Damage[Bludgeoning], Mastery Property[Slow], Special Property, Weapon Property[Finesse, Thrown]
 description: Proficiency with a Boomerang allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -455,7 +455,7 @@ prefix_category: Simple Melee
 category: Weapon
 cost: 0.5
 weight: 2
-tags: Damage:Piercing, Mastery Property:Sap, Special Property, Weapon Property:Light
+tags: Damage[Piercing], Mastery Property[Sap], Special Property, Weapon Property[Light]
 description: Proficiency with a Cestus allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -493,7 +493,7 @@ options_cost: 415.002-415.3
 note_cost: +415 GP to normal counterpart
 weight: Varies
 options_weight: 0.02-0.5
-tags: Area:Emanation, Bonus[Attack, Damage], Condition[Frightened, Incapacitated], Consumable, Damage:Force, Magic Item, Saving Throw:Wisdom
+tags: Area[Emanation], Bonus[Attack, Damage], Condition[Frightened, Incapacitated], Consumable, Damage[Force], Magic Item, Saving Throw[Wisdom]
 description: This piece of magic ammunition is made of cold iron, a special type of iron that repels Undead and supernatural beings. You have a +1 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
 
 ***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the ammunition, the ammunition turns black. The ammunition returns to normal if no creatures of those types are in the Emanation.
@@ -512,7 +512,7 @@ options_cost: 4900-5650
 note_cost: +4,150 GP to normal counterpart
 weight: Varies
 options_weight: 40-65
-tags: Area:Emanation, Debuff, Magic Item, Resistance:Necrotic
+tags: Area[Emanation], Debuff, Magic Item, Resistance[Necrotic]
 description: This magic suit of armor is made of cold iron, a special type of iron that repels Undead and other supernatural beings. You have Resistance to Necrotic damage while you wear the armor. The armor also has the following properties.
 
 ***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the armor, the armor turns black. The armor returns to normal if no creatures of those types are in the Emanation.
@@ -531,7 +531,7 @@ options_cost: 4160
 note_cost: +4,150 GP to normal counterpart
 weight: Varies
 options_weight: 6
-tags: Area:Emanation, Bonus:Armor Class, Condition:Frightened, Forced Movement, Magic Item, Saving Throw:Wisdom
+tags: Area[Emanation], Bonus[Armor Class], Condition[Frightened], Forced Movement, Magic Item, Saving Throw[Wisdom]
 description: This magic Shield is made of cold iron, a special type of iron that repels Undead and other supernatural beings. While holding the Shield, you have a +1 bonus to Armor Class, in addition to the Shield's normal bonus to AC. The Shield also has the following properties.
 
 ***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the Shield, the Shield turns black. The Shield returns to normal if no creatures of those types are in the Emanation.
@@ -550,7 +550,7 @@ options_cost: 4150.1-4200
 note_cost: +4,150 GP to normal counterpart
 weight: Varies
 options_weight: 1-18
-tags: Area:Emanation, Bonus[Attack, Damage], Condition:Frightened, Damage:Force, Magic Item, Saving Throw:Wisdom
+tags: Area[Emanation], Bonus[Attack, Damage], Condition[Frightened], Damage[Force], Magic Item, Saving Throw[Wisdom]
 description: This magic weapon is made of cold iron, a special type of iron that repels Undead and supernatural beings. You have a +1 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
 ***Supernatural Detection.*** Whenever an Aberration, Fey, Fiend, or Undead enters a 120-foot Emanation around the weapon, the weapon turns black. The weapon returns to normal if no creatures of those types are in the Emanation.
@@ -591,7 +591,7 @@ rarity: Uncommon
 attunement: true
 cost: 400
 weight: 2
-tags: Condition:Prone, Forced Movement, Magic Item
+tags: Condition[Prone], Forced Movement, Magic Item
 description: Immediately after you are reduced to 0 Hit Points, these boots puppeteer your body, walking you to safety. The Prone condition ends for you, and you are moved up to 30 feet away from the source of the damage that reduced you to 0 Hit Points by the safest route, unless there is nowhere to move. You have the Prone condition again after the movement ends.
 
 ---
@@ -602,7 +602,7 @@ rarity: Very Rare
 attunement: true
 cost: 42500
 weight: 0
-tags: Damage:Necrotic, Magic Item, Saving Throw:Wisdom
+tags: Damage[Necrotic], Magic Item, Saving Throw[Wisdom]
 description: This object is a Tiny shriveled leech that sometimes spasms unsettlingly. As a Magic action, you can give a verbal command to the leech, imbuing it with the command. If the leech is already imbued with a command, you must first spend 1 hour removing the old command, which can be done during a Short Rest.
 
 As a Utilize action, you can feed the leech to a creature within 5 feet of you, forcing it to make a DC 15 Wisdom saving throw. The creature must be willing or have the Incapacitated condition. On a failed save, the target becomes infested until the leech is removed from it. On a successful save, the target coughs up the leech, which lands on the ground in the target's space. The target automatically succeeds on the save if following the command you issued would result in its certain death.
@@ -636,7 +636,7 @@ options_cost: 20.002-20.3
 note_cost: +20 GP to normal counterpart
 weight: Varies
 options_weight: 0.02-0.5
-tags: Ability Check:Strength, Condition:Restrained, Consumable, Damage[Acid, Cold, Fire, Lightning, Thunder], Debuff, Forced Movement, Magic Item, Saving Throw[Constitution, Dexterity, Strength]
+tags: Ability Check[Strength], Condition[Restrained], Consumable, Damage[Acid, Cold, Fire, Lightning, Thunder], Debuff, Forced Movement, Magic Item, Saving Throw[Constitution, Dexterity, Strength]
 description: A creature hit by this magic ammunition suffers an effect corresponding to its damage type. Damage types and their corresponding effects are shown in the table below.
 
 | Damage Type | Effect |
@@ -690,7 +690,7 @@ prefix_category: Simple Melee
 category: Weapon
 cost: 0.5
 weight: 2
-tags: Damage:Bludgeoning, Mastery Property:Topple, Special Property, Weapon Property:Light
+tags: Damage[Bludgeoning], Mastery Property[Topple], Special Property, Weapon Property[Light]
 description: Proficiency with a Gauntlet allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -719,7 +719,7 @@ cost: Varies
 options_cost: 160015-160050
 note_cost: +160,000 GP to normal counterpart
 weight: 0.5
-tags: Buff, Consumable, Damage:Slashing, Magic Item
+tags: Buff, Consumable, Damage[Slashing], Magic Item
 description: You have Advantage on attack rolls made with this magic weapon. In addition, the weapon ignores Resistance to Slashing damage.
 
 ***Fragile.*** If you roll a 1 on any d20 rolled as part of an attack roll using this weapon, the weapon shatters into pieces immediately after the attack hits or misses; this includes any rerolled dice or additional dice rolled for Advantage or Disadvantage. For example, if you make an attack roll using this weapon with Advantage and roll a 17 and a 1 for it, you use the 17 for the attack. However, the weapon still shatters after you hit or miss.
@@ -755,7 +755,7 @@ note_cost: +45,000 GP to normal counterpart
 weight: Varies
 options_weight: 7-9
 note_weight: +5 lb. to normal counterpart
-tags: Ability Check:Strength, Bonus[Attack, Damage], Forced Movement, Magic Item, Saving Throw:Strength
+tags: Ability Check[Strength], Bonus[Attack, Damage], Forced Movement, Magic Item, Saving Throw[Strength]
 description: You have a +1 bonus to attack and damage rolls made with this magic weapon.
 
 ***Rope.*** The weapon has a 60-foot length of rope attached to it. The rope has AC 20, HP 20, and Immunity to all damage except Force damage. It regains 1 Hit Point every 5 minutes as long as it has at least 1 Hit Point. If the rope drops to 0 Hit Points, it is destroyed. After 3 days, the rope is restored and regains all of its Hit Points.
@@ -781,7 +781,7 @@ prefix_category: Martial Melee
 category: Weapon
 cost: 30
 weight: 2
-tags: Damage:Slashing, Special Mastery Property, Weapon Property[Finesse, Light]
+tags: Damage[Slashing], Special Mastery Property, Weapon Property[Finesse, Light]
 description: Proficiency with a Hook Sword allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special mastery property. To use this property, you must have a feature that lets you use it.
@@ -801,7 +801,7 @@ rarity: Uncommon
 attunement: false
 cost: 200
 weight: 1
-tags: Area:Sphere, Consumable, Damage:Lightning, Magic Item, Saving Throw:Dexterity
+tags: Area[Sphere], Consumable, Damage[Lightning], Magic Item, Saving Throw[Dexterity]
 description: When you take the Attack action, you can replace one of your attacks with throwing Lightning in a Bottle at a point up to 60 feet away, where it explodes and creates a loud clap of thunder audible out to 300 feet. Each creature in a 10-foot-radius Sphere centered on that point makes a DC 13 Dexterity saving throw, taking 5d6 Lightning damage on a failed save or half as much damage on a successful one.
 
 ---
@@ -822,7 +822,7 @@ name: Mantlet
 category: Adventuring Gear
 cost: 4
 weight: 30
-tags: Cover:Three-Quarters, Summon
+tags: Cover[Three-Quarters], Summon
 description: As a Utilize action, you can deploy the Mantlet, placing it in a space within your reach. While deployed, it has AC 15, HP 15, Immunity to Poison and Psychic damage, and Vulnerability to Fire damage. Reducing the Mantlet to 0 Hit Points destroys it. The broad side of the Mantlet is large enough to provide Three-Quarters Cover for a Medium creature standing behind it.
 
 You can pick up a deployed Mantlet as a Utilize action. Carrying a Mantlet provides no benefit to your Armor Class, since it is too cumbersome to maneuver defensively.
@@ -856,7 +856,7 @@ prefix_category: Martial Melee
 category: Weapon
 cost: 25
 weight: 12
-tags: Damage:Bludgeoning, Mastery Property:Topple, Special Property, Weapon Property[Heavy, Reach, Two-Handed]
+tags: Damage[Bludgeoning], Mastery Property[Topple], Special Property, Weapon Property[Heavy, Reach, Two-Handed]
 description: Proficiency with a Meteor Hammer allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -973,7 +973,7 @@ prefix_category: Martial Melee
 category: Weapon
 cost: 0.05
 weight: 1
-tags: Damage:Bludgeoning, Mastery Property:Nick, Special Property, Weapon Property[Finesse, Light]
+tags: Damage[Bludgeoning], Mastery Property[Nick], Special Property, Weapon Property[Finesse, Light]
 description: Proficiency with Nunchaku allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
@@ -1028,7 +1028,7 @@ weight: Varies
 options_weight: 50-81.25
 note_weight: +25% to normal counterpart
 settings: Erisia
-tags: Bonus:Armor Class, Buff, Debuff, Magic Item
+tags: Bonus[Armor Class], Buff, Debuff, Magic Item
 description: This magic suit of armor is made of orichalcum, a bronze-like metal that absorbs mana and nullifies magic. You have a +1 bonus to AC while wearing the armor. In addition, you have Advantage on saving throws against spells and other magical effects, and spell attack rolls have Disadvantage against you. However, you can't cast spells while wearing the armor.
 
 ---
@@ -1045,7 +1045,7 @@ weight: Varies
 options_weight: 7.5
 note_weight: +25% to normal counterpart
 settings: Erisia
-tags: Ability Check:Dexterity, Bonus:Armor Class, Charge, Debuff, Magic Item
+tags: Ability Check[Dexterity], Bonus[Armor Class], Charge, Debuff, Magic Item
 description: This magic Shield is made of orichalcum, a strange bronze-like metal that absorbs mana and nullifies magic. While holding the Shield, you have a +2 bonus to Armor Class, in addition to the Shield's normal bonus to AC. However, you can't cast spells while carrying the Shield.
 
 The Shield has 3 charges. When a creature you can see targets you with a spell of level 3 or lower with Verbal, Somatic, or Material components, you can take a Reaction to expend 1 charge and make a Dexterity check (DC 10 plus that spell's level). On a successful check, the triggering spell dissipates with no effect. When a spell dissipates, the action, Bonus Action, or Reaction and resources used to cast it are wasted. The charge is expended only if you succeed on the check. The Shield regains all expended charges daily at dawn.
@@ -1081,7 +1081,7 @@ rarity: Rare
 attunement: false
 cost: 2100
 weight: 0
-tags: Area:Emanation, Consumable, Magic Item, Special Speed:Fly
+tags: Area[Emanation], Consumable, Magic Item, Special Speed[Fly]
 description: This powder resembles gold dust. There is enough of it for one use. When you take a Utilize action to throw the dust into the air, you and each creature and object within a 10-foot Emanation originating from you are affected for 2d4 minutes. Each affected creature gains a Fly Speed of 30 feet and can hover. Each affected object begins floating as if it were weightless. The duration is the same for all subjects, and the dust is consumed when its magic takes effect. When the duration ends, each affected subject falls if it is still aloft unless it can stop the fall.
 
 ---
@@ -1122,7 +1122,7 @@ rarity: Common
 attunement: false
 cost: 1
 weight: 0.5
-tags: Buff, Condition[Exhaustion, Poisoned], Consumable, Damage:Poison, Magic Item, Saving Throw:Constitution
+tags: Buff, Condition[Exhaustion, Poisoned], Consumable, Damage[Poison], Magic Item, Saving Throw[Constitution]
 description: Bubbles fizz and foam in this potion's amber liquid, disappearing after a short while.
 
 When you drink this potion, you must make a DC 13 Constitution saving throw. On a failed save, you have the Poisoned condition for 1 hour, and you take 1 Poison damage if you were already Poisoned in this way. While Poisoned in this way, you have Advantage on saving throws you make to avoid or end the Frightened condition.
@@ -1145,7 +1145,7 @@ note_cost: See table
 weight: 0.5
 variant: true
 note_variant: The official variant of this item is the Potion of Mana from D&D: World of Warcraft.
-tags: Condition:Exhaustion, Consumable, Magic Item
+tags: Condition[Exhaustion], Consumable, Magic Item
 description: This potion's blue liquid crackles and sparks when agitated.
 
 As a Utilize action or a Bonus Action, you can drink the potion or administer it to another creature within 5 feet of yourself. The creature that consumes the magical blue fluid in this vial gains a spell slot of a certain level. Any spell slot a creature gains from a Potion of Mana vanishes when it finishes a Long Rest.
@@ -1230,7 +1230,7 @@ prefix_category: Simple Melee
 category: Weapon
 cost: 0.5
 weight: 4
-tags: Damage:Slashing, Mastery Property:Cleave, Weapon Property:Two-Handed
+tags: Damage[Slashing], Mastery Property[Cleave], Weapon Property[Two-Handed]
 description: Proficiency with a Scythe allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.
@@ -1323,7 +1323,7 @@ cost: Varies
 options_cost: 30, 50, 200, 300, 2000, 3000, 20000, 25000, 30000, 100000
 note_cost: See table
 weight: 0
-tags: Ability Check:Intelligence, Consumable, Damage:Force, Magic Item, Saving Throw:Constitution, Spell
+tags: Ability Check[Intelligence], Consumable, Damage[Force], Magic Item, Saving Throw[Constitution], Spell
 description: A Tear Scroll bears the words of a single spell, written in a mystical cipher. You can take a Utilize action to tear the scroll and roll a d6. If you roll a 1 on the d6, the scroll backfires, and you must make a DC 15 Constitution saving throw, taking 1d6 Force damage for each level of the scroll's spell on a failed save or half as much damage on a successful one. Otherwise, you cast the spell without any Verbal or Material components as part of the action used to tear the scroll; the spell gains a Somatic component—the act of tearing the scroll—if it lacks one. Once torn, the scroll crumbles to dust. If the casting is interrupted, the spell automatically backfires.
 
 The scroll's rarity and purchase cost, the level of the spell on it, and the spell's saving throw DC and attack bonus are determined by the scroll's potency, as shown in the table below.
@@ -1362,7 +1362,7 @@ options_cost: 10.002-10.3
 note_cost: +10 GP to normal counterpart
 weight: Varies
 options_weight: 0.02-0.5
-tags: Consumable, Debuff, Light:Dim Light, Magic Item
+tags: Consumable, Debuff, Light[Dim Light], Magic Item
 description: A creature hit by this magic ammunition is marked for 1 hour. For the duration, the target emits Dim Light in a 5-foot radius and can't benefit from the Invisible condition, as its silhouette glows white. The glowing silhouette can be seen through Total Cover.
 
 ---
@@ -1409,7 +1409,7 @@ prefix_category: Martial Ranged
 category: Weapon
 cost: 75
 weight: 3
-tags: Damage:Piercing, Mastery Property:Push, Special Property, Weapon Property[Ammunition, Heavy, Two-Handed]
+tags: Damage[Piercing], Mastery Property[Push], Special Property, Weapon Property[Ammunition, Heavy, Two-Handed]
 description: Proficiency with a Warbow allows you to add your proficiency bonus to the attack roll for any attack you make with it.
 
 This weapon has the following special properties.
