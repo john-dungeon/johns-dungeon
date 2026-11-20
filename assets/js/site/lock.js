@@ -1,4 +1,4 @@
-import { root, waiting, announce, load, save } from './shared.js';
+import { root, waiting, load, save, wireDialog, openDialog } from './shared.js';
 
 const KEY = 'lock-open';
 
@@ -8,6 +8,8 @@ const locked = new Set(globalThis.SITE_LOCKED.map(url => clean(globalThis.SITE_R
 const dialog = document.getElementById('lock');
 const form = dialog.querySelector('form');
 const input = dialog.querySelector('input');
+
+wireDialog(dialog);
 
 const isOpen = () => load(KEY, false);
 
@@ -22,11 +24,9 @@ function ask(granted, denied = () => {}) {
   input.value = '';
   dialog.returnValue = '';
   dialog.addEventListener('close', () => {
-    announce('popupclose');
     (dialog.returnValue === 'granted' ? granted : denied)();
   }, { once: true });
-  dialog.showModal();
-  announce('popupopen');
+  openDialog(dialog);
 }
 
 form.addEventListener('submit', async event => {
@@ -37,9 +37,6 @@ form.addEventListener('submit', async event => {
 });
 
 document.getElementById('lock-cancel').addEventListener('click', () => dialog.close());
-dialog.addEventListener('click', event => {
-  if (event.target === dialog) dialog.close();
-});
 
 document.addEventListener('click', event => {
   const plain = event.button === 0 && !(event.metaKey || event.ctrlKey || event.shiftKey || event.altKey);
