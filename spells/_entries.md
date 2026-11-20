@@ -724,7 +724,7 @@ Any infused marbles you create with the spell crumble to dust with no effect at 
 ---
 
 name: Mana Transfer
-level: 1 minute
+level: 1
 school: Conjuration
 esoteric: true
 classes: Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard
