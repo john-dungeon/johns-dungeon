@@ -30,8 +30,7 @@ html[data-lock="pending"] .main { visibility: hidden; }
   gap: 0.5rem;
 
   button {
-    @include outlined-button(0.4rem, $sidebar-color);
-    @include accent-on-hover;
+    @include accent-button(0.4rem, $sidebar-color);
     padding: 0.4rem 1rem;
   }
 }
