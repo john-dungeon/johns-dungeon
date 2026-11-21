@@ -752,7 +752,7 @@ components: V, S, M
 material: a handful of dirt
 duration: Concentration
 concentration_max: 1 minute
-tags: Condition[Restrained], Damage[Bludgeoning], Requires Sight, Saving Throw[Dexterity], Summon, Upcast
+tags: Area[Cube], Condition[Restrained], Damage[Bludgeoning], Difficult Terrain, Requires Sight, Saving Throw[Dexterity], Summon, Upcast
 description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical earth—any solid stone, soil, clay, crystal, or other earthen material except metal—that you can see and isn't being worn or carried—unless the creature wearing or carrying it is willing to let you affect it, creating one of the following effects of your choice within range:
 
 **Create Earth.** You create a portion of earth of negligible value (such as dirt, not a gemstone) that fits in a 5-foot Cube of unoccupied space. If you create earth in the air, it is suspended there until the end of your next turn, after which it falls as normal.
@@ -784,7 +784,7 @@ components: V, S, M
 material: a handheld flame, like a lit torch or candle
 duration: Concentration
 concentration_max: 1 minute
-tags: Damage[Fire], Requires Sight, Saving Throw[Dexterity], Upcast
+tags: Area[Cube], Damage[Fire], Light[Bright Light, Dim Light], Requires Sight, Saving Throw[Dexterity], Upcast
 description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical fire that you can see and isn't being worn or carried—unless the creature wearing or carrying it is willing to let you affect it, creating one of the following effects of your choice within range:
 
 **Create Fire.** You create a portion of fire that fits in a 5-foot Cube. Any fire you create in this way casts Bright Light in a 20-foot radius and Dim Light for an additional 20 feet, and it can't be extinguished until the end of your next turn. If you create the fire in a space with no fuel (such as wood or oil), it burns out immediately after the end of your next turn.
@@ -812,7 +812,7 @@ components: V, S, M
 material: a cup of water
 duration: Concentration
 concentration_max: 1 minute
-tags: Condition[Prone, Restrained], Damage[Bludgeoning, Cold, Fire], Requires Sight, Saving Throw[Dexterity], Summon, Upcast
+tags: Area[Cube], Condition[Prone, Restrained], Damage[Bludgeoning, Cold, Fire], Difficult Terrain, Forced Movement, Obscured Area[Lightly Obscured, Heavily Obscured], Requires Sight, Saving Throw[Dexterity, Strength], Summon, Upcast
 description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical water—ice, liquid, or vapor—that you can see and isn't being worn or carried—unless the creature wearing or carrying it is willing to let you affect it, creating one of the following effects of your choice within range:
 
 **Create Water.** You create a portion of water that fits in a 5-foot Cube of unoccupied space. If you create ice, you can turn its surfaces into Difficult Terrain. If you create vapor, you can make it dense enough to make the Cube Lightly or Heavily Obscured (your choice). If you create water in the air, it is suspended there until the end of your next turn, after which it falls (ice or liquid) or disperses (vapor) as normal. 
@@ -846,7 +846,7 @@ components: V, S, M
 material: a handheld fan
 duration: Concentration
 concentration_max: 1 minute
-tags: Condition[Restrained], Damage[Cold, Fire], Forced Movement, Requires Sight, Saving Throw[Strength], Upcast
+tags: Area[Cube], Condition[Restrained], Damage[Cold, Fire], Forced Movement, Obscured Area[Lightly Obscured, Heavily Obscured], Requires Sight, Saving Throw[Strength], Upcast
 description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical wind—any gaseous substance or airborne particle that isn't on fire, including mists, smoke, and toxic fumes—that you can see and isn't being worn or carried—unless the creature wearing or carrying it is willing to let you affect it, creating one of the following effects of your choice within range:
 
 **Create Wind.** You create a portion of harmless wind (such as normal, breathable air or steam) that fits in a 5-foot Cube. If you create visible wind, you can make it dense enough to make the Cube Lightly or Heavily Obscured (your choice). Any wind you create in this way remains in the Cube until the end of your next turn, after which it disperses as normal.
@@ -931,7 +931,7 @@ condition: , which you take immediately after hitting a target with a Melee weap
 range: Self
 components: V
 duration: Instantaneous
-tags: Damage[Necrotic]
+tags: Damage[Necrotic], Upcast
 description: Expend up to two Hit Point Dice and roll them. The target takes extra Necrotic damage from the attack equal to 1d10 plus the total rolled on the Hit Point Dice.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d10 and the number of Hit Point Dice you can expend increases by 1 for each spell slot above 1.
@@ -1094,7 +1094,7 @@ casting_time: Action
 range: Self
 components: S
 duration: Instantaneous
-tags: Condition[Prone], Damage[Force], Forced Movement, Saving Throw[Strength]
+tags: Attack[Melee Spell], Condition[Prone], Damage[Force], Forced Movement, Saving Throw[Strength]
 description: You charge up your fist and propel yourself forward to strike. Move up to 120 feet in a straight line toward a target without provoking Opportunity Attacks. At the end of the movement, make a melee spell attack against the target. On a hit, a target takes 6d12 Force damage and must make a Strength saving throw. On a failed save, the target is pushed up to 60 feet away from you and has the Prone condition. On a successful save, the target is pushed up to 30 feet away from you only. A Huge or larger target has Advantage on this saving throw.
 
 ---
@@ -1110,8 +1110,8 @@ components: S, M
 material: a sum of coins worth an amount based on the spell's level (see Cash Summoning table), which the spell consumes, and the heart of a **Metal Dragon**, which can't be substituted with a Component Pouch or Spellcasting Focus
 duration: Instantaneous
 settings: Erisia
-tags: Curse, Debuff, Upcast
-description: You summon a Medium chest containing a sum of GP in an unoccupied space within range. The summoned GP is of an amount worth double the value of the money consumed in the spell's casting, as shown in the Summoned Value column of the Cash Summoning table.
+tags: Consumes Material, Curse, Debuff, Upcast
+description: You conjure a Medium chest containing a sum of GP in an unoccupied space within range. The summoned GP is of an amount worth double the value of the money consumed in the spell's casting, as shown in the Summoned Value column of the Cash Summoning table.
 
 The first time you cast this spell again within 14 days, you become cursed. Until the curse ends, the dragon heart used in the spell's casting is fused to you, and you no longer need to use it as a component to cast this spell. However, every **Metal Dragon** always knows your location while it is within 1,000 miles of you. While they have this knowledge, you can't become hidden from them, and if you have the Invisible condition, you gain no benefit from that condition against **Metal Dragons**. Typically, a **Metal Dragon** with this knowledge, or that knows you cast this spell, will be Hostile to you and will want to retrieve the heart of its brethren that was used in the spell's casting.
 
@@ -1205,7 +1205,7 @@ range: 60 feet
 components: V, S
 duration: Concentration
 concentration_max: 1 hour
-tags: Debuff, Immunity[Charmed, Frightened], Saving Throw[Constitution]
+tags: Condition[Prone], Debuff, Immunity[Charmed, Frightened], Saving Throw[Constitution]
 description: You twist the testicles of one creature you can see within range. The target must succeed on a Constitution saving throw or be subject to crippling pain. A target that lacks testicles succeeds on this save automatically. A target in crippling pain suffers the following effects for the duration.
 
 **Debilitated.** The target has Disadvantage on any D20 Test it makes, except Constitution saving throws.
@@ -1267,7 +1267,7 @@ components: V, S, M
 material: a folding fan
 duration: Concentration
 concentration_max: 1 minute
-tags: Area[Cylinder], Circle, Damage[Bludgeoning], Difficult Terrain, Forced Movement, Obscured Area[Lightly Obscured], Upcast
+tags: Area[Cylinder], Circle, Damage[Bludgeoning], Difficult Terrain, Forced Movement, Obscured Area[Lightly Obscured], Saving Throw[Strength], Upcast
 description: You conjure a spinning windstorm in a 20-foot-radius, 40-foot-high Cylinder centered on a point within range. The windstorm's area is Lightly Obscured and Difficult Terrain. Until the spell ends, you can take a Magic action on later turns to move the Cylinder up to 20 feet.
 
 When the windstorm appears, each creature in it makes a Strength saving throw. On a failed save, a target takes 4d10 Bludgeoning damage and is pulled 20 feet straight toward the center of the Cylinder, ending in an unoccupied space as close to the center as possible. On a successful save, a target takes half as much damage only. A creature must also make this save when the Cylinder moves into its space and when it enters the Cylinder or ends its turn there. A creature makes this save only once per turn.
