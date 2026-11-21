@@ -1113,7 +1113,7 @@ settings: Erisia
 tags: Curse, Debuff, Upcast
 description: You summon a Medium chest containing a sum of GP in an unoccupied space within range. The summoned GP is of an amount worth double the value of the money consumed in the spell's casting, as shown in the Summoned Value column of the Cash Summoning table.
 
-If you cast this spell again within 14 days, you become cursed. Until the curse ends, the dragon heart used in the spell's casting is fused to you, and you no longer need to use it as a component to cast this spell. However, every **Metal Dragon** on the same plane as you always knows your location. While they have this knowledge, you can't become hidden from them, and if you have the Invisible condition, you gain no benefit from that condition against **Metal Dragons**.
+If you cast this spell again within 14 days, you become cursed. Until the curse ends, the dragon heart used in the spell's casting is fused to you, and you no longer need to use it as a component to cast this spell. However, every **Metal Dragon** within 1,000 miles of you always knows your location. While they have this knowledge, you can't become hidden from them, and if you have the Invisible condition, you gain no benefit from that condition against **Metal Dragons**. Typically, a **Metal Dragon** with this knowledge, or that knows you cast this spell, will be Hostile to you and will want to retrieve the heart of its brethren that was used in the spell's casting.
 
 Only a level 8+ *Remove Curse* or *Greater Restoration* spell or a *Wish* spell can end this curse. When the curse ends, the dragon heart that is fused to you disintegrates into gold dust.
 
@@ -1134,7 +1134,7 @@ Only a level 8+ *Remove Curse* or *Greater Restoration* spell or a *Wish* spell 
 
 ***Using a Higher-Level Spell Slot.*** You consume a greater value of coins as the Material component for the spell's casting and summon a greater value of GP based on the spell's level, as shown in the Cash Summoning table.
 
-When you cast the spell with a level 4+ spell slot, every **Metal Dragon** within 300 miles of your location knows that the spell was cast and the general region where it was cast. The closer to you a **Metal Dragon** is when you cast the spell, the more accurately it knows the location of the casting. For example, the dragons might know that you cast the spell in a city, but not that you cast the spell while in a tavern in that city. However, if one such dragon were already in the city, it would immediately know which tavern you cast the spell in. Typically, a **Metal Dragon** that knows that you cast this spell will be Hostile to you and will want to retrieve the heart of its brethren that was used in the spell's casting.
+When you cast the spell with a level 4+ spell slot, every **Metal Dragon** within 300 miles of your location knows that the spell was cast and the general region where it was cast. The closer to you a **Metal Dragon** is when you cast the spell, the more accurately it knows the location of the casting. For example, the dragons might know that you cast the spell in a city, but not that you cast the spell while in a tavern in that city. However, if one such dragon were already in the city, it would immediately know which tavern you cast the spell in.
 
 > *With boundless greed and brutality, mages in the ancient era discovered how to duplicate money with this spell. It only exacerbated the rampant counterfeiting problem of the time. Thus, no government (or **Metal Dragon**) found it a loss when this spell disappeared with that era.*
 
