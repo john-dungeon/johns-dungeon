@@ -567,7 +567,7 @@ school: Evocation
 esoteric: true
 classes: Cleric, Paladin, Warlock
 casting_time: Bonus Action
-condition: , which you take immediately after hitting a creature with a Melee weapon or an Unarmed Strike
+condition: , which you take immediately after hitting a target with a Melee weapon or an Unarmed Strike
 range: Self
 components: V
 duration: Instantaneous
@@ -898,6 +898,48 @@ tags: Consumes Material, Healing, Upcast
 description: A creature you touch regains 1d8 Hit Points for every 10 GP consumed in the spell's casting, to a maximum of 5d8.
 
 ***Using a Higher-Level Spell Slot.*** The maximum healing increases by 2d8 for each spell slot level above 1.
+
+---
+
+name: Ravi's Hunter's Mark
+level: 1
+school: Divination
+esoteric: true
+classes: Ranger
+casting_time: Bonus Action
+range: 90 feet
+components: V
+duration: Concentration
+concentration_max: 1 hour
+settings: Erisia
+tags: Damage[Force], Debuff, Requires Sight, Upcast
+description: You magically mark one creature you can see within range as your quarry. Until the spell ends, you can see an outline around the target, which you can always see, even through Total Cover and when you have the Blinded condition. While you see this outline, the target can't become hidden from you and gains no benefit from the Invisible condition against you. In addition, whenever you hit the target with an attack roll, you deal an extra 1d4 Force damage to it and can reduce its Speed by 10 feet until the start of your next turn.
+
+If the target drops to 0 Hit Points before this spell ends, you can take a Bonus Action to move the mark to a new creature you can see within range.
+
+***Using a Higher-Level Spell Slot.*** Your Concentration can last longer with a spell slot of level 3-4 (up to 8 hours) or 5+ (up to 24 hours).
+
+---
+
+name: Sanguine Smite
+level: 1
+school: Necromancy
+esoteric: true
+classes: Cleric, Paladin, Warlock
+casting_time: Bonus Action
+condition: , which you take immediately after hitting a target with a Melee weapon or an Unarmed Strike
+range: Self
+components: V
+duration: Instantaneous
+tags: Damage[Necrotic]
+description: Expend up to two Hit Point Dice and roll them. The target takes extra Necrotic damage from the attack equal to 1d10 plus the total rolled on the Hit Point Dice.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d10 and the number of Hit Point Dice you can expend increases by 1 for each spell slot above 1.
+
+> *"Pain is the teacher of humility, and none learneth save the willing.\
+The heavens are barren of answer, yet the flesh speaketh plainly beneath the scourge.\
+In suffering chosen and suffering bestowed doth the spirit refined.\
+With crimson covenant to none but thyself, hast thou the will to toil?"*
 
 ---
 
