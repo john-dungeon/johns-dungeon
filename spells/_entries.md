@@ -1041,7 +1041,7 @@ casting_time: 10 minutes
 ritual: true
 range: Touch
 components: V
-duration: Until dispelled
+duration: Until Dispelled
 tags: Condition[Exhaustion]
 description: You speak the terms of a pact to a willing creature that can hear and understand you, and shake the creature's hand to seal the pact. The terms can be as simple or elaborate as you choose, but the target must agree that they sound achievable. For example, the terms could include, "I must gather 500 GP and pay it back to you by the end of this year." Or the terms could include, "You will protect me to ensure that I am alive by the end of this month."
 
@@ -1082,6 +1082,55 @@ When you cast the spell, you can hurl a boulder, causing it to fly in a straight
 The spell ends early if no more boulders remain. If the spell ends and one or more boulders remain, they are all destroyed.
 
 ***Using a Higher-Level Spell Slot.*** You create one additional boulder for each spell slot above 3.
+
+---
+
+name: Steel Fist Strike
+level: 5
+school: Conjuration
+esoteric: true
+classes: Artificer, Paladin
+casting_time: Action
+range: Self
+components: S
+duration: Instantaneous
+tags: Condition[Prone], Damage[Force], Forced Movement, Saving Throw[Strength]
+description: You charge up your fist and propel yourself forward to strike. Move up to 120 feet in a straight line toward a target without provoking Opportunity Attacks. At the end of the movement, make a melee spell attack against the target. On a hit, a target takes 6d12 Force damage and must make a Strength saving throw. On a failed save, the target is pushed up to 60 feet away from you and has the Prone condition. On a successful save, the target is pushed up to 30 feet away from you only. A Huge or larger target has Advantage on this saving throw.
+
+---
+
+name: Summon Cash
+level: 1
+school: Conjuration
+esoteric: true
+classes: Artificer, Bard, Warlock, Wizard
+casting_time: 1 hour
+range: 5 feet
+components: S, M
+material: a sum of coins worth an amount based on the spell's level (see Cash Summoning table), which the spell consumes, and the heart of a **Metal Dragon**
+duration: Instantaneous
+settings: Erisia
+tags: Upcast
+description: You summon a Medium chest containing a sum of GP in an unoccupied space within range. The summoned GP is of an amount worth double the value of the money consumed in the spell's casting, as shown in the Summoned Value column of the Cash Summoning table.
+
+### Cash Summoning
+| Spell Level | Material Component Value | Summoned Value |
+| :---: | :---: | :---: |
+| 1 | 25 GP | 50 GP |
+| 2 | 100 GP | 200 GP |
+| 3 | 150 GP | 300 GP |
+| 4 | 1,000 GP | 2,000 GP |
+| 5 | 1,500 GP | 3,000 GP |
+| 6 | 10,000 GP | 20,000 GP |
+| 7 | 12,500 GP | 25,000 GP |
+| 8 | 15,000 GP | 30,000 GP |
+| 9 | 50,000 GP | 100,000 GP |
+
+***Using a Higher-Level Spell Slot.*** You consume a greater value of coins as the Material component for the spell's casting and summon a greater value of GP based on the spell's level, as shown in the Cash Summoning table.
+
+When you cast the spell with a level 4+ spell slot, every **Metal Dragon** within 300 miles of your location knows that the spell was cast and the general region where it was cast. The closer to you a **Metal Dragon** is when you cast the spell, the more accurately it knows the location of the casting. For example, the dragons might know that you cast the spell in a city, but not that you cast the spell while in a tavern in that city. However, if one such dragon were already in the city, it would immediately know which tavern you cast the spell in. Typically, a **Metal Dragon** that knows that you cast this spell will be Hostile to you and will want to retrieve the heart of its brethren that was used in the spell's casting.
+
+> *With boundless greed and brutality, mages in the ancient era discovered how to duplicate money with this spell. It only exacerbated the rampant counterfeiting problem of the time. Thus, no government (or **Metal Dragon**) found it a loss when this spell disappeared with that era.*
 
 ---
 
