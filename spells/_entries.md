@@ -867,7 +867,6 @@ school: Necromancy
 esoteric: true
 classes: Cleric, Paladin, Warlock
 casting_time: Action
-ritual: true
 range: Self
 components: V, S
 duration: 8 hours
@@ -891,13 +890,12 @@ school: Transmutation
 esoteric: true
 classes: Warlock
 casting_time: Action
-ritual: true
 range: Touch
 components: S, M
 material: a sum of coins worth 10+ GP, which the spell consumes
 duration: Instantaneous
 tags: Consumes Material, Healing, Upcast
-description: A creature you touch regains 1d8 Hit Points for every 10 GP consumed in the spell’s casting, to a maximum of 5d8.
+description: A creature you touch regains 1d8 Hit Points for every 10 GP consumed in the spell's casting, to a maximum of 5d8.
 
 ***Using a Higher-Level Spell Slot.*** The maximum healing increases by 2d8 for each spell slot level above 1.
 
