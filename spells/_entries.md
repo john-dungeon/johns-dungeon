@@ -855,9 +855,33 @@ description: When you cast the spell and as a Magic action on your later turns b
 
 **Move Wind.** You move a portion of wind that fits in a 5-foot Cube up to 20 feet through spaces you can see. The wind must remain within range throughout the movement, and you can't move it through walls. When you move the wind, you can force any Large or smaller creatures in the Cube to succeed on a Strength saving throw or have the Restrained condition and be moved wherever the Cube moves until the end of your next turn. Any wind you move in this way remains in the Cube until the end of your next turn, after which it disperses as normal.
 
-**Temper Wind.** You change the temperature of a portion of wind (such as warming the air or cooling water vapor into droplets) that fits in a 5-foot Cube, either heating it or cooling it. Wind can be heated until it can cook food, and it can be cooled until it can freeze water. You can also change the temperature of the wind to make it dangerously scorching or freezing. When a creature touches the Cube of wind you affected in this way or starts its turn in it, it takes 1d4 Fire (scorching) or Cold (freezing) damage. A creature takes this damage only once per turn.
+**Temper Wind.** You change the temperature of a portion of wind (such as warming the air or cooling water vapor into droplets) that fits in a 5-foot Cube, either heating it or cooling it. Wind can be heated until it can cook food, and it can be cooled until it can freeze water. You can also change the temperature of the wind to make it dangerously scorching or freezing. When a creature enters the Cube of wind you affected in this way or starts its turn in it, it takes 1d4 Fire (scorching) or Cold (freezing) damage. A creature takes this damage only once per turn. These changes last until the end of the duration, after which the wind naturally returns to its normal temperature.
 
 ***Using a Higher-Level Spell Slot.*** Your Concentration can last longer with a spell slot of level 5-6 (up to 10 minutes) or 7+ (up to 1 hour).
+
+---
+
+name: Martyrdom
+level: 3
+school: Necromancy
+esoteric: true
+classes: Cleric, Paladin, Warlock
+casting_time: Action
+ritual: true
+range: Self
+components: V, S
+duration: 8 hours
+tags: Area[Emanation], Damage[Necrotic], Saving Throw[Wisdom], Upcast
+description: You mark yourself with a brand of martyrdom. As a Magic action before the spell ends, you can trigger the brand, ending the spell. When you trigger the brand, you are reduced to 0 Hit Points and expel necrotic energy in a 15-foot Emanation around you. Each creature in the area must make a Wisdom saving throw. On a failed save, a target takes 10d6 Necrotic damage, or 5d6 Necrotic damage if you were Bloodied when the brand was triggered.
+
+When you are reduced to 0 Hit Points before the spell ends, the brand is automatically triggered, and the spell ends.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 3.
+
+> *"Cling not to the coward's breath, for it was never thine to claim.\
+Wilt thou labor in hollow speech, or shall thy veins testify also?\
+Break thyself, that the blind may behold conviction made flesh.\
+For the unwilling toil without harvest, but the willing therein unearth design."*
 
 ---
 
