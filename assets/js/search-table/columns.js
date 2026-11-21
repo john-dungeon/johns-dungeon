@@ -21,12 +21,13 @@ export function amountOf(col, text) {
 
 function bucketChoices(col) {
   return col.buckets.map(bucket => {
-    const named = typeof bucket === 'string';
-    const spec = named ? { label: bucket } : bucket;
+    const spec = typeof bucket === 'string' ? { label: bucket } : bucket;
+    const aliases = (spec.includes || []).map(item => item.toLowerCase());
     return {
       value: spec.label.toLowerCase(),
       label: spec.label,
-      named,
+      named: typeof bucket === 'string' || aliases.length > 0,
+      aliases,
       upTo: spec.up_to ? amountOf(col, spec.up_to.toLowerCase()) : Infinity
     };
   });
