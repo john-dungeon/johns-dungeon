@@ -943,6 +943,148 @@ With crimson covenant to none but thyself, hast thou the will to toil?"*
 
 ---
 
+name: Secret Counsel
+level: Cantrip
+school: Divination
+esoteric: true
+classes: Artificer, Cleric, Druid
+casting_time: Reaction
+condition: , which you take when you see a creature within 10 feet of yourself make an ability check
+range: 10 feet
+components: S, M
+material: an apple
+duration: Instantaneous
+tags: Buff, Requires Sight
+description: You silently guide the actions of the creature making the ability check, provided it is willing. The creature adds 1d4 to the triggering ability check. If the check then succeeds, the creature can't be affected by this spell again for 1 hour.
+
+> *Once upon a time, a priest lamented his lack of foresight and how he constantly missed the timing to cast* Guidance *on his allies. He prayed desperately to the gods for an answer to his troubles, and they responded to his fervent pleas kindly.*
+
+---
+
+name: Shadow Bind
+level: 1
+school: Evocation
+esoteric: true
+classes: Sorcerer, Warlock, Wizard
+casting_time: Action
+range: 30 feet
+components: V, S
+duration: Concentration
+concentration_max: 1 minute
+tags: Ability Check[Strength], Condition[Restrained], Debuff, Requires Sight, Saving Throw[Dexterity], Upcast
+description: Choose up to three creatures that you can see within range. Each target must succeed on a Dexterity saving throw or have the Restrained condition for the duration, as the shadows around a target grasp and bind it.
+
+A Restrained target can take an action to make a Strength (Athletics) check against your spell save DC. On a success, it frees itself from the grasping shadows and is no longer Restrained by them.
+
+A target has Disadvantage on the initial save and any checks made to escape the grasping shadows if it is in Dim Light or Darkness.
+
+***Using a Higher-Level Spell Slot.*** You can target one additional creature for each spell slot level above 1.
+
+---
+
+name: Slingshot
+level: 1
+school: Conjuration
+esoteric: true
+classes: Artificer, Bard, Ranger
+casting_time: Bonus Action
+range: Touch
+components: S
+duration: Concentration
+concentration_max: 1 minute
+tags: Condition[Prone], Damage[Bludgeoning], Saving Throw[Dexterity], Upcast
+description: When you cast the spell and as a Bonus Action on your later turns before the spell ends, you can store an amount of kinetic energy, represented by one charge, in a Medium or smaller object that you're holding. The object can store up to ten charges, which last until the spell ends. If you drop the object, the spell ends with no effect. The spell also has no effect if it ends because you gained the Incapacitated condition.
+
+When the spell ends, the object is launched in a straight line in a direction you choose, moving up to 15 feet for each accumulated charge. The launched object falls to the ground at the end of the movement or stops early if it strikes a creature or another object. The first creature or object in the launched object's path is struck by it and must make a Dexterity saving throw. On a failed save, the target takes 1d4 Bludgeoning damage for each accumulated charge, and if the target is Large or smaller, it has the Prone condition. On a successful save, the object flies past the target with no effect, continuing on its path until it strikes another target or reaches the end of its movement.
+
+***Using a Higher-Level Spell Slot.*** The object starts with one charge for each spell slot level above 1.
+
+---
+
+name: Sneeze
+level: Cantrip
+school: Enchantment
+esoteric: true
+classes: Bard
+casting_time: Action
+range: 60 feet
+components: S, M
+material: a pinch of black pepper
+duration: 1 round
+tags: Condition[Incapacitated], Requires Sight, Saving Throw[Constitution]
+description: You compel one creature you can see within range to sneeze. The target must succeed on a Constitution saving throw or sneeze 1d10 times in quick succession. If a 10 is rolled on the d10, the target has the Incapacitated condition until the start of your next turn. Constructs, Elementals, Oozes, Plants, and Undead succeed on the save automatically.
+
+---
+
+name: Speak with Blades
+level: 2
+school: Divination
+esoteric: true
+classes: Artificer, Cleric, Paladin, Ranger, Warlock
+casting_time: Action
+ritual: true
+range: Touch
+components: V, S, M
+material: a whetstone
+duration: Instantaneous
+tags: Saving Throw[Charisma]
+description: You touch a weapon and read its memories. If the weapon is sentient, it can make a Charisma saving throw, causing the spell to fail on a success. Otherwise, you mentally receive a brief summary of the weapon's memories, which might consist of its past wielders, creatures that have been killed by it, or significant events that it may have been a part of, such as a ceremony or a war.
+
+---
+
+name: Spell Pact
+level: 5
+school: Enchantment
+esoteric: true
+classes: Cleric, Paladin, Warlock, Wizard
+casting_time: 10 minutes
+ritual: true
+range: Touch
+components: V
+duration: Until dispelled
+tags: Condition[Exhaustion]
+description: You speak the terms of a pact to a willing creature that can hear and understand you, and shake the creature's hand to seal the pact. The terms can be as simple or elaborate as you choose, but the target must agree that they sound achievable. For example, the terms could include, "I must gather 500 GP and pay it back to you by the end of this year." Or the terms could include, "You will protect me to ensure that I am alive by the end of this month."
+
+The following must be terms of the pact, though you can add others not mentioned here. Both you and the other creature are considered targets of this spell.
+
+***Fulfillment.*** If both targets fulfill the conditions imposed upon them, the spell ends. These conditions must be observable, such as making an offering at the temple of a god or defeating a specific monster. You can include a time limit as part of these conditions, such as delivering a package by the end of the month or ensuring the safety of a ward for a week.
+
+***Enforcement.*** Until the spell ends, if a target breaks the pact, meaning they acted in a manner directly counter to the terms of the pact or otherwise failed to uphold the terms, it triggers any number of the following effects (your choice) that you set when you cast the spell:
+
+**Collateral.** Designate one or more objects as collateral for a target. You can also designate objects as collateral for the other target as well, but the targets can't share the same objects as collateral. The DM must agree that designated objects are owned by the target to whom they're assigned. If a target breaks the pact, their collateral is immediately disintegrated into black dust.
+
+**Notice.** Both targets are alerted by a mental ping if they are both on the same plane when one of the targets breaks the pact.
+
+**Punishment.** The target who broke the pact is immediately reduced to 1 Hit Point and gains 5 Exhaustion levels.
+
+A level 5+ *Remove Curse* spell or a *Greater Restoration* or *Wish* spell ends this spell. If you chose the Notice effect for this spell, both targets receive the mental ping when the spell is ended in this way.
+
+> *Repurposing curse magic, mages of the ancient era were able to forge magical contracts that held their signatories accountable without the need for an intervening enforcement body. Unfortunately, such magic allowed powerful criminals to trust one another more, facilitating massive underground alliances that threatened kingdoms in that era.*
+
+---
+
+name: Spinning Boulders
+level: 3
+school: Evocation
+esoteric: true
+classes: Druid, Sorcerer
+casting_time: Action
+range: Self
+components: V, S, M
+material: a smooth pebble
+duration: Concentration
+concentration_max: 1 minute
+tags: Condition[Prone], Damage[Bludgeoning], Saving Throw[Dexterity], Upcast
+description: You create three floating boulders that orbit you closely for the duration. When you are hit by an attack roll from a creature you can see, you can take a Reaction to intercept the attack with a boulder. The boulder is hit by the attack instead of you and is destroyed, causing it to crumble harmlessly into pieces.
+
+When you cast the spell, you can hurl a boulder, causing it to fly in a straight line up to 60 feet in a direction you choose before falling to the ground, stopping early if it strikes a creature or object. The first creature or object in the boulder's path is struck by it and must make a Dexterity saving throw. On a failed save, the target takes 3d8 Bludgeoning damage, and if it is Large or smaller, it has the Prone condition. On a successful save, the target takes half as much damage only. When the boulder strikes something or falls to the ground, it is destroyed. Until the spell ends, you can take a Magic action to hurl another boulder.
+
+The spell ends early if no more boulders remain. If the spell ends and one or more boulders remain, they are all destroyed.
+
+***Using a Higher-Level Spell Slot.*** You create one additional boulder for each spell slot above 3.
+
+---
+
 name: Summon Greater Lemon
 level: 2
 school: Conjuration
