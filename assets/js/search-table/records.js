@@ -4,7 +4,9 @@ import { TAG, withGroups, withAnySubtags } from './tags.js';
 
 function bucketsFor(col, text) {
   if (!text) return [];
-  const exact = col.choices.find(choice => choice.named && choice.value === text);
+  const exact = col.choices.find(
+    choice => choice.named && (choice.value === text || choice.aliases.includes(text))
+  );
   if (exact) return [exact.value];
   const amount = amountOf(col, text);
   const fit = amount === null
