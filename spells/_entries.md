@@ -1125,7 +1125,7 @@ description: You summon a Medium chest containing a sum of GP in an unoccupied s
 | 7 | 12,500 GP | 25,000 GP |
 | 8 | 15,000 GP | 30,000 GP |
 | 9 | 50,000 GP | 100,000 GP |
-{ .catalog }
+{: .catalog }
 
 ***Using a Higher-Level Spell Slot.*** You consume a greater value of coins as the Material component for the spell's casting and summon a greater value of GP based on the spell's level, as shown in the Cash Summoning table.
 
