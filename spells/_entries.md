@@ -624,7 +624,7 @@ components: V, S, M
 material: burning incense worth 100+ GP and a straw doll, both of which the spell consumes
 duration: Concentration
 concentration_max: 1 hour
-tags: Debuff, Revival
+tags: Consumes Material, Debuff, Revival
 description: When you cast the spell, you must touch a willing Humanoid. That Humanoid dies, and it can be revived only by a *True Resurrection* or a *Wish* spell. Then, if the spell lasts the entire duration, you can touch a different creature when the spell ends; if the creature is dead, it must have been dead no longer than 10 days. That creature is revived (if it was dead), regains all its Hit Points, and any of its missing body parts are regrown. In addition, its physical age is reduced by 30 years, to a minimum of 13 years.
 
 If the target was Undead when the spell was cast, it becomes a Humanoid or another appropriate creature type determined by the DM. The DM might also determine that the target loses any powers it had as an Undead and must use a different stat block.
@@ -712,7 +712,7 @@ range: Touch
 components: S, M
 material: a glass marble, which the spell consumes
 duration: 1 day
-tags: Condition[Exhaustion], Upcast
+tags: Condition[Exhaustion], Consumes Material, Upcast
 description: You infuse your mana into the marble used in the spell's casting. As a Bonus Action, a creature can smash the infused marble, returning the mana inside back to you and causing you to regain an expended level 1 spell slot.
 
 After you regain a spell slot from an infused marble, you gain 1 Exhaustion level each time you regain another one from an infused marble before you finish a Long Rest.
@@ -885,6 +885,24 @@ For the unwilling toil without harvest, but the willing therein unearth design."
 
 ---
 
+name: Money Blood
+level: 1
+school: Transmutation
+esoteric: true
+classes: Warlock
+casting_time: Action
+ritual: true
+range: Touch
+components: S, M
+material: a sum of coins worth 10+ GP, which the spell consumes
+duration: Instantaneous
+tags: Consumes Material, Healing, Upcast
+description: A creature you touch regains 1d8 Hit Points for every 10 GP consumed in the spell’s casting, to a maximum of 5d8.
+
+***Using a Higher-Level Spell Slot.*** The maximum healing increases by 2d8 for each spell slot level above 1.
+
+---
+
 name: Summon Greater Lemon
 level: 2
 school: Conjuration
@@ -896,7 +914,7 @@ range: 30 feet
 components: V, S, M
 material: a lemon and candles worth 25+ GP, both of which the spell consumes
 duration: 7 days
-tags: Area[Cube], Circle
+tags: Area[Cube], Circle, Consumes Material
 description: You create an enormous lemon that can fit in a 10-foot Cube on the ground within range. Any uneaten parts of the lemon spontaneously crumble to smoldering ashes at the end of the duration.
 
 ***Casting as a Circle Spell.*** If the spell is cast as a Circle spell, its casting time decreases by 1 hour for each secondary caster who participates in its casting, to a minimum casting time of 1 hour.
