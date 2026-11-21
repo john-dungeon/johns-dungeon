@@ -662,7 +662,7 @@ components: V, S, M
 material: a pinch of powdered glass
 duration: Concentration
 concentration_max: 1 minute
-tags: Forced Movement, Summon
+tags: Forced Movement, Summon, Teleportation
 description: You create a translucent wall of force at a point within range. The wall is a flat, 10-foot-by-10-foot, 1/4 inch thick surface that lasts for the duration. The wall appears in any orientation you choose, as a horizontal or vertical barrier or at an angle. It can be free-floating or resting on a solid surface.
 
 While the spell persists, you can teleport the wall to another point within range as a Magic action. You can also change the wall's orientation when you teleport the wall.
@@ -1107,13 +1107,13 @@ classes: Artificer, Bard, Warlock, Wizard
 casting_time: 1 hour
 range: 5 feet
 components: S, M
-material: a sum of coins worth an amount based on the spell's level (see Cash Summoning table), which the spell consumes, and the heart of a **Metal Dragon** (a Component Pouch or Spellcasting Focus can't substitute this component)
+material: a sum of coins worth an amount based on the spell's level (see Cash Summoning table), which the spell consumes, and the heart of a **Metal Dragon**, which can't be substituted with a Component Pouch or Spellcasting Focus
 duration: Instantaneous
 settings: Erisia
 tags: Curse, Debuff, Upcast
 description: You summon a Medium chest containing a sum of GP in an unoccupied space within range. The summoned GP is of an amount worth double the value of the money consumed in the spell's casting, as shown in the Summoned Value column of the Cash Summoning table.
 
-If you cast this spell again within 14 days, you become cursed. Until the curse ends, the dragon heart used in the spell's casting is fused to you, and you no longer need to use it as a component to cast this spell. However, every **Metal Dragon** within 1,000 miles of you always knows your location. While they have this knowledge, you can't become hidden from them, and if you have the Invisible condition, you gain no benefit from that condition against **Metal Dragons**. Typically, a **Metal Dragon** with this knowledge, or that knows you cast this spell, will be Hostile to you and will want to retrieve the heart of its brethren that was used in the spell's casting.
+The first time you cast this spell again within 14 days, you become cursed. Until the curse ends, the dragon heart used in the spell's casting is fused to you, and you no longer need to use it as a component to cast this spell. However, every **Metal Dragon** always knows your location while it is within 1,000 miles of you. While they have this knowledge, you can't become hidden from them, and if you have the Invisible condition, you gain no benefit from that condition against **Metal Dragons**. Typically, a **Metal Dragon** with this knowledge, or that knows you cast this spell, will be Hostile to you and will want to retrieve the heart of its brethren that was used in the spell's casting.
 
 Only a level 8+ *Remove Curse* or *Greater Restoration* spell or a *Wish* spell can end this curse. When the curse ends, the dragon heart that is fused to you disintegrates into gold dust.
 
@@ -1157,6 +1157,133 @@ description: You create an enormous lemon that can fit in a 10-foot Cube on the 
 ***Casting as a Circle Spell.*** If the spell is cast as a Circle spell, its casting time decreases by 1 hour for each secondary caster who participates in its casting, to a minimum casting time of 1 hour.
 
 > *This spell is the result of its creator misspelling one sigil in its formula, but only realizing the mistake when the spell was completed, and then being too lazy to fix the error.*
+
+---
+
+name: Targhul's Fiery Bravado
+level: 2
+school: Enchantment
+esoteric: true
+classes: Cleric, Paladin
+casting_time: Action
+range: Self
+components: V
+duration: 1 minute
+tags: Buff, Damage[Fire], Immunity[Frightened], Temporary Hit Points, Tribute, Upcast
+description: You are instilled with an unshakeable confidence that vexes even the gods, and you have a cool, flaming aura to match. Until the spell ends, you have Immunity to the Frightened condition and gain Temporary Hit Points equal to your spellcasting ability modifier at the start of each of your turns.
+
+In addition, when you move within 5 feet of a creature or an object that isn't being worn or carried on your turn, the creature or object takes 2d4 Fire damage from your blazing aura. If a damaged object is flammable, it starts burning. A creature or object takes this damage only once per turn.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d4 for each spell slot level above 2.
+
+---
+
+name: Teleport Bread
+level: Cantrip
+school: Conjuration
+esoteric: true
+classes: Artificer, Bard, Wizard
+casting_time: Action
+range: Self
+components: S, M
+material: a loaf of bread
+duration: Instantaneous
+tags: Teleportation
+description: You teleport the bread used in the spell's casting up to 120 feet to an unoccupied space.
+
+> *A young mage once did nothing but teleport bread for three days, deeply confusing his peers. As it turned out, in an act of revenge, he had been teleporting bread to his superior's pet slime, which readily absorbed the bread and grew to an enormous, uncontrollable size. That superior's house was later found obliterated, and the Adventurer's Guild had to issue a raid-type quest to subjugate a **Greater Blue Slime**.*
+
+---
+
+name: Testicular Torsion
+level: 6
+school: Transmutation
+esoteric: true
+classes: Sorcerer, Warlock, Wizard
+casting_time: Action
+range: 60 feet
+components: V, S
+duration: Concentration
+concentration_max: 1 hour
+tags: Debuff, Immunity[Charmed, Frightened], Saving Throw[Constitution]
+description: You twist the testicles of one creature you can see within range. The target must succeed on a Constitution saving throw or be subject to crippling pain. A target that lacks testicles succeeds on this save automatically. A target in crippling pain suffers the following effects for the duration.
+
+**Debilitated.** The target has Disadvantage on any D20 Test it makes, except Constitution saving throws.
+
+**Hobbling.** The target's Speed is halved. At the end of each of its turns, the target must succeed on a Constitution saving throw or have the Prone condition.
+
+**Overwhelmed.** The target can't maintain Concentration. The target is also immune to the Charmed and Frightened conditions.
+
+**Trembling.** If the target takes the Utilize action or casts a spell with a Somatic component, it must succeed on a Constitution saving throw or the action or spell fails, wasting it.
+
+At the end of each of its turns, the target can make a Constitution saving throw, ending the spell on itself on a success.
+
+> *According to ancient legend, this spell was a ruthless method of excruciating torture used only by sadistic high mages. Horror stories of it have prevailed over the years, but the spell itself has been lost to time—probably for the best.*
+
+---
+
+name: Viddi's Find Traps
+level: 2
+school: Divination
+esoteric: true
+classes: Artificer, Cleric, Druid, Ranger
+casting_time: Action
+range: Self
+components: V, S, M
+material: a magnifying glass
+duration: Concentration
+concentration_max: 10 minutes
+settings: Erisia
+description: For the duration, you sense the presence of traps within 30 feet of yourself. A trap, for the purpose of this spell, includes any object or mechanism that was created to cause damage or other danger. Thus, the spell would sense the *Alarm* or *Glyph of Warding* spell or a mechanical pit trap, but it wouldn't reveal a natural weakness in the floor, an unstable ceiling, or a hidden sinkhole.
+
+If you sense a trap with this spell, you can take the Magic action to see a faint outline around that trap until the start of your next turn; you can see this outline through Total Cover, allowing you to see a hidden trap's exact location. When you see a trap in this way, you automatically know what kind of trap it is, but you don't receive any information about its mechanics and triggers. For example, you might see an arrow trap and be able to identify it as such, but you wouldn't know whether it is activated by a tripwire, a pressure plate, or something else.
+
+The spell is blocked by 15 feet of stone, dirt, or wood; 5 feet of metal; or a thin sheet of lead.
+
+---
+
+name: Vorpal Warp
+level: 9
+school: Conjuration
+esoteric: true
+classes: Sorcerer, Warlock, Wizard
+casting_time: Action
+range: 60 feet
+components: S
+duration: Instantaneous
+tags: Damage[Force], Saving Throw[Charisma], Teleportation
+description: You point to one creature you can see within range. The target must succeed on a Charisma saving throw or one of its heads is teleported to your hand or an unoccupied space within 5 feet of you (your choice); the rest of its body remains in place. The target dies if it can't survive without the lost head. The target is immune to this effect if it doesn't have or need a head. Such a target instead takes 12d12 Force damage.
+
+---
+
+name: Vortex
+level: 4
+school: Evocation
+esoteric: true
+classes: Cleric, Druid, Sorcerer, Wizard
+casting_time: Action
+range: 60 feet
+components: V, S, M
+material: a folding fan
+duration: Concentration
+concentration_max: 1 minute
+tags: Area[Cylinder], Circle, Damage[Bludgeoning], Difficult Terrain, Forced Movement, Obscured Area[Lightly Obscured], Upcast
+description: You conjure a spinning windstorm in a 20-foot-radius, 40-foot-high Cylinder centered on a point within range. The windstorm's area is Lightly Obscured and Difficult Terrain. Until the spell ends, you can take a Magic action on later turns to move the Cylinder up to 20 feet.
+
+When the windstorm appears, each creature in it makes a Strength saving throw. On a failed save, a target takes 4d10 Bludgeoning damage and is pulled 20 feet straight toward the center of the Cylinder, ending in an unoccupied space as close to the center as possible. On a successful save, a target takes half as much damage only. A creature must also make this save when the Cylinder moves into its space and when it enters the Cylinder or ends its turn there. A creature makes this save only once per turn.
+
+When you cast this spell, you can designate any number of creatures to be unaffected by it.
+
+***Casting as a Circle Spell.*** In addition to the spell's usual components, you must provide a special component (a polished pietersite worth 25,000+ GP), which the spell consumes. The spell's range increases to 1 mile, it no longer requires Concentration, and its area of effect and duration change based on the number of secondary casters, as shown in the table below. When the spell is cast, each secondary caster must expend a level 3+ spell slot; otherwise, the spell fails. The spell also ends early if any caster who participated in this casting contributes to another casting of *Vortex* as a Circle spell.
+
+| Secondary Casters | Area of Effect | Duration |
+| :---: | :---: | :---: |
+| 1–3 | 40-foot-radius, 80-foot-high Cylinder | 1 hour |
+| 4–6 | 60-foot-radius, 120-foot-high Cylinder | 8 hours |
+| 7+ | 100-foot-radius, 200-foot-high Cylinder | 24 hours |
+{: .catalog }
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d10 for every spell slot level above 4.
 
 ---
 
