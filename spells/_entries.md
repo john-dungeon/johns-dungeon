@@ -846,7 +846,7 @@ components: V, S, M
 material: a handheld fan
 duration: Concentration
 concentration_max: 1 minute
-tags: Condition[Restrained]. Damage[Cold, Fire], Forced Movement, Requires Sight, Saving Throw[Strength], Upcast
+tags: Condition[Restrained], Damage[Cold, Fire], Forced Movement, Requires Sight, Saving Throw[Strength], Upcast
 description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical fire—any gaseous substance that isn't on fire, including mists, smoke, and toxic fumes—that you can see and isn't being worn or carried—unless the creature wearing or carrying it is willing to let you affect it, creating one of the following effects of your choice within range:
 
 **Create Wind.** You create a portion of harmless wind (such as normal, breathable air or steam) that fits in a 5-foot Cube. If you create visible wind, you can make it dense enough to make the Cube Lightly or Heavily Obscured (your choice). Any wind you create in this way remains in the Cube until the end of your next turn, after which it disperses as normal.
