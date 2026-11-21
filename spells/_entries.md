@@ -1107,11 +1107,15 @@ classes: Artificer, Bard, Warlock, Wizard
 casting_time: 1 hour
 range: 5 feet
 components: S, M
-material: a sum of coins worth an amount based on the spell's level (see Cash Summoning table), which the spell consumes, and the heart of a **Metal Dragon**
+material: a sum of coins worth an amount based on the spell's level (see Cash Summoning table), which the spell consumes, and the heart of a **Metal Dragon** (a Component Pouch or Spellcasting Focus can't substitute this component)
 duration: Instantaneous
 settings: Erisia
-tags: Upcast
+tags: Curse, Debuff, Upcast
 description: You summon a Medium chest containing a sum of GP in an unoccupied space within range. The summoned GP is of an amount worth double the value of the money consumed in the spell's casting, as shown in the Summoned Value column of the Cash Summoning table.
+
+If you cast this spell again within 14 days, you become cursed. Until the curse ends, the dragon heart used in the spell's casting is fused to you, and you no longer need to use it as a component to cast this spell. However, every **Metal Dragon** on the same plane as you always knows your location. While they have this knowledge, you can't become hidden from them, and if you have the Invisible condition, you gain no benefit from that condition against **Metal Dragons**.
+
+Only a level 8+ *Remove Curse* or *Greater Restoration* spell or a *Wish* spell can end this curse. When the curse ends, the dragon heart that is fused to you disintegrates into gold dust.
 
 ### Cash Summoning
 
