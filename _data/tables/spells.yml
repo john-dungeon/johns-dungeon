@@ -56,7 +56,7 @@ columns:
     label: Duration
     type: measure
     units: {second: 1, round: 6, minute: 60, hour: 3600, day: 86400}
-    order: [Instantaneous, Concentration, "...", Special, Permanent]
+    order: [Instantaneous, Concentration, "...", Special, Until Dispelled, Until Dispelled or Triggered]
     buckets:
       - Instantaneous
       - { label: 1 Round, up_to: 1 round }
@@ -66,7 +66,7 @@ columns:
       - { label: 8 Hours, up_to: 8 hours }
       - { label: 24+ Hours }
       - Special
-      - Permanent
+      - { label: Permanent, includes: [Until Dispelled, Until Dispelled or Triggered] }
     note:
       field: concentration_max
       format: ", up to %s"
