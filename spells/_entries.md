@@ -793,7 +793,7 @@ description: When you cast the spell and as a Magic action on your later turns b
 
 **Move Fire.** You move a portion of fire that fits in a 5-foot Cube up to 20 feet through spaces you can see. The fire must remain within range throughout the movement, and you can't move it through walls. Any fire you move with this spell can't be extinguished until the end of your next turn. If you move the fire to a space with no fuel (such as wood or oil), it burns out immediately after the end of your next turn.
 
-**Temper Fire.** You change the temperature of a portion of fire (such as dimming a flame or turning embers into an inferno) that fits in a 5-foot Cube, either heating it or cooling it. A fire can be heated until it can melt 10 pounds of iron over the course of 1 minute, and it can be cooled until it is almost harmless to the touch. You can change the temperature of a fire on a burning creature or object to cause it to take 3d4 (heating) or 1 (cooling) Fire damage at the start of each of its turns instead of the normal damage for burning. These changes last for 1 hour, after which the fire naturally returns to its normal temperature.
+**Temper Fire.** You change the temperature of a portion of fire (such as dimming a flame or turning embers into an inferno) that fits in a 5-foot Cube, either heating it or cooling it. Fire can be heated until it can melt 10 pounds of iron over the course of 1 minute, and it can be cooled until it is almost harmless to the touch. You can change the temperature of the fires on burning creatures or objects in the Cube to cause them to take 2d4 (heating) or 1 (cooling) Fire damage at the start of each of their turns instead of the normal damage for burning. These changes last for 1 hour, after which the fire naturally returns to its normal temperature.
 
 If you affect fire with this spell in a way that causes the fire to enter a creature's space, that creature must make a Dexterity saving throw. On a failed save, the creature takes 4d6 Fire damage and starts burning. On a successful save, the creature takes half as much damage only. A creature makes this save only once per turn. Flammable objects that aren't being worn or carried start burning if touched by any fire you affect with this spell.
 
@@ -830,6 +830,32 @@ If any water or structure you affect with this spell falls on a creature, that c
 If you affect ice with this spell in a way that traps or binds a creature, that creature must succeed on a Dexterity saving throw or it has the Restrained condition until the binding ice is destroyed. Any ice you form with this spell, binding or otherwise, has Immunity to Poison and Psychic damage and Vulnerability to Fire damage. If it fills an entire Cube, it has AC 12 and 15 Hit Points; otherwise, it has AC 12 and 5 Hit Points. Reducing the ice to 0 Hit Points destroys it.
 
 If you create ice that is Difficult Terrain or turn existing ice into Difficult Terrain with this spell, the ice is slippery. Each creature standing on slippery ice must succeed on a Dexterity saving throw or have the Prone condition. A creature also makes this save when it moves onto the ice for the first time on a turn or ends its turn there. A creature makes this save only once per turn.
+
+***Using a Higher-Level Spell Slot.*** Your Concentration can last longer with a spell slot of level 5-6 (up to 10 minutes) or 7+ (up to 1 hour).
+
+---
+
+name: Manipulate Wind
+level: 3
+school: Transmutation
+esoteric: true
+classes: Druid, Sorcerer
+casting_time: Action
+range: 30 feet
+components: V, S, M
+material: a handheld fan
+duration: Concentration
+concentration_max: 1 minute
+tags: Condition[Restrained]. Damage[Cold, Fire], Forced Movement, Requires Sight, Saving Throw[Strength], Upcast
+description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical fire—any gaseous substance that isn't on fire, including mists, smoke, and toxic fumes—that you can see and isn't being worn or carried—unless the creature wearing or carrying it is willing to let you affect it, creating one of the following effects of your choice within range:
+
+**Create Wind.** You create a portion of harmless wind (such as normal, breathable air or steam) that fits in a 5-foot Cube. If you create visible wind, you can make it dense enough to make the Cube Lightly or Heavily Obscured (your choice). Any wind you create in this way remains in the Cube until the end of your next turn, after which it disperses as normal.
+
+**Destroy Wind.** You destroy a portion of wind that fits in a 5-foot Cube. When you do so, you can prevent any wind from spreading into the Cube until the end of your next turn. Otherwise, each creature within 15 feet of the Cube must succeed on a Strength saving throw or be pulled straight toward the Cube, ending in an unoccupied space as close to the Cube as possible.
+
+**Move Wind.** You move a portion of wind that fits in a 5-foot Cube up to 20 feet through spaces you can see. The wind must remain within range throughout the movement, and you can't move it through walls. When you move the wind, you can force any Large or smaller creatures in the Cube to succeed on a Strength saving throw or have the Restrained condition and be moved wherever the Cube moves until the end of your next turn. Any wind you move in this way remains in the Cube until the end of your next turn, after which it disperses as normal.
+
+**Temper Wind.** You change the temperature of a portion of wind (such as warming the air or cooling water vapor into droplets) that fits in a 5-foot Cube, either heating it or cooling it. Wind can be heated until it can evaporate 10 gallons of water over the course of 1 minute, and it can be cooled until it can freeze 10 gallons of water over the course of 1 minute. You can change the temperature of the wind to cause creatures or objects in the Cube to take 1d4 Fire (heating) or Cold (cooling) damage immediately and at the start of each of their turns while in the Cube. These changes last for 1 hour, after which the wind naturally returns to its normal temperature.
 
 ***Using a Higher-Level Spell Slot.*** Your Concentration can last longer with a spell slot of level 5-6 (up to 10 minutes) or 7+ (up to 1 hour).
 
