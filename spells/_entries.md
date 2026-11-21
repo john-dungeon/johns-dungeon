@@ -483,9 +483,9 @@ concentration_max: 1 minute
 tags: Ability Check[Strength], Area[Cube], Condition[Restrained], Damage[Cold], Debuff, Saving Throw[Constitution], Upcast
 description: You conjure a binding frost in a 20-foot Cube within range. Each creature (other than you) in the area must make a Constitution saving throw. On a failed save, a target takes 3d8 Cold damage and has the Restrained condition for the duration, as it is frozen stiff by ice. On a successful save, a target takes half as much damage, and its Speed is halved until the start of your next turn. A creature killed by this spell becomes a frozen statue until it thaws.
 
-While Restrained, a target takes 2d8 Cold damage at the start of each of its turns. The target or a creature that can reach it can take an action to make a Strength (Athletics) check against your spell save DC. On a success, the target is no longer Restrained by the ice. Also, if a Restrained creature takes Fire damage, it is no longer Restrained.
+While Restrained, a target takes 1d8 Cold damage at the start of each of its turns. The target or a creature that can reach it can take an action to make a Strength (Athletics) check against your spell save DC. On a success, the target is no longer Restrained by the ice. Also, if a Restrained creature takes Fire damage, it is no longer Restrained.
 
-***Using a Higher-Level Spell Slot.*** The damage (both initial and later) increases by 1d8 for each spell slot level above 3.
+***Using a Higher-Level Spell Slot.*** The initial damage increases by 1d8 for each spell slot level above 3.
 
 ---
 
@@ -871,7 +871,7 @@ range: Self
 components: V, S
 duration: 8 hours
 tags: Area[Emanation], Damage[Necrotic], Saving Throw[Wisdom], Upcast
-description: You mark yourself with a brand of martyrdom. As a Magic action before the spell ends, you can trigger the brand, ending the spell. When you trigger the brand, you are reduced to 0 Hit Points and expel necrotic energy in a 15-foot Emanation around you. Each creature in the area must make a Wisdom saving throw. On a failed save, a target takes 10d6 Necrotic damage, or 5d6 Necrotic damage if you were Bloodied when the brand was triggered.
+description: You mark yourself with a brand of martyrdom. As a Magic action before the spell ends, you can trigger the brand, ending the spell. When you trigger the brand, each creature in a 15-foot Emanation around you must make a Wisdom saving throw. On a failed save, a target takes 10d6 Necrotic damage, or 5d6 Necrotic damage if you were Bloodied when the brand was triggered. Immediately after the brand is triggered, you are reduced to 0 Hit Points.
 
 When you are reduced to 0 Hit Points before the spell ends, the brand is automatically triggered, and the spell ends.
 
@@ -1111,7 +1111,7 @@ material: a sum of coins worth an amount based on the spell's level (see Cash Su
 duration: Instantaneous
 settings: Erisia
 tags: Consumes Material, Curse, Debuff, Upcast
-description: You conjure a Medium chest containing a sum of GP in an unoccupied space within range. The summoned GP is of an amount worth double the value of the money consumed in the spell's casting, as shown in the Summoned Value column of the Cash Summoning table.
+description: You conjure a Medium chest containing a sum of GP in an unoccupied space within range. The summoned GP is of an amount worth double the value of the coins consumed in the spell's casting, as shown in the Summoned Value column of the Cash Summoning table.
 
 The first time you cast this spell again within 14 days, you become cursed. Until the curse ends, the dragon heart used in the spell's casting is fused to you, and you no longer need to use it as a component to cast this spell. However, every **Metal Dragon** always knows your location while it is within 1,000 miles of you. While they have this knowledge, you can't become hidden from them, and if you have the Invisible condition, you gain no benefit from that condition against **Metal Dragons**. Typically, a **Metal Dragon** with this knowledge, or that knows you cast this spell, will be Hostile to you and will want to retrieve the heart of its brethren that was used in the spell's casting.
 
@@ -1132,7 +1132,7 @@ Only a level 8+ *Remove Curse* or *Greater Restoration* spell or a *Wish* spell 
 | 9 | 50,000 GP | 100,000 GP |
 {: .catalog }
 
-***Using a Higher-Level Spell Slot.*** You consume a greater value of coins as the Material component for the spell's casting and summon a greater value of GP based on the spell's level, as shown in the Cash Summoning table.
+***Using a Higher-Level Spell Slot.*** Based on the spell's level, you consume a greater value of coins as the Material component for the spell's casting and summon a greater value of GP, as shown in the Cash Summoning table.
 
 When you cast the spell with a level 4+ spell slot, every **Metal Dragon** within 300 miles of your location knows that the spell was cast and the general region where it was cast. The closer to you a **Metal Dragon** is when you cast the spell, the more accurately it knows the location of the casting. For example, the dragons might know that you cast the spell in a city, but not that you cast the spell while in a tavern in that city. However, if one such dragon were already in the city, it would immediately know which tavern you cast the spell in.
 
