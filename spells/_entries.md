@@ -1114,6 +1114,7 @@ tags: Upcast
 description: You summon a Medium chest containing a sum of GP in an unoccupied space within range. The summoned GP is of an amount worth double the value of the money consumed in the spell's casting, as shown in the Summoned Value column of the Cash Summoning table.
 
 ### Cash Summoning
+
 | Spell Level | Material Component Value | Summoned Value |
 | :---: | :---: | :---: |
 | 1 | 25 GP | 50 GP |
