@@ -15,14 +15,20 @@ a:not([class]):hover {
 
 html { scrollbar-color: $nav-child-link-color $sidebar-color; }
 
-// Kramdown: {: .indent }
-.indent { margin-left: 2rem; }
-
-// Kramdown: {: .italic }
-.italic { font-style: italic; }
-
 :root { --motion-duration: #{$motion-duration}; }
 
 @media (prefers-reduced-motion: reduce) {
   :root { --motion-duration: 0s; }
 }
+
+.main-content ul:not(.nav-list) {
+  list-style: disc;
+
+  > li::before { content: none; }
+}
+
+// Kramdown: {: .indent }
+.indent { margin-left: 2rem; }
+
+// Kramdown: {: .italic }
+.italic { font-style: italic; }
