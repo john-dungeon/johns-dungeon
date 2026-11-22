@@ -72,6 +72,25 @@ When the spell ends, the creature exits the extradimensional box, appearing in a
 
 ---
 
+name: Arinbjorn's Frigid Impact
+level: 3
+school: Abjuration
+esoteric: true
+classes: Druid, Ranger
+casting_time: Bonus Action
+condition: , which you take immediately after moving at least 10 feet in a straight line
+range: Self
+components: V
+duration: Instantaneous
+tags: Area[Emanation], Condition[Prone], Damage[Cold], Debuff, Saving Throw[Constitution], Tribute, Upcast
+description: You jump up to 30 feet in the same direction as your movement immediately before the spell's casting. When you land, each creature in a 30-foot Emanation originating from you must make a Constitution saving throw. On a failed save, a target takes 4d8 Cold damage and has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it can't make Opportunity Attacks until the start of its next turn.
+
+If you fall 30 feet or less immediately after the jump, you take no damage from the fall.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d8 for each spell slot level above 3.
+
+---
+
 name: Arwen's Spiritual Mark
 level: 2
 school: Evocation
@@ -89,6 +108,27 @@ description: You magically mark one creature you can see within range with the p
 When the spell ends, the target takes 1d8 Acid, Cold, Fire, Lightning, Poison, or Thunder damage (your choice) for each accumulated charge. In addition, each creature within 5 feet of the target must make a Dexterity saving throw, taking the same amount of damage on a failed save or half as much damage on a successful one.
 
 ***Using a Higher-Level Spell Slot.*** The number of charges that the spell starts with and the maximum number of charges increases by 1 for each spell slot level above 2.
+
+---
+
+name: Athelmon's Shadow Blade
+level: 3
+school: Evocation
+esoteric: true
+classes: Sorcerer
+casting_time: Bonus Action
+range: Self
+components: V, S
+duration: Concentration
+concentration_max: 1 minute
+tags: Buff, Damage[Psychic], Teleportation, Tribute, Upcast
+description: You condense the energy of darkness in your free hand, manifesting a shadow blade. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears at the end of the current turn, but you can manifest it again as a Bonus Action.
+
+The blade counts as a Martial Melee weapon with the Finesse, Light, and Thrown (Range 20/60) properties, and it deals 3d6 Psychic damage on a hit. When you make an attack using the blade, the attack can use your spellcasting ability for the attack and damage rolls instead of using Strength or Dexterity. In addition, if the target is in an area of Dim Light or Darkness, you have Advantage on the attack roll and attacking at long range doesn't impose Disadvantage on the attack roll.
+
+Immediately after you hit or miss with an attack using the blade, you can teleport (no action required) up to 20 feet to an unoccupied space you can see, or up to 60 feet if the destination space is in an area of Dim Light or Darkness.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 3.
 
 ---
 
