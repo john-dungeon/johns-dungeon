@@ -83,7 +83,7 @@ range: Self
 components: V
 duration: Instantaneous
 tags: Area[Emanation], Condition[Prone], Damage[Cold], Debuff, Saving Throw[Constitution], Tribute, Upcast
-description: You jump up to 30 feet in the same direction as your movement immediately before the spell's casting. When you land, each creature in a 30-foot Emanation originating from you must make a Constitution saving throw. On a failed save, a target takes 4d8 Cold damage, and if it is Huge or smaller, it has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it can't make Opportunity Attacks until the start of its next turn.
+description: You jump up to 30 feet in the same direction as your movement immediately before the spell's casting. When you land, each creature in a 20-foot Emanation originating from you must make a Constitution saving throw. On a failed save, a target takes 4d8 Cold damage, and if it is Huge or smaller, it has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it can't make Opportunity Attacks until the start of its next turn.
 
 You take no damage from falling when you land from this jump if the fall is 30 feet or less.
 
@@ -164,7 +164,7 @@ components: V, S, M
 material: a smooth pebble
 duration: 1 hour
 tags: Area[Cylinder], Condition[Prone], Cover, Damage[Bludgeoning], Forced Movement, Saving Throw[Dexterity], Upcast
-description: You conjure a Gargantuan boulder centered on a point within range, up to 40 feet in the air. If the boulder is conjured in the air, it immediately falls, descending in a Cylinder centered on the boulder. The Cylinder has a 40-foot radius and a height equal to the boulder's distance from the ground. Each creature in the Cylinder makes a Dexterity saving throw. On a failed save, a target takes 5d12 Bludgeoning damage and has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it is pushed to the nearest unoccupied space outside of the boulder's space. A creature killed by this spell is completely flattened and remains beneath the boulder instead.
+description: You conjure a Gargantuan boulder centered on a point within range, up to 40 feet in the air. If the boulder is conjured in the air, it immediately falls, descending in a Cylinder centered on the boulder. The Cylinder has a 20-foot radius and a height equal to the boulder's distance from the ground. Each creature in the Cylinder makes a Dexterity saving throw. On a failed save, a target takes 5d12 Bludgeoning damage and has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it is pushed to the nearest unoccupied space outside of the boulder's space. A creature killed by this spell is completely flattened and remains beneath the boulder instead.
 
 After the boulder is conjured or falls, it remains and occupies its space for the duration. It is large enough to provide Three-Quarters Cover for a Huge creature standing behind it or Total Cover for a Large or smaller creature standing behind it. At the end of the duration, the boulder crumbles harmlessly to pieces.
 
@@ -401,8 +401,7 @@ components: V, S, M
 material: a metal lock
 duration: Concentration
 concentration_max: 10 minutes
-tags: Area[Emanation]
-description: For the duration, you sense the location of any creatures that have shape-shifted (as a result of the *Polymorph* spell, for example) in a 30-foot Emanation originating from you.
+description: For the duration, you sense the location of any creatures that have shape-shifted (as a result of the *Polymorph* spell, for example) within 30 feet of yourself.
 
 The spell is blocked by 1 foot of stone, dirt, or wood; 1 inch of metal; or a thin sheet of lead.
 
@@ -436,27 +435,28 @@ components: V
 duration: 1 minute
 settings: Erisia
 tags: Area, Buff, Condition[Incapacitated], Damage[Psychic], Debuff, Saving Throw[Wisdom]
-description: You issue a challenge to a willing creature within range and commence an honorable duel. You and the target are considered duelists for the duration and are subject to the following effects.
+description: You issue a challenge to a willing creature within range and commence an honorable duel. For the purposes of this spell, you and the creature are considered duelists, and any other creatures summoned by either of you as part of a spell, feature, or magic item are considered retainers. Duelists and retainers are subject to the following effects.
 
-***Dueling.*** A duelist can't willingly target a creature other than the other duelist with an attack roll or a damaging effect. If a duelist uses a damaging effect that targets creatures in an area of effect, one of the targets must be the other duelist.
+***Dueling.*** A duelist or retainer can't willingly target a creature other than an opposing duelist or retainer with an attack roll or a damaging effect. If a duelist or retainer uses a damaging effect that targets creatures in an area of effect, one of the targets must be an opposing duelist or retainer.
 
-***Resolve.*** A duelist can't willingly move to a space that is more than 60 feet away from the other duelist. If a duelist starts its turn further than 60 feet away from the other duelist, it must spend its movement on that turn to move toward the other duelist by the safest route if it can see the other duelist.
+***Resolve.*** A duelist can't willingly move to a space that is more than 60 feet away from the opposing duelist. If a duelist starts its turn further than 60 feet away from the opposing duelist, it must spend its movement on that turn to move toward the opposing duelist by the safest route if it can see them.
 
-***Unimpeded.*** Any creature other than a duelist that targets a duelist with an attack roll or an effect must succeed on a Wisdom saving throw or either choose a new target that isn't a duelist or lose the attack or effect. This spell doesn't protect a duelist from areas of effect.
+***Unimpeded.*** When a creature that isn't a duelist or retainer targets a duelist or retainer with an attack roll or an effect, it must succeed on a Wisdom saving throw or either choose a new target that isn't a duelist or retainer or lose the attack or effect. This spell doesn't protect duelists and retainers from areas of effect.
 
-***Restriction.*** When you cast the spell, you can impose any number of restrictions from the list below if the other duelist agrees to them:
+***Restriction.*** When you cast the spell, you can impose any number of restrictions from the list below if the opposing duelist agrees to them:
 
-- **No Death.** If a duelist kills the other duelist, it takes 6d10 Psychic damage and loses the duel.
-- **No Spells.** If a duelist casts a spell, it loses the duel.
-- **No Weapons.** If a duelist makes an attack roll with a weapon, it loses the duel.
+- **No Death.** If a duelist or one of its retainers kills the opposing duelist, that duelist takes 6d10 Psychic damage and loses the duel.
+- **No Magic Items.** If a duelist or one of its retainers uses a magic item in any way, that duelist loses the duel.
+- **No Spells.** If a duelist or one of its retainers casts a spell, that duelist loses the duel.
+- **No Weapons.** If a duelist or one of its retainers makes an attack roll with a weapon, that duelist loses the duel.
 
-***Victory Condition.*** When you cast the spell, you can impose one victory condition from the list below if the other duelist agrees to it:
+***Victory Condition.*** When you cast the spell, you can impose one victory condition from the list below if the opposing duelist agrees to it:
 
 - **First Blood.** When a duelist becomes Bloodied, it loses the duel. You can't impose this victory condition if one of the duelists is already Bloodied.
 - **King of the Hill.** Designate an area no larger than 30 feet on each side. When a duelist is moved to a space outside of that area, it loses the duel.
-- **Point Score.** Designate a point goal, which is a number between 3 and 10. When a duelist is hit by an attack roll from the other duelist a number of times equal to the point goal, it loses the duel.
+- **Point Score.** Designate a point goal, which is a number between 3 and 10. When a duelist is hit by an attack roll from an opposing duelist or retainer a total number of times equal to the point goal, it loses the duel.
 
-A duelist loses the duel if it is reduced to 0 Hit Points. Alternatively, a duelist can surrender (no action required), losing the duel automatically. When a duelist loses the duel, it has the Incapacitated condition until the end of its next turn.
+A duelist automatically loses the duel if it is reduced to 0 Hit Points. Alternatively, a duelist can surrender (no action required), losing the duel. When a duelist loses the duel, it has the Incapacitated condition until the end of its next turn.
 
 ---
 
@@ -583,7 +583,7 @@ concentration_max: 10 minutes
 tags: Debuff
 description: You briefly stop the flow of time for everything but yourself to deliver a dramatic monologue. No time passes for objects and creatures other than you within range, but they can perceive everything that is happening around them. Meanwhile, you take as many turns in a row as the duration allows, during which you can use actions and move as normal. In addition, your voice can be heard by all creatures within range, even if they have the Deafened condition or otherwise wouldn't normally be able to hear you.
 
-You are allowed to take up to one action (except the Ready action), cast up to one spell, and move to a place up to 60 feet away from the location where you cast this spell throughout the duration. The spell ends if you take more actions, cast more spells, or move further than the allowed amounts. The spell also ends if any action you take, or any effects that you create, affects an affected creature or object.
+You are allowed to take either (A) up to one action (except the Ready action) or (B) cast up to one spell, and move to a place up to 60 feet away from the location where you cast this spell throughout the duration. The spell ends if you take more actions, cast more spells, or move further than the allowed amounts. The spell also ends if any action you take, or any effects that you create, affects an affected creature or object.
 
 > *Legendary evil mages of yore grew frustrated with adventurers interrupting the speeches they'd rehearsed weeks in advance, so they came up with a simple solution: localized chronostasis.*
 
@@ -1163,7 +1163,7 @@ range: Touch
 components: V
 duration: Until Dispelled
 tags: Condition[Exhaustion]
-description: You speak the terms of a pact to a willing creature that can hear and understand you, and shake the creature's hand to seal the pact. The terms can be as simple or elaborate as you choose, but the target must agree that they sound achievable. For example, the terms could include, "I must gather 500 GP and pay it back to you by the end of this year." Or the terms could include, "You will protect me to ensure that I am alive by the end of this month."
+description: You speak the terms of a pact to a willing creature that can hear and understand you, and shake the creature's hand to seal the pact. The terms can be as simple or elaborate as you choose, but the creature must agree that they sound achievable. For example, the terms could include, "I must gather 500 GP and pay it back to you by the end of this year." Or the terms could include, "You will protect me to ensure that I am alive by the end of this month."
 
 The following must be terms of the pact, though you can add others not mentioned here. Both you and the other creature are considered targets of this spell.
 
