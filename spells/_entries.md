@@ -217,7 +217,7 @@ school: Conjuration
 esoteric: true
 classes: Paladin
 casting_time: Action
-condition: , which you can replace one of your attacks with when you take the Attack action on your turn, instead casting it as part of that action
+condition: , which you can replace one of your attacks with when you take the Attack action on your turn
 range: 90 feet
 components: S, M
 material: a silver hook
