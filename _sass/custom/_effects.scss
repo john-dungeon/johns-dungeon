@@ -41,23 +41,13 @@ html.fx-vignette {
   body::after {
     @include vignette-picture;
     position: fixed;
+    z-index: $vignette-z;
   }
 
   #gate::before {
     @include vignette-picture;
     position: absolute;
     z-index: 1;
-  }
-}
-
-@each $side, $cfg in $panels {
-  @include panel-fits($side) {
-    html.fx-vignette .panel--#{$side}::after {
-      @include vignette-picture;
-      position: absolute;
-      background-size: 100vw 100vh;
-      background-position: calc(-1 * #{map-get($cfg, start)}) 0;
-    }
   }
 }
 
