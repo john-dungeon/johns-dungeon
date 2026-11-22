@@ -8,6 +8,7 @@ $shadow-small: 0 2px 6px rgba(0, 0, 0, 0.3);
 $shadow-popup: 0 4px 12px rgba(0, 0, 0, 0.35);
 $shadow-dialog: 0 8px 30px rgba(0, 0, 0, 0.5);
 $above-effects-z: $effect-layer-z + 1;
+$vignette-z: $above-effects-z + 2;
 
 // Sidebars
 $sidebar-box-color: if($theme-background != none, rgba($sidebar-color, $panel-opacity), $sidebar-color);
@@ -39,7 +40,6 @@ $panels: (
 @mixin vignette-picture {
   content: "";
   inset: 0;
-  z-index: $effect-layer-z;
   background: var(--fx-vignette-image) 0 0 / 100% 100% no-repeat;
   image-rendering: pixelated;
   pointer-events: none;
