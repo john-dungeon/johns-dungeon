@@ -132,6 +132,46 @@ Immediately after you hit or miss with an attack using the blade on your turn, y
 
 ---
 
+name: Baizhen's Dragon Mantle
+level: 3
+school: Abjuration
+esoteric: true
+classes: Cleric, Paladin
+casting_time: Action
+range: Self
+components: V
+duration: Concentration
+concentration_max: 1 minute
+tags: Bonus[Speed], Buff, Damage Reduction, Resistance[Radiant], Tribute
+description: A radiant, serpentine, spectral dragon wraps around your body for the duration. Until the spell ends, you gain the following benefits:
+
+**Deftness of the Dragon.** Your Speed increases by 10 feet. In addition, your Long Jump is up to 30 feet and your High Jump is up to 20 feet with or without a running start. You take no damage from falling when you land from a jump if the fall is 20 feet or less.
+
+**Might of the Dragon.** You gain Resistance to Radiant damage. In addition, any Radiant damage you deal ignores Resistance to Radiant damage.
+
+**Vigilance of the Dragon.** When you take damage, you can take a Reaction to reduce the damage by 1d8 plus your spellcasting ability modifier. As part of the same Reaction, you can move up to half your Speed without provoking Opportunity Attacks.
+
+---
+
+name: Big Boulder
+level: 5
+school: Conjuration
+esoteric: true
+classes: Druid, Sorcerer, Wizard
+casting_time: Action
+range: 150 feet
+components: V, S, M
+material: a smooth pebble
+duration: 1 hour
+tags: Area[Cylinder], Condition[Prone], Cover, Damage[Bludgeoning], Forced Movement, Saving Throw[Dexterity], Upcast
+description: You conjure a Gargantuan boulder centered on a point within range, up to 40 feet in the air. If the boulder is conjured in the air, it immediately falls, descending in a Cylinder centered on the boulder. The Cylinder has a 40-foot radius and a height equal to the boulder's distance from the ground. Each creature in the Cylinder makes a Dexterity saving throw. On a failed save, a target takes 5d12 Bludgeoning damage and has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it is pushed to the nearest unoccupied space outside of the boulder's space. A creature killed by this spell is completely flattened and remains beneath the boulder instead.
+
+After the boulder is conjured or falls, it remains and occupies its space for the duration. It is large enough to provide Three-Quarters Cover for a Huge creature standing behind it or Total Cover for a Large or smaller creature standing behind it. At the end of the duration, the boulder crumbles harmlessly to pieces.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d12 for each spell slot level above 5.
+
+---
+
 name: Blood Money
 level: 1
 school: Transmutation
@@ -168,6 +208,24 @@ description: You cause a bleeding cut to suddenly appear on a creature within ra
 The spell ends if the target regains Hit Points from a spell, magic item, or other magical effect.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d8 for each spell slot level above 1.
+
+---
+
+name: Bofur's Silver Hook
+level: 2
+school: Conjuration
+esoteric: true
+classes: Paladin
+casting_time: Action
+condition: , which you can replace one of your attacks with when you take the Attack action on your turn, instead casting it as part of that action
+range: 90 feet
+components: S, M
+material: a silver hook
+duration: Instantaneous
+tags: Attack[Ranged Spell], Damage[Force], Forced Movement, Tribute, Upcast
+description: You brandish a giant silver hook attached to you by a spectral chain and throw it at a creature or object in range. Make a ranged spell attack against the target. On a hit, the target takes Force damage equal to 4d6 plus your spellcasting ability modifier, and if it is Large or smaller, you can pull it up to 85 feet closer to you.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 2.
 
 ---
 
@@ -286,6 +344,28 @@ material: a sharp metal object
 duration: Instantaneous
 tags: Damage[Force, Slashing]
 description: A creature you touch takes 4d6 Slashing or Force damage (your choice), and if the creature is affected by the *Shield* spell, that spell ends.
+
+---
+
+name: Daiyu's Devouring Darkness
+level: 3
+school: Evocation
+esoteric: true
+classes: Warlock
+casting_time: Action
+range: 60 feet
+components: V, M
+material: bat fur and a piece of coal
+duration: Concentration
+concentration_max: 1 minute
+tags: Area[Sphere], Damage[Cold], Immunity[Deafened, Thunder], Light[Darkness], Tribute
+description: For the duration, magical Darkness spreads from a point within range and fills a 15-foot-radius Sphere. Darkvision can't see through it, and nonmagical light can't illuminate it. If any of this spell's area overlaps with an area of Bright Light or Dim Light created by a spell of level 3 or lower, that other spell is dispelled.
+
+No sound can be created within or pass through the Sphere. Any creature or object entirely inside the Sphere has Immunity to Thunder damage, and creatures have the Deafened condition while entirely inside it. Casting a spell that includes a Verbal component is impossible there.
+
+When a creature other than you moves into or within the Sphere on its turn, it takes 1d4 Cold damage for every 5 feet it travels.
+
+While the spell persists, you can take a Bonus Action to move the Sphere up to 30 feet.
 
 ---
 
@@ -702,7 +782,7 @@ components: V, S, M
 material: a pinch of powdered glass
 duration: Concentration
 concentration_max: 1 minute
-tags: Forced Movement, Summon, Teleportation
+tags: Cover, Forced Movement, Summon, Teleportation
 description: You create a translucent wall of force at a point within range. The wall is a flat, 10-foot-by-10-foot, 1/4 inch thick surface that lasts for the duration. The wall appears in any orientation you choose, as a horizontal or vertical barrier or at an angle. It can be free-floating or resting on a solid surface.
 
 While the spell persists, you can teleport the wall to another point within range as a Magic action. You can also change the wall's orientation when you teleport the wall.
@@ -792,7 +872,7 @@ components: V, S, M
 material: a handful of dirt
 duration: Concentration
 concentration_max: 1 minute
-tags: Area[Cube], Condition[Restrained], Damage[Bludgeoning], Difficult Terrain, Requires Sight, Saving Throw[Dexterity], Summon, Upcast
+tags: Area[Cube], Condition[Restrained], Cover, Damage[Bludgeoning], Difficult Terrain, Requires Sight, Saving Throw[Dexterity], Summon, Upcast
 description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical earth—any solid stone, soil, clay, crystal, or other earthen material except metal—that you can see and isn't being worn or carried—unless the creature wearing or carrying it is willing to let you affect it, creating one of the following effects of your choice within range:
 
 **Create Earth.** You create a portion of earth of negligible value (such as dirt, not a gemstone) that fits in a 5-foot Cube of unoccupied space. If you create earth in the air, it is suspended there until the end of your next turn, after which it falls as normal.
@@ -852,7 +932,7 @@ components: V, S, M
 material: a cup of water
 duration: Concentration
 concentration_max: 1 minute
-tags: Area[Cube], Condition[Prone, Restrained], Damage[Bludgeoning, Cold, Fire], Difficult Terrain, Forced Movement, Obscured Area[Lightly Obscured, Heavily Obscured], Requires Sight, Saving Throw[Dexterity, Strength], Summon, Upcast
+tags: Area[Cube], Condition[Prone, Restrained], Cover, Damage[Bludgeoning, Cold, Fire], Difficult Terrain, Forced Movement, Obscured Area[Lightly Obscured, Heavily Obscured], Requires Sight, Saving Throw[Dexterity, Strength], Summon, Upcast
 description: When you cast the spell and as a Magic action on your later turns before the spell ends, you can manipulate nonmagical water—ice, liquid, or vapor—that you can see and isn't being worn or carried—unless the creature wearing or carrying it is willing to let you affect it, creating one of the following effects of your choice within range:
 
 **Create Water.** You create a portion of water that fits in a 5-foot Cube of unoccupied space. If you create ice, you can turn its surfaces into Difficult Terrain. If you create vapor, you can make it dense enough to make the Cube Lightly or Heavily Obscured (your choice). If you create water in the air, it is suspended there until the end of your next turn, after which it falls (ice or liquid) or disperses (vapor) as normal. 
