@@ -74,7 +74,7 @@ When the spell ends, the creature exits the extradimensional box, appearing in a
 
 name: Arinbjorn's Frigid Impact
 level: 3
-school: Abjuration
+school: Evocation
 esoteric: true
 classes: Druid, Ranger
 casting_time: Bonus Action
@@ -83,9 +83,9 @@ range: Self
 components: V
 duration: Instantaneous
 tags: Area[Emanation], Condition[Prone], Damage[Cold], Debuff, Saving Throw[Constitution], Tribute, Upcast
-description: You jump up to 30 feet in the same direction as your movement immediately before the spell's casting. When you land, each creature in a 30-foot Emanation originating from you must make a Constitution saving throw. On a failed save, a target takes 4d8 Cold damage and has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it can't make Opportunity Attacks until the start of its next turn.
+description: You jump up to 30 feet in the same direction as your movement immediately before the spell's casting. When you land, each creature in a 30-foot Emanation originating from you must make a Constitution saving throw. On a failed save, a target takes 4d8 Cold damage, and if it is Huge or smaller, it has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it can't make Opportunity Attacks until the start of its next turn.
 
-If you fall 30 feet or less immediately after the jump, you take no damage from the fall.
+You take no damage from falling when you land from this jump if the fall is 30 feet or less.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d8 for each spell slot level above 3.
 
@@ -115,18 +115,18 @@ name: Athelmon's Shadow Blade
 level: 3
 school: Evocation
 esoteric: true
-classes: Sorcerer
+classes: Sorcerer, Warlock
 casting_time: Bonus Action
 range: Self
 components: V, S
 duration: Concentration
 concentration_max: 1 minute
 tags: Buff, Damage[Psychic], Teleportation, Tribute, Upcast
-description: You condense the energy of darkness in your free hand, manifesting a shadow blade. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears at the end of the current turn, but you can manifest it again as a Bonus Action.
+description: You condense the energy of darkness in your free hand, manifesting a shadow blade. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears, but you can manifest it again (no action required).
 
-The blade counts as a Martial Melee weapon with the Finesse, Light, and Thrown (Range 20/60) properties, and it deals 3d6 Psychic damage on a hit. When you make an attack using the blade, the attack can use your spellcasting ability for the attack and damage rolls instead of using Strength or Dexterity. In addition, if the target is in an area of Dim Light or Darkness, you have Advantage on the attack roll and attacking at long range doesn't impose Disadvantage on the attack roll.
+The blade counts as a Martial Melee weapon with the Finesse, Light, and Thrown (Range 20/60) properties, and it deals 3d6 Psychic damage on a hit. When you make an attack using the blade, the attack can use your spellcasting ability for the attack and damage rolls instead of using Strength or Dexterity. In addition, if the target is in an area of Dim Light or Darkness, you have Advantage on the attack roll and attacking at long range doesn't impose Disadvantage on the attack roll. The blade leaves no mark if it deals damage, and if you use it to make a ranged attack, the blade disappears immediately after it hits or misses its target.
 
-Immediately after you hit or miss with an attack using the blade, you can teleport (no action required) up to 20 feet to an unoccupied space you can see, or up to 60 feet if the destination space is in an area of Dim Light or Darkness.
+Immediately after you hit or miss with an attack using the blade on your turn, you can teleport (no action required) up to 20 feet to an unoccupied space you can see, or up to 60 feet if the destination space is in an area of Dim Light or Darkness.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 3.
 
