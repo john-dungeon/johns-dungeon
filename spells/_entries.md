@@ -1171,11 +1171,11 @@ The following must be terms of the pact, though you can add others not mentioned
 
 ***Enforcement.*** Until the spell ends, if a target breaks the pact, meaning they acted in a manner directly counter to the terms of the pact or otherwise failed to uphold the terms, it triggers any number of the following effects (your choice) that you set when you cast the spell:
 
-**Collateral.** Designate one or more objects as collateral for a target. You can also designate objects as collateral for the other target as well, but the targets can't share the same objects as collateral. The DM must agree that designated objects are owned by the target to whom they're assigned. If a target breaks the pact, their collateral is immediately disintegrated into black dust.
+- **Collateral.** Designate one or more objects as collateral for a target. You can also designate objects as collateral for the other target as well, but the targets can't share the same objects as collateral. The DM must agree that designated objects are owned by the target to whom they're assigned. If a target breaks the pact, their collateral is immediately disintegrated into black dust.
 
-**Notice.** Both targets are alerted by a mental ping if they are both on the same plane when one of the targets breaks the pact.
+- **Notice.** Both targets are alerted by a mental ping if they are both on the same plane when one of the targets breaks the pact.
 
-**Punishment.** The target who broke the pact is immediately reduced to 1 Hit Point and gains 5 Exhaustion levels.
+- **Punishment.** The target who broke the pact is immediately reduced to 1 Hit Point and gains 5 Exhaustion levels.
 
 A level 5+ *Remove Curse* spell or a *Greater Restoration* or *Wish* spell ends this spell. If you chose the Notice effect for this spell, both targets receive the mental ping when the spell is ended in this way.
 
