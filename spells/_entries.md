@@ -126,7 +126,7 @@ description: You condense the energy of darkness in your free hand, manifesting 
 
 The blade counts as a Martial Melee weapon with the Finesse, Light, and Thrown (Range 20/60) properties, and it deals 3d6 Psychic damage on a hit. When you make an attack using the blade, the attack can use your spellcasting ability for the attack and damage rolls instead of using Strength or Dexterity. In addition, if the target is in an area of Dim Light or Darkness, you have Advantage on the attack roll and attacking at long range doesn't impose Disadvantage on the attack roll. The blade leaves no mark if it deals damage, and if you use it to make a ranged attack, the blade disappears immediately after it hits or misses its target.
 
-Immediately after you hit or miss with an attack using the blade on your turn, you can teleport (no action required) up to 20 feet to an unoccupied space you can see, or up to 60 feet if the destination space is in an area of Dim Light or Darkness.
+Immediately after you hit or miss with an attack using the blade on your turn, you can teleport up to 20 feet to an unoccupied space you can see, or up to 60 feet if the destination space is in an area of Dim Light or Darkness.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 3.
 
