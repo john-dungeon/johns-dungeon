@@ -170,6 +170,26 @@ description: A radiant, serpentine, spectral dragon wraps around your body for t
 
 ---
 
+name: Barrel's Bizarre Zoo
+level: 5
+school: Conjuration
+esoteric: true
+classes: Druid
+casting_time: Action
+range: 60 feet
+components: V, S, M
+material: a shed snakeskin and a dried fish
+duration: Concentration
+concentration_max: 1 minute
+tags: Cleanse, Condition[Grappled, Restrained], Damage[Bludgeoning], Healing, Saving Throw[Strength], Summon, Tribute
+description: A Gargantuan spectral snake, named Rope, and a Large spectral fish, named Fish, each appear in an unoccupied space that you can see within range and last for the duration. Rope and Fish occupy their spaces and are invulnerable. As a Bonus Action, you can move either Rope or Fish—not both at once—up to 60 feet. If moved into the air, they remain hovering, but can hover no higher than 10 feet off the ground.
+
+***Rope.*** Whenever Rope moves within 10 feet of a Huge or smaller creature you can see and whenever a Huge or smaller creature you can see enters a space within 10 feet of Rope, you can force that creature to make a Strength saving throw. On a failed save, the target takes 4d10 Bludgeoning damage and has the Grappled condition (escape DC equal to your spell save DC) from Rope. While Grappled, the target has the Restrained condition and takes 1d10 Bludgeoning damage at the start of each of its turns. A creature makes this save only once per turn. While Rope is grappling a creature, you can't force another creature to make the save against this effect.
+
+***Fish.*** Whenever Fish moves within 5 feet of a creature you can see and whenever a creature you can see enters a space within 5 feet of Fish, you can let that creature regain 2d10 Hit Points and end the following conditions on it: Blinded, Deafened, and Poisoned. Once you use this effect, you can't do so again until the start of your next turn.
+
+---
+
 name: Bibo's Smoke Shift
 level: 2
 school: Transmutation
