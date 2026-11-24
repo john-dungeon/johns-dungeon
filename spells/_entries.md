@@ -279,7 +279,7 @@ components: S, M
 material: a silver hook
 duration: Instantaneous
 tags: Attack[Ranged Spell], Damage[Force], Forced Movement, Tribute, Upcast
-description: You brandish a giant silver hook, which is attached to you by a spectral chain, and throw it at a creature in range. Make a ranged spell attack against the target, ignoring Half Cover and Three-Quarters Cover. On a hit, the target takes Force damage equal to 4d6 plus your spellcasting ability modifier, and if it is Large or smaller, you can pull it closer to you. During the pull, the target is intangible, and it can end up in a space as near as 5 feet from you. At the end of the pull, the target becomes tangible again, and it is harmlessly shunted to the nearest unoccupied space if it was inside another creature or object.
+description: You brandish a giant silver hook, which is attached to you by a spectral chain, and throw it at a creature in range. Make a ranged spell attack against the target, ignoring Half Cover and Three-Quarters Cover. On a hit, the target takes Force damage equal to 4d6 plus your spellcasting ability modifier, and if it is Large or smaller, you can pull it straight toward you, stopping in any unoccupied space of your choice that is at least 5 feet away from you. The target is intangible during the pull, able to pass through anything in its path unaffected, and becomes tangible again when it stops.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 2.
 
