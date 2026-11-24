@@ -194,16 +194,16 @@ name: Bibo's Smoke Shift
 level: 2
 school: Transmutation
 esoteric: true
-classes: Cleric, Druid
+classes: Cleric, Druid, Ranger
 casting_time: Reaction
 condition: , which you take when you take Bludgeoning, Piercing, or Slashing damage
 range: Self
 components: S
 duration: 1 round
-tags: Damage[Force], Forced Movement, Immunity[Prone], Resistance[Bludgeoning, Piercing, Slashing], Shape-Shift
+tags: Damage[Force], Forced Movement, Immunity[Prone], Resistance[Bludgeoning, Piercing, Slashing], Shape-Shift, Tribute
 description: You, along with everything you're wearing and carrying, shape-shift into a cloud of smoldering smoke until the start of your next turn. In this smoke form, you have Resistance to Bludgeoning, Piercing, and Slashing damage, including against the triggering damage, and you have Immunity to the Prone condition. However, you can't talk or manipulate objects, and any objects you were carrying or holding can't be dropped, used, or otherwise interacted with. You also can't attack or cast spells while in the smoke form.
 
-When you cast the spell, you can move up to 30 feet in any direction, including into the air, without provoking Opportunity Attacks. With this movement, you can enter and occupy another creature's space and pass through narrow openings, but you treat liquids as though they were solid surfaces. If you move into the air, you remain suspended there until the spell ends.
+When you cast the spell, you can move up to 30 feet in any direction without provoking Opportunity Attacks. With this movement, you can enter and occupy another creature's space and pass through narrow openings, but you treat liquids as though they were solid surfaces. If you move into the air, you remain suspended there until the spell ends.
 
 When the spell ends, you revert to your true form. If you revert to your true form in a space that is too small for you, you are shunted to the nearest unoccupied space and take 1d10 Force damage for every 5 feet you traveled.
 
