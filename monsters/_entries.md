@@ -270,7 +270,7 @@ size: Medium
 type: Monstrosity
 note_type: Skith
 alignment: Unaligned
-ac: 15
+ac: 16
 hp: 52 (7d8 + 21)
 speed: 30 ft., Climb 30 ft., Swim 30 ft.
 str: 17
@@ -293,14 +293,12 @@ traits:
   description: The skith can breathe air and water.
 - trait_2: Illumination
   description: The skith sheds Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.
-- trait_3: Pack Tactics
-  description: The skith has Advantage on an attack roll against a creature if at least one of the skith's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
 
 actions:
 - action_1: Multiattack
   description: The skith makes two attacks, using Hellfire Pincer or Hellfire Stinger in any combination.
 - action_2: Hellfire Pincer
-  description: *Melee Attack Roll:* +5, reach 5 ft. *Hit:* 7 (1d8 + 3) Bludgeoning damage plus 4 (1d8) Fire damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from one of two claws.
+  description: *Melee Attack Roll:* +5, reach 5 ft. *Hit:* 7 (1d8 + 3) Bludgeoning damage plus 4 (1d8) Fire damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from one of two claws. A Grappled target takes 4 (1d8) Fire damage at the start of each of its turns.
 - action_3: Hellfire Stinger
   description: *Melee Attack Roll:* +5 (with Advantage if the target is Grappled by the skith), reach 10 ft. *Hit:* 9 (1d12 + 3) Piercing damage plus 4 (1d8) Fire damage.
 
