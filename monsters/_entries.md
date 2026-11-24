@@ -128,18 +128,20 @@ traits:
 - trait_1: Amphibious
   description: Atar can breathe air and water.
 - trait_2: Fire Aura (Awakened only)
-  description: At the end of each of Atar's turns, each creature of Atar's choice in a 15-foot Emanation originating from Atar takes 7 (2d6) Fire damage. In addition, Atar emits Bright Light in a 30-foot radius and Dim Light for an additional 30 feet.
+  description: At the end of each of Atar's turns, each creature in a 15-foot Emanation originating from Atar takes 7 (2d6) Fire damage. Creatures and flammable objects in the Emanation start burning.
 
   This trait doesn't function while Atar is completely underwater.
-- trait_3: Legendary Awakening (1/Day)
+- trait_3: Illumination
+  description: Atar sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet.
+- trait_4: Legendary Awakening (1/Day)
   description: When Atar is reduced to 0 Hit Points or dies, she can regain all her Hit Points and enter an Awakened state that lasts for 8 hours. The Awakened state grants Atar access to new abilities in her stat block.
-- trait_4: Legendary Resistance (3/Day, or 4/Day in Lair)
+- trait_5: Legendary Resistance (3/Day, or 4/Day in Lair)
   description: If Atar fails a saving throw, she can choose to succeed instead.
 
 actions:
 - action_1: Multiattack
-  description: Atar makes two attacks, using Searing Pincer or Flaming Ray in any combination, and one Inferno Stinger attack.
-- action_2: Searing Pincer
+  description: Atar makes two attacks, using Hellfire Pincer or Flaming Ray in any combination, and one Inferno Stinger attack.
+- action_2: Hellfire Pincer
   description: *Melee Attack Roll:* +11, reach 10 ft. *Hit:* 11 (1d8 + 7) Bludgeoning damage plus 11 (2d10) Fire damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 19) from one of two claws.
 - action_3: Flaming Ray
   description: *Ranged Attack Roll:* +11, range 120 ft. *Hit:* 21 (4d6 + 7) Fire damage.
@@ -163,8 +165,8 @@ charged_actions:
 
 intro_legendary_actions: *Legendary Action Uses: 3 (4 in Lair). Immediately after another creature’s turn, Atar can expend a use to take one of the following actions. Atar regains all expended uses at the start of each of her turns.*
 legendary_actions:
-- legendary_action_1: Hellfire
-  description: Atar makes one Searing Pincer or Flaming Ray attack.
+- legendary_action_1: Ember Strike
+  description: Atar makes one Hellfire Pincer or Flaming Ray attack.
 - legendary_action_2: Skith Skyfall (Awakened only)
   description: Atar uses Deadly Leap without spending movement. Atar can't take this action again until the start of her next turn.
 - legendary_action_3: Summon Hatchling (Awakened only)
@@ -260,6 +262,47 @@ traits:
 actions:
 - action_1: Bouncy Pseudopod
   description: *Melee Attack Roll:* +3, reach 5 ft. *Hit:* 3 (1d4 + 1) Bludgeoning damage. If the target is Medium or larger, the slime is pushed 5 feet away from the target.
+
+---
+
+name: Hellfire Skith
+size: Medium
+type: Monstrosity
+note_type: Skith
+alignment: Unaligned
+ac: 15
+hp: 52 (7d8 + 21)
+speed: 30 ft., Climb 30 ft., Swim 30 ft.
+str: 17
+dex: 16
+con: 17
+int: 3
+wis: 12
+cha: 7
+resistances: Cold, Poison
+immunities: Fire; Charmed
+senses: Darkvision 60 ft.
+languages: None
+cr: 3
+settings: Big Blue
+tags: Buff, Condition[Grappled], Damage[Bludgeoning, Fire, Piercing], Light[Bright Light, Dim Light]
+flavor: Skiths are scorpion-like sea monsters that scurry within dark spaces beneath the Big Blue. They live in swarms, usually originating from one or more skith queens, who are their mothers. Their hard shells make them tricky for many weapons to pierce, but the chinks in their armor yield to vulnerable flesh.
+
+traits:
+- trait_1: Amphibious
+  description: The skith can breathe air and water.
+- trait_2: Illumination
+  description: The skith sheds Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.
+- trait_3: Pack Tactics
+  description: The skith has Advantage on an attack roll against a creature if at least one of the skith's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+actions:
+- action_1: Multiattack
+  description: The skith makes two attacks, using Hellfire Pincer or Hellfire Stinger in any combination.
+- action_2: Hellfire Pincer
+  description: *Melee Attack Roll:* +5, reach 5 ft. *Hit:* 7 (1d8 + 3) Bludgeoning damage plus 4 (1d8) Fire damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from one of two claws.
+- action_3: Hellfire Stinger
+  description: *Melee Attack Roll:* +5 (with Advantage if the target is Grappled by the skith), reach 10 ft. *Hit:* 9 (1d12 + 3) Piercing damage plus 4 (1d8) Fire damage.
 
 ---
 
