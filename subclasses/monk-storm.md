@@ -56,7 +56,7 @@ You embody the storm, gaining the following benefits.
 ***Fulminant Flurry.*** When you use Flurry of Blows, you can replace up to two of the Unarmed Strikes, each with a casting of the *Shocking Grasp* or *Thunderclap* cantrip.
 
 ## Level 17: Eye of the Storm
-As a Magic action, you can expend 5 Focus Points to invoke a storm of black clouds that surrounds you in a 20-foot Emanation for 1 minute, until you have the Incapacitated condition, or until you dismiss it (no action required). That area is Lightly Obscured, and you and your allies have Half Cover while in the area.
+As a Magic action, you can expend 5 Focus Points to invoke a storm of black clouds that surrounds you in a 20-foot Emanation for 1 minute, until you have the Incapacitated condition, or until you dismiss it (no action required). That area is Lightly Obscured, and you and your allies in the area have Half Cover.
 
 Whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, you can force that creature to make a Constitution saving throw. On a failed save, the target takes Lightning or Thunder damage (your choice) equal to two rolls of your Martial Arts die. On a successful save, the target takes half as much damage. A creature makes this save only once per turn.
 
