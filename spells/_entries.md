@@ -96,13 +96,13 @@ level: 5
 school: Conjuration
 esoteric: true
 classes: Bard
-casting_time: 1 minute
+casting_time: 10 minutes
 ritual: true
 range: 10 feet
 components: V
 duration: Instantaneous
 tags: Teleportation, Tribute
-description: You tell a nostalgic tale to any willing creature within range that can hear and understand you. You and those creatures teleport to the location where you last took a Long Rest, appearing in the nearest unoccupied space to that location. If the location is no longer safe or suitable to take a Long Rest at, the spell has no effect.
+description: You tell a nostalgic tale to any willing creature within range that can hear and understand you. You and those creatures teleport to the location where you last finished a Long Rest, appearing in the nearest unoccupied space to that location. If the location is no longer safe or suitable to take a Long Rest at, the spell has no effect.
 
 You can cast this spell during a Short or Long Rest without interrupting the rest.
 
