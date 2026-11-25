@@ -265,6 +265,46 @@ actions:
 
 ---
 
+name: Giant Smoldering Rat
+size: Huge
+type: Beast
+alignment: Unaligned
+ac: 11 + the spell's level 
+hp: 50 + 10 for each spell level above 4
+speed: 40 ft., Climb 40 ft.
+str: 18
+dex: 16
+con: 17
+int: 4
+wis: 14
+cha: 5
+resistances: Cold (Frostfire only), Fire (Hellfire only), Necrotic (Soulfire only), Poison
+immunities: Charmed, Frightened, Poisoned
+senses: Darkvision 60 ft.
+languages: Understands the languages you know
+cr: None
+tags: Area[Emanation], Buff, Damage[Cold, Fire, Necrotic, Piercing], Debuff
+
+traits:
+- trait_1: Fire Aura
+  description: At the end of each of the rat's turns, each creature (other than you) in a 5-foot Emanation originating from the rat takes 1d10 Cold (Frostfire only), Fire (Hellfire only), or Necrotic (Soulfire only) damage.
+- trait_2: Pack Tactics
+  description: The rat has Advantage on an attack roll against a creature if at least one of the rat's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+actions:
+- action_1: Multiattack
+  description: The rat makes a number of Bite attacks equal to half this spell's level (round down).
+- action_2: Bite
+  description: *Melee Attack Roll:* Bonus equals your spell attack modifier, reach 5 ft. *Hit:* 1d4 + 4 + the spell's level Piercing damage plus 1d4 Cold (Frostfire only), Fire (Hellfire only), or Necrotic (Soulfire only) damage. The target also suffers one of the following effects, based on the rat's chosen type of fire:
+
+  **Frostfire.** The target's Speed is reduced by 10 feet until the start of the rat's next turn.
+
+  **Hellfire.** The target takes an extra 1d4 Fire damage, and the attack ignores Resistance to Fire damage.
+
+  **Soulfire.** The target can't regain Hit Points until the start of the rat's next turn.
+
+---
+
 name: Hellfire Skith
 size: Medium
 type: Monstrosity
