@@ -82,12 +82,29 @@ condition: , which you take immediately after moving at least 10 feet in a strai
 range: Self
 components: V
 duration: Instantaneous
-tags: Area[Emanation], Condition[Prone], Damage[Cold], Debuff, Saving Throw[Constitution], Tribute, Upcast
+tags: Area[Emanation], Condition[Prone], Damage[Cold], Damage Reduction, Debuff, Saving Throw[Constitution], Tribute, Upcast
 description: You jump up to 30 feet in the same direction as your movement immediately before the spell's casting. When you land, each creature in a 20-foot Emanation originating from you must make a Constitution saving throw. On a failed save, a target takes 4d8 Cold damage, and if it is Huge or smaller, it has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it can't make Opportunity Attacks until the start of its next turn.
 
 You take no damage from falling when you land from this jump if the fall is 30 feet or less.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d8 for each spell slot level above 3.
+
+---
+
+name: Arland's Psychic Veil
+level: 5
+school: Enchantment
+esoteric: true
+classes: Bard, Sorcerer
+casting_time: Action
+range: Touch
+components: V, S
+duration: Concentration
+concentration_max: 1 minute
+tags: Buff, Condition[Invisible], Tribute
+description: You completely mask the existence of a creature you touch from the senses of others. The creature has the Invisible condition until the spell ends, and it can't be seen or detected by creatures with Blindsight, Tremorsense, or the effects of the *See Invisibility* spell.
+
+You and any other creature you designate when you cast the spell can still see the target.
 
 ---
 
@@ -736,6 +753,25 @@ description: You evoke a frigid blade in your free hand. The blade is similar in
 As a Magic action, you can make a melee spell attack with the frigid blade. On a hit, the target takes Cold damage equal to 2d6 plus your spellcasting ability modifier, and its Speed is halved until the start of your next turn.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 2.
+
+---
+
+name: Garuda's Phoenix Fall
+level: 3
+school: Evocation
+esoteric: true
+classes: Druid, Sorcerer
+casting_time: Reaction
+condition: , which you take when you begin a fall of at least 10 feet
+range: Self
+components: V
+duration: 3 rounds
+tags: Area[Emanation], Condition[Prone], Damage[Fire], Damage Reduction, Saving Throw[Dexterity], Tribute, Upcast
+description: You accelerate downward with the explosion power of a meteor, falling at a rate of 1000 feet per round. If you land within the spell's duration, you take no damage from the fall, and each creature in a 20-foot Emanation originating from you when you land must make a Dexterity saving throw. On a failed save, a target takes 5d8 Fire damage, and if it is Huge or smaller, it has the Prone condition. On a successful save, a target takes half as much damage only.
+
+Flammable objects in the area that aren't being worn or carried start burning.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d8 for each spell slot level above 3.
 
 ---
 
