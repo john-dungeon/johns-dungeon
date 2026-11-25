@@ -465,6 +465,23 @@ If the attack roll misses, you have the Incapacitated condition and your Speed i
 
 ---
 
+name: Declan’s Illusory Fireball
+level: 3
+school: Illusion
+esoteric: true
+classes: Bard, Wizard
+casting_time: Action
+range: 150 feet
+components: V, S, M
+material: a ball
+duration: Instantaneous
+tags: Area[Sphere], Damage[Psychic], Saving Throw[Intelligence], Tribute, Upcast
+description: A bright streak flashes from you to a point you choose within range and blossoms with a low roar into an illusory explosion that tricks its victims' very bodies into believing they're being burned. Each creature of your choice in a 20-foot-radius Sphere centered on that point makes an Intelligence saving throw, taking 7d6 Psychic damage on a failed save or half as much damage on a successful one. When a creature takes this Psychic damage, burns appear on its body as if it were scorched by fire, but it experiences no heat and any objects it's wearing or carrying appear untouched.
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 1d6 for each spell slot level above 3.
+
+---
+
 name: Detect Mimic
 level: 1
 school: Divination
@@ -608,6 +625,23 @@ tags: Buff, Cleanse
 description: You touch a willing creature. The creature loses the Prone condition if it has it and can't gain the Prone condition until the spell ends.
 
 > *The old wizard who created this spell was attempting to solve a very particular, very local problem, but wound up making the spell a little too effective.*
+
+---
+
+name: Esfandiyar’s Enthralling Soliloquy
+level: 3
+school: Enchantment
+esoteric: true
+classes: Bard, Paladin
+casting_time: Action
+range: Self
+components: V
+duration: Concentration
+concentration_max: 1 minute
+tags: Area[Emanation], Condition[Charmed], Debuff, Saving Throw[Wisdom], Tribute
+description: You deliver an enthralling soliloquy that lasts for the duration, during which you are unable to make attacks or cast spells. When you cast the spell and at the start of each of your turns, each creature of your choice that can hear you in a 10-foot Emanation originating from you must make a Wisdom saving throw. On a failed save, a target has the Charmed condition for the duration. The target has Advantage on the save if you or your allies are fighting it. Whenever the target takes damage, it repeats the save, ending the spell on itself on a success. The spell immediately ends for any creature that has the Deafened condition.
+
+A Charmed creature can't focus on anything but you; its Passive Perception is 0 and can't increase, and it automatically fails any Wisdom (Perception) check to notice things other than you. In addition, a Charmed creature can't make attacks, cast spells, or willingly target creatures with other effects.
 
 ---
 
