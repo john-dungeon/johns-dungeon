@@ -83,7 +83,7 @@ range: Self
 components: V
 duration: Instantaneous
 tags: Area[Emanation], Condition[Prone], Damage[Cold], Damage Reduction, Debuff, Saving Throw[Constitution], Tribute, Upcast
-description: You jump up to 30 feet in the same direction as your movement immediately before the spell's casting. When you land, each creature in a 20-foot Emanation originating from you must make a Constitution saving throw. On a failed save, a target takes 4d8 Cold damage, and if it is Huge or smaller, it has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it can't make Opportunity Attacks until the start of its next turn.
+description: You jump up to 30 feet in the same direction as your movement immediately before the spell's casting without spending any movement for the jump. When you land, each creature in a 20-foot Emanation originating from you must make a Constitution saving throw. On a failed save, a target takes 4d8 Cold damage, and if it is Huge or smaller, it has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it can't make Opportunity Attacks until the start of its next turn.
 
 You take no damage from falling when you land from this jump if the fall is 30 feet or less.
 
@@ -805,6 +805,21 @@ tags: Bonus[Armor Class], Damage[Piercing], Saving Throw[Dexterity], Upcast
 description: A barrier of magical glass protects you and shatters from the incoming impact. You have a +5 bonus to AC against the triggering attack. Immediately after the attack hits or misses, the barrier shatters, and each creature of your choice within 5 feet of you must make a Dexterity saving throw, taking 1d12 Piercing damage on a failed save or half as much damage on a successful one.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d12 for each spell slot level above 1.
+
+---
+
+name: Hector's Moonfall Smash
+level: 5
+school: Conjuration
+esoteric: true
+classes: Paladin, Ranger
+casting_time: Action
+condition: , which you can replace one of your attacks with when you take the Attack action on your turn
+range: Self
+components: S
+duration: Instantaneous
+tags: Area[Emanation], Condition[Prone, Stunned], Damage[Bludgeoning], Damage Reduction, Forced Movement, Saving Throw[Strength], Tribute
+description: You jump up to 40 feet straight into the air without spending any movement for the jump, dragging any creatures you're grappling with you. Upon reaching the apex of your jump, you accelerate into the ground, immediately landing without taking damage from the fall; any creatures you're grappling still take damage from the fall. Upon landing, each creature in a 20-foot Emanation originating from you must make a Strength saving throw. On a failed save, a target takes 6d6 Bludgeoning damage and has the Prone condition, and if it is Grappled by you, it has the Stunned condition until the start of your next turn. On a successful save, a target takes half as much damage only.
 
 ---
 
