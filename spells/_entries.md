@@ -842,6 +842,33 @@ The water quenches magical and nonmagical flames in the area, unless the flame i
 
 ---
 
+name: Innarth's Echo Warrior
+level: 3
+school: Evocation
+esoteric: true
+classes: Paladin, Warlock
+casting_time: Bonus Action
+range: 30 feet
+components: V, S
+duration: Concentration
+concentration_max: 1 minute
+tags: Attack[Melee Spell], Damage[Force], Saving Throw[Dexterity], Summon, Teleportation, Tribute, Upcast
+description: You can manifest an echo of yourself in an unoccupied space within range. The echo disappears when it is reduced to 0 Hit Points, when you dismiss it (no action required), when you manifest another echo, when the echo is more than 30 feet away from you, or when the spell ends. However, you can manifest another echo as a Bonus Action before the spell ends.
+
+An echo is a mindless force that is the same size as you and occupies its space, and it appears like a grey image of you. It has AC 15, 1 Hit Point, and Immunity to all conditions. If it must make a saving throw, it uses your bonus for the roll.
+
+When you cast the spell and as a Bonus Action on your later turns before the spell ends, you can mentally control the echo to move up to 30 feet. Before or after this movement, you can also control it to produce one of the following effects:
+
+**Shift.** You and the echo teleport, switching places with one another.
+
+**Strike.** You make a melee spell attack against one creature within 5 feet of the echo. On a hit, the target takes Force damage equal to 2d8 plus your spellcasting ability modifier.
+
+**Sweep.** Each creature of your choice within 5 feet of the echo must make a Dexterity saving throw, taking 3d6 Force damage on a failed save or half as much damage on a successful one.
+
+***Using a Higher-Level Spell Slot.*** The damage of the Strike increases by 1d8 and the damage of the Sweep increases by 1d6 for every slot level above 3.
+
+---
+
 name: Isten's Stormcaller Smite
 level: 5
 school: Evocation
@@ -1500,6 +1527,33 @@ description: You twist the testicles of one creature you can see within range. T
 At the end of each of its turns, the target can make a Constitution saving throw, ending the spell on itself on a success.
 
 > *According to ancient legend, this spell was a ruthless method of excruciating torture used only by sadistic high mages. Horror stories of it have prevailed over the years, but the spell itself has been lost to time—probably for the best.*
+
+---
+
+name: Tomasz's Echo Warrior
+level: 3
+school: Evocation
+esoteric: true
+classes: Paladin, Warlock
+casting_time: Bonus Action
+range: 30 feet
+components: V, S
+duration: Concentration
+concentration_max: 1 minute
+tags: Attack[Melee Spell], Damage[Force], Debuff, Summon, Teleportation, Tribute, Upcast
+description: You can manifest an echo of yourself in an unoccupied space within range. The echo disappears when it is reduced to 0 Hit Points, when you dismiss it (no action required), when you manifest another echo, when the echo is more than 30 feet away from you, or when the spell ends. However, you can manifest another echo as a Bonus Action before the spell ends.
+
+An echo is a mindless force that is the same size as you and occupies its space, and it appears like a grey image of you. It has AC 15, 1 Hit Point, and Immunity to all conditions. If it must make a saving throw, it uses your bonus for the roll.
+
+When you cast the spell and as a Bonus Action on your later turns before the spell ends, you can mentally control the echo to move up to 30 feet. Before or after this movement, you can also control it to produce one of the following effects:
+
+**Shift.** You and the echo teleport, switching places with one another.
+
+**Strike.** You make a melee spell attack against one creature within 10 feet of the echo. On a hit, the target takes Force damage equal to 2d6 plus your spellcasting ability modifier.
+
+**Ward.** Once before the start of your next turn, when a creature enters a space within 10 feet of the echo, you can make a melee spell attack against that creature (no action required). On a hit, the target takes Force damage equal to 1d8 plus your spellcasting ability modifier, and its Speed becomes 0 and can't increase until the end of the current turn.
+
+***Using a Higher-Level Spell Slot.*** The damage of the Strike increases by 1d6 and the damage of the Ward increases by 1d8 for every slot level above 3.
 
 ---
 
