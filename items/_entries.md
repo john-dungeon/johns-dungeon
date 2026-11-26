@@ -114,7 +114,7 @@ description: If you wear this helmet while Bloodied, your Speed increases by 15 
 
 ---
 
-name: Alarcon's Longbow
+name: Alarcon's Arc of Swift Annihilation
 category: Weapon
 note_category: Longbow
 rarity: Legendary
