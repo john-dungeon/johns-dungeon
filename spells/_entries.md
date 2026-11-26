@@ -26,7 +26,7 @@ A Restrained target or a creature that can reach it can take an action to make a
 
 **Shattering Hand.** The hand explodes into shards of ice, reducing itself to 0 Hit Points. Each creature in a 20-foot-radius Sphere centered on the hand must make a Dexterity saving throw. On a failed save, a target takes 6d8 Cold damage, or 3d8 Cold damage if the hand had half its Hit Points or fewer remaining when it exploded. On a successful save, a target takes half as much damage.
 
-***Using a Higher-Level Spell Slot.*** The damage increases by 2d8 for each spell slot level above 5.
+***Using a Higher-Level Spell Slot.*** The damage of each effect increases by 2d8 for each spell slot level above 5.
 
 ---
 
@@ -102,13 +102,13 @@ components: V, S
 duration: Concentration
 concentration_max: 1 minute
 tags: Buff, Condition[Invisible], Tribute
-description: You completely mask the existence of a creature you touch from the senses of others. The creature has the Invisible condition until the spell ends, and it can't be seen or detected by creatures with Blindsight, Tremorsense, or the effects of the *See Invisibility* spell.
+description: You completely mask the existence of a creature you touch from the senses of others. The creature has the Invisible condition until the spell ends, and it can't be seen or detected by creatures with Blindsight, Tremorsense, or the effects of the *See Invisibility* spell. In addition, the creature can't be targeted by any Divination spell or perceived through magical scrying sensors while Invisible.
 
-You and any other creature you designate when you cast the spell can still see the target.
+You and any other creature you designate when you cast the spell can still see the Invisible creature and target it with Divination spells.
 
 ---
 
-name: Arryn’s Tale of the Runaway
+name: Arryn's Tale of the Runaway
 level: 5
 school: Conjuration
 esoteric: true
@@ -119,7 +119,7 @@ range: 10 feet
 components: V
 duration: Instantaneous
 tags: Teleportation, Tribute
-description: You tell a nostalgic tale to any willing creature within range that can hear and understand you. You and those creatures teleport to the location where you last finished a Long Rest, appearing in the nearest unoccupied space to that location. If the location is no longer safe or suitable to take a Long Rest at, the spell has no effect.
+description: You tell a nostalgic tale to any willing creature within range that can hear and understand you. You and those creatures teleport to the location where you last finished a Long Rest, appearing in the nearest unoccupied space to that location. If the location is on another plane or is no longer safe or suitable to take a Long Rest at, the spell has no effect.
 
 You can cast this spell during a Short or Long Rest without interrupting the rest.
 
@@ -179,7 +179,7 @@ concentration_max: 1 minute
 tags: Bonus[Speed], Buff, Damage Reduction, Resistance[Radiant], Tribute
 description: A radiant, serpentine, spectral dragon wraps around your body for the duration. Until the spell ends, you gain the following benefits:
 
-**Deftness of the Dragon.** Your Speed increases by 10 feet. In addition, your Long Jump is up to 30 feet and your High Jump is up to 20 feet with or without a running start. You take no damage from falling when you land from a jump if the fall is 20 feet or less.
+**Deftness of the Dragon.** Your Speed increases by 10 feet, and you have Advantage on Dexterity saving throws unless you have the Incapacitated condition. In addition, your Long Jump is up to 30 feet and your High Jump is up to 20 feet with or without a running start. You take no damage from falling when you land from a jump if the fall is 20 feet or less.
 
 **Might of the Dragon.** You gain Resistance to Radiant damage. In addition, any Radiant damage you deal ignores Resistance to Radiant damage.
 
@@ -237,7 +237,7 @@ components: V, S, M
 material: a smooth pebble
 duration: 1 hour
 tags: Area[Cylinder], Condition[Prone], Cover, Damage[Bludgeoning], Forced Movement, Saving Throw[Dexterity], Upcast
-description: You conjure a Gargantuan boulder centered on a point within range, up to 40 feet in the air. If the boulder is conjured in the air, it immediately falls, descending in a Cylinder centered on the boulder. The Cylinder has a 20-foot radius and a height equal to the boulder's distance from the ground. Each creature in the Cylinder makes a Dexterity saving throw. On a failed save, a target takes 5d12 Bludgeoning damage and has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it is pushed to the nearest unoccupied space outside of the boulder's space. A creature killed by this spell is completely flattened and remains beneath the boulder instead.
+description: You conjure a Gargantuan boulder centered on a point within range, up to 40 feet in the air. If the boulder is conjured in the air, it immediately falls, descending in a Cylinder centered on the boulder. The Cylinder has a 20-foot radius and a height equal to the boulder's distance from the ground. Each creature in the Cylinder makes a Dexterity saving throw. On a failed save, a target takes 5d12 Bludgeoning damage and has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it is pushed to the nearest unoccupied space outside of the boulder's space. A creature killed by this spell is completely flattened and remains beneath the boulder.
 
 After the boulder is conjured or falls, it remains and occupies its space for the duration. It is large enough to provide Three-Quarters Cover for a Huge creature standing behind it or Total Cover for a Large or smaller creature standing behind it. At the end of the duration, the boulder crumbles harmlessly to pieces.
 
@@ -482,7 +482,7 @@ If the attack roll misses, you have the Incapacitated condition and your Speed i
 
 ---
 
-name: Declan’s Illusory Fireball
+name: Declan's Illusory Fireball
 level: 3
 school: Illusion
 esoteric: true
@@ -566,7 +566,7 @@ description: You issue a challenge to a willing creature within range and commen
 - **King of the Hill.** Designate an area no larger than 30 feet on each side. When a duelist is moved to a space outside of that area, it loses the duel.
 - **Point Score.** Designate a point goal, which is a number between 3 and 10. When a duelist is hit by an attack roll from an opposing duelist or retainer a total number of times equal to the point goal, it loses the duel.
 
-A duelist automatically loses the duel if it is reduced to 0 Hit Points. Alternatively, a duelist can surrender (no action required), losing the duel. When a duelist loses the duel, it has the Incapacitated condition until the end of its next turn.
+A duelist automatically loses the duel if it is reduced to 0 Hit Points. Alternatively, a duelist can surrender (no action required), losing the duel. When a duelist loses the duel, it has the Incapacitated condition until the end of its next turn and the spell ends.
 
 ---
 
@@ -645,7 +645,7 @@ description: You touch a willing creature. The creature loses the Prone conditio
 
 ---
 
-name: Esfandiyar’s Enthralling Soliloquy
+name: Esfandiyar's Enthralling Soliloquy
 level: 3
 school: Enchantment
 esoteric: true
@@ -781,7 +781,7 @@ school: Necromancy
 esoteric: true
 classes: Cleric, Warlock
 casting_time: Action
-range: 30 feet
+range: 60 feet
 components: V, S
 duration: Instantaneous
 tags: Damage[Necrotic], Saving Throw[Dexterity], Upcast
@@ -908,9 +908,9 @@ concentration_max: 1 hour
 tags: Consumes Material, Debuff, Revival
 description: When you cast the spell, you must touch a willing Humanoid. That Humanoid dies, and it can be revived only by a *True Resurrection* or a *Wish* spell. Then, if the spell lasts the entire duration, you can touch a different creature when the spell ends; if the creature is dead, it must have been dead no longer than 10 days. That creature is revived (if it was dead), regains all its Hit Points, and any of its missing body parts are regrown. In addition, its physical age is reduced by 30 years, to a minimum of 13 years.
 
-If the target was Undead when the spell was cast, it becomes a Humanoid or another appropriate creature type determined by the DM. The DM might also determine that the target loses any powers it had as an Undead and must use a different stat block.
+If the target was Undead when it was revived by this spell, it becomes a Humanoid or another appropriate creature type determined by the DM. The DM might also determine that the target loses any powers it had as an Undead and must use a different stat block.
 
-Coming back from the dead is an ordeal. If the target was revived with this spell, it takes a -4 penalty to D20 Tests. Every time the target finishes a Long Rest, the penalty is reduced by 1 until it becomes 0.
+Coming back from the dead is an ordeal. The target takes a -4 penalty to D20 Tests. Every time the target finishes a Long Rest, the penalty is reduced by 1 until it becomes 0.
 
 ---
 
@@ -958,7 +958,7 @@ name: Magic Clock
 level: Cantrip
 school: Divination
 esoteric: true
-classes: Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard
+classes: Artificer, Bard, Cleric, Druid, Sorcerer, Warlock, Wizard
 casting_time: Action
 range: 10 feet
 components: V, S
@@ -994,7 +994,7 @@ components: S, M
 material: a glass marble, which the spell consumes
 duration: 1 day
 tags: Condition[Exhaustion], Consumes Material, Upcast
-description: You infuse your mana into the marble used in the spell's casting. As a Bonus Action, a creature can smash the infused marble, returning the mana inside back to you and causing you to regain an expended level 1 spell slot.
+description: You infuse your mana into the marble used in the spell's casting. As a Bonus Action, a creature can smash the infused marble, returning the mana inside back to you, causing you to regain an expended level 1 spell slot.
 
 After you regain a spell slot from an infused marble, you gain 1 Exhaustion level each time you regain another one from an infused marble before you finish a Long Rest.
 
@@ -1472,7 +1472,7 @@ duration: Instantaneous
 tags: Teleportation
 description: You teleport the bread used in the spell's casting up to 120 feet to an unoccupied space.
 
-> *A young mage once did nothing but teleport bread for three days, deeply confusing his peers. As it turned out, in an act of revenge, he had been teleporting bread to his superior's pet slime, which readily absorbed the bread and grew to an enormous, uncontrollable size. That superior's house was later found obliterated, and the Adventurer's Guild had to issue a raid-type quest to subjugate a **Greater Blue Slime**.*
+> *A young mage once did nothing but teleport bread for three days, deeply confusing his peers. As it turned out, in an act of revenge, he had been teleporting bread to his superior's pet slime, which readily absorbed the bread and grew to an enormous, uncontrollable size. That superior's house was later found obliterated, and the Adventurer's Guild had to issue a raid-type quest to subjugate a **[[monsters:Titanic Blue Slime]]**.*
 
 ---
 
@@ -1517,7 +1517,7 @@ concentration_max: 10 minutes
 settings: Erisia
 description: For the duration, you sense the presence of traps within 30 feet of yourself. A trap, for the purpose of this spell, includes any object or mechanism that was created to cause damage or other danger. Thus, the spell would sense the *Alarm* or *Glyph of Warding* spell or a mechanical pit trap, but it wouldn't reveal a natural weakness in the floor, an unstable ceiling, or a hidden sinkhole.
 
-If you sense a trap with this spell, you can take the Magic action to see a faint outline around that trap until the start of your next turn; you can see this outline through Total Cover, allowing you to see a hidden trap's exact location. When you see a trap in this way, you automatically know what kind of trap it is, but you don't receive any information about its mechanics and triggers. For example, you might see an arrow trap and be able to identify it as such, but you wouldn't know whether it is activated by a tripwire, a pressure plate, or something else.
+If you sense a trap with this spell, you can take the Magic action to see a faint outline around that trap until the end of the duration; you can see this outline through Total Cover, allowing you to see a hidden trap's exact location. When you see a trap in this way, you automatically know what kind of trap it is, but you don't receive any information about its mechanics and triggers. For example, you might see an arrow trap and be able to identify it as such, but you wouldn't know whether it is activated by a tripwire, a pressure plate, or something else.
 
 The spell is blocked by 15 feet of stone, dirt, or wood; 5 feet of metal; or a thin sheet of lead.
 
@@ -1533,7 +1533,7 @@ range: 60 feet
 components: S
 duration: Instantaneous
 tags: Damage[Force], Saving Throw[Charisma], Teleportation
-description: You point to one creature you can see within range. The target must succeed on a Charisma saving throw or one of its heads is teleported to your hand or an unoccupied space within 5 feet of you (your choice); the rest of its body remains in place. The target dies if it can't survive without the lost head. The target is immune to this effect if it doesn't have or need a head. Such a target instead takes 12d12 Force damage.
+description: You point to one creature you can see within range. The target must succeed on a Charisma saving throw or one of its heads is teleported to your hand or an unoccupied space within 5 feet of you (your choice); the rest of its body remains in place. The target dies if it can't survive without the lost head; otherwise, it takes 12d12 Force damage. The target is immune to this effect if it doesn't have a head.
 
 ---
 
