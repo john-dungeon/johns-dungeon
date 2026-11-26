@@ -1622,6 +1622,24 @@ When you cast this spell, you can designate any number of creatures to be unaffe
 
 ---
 
+name: Vytautus's Guiding Bolts
+level: 1
+school: Evocation
+esoteric: true
+classes: Cleric, Druid
+casting_time: Action
+range: 120 feet
+components: V, S
+duration: 1 round
+tags: Attack[Ranged Spell], Damage[Radiant], Debuff, Tribute, Upcast
+description: You hurl two bolts of light. Choose a creature within range as the target of each bolt; the targets can be the same creature or different ones. Make a ranged spell attack for each bolt. On a hit, the target takes 2d6 Radiant damage, and the next attack roll made against it before the end of your next turn has Advantage. Each attack occurs simultaneously, so they don't gain the Advantage granted by this casting of this spell.
+
+If the attacks hit the same target, the Advantage granted by this spell applies to as many attack rolls as the number of bolts that hit the target. For example, if both bolts hit the same target, the next two attack rolls made against it before the end of your next turn have Advantage.
+
+***Using a Higher-Level Spell Slot.*** You create one additional bolt for each spell slot level above 1.
+
+---
+
 name: Wind Cutter
 level: Cantrip
 school: Evocation
