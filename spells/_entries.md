@@ -83,7 +83,7 @@ range: Self
 components: V
 duration: Instantaneous
 tags: Area[Emanation], Condition[Prone], Damage[Cold], Damage Reduction, Debuff, Saving Throw[Constitution], Tribute, Upcast
-description: You jump up to 30 feet in the same direction as your movement immediately before the spell's casting without spending any movement for the jump. When you land, each creature in a 20-foot Emanation originating from you must make a Constitution saving throw. On a failed save, a target takes 4d8 Cold damage, and if it is Huge or smaller, it has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it can't make Opportunity Attacks until the start of its next turn.
+description: You jump up to 30 feet in the same direction as your movement immediately before the spell's casting—you don't spend any movement for the jump. When you land, each creature in a 20-foot Emanation originating from you must make a Constitution saving throw. On a failed save, a target takes 4d8 Cold damage, and if it is Huge or smaller, it has the Prone condition. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it can't make Opportunity Attacks until the start of its next turn.
 
 You take no damage from falling when you land from this jump if the fall is 30 feet or less.
 
@@ -454,7 +454,7 @@ material: a cooked rat
 duration: Concentration
 concentration_max: 10 minutes
 tags: Summon, Tribute, Upcast
-description: You summon a humongous rat burning with frostfire, hellfire, or soulfire (chosen when you cast the spell). It manifests in an unoccupied space you can see within range and uses the [[monsters:Giant Smoldering Rat]] stat block. The type of fire you choose determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.
+description: You summon a humongous rat burning with frostfire, hellfire, or soulfire (chosen when you cast the spell). It manifests in an unoccupied space you can see within range and uses the **[[monsters:Giant Smoldering Rat]]** stat block. The type of fire you choose determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.
 
 The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.
 
@@ -767,7 +767,7 @@ range: Self
 components: V
 duration: 3 rounds
 tags: Area[Emanation], Condition[Prone], Damage[Fire], Damage Reduction, Saving Throw[Dexterity], Tribute, Upcast
-description: You accelerate downward with the explosion power of a meteor, falling at a rate of 1000 feet per round. If you land within the spell's duration, you take no damage from the fall, and each creature in a 20-foot Emanation originating from you when you land must make a Dexterity saving throw. On a failed save, a target takes 5d8 Fire damage, and if it is Huge or smaller, it has the Prone condition. On a successful save, a target takes half as much damage only.
+description: You accelerate downward with the explosive power of a meteor, falling at a rate of 1000 feet per round. If you land within the spell's duration, you take no damage from the fall, and each creature in a 20-foot Emanation originating from you when you land must make a Dexterity saving throw. On a failed save, a target takes 5d8 Fire damage, and if it is Huge or smaller, it has the Prone condition. On a successful save, a target takes half as much damage only.
 
 Flammable objects in the area that aren't being worn or carried start burning.
 
@@ -926,7 +926,7 @@ material: a piece of shed snakeskin
 duration: Concentration
 concentration_max: 10 minutes
 tags: Area[Emanation], Damage[Necrotic], Healing, Saving Throw[Wisdom], Upcast, Tribute
-description: An aura radiates from you in a 30-foot Emanation for the duration. When you create the aura and at the start of each of your turns while it persists, you can force one creature in it to make a Wisdom saving throw, taking 4d8 Necrotic damage on a failed save or half as much damage on a successful one. Another creature of your choice in the Emanation then regains Hit Points equal to the Necrotic damage dealt.
+description: An aura radiates from you in a 30-foot Emanation for the duration. When you cast the spell and as a Magic action on your later turns before the spell ends, you can force one creature in the Emanation to make a Wisdom saving throw, taking 4d8 Necrotic damage on a failed save or half as much damage on a successful one. Another creature of your choice in the Emanation then regains Hit Points equal to the Necrotic damage dealt.
 
 ***Using a Higher-Level Spell Slot.*** The damage increases by 1d8 for each spell slot level above 4.
 
