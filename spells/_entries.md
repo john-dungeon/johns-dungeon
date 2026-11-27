@@ -167,7 +167,7 @@ Immediately after you hit or miss with an attack using the blade on your turn, y
 ---
 
 name: Baizhen's Dragon Mantle
-level: 3
+level: 2
 school: Abjuration
 esoteric: true
 classes: Cleric, Paladin
