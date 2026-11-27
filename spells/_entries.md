@@ -405,6 +405,21 @@ In 1 minute, the slime can eat through 2 feet of nonmagical wood (or any other o
 
 ---
 
+name: Cross Impact
+level: 5
+school: Evocation
+esoteric: true
+classes: Paladin
+casting_time: Action
+range: Self
+components: V, S, M
+material: a weapon with which you have proficiency and that is worth 1+ SP
+duration: Instantaneous
+tags: Area[Line], Damage[Bludgeoning], Forced Movement, Saving Throw[Dexterity]
+description: You slam down the weapon used in the spell's casting, causing the earth to rupture beneath you and form fissures that extend from you in four 60-foot-long, 10-foot-wide Lines in directions you choose; the Lines must form a cross, each one at a 90-degree angle to adjacent Lines. The fissures are 20 feet deep. Each creature on the ground in a Line makes a Dexterity saving throw. On a failed save, a target takes 6d8 Bludgeoning damage and falls into the fissure beneath it. On a successful save, a target takes half as much damage and moves with the fissure's edge as it opens. A creature in the area of more than one Line is affected only once.
+
+---
+
 name: Cut
 level: 1
 school: Evocation
