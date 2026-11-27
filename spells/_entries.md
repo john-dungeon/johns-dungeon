@@ -872,7 +872,7 @@ concentration_max: 1 minute
 tags: Attack[Melee Spell], Damage[Force], Saving Throw[Dexterity], Summon, Teleportation, Tribute, Upcast
 description: You can manifest an echo of yourself in an unoccupied space within range. The echo disappears when it is reduced to 0 Hit Points, when you dismiss it (no action required), when you manifest another echo, when the echo is more than 30 feet away from you, or when the spell ends. However, you can manifest another echo as a Bonus Action before the spell ends.
 
-An echo is a mindless force that is the same size as you and occupies its space, and it appears like a grey image of you. It has AC 15, 1 Hit Point, and Immunity to all conditions. If it must make a saving throw, it uses your bonuses for the roll.
+An echo is a mindless force that is the same size as you and occupies its space, and it appears like a gray image of you. It has AC 15, 1 Hit Point, and Immunity to all conditions. If it must make a saving throw, it uses your bonuses for the roll.
 
 When you cast the spell and as a Bonus Action on your later turns before the spell ends, you can mentally control the echo to move up to 30 feet. Immediately before or after this movement, you can also control the echo to produce one of the following effects:
 
@@ -910,6 +910,27 @@ The tunnel disperses gas or vapor, and it extinguishes candles and similar unpro
 
 ---
 
+name: Isidore's Vitriolic Mockery
+level: 1
+school: Enchantment
+esoteric: true
+classes: Bard
+casting_time: Action
+range: 60 feet
+components: V, S
+duration: Concentration
+concentration_max: 1 minute
+tags: Damage[Acid], Debuff, Requires Sight, Saving Throw[Wisdom], Tribute, Upcast
+description: You unleash a continuous barrage of insults at one creature that you can see within range and that can hear you. The creature must make a Wisdom saving throw. On a failed save, the target takes 1d6 Acid damage and has low self-esteem for the duration, as your insults are so toxic that they physically harm it.
+
+At the start of each of the target's turns, the target takes 1d6 Acid damage. Whenever Acid damage from this spell is rolled for the target, it must subtract the number rolled from each D20 Test it makes before the start of its next turn, even if it can reduce the Acid damage it takes. This penalty doesn't apply to saving throws made against this spell.
+
+At the end of each of the target's turns and each time it hits with an attack roll or succeeds on an ability check or saving throw, it makes another Wisdom saving throw. On a successful save, the spell ends on the target. The spell also ends on the target if it can no longer hear you.
+
+***Using a Higher-Level Spell Slot.*** You can target one additional creature for each spell slot level above 1.
+
+---
+
 name: Isten's Stormcaller Smite
 level: 5
 school: Evocation
@@ -922,6 +943,23 @@ components: V
 duration: Instantaneous
 tags: Condition[Paralyzed], Damage[Lightning, Thunder], Saving Throw[Wisdom], Tribute
 description: Your strike rings with thunder that is audible within 500 feet of you. The target hit by the attack roll takes an extra 2d10 Lightning damage and 2d10 Thunder damage from the attack, and the target must succeed on a Wisdom saving throw or have the Paralyzed condition until the start of your next turn or until it is hit by an attack roll.
+
+---
+
+name: Kaz's Tiny Turret
+level: 2
+school: Conjuration
+esoteric: true
+classes: Artificer
+casting_time: Action
+range: 5 feet
+components: S, M
+material: Smith's Tools or Woodcarver's Tools
+duration: 1 hour
+tags: Damage[Fire, Force], Requires Sight, Saving Throw[Dexterity], Summon, Tribute
+description: A Tiny spider-like turret appears in an unoccupied space that you can see within range and lasts for the duration. The turret has AC 18 and Immunity to Poison and Psychic damage. It occupies that space and can't be destroyed, though it is disabled until the start of your next turn if it takes damage. You can take a Bonus Action to move the turret up to 20 feet; the turret can move along surfaces as if it had Climb Speed.
+
+The turret has ten charges. Whenever an enemy moves to a space within 30 feet of the turret for the first time on a turn or starts its turn there, you can expend one charge to force that enemy to make a Dexterity saving throw, taking Fire or Force damage (your choice) equal to your spellcasting ability modifier (minimum damage of 2) on a failed save or half as much damage on a successful one. The turret vanishes when it runs out of charges. You can't trigger this effect if the turret is disabled.
 
 ---
 
@@ -1268,6 +1306,42 @@ description: A creature you touch regains 1d8 Hit Points for every 10 GP consume
 
 ---
 
+name: Orphan-Blasting Beam
+level: 6
+school: Transmutation
+esoteric: true
+classes: Sorcerer, Wizard
+casting_time: Action
+range: Self
+components: V, S, M
+material: a teddy bear
+duration: Instantaneous
+tags: Area[Line], Damage[Force], Requires Sight, Saving Throw[Dexterity], Tribute, Upcast
+description: A green ray forming a 100-foot-long, 5-foot-wide Line launches out from you in a direction you choose. Each orphan in the Line makes a Dexterity saving throw, taking 8d6 + 32 Force damage on a failed save. If this damage reduces a target to 0 Hit Points, it and everything nonmagical it is wearing and carrying are disintegrated into gray dust. The targets can be revived only by a *True Resurrection* or a *Wish* spell.
+
+An orphan, for the purpose of this spell, is a creature that once had one or more biological parents but no longer due to those parents being currently deceased. A creature that never had parents can't be an orphan, and a clone's original is considered its parent. If there is any ambiguity about whether a creature is an orphan or not, the DM determines if it is.
+
+> *An ancient, evil archmage once figured out that the strongest heroes that opposed him always had the most tragic backstories, which almost always included dead parents. Thus, he came up with a targeted countermeasure.*
+
+***Using a Higher-Level Spell Slot.*** The damage increases by 2d6 for each spell slot level above 6.
+
+---
+
+name: Rahardian's Lost Equipment
+level: 1
+school: Conjuration
+esoteric: true
+classes: Paladin, Ranger
+casting_time: Action
+ritual: true
+range: 5 feet
+components: V, S
+duration: 1 hour
+tags: Requires Sight, Tribute
+description: You conjure a suit of Light or Medium Armor of your choice, a Shield, and a Simple or Martial Melee weapon of your choice in an unoccupied space you can see within range. The equipment is nonmagical, and it vanishes at the end of the duration or when you cast this spell again.
+
+---
+
 name: Ravi's Hunter's Mark
 level: 1
 school: Divination
@@ -1285,6 +1359,35 @@ description: You magically mark one creature you can see within range as your qu
 If the target drops to 0 Hit Points before this spell ends, you can take a Bonus Action to move the mark to a new creature you can see within range.
 
 ***Using a Higher-Level Spell Slot.*** Your Concentration can last longer with a spell slot of level 3-4 (up to 8 hours) or 5+ (up to 24 hours).
+
+---
+
+name: Raycrest's Silver Tongue
+level: 3
+school: Enchantment
+esoteric: true
+classes: Bard
+casting_time: Action
+range: Self
+components: V
+duration: 1 hour
+tags: Buff, Tribute
+description: Until the spell ends, when you make a Charisma check, you can treat a d20 roll of 9 or lower as a 10. In addition, the spell save DC of each Enchantment spell you cast before the spell ends increases by 1.
+
+---
+
+name: Rayhan's Expert Instruction
+level: 3
+school: Divination
+esoteric: true
+classes: Artificer, Bard, Warlock, Wizard
+casting_time: Action
+range: 10 feet
+components: V, S, M
+material: a nonfiction book worth at least 25 GP
+duration: 1 hour
+tags: Buff, Tribute
+description: Choose one creature other than yourself that can hear and understand you speak within range. You give that creature masterful advice, even if you have no experience on the subject. For the duration, the creature gains Expertise in a skill proficiency of your choice; it gains proficiency in that skill if it lacks it. The spell ends early if you cast it again.
 
 ---
 
@@ -1662,7 +1765,7 @@ concentration_max: 1 minute
 tags: Attack[Melee Spell], Damage[Force], Debuff, Summon, Teleportation, Tribute, Upcast
 description: You can manifest an echo of yourself in an unoccupied space within range. The echo disappears when it is reduced to 0 Hit Points, when you dismiss it (no action required), when you manifest another echo, when the echo is more than 30 feet away from you, or when the spell ends. However, you can manifest another echo as a Bonus Action before the spell ends.
 
-An echo is a mindless force that is the same size as you and occupies its space, and it appears like a grey image of you. It has AC 15, 1 Hit Point, and Immunity to all conditions. If it must make a saving throw, it uses your bonuses for the roll.
+An echo is a mindless force that is the same size as you and occupies its space, and it appears like a gray image of you. It has AC 15, 1 Hit Point, and Immunity to all conditions. If it must make a saving throw, it uses your bonuses for the roll.
 
 When you cast the spell and as a Bonus Action on your later turns before the spell ends, you can mentally control the echo to move up to 30 feet. Immediately before or after this movement, you can also control the echo to produce one of the following effects:
 
