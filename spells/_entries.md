@@ -959,7 +959,7 @@ duration: 1 hour
 tags: Damage[Fire, Force], Requires Sight, Saving Throw[Dexterity], Summon, Tribute
 description: A Tiny spider-like turret appears in an unoccupied space that you can see within range and lasts for the duration. The turret has AC 18 and Immunity to Poison and Psychic damage. It occupies that space and can't be destroyed, though it is disabled until the start of your next turn if it takes damage. You can take a Bonus Action to move the turret up to 20 feet; the turret can move along surfaces as if it had Climb Speed.
 
-The turret has ten charges. Whenever an enemy moves to a space within 30 feet of the turret for the first time on a turn or starts its turn there, you can expend one charge to force that enemy to make a Dexterity saving throw, taking Fire or Force damage (your choice) equal to your spellcasting ability modifier (minimum damage of 2) on a failed save or half as much damage on a successful one. The turret vanishes when it runs out of charges. You can't trigger this effect if the turret is disabled.
+The turret has ten charges. Whenever an enemy moves to a space within 30 feet of the turret for the first time on a turn or starts its turn there, you can expend one charge to force that enemy to make a Dexterity saving throw, taking Fire or Force damage (your choice) equal to your spellcasting ability modifier (minimum damage of 2) on a failed save or half as much damage on a successful one. The turret vanishes when it runs out of charges. You can't expend a charge for this effect while the turret is disabled.
 
 ---
 
