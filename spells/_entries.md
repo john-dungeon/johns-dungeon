@@ -1372,7 +1372,7 @@ range: Self
 components: V
 duration: 1 hour
 tags: Buff, Tribute
-description: Until the spell ends, when you make a Charisma check, you can treat a d20 roll of 9 or lower as a 10. In addition, the spell save DC of each Enchantment spell you cast before the spell ends increases by 1.
+description: Until the spell ends, when you make a Charisma check, you can treat a d20 roll of 9 or lower as a 10. In addition, the spell save DCs of Enchantment spells you cast before the spell ends increase by 1.
 
 ---
 
