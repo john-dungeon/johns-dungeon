@@ -155,7 +155,7 @@ range: Self
 components: V, S
 duration: Concentration
 concentration_max: 1 minute
-tags: Buff, Damage[Psychic], Teleportation, Tribute, Upcast
+tags: Buff, Damage[Psychic], Requires Sight, Teleportation, Tribute, Upcast
 description: You condense the energy of darkness in your free hand, manifesting a shadow blade. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears, but you can manifest it again (no action required).
 
 The blade counts as a magic Scimitar with the Thrown (Range 20/60) property, and it deals 3d6 Psychic damage on a hit instead of the weapon's normal damage. When you make an attack using the blade, the attack can use your spellcasting ability for the attack and damage rolls instead of using Strength or Dexterity. In addition, if the target is in an area of Dim Light or Darkness, you have Advantage on the attack roll and attacking at long range doesn't impose Disadvantage on the attack roll. The blade leaves no mark if it deals damage, and if you use it to make a ranged attack, the blade disappears immediately after it hits or misses its target, instead of disappearing when you let it go.
@@ -198,7 +198,7 @@ components: V, S, M
 material: a shed snakeskin and a dried fish
 duration: Concentration
 concentration_max: 1 minute
-tags: Cleanse, Condition[Grappled, Restrained], Damage[Bludgeoning], Healing, Saving Throw[Strength], Summon, Tribute
+tags: Cleanse, Condition[Grappled, Restrained], Damage[Bludgeoning], Healing, Requires Sight, Saving Throw[Strength], Summon, Tribute
 description: A Gargantuan spectral snake, named Rope, and a Large spectral fish, named Fish, each appear in an unoccupied space that you can see within range and last for the duration. Rope and Fish occupy their spaces and are invulnerable. As a Bonus Action, you can move either Rope or Fish—not both at once—up to 60 feet. If moved into the air, they remain hovering, but can hover no higher than 10 feet off the ground.
 
 ***Rope.*** Whenever Rope moves within 10 feet of a Huge or smaller creature you can see and whenever a Huge or smaller creature you can see enters a space within 10 feet of Rope, you can force that creature to make a Strength saving throw. On a failed save, the target takes 4d10 Bludgeoning damage and has the Grappled condition (escape DC equal to your spell save DC) from Rope. While Grappled, the target has the Restrained condition and takes 1d10 Bludgeoning damage at the start of each of its turns. A creature makes this save only once per turn. While Rope is grappling a creature, you can't force another creature to make the save against this effect.
@@ -453,7 +453,7 @@ components: V, S, M
 material: a cooked rat
 duration: Concentration
 concentration_max: 10 minutes
-tags: Summon, Tribute, Upcast
+tags: Requires Sight, Summon, Tribute, Upcast
 description: You summon a humongous rat burning with frostfire, hellfire, or soulfire (chosen when you cast the spell). It manifests in an unoccupied space you can see within range and uses the **[[monsters:Giant Smoldering Rat]]** stat block. The type of fire you choose determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.
 
 The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.
@@ -579,7 +579,7 @@ casting_time: Action
 range: 30 feet
 components: V, S
 duration: Instantaneous
-tags: Attack[Ranged Spell], Damage[Acid, Bludgeoning, Cold, Fire, Lightning, Necrotic, Psychic, Radiant, Slashing, Thunder], Debuff, Forced Movement, Light[Dim Light], Temporary Hit Points, Upcast
+tags: Attack[Ranged Spell], Damage[Acid, Bludgeoning, Cold, Fire, Lightning, Necrotic, Psychic, Radiant, Slashing, Thunder], Debuff, Forced Movement, Light[Dim Light], Requires Sight, Temporary Hit Points, Upcast
 description: You fire off an element at a creature or an object within range. Make a ranged spell attack against the target. On a hit, the target suffers one of the following effects of your choice.
 
 ***Earth.*** The target takes 1d6 Bludgeoning damage from the attack, and if the target is Large or smaller, you can push it up to 5 feet away from you.
@@ -808,6 +808,23 @@ description: A barrier of magical glass protects you and shatters from the incom
 
 ---
 
+name: Heavensplitter Slash
+level: 9
+school: Evocation
+esoteric: true
+classes: Cleric
+casting_time: Action
+range: Self
+components: V, S, M
+material: a weapon with which you have proficiency and that is worth 1+ SP
+duration: Instantaneous
+tags: Area[Cone], Damage[Force, Lightning], Saving Throw[Dexterity]
+description: You sheathe the weapon used in the casting and then quickly draw it to make an upward crescent-like slash that tears through the fabric of reality. Each creature in a 200-foot Cone originating from you makes a Dexterity saving throw. A target takes 20d6 Force damage and 20d6 Lightning damage on a failed save or half as much damage on a successful one. If this damage reduces a target to 0 Hit Points, it and everything it is wearing and carrying (excluding Artifacts) are destroyed, vanishing from reality. The target can be revived only by a *True Resurrection* or a *Wish* spell.
+
+Any object that isn’t being worn or carried is immediately destroyed if it’s in the spell’s area, unless it is an Artifact. Any ongoing spell or magical effect immediately ends if it’s in the spell’s area.
+
+---
+
 name: Hector's Moonfall Smash
 level: 5
 school: Conjuration
@@ -894,7 +911,7 @@ range: 60 feet
 components: V, S, M
 material: a silver wire
 duration: Instantaneous
-tags: Attack[Ranged Spell], Damage[Lightning], Upcast
+tags: Attack[Ranged Spell], Damage[Lightning], Requires Sight, Upcast
 description: You unleash a bolt of electricity at a creature or an object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 Lightning damage, and electricity leaps from the target to a different creature or object of your choice that you can see within 10 feet of it. The second target takes 1d4 Lightning damage.
 
 ***Cantrip Upgrade.*** The damage increases by one die when you reach levels 5 (2d8 and 2d4), 11 (3d8 and 3d4), and 17 (4d8 and 4d4).
@@ -959,6 +976,24 @@ description: An aura radiates from you in a 30-foot Emanation for the duration. 
 
 ---
 
+name: Logos's Pinpoint Chronostasis
+level: 7
+school: Transmutation
+esoteric: true
+classes: Wizard
+casting_time: Reaction
+condition: , which you take when you see a creature within 30 feet of yourself making an attack roll or casting a spell with Verbal, Somatic, or Material components
+range: 30 feet
+components: V
+duration: Concentration
+concentration_max: 3 rounds
+tags: Condition[Paralyzed], Debuff, Requires Sight, Saving Throw[Charisma], Tribute
+description: You attempt to freeze time for the triggering creature, temporarily halting its activity. The creature makes a Charisma saving throw. On a failed save, the creature and its attack or spell are frozen in time, stopped at the moment immediately before the attack hits or the spell takes effect. While frozen in time, the target has the Paralyzed condition and can't be moved in any way. The spell ends early if the target takes damage or someone within 5 feet of it takes an action to shake it out of the spell's effect.
+
+When the spell ends, the target's attack or spell that was frozen in time immediately takes effect. The attack or spell affects targets that are in the spaces where it was originally aimed, not necessarily the original targets; targets that have left those spaces are unaffected, and any new targets that are in those spaces are affected. If the attack or spell has no targets, it is wasted, having no effect unless it has other effects that don't pertain to a target. For attacks and spells that target individual subjects, for each original target, the attack or spell affects one new target in the space that the original target was in.
+
+---
+
 name: Magic Barrier
 level: 2
 school: Evocation
@@ -1003,7 +1038,7 @@ casting_time: Action
 range: 5 feet
 components: V, S
 duration: Instantaneous
-tags: Damage[Force], Upcast
+tags: Damage[Force], Requires Sight, Upcast
 description: You create three floating fists of magical force. Each fist strikes a creature of your choice that you can see within range. A fist deals 1d6 + 1 Force damage to its target. The fists all strike simultaneously, and you can direct them to hit one creature or several.
 
 ***Using a Higher-Level Spell Slot.*** The spell creates one more fist for each spell slot level above 1.
@@ -1269,6 +1304,21 @@ description: You silently guide the actions of the creature making the ability c
 
 ---
 
+name: Sevenfold Sword Dance
+level: 7
+school: Evocation
+esoteric: true
+classes: Cleric
+casting_time: Action
+range: 30 feet
+components: V, S, M
+material: a weapon with which you have proficiency and that is worth 1+ SP
+duration: Instantaneous
+tags: Attack[Melee Spell], Damage[Lightning, Thunder], Requires Sight, Teleportation
+description: You flourish the weapon used in the spell's casting and lunge forth to strike with the destructive power of lightning. Choose a creature you can see within range. You teleport to an unoccupied space you can see within 5 feet of that creature and make a melee spell attack against it. Hit or miss, you can then repeat this sequence against a different creature you can see within 30 feet of the previous one, making up to a total of seven attacks. On a hit, a target takes 3d10 Lightning damage and 3d10 Thunder damage. A creature can be attacked no more than twice with each casting of this spell.
+
+---
+
 name: Shadow Bind
 level: 1
 school: Evocation
@@ -1382,7 +1432,7 @@ components: V, S, M
 material: a smooth pebble
 duration: Concentration
 concentration_max: 1 minute
-tags: Condition[Prone], Damage[Bludgeoning], Saving Throw[Dexterity], Upcast
+tags: Condition[Prone], Damage[Bludgeoning], Requires Sight, Saving Throw[Dexterity], Upcast
 description: You create three floating boulders that orbit you closely for the duration. When you are hit by an attack roll from a creature you can see, you can take a Reaction to intercept the attack with a boulder. The boulder is hit by the attack instead of you and is destroyed, causing it to crumble harmlessly into pieces.
 
 When you cast the spell, you can hurl a boulder, causing it to fly in a straight line up to 60 feet in a direction you choose before falling to the ground, stopping early if it strikes a creature or object. The first creature or object in the boulder's path is struck by it and must make a Dexterity saving throw. On a failed save, the target takes 3d8 Bludgeoning damage, and if it is Large or smaller, it has the Prone condition. On a successful save, the target takes half as much damage only. When the boulder strikes something or falls to the ground, it is destroyed. Until the spell ends, you can take a Magic action to hurl another boulder.
@@ -1513,7 +1563,7 @@ range: 60 feet
 components: V, S
 duration: Concentration
 concentration_max: 1 hour
-tags: Condition[Prone], Debuff, Immunity[Charmed, Frightened], Saving Throw[Constitution]
+tags: Condition[Prone], Debuff, Immunity[Charmed, Frightened], Requires Sight, Saving Throw[Constitution]
 description: You twist the testicles of one creature you can see within range. The target must succeed on a Constitution saving throw or be subject to crippling pain. A target that lacks testicles succeeds on this save automatically. A target in crippling pain suffers the following effects for the duration.
 
 **Debilitated.** The target has Disadvantage on any D20 Test it makes, except Constitution saving throws.
@@ -1527,6 +1577,23 @@ description: You twist the testicles of one creature you can see within range. T
 At the end of each of its turns, the target can make a Constitution saving throw, ending the spell on itself on a success.
 
 > *According to ancient legend, this spell was a ruthless method of excruciating torture used only by sadistic high mages. Horror stories of it have prevailed over the years, but the spell itself has been lost to time—probably for the best.*
+
+---
+
+name: Thundering Skyfall
+level: 5
+school: Evocation
+esoteric: true
+classes: Cleric, Paladin
+casting_time: Action
+range: 60 feet
+components: V, S, M
+material: a weapon with which you have proficiency and that is worth 1+ SP
+duration: Instantaneous
+tags: Area[Cylinder], Condition[Prone, Stunned], Damage[Lightning, Thunder], Saving Throw[Constitution], Upcast
+description: You strike down with the weapon used in the spell's casting, bringing down the heavens with it. Each creature in a 10-foot-radius, 80-foot-high Cylinder centered on a point within range makes a Constitution saving throw. On a failed save, a target takes 3d10 Lightning damage and 3d10 Thunder damage and has the Stunned condition until the start of your next turn. On a successful save, a target takes half as much damage only. Whether or not a target succeeds on its saving throw, it has the Prone condition.
+
+***Using a Higher-Level Spell Slot.*** The Thunder damage increases by 1d10 for each spell slot level above 5.
 
 ---
 
@@ -1586,7 +1653,7 @@ casting_time: Action
 range: 60 feet
 components: S
 duration: Instantaneous
-tags: Damage[Force], Saving Throw[Charisma], Teleportation
+tags: Damage[Force], Requires Sight, Saving Throw[Charisma], Teleportation
 description: You point to one creature you can see within range. The target must succeed on a Charisma saving throw or one of its heads is teleported to your hand or an unoccupied space within 5 feet of you (your choice); the rest of its body remains in place. The target dies if it can't survive without the lost head; otherwise, it takes 12d12 Force damage. The target is immune to this effect if it doesn't have a head.
 
 ---
