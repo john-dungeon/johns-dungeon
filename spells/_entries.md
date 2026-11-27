@@ -1316,7 +1316,7 @@ range: Self
 components: V, S, M
 material: a teddy bear
 duration: Instantaneous
-tags: Area[Line], Damage[Force], Requires Sight, Saving Throw[Dexterity], Tribute, Upcast
+tags: Area[Line], Damage[Force], Requires Sight, Saving Throw[Dexterity], Upcast
 description: A green ray forming a 100-foot-long, 5-foot-wide Line launches out from you in a direction you choose. Each orphan in the Line makes a Dexterity saving throw, taking 8d6 + 32 Force damage on a failed save. If this damage reduces a target to 0 Hit Points, it and everything nonmagical it is wearing and carrying are disintegrated into gray dust. The targets can be revived only by a *True Resurrection* or a *Wish* spell.
 
 An orphan, for the purpose of this spell, is a creature that once had one or more biological parents but no longer due to those parents being currently deceased. A creature that never had parents can't be an orphan, and a clone's original is considered its parent. If there is any ambiguity about whether a creature is an orphan or not, the DM determines if it is.
