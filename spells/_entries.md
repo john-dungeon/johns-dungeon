@@ -821,7 +821,7 @@ duration: Instantaneous
 tags: Area[Cone], Damage[Force, Lightning], Saving Throw[Dexterity]
 description: You sheathe the weapon used in the casting and then quickly draw it to make an upward crescent-like slash that tears through the fabric of reality. Each creature in a 200-foot Cone originating from you makes a Dexterity saving throw. A target takes 20d6 Force damage and 20d6 Lightning damage on a failed save or half as much damage on a successful one. If this damage reduces a target to 0 Hit Points, it and everything it is wearing and carrying (excluding Artifacts) are destroyed, vanishing from reality. The target can be revived only by a *True Resurrection* or a *Wish* spell.
 
-Any object that isn’t being worn or carried is immediately destroyed if it’s in the spell’s area, unless it is an Artifact. Any ongoing spell or magical effect immediately ends if it’s in the spell’s area.
+Any object that isn't being worn or carried is immediately destroyed if it's in the spell's area, unless it is an Artifact. Any ongoing spell or magical effect immediately ends if it's in the spell's area.
 
 ---
 
@@ -861,7 +861,7 @@ The water quenches magical and nonmagical flames in the area, unless the flame i
 
 name: Innarth's Echo Warrior
 level: 3
-school: Evocation
+school: Conjuration
 esoteric: true
 classes: Paladin, Warlock
 casting_time: Bonus Action
@@ -872,9 +872,9 @@ concentration_max: 1 minute
 tags: Attack[Melee Spell], Damage[Force], Saving Throw[Dexterity], Summon, Teleportation, Tribute, Upcast
 description: You can manifest an echo of yourself in an unoccupied space within range. The echo disappears when it is reduced to 0 Hit Points, when you dismiss it (no action required), when you manifest another echo, when the echo is more than 30 feet away from you, or when the spell ends. However, you can manifest another echo as a Bonus Action before the spell ends.
 
-An echo is a mindless force that is the same size as you and occupies its space, and it appears like a grey image of you. It has AC 15, 1 Hit Point, and Immunity to all conditions. If it must make a saving throw, it uses your bonus for the roll.
+An echo is a mindless force that is the same size as you and occupies its space, and it appears like a grey image of you. It has AC 15, 1 Hit Point, and Immunity to all conditions. If it must make a saving throw, it uses your bonuses for the roll.
 
-When you cast the spell and as a Bonus Action on your later turns before the spell ends, you can mentally control the echo to move up to 30 feet. Before or after this movement, you can also control it to produce one of the following effects:
+When you cast the spell and as a Bonus Action on your later turns before the spell ends, you can mentally control the echo to move up to 30 feet. Immediately before or after this movement, you can also control the echo to produce one of the following effects:
 
 **Shift.** You and the echo teleport, switching places with one another.
 
@@ -883,6 +883,30 @@ When you cast the spell and as a Bonus Action on your later turns before the spe
 **Sweep.** Each creature of your choice within 5 feet of the echo must make a Dexterity saving throw, taking 3d6 Force damage on a failed save or half as much damage on a successful one.
 
 ***Using a Higher-Level Spell Slot.*** The damage of the Strike increases by 1d8 and the damage of the Sweep increases by 1d6 for every slot level above 3.
+
+---
+
+name: Iseul's Gust of Wind
+level: 3
+school: Evocation
+esoteric: true
+classes: Druid, Ranger, Sorcerer, Wizard
+casting_time: Action
+range: 60 feet
+components: V, S, M
+material: a legume seed
+duration: Concentration
+concentration_max: 1 minute
+tags: Area[Cylinder, Line], Condition[Prone], Debuff, Forced Movement, Saving Throw[Strength], Special Speed[Fly], Tribute
+description: You evoke a tunnel of strong wind at a point within range for the duration. When you cast the spell, choose an effect: Squall, Downdraft, or Updraft. The tunnel has that effect for the spell's duration. As a Bonus Action on your later turns, you can move the tunnel up to 30 feet, change its effect to a different one, or do both.
+
+The tunnel disperses gas or vapor, and it extinguishes candles and similar unprotected flames in its area. It causes protected flames, such as those of lanterns, to dance wildly and has a 50 percent chance to extinguish them at the end of each of your turns. In addition, ranged attacks made with weapons that pass through the tunnel's area have Disadvantage.
+
+***Squall.*** Wind blows out from the point in a 10-foot-wide, 60-foot-long Line in a direction of your choice, which you can change whenever you take the Bonus Action to move the tunnel. When the tunnel appears, each creature in its area must succeed on a Strength saving throw or be pushed 30 feet away from the point in a direction following the Line; this push stops early if the target is pushed out of the tunnel's area. A creature also makes this save when the tunnel's area moves into its space and when it ends its turn there. A creature makes this save only once per turn. In addition, any creature in the tunnel must spend 2 feet of movement for every 1 foot it moves when moving closer to the point where the wind blows out from.
+
+***Downdraft.*** Wind blows downward in a 10-foot-radius, 60-foot-high Cylinder centered on the point. When the tunnel appears, each creature in its area must succeed on a Strength saving throw or have the Prone condition. A creature also makes this save when the tunnel's area moves into its space and when it enters the tunnel's area or ends its turn there. A creature makes this save only once per turn. In addition, a creature must spend an amount of movement equal to its Speed, instead of only half its Speed, to right itself from the Prone condition while in the tunnel's area.
+
+***Updraft.*** Wind blows upward in a 10-foot-radius, 60-foot-high Cylinder centered on the point. While in the area, creatures have a Fly Speed of 30 feet and can hover. In addition, creatures that fall in the tunnel's area take no damage from the fall.
 
 ---
 
@@ -1340,6 +1364,34 @@ A target has Disadvantage on the initial save and any checks made to escape the 
 
 ---
 
+name: Shi Hou's Mirror Image
+level: 4
+school: Illusion
+esoteric: true
+classes: Bard, Cleric, Sorcerer, Warlock, Wizard
+casting_time: Action
+range: 30 feet
+components: V, S, M
+material: three of your hairs
+duration: Concentration
+concentration_max: 1 minute
+tags: Damage[Force], Damage Reduction, Requires Sight, Saving Throw[Dexterity], Summon, Teleportation, Tribute, Upcast
+description: You manifest three illusory doubles of yourself, each in an unoccupied space you can see within range. Each double is a mindless force that is the same size as you and occupies its space, and it appears identical to you. It has AC 15, 1 Hit Point, and Immunity to all conditions. If it must make a saving throw, it uses your bonuses for the roll. An illusory double disappears when it is reduced to 0 Hit Points, when you dismiss it (no action required), or when the spell ends.
+
+When you cast the spell and as a Bonus Action on your later turns before the spell ends, you can mentally control one or several of your doubles to move up to 30 feet. You can also control the doubles in the following ways.
+
+***Conduit.*** You can make one or several of your doubles mimic your actions and speech (no action required). As a Bonus Action, you can see and hear as though you were in a double's space until the start of your next turn.
+
+***Proxy.*** When you make an attack or cast a spell, you can make the attack or spell originate from a double as if you were in its space. However, you must still use your senses. In addition, when a creature that you can see moves at least 5 feet away from the double, you can take a Reaction to make an Opportunity Attack against that creature that originates from the double.
+
+***Departure.*** When a double disappears, you can make it explode with a burst of magical force. Each creature within 5 feet of the double must make a Dexterity saving throw, taking 2d6 Force damage on a failed save or half as much damage on a successful one.
+
+***Substitution.*** When you move a double as a Bonus Action, immediately before or after the movement, you can teleport, switching places with a double that is within 60 feet of you. In addition, you can teleport in this way as a Reaction in response to taking damage, causing a double to take the damage instead of you, unless the same damaging effect targeted both you and the double.
+
+***Using a Higher-Level Spell Slot.*** You manifest one additional double with a spell slot of level 5 (4 doubles), 6-7 (5 doubles), or 8+ (6 doubles).
+
+---
+
 name: Slingshot
 level: 1
 school: Conjuration
@@ -1599,7 +1651,7 @@ description: You strike down with the weapon used in the spell's casting, bringi
 
 name: Tomasz's Echo Warrior
 level: 3
-school: Evocation
+school: Conjuration
 esoteric: true
 classes: Paladin, Warlock
 casting_time: Bonus Action
@@ -1610,9 +1662,9 @@ concentration_max: 1 minute
 tags: Attack[Melee Spell], Damage[Force], Debuff, Summon, Teleportation, Tribute, Upcast
 description: You can manifest an echo of yourself in an unoccupied space within range. The echo disappears when it is reduced to 0 Hit Points, when you dismiss it (no action required), when you manifest another echo, when the echo is more than 30 feet away from you, or when the spell ends. However, you can manifest another echo as a Bonus Action before the spell ends.
 
-An echo is a mindless force that is the same size as you and occupies its space, and it appears like a grey image of you. It has AC 15, 1 Hit Point, and Immunity to all conditions. If it must make a saving throw, it uses your bonus for the roll.
+An echo is a mindless force that is the same size as you and occupies its space, and it appears like a grey image of you. It has AC 15, 1 Hit Point, and Immunity to all conditions. If it must make a saving throw, it uses your bonuses for the roll.
 
-When you cast the spell and as a Bonus Action on your later turns before the spell ends, you can mentally control the echo to move up to 30 feet. Before or after this movement, you can also control it to produce one of the following effects:
+When you cast the spell and as a Bonus Action on your later turns before the spell ends, you can mentally control the echo to move up to 30 feet. Immediately before or after this movement, you can also control the echo to produce one of the following effects:
 
 **Shift.** You and the echo teleport, switching places with one another.
 
