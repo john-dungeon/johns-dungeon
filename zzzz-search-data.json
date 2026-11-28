@@ -22,7 +22,7 @@ permalink: /assets/js/search-data.json
     {%- assign lk_probe = page.url | jsonify -%}
     {%- assign pg_locked = false -%}
     {%- if lk_json contains lk_probe -%}{%- assign pg_locked = true -%}{%- endif -%}
-    {%- if page.title and page.search_exclude != true and pg_locked != true -%}
+    {%- if page.title and page.search_exclude != true and pg_locked != true and page.unfinished != true -%}
       {%- assign page_content = page.content -%}
       {%- assign heading_level = site.search.heading_level | default: 2 -%}
       {%- for j in (2..heading_level) -%}
