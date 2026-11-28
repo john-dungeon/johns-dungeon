@@ -55,7 +55,9 @@
         {%- assign tg_contains_l = tg_rule.contains | downcase -%}
         {%- if tg_value_l contains tg_contains_l -%}{%- assign tg_hit = true -%}{%- endif -%}
       {%- elsif tg_value != "" -%}
-        {%- assign tg_hit = true -%}
+        {%- assign tg_value_l = tg_value | downcase -%}
+        {%- assign tg_skip = tg_rule.ignore | downcase | split: ", " -%}
+        {%- unless tg_skip contains tg_value_l -%}{%- assign tg_hit = true -%}{%- endunless -%}
       {%- endif -%}
       {%- if tg_hit -%}{%- break -%}{%- endif -%}
     {%- endfor -%}
