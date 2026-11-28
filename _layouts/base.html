@@ -1,0 +1,8 @@
+---
+layout: default
+---
+{%- if page.unfinished -%}
+  {% include quote.html text=site.data.strings.unfinished %}
+{%- else -%}
+  {{ content }}
+{%- endif -%}
