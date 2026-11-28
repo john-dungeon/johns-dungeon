@@ -11,6 +11,7 @@ defaults:
       path: ""
     values:
       has_toc: false
+      layout: base
 exclude:
   - README.md
   - dev-notes.md
