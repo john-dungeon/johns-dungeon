@@ -23,7 +23,7 @@ note_weight: +50% to normal counterpart
 settings: Erisia
 note_settings: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
 variant: true
-tags: Area, Bonus[Attack, Damage], Charge, Consumable, Damage[Force], Magic Item, Saving Throw[Dexterity]
+tags: Area, Bonus[Attack, Damage], Buff, Charge, Consumable, Damage[Force], Magic Item, Saving Throw[Dexterity]
 description: This piece of magic ammunition is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The ammunition is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the ammunition. The ammunition also has the following properties.
 
 ***Unbreakable.*** Whenever the ammunition hits an object, the hit is a Critical Hit. In addition, you can always recover the ammunition at the end of a battle, unless it was destroyed or taken—picked up by an enemy that fled, for example.
@@ -46,7 +46,7 @@ note_weight: +50% to normal counterpart
 settings: Erisia
 note_settings: Its setting-agnostic variant is Adamantine Armor from the Dungeon Master's Guide (5.5e).
 variant: true
-tags: Area[Emanation], Charge, Damage[Force], Forced Movement, Magic Item, Resistance[Bludgeoning, Piercing, Slashing], Saving Throw[Strength]
+tags: Area[Emanation], Buff, Charge, Damage[Force], Forced Movement, Magic Item, Resistance[Bludgeoning, Piercing, Slashing], Saving Throw[Strength]
 description: This magic suit of armor is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The armor is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. While wearing the armor, you can use the following properties.
 
 ***Resistance.*** You have Resistance to Bludgeoning, Piercing, and Slashing damage.
@@ -94,7 +94,7 @@ note_weight: +50% to normal counterpart
 settings: Erisia
 note_settings: Its setting-agnostic variant is the Adamantine Weapon from the Dungeon Master's Guide (5.5e).
 variant: true
-tags: Bonus[Attack, Damage], Charge, Condition[Prone], Damage[Force], Magic Item
+tags: Bonus[Attack, Damage], Buff, Charge, Condition[Prone], Damage[Force], Magic Item
 description: This magic weapon is made of adamantine, an alloy made of iron and adamant, a diamond-like mineral that boasts extreme hardness along with the ability to absorb impacts and expel force. The weapon is nearly indestructible, being destroyed only by a level 9 *Disintegrate* spell or a *Wish* spell. You have a +3 bonus to attack and damage rolls made with the weapon. The weapon also has the following properties.
 
 ***Unbreakable.*** Whenever the weapon hits an object, the hit is a Critical Hit.
@@ -582,6 +582,24 @@ tags: Consumable, Magic Item, Revival
 description: This spirit jar contains the souls of the dead, allowing you to siphon their energy to return from death. Due to its ruined nature, the jar can't accept any more souls, but any souls already contained within it remain trapped until they are expended or until the jar is destroyed. The jar contains 1d4 souls. Once the last soul is expended, the jar becomes a nonmagical object.
 
 When you die, one soul is expended and your body crumbles to dust. After 1 hour, you gain a new body, reviving with all of your Hit Points and appearing in an unoccupied space within 5 feet of the jar. After reviving in this way, your creature type is changed to Undead.
+
+---
+
+name: Cunningham
+category: Weapon
+note_category: Automatic Rifle
+rarity: Very Rare
+attunement: true
+cost: 51000
+weight: 10
+tags: Area[Cone], Buff, Charge, Condition[Stunned], Damage[Force, Piercing], Magic Item, Saving Throw[Dexterity], Tribute
+description: This magic Tommy gun has strange multiversal origins, having crossed through several worlds and gained new abilities in each. Whenever you hit an object with a ranged attack using this magic weapon, the hit is a Critical Hit. The weapon also has the following properties.
+
+***Mind's Light.*** The weapon has 4 charges. The weapon regains one expended charge at the start of each of your turns during combat unless you have the Incapacitated condition, and it regains all expended charges when you roll Initiative. The weapon also regains one expended charge whenever you reduce an enemy to 0 Hit Points with it. Once on each of your turns, when you hit an enemy with a ranged attack using the weapon, you can expend 1 to 3 charges to deal an extra 1d4 Piercing damage with the attack for each charge expended.
+
+***Lock On.*** As a Bonus Action, you can expend 2 charges to mark an enemy you can see within 80 feet of yourself. The mark lasts for 1 minute or until the marked enemy dies. When you make a ranged attack roll with the weapon against the marked enemy, you have Advantage on the roll and suffer no Disadvantage due to long range. If the attack hits, the marked enemy takes an extra 1d6 Piercing damage. While the marked enemy lives, you have Disadvantage on attack rolls against any target other than the marked enemy. Only one enemy can be marked at a time, and attempting to mark a second one fails.
+
+***Stagger Salvo.*** When you take the Attack action on your turn, you can expend 4 charges to replace one of your attacks with a salvo of magically enhanced bullets in a 30-foot Cone. Each creature in that area makes a DC 17 Dexterity saving throw. On a failed save, a target takes 3d8 Force damage and has the Stunned condition until the start of your next turn. On a successful save, a target takes half as much damage only. After you use this property, the weapon can't be used until the end of your next turn.
 
 ---
 
